@@ -136,7 +136,7 @@ ul.row{
 	padding: 10px;
 }
 #back img{
-	position: absolute;
+	position: fixed;
 	max-width: 100px;
 	right: 0;
 	bottom: 0;
