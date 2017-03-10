@@ -1,0 +1,143 @@
+*{
+	margin: 0;
+	padding:0;
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border-image:0;
+}
+ul, li{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+img{
+	vertical-align: middle;
+}
+body{
+	max-width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+	font-family: arial;
+	font-size: 16px;
+	border-bottom: 1px solid #80bdff;
+}
+
+#header{
+	margin-top: 5px;
+	border-right: 1px solid #80bdff;
+}
+#banner img{
+	position: relative;
+	z-index: 1;
+	border-top-left-radius: 460px 200px;
+	border-bottom-right-radius: 460px 200px;
+}
+
+#logo img{
+	position: absolute;
+	z-index: 2;
+	top: -5px;
+}
+#container{
+	float: left;
+	position: relative;
+	background-color: white;
+	width: 1000px;
+	height: 100%;
+	border-right: 1px solid #80bdff;
+	border-left: 1px solid #80bdff;
+	font-size: 18px;
+}
+
+	/* Main-menu Sub-menu*/
+#main-menu{
+	position: absolute;
+	height: 100%;
+	width: 230px;
+	border: 1px solid #80bdff;
+	border-left:none;
+	border-bottom: none;
+}
+#main-menu ul li{
+	border-bottom: 1px solid #80bdff;
+}
+#main-menu ul li:hover{
+	background-color: #4dc3ff;
+}
+#main-menu ul li:hover .sub-menu{
+	display: block;
+}
+#main-menu ul li a{
+	display: block;
+	padding: 6px 0 6px 5px;
+}
+.qcbanner li img{
+	max-width: 228px;
+}
+#main-menu ul li{
+	position: relative;
+	display: block;
+}
+.sub-menu{
+	display: none;
+	position: absolute;
+	width: 150px;
+	top: -1px;
+	left:230px;
+	border: 1px solid #80bdff;
+	background-color: #4dc3ff;
+}
+.sub-menu ul li{border-bottom: 1px solid black;}
+.sub-menu a{color: #333399}
+.sub-menu a:hover{color: white}
+.sub-menu li:hover{
+	background-color: red;
+}
+
+	/* Main-menu Sub-menu*/
+#content{
+	left: 230px;
+	width: 760px;
+	margin: 0 0 0 232px;
+}
+h1{
+	font-size: 22px;
+	padding-left: 30px;
+	margin-bottom: 20px;
+}
+.local{
+	border-bottom: 2px solid #80bdff;
+	padding-top: 20px;
+	float: left;
+}
+.dalat{
+	border-bottom: none;
+}
+.item{
+	float: left;
+	padding-right: 38px;
+}
+ul.row{
+	float: left;
+	margin: 0 0 30px 50px;
+}
+.item img{
+	border-radius: 20%;
+	max-width: 300px;	
+}
+#footer{
+	clear: left;
+	border: 1px solid #80bdff;
+	position: relative;
+}
+#footer p{
+	padding: 10px;
+}
+#back img{
+	position: absolute;
+	max-width: 100px;
+	right: 0;
+	bottom: 0;
+}
