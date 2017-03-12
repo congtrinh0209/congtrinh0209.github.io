@@ -33,25 +33,25 @@ h1{
 	opacity: 1;
 }
 .word:nth-child(1){
-	animation-delay: 2s;
-}
-.word:nth-child(2){
 	animation-delay: 3s;
 }
-.word:nth-child(3){
+.word:nth-child(2){
 	animation-delay: 4s;
 }
-.word:nth-child(4){
+.word:nth-child(3){
 	animation-delay: 5s;
 }
-.word:nth-child(5){
+.word:nth-child(4){
 	animation-delay: 6s;
 }
-.word:nth-child(6){
+.word:nth-child(5){
 	animation-delay: 7s;
 }
-.word:nth-child(7){
+.word:nth-child(6){
 	animation-delay: 8s;
+}
+.word:nth-child(7){
+	animation-delay: 9s;
 }
 @keyframes anima1{
 	0% {transform: scale(1);}
@@ -131,6 +131,7 @@ h1{
 	top: 3px;
 	animation: anima3 8s linear infinite;
 	opacity: 0;
+	animation-delay: 2s;
 }
 @keyframes anima3{
 	0%{transform: translate(0px,0); opacity: 0;width: 0;}
