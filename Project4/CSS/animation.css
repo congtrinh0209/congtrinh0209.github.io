@@ -28,7 +28,7 @@ h1{
 .word{
 	display: inline-block;
 	transition: transform(scale);
-	animation: anima1 7s linear infinite;
+	animation: anima1 8s linear infinite;
 	padding-right: 4px;
 	opacity: 1;
 }
@@ -36,22 +36,22 @@ h1{
 	animation-delay: 2s;
 }
 .word:nth-child(2){
-	animation-delay: 4s;
+	animation-delay: 3s;
 }
 .word:nth-child(3){
-	animation-delay: 5s;
+	animation-delay: 4s;
 }
 .word:nth-child(4){
-	animation-delay: 6s;
+	animation-delay: 5s;
 }
 .word:nth-child(5){
-	animation-delay: 7s;
+	animation-delay: 6s;
 }
 .word:nth-child(6){
-	animation-delay: 8s;
+	animation-delay: 7s;
 }
 .word:nth-child(7){
-	animation-delay: 9s;
+	animation-delay: 8s;
 }
 @keyframes anima1{
 	0% {transform: scale(1);}
@@ -133,13 +133,12 @@ h1{
 	opacity: 0;
 }
 @keyframes anima3{
-	0%{transform: translate(-35px,0); opacity: 0}
-	2%{transform: translate(42px,0); opacity: 0}
-	3%{transform: translate(43px,0); opacity: 1}
-	10%{transform: translate(97px,0px);opacity: 1;}
-	11%{transform: translate(98px,0px);opacity: 0.3;}
+	0%{transform: translate(0px,0); opacity: 0;width: 0;}
+	5%{transform: translate(50px,0); opacity: 1;width: 74px;}
+	15%{transform: translate(100px,0px);opacity: 1;}
+	16%{transform: translate(101px,0px);opacity: 0.3;}
 	84%{transform: translate(850px,0px);opacity: 0.3;}
 	85%{transform: translate(851px,0px);opacity: 1;}
-	99%{transform: translate(985px,0);opacity: 1;}
-	100%{transform: translate(986px,0);opacity: 0;}
+	98%{transform: translate(985px,0);opacity: 1;width: 74px;}
+	100%{transform: translate(986px,0);opacity: 0;width: 0px;}
 }
