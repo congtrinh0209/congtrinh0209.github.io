@@ -1,0 +1,17 @@
+*{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+body{
+	max-width: 1000px;
+	height: auto;
+	margin: auto;
+	font-size: 18px;
+}
+ul, li{
+	list-style-type: none;
+}
+img{
+	vertical-align: middle;
+}
