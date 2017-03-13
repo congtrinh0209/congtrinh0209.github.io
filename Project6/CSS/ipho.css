@@ -1,0 +1,105 @@
+*{
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+body{
+	width: 1000px;
+	height: 100%;
+	margin: auto;
+	border: 1px solid black;
+	font-size: 18px;
+}
+ul, li{
+	list-style-type: none;
+}
+ul{padding: 0;}
+a{
+	text-decoration: none;
+}
+img{
+	vertical-align: middle;
+}
+.clear{clear: both;}
+.header{
+	position: relative;
+	height: 340px;
+}
+.banner img{
+	position: absolute;
+	width: 998px;
+	height: 340px;
+}
+.logo img{
+	position: absolute;left: 0;top:1px;
+	width: 101px;
+	background-color: white;
+	border-radius: 5%;
+}
+.menu{
+	background-color: #585f6f;
+	margin: 0px;
+	padding: 0;
+}
+.menu li{
+	float: left;
+	padding: 0 12px 0 12px;
+	border-right: 1px solid black;
+}
+.menu li:nth-child(1){
+	padding: 0 2.5px 0 3.5px;
+}
+.menu li:nth-child(2){
+	padding-left: 17px;
+}
+.menu li:nth-child(7){
+	padding-right: 0px;
+	border-right: none;
+}
+.menu a{
+	display: block;
+	color: white;
+	padding: 10px 0 10px 0;
+	font-size: 20px;
+}
+h1{
+	font-size: 1.5em;
+}
+.content .content-left{
+	border: 1px solid black;
+	width: 21%;
+	height: 100%;
+	float: left;
+}
+.content .content-right{
+	border: 1px solid black;
+	width: 79%;
+	height: 100%;
+	float: right;
+}
+.content-left li img{
+	max-width: 208px;
+	padding: 5px 0 5px 0;
+	border-bottom: 1px dotted black;
+}
+
+.row{
+	margin-bottom: 10px;
+}
+.row .item{
+	float: left;
+	margin-right: 10px;
+	max-width: 32%;
+	border: 1px solid black;
+}
+.row .item:nth-child(1){margin-left: 10px;}
+.row .item:nth-child(3){margin-right: 0;}
+.row .item img{
+	max-width: 246px;
+	height: 176px;
+}
+.row .item p{
+	text-align: center;
+	display: block;
+	margin: 7px 0 5px 0;
+}
