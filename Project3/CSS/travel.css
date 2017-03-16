@@ -73,9 +73,6 @@ body{
 	display: block;
 	padding: 6px 0 6px 5px;
 }
-.qcbanner li img{
-	max-width: 228px;
-}
 #main-menu ul li{
 	position: relative;
 	display: block;
@@ -95,6 +92,10 @@ body{
 .sub-menu li:hover{
 	background-color: red;
 }
+.qcbanner li img{
+	max-width: 228px;
+}
+
 
 	/* Main-menu Sub-menu*/
 #content{

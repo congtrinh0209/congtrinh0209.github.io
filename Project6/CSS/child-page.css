@@ -117,45 +117,15 @@ img{
 
 #ad{
 	position: relative;
-	margin-top: 12px;
-	margin-bottom: 77px;
+	margin-top: 10px;
 	width: 788px;
-	height: 210px;
+	height: 150px;
 }
-#bg{
+#ad img{
 	border-top-left-radius : 15%;
 	border-top-right-radius : 15%;
 	width: 789px;
-	height: 210px;
 }
-#icon-rotate1{
-	position: absolute;
-	height: 215px;
-	top: 26px;
-	left: 275px;
-	z-index: 2;
-	animation: anima4 5s linear infinite;
-}
-@keyframes anima4 {
-	from{
-		transform: rotateZ(0deg);
-	}
-	to{
-		transform: rotateZ(360deg);
-	}
-}
-#icon-rotate2{
-	position: absolute;
-	height: 200px;
-	top: 29px;
-	left: 279px;
-	z-index: 1;
-}
-
-
-
-
-
 #slogan{
 	position: absolute;
 	top: -15px;
@@ -307,4 +277,29 @@ h1{
 #footer .ft2{
 	padding: 7px 15px 10px 0px;
 	float: right;
+}
+
+/****** phần style child-page*****/
+.content-section h2{
+	color: #2c493c;
+	margin-left: 20px;}
+.section-left{
+	width: 350px;
+	margin: 0 5px 0 10px;
+	float: left;
+}
+.section-left p{
+	font-style: italic;
+	color: #2c493c;
+	font-size: 20px;
+	padding-top: 0px;
+	text-align: justify;
+}
+.section-right{
+	float: right;
+	width: 415px;
+	margin-top: 15px;
+}
+.section-right img{
+	max-width: 414px;
 }
