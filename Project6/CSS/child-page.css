@@ -101,7 +101,7 @@ img{
 	width: 185px;
 	top: 47px;
 	left: 0;
-	z-index: 2;
+	z-index: 3;
 }
 #main-menu .sub-menu li a{
 	width: 154px;
@@ -120,7 +120,7 @@ img{
 	margin-top: 12px;
 	margin-bottom: 77px;
 	width: 788px;
-	height: 210px;
+	height: 150px;
 }
 #bg{
 	border-top-left-radius : 15%;
@@ -151,11 +151,6 @@ img{
 	left: 279px;
 	z-index: 1;
 }
-
-
-
-
-
 
 
 
@@ -292,6 +287,13 @@ h1{
     }
 }
 
+#sale{position: relative;}
+#sale img{width: 350px;position: relative;}
+#sale img:nth-child(1){top: -78px;left: 6px}
+#sale img:nth-child(2){top: 16px;left: 68px}
+#sale img:nth-child(3){top: -148px;left: 4px}
+#sale img:nth-child(4){top: -59px;left: 67px}
+
 		/****** phần style footer*****/
 #footer{
 	width: 100%;
@@ -336,3 +338,9 @@ h1{
 .section-right img{
 	max-width: 414px;
 }
+.back-home{
+	position: fixed;
+	left: 1280px;
+	top: 600px;
+}
+.back-home img{width: 50px}

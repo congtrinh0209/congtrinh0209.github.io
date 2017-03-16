@@ -58,7 +58,7 @@ img{
 	100%{transform: skew(0,0);}
 }
 		/****** phần style main-menu*****/
-#main-menu{margin: 1px 0 0 1px}
+#main-menu{margin: 1px 0 0 1px;}
 #main-menu ul{
 	background-image: url(../IMG/background2.jpg) ;
 	margin: 0px;
@@ -101,7 +101,7 @@ img{
 	width: 185px;
 	top: 47px;
 	left: 0;
-	z-index: 2;
+	z-index: 3;
 }
 #main-menu .sub-menu li a{
 	width: 154px;
@@ -111,8 +111,6 @@ img{
 	border-bottom: 2px solid white;
 	text-align: center;}
 
-
-
 		/****** phần style content*****/
 
 #ad{
@@ -120,7 +118,7 @@ img{
 	margin-top: 12px;
 	margin-bottom: 77px;
 	width: 788px;
-	height: 210px;
+	height: 150px;
 }
 #bg{
 	border-top-left-radius : 15%;
@@ -151,9 +149,6 @@ img{
 	left: 279px;
 	z-index: 1;
 }
-
-
-
 
 
 #slogan{
@@ -289,6 +284,13 @@ h1{
     }
 }
 
+#sale{position: relative;}
+#sale img{width: 350px;position: relative;}
+#sale img:nth-child(1){top: -78px;left: 6px}
+#sale img:nth-child(2){top: 16px;left: 68px}
+#sale img:nth-child(3){top: -148px;left: 4px}
+#sale img:nth-child(4){top: -59px;left: 67px}
+
 		/****** phần style footer*****/
 #footer{
 	width: 100%;
@@ -308,3 +310,9 @@ h1{
 	padding: 7px 15px 10px 0px;
 	float: right;
 }
+.back-home{
+	position: fixed;
+	left: 1280px;
+	top: 600px;
+}
+.back-home img{width: 50px}
