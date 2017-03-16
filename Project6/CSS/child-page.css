@@ -117,15 +117,48 @@ img{
 
 #ad{
 	position: relative;
-	margin-top: 10px;
+	margin-top: 12px;
+	margin-bottom: 77px;
 	width: 788px;
-	height: 150px;
+	height: 210px;
 }
-#ad img{
+#bg{
 	border-top-left-radius : 15%;
 	border-top-right-radius : 15%;
 	width: 789px;
+	height: 210px;
 }
+#icon-rotate1{
+	position: absolute;
+	height: 215px;
+	top: 26px;
+	left: 275px;
+	z-index: 2;
+	animation: anima4 5s linear infinite;
+}
+@keyframes anima4 {
+	from{
+		transform: rotateZ(0deg);
+	}
+	to{
+		transform: rotateZ(360deg);
+	}
+}
+#icon-rotate2{
+	position: absolute;
+	height: 200px;
+	top: 29px;
+	left: 279px;
+	z-index: 1;
+}
+
+
+
+
+
+
+
+
 #slogan{
 	position: absolute;
 	top: -15px;
