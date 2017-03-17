@@ -66,9 +66,9 @@ img{
 }
 #main-menu ul li{
 	float: left;
-	padding: 0 15px 0 15px;
+	padding: 0 16px 0 16px;
 	border-right: 2px solid white;
-	position: relative;
+
 	border-radius: 10%;
 }
 #main-menu ul li a{transition: all 0.5s ease;}
@@ -85,9 +85,7 @@ img{
 #main-menu ul #df{
 	padding: 0 44px 0 44px;
 }
-#main-menu ul li:nth-child(7){
-	padding: 0 22px 0 20px;
-}
+
 #main-menu ul li a{
 	display: block;
 	color: white;
