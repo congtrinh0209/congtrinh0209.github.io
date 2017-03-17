@@ -340,7 +340,7 @@ h1{
 }
 .back-home{
 	position: fixed;
-	left: 1280px;
-	top: 600px;
+	right: 2px;
+	bottom: 2px;
 }
 .back-home img{width: 50px}
