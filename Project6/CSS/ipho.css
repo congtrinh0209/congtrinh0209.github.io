@@ -68,7 +68,7 @@ img{
 	float: left;
 	padding: 0 16px 0 16px;
 	border-right: 2px solid white;
-
+	position: relative; 
 	border-radius: 10%;
 }
 #main-menu ul li a{transition: all 0.5s ease;}
