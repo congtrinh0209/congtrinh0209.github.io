@@ -8,14 +8,14 @@ function data_ex1() {
 }
 
 /*********Function Bai 2*********/
-function getpara_a(){return document.getElementById('para_a').value;}
-function getpara_b(){return document.getElementById('para_b').value;} 
-function getpara_c(){return document.getElementById('para_c').value;}
 function square(a,b,c){
 	return (3*a+2*b-c);
 }
 function result_ex2() {
-	var kq=baitap1(square(getpara_a(), getpara_b(), getpara_c()))
+	var n2 = prompt("Nhập lần lượt 3 tham số:", "a,b,c");
+	var n2_ar = n2.split(",");
+	arr2 = n2_ar.map(Number);
+	var kq=baitap1(square(arr2[0],arr2[1],arr2[2]));
 	alert("Kết quả: " + kq );
 	}
 
@@ -61,3 +61,59 @@ function get_result2(c){
 }
 
 /*********Function Bai 5*********/
+
+function get_ar(){
+	return document.getElementById("array1").value;
+}
+function sort_ar(a,b){
+	return a - b;
+}
+function arranger(a){
+	return a.sort(sort_ar);
+}
+function result3(){
+	var n3_ar = get_ar().split(",");
+	var arr3 = n3_ar.map(Number);
+	var re_3 = arranger(arr3);
+	min_num = re_3[0];
+	return min_num;
+}
+function get_result3(c){
+	return document.getElementById("min-number").value=c;
+}
+
+/*********Function Bai 6*********/
+function arranger_list(a){
+	return a.sort();
+}
+var list_student = ['Trình', 'Hiếu', 'Đạt', 'Nam', 'Bách'];
+function result4(){
+	return arranger_list(list_student);
+}
+function get_result4(c){
+	return document.getElementById("list").value=c;
+}
+
+/*********Function Bai 7*********/
+var aboutMe = function(a){
+	document.write('Xin chào, tôi là '+a.firstName+' '+a.lastName+'. Năm nay tôi '+a.age+' tuổi.');
+}
+
+var teacher = {
+  firstName: "Bùi",
+  lastName: "Huy",
+  age: 27,
+  say: function(){aboutMe(teacher);}
+}
+var parent = {
+  firstName: "Trịnh",
+  lastName: "Minh",
+  age: 51,
+  say: function(){aboutMe(parent);}
+}
+var student = {
+  firstName: "Công",
+  lastName: "Trình",
+  age: 26,
+  say: function(){aboutMe(student);}
+}
