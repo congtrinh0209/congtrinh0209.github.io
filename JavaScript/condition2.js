@@ -86,11 +86,9 @@ function get_result5(){
 
 /**************BÀI 6**************/
 function get_result6(){
-	for (var i = 1; i <= 100; i++) {
-		if (i%2 == 0) {
-			document.write('<span style="color:blue">' +i+ '</span>');
+	for (var i = 1; i <= 100; i+=2) {
+		document.write('<span style="color:red">' +i+ '</span>');
+		document.write('<span style="color:blue">'+(i+1)+'</span>')
 		}
-		else{document.write('<span style="color:red">'+i+'</span>')
-		}
-	}
+	
 }
