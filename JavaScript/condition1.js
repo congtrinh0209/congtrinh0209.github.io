@@ -4,7 +4,6 @@ function get_result1(){
 	var para = prompt("Nhập 2 tham số bất kỳ!","1,2");
 	var arr = para.split(",");
 	var arr1 = arr.map(Number);
-	var max_n = arr1[0];
 	for (var i = 0; i < arr1.length; i++) {
 		if (isNaN(arr1[i])) {
 			document.write('Tham số: '+arr[i]+' không phải là 1 số.')
