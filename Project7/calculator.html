@@ -9,44 +9,44 @@
 <body>
 	<div class="wrapper">
 		<div id="screen"> 
-			<button type="text" disabled="disabled" id="result"></button>
+			<input type="text" id="result" readonly>
 		</div>
 		<div id="keyboard">
 			<div class="row">
-				<button type="text" class="button" id="">%</button>
-				<button class="button" id=""><sub>√</sub><sup>-</sup></button>
-				<button class="button" id="">x<sup>2</sup></button>
-				<button class="button" id="">/</button>
-				<button class="button" id="">C</button>
+				<input type="button" class="button" id="" value="!" onclick="factorial()">
+				<button class="button" id="" onclick="sqrt()"><sub>√</sub><sup>-</sup></button>
+				<button class="button" id="" onclick="sqr()">x<sup>2</sup></button>
+				<input type="button" class="button" id="" value="/" onclick="display('/')">
+				<input type="button" class="button" id="" value="C" onclick="reset('')">
 				<div class="clear"></div>
 			</div>
 			<div class="row">
-				<button class="button" id="">7</button>
-				<button class="button" id="">8</button>
-				<button class="button" id="">9</button>
-				<button class="button" id="">x</button>
-				<button class="button" id=""><-</button>
+				<input type="button" class="button" value="7" onclick="display('7')">
+				<input type="button" class="button" value="8" onclick="display('8')">
+				<input type="button" class="button"  value="9" onclick="display('9')">
+				<input type="button" class="button"  value="x" onclick="display('*')">
+				<input type="button" class="button"  value="(" onclick="display('(')">
 				<div class="clear"></div>
 			</div>
 			<div class="row">
-				<button class="button" id="">4</button>
-				<button class="button" id="">5</button>
-				<button class="button" id="">6</button>
-				<button class="button" id="">-</button>
-				<button class="button" id="">!</button>
+				<input type="button" class="button" value="4" onclick="display('4')">
+				<input type="button" class="button" value="5" onclick="display('5')">
+				<input type="button" class="button" value="6" onclick="display('6')">
+				<input type="button" class="button" value="-" onclick="display('-')">
+				<input type="button" class="button" value=")" onclick="display(')')">
 				<div class="clear"></div>
 			</div>
 			<div class="row">
-				<button class="button" id="">1</button>
-				<button class="button" id="">2</button>
-				<button class="button" id="">3</button>
-				<button class="button" id="cong">+</button>
-				<button class="button" id="bang">=</button>
+				<input type="button" class="button" value="1" onclick="display('1')">
+				<input type="button" class="button" value="2" onclick="display('2')">
+				<input type="button" class="button" value="3" onclick="display('3')">
+				<input type="button" class="button" id="cong" value="+" onclick="display('+')">
+				<input type="button" class="button" id="bang" value="=" onclick="math()">
 				<div class="clear"></div>
 			</div>
 			<div class="row">
-				<button class="button" id="number0">0</button>
-				<button class="button" id="">.</button>
+				<input type="button" class="button" id="number0" value="0" onclick="display('0')">
+				<input type="button" class="button" value="." onclick="display('.')">
 				<div class="clear"></div>
 			</div>
 

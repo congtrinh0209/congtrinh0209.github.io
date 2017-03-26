@@ -1,13 +1,13 @@
 body{
 	width: 1000px;
-	margin: 40px auto;
+	margin: 20px auto;
 }
 .clear{clear: both;}
 .wrapper{
 	width: 413px;
 	height: 580px;
 	margin: auto;
-	padding: 5px;
+	padding: 17px;
 	background-color: #5f5f5f;
 	border-radius: 10px;
 }
@@ -17,9 +17,12 @@ body{
 	margin: 7px;
 }
 #result{
-	width: 400px;
-	height: 120px;
-	margin: 18px 0px 0 0px;
+	width: 395px;
+	height: 80px;
+	margin: 35px 0px 0 0px;
+	font-size: 35px;
+	text-align: right;
+	background-color: #599593;
 	border-radius:5px;
 }
 #keyboard{
@@ -33,14 +36,15 @@ body{
 }
 
 .button{
-	width: 80px;
-	height: 80px;
+	width: 75px;
+	height: 75px;
+	margin-left: 4px;
 	float: left;
 	display: inline-block;
 	font-size: 28px;
 	text-align: center;
 	color: #fff;
-	background-color: #4CAF50;
+	background-color: #737a89;
 	border: 1px solid #fff;
 	border-radius: 10px;
 }
@@ -52,12 +56,15 @@ body{
 	transform: translateY(3px);
 	border: none;
 }
-#cong,#bang{width: 80px;
-	height: 160px;}
-#number0{width: 160px;
-	height: 80px;}
+#cong,#bang{width: 75px;
+	height: 154px;}
+#number0{width: 154px;
+	height: 75px;}
+.row{
+	margin-bottom: 4px;
+}
 .row:nth-child(5){
 	position: absolute;
-	bottom: 5px;
+	bottom: 11px;
 	left: 0px;
 }
