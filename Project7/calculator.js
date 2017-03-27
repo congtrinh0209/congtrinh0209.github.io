@@ -8,7 +8,12 @@ function math(){
 	reset(eval(document.getElementById('result').value));
 }
 function sqrt(){
-	document.getElementById('result').value = Math.sqrt(parseFloat(document.getElementById('result').value))
+	var b = document.getElementById('result').value;
+	var sq = b;
+	if(b<0){sq = "Data Erro"}
+		else{
+	sq = Math.sqrt(parseFloat(document.getElementById('result').value))}
+	document.getElementById('result').value = sq;
 }
 function sqr(){
 	document.getElementById('result').value = (parseFloat(document.getElementById('result').value))*(parseFloat(document.getElementById('result').value))
