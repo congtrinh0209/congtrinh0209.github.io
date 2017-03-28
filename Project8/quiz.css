@@ -1,0 +1,143 @@
+body{
+	width: 1000px;
+	height: 650px;
+	margin: 10px auto;
+	
+}
+
+/*****************CSS home-page*************/
+#content1{
+	margin: 50px auto;
+	width: 841px;
+	height: 518px;
+	border-radius: 20px;
+	background-image: url(bg.png);
+	position: relative;
+}
+#logo{
+	position: absolute;
+	height: 125px;
+	top: 0;
+	left: 360px;
+}
+.select{
+	width: 180px;
+	height: 50px;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	background-color: #ff6600;
+	color: black;
+	font-weight: bold;
+	font-size: 24px;
+	position: absolute;
+}
+.select:nth-child(1){top: 280px;left: 185px;}
+.select:nth-child(2){top: 280px;left: 465px;}
+.select:hover{
+	cursor: pointer;
+	background-color: #00ff00;
+}
+
+/*****************CSS rule-page*************/
+#rules{
+	display: inline-block;
+	color:#ffffff;
+	font-size: 22px;
+	text-align: justify;
+	position: relative;
+	width: 600px;
+	top: 245px;
+	left: 124px;
+}
+#back_home{
+	width: 180px;
+	height: 50px;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	background-color: #ff6600;
+	color: black;
+	font-weight: bold;
+	font-size: 24px;
+	position: absolute;
+	bottom: 50px;
+	right: 115px;
+}
+#back_home:hover{cursor: pointer;}
+/*****************CSS quiz-page*************/
+#content{
+	width: 841px;
+	height: 518px;
+	margin: 50px auto;
+	background-image: url(Screen.png);
+	position: relative;
+	border-radius: 30px;
+}
+.question{
+	width: 600px;
+	height: 100px;
+	margin: 130px 0 0 120px;
+	text-align: center;
+	font-size: 24px;
+	border-radius: 50px;
+	background-color: #009933;
+	color: white;
+}
+#next_ques{
+	position: absolute;
+	bottom: 15px;
+	right: 82px;
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 10px;
+	width: 160px;
+	height: 40px;
+	color: black;
+	background-color: #009933;
+}
+#next_ques:hover{
+	cursor: pointer;
+	background-color:#ff6600;
+}
+.answer{margin: 37px 0 0 80px;}
+.item{
+	width: 318px;
+	height: 50px;
+	margin: 30px 40px 0 0;
+	border-radius: 20px;
+	background-color: #616161;
+	color: white;
+	font-size: 24px;
+	box-shadow: inset 0 0 25px rgba(255, 255, 255, 0);
+}
+.item:hover{
+	background-color: #ff6600;
+	cursor: pointer;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+}
+.item:active{
+  	background-color: #0066ff;
+}
+.text{
+	color: white;
+	position: absolute;
+	border-radius: 20px;
+	font-size: 24px;
+	font-weight: bold;
+}
+#a{
+	bottom: 178px;
+	left: 102px;
+}
+#b{
+	bottom: 178px;
+	left: 460px;
+}
+#c{
+	bottom: 95px;
+	left: 102px;
+}
+#d{
+	bottom: 95px;
+	left: 460px;
+}
+	
