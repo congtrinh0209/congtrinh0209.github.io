@@ -34,7 +34,7 @@ function changeColor(button) {
 }
 
 function correctAns(dapAn) {
-	if (dapAn == arrQues[count - 1].result) {
+	if (dapAn == arrQues[count - 1].result){
 		score += 1;
 	}
 	return score;
