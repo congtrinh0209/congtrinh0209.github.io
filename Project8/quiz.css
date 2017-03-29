@@ -11,7 +11,7 @@ body{
 	width: 841px;
 	height: 518px;
 	border-radius: 20px;
-	background-image: url(bg.png);
+	background-image: url(bg1.jpg);
 	position: relative;
 }
 #logo{
@@ -31,8 +31,8 @@ body{
 	font-size: 24px;
 	position: absolute;
 }
-.select:nth-child(1){top: 280px;left: 185px;}
-.select:nth-child(2){top: 280px;left: 465px;}
+.select:nth-child(1){top: 380px;left: 185px;}
+.select:nth-child(2){top: 380px;left: 465px;}
 .select:hover{
 	cursor: pointer;
 	background-color: #00ff00;
@@ -46,8 +46,8 @@ body{
 	text-align: justify;
 	position: relative;
 	width: 600px;
-	top: 245px;
-	left: 124px;
+	top: 310px;
+	left: 115px;
 }
 #back_home1{
 	width: 180px;
@@ -59,16 +59,16 @@ body{
 	font-weight: bold;
 	font-size: 24px;
 	position: absolute;
-	bottom: 50px;
-	right: 115px;
+	bottom: 25px;
+	right: 17px;
 }
 #back_home1:hover{cursor: pointer;background-color: #00ff00}
 /*****************CSS victory-page*************/
 #content2{
 	margin: 50px auto;
-	width: 841px;
-	height: 518px;
-	border-radius: 20px;
+	width: 760px;
+	height: 510px;
+	border-radius: 5px;
 	background-image: url(victory.jpg);
 	position: relative;
 }
@@ -83,14 +83,14 @@ body{
 	font-size: 24px;
 	position: absolute;
 	bottom: 35px;
-	right: 350px;
+	right: 285px;
 }
 #back_home2:hover{cursor: pointer;background-color: #00ff00}
 /*****************CSS playagain-page*************/
 #content3{
 	margin: 50px auto;
-	width: 841px;
-	height: 500px;
+	width: 750px;
+	height: 450px;
 	border-radius: 20px;
 	background-image: url(playagain.jpg);
 	position: relative;
@@ -119,7 +119,7 @@ body{
 	font-size: 24px;
 	position: absolute;
 	bottom: 40px;
-	right: 210px;
+	right: 165px;
 }
 #back_home3:hover,#trans_page3:hover{cursor: pointer;background-color: #00ff00}
 /*****************CSS quiz-page*************/
@@ -127,7 +127,7 @@ body{
 	width: 841px;
 	height: 518px;
 	margin: 50px auto;
-	background-image: url(Screen.png);
+	background-image: url(background.jpg);
 	position: relative;
 	border-radius: 30px;
 }
