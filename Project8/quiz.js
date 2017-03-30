@@ -64,7 +64,7 @@ function next_ques()
 		if (i==question.length){
 			if(score==question.length){window.location.href = 'victory.html'}
 			else{window.location.href = 'again.html'};
-			document.getElementById('result').innerHTML = 'Điểm của bạn.';
+			
 			}
 		
 		i++;
