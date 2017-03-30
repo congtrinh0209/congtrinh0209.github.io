@@ -63,8 +63,9 @@ function next_ques()
 		}
 		if (i==question.length){
 			if(score==question.length){window.location.href = 'victory.html'}
-			else{window.location.href = 'again.html'};
-			
+			else{ 
+				alert('Bạn chỉ trả lời đúng: '+score+'/5 câu hỏi.');
+				window.location.href = 'again.html'};
 			}
 		
 		i++;
