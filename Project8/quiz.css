@@ -1,13 +1,13 @@
 body{
 	width: 1000px;
-	height: 650px;
+	height: 100%;
 	margin: 10px auto;
-	
+	background-image: url(wall-bg.jpg);
 }
 
 /*****************CSS home-page*************/
 #content1{
-	margin: 50px auto;
+	margin: 94px auto;
 	width: 841px;
 	height: 518px;
 	border-radius: 20px;
@@ -65,7 +65,7 @@ body{
 #back_home1:hover{cursor: pointer;background-color: #00ff00}
 /*****************CSS victory-page*************/
 #content2{
-	margin: 50px auto;
+	margin: 94px auto;
 	width: 760px;
 	height: 510px;
 	border-radius: 5px;
@@ -88,12 +88,21 @@ body{
 #back_home2:hover{cursor: pointer;background-color: #00ff00}
 /*****************CSS playagain-page*************/
 #content3{
-	margin: 50px auto;
+	margin: 94px auto;
 	width: 750px;
 	height: 450px;
 	border-radius: 20px;
 	background-image: url(playagain.jpg);
 	position: relative;
+}
+#result{
+	display: inline-block;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	position: absolute;
+	top: 240px;
+	left: 5px;
 }
 #back_home3{
 	width: 180px;
@@ -126,7 +135,7 @@ body{
 #content{
 	width: 841px;
 	height: 518px;
-	margin: 50px auto;
+	margin: 94px auto;
 	background-image: url(background.jpg);
 	position: relative;
 	border-radius: 30px;

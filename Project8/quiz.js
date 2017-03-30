@@ -60,12 +60,13 @@ function next_ques()
 			{
 			document.getElementById("next_ques").value = "Finish";
 			}
-		}	
-		if (i==question.length)  {
+		}
+		if (i==question.length){
 			if(score==question.length){window.location.href = 'victory.html'}
-			else{window.location.href = 'again.html';};
+			else{window.location.href = 'again.html'};
+			document.getElementById('result').innerHTML = 'Điểm của bạn.';
 			}
-		document.getElementById('result').innerText="Đáng tiếc bạn chỉ trả lời đúng "+score+"/5 câu hỏi. Hãy suy nghĩ kỹ trước khi trả lời!";
+		
 		i++;
 }
 
