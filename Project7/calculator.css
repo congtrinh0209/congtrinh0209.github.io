@@ -10,6 +10,7 @@ body{
 	padding: 17px;
 	background-color: #5f5f5f;
 	border-radius: 10px;
+	position: relative;
 }
 #screen{
 	width: 400px;
@@ -24,6 +25,7 @@ body{
 	text-align: right;
 	background-color: #599593;
 	border-radius:5px;
+	color: white;
 }
 #keyboard{
 	width: 400px;
@@ -49,6 +51,7 @@ body{
 	border-radius: 10px;
 }
 .button:hover{
+	cursor: pointer;
 	box-shadow: 0 5px 5px 0 rgba(0,0,0,0.30), 0 5px 5px 0 rgba(0,0,0,0.30);
 }
 .button:active{
@@ -67,4 +70,13 @@ body{
 	position: absolute;
 	bottom: 11px;
 	left: 0px;
+}
+#change_theme{
+	width: 80px;
+	position: absolute;
+	font-weight: bold;
+	top: 153px;
+	right: 23px;
+	border-radius: 10px;
+	background-color: #cc9900;
 }
