@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Who Wants to Be a Millionaire?</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="quiz.css">
+</head>
+<body>
+	<div id="content" >
+		<input type="text" class="question" readonly id="ques_index"></br>
+		<div class="answer">
+			<input type="button" class="item"  id="ans_1" onclick="choise_color(this)">
+			<input type="button" class="item" id="ans_2" onclick="choise_color(this)"></br>
+			<input type="button" class="item" id="ans_3" onclick="choise_color(this)">
+			<input type="button" class="item" id="ans_4" onclick="choise_color(this)"></br>
+			<div class="text" id="a">A .</div>
+			<div class="text" id="b">B .</div>
+			<div class="text" id="c">C .</div>
+			<div class="text" id="d">D .</div>
+		</div>
+		<input type="button" id="next_ques" value="Next Question" onclick="next_ques()">
+	<audio autoplay loop>
+       <source src="answer.MP3" type="audio/mp3" />
+    </audio>
+		
+	</div>
+
+<script src="quiz.js"></script>
+</body>
+</html>

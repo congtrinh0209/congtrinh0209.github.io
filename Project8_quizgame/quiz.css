@@ -1,0 +1,211 @@
+body{
+	width: 1000px;
+	height: 100%;
+	margin: 10px auto;
+	background-image: url(wall-bg.jpg);
+}
+
+/*****************CSS home-page*************/
+#content1{
+	margin: 94px auto;
+	width: 841px;
+	height: 518px;
+	border-radius: 20px;
+	background-image: url(bg1.jpg);
+	position: relative;
+}
+#logo{
+	position: absolute;
+	height: 125px;
+	top: 0;
+	left: 360px;
+}
+.select{
+	width: 180px;
+	height: 50px;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	background-color: #ff6600;
+	color: black;
+	font-weight: bold;
+	font-size: 24px;
+	position: absolute;
+}
+.select:nth-child(1){top: 380px;left: 185px;}
+.select:nth-child(2){top: 380px;left: 465px;}
+.select:hover{
+	cursor: pointer;
+	background-color: #00ff00;
+}
+
+/*****************CSS rule-page*************/
+#rules{
+	display: inline-block;
+	color:#ffffff;
+	font-size: 22px;
+	text-align: justify;
+	position: relative;
+	width: 600px;
+	top: 310px;
+	left: 115px;
+}
+#back_home1{
+	width: 180px;
+	height: 50px;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	background-color: #ff6600;
+	color: black;
+	font-weight: bold;
+	font-size: 24px;
+	position: absolute;
+	bottom: 25px;
+	right: 17px;
+}
+#back_home1:hover{cursor: pointer;background-color: #00ff00}
+/*****************CSS victory-page*************/
+#content2{
+	margin: 94px auto;
+	width: 760px;
+	height: 510px;
+	border-radius: 5px;
+	background-image: url(victory.jpg);
+	position: relative;
+}
+#back_home2{
+	width: 180px;
+	height: 50px;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	background-color: #ff6600;
+	color: black;
+	font-weight: bold;
+	font-size: 24px;
+	position: absolute;
+	bottom: 35px;
+	right: 285px;
+}
+#back_home2:hover{cursor: pointer;background-color: #00ff00}
+/*****************CSS playagain-page*************/
+#content3{
+	margin: 94px auto;
+	width: 750px;
+	height: 450px;
+	border-radius: 20px;
+	background-image: url(playagain.jpg);
+	position: relative;
+}
+#result{
+	display: inline-block;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	position: absolute;
+	top: 240px;
+	left: 5px;
+}
+#back_home3{
+	width: 180px;
+	height: 50px;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	background-color: #ff6600;
+	color: black;
+	font-weight: bold;
+	font-size: 24px;
+	position: absolute;
+	bottom: 40px;
+	left: 142px;
+}
+#trans_page3{
+	width: 180px;
+	height: 50px;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	background-color: #ff6600;
+	color: black;
+	font-weight: bold;
+	font-size: 24px;
+	position: absolute;
+	bottom: 40px;
+	right: 165px;
+}
+#back_home3:hover,#trans_page3:hover{cursor: pointer;background-color: #00ff00}
+/*****************CSS quiz-page*************/
+#content{
+	width: 841px;
+	height: 518px;
+	margin: 94px auto;
+	background-image: url(background.jpg);
+	position: relative;
+	border-radius: 30px;
+}
+.question{
+	width: 600px;
+	height: 100px;
+	margin: 130px 0 0 120px;
+	text-align: center;
+	font-size: 24px;
+	border-radius: 50px;
+	background-color: #009933;
+	color: white;
+}
+#next_ques{
+	position: absolute;
+	bottom: 15px;
+	right: 82px;
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 10px;
+	width: 160px;
+	height: 40px;
+	color: black;
+	background-color: #009933;
+}
+#next_ques:hover{
+	cursor: pointer;
+	background-color:#ff6600;
+}
+.answer{margin: 37px 0 0 80px;}
+.item{
+	width: 318px;
+	height: 50px;
+	margin: 30px 40px 0 0;
+	border-radius: 20px;
+	background-color: #616161;
+	color: white;
+	font-size: 24px;
+	box-shadow: inset 0 0 25px rgba(255, 255, 255, 0);
+}
+.item:hover{
+	background-color: #ff6600;
+	cursor: pointer;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+}
+.item:active{
+  	background-color: #0066ff;
+}
+.text{
+	color: white;
+	position: absolute;
+	border-radius: 20px;
+	font-size: 24px;
+	font-weight: bold;
+}
+#a{
+	bottom: 178px;
+	left: 102px;
+}
+#b{
+	bottom: 178px;
+	left: 460px;
+}
+#c{
+	bottom: 95px;
+	left: 102px;
+}
+#d{
+	bottom: 95px;
+	left: 460px;
+}
+	
