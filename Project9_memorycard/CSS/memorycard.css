@@ -1,0 +1,48 @@
+body{
+	margin: 0 auto;
+	padding:0;
+	background-image: url(../IMG/wallpaper1.jpg);
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+img{
+	vertical-align: middle;
+	max-width: 105px;
+	max-height: 150px;
+}
+.clear{clear: both;}
+#wrapper{
+	max-width: 1000px;
+	height: 500px;
+	padding-left: 30px;
+	margin: 100px auto;
+}
+.card{
+	position: relative;
+	max-width: 105px;
+	height: 150px;
+	float: left;
+	margin: 8px;
+}
+.front-card{transform: rotateY(180deg);}
+.back-card{
+	position: absolute;
+	top: 0;
+	left: 0;
+	/*transform: rotateY(180deg);*/
+}
+
+/*
+.card:hover .back-card{
+	transform: rotateY(0deg);
+}
+.card:hover .front-card{
+	transform: rotateY(180deg);
+}
+.card .back-card, .card .front-card {
+	transition: all 0.5s;
+	backface-visibility: hidden;
+}*/
+
+
