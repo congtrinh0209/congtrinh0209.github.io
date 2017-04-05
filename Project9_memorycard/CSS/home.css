@@ -1,0 +1,20 @@
+body{
+	margin: 0 auto;
+	padding:0;
+	background-image: url(../IMG/wallpaper2.jpg);
+	position: relative;
+	padding-left: 250px;
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.wrapper{
+	width: 1200px;
+	height: 700px;
+
+}
+.start{
+	position: absolute;
+	top: 300px;
+	left: 300px;
+}

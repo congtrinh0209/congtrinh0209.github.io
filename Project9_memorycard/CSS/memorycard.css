@@ -14,6 +14,9 @@ img{
 	height: 190px;
 }
 .clear{clear: both;}
+#wrapper_home{
+	background-image: url(../IMG/wallpaper5.jpg);
+}
 #wrapper{
 	margin: 0 auto;
 	max-width: 1000px;
@@ -25,6 +28,9 @@ img{
 	height: 190px;
 	float: left;
 	margin: 8px;
+}
+.card:hover{
+	box-shadow: 0 0 40px rgb(66, 210, 97);
 }
 .card .back-card{
 	position: absolute;
@@ -38,4 +44,3 @@ img{
 	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 }
-

@@ -1,8 +1,14 @@
-var card = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var card = ["1", "2", "3", "4", "5", "6", "11", "12", "9"];
+var time = 60;
+/*function remaining_time(){
+	setInterval(function(){
+	time--;
+	document.getElementById('').value = time;
+	},1000)
+}*/
 
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
-
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
@@ -13,31 +19,39 @@ function shuffle(array) {
   return array;
 }
 var prev = null;
+var score = 0;
 function flip(a){
-	$(a).children('.back-card').css({'transform':'rotateY(0deg)','transition': 'all 0.5s','backface-visibility':'hidden'});
-	$(a).children('.front-card').css({'transform':'rotateY(180deg)','transition': 'all 0.5s','backface-visibility':'hidden'});
+	$(a).css('pointer-events','auto');
+	$(a).children('.back-card').css('transform','rotateY(0deg)');
+	$(a).children('.front-card').css('transform','rotateY(180deg)');
 if(!prev){
 		prev = $(a);
 	}
 	else{
 		if (prev.attr('data-name')!=$(a).attr('data-name'))
-			{
+			{	
+				$(a).css('pointer-events', 'none');
 				setTimeout(
 					function(){
-						$(a).children('.back-card').css({'transform':'rotateY(180deg)','transition': 'all 0.5s'});
-						$(a).children('.front-card').css({'transform':'rotateY(0deg)','transition': 'all 0.5s'});
-						prev.children('.back-card').css({'transform':'rotateY(180deg)','transition': 'all 0.5s'});
-						prev.children('.front-card').css({'transform':'rotateY(0deg)','transition': 'all 0.5s'});
+						$(a).children('.back-card').css('transform','rotateY(180deg)');
+						$(a).children('.front-card').css('transform','rotateY(0deg)');
+						prev.children('.back-card').css('transform','rotateY(180deg)');
+						prev.children('.front-card').css('transform','rotateY(0deg)');
 						prev = null;
 						},500);
+						$(a).css('pointer-events','auto');
 			}
 		else{
 			setTimeout(
 				function(){
+					document.getElementById('true').play();
 					$(a).css('opacity','0');
 					prev.css('opacity','0');
 					prev = null;
-				},200)
+					score++;
+					if(score==9)alert('Victory');
+					},200);
+			$(a).css('pointer-events','auto');	
 			}
 	}
 }
@@ -47,6 +61,6 @@ $(function(){
 	card = shuffle(card);
 	var display = "";
 	for (var i = 0; i < card.length; i++) {
-		display += '<div class="content">' + '<div class="card" data-name="'+card[i]+'" onclick = "flip(this)">'+'<div class="back-card"><img src="../IMG/'+card[i]+'.jpg"></div>'+'<div class="front-card"><img src="../IMG/card-back1.jpg"></div>'+'</div></div>'};			
+		display += '<div class="content">' + '<div class="card" data-name="'+card[i]+'" onclick = "flip(this)">'+'<div class="back-card"><img src="../IMG/'+card[i]+'.jpg"></div>'+'<div class="front-card"><img src="../IMG/card-back2.jpg"></div>'+'</div></div>'};			
 	$("#wrapper").html(display);
 })
