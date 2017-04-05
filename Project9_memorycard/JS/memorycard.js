@@ -1,5 +1,6 @@
 var card = ["1", "2", "3", "4", "5", "6", "11", "12", "9"];
 var time = 60;
+
 /*function remaining_time(){
 	setInterval(function(){
 	time--;
@@ -21,25 +22,25 @@ function shuffle(array) {
 var prev = null;
 var score = 0;
 function flip(a){
-	$(a).css('pointer-events','auto');
 	$(a).children('.back-card').css('transform','rotateY(0deg)');
 	$(a).children('.front-card').css('transform','rotateY(180deg)');
+	$(a).css('pointer-events', 'none');
 if(!prev){
 		prev = $(a);
 	}
 	else{
 		if (prev.attr('data-name')!=$(a).attr('data-name'))
 			{	
-				$(a).css('pointer-events', 'none');
 				setTimeout(
 					function(){
 						$(a).children('.back-card').css('transform','rotateY(180deg)');
 						$(a).children('.front-card').css('transform','rotateY(0deg)');
 						prev.children('.back-card').css('transform','rotateY(180deg)');
 						prev.children('.front-card').css('transform','rotateY(0deg)');
+						prev.css('pointer-events', 'auto');
+						$(a).css('pointer-events', 'auto');	
 						prev = null;
 						},500);
-						$(a).css('pointer-events','auto');
 			}
 		else{
 			setTimeout(
@@ -47,11 +48,11 @@ if(!prev){
 					document.getElementById('true').play();
 					$(a).css('opacity','0');
 					prev.css('opacity','0');
-					prev = null;
+					$(a).css('pointer-events', 'auto');
 					score++;
 					if(score==9)alert('Victory');
+					prev = null;
 					},200);
-			$(a).css('pointer-events','auto');	
 			}
 	}
 }

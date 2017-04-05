@@ -1,26 +1,37 @@
 body{
+	width: 1360px;
+	height: 760px;
 	margin: 0 auto;
-	padding:0;
-	background-image: url(../IMG/wallpaper4.jpg);
 	position: relative;
-	padding-left: 250px;
-	box-sizing: border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
+	background-image: url(../IMG/wallpaper4_1.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 img{
 	vertical-align: middle;
 	max-width: 150px;
 	height: 190px;
 }
-.clear{clear: both;}
-#wrapper_home{
-	background-image: url(../IMG/wallpaper5.jpg);
-}
+
 #wrapper{
-	margin: 0 auto;
-	max-width: 1000px;
-	padding: 50px 0 0 100px;
+	margin: 150px auto;
+	width: 900px;
+	height: 620px;
+}
+.start img{
+	width: 128px;
+	height: 128px;
+}
+.start{
+	position: absolute;
+	top: 245px;
+	left: 612px;
+	display: block;
+	z-index: 5;
+}
+.start:hover{
+	cursor: pointer;
+	transform: scale(1.2);
 }
 .card{
 	position: relative;
@@ -28,6 +39,7 @@ img{
 	height: 190px;
 	float: left;
 	margin: 8px;
+	opacity: 0.6;
 }
 .card:hover{
 	box-shadow: 0 0 40px rgb(66, 210, 97);
