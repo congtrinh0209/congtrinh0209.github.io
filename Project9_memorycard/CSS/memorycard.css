@@ -7,17 +7,37 @@ body{
 	background-repeat: no-repeat;
 	background-position: center center;
 }
-img{
+.card img{
 	vertical-align: middle;
 	max-width: 150px;
 	height: 190px;
 }
-
 #wrapper{
 	margin: 150px auto;
 	width: 900px;
 	height: 620px;
 }
+.oclock{
+	position: absolute;
+	top: -50px;
+	right: 5px;
+	z-index: 2;
+}
+.oclock img{width: 155px;height: 150px;}
+.time{display: none}
+.time_number{
+	position: absolute;
+	top: -95px;
+	right: 32px;
+}
+.time_number h3{
+	font-size: 76px;
+	color: blue;
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+	background-color:white; 
+	z-index: 1}
 .start img{
 	width: 128px;
 	height: 128px;
@@ -55,4 +75,36 @@ img{
 	transition: all 0.5s;
 	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
+}
+.victory{
+	width: 300px;
+	position: absolute;
+	top: 140px;
+	left: 540px;
+	
+}
+.home{
+	width: 100px;
+	position: absolute;
+	top: -9px;
+	left: 626px;
+}
+.lose{
+	width: 300px;
+	position: absolute;
+	top: 150px;
+	left: 530px;
+}
+.again{
+	width: 100px;
+	position: absolute;
+	top: -9px;
+	left: 626px;
+}
+.again:hover, .home:hover{
+	cursor: pointer;
+	transform: scale(1.2);
+}
+.victory_page, .lose_page{
+	display: none;
 }
