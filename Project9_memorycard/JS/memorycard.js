@@ -1,5 +1,5 @@
 var card = ["1", "2", "3", "4", "5", "6", "11", "12", "9"];
-var time = 60;
+var time = 11;
 /********     Đảo mảng     **********/
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
@@ -39,6 +39,7 @@ $('.start').click(function(){
 		if(time<10){$('.time_number').children('h3').css('color','red');};
 		if(time==10){document.getElementById('time-end').play();};
 		if(time==0){clearInterval(run_time);
+					$('.card').css({'pointer-events':'none','opacity':'0.6'});
 					document.getElementById('ost').pause();
 					document.getElementById('lose-music').play();
 					$('.lose_page').css('display','block');
