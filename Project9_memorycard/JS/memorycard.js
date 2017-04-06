@@ -1,5 +1,5 @@
 var card = ["1", "2", "3", "4", "5", "6", "11", "12", "9"];
-var time = 11;
+var time = 60;
 /********     Đảo mảng     **********/
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
