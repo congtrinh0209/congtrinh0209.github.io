@@ -80,6 +80,7 @@ if(!prev){
 					score++;
 					if(score==9){
 						clearInterval(run_time);
+						document.getElementById('time-end').pause();
 						document.getElementById('ost').pause();
 						document.getElementById('victory-music').play();
 						$('.victory_page').css('display','block');
