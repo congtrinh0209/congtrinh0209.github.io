@@ -1,11 +1,18 @@
 
 /********** phần style chung*********/
+@font-face{
+	font-family: ctfont;
+	src:url(../font/Arimo-Regular.woff2) format('woff2');
+    src:url(../font/Arimo-Regular.woff) format('woff');
+    src:url(../font/Arimo-Regular.ttf)  format('truetype');
+}
 *{
 	box-sizing: border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
 }
 body{
+	font-family: ctfont;
 	width: 1000px;
 	height: 100%;
 	margin: auto;
@@ -83,7 +90,7 @@ img{
 	display: block;
 }
 #main-menu ul #df{
-	padding: 0 44px 0 44px;
+	padding: 0 30px 0 34px;
 }
 
 #main-menu ul li a{
