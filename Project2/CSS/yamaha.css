@@ -78,7 +78,7 @@ h1{
 	transform: scale(1.2);
 }
 .sp img{
-	max-width: 220px;
+	max-width: 100%;
 }
 .sp p{
 	display: block;

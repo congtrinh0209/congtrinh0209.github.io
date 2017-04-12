@@ -1,0 +1,14 @@
+$('.item-mobile:nth-child(5)').click(function(){
+	$('.icon1').css('transform','rotateZ(-45deg)');
+	$('.icon2').css('transform','rotateZ(45deg)');
+	$('.item-mobile:nth-child(6)').css({'opacity':'1','z-index':'3'});
+	$('i.fa.fa-bars').css('display','none');
+	$('.menu-dropdown').css('display','block')
+});
+$('.item-mobile:nth-child(6)').click(function(){
+	$('.icon1').css('transform','rotateZ(0deg)');
+	$('.icon2').css('transform','rotateZ(0deg)');
+	$('.item-mobile:nth-child(6)').css({'opacity':'0','z-index':'1'});
+	$('i.fa.fa-bars').css('display','block');
+	$('.menu-dropdown').css('display','none')
+});

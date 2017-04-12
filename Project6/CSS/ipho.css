@@ -83,7 +83,7 @@ img{
 	transform: translate(0,-5px);
 }
 #main-menu ul li:hover{
-	background-color:#5f5f5f;
+	background-color: #5f5f5f;
 	box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 1);
 }
 #main-menu ul li:hover .sub-menu{
