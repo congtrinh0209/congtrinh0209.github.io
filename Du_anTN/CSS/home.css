@@ -23,9 +23,19 @@ ol, ul{
 }
 .banner{
 	background-color: green;
+	position: relative;
 	width: 100%;
-	height: 50px;
+	height: 100px;
 }
+.face{
+	font-size: 1.6em;
+	position: absolute;
+	bottom: -4px;
+	right: 5px;
+	color: white;
+}
+.face:hover{cursor: pointer;}
+.face2{display: none}
 .clear{ clear: both;}
 /*********** CSS menu-mobile screen-320 ************/
 .sign button{
@@ -46,11 +56,11 @@ ol, ul{
 	right: 0;
 }
 .sign-item i{
-	font-size: 1.3em;
+	font-size: 1.4em;
 	padding-right: 5px;
 }
 .sign-item span{
-	font-size: 1em;
+	font-size: 1.1em;
 }
 .menu-mobile{
 	background-color:#044A84;
@@ -112,17 +122,26 @@ i.fa.fa-bars{
 /*********** CSS menu-dropdown ***********/
 .menu-dropdown{
 	width: 100%;
-	background-color: #1D9E74;
 	position: absolute;
-	padding: 5px 0 0 0;
 	top: 98px;
 	left: 0px;
-	display: none;
 }
 .item-dropdown{
-	padding: 5px 0 5px 0;
+	background-color: #1D9E74;
+	padding: 9px 0 9px 0;
 	border-bottom: 1px solid white;
+	opacity: 0;
+	transition: all 30ms linear;
 }
+.item-dropdown:nth-child(1){transition-delay: 30ms}
+.item-dropdown:nth-child(2){transition-delay: 40ms}
+.item-dropdown:nth-child(3){transition-delay: 90ms}
+.item-dropdown:nth-child(4){transition-delay: 120ms}
+.item-dropdown:nth-child(5){transition-delay: 150ms}
+.item-dropdown:nth-child(6){transition-delay: 180ms}
+.item-dropdown:nth-child(7){transition-delay: 210ms}
+.item-dropdown:nth-child(8){transition-delay: 240ms}
+.item-dropdown:nth-child(9){transition-delay: 270ms}
 .item-dropdown i{
 	font-size: 1.2em;
 	padding-left: 10px;
@@ -133,6 +152,14 @@ i.fa.fa-bars{
 	left: 50px;
 	color: #fbf7f7;
 }
+/*********** CSS menu-mobile screen-600 ************/
+@media only screen and (min-width: 600px){
+	.menu-dropdown{
+		max-width: 40%;
+		margin-left: 60%;
+	}
+}
+
 /*********** CSS menu-mobile screen-1280 ************/
 
 @media only screen and (min-width: 1024px){
@@ -140,6 +167,32 @@ i.fa.fa-bars{
 		max-width: 1000px;
 		margin: 0 auto;
 	}
+	.face{display: none;}
+	.face2{
+		display: block;
+		font-size: 1.6em;
+		position: absolute;
+		bottom: -4px;
+		right: 5px;
+		color: white;
+	}
+	.face2 .text-f {
+	    font-size: .7em;
+	    display: inline-block;
+	    max-width: 0;
+	    opacity: 0;
+	    visibility: hidden;
+	    transition: all .5s linear;
+	}
+	.face2:hover{cursor: pointer;}
+	.face2:hover .text-f {
+		max-width: 130px;
+		opacity: 1;
+		visibility: visible;
+		margin-left: .5em;
+	}
+
+
 	.menu-mobile{
 		display: none;
 	}
@@ -152,36 +205,52 @@ i.fa.fa-bars{
 		border-right: 1px solid white;
 	}
 	.menu-1024 .item:hover{
-		background-color: #5f5f5f;
-		box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 1);
+		background-color: #EBD203;
+		border-bottom: 2px solid red;
 	}
-	.menu-1024 .item:hover a{transform: translate(0,-5px);}
+	.menu-1024 .item:hover a{
+		transform: translate(0,-4px);
+		color: black;
+	}
 	.menu-1024 .item a{
 		padding: 10px 13px 10px 13px;
 		transition: all 0.5s ease;
 	}
 	.menu-1024 .item:nth-child(2){position: relative;}
-	.sub-menu .sub-item{
-		color: white
-	}
-	.sub-menu .sub-item a{
-		border-bottom: 1px solid white;
-	}
-	.sub-menu .sub-item:nth-child(1){border-top: 2px solid white}
+
+
 	.sub-menu{
 		width: 166px;
-		background-color: #044A84;
 		position: absolute;
-		top: 39px;
-		display: none;
+		top: 42px;
 	}
-	.menu-1024 .item:nth-child(2):hover .sub-menu{
-		display: block;
+	.sub-item{
+		background-color: #BEE4DF;
+		color: white
+		opacity: 0;
+		transition: all 30ms linear;
+	}
+	.sub-item:nth-child(1){transition-delay: 30ms}
+	.sub-item:nth-child(2){transition-delay: 40ms}
+	.sub-item:nth-child(3){transition-delay: 90ms}
+	.sub-item:nth-child(4){transition-delay: 120ms}
+	.sub-item:hover{
+		background-color: #EBD203;
+		border-bottom: 2px solid red;
+	}
+	.sub-menu .sub-item{
+		border-top: 1px solid white;
+		opacity: 0;
+	}
+	.item:nth-child(2):hover .sub-item{
+		opacity: 1;
 	}
 	.item:nth-child(8){
- 	margin-right: 2px;
+ 	margin-right: 6px;
  	border-right: none;
 	}
+
+
 	.sign button{
 		position: static;
 		background-color: #E74C3C;
@@ -189,6 +258,11 @@ i.fa.fa-bars{
 		color: white;
 		height: 38px;
 		width: 130px;
+	}
+	.sign button:hover{
+		cursor: pointer;
+		background-color: #EBD203;
+		color: black;
 	}
 	.sign-item i{
 		font-size: 1.3em;
