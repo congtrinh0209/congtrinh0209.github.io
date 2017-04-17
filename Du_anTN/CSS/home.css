@@ -12,7 +12,6 @@ body{
 a{
 	display: block;
 	text-decoration: none;
-	color: white;
 	font-size: 1em;
 }
 img{
@@ -28,7 +27,7 @@ ol, ul{
 	background-color: green;
 	position: relative;
 	width: 100%;
-	height: 100px;
+	height: 200px;
 }
 .face{
 	font-size: 1.6em;
@@ -191,7 +190,83 @@ i.fa.fa-bars{
 	.icon-s span{
 		font-size: 1.2em;
 	}
-
+	/*********** CSS Content**********/
+	.content{
+		width: 100%;
+		padding: 5px;
+		background-color: white;
+		border-radius: 5px;
+		margin: 10px 0 10px 0;
+	}
+	#content-left{
+		max-width: 33%;
+		float: left;
+	}
+	#content-left .image{
+		position: relative;
+		margin: 0 auto;
+		width: 100%;
+	}
+	#content-left .image img{
+		width: 100%;
+		border-radius: 5px;
+	}
+	.image .icon-p{
+		background-color: rgba(41,51,57,.75);
+		display: none;
+		position: absolute;
+		border-radius: 50%;
+		width: 60px;
+		height: 60px;
+		padding: 15px 0 0 13px;
+		top: 50%;
+		left: 50%;
+		margin: -25px 0 0 -25px;
+	}
+	.image i{
+		font-size: 2em;
+		color: white;
+	}
+	#content-right{
+		float: right;
+		max-width: 66%;
+		position: relative;
+	}
+	.content-right1{
+		color: #37454D;
+	}
+	.content-right1 .summarize-desc, .local, .area{
+		margin-left: 10px;
+	}
+	.local, .area{font-weight: bold;font-style: italic;}
+	.date{color: red;}
+	#content-right .title a{
+		color: #D77865;
+		text-align: justify;
+	}
+	#content-right .description{
+		display: none;
+	}
+	#content-right .price, .phone{
+		color: #66A400;
+		text-align: justify;
+	}
+	.price-service{display: none;}
+	.button-detail{
+		border-radius: 3px;
+		width: 110px;
+		height: 30px;
+		margin-top: 5px;
+		cursor: pointer;
+		background-color: #66A400;
+		color: white;
+		font-weight: bold;
+	}
+	.button-detail:hover{
+		background-color: #EBD203;
+		color: black;
+	}
+	
 /*********** CSS menu-mobile screen-600 ************/
 @media only screen and (min-width: 600px){
 	.menu-dropdown{
@@ -199,7 +274,7 @@ i.fa.fa-bars{
 		margin-left: 60%;
 	}
 }
-/*********** CSS menu-mobile screen-1280 ************/
+/*********** CSS desktop screen-1280 ************/
 @media only screen and (min-width: 1024px){
 	.menu-1024{display: block;}
 	.container{
@@ -214,10 +289,11 @@ i.fa.fa-bars{
 		position: absolute;
 		bottom: -4px;
 		right: 5px;
-		color: white;
 	}
+	.face2 i{color: blue;}
 	.face2 .text-f {
 	    font-size: .7em;
+	    color: white;
 	    display: inline-block;
 	    max-width: 0;
 	    opacity: 0;
@@ -238,11 +314,17 @@ i.fa.fa-bars{
 	.menu-dropdown{
 		display: none;
 	}
-	.menu-1024{background-color: #055699;}
+	.menu-1024{margin: 2px 0;}
 	.menu-1024 .item{
+		border-radius: 5px;
+		background-color: #055699;
+		margin-right: 2px;
 		float: left;
 		border-right: 1px solid white;
+		border-bottom: 2px solid #EBECED;
 	}
+	.menu-1024 .item a{color: white}
+	.menu-1024 .item i{padding-right: 5px}
 	.menu-1024 .item:hover{
 		background-color: #EBD203;
 		border-bottom: 2px solid red;
@@ -252,7 +334,7 @@ i.fa.fa-bars{
 		color: black;
 	}
 	.menu-1024 .item a{
-		padding: 10px 13px 10px 13px;
+		padding: 10px 5px 10px 5px;
 		transition: all 0.5s ease;
 	}
 	.menu-1024 .item:nth-child(2){position: relative;}
@@ -279,18 +361,19 @@ i.fa.fa-bars{
 		display: block;
 	}
 	.item:nth-child(8){
-	 	margin-right: 6px;
+	 	margin-right: 2px;
 	 	border-right: none;
 	}
 
 		/******** Sign in, Sign out********/
 	.sign button{
 		position: static;
+		border-radius: 5px;
 		background-color: #E74C3C;
 		margin-top: 1px;
 		color: white;
 		height: 38px;
-		width: 130px;
+		width: 105px;
 	}
 	.sign button:hover{
 		cursor: pointer;
@@ -299,7 +382,7 @@ i.fa.fa-bars{
 	}
 	.sign-item i{
 		font-size: 1.3em;
-		padding-right: 5px;
+		padding-right: 2px;
 	}
 	.sign-item span{
 		font-size: 1.3em;
@@ -341,6 +424,33 @@ i.fa.fa-bars{
 	}
 	.icon-s span{
 		font-size: 1.2em;
+	}
+	/************* CSS content desktop *********/
+	.image:hover .icon-p{display: block;}
+	.image:hover{cursor: pointer;}
+	.content-right1{
+		width:70%;
+		float: left;
+		padding-right: 10px;
+		border-right: 1px solid #CDD0D2;
+	}
+	#content-right .description{
+		display: block;
+	}
+	.content-right2{
+		float: right;
+		width:30%;
+		padding: 5px 0 0 10px;
+		color: #66A400;
+	}
+	.item-cr1{
+		padding-top: 5px;
+	}
+	.price-service{display: block;}
+	.item-cr1 .fa{width: 25px;
+		color: #37454D}
+	#content-left .image img{
+		margin: 5px;
 	}
 }
 
