@@ -1,0 +1,119 @@
+.clear{clear: both;}
+body{
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	background-color: #F1F3F8;
+}
+.banner{
+	width: 100%;
+	height: 80px;
+	background-color: #3B5998;
+}
+.wrapper{
+	width: 1000px;
+	height: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+.logo{
+	font-size: 40px;
+	color: white;
+	font-weight: bold;
+	position: absolute;
+	top: -55px;
+	left: 0px;
+}
+.slogan{
+	font-size: 20px;
+	color: #0E385F;
+}
+.content-left{
+	width: 57%;
+	margin-top: 50px;
+	float: left;
+}
+.content-right{
+	width: 42%;
+	margin-top: 5px;
+	float: right;
+	position: relative;
+}
+h1{font-size: 35px;color: #312129}
+#first-name,#last-name{
+	width: 195px;
+	height: 40px;
+}
+.error1{
+	position: absolute;
+	top: 117px;
+	left: -165px;
+}
+.error2{
+	position: absolute;
+	top: 117px;
+	right: -160px;
+}
+.error3{
+	position: absolute;
+	top: 175px;
+	left: -292px;
+}
+.error4{
+	position: absolute;
+	top: 284px;
+	left: -300px;
+}
+.error5{
+	position: absolute;
+	top: 390px;
+	right: -90px;
+}
+.error6{
+	position: absolute;
+	top: 211px;
+	right: -164px;
+}
+input{
+	padding-left: 7px;
+	font-size: 18px;}
+#mobile, #pass-word, #email{
+	width: 400px;
+	height: 40px;
+}
+span{
+	font-size: 15px;
+	background-color: #B94A48;
+	color: white;
+	border-radius: 7px;
+}
+.fa{
+	font-size: 25px;
+}
+select{
+	width: 90px;
+	height: 30px;
+	padding-left: 7px;
+}
+#first-name,#last-name,#mobile,#pass-word,#email{
+	margin-bottom: 10px;
+	border: 1px solid #D4DAE6;
+	border-radius: 7px;
+}
+.terms{
+	font-size: 12px;
+	color: #666666;
+}
+#submit{
+	width: 195px;
+	height: 40px;
+	background-color: #5B9248;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border-radius: 7px;
+}
+#submit:hover{cursor: pointer;}

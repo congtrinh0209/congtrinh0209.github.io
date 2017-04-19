@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Chào mừng bạn đến với Facebook</title>
+	<meta charset="utf-8">
+	<meta name="author" content="congtrinh0209">
+	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
+	<link rel="shortcut icon" href="../icon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="../CSS/sign-up.css">
+</head>
+<body>
+	<div class="banner"></div>
+	<div class="wrapper">	
+		<div class="logo">facebook</div>
+		<div class="sign-content">
+			<div class="content-left">
+				<div class="slogan">Facebook giúp bạn kết nối và chia sẻ với mọi</br> người trong cuộc sống của bạn.</div>
+				<div class="symbol">
+					<img src="../logo.png">
+				</div>
+			</div>
+			<div class="content-right">
+				<h1>Đăng ký</h1>
+				<p>Luôn miễn phí</p>
+				<form action="facebook.html" id="sign-up" method="post">
+					<span class="error1"></span><input type="text" id="first-name" name="first-name" placeholder="Họ"/>
+					<input type="text" id="last-name" name="last-name" placeholder="Tên"/><span class="error2"></span></br>
+					<input type="text" id="mobile" name="mobile" placeholder="Số di động"/><span class="error3"></span></br>
+					<input type="text" id="email" name="email" placeholder="Email của bạn"/><span class="error6"></span></br>
+					<input type="password" id="pass-word" name="password" placeholder="Mật khẩu"/><span class="error4"></span></br>
+					<p>Ngày sinh</p>
+					<select class="date"></select>
+					<select class="month"></select>
+					<select class="year"></select>
+					<span class="error5"></span>
+					</br></br>
+					<input type="radio" name="gender" id="famale" value="Female" checked="checked"></input><label for="famale">Nữ</label>
+					<input type="radio" name="gender" id="male" value="Male"></input><label for="male">Nam</label>
+					</br>
+					<p class="terms">Bằng cách nhấp vào Tạo tài khoản, bạn đồng ý với Điều khoản của chúng tôi và rằng bạn đã đọc Chính sách dữ liệu của chúng tôi, bao gồm Sử dụng cookie. Bạn có thể nhận được thông báo qua SMS từ Facebook và có thể bỏ chọn bất kỳ lúc nào.</p>
+					
+					<input id="submit" type="submit" value="Tạo tài khoản"></input>
+				</form>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<script src="../JS/jquery-3.2.0.min.js"></script>
+	<script src="../JS/sign-up.js"></script>
+</body>
+</html>
