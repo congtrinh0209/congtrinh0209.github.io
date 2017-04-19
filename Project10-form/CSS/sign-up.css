@@ -126,14 +126,14 @@ select{
 	position: absolute;
 	left: 100px;
 	width: 300px;
-	color: blue;
+	color: #000099;
 }
 .pass{
 	width: 320px;
-	color: blue;
+	color: #000099;
 }
 .home{
-	background-color: #3F5793;
+	background-color: #5B9248;
 	color: white;
 	font-size: 20px;
 	width: 250px;
