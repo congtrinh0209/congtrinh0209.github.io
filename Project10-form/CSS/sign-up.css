@@ -117,3 +117,31 @@ select{
 	border-radius: 7px;
 }
 #submit:hover{cursor: pointer;}
+/*** Style trang tạo tài khoản****/
+.user{
+	position: relative;
+	padding-bottom: 15px;
+}
+.info{
+	position: absolute;
+	left: 100px;
+	width: 300px;
+	color: blue;
+}
+.pass{
+	width: 320px;
+	color: blue;
+}
+.home{
+	background-color: #3F5793;
+	color: white;
+	font-size: 20px;
+	width: 250px;
+	height: 45px;
+	border-radius: 7px;
+	margin-top: 30px;
+}
+.home:hover{
+	background-color: #B94A48;
+	cursor: pointer;
+}
