@@ -7,21 +7,25 @@
 	-webkit-box-sizing:border-box;
 }
 body{
+	margin: 0 auto;
 	background-color: #EBECED;
+	font-size: 16px !important;
 }
 a{
 	display: block;
-	text-decoration: none;
+	text-decoration: none !important;
 	font-size: 1em;
 }
 img{
 	vertical-align: middle;
 }
+p{margin: 0 !important;}
 ol, ul{
 	list-style: none;
 }
 .container{
 	width: 100%;
+	padding: 0 !important;
 }
 .content{font-size: 0.9em}
 .banner{
@@ -74,8 +78,12 @@ ol, ul{
 .menu-mobile p{
 	text-align: center;
 	font-size: 0.7em;
+	margin: 0;
 }
-.menu-mobile ul{position: relative;}
+.menu-mobile ul{
+	position: relative;
+	margin: 0;
+}
 .item-mobile{
 	width: 20%;
 	position: relative;
@@ -167,7 +175,7 @@ i.fa.fa-bars{
 	    color: white;
 	    background-color: #00914E;
 	    text-align: center; 
-	    font-size: 14px;
+	    font-size: 22px !important;
 	    position: relative;
 	    overflow: hidden;
 	    margin-bottom: 15px;
@@ -200,12 +208,11 @@ i.fa.fa-bars{
 		padding-left:14px; 
 	}
 	.select{
-		width: 95%;
+		width: 90%;
 		height: 30px;
 		color: black;
-		margin-bottom: 5px;
 		font-size: 1em;
-		margin-bottom: 15px;
+		margin: 0 0 15px 8px;
 	}
 	.icon-s{
 		margin-left: 15px;
@@ -221,7 +228,7 @@ i.fa.fa-bars{
 	}
 	.icon-s:hover{
 		cursor: pointer;
-		color: black;
+		color: red;
 		background-position: right top;
 	}
 	.icon-s i{
@@ -322,6 +329,11 @@ i.fa.fa-bars{
 	.wrap-content{
 		width: 100%;
 	}
+	.menu-mobile p{
+	text-align: center;
+	font-size: 1em;
+	margin: 0;
+	}
 	#content-left{
 		max-width: 33%;
 		float: left;
@@ -358,10 +370,11 @@ i.fa.fa-bars{
 }
 /*********** CSS desktop screen-1024px ************/
 @media only screen and (min-width: 1024px){
+	a{font-size: 0.9em}
 	.menu-1024{display: block;}
 	.container{
-		max-width: 1200px;
-		margin: 0 auto;
+		width: 100% !important;
+		margin: 0 auto !important;
 	}
 	.wrap-content{
 		width: 75%;
@@ -492,6 +505,7 @@ i.fa.fa-bars{
 	.sign{
 		display: inline-block;
 		float: right;
+		width: 25%;
 	}
 	.sign button{
 		position: static;
@@ -504,7 +518,7 @@ i.fa.fa-bars{
 		margin-top: 1px;
 		color: white;
 		height: 38px;
-		width: 105px;
+		width: 125px;
 	}
 	.sign button:hover{
 		cursor: pointer;
@@ -536,7 +550,7 @@ i.fa.fa-bars{
 		flex-direction: column;
 	}
 	.select{
-		width: 95%;
+		width: 90%;
 	}
 	.icon-s{
 		padding: 5px;
@@ -575,7 +589,7 @@ i.fa.fa-bars{
 	.image:hover .icon-p{display: block;}
 	.image:hover{cursor: pointer;}
 	.content-right1{
-		width:70%;
+		width:65%;
 		float: left;
 		padding: 0 10px 0 5px;
 		border-right: 1px solid #CDD0D2;
@@ -585,7 +599,7 @@ i.fa.fa-bars{
 	}
 	.content-right2{
 		float: right;
-		width:30%;
+		width:35%;
 		padding: 5px 0 0 10px;
 		color: #66A400;
 	}
@@ -603,3 +617,14 @@ i.fa.fa-bars{
 	}
 }
 
+
+@media only screen and (min-width: 1280px){
+	.container{
+		width: 1200px !important;
+		margin: 0 auto !important;
+	}
+	a{font-size: 1em}
+	.sign button {
+    margin-left: 5px;
+	}
+}
