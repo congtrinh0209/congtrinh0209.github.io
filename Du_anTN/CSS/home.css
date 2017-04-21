@@ -23,6 +23,7 @@ ol, ul{
 .container{
 	width: 100%;
 }
+.content{font-size: 0.9em}
 .banner{
 	background-color: green;
 	position: relative;
@@ -67,7 +68,7 @@ ol, ul{
 /************* Menu cho mobile*********/
 .menu-1024{display: none;}
 .menu-mobile{
-	background-color:#055699;
+	background-color:#004824;
 	padding: 5px 0 5px 5px;
 }
 .menu-mobile p{
@@ -158,30 +159,70 @@ i.fa.fa-bars{
 /************** Search screen mobile*/
 	.search{
 		width: 100%;
-		background-color: #34B8DF;
-		padding: 10px 0 0 22px;
+		background-color: #4FB748;
+	}
+	.title-side {
+	    width: 100%;
+	    padding: 8px 0;
+	    color: white;
+	    background-color: #00914E;
+	    text-align: center; 
+	    font-size: 14px;
+	    position: relative;
+	    overflow: hidden;
+	    margin-bottom: 15px;
+	    border-radius: 7px 7px 0 0;
+	  }
+
+	.title-side:before{
+		content: '';
+	    position: absolute;
+	    left: 0;
+	    top: 0;
+	    bottom: 0;
+	    border-color: #004824 transparent transparent transparent;
+	    border-style: solid;
+	    border-width: 40px 30px 0 0;
+	}
+	.title-side:after{
+		content: '';
+	    position: absolute;
+	    right: 0;
+	    border-style: solid;
+	    top: 0;
+	    bottom: 0;
+	    border-width: 0 0 40px 30px;
+	    border-color: transparent transparent #004824 transparent;
 	}
 	.row{
 		display: flex;
 		flex-direction: column;
+		padding-left:14px; 
 	}
 	.select{
-		width: 90%;
+		width: 95%;
 		height: 30px;
 		color: black;
 		margin-bottom: 5px;
 		font-size: 1em;
+		margin-bottom: 15px;
 	}
 	.icon-s{
-		padding: 5px;
+		margin-left: 15px;
+		padding: 8px;
 		display: inline-block;
-		background-color: #E74C3C;
+		background: linear-gradient(to left, #64a9de 50%,#288AD6 50%);
+	    background-size: 200% 100%;
+	    transition: background-position 150ms ease;
+	    background-position: left bottom;
 		color: white;
+		margin-bottom: 10px;
+		border-radius: 5px;
 	}
 	.icon-s:hover{
 		cursor: pointer;
 		color: black;
-		background-color: #EBD203;
+		background-position: right top;
 	}
 	.icon-s i{
 		font-size: 1.5em;
@@ -190,17 +231,19 @@ i.fa.fa-bars{
 	.icon-s span{
 		font-size: 1.2em;
 	}
+	.news{
+		display: none;
+	}
 	/*********** CSS Content**********/
 	.content{
-		width: 100%;
+		width: 99%;
 		padding: 5px;
 		background-color: white;
 		border-radius: 5px;
 		margin: 10px 0 10px 0;
 	}
 	#content-left{
-		max-width: 33%;
-		float: left;
+		max-width: 100%;
 	}
 	#content-left .image{
 		position: relative;
@@ -209,6 +252,7 @@ i.fa.fa-bars{
 	}
 	#content-left .image img{
 		width: 100%;
+		margin-bottom: 10px;
 		border-radius: 5px;
 	}
 	.image .icon-p{
@@ -228,43 +272,45 @@ i.fa.fa-bars{
 		color: white;
 	}
 	#content-right{
-		float: right;
-		max-width: 66%;
+		max-width: 100%;
 		position: relative;
 	}
 	.content-right1{
 		color: #37454D;
 	}
-	.content-right1 .summarize-desc, .local, .area{
-		margin-left: 10px;
+	.content-right1 .item-cr1{
+		text-align: justify;
+		margin-bottom: 5px;
 	}
-	.local, .area{font-weight: bold;font-style: italic;}
+	.local, .area{font-weight: bold;color: black;}
 	.date{color: red;}
 	#content-right .title a{
-		color: #D77865;
+		color: #288AD6;
 		text-align: justify;
-	}
-	#content-right .description{
-		display: none;
 	}
 	#content-right .price, .phone{
 		color: #66A400;
 		text-align: justify;
+		margin-bottom: 5px;
 	}
 	.price-service{display: none;}
 	.button-detail{
+		border: 1px solid #288AD6;
 		border-radius: 3px;
-		width: 110px;
-		height: 30px;
+		width: 120px;
+		height: 40px;
 		margin-top: 5px;
 		cursor: pointer;
-		background-color: #66A400;
+		background: linear-gradient(to left, #64a9de 50%,#288AD6 50%);
+	    background-size: 200% 100%;
+	    transition: background-position 100ms ease;
+	    background-position: left bottom;
 		color: white;
 		font-weight: bold;
 	}
 	.button-detail:hover{
-		background-color: #EBD203;
-		color: black;
+		background-position: right top;
+		color: #cc3300;
 	}
 	
 /*********** CSS menu-mobile screen-600 ************/
@@ -273,13 +319,63 @@ i.fa.fa-bars{
 		max-width: 40%;
 		margin-left: 60%;
 	}
+	.wrap-content{
+		width: 100%;
+	}
+	#content-left{
+		max-width: 33%;
+		float: left;
+	}
+	#content-right{
+		float: right;
+		max-width: 66%;
+		position: relative;
+	}
+	#content-left .image{
+		position: relative;
+		margin: 0 auto;
+		width: 100%;
+	}
+	#content-left .image img{
+		width: 100%;
+		border-radius: 5px;
+	}
+	.search{
+		width: 100%;
+		margin-top: 15px;
+	}
+	.row{
+		display: flex;
+		flex-direction: row;
+	}
+	.select{
+		width: 22%;
+		height: 30px;
+		color: black;
+		margin-bottom: 15px;
+		font-size: 1em;
+	}
 }
-/*********** CSS desktop screen-1280 ************/
+/*********** CSS desktop screen-1024px ************/
 @media only screen and (min-width: 1024px){
 	.menu-1024{display: block;}
 	.container{
-		max-width: 1000px;
+		max-width: 1200px;
 		margin: 0 auto;
+	}
+	.wrap-content{
+		width: 75%;
+		float: left;
+	}
+	.content{border: 2px solid #4FB748;}
+	#content-left .image{
+		position: relative;
+		margin: 0 auto;
+		width: 100%;
+	}
+	.image i{
+		font-size: 2em;
+		color: white;
 	}
 	/********* Icon Face **********/
 	.face{display: none;}
@@ -314,62 +410,97 @@ i.fa.fa-bars{
 	.menu-dropdown{
 		display: none;
 	}
-	.menu-1024{margin: 2px 0;}
+	.menu-1024{
+		margin: 2px 0;
+		background-color: #004824;
+	}
 	.menu-1024 .item{
+		width: 8%;
+		height: 100%;
 		border-radius: 5px;
-		background-color: #055699;
+		background-color: #004824;
 		margin-right: 2px;
 		float: left;
-		border-right: 1px solid white;
-		border-bottom: 2px solid #EBECED;
+		border-right: 2px solid white;
+		border-bottom: 2px solid #004824;
 	}
-	.menu-1024 .item a{color: white}
-	.menu-1024 .item i{padding-right: 5px}
+	.menu-1024 .item:nth-child(6){
+		width: 9% !important;
+	}
+	.menu-1024 .item a{
+		width: 100%;
+		color: white;
+		text-align: center;
+	}
+	.menu-1024 .item i{
+		width: 100%;
+		text-align: center;
+		padding-right: 5px;
+		font-size: 1.3em;
+	}
 	.menu-1024 .item:hover{
-		background-color: #EBD203;
+		background-color: white;
 		border-bottom: 2px solid red;
 	}
 	.menu-1024 .item:hover a{
 		transform: translate(0,-4px);
-		color: black;
+		color: #004824;
 	}
 	.menu-1024 .item a{
-		padding: 10px 5px 10px 5px;
+		padding: 7px 5px 7px 5px;
 		transition: all 0.5s ease;
 	}
 	.menu-1024 .item:nth-child(2){position: relative;}
 			/*******Sub-menu cho desktop*****/
 	.sub-menu{
-		width: 166px;
+		width: 170px;
 		position: absolute;
-		top: 42px;
+		top: 58px;
 		display: none;
 		z-index: 2;
 	}
 	.sub-item{
-		background-color: #BEE4DF;
+		background-color: #004824;
 		color: white
 	}
+	.sub-item i{
+		width: 18px !important;
+		font-size: 1em !important;
+	}
+	.sub-item a{
+		text-align: left  !important;
+		color: white !important}
 	.sub-item:hover{
-		background-color: #EBD203;
+		background-color: white;
 		border-bottom: 2px solid red;
+	}
+	.sub-item:hover a{
+		color: #004824 !important;
 	}
 	.sub-menu .sub-item{
 		border-top: 1px solid white;
+		border-radius: 5px;
 	}
 	.item:nth-child(2):hover .sub-menu{
 		display: block;
 	}
 	.item:nth-child(8){
 	 	margin-right: 2px;
-	 	border-right: none;
 	}
 
 		/******** Sign in, Sign out********/
+	.sign{
+		display: inline-block;
+		float: right;
+	}
 	.sign button{
 		position: static;
 		border-radius: 5px;
 		background-color: #E74C3C;
+		background: linear-gradient(to left, #f7968c 50%,#E74C3C 50%);
+	    background-size: 200% 100%;
+	    transition: background-position 100ms ease;
+	    background-position: left bottom;
 		margin-top: 1px;
 		color: white;
 		height: 38px;
@@ -377,7 +508,7 @@ i.fa.fa-bars{
 	}
 	.sign button:hover{
 		cursor: pointer;
-		background-color: #EBD203;
+		background-position: right top;
 		color: black;
 	}
 	.sign-item i{
@@ -389,34 +520,30 @@ i.fa.fa-bars{
 	}
 
 	/************* Menu search screen desktop *********/
+	.side-bar{
+		width: 25%;
+		float: right;
+	}
 	.search{
-		width: 100%;
-		height: 150px;
-		margin-top: 15px;
-		z-index: 1;
+		width: 99%;
+		border-radius: 5px;
+		margin-left: 5px;
+		margin-top: 10px;
 		position: relative;
 	}
 	.row{
 		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		position: relative;
-		top: 15px;
+		flex-direction: column;
 	}
 	.select{
-		width: 21%;
-		margin: 0 0 15px 32px;
+		width: 95%;
 	}
 	.icon-s{
 		padding: 5px;
-		position: absolute;
 		bottom: 15px;
 		right: 30px;
-	}
-	.icon-s:hover{
-		cursor: pointer;
-		color: black;
-		background-color: #EBD203;
+		margin-bottom: 10px;
+    	border-radius: 5px;
 	}
 	.icon-s i{
 		font-size: 1.5em;
@@ -425,13 +552,32 @@ i.fa.fa-bars{
 	.icon-s span{
 		font-size: 1.2em;
 	}
+	.news{
+		display: block;
+		background-color: #4FB748;
+		width: 99%;
+		border-radius: 5px;
+		margin-left: 5px;
+		margin-top: 10px;
+		border: 2px solid #4FB748;
+		border-top: none;
+	}
+	.new-item{
+		margin-bottom: 10px;
+		background-color: white;
+		color: black;
+		padding: 5px;
+		font-size: 0.9em;
+		text-align: justify;
+		border-bottom: 2px solid white;
+	}
 	/************* CSS content desktop *********/
 	.image:hover .icon-p{display: block;}
 	.image:hover{cursor: pointer;}
 	.content-right1{
 		width:70%;
 		float: left;
-		padding-right: 10px;
+		padding: 0 10px 0 5px;
 		border-right: 1px solid #CDD0D2;
 	}
 	#content-right .description{
@@ -444,11 +590,14 @@ i.fa.fa-bars{
 		color: #66A400;
 	}
 	.item-cr1{
+		text-align: left !important;
 		padding-top: 5px;
 	}
 	.price-service{display: block;}
-	.item-cr1 .fa{width: 25px;
-		color: #37454D}
+	.item-cr1 .fa{
+		width: 25px;
+		color: black
+	}
 	#content-left .image img{
 		margin: 5px;
 	}
