@@ -7,8 +7,9 @@
 	-webkit-box-sizing:border-box;
 }
 body{
-	margin: 0 auto;
-	background-color: #EBECED;
+	width: 100%;
+	margin: 0 auto !important;
+	background-color: white !important;
 	font-size: 16px !important;
 }
 a{
@@ -25,14 +26,15 @@ ol, ul{
 }
 .container{
 	width: 100%;
-	padding: 0 !important;
+	padding: 0 2px !important;
+	background-color: white;
 }
 .content{font-size: 0.9em}
 .banner{
-	background-color: green;
-	position: relative;
-	width: 100%;
-	height: 200px;
+	background-image: url(../IMG/banner.jpg);
+	background-position: center center;
+	height: 460px;
+	display: none;
 }
 .face{
 	font-size: 1.6em;
@@ -322,6 +324,7 @@ i.fa.fa-bars{
 	
 /*********** CSS menu-mobile screen-600 ************/
 @media only screen and (min-width: 600px){
+	.banner{border-bottom: 2px solid #1D5D6F;}
 	.menu-dropdown{
 		max-width: 40%;
 		margin-left: 60%;
@@ -371,6 +374,7 @@ i.fa.fa-bars{
 /*********** CSS desktop screen-1024px ************/
 @media only screen and (min-width: 1024px){
 	a{font-size: 0.9em}
+	.banner{display: block;}
 	.menu-1024{display: block;}
 	.container{
 		width: 100% !important;
@@ -424,7 +428,7 @@ i.fa.fa-bars{
 		display: none;
 	}
 	.menu-1024{
-		margin: 2px 0;
+		margin: 0;
 		background-color: #004824;
 	}
 	.menu-1024 .item{
