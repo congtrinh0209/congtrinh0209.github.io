@@ -28,18 +28,33 @@ ol, ul{
 	width: 100%;
 	padding: 0 2px !important;
 	background-color: white;
+	position: relative;
+}
+.logo{
+	border-radius: 5px;
+	height: 90px;
+	width: 9%;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	z-index: 2;
+}
+.logo img{
+	width: 100%;
+	height: 80px;
 }
 .content{font-size: 0.9em}
 .banner{
 	background-image: url(../IMG/banner.jpg);
 	background-position: center center;
-	height: 460px;
+	width: 100%;
+	height: 150px;
 	display: none;
 }
 .face{
 	font-size: 1.6em;
 	position: absolute;
-	bottom: -4px;
+	top: 0px;
 	right: 5px;
 	color: white;
 }
@@ -324,7 +339,8 @@ i.fa.fa-bars{
 	
 /*********** CSS menu-mobile screen-600 ************/
 @media only screen and (min-width: 600px){
-	.banner{border-bottom: 2px solid #1D5D6F;}
+	.banner{border-bottom: 2px solid #1D5D6F;
+		display: block;}
 	.menu-dropdown{
 		max-width: 40%;
 		margin-left: 60%;
@@ -374,7 +390,72 @@ i.fa.fa-bars{
 /*********** CSS desktop screen-1024px ************/
 @media only screen and (min-width: 1024px){
 	a{font-size: 0.9em}
-	.banner{display: block;}
+	.banner{display: block;
+		height: 480px;
+	}
+	.list-banner{
+		width: 94%;
+		margin-left: 5%;
+		height: 23em;
+		bottom: 55px;
+		left: 0px;
+	}
+	.list{
+		width: 15%;
+		height: 10em;
+		float: left;
+		margin-right: 3%;
+		position: relative;
+	}
+	.list .list-text{
+		width: 100%;
+	    height: 15em;
+	    background-color: rgba(0, 223, 0, 0.6);
+	    border-radius: 50%;
+	}
+
+	.list:nth-child(1){
+		width: 23%;
+		height: 20em;
+	}
+	.list:nth-child(1) .list-text{
+		width: 100%;
+		height: 19em;
+		background-color: rgba(249, 250, 87, 0.8);
+		border-radius: 50%;
+	}
+	.list:nth-child(1) .list-text::after{ 
+		border: solid transparent;
+	    content: "";
+	    border-width: 4.2em;
+	   	border-top: 5.2em solid rgba(249, 248, 87, 0.8);
+	    left: 19.5%;
+	    position: absolute;
+	    top: 84%;
+	}
+	.list .list-text::after{
+		width: 63%;
+		border: solid transparent;
+	    content: "";
+	    border-width: 3.8em;
+	    border-top: 5em solid rgba(0, 233, 0, 0.5);
+	    left: 9%;
+	    position: absolute;
+	    top: 118%;
+	}
+	.list:nth-child(2){
+		margin-top: 180px;
+	}
+	.list:nth-child(3){
+		margin-top: 10px;
+	}
+	.list:nth-child(4){
+		margin-top: 170px;
+	}
+	.list:nth-child(5){
+		margin-top: 15px;
+	}
+
 	.menu-1024{display: block;}
 	.container{
 		width: 100% !important;
@@ -398,28 +479,38 @@ i.fa.fa-bars{
 	.face{display: none;}
 	.face2{
 		display: block;
-		font-size: 1.6em;
+		padding: 0 3px; 
 		position: absolute;
-		bottom: -4px;
+		top: 50px;
 		right: 5px;
+		border-top-radius: 5px;
 	}
-	.face2 i{color: blue;}
-	.face2 .text-f {
-	    font-size: .7em;
-	    color: white;
+	.f-icon{
+		font-size: 1.8em;
+		color: blue;
+		float: left;
+		}
+	.f-share img{
+		height: 25px;
+		float: left;
+	}
+	.face2 .f-share {
 	    display: inline-block;
+	    padding-top: 7px;
 	    max-width: 0;
 	    opacity: 0;
 	    visibility: hidden;
 	    transition: all .5s linear;
 	}
-	.face2:hover{cursor: pointer;}
-	.face2:hover .text-f {
-		max-width: 130px;
+	.face2:hover .f-share {
+		max-width: 69px;
 		opacity: 1;
 		visibility: visible;
 		margin-left: .5em;
 	}
+	.f-share:hover img{
+		cursor: pointer;
+		opacity: 0.5;}
 	/************* Menu cho desktop*********/
 	.menu-mobile{
 		display: none;
@@ -428,25 +519,27 @@ i.fa.fa-bars{
 		display: none;
 	}
 	.menu-1024{
+		padding-top: 12px;
+		padding-left: 10px;
 		margin: 0;
-		background-color: #004824;
+		background-color: white;
 	}
 	.menu-1024 .item{
 		width: 8%;
 		height: 100%;
 		border-radius: 5px;
-		background-color: #004824;
+		background-color: white;
 		margin-right: 2px;
 		float: left;
-		border-right: 2px solid white;
-		border-bottom: 2px solid #004824;
+		border-bottom: 2px solid white;
 	}
+	.menu-1024 .item:nth-child(1){visibility: hidden;}
 	.menu-1024 .item:nth-child(6){
 		width: 9% !important;
 	}
 	.menu-1024 .item a{
 		width: 100%;
-		color: white;
+		color: #004824;
 		text-align: center;
 	}
 	.menu-1024 .item i{
@@ -472,7 +565,7 @@ i.fa.fa-bars{
 	.sub-menu{
 		width: 170px;
 		position: absolute;
-		top: 58px;
+		top: 63px;
 		display: none;
 		z-index: 2;
 	}
@@ -522,7 +615,7 @@ i.fa.fa-bars{
 		margin-top: 1px;
 		color: white;
 		height: 38px;
-		width: 125px;
+		width: 47%;
 	}
 	.sign button:hover{
 		cursor: pointer;
@@ -534,7 +627,7 @@ i.fa.fa-bars{
 		padding-right: 2px;
 	}
 	.sign-item span{
-		font-size: 1.3em;
+		font-size: 1.2em;
 	}
 
 	/************* Menu search screen desktop *********/
@@ -630,5 +723,13 @@ i.fa.fa-bars{
 	a{font-size: 1em}
 	.sign button {
     margin-left: 5px;
+	}
+	.list:nth-child(1) .list-text::after{ 
+	    border-width: 91px;
+	  	border-top: 105px solid rgba(249, 248, 87, 0.8);
+	}
+	.list .list-text::after{
+	    border-width: 4.9em;
+	    border-top: 5.5em solid rgba(0, 233, 0, 0.5);
 	}
 }
