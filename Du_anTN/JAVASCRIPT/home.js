@@ -14,3 +14,13 @@ $('.item-mobile:nth-child(6)').click(function(){
 	$('i.fa.fa-bars').css('display','block');
 	$('.item-dropdown').css('opacity','0')
 });
+/************menu-fixed*****************/
+$(window).scroll(function(){
+	if ($(this).scrollTop()>480){
+					/*show icon-top*/
+		$('.search').addClass("search-fixed");
+	}
+	else{
+		$('.search').removeClass("search-fixed");
+	}
+})
