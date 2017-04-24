@@ -270,16 +270,17 @@ i.fa.fa-bars{
 	#content-left{
 		max-width: 100%;
 	}
-	#content-left .image{
-		position: relative;
-		margin: 0 auto;
-		width: 100%;
+	/***********Tùy chỉnh side ảnh*********/
+	#myCarousel{
+		margin-top: 7px;
 	}
-	#content-left .image img{
-		width: 100%;
-		margin-bottom: 10px;
-		border-radius: 5px;
+	.carousel-indicators{
+		margin-bottom: -10px !important;
 	}
+	.carousel-inner>.item>img {
+    	border-radius: 7px !important;
+	}
+	/***********Tùy chỉnh side ảnh*********/
 	.image .icon-p{
 		background-color: rgba(41,51,57,.75);
 		display: none;
@@ -337,7 +338,11 @@ i.fa.fa-bars{
 		background-position: right top;
 		color: #cc3300;
 	}
-	
+	.footer-content{
+		width: 100%;
+		height: 150px;
+		background-color: black;
+	}
 /*********** CSS menu-mobile screen-600 ************/
 @media only screen and (min-width: 600px){
 	.banner{
@@ -364,15 +369,7 @@ i.fa.fa-bars{
 		max-width: 66%;
 		position: relative;
 	}
-	#content-left .image{
-		position: relative;
-		margin: 0 auto;
-		width: 100%;
-	}
-	#content-left .image img{
-		width: 100%;
-		border-radius: 5px;
-	}
+	
 	.search{
 		width: 100%;
 		margin-top: 15px;
@@ -391,6 +388,7 @@ i.fa.fa-bars{
 }
 /*********** CSS desktop screen-1024px ************/
 @media only screen and (min-width: 1023px){
+
 	.wrapper-container{
 		position: relative;
 		margin-top: 480px;
@@ -546,15 +544,7 @@ i.fa.fa-bars{
 		float: left;
 	}
 	.content{border: 2px solid #4FB748;}
-	#content-left .image{
-		position: relative;
-		margin: 0 auto;
-		width: 100%;
-	}
-	.image i{
-		font-size: 2em;
-		color: white;
-	}
+	
 	/********* Icon Face **********/
 	.face{display: none;}
 	.face2{
@@ -796,9 +786,7 @@ i.fa.fa-bars{
 		width: 25px;
 		color: black
 	}
-	#content-left .image img{
-		margin: 5px;
-	}
+	
 }
 
 @media only screen and (min-width: 1280px){

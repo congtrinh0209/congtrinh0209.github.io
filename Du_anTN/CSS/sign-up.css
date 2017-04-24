@@ -1,0 +1,132 @@
+.clear{clear: both;}
+.wrapper-container{margin-top: 0 !important}
+.side-bar{display: none;}
+.wrap-content{
+	width: 100%;
+	}
+.content{padding: 30px;}
+.sign-item span {
+    background-color: rgba(255,255,255,0) !important;
+	}
+.icon-s span {
+    background-color: rgba(255,255,255,0) !important;
+	}
+.date{color: black !important}
+.error1{
+	position: absolute;
+	top: 2%;
+	left: 45%;
+}
+.error2{
+	position: absolute;
+	top: 5%;
+	left: 45%;
+}
+.error3{
+	position: absolute;
+	top: 8%;
+	left: 45%;
+}
+.error4{
+	position: absolute;
+	top: 10%;
+	left: 45%;
+}
+.error5{
+	position: absolute;
+	top: 12%;
+	left: 45%;
+}
+.error6{
+	position: absolute;
+	top: 14%;
+	left: 45%;
+}
+input{
+	padding-left: 7px;
+	font-size: 18px;}
+#mobile, #pass-word, #email{
+	width: 400px;
+	height: 40px;
+}
+span{
+	font-size: 15px;
+	background-color: #B94A48;
+	color: white;
+	border-radius: 7px;
+}
+.fa{
+	font-size: 25px;
+}
+select{
+	width: 90px;
+	height: 30px;
+	padding-left: 7px;
+}
+#first-name,#last-name,#mobile,#pass-word,#email{
+	height: 40px;
+	margin-bottom: 10px;
+	border: 1px solid #D4DAE6;
+	border-radius: 7px;
+}
+.terms{
+	font-size: 12px;
+	color: #666666;
+}
+#submit{
+	width: 195px;
+	height: 40px;
+	background-color: #5B9248;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border-radius: 7px;
+}
+#submit:hover{cursor: pointer;}
+/*** Style trang tạo tài khoản****/
+.user{
+	position: relative;
+	padding-bottom: 15px;
+}
+.info{
+	position: absolute;
+	left: 100px;
+	width: 300px;
+	color: #000099;
+}
+.pass{
+	width: 320px;
+	color: #000099;
+}
+.home{
+	background-color: #5B9248;
+	color: white;
+	font-size: 20px;
+	width: 250px;
+	height: 45px;
+	border-radius: 7px;
+	margin-top: 30px;
+}
+.home:hover{
+	background-color: #B94A48;
+	cursor: pointer;
+}
+.avatar{
+	width: 20%;
+	float: left;
+}
+.avatar .image{
+	width: 100%;
+	height: 200px;
+	border: 1px solid black;
+	background-image: url(../IMG/avatar.jpg);
+	background-position: center center;
+}
+.avatar .image img{width: 100%;}
+.sign-input{
+	float: right;
+	width: 78%;
+}
+.upload{
+	margin: 7px;
+}

@@ -15,8 +15,9 @@ $('.item-mobile:nth-child(6)').click(function(){
 	$('.item-dropdown').css('opacity','0')
 });
 /************menu-fixed*****************/
-$(window).scroll(function(){
-	if ($(this).scrollTop()>480){
+
+/*$(window).scroll(function(){
+	if ($(this).scrollTop()>500){
 					/*show icon-top*/
 		$('.search').addClass("search-fixed");
 	}
