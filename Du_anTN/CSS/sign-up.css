@@ -63,6 +63,9 @@ select{
 	height: 30px;
 	padding-left: 7px;
 }
+#first-name,#last-name{
+	width: 200px !important;
+}
 #first-name,#last-name,#mobile,#pass-word,#email{
 	height: 40px;
 	margin-bottom: 10px;

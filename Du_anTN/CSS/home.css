@@ -48,7 +48,6 @@ ol, ul{
 	margin-top: 0 !important;
 	background-image: url(../IMG/banner.jpg);
 	background-position: center center;
-	width: 100%;
 	height: 150px;
 	display: none;
 }
@@ -62,7 +61,7 @@ ol, ul{
 .face:hover{cursor: pointer;}
 .face2{display: none}
 .clear{ clear: both;}
-/*********** CSS menu-mobile screen-320 ************/
+/*********** CSS Form đăng nhập screen-320 ************/
 .sign button{
 	border: none;
 	background-color: #E74C3C;
@@ -71,22 +70,82 @@ ol, ul{
 	color: white;
 	height: 25px;
 	width: 100px;
+	font-size: 17px !important;
 }
-.sign-item:nth-child(1){
+.btn .btn-info .btn-lg{
 	top: 0px;
 	right: 102px;
 }
-.sign-item:nth-child(2){
+.btn .btn-info .btn-su{
 	top: 0;
 	right: 0;
 }
-.sign-item i{
-	font-size: 1.4em;
+.btn .btn-info i{
+	font-size: 1.4em !important;
 	padding-right: 5px;
 }
-.sign-item span{
-	font-size: 1.1em;
+.btn .btn-info span{
+	font-size: 1.1em !important;
 }
+.login{width: 540px !important}
+#myModal > div > div > div.modal-body > form > div:nth-child(2) > span{
+	width: 160px !important;
+}
+		/********Css form*********/
+form {
+    border: 3px solid #f1f1f1;
+}
+.container .form{
+	width: 560px !important;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+
 /************* Menu cho mobile*********/
 .menu-1024{display: none;}
 .menu-mobile{
@@ -182,7 +241,9 @@ i.fa.fa-bars{
 	left: 50px;
 	color: #fbf7f7;
 }
-/************** Search screen mobile*/
+/************** Form đăng nhập********/
+
+/************** Menu tim kiem screen mobile*/
 	.search{
 		width: 100%;
 		background-color: #4FB748;
@@ -323,7 +384,7 @@ i.fa.fa-bars{
 	.button-detail{
 		border: 1px solid #288AD6;
 		border-radius: 3px;
-		width: 120px;
+		
 		height: 40px;
 		margin-top: 5px;
 		cursor: pointer;
@@ -340,13 +401,16 @@ i.fa.fa-bars{
 	}
 	.footer-content{
 		width: 100%;
-		height: 150px;
+		height: 100px;
 		background-color: black;
+	}
+	.footer .top-footer{
+		width: 100%;
 	}
 /*********** CSS menu-mobile screen-600 ************/
 @media only screen and (min-width: 600px){
 	.banner{
-		display: block;}
+		display: none;}
 	.menu-dropdown{
 		max-width: 40%;
 		margin-left: 60%;
@@ -398,6 +462,7 @@ i.fa.fa-bars{
 	}
 	a{font-size: 0.9em}
 	.banner{
+		width: 1024px;
 		display: block;
 		height: 480px;
 		position: fixed;
@@ -406,10 +471,9 @@ i.fa.fa-bars{
 	}
 	.list-banner{
 		width: 94%;
-		margin-left: 5%;
+		margin: 0 auto;;
 		height: 23em;
 		bottom: 55px;
-		left: 0px;
 	}
 	.list{
 		width: 15%;
@@ -431,8 +495,9 @@ i.fa.fa-bars{
 	.list-text img{
 		width: 70%;
 		margin-left: 14%;
-		margin-top: 2%;
+		margin-top: 14%;
 	}
+	.item1 .list-text img{margin-top: 1%;}
 	@keyframes rote-img{
 		0% {
 	    transform: rotateZ(25deg);
@@ -486,21 +551,21 @@ i.fa.fa-bars{
 	.list:nth-child(1) .list-text::after{ 
 		border: solid transparent;
 	    content: "";
-	    border-width: 4.2em;
-	   	border-top: 5.2em solid rgba(249, 248, 87, 0.8);
-	    left: 19.5%;
+	    border-width: 4.7em;
+	    border-top: 6.2em solid rgba(249, 248, 87, 0.8);
+	    left: 15.5%;
 	    position: absolute;
-	    top: 84%;
+	    top: 82%;
 	}
 	.list .list-text::after{
 		width: 63%;
-		border: solid transparent;
+	    border: solid transparent;
 	    content: "";
-	    border-width: 3.8em;
+	    border-width: 3.2em;
 	    border-top: 5em solid rgba(0, 233, 0, 0.5);
-	    left: 9%;
+	    left: 16%;
 	    position: absolute;
-	    top: 118%;
+	    top: 125%;
 	}
 	.list:nth-child(2){
 		margin-top: 180px;
@@ -692,11 +757,11 @@ i.fa.fa-bars{
 		background-position: right top;
 		color: black;
 	}
-	.sign-item i{
+	.btn .btn-info i{
 		font-size: 1.3em;
 		padding-right: 2px;
 	}
-	.sign-item span{
+	.btn .btn-info span{
 		font-size: 1.2em;
 	}
 
@@ -795,16 +860,29 @@ i.fa.fa-bars{
 		margin-left: auto !important;
 		margin-right: auto !important;
 	}
+	.banner {
+		width: 100%;
+	}
+	.list-banner{
+		width: 1200px;
+	}
+	.list:nth-child(1){
+		width: 24%;
+	}
+	.list:nth-child(1) .list-text::after{
+		border-width: 5.7em;
+		left: 18%;
+		top:84%;
+	}
+	li.list.item2 > div > p{
+		width: 160px;
+	}
 	a{font-size: 1em}
 	.sign button {
     margin-left: 5px;
 	}
-	.list:nth-child(1) .list-text::after{ 
-	    border-width: 91px;
-	  	border-top: 105px solid rgba(249, 248, 87, 0.8);
-	}
 	.list .list-text::after{
-	    border-width: 4.9em;
+	    border-width: 3.9em;
 	    border-top: 5.5em solid rgba(0, 233, 0, 0.5);
 	}
 }
