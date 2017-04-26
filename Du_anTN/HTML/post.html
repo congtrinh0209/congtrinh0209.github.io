@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kênh thông tin tìm kiếm phòng trọ</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Phòng trọ, Tìm kiếm phòng trọ, Cho thuê nhà trọ">
+	<meta name="author" content="congtrinh0209">
+	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/sign-up.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/post.css">
+	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	
+	<div class="wrapper-container">
+		<div class="container">
+			<div class="header">
+				<div class="logo"><img src="../IMG/logo1.png"></div>
+				<div class="face"><i class="fa fa-facebook-square"></i></div>
+				<ul class="face2">
+					<li class="f-icon"><i class="fa fa-facebook"></i></li>
+					<li class="f-share left"><a href=""><img src="../IMG/f-share1.jpg"></a></li>
+					<li class="f-share right"><a href=""><img src="../IMG/f-share.png"></a></li>
+					<div class="clear"></div>
+				</ul>
+
+				<div class="main-menu">
+					<div class="menu-mobile">
+						<ul>
+							<li class="item-mobile"><i class="fa fa-search"></i><p>Tìm phòng</p></li>
+							<li class="item-mobile"><i class="fa fa-binoculars"></i><p>Giúp tôi</p></li>
+							<li class="item-mobile"><i class="fa fa-book"></i><p>Quản lý</p></li>
+							<li class="item-mobile"><i class="fa fa-upload"></i><p>Đăng tin</p></li>
+							<li class="item-mobile">
+								<div class="icon1"></div>
+								<div class="icon2"></div>
+								<i class="fa fa-bars"></i>
+							</li>
+							<li class="item-mobile">
+								<div class="icon3"></div>
+								<div class="icon4"></div>
+							</li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+					<div class="menu-dropdown">
+						<ul>
+							<li class="item-dropdown"><i class="fa fa-home"></i><a href="#">Trang chủ</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Phòng cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Nhà cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Căn hộ cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Mặt bằng cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-users"></i><a href="#">Ở ghép</a></li>
+							<li class="item-dropdown"><i class="fa fa-life-ring"></i><a href="#">Hướng dẫn</a></li>
+							<li class="item-dropdown"><i class="fa fa-upload"></i><a href="#">Đăng tin</a></li>
+							<li class="item-dropdown"><i class="fa fa-money"></i><a href="#">Nạp tiền</a></li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+					<div class="menu-1024">
+						<ul>
+							<li class="item"><a href="#"><i class="fa fa-home"></i></br>Trang chủ</a></li>
+							<li class="item"><a href="#"><i class="fa fa-user-secret"></i></br>Cho thuê</a>
+								<ul class="sub-menu">
+									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Phòng cho thuê</a></li>
+									<li class="sub-item" id="sub2"><a href=""><i class="fa fa-bolt"></i>Nhà cho thuê</a></li>
+									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Chung cư mini</a></li>
+									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Mặt bằng cho thuê</a></li>
+								</ul>
+							</li>
+							<li class="item"><a href="#"><i class="fa fa-binoculars"></i></br>Giúp tôi</a></li>
+							<li class="item"><a href="#"><i class="fa fa-users"></i></br>Ở ghép</a></li>
+							<li class="item"><a href="#"><i class="fa fa-newspaper-o"></i></br>Tin tức</a></li>
+							<li class="item"><a href="#"><i class="fa fa-life-ring"></i></br>Hướng dẫn</a></li>
+							<li class="item"><a href="#"><i class="fa fa-upload"></i></br>Đăng tin</a></li>
+							<li class="item"><a href="#"><i class="fa fa-book"></i></br>Quản lý</a></li>
+							<li class="item"><a href="#"><i class="fa fa-money"></i></br>Nạp tiền</a></li>
+							<div class="sign">
+								<button type="button" class="sign-item"><i class="fa fa-sign-in"></i><span>Đăng nhập</span></button>
+								<button type="button" class="sign-item"><i class="fa fa-pencil"></i><span>Đăng ký</span></button>
+							</div>
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+			<div class="wrap-content-postnews">
+				<form class="form" id="form-dangtin" enctype="multipart/form-data" novalidate="novalidate">
+					<div class="wrapper form-step step1">
+						<div class="group-form">
+							<div class="form-title"><h3>THÔNG TIN CƠ BẢN</h3></div>
+							<div class="group-form-body">
+								<p class="notice">Là người văn minh và tôn trọng người xem, hãy viết nội dung bằng Tiếng Việt có dấu!</p>
+								<div class="form-group">
+							      <label for="tieude">Tiêu đề tin:</label>
+							      <input type="email" class="form-control" id="tieude" placeholder="Hãy đặt tiêu đề đầy đủ, ý nghĩa khách hàng sẽ quan tâm hơn">
+							    </div>
+							    <!form-row 1>
+								<div class="form-inline">
+								  <div class="form-group">
+								    <label for="email">Loại hình cho thuê</label></br>
+								    <select class="form-control" id="email">
+								    	<option>Chọn loại hình cho thuê</option>
+										<option>Thuê phòng trọ</option>
+										<option>Thuê nhà</option>
+										<option>Chung cư mini</option>
+										<option>Mặt bằng kinh doanh</option>
+									</select>
+								  </div>
+								  <div class="form-group">
+								    <label for="pwd">Số điện thoại</label></br>
+								    <input type="text" class="form-control" id="pwd">
+								  </div>
+								</div>
+								<!form-row 2>
+								<div class="form-inline">
+								  <div class="form-group">
+								    <label for="email">Giá cho thuê:</label></br>
+								    <input type="text" class="form-control" id="email">
+								  </div>
+								  <div class="form-group">
+								    <label for="pwd">Đơn vị:</label></br>
+								    <select class="form-control" id="pwd">
+										<option>Triệu/tháng</option>
+										<option>Nghìn/tháng</option>
+									</select>
+								  </div>
+								</div>
+								<!form-row 3>
+								<h4>Giá dịch vụ cơ bản</h4>
+								<div class="form-inline">
+								  <div class="form-group">
+								    <label for="pwd">Giá điện:</label></br>
+								    <input type="text" class="form-control" id="pwd" placeholder="ex: 3.000đồng/số">
+								  </div>
+								   <div class="form-group">
+								    <label for="pwd">Giá nước:</label></br>
+								    <input type="text" class="form-control" id="pwd" placeholder="ex: 15.000đồng/m3, 50.000đồng/tháng">
+								  </div></br>
+								   <div class="form-group">
+								    <label for="pwd">Internet:</label></br>
+								    <input type="text" class="form-control" id="pwd" placeholder="ex: 50.000đồng/tháng">
+								  </div>
+								  <div class="form-group">
+								    <label for="pwd">Gửi xe:</label></br>
+								    <input type="text" class="form-control" id="pwd" placeholder="ex: Free, 50.000đồng/tháng">
+								  </div>
+								</div>
+							</div>
+						</div>
+						<!Phần địa chỉ>
+						<div class="group-form">
+							<div class="form-title"><h3>ĐỊA CHỈ</h3></div>
+							<div class="group-form-body">
+								<div class="form-inline">
+								  <div class="form-group">
+								    <label for="email">Tỉnh/Thành phố</label></br>
+								    <select class="form-control" id="email">
+								    	<option>Hà Nội</option>
+										<option>Đà Nẵng</option>
+										<option>Tp.Hồ Chí Minh</option>
+									</select>
+								  </div>
+								  <div class="form-group">
+								    <label for="email">Quận/Huyện</label></br>
+								    <select class="form-control" id="email">
+								    	<option>Hoàn Kiếm</option>
+										<option>Đống Đa</option>
+										<option>Thanh Xuân</option>
+									</select>
+								  </div>
+								</div>
+								<!form-row 2>	
+								  <div class="form-group">
+								    <label for="email">Phường/Xã</label></br>
+								    <select class="form-control" id="email">
+								    	<option>Mỗ Lao</option>
+										<option>Văn Quán</option>
+										<option>Văn Phú</option>
+									</select>
+								  </div>
+								<div class="form-group">
+									    <label for="email">Số nhà, Tên đường cụ thể</label></br>
+									    <input type="text" class="form-control" id="email">
+								</div>
+							</div>
+						</div>
+						<!Phần hình bản đồ>
+						<div class="group-form">
+								<div class="form-title"><h3>BẢN ĐỒ</h3></div>
+								<div class="group-form-body">
+									
+								</div>
+						</div>
+						<!Thông tin mô tả chi tiết>
+						<div class="group-form">
+							<div class="form-title"><h3>THÔNG TIN MÔ TẢ CHI TIẾT</h3></div>
+							<div class="group-form-body">
+								<div class="form-group">
+								  <label for="comment">Giới thiệu mô tả về tin đăng của bạn. Ví dụ: Khu nhà có vị trí thuận lợi: Gần trường học, gần trạm xe buýt ...Tổng diện tích 52m2, đường đi ô tô vào tận cửa...</label>
+								  <textarea class="form-control" rows="5" id="comment"></textarea>
+								</div>
+							</div>
+						</div>
+						<!Phần hình ảnh hoặc video>
+						<div class="group-form">
+								<div class="form-title"><h3>HÌNH ẢNH HOẶC VIDEO VỀ PHÒNG TRỌ.</h3></div>
+								<i>Tin đăng có hình ảnh hoặc video rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có. Hãy đăng ảnh hoặc video để được giao dịch nhanh chóng!</i>
+								<div class="group-form-body">
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-12">
+												<p>Định dạng ảnh hỗ trợ: .jpg .png .jpeg .gif - Dung lượng ảnh không quá 2MB</p>
+												<div class="list-input-uploads clearfix">
+													<div class="more-item more-item-1">
+														<input type="file" class="dimmy-input-file" name="image-inputs[]" data-id="1" id="image-inputs-1" multiple="" accept=".jpg, .png, .jpeg, .bmp, .tif, .tiff|images/*">
+														<div class="preview-area-image-inputs preview-area-image-inputs-1 clearfix"></div>
+													</div>
+												</div>										
+												<div class="upload_percent_wrapper js-upload_percent_wrapper progress hidden">
+													<div class="upload_percent js-upload_percent progress-bar progress-bar-success" style="width: 80%;">80%</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+						</div>
+						
+					<div class="wrapper form-step step2">
+						
+					</div>
+					
+					<button type="submit" class="btn-sub">Đăng tin ngay</button>
+					
+				</form>
+				</div>
+				<div class="side-bar-form">
+						<h3>
+							<b>Hướng dẫn đăng tin</b>
+						</h3>
+						<div class="huongdan">
+							<ul>
+								<li>- Nội dung phải viết bằng tiếng Việt có dấu</li>
+								<li>- Tiêu đề tin không dài quá 100 kí tự</li>
+								<li>- Các bạn nên điền đầy đủ thông tin vào các mục để tin đăng có hiệu quả hơn.</li>
+								<li>- Để tăng độ tin cậy và tin rao được nhiều người quan tâm hơn, hãy sửa vị trí tin rao của bạn trên bản đồ bằng cách kéo icon tới đúng vị trí của tin rao.</li>
+								<li>- Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng!</li>
+							</ul>
+						</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+			<div class="footer">
+				<img class="top-footer" src="../IMG/footer.png">
+				<div class="footer-content"></div>
+			</div>
+		</div>
+	</div>
+	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
+	<script src="../JAVASCRIPT/home.js"></script>
+	<script src="../JAVASCRIPT/sign-up.js"></script>
+	<script src="../../bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

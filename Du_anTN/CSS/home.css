@@ -110,7 +110,7 @@ input[type=text], input[type=password] {
 button {
     background-color: #4CAF50;
     color: white;
-    padding: 14px 20px;
+
     margin: 8px 0;
     border: none;
     cursor: pointer;
@@ -365,6 +365,7 @@ i.fa.fa-bars{
 	.content-right1{
 		color: #37454D;
 	}
+	.line{border-bottom: 2px solid #055699}
 	.content-right1 .item-cr1{
 		text-align: justify;
 		margin-bottom: 5px;
@@ -398,6 +399,11 @@ i.fa.fa-bars{
 	.button-detail:hover{
 		background-position: right top;
 		color: #cc3300;
+	}
+	.des-detail-content{
+		border: 1px solid black;
+		border-radius: 5px;
+		padding: 10px;
 	}
 	.footer-content{
 		width: 100%;
