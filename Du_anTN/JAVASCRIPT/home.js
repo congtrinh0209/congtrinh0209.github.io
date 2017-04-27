@@ -16,12 +16,15 @@ $('.item-mobile:nth-child(6)').click(function(){
 });
 /************menu-fixed*****************/
 
-/*$(window).scroll(function(){
-	if ($(this).scrollTop()>500){
-					/*show icon-top*/
-		$('.search').addClass("search-fixed");
+$(window).scroll(function(){
+	if ($(this).scrollTop()>$(".banner").height()){
+		$('.header').addClass("header-fixed");
+		$('.wrap-content').addClass("wrap-content-fixed");
 	}
 	else{
-		$('.search').removeClass("search-fixed");
-	}
+	$('.header').removeClass("header-fixed");
+	$('.wrap-content').removeClass("wrap-content-fixed");
+	}	
 })
+
+/************content trang đăng*****************/

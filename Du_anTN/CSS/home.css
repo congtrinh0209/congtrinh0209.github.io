@@ -30,19 +30,7 @@ ol, ul{
 	padding: 0 2px !important;
 	background-color: white;
 }
-.logo{
-	border-radius: 5px;
-	height: 90px;
-	width: 9%;
-	position: absolute;
-	top: 0%;
-	left: 0%;
-	z-index: 2;
-}
-.logo img{
-	width: 100%;
-	height: 80px;
-}
+
 .content{font-size: 0.9em}
 .banner{
 	margin-top: 0 !important;
@@ -385,7 +373,6 @@ i.fa.fa-bars{
 	.button-detail{
 		border: 1px solid #288AD6;
 		border-radius: 3px;
-		
 		height: 40px;
 		margin-top: 5px;
 		cursor: pointer;
@@ -400,10 +387,49 @@ i.fa.fa-bars{
 		background-position: right top;
 		color: #cc3300;
 	}
-	.des-detail-content{
-		border: 1px solid black;
+	/***** CSS Nội dung xem chi tiết*******/
+	
+	.menu-detail{
+		margin-top: 10px;
+		border-top: 1px solid #4fb748;
+    	padding-top: 10px;
+		position: relative;
+	}
+	#btn-close{
+		width: 80px;
 		border-radius: 5px;
+	    background-color: #E74C3C;
+	    background: linear-gradient(to left, #f7968c 50%,#E74C3C 50%);
+	    background-size: 200% 100%;
+	    transition: background-position 100ms ease;
+	    background-position: left bottom;
+	    margin-top: 1px;
+	    color: white;
+		position: absolute;
+		top: 5px;
+		right: 0;
+	}
+	#detail-item2{
+		text-indent: 1.5em;
+		text-align: justify;
+	}
+	.des-detail-content{
 		padding: 10px;
+	}
+	.tab-content{
+		padding-top: 10px;
+		border: 1px solid #dddddd;
+		border-top: none;}
+	#myCarousel2{
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+/**************Content footer**********************/
+	.footer{
+		background-color: #fff;
+		position: relative;
+		z-index: 2;
 	}
 	.footer-content{
 		width: 100%;
@@ -466,6 +492,9 @@ i.fa.fa-bars{
 		border-top: 2px solid #1D5D6F;
 		background-color: #fff;
 	}
+	.wrap-content-fixed{
+		margin-top: 90px;
+	}
 	a{font-size: 0.9em}
 	.banner{
 		width: 1024px;
@@ -474,6 +503,14 @@ i.fa.fa-bars{
 		position: fixed;
 		top:0;
 		left: 0;
+	}
+	.header-fixed{
+		border-bottom: 2px solid #00914E;
+		background-color: #fff;
+		position: fixed;
+		width: 1024px;
+		top:0;
+		z-index: 3;
 	}
 	.list-banner{
 		width: 94%;
@@ -545,7 +582,7 @@ i.fa.fa-bars{
 	.list:nth-child(1) .list-text .name{
 		font-size: 1.2em;
 	    font-weight: bold;
-	    color: lightcoral;
+	    color: #E74C3C;
 	}
 	.list-text .slogan {
 		font-size: 1em;
@@ -674,7 +711,7 @@ i.fa.fa-bars{
 		float: left;
 		border-bottom: 2px solid white;
 	}
-	.menu-1024 .item:nth-child(1){visibility: hidden;}
+	
 	.menu-1024 .item:nth-child(6){
 		width: 9% !important;
 	}
@@ -783,13 +820,6 @@ i.fa.fa-bars{
 		margin-top: 10px;
 		position: relative;
 	}
-	.search-fixed{
-		position: fixed;
-		top: -8px;
-		right: 5.5%;
-		width: 21.9%;
-		z-index: 3;
-	}
 	.row{
 		display: flex;
 		flex-direction: column;
@@ -868,6 +898,14 @@ i.fa.fa-bars{
 	}
 	.banner {
 		width: 100%;
+	}
+	.header-fixed{
+		background-color: #fff;
+		position: fixed;
+		border-bottom: 2px solid #00914E;
+		width: 1200px;
+		top:0;
+		z-index: 3;
 	}
 	.list-banner{
 		width: 1200px;

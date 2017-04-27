@@ -6,7 +6,6 @@
 	<meta name="description" content="Phòng trọ, Tìm kiếm phòng trọ, Cho thuê nhà trọ">
 	<meta name="author" content="congtrinh0209">
 	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
-	<link rel="stylesheet" type="text/css" href="../CSS/sign-up.css">
 	<link rel="stylesheet" type="text/css" href="../CSS/post.css">
 	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
@@ -14,11 +13,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	
-	<div class="wrapper-container">
+	<div class="wrapper-container" style="margin-top: 0 !important">
 		<div class="container">
 			<div class="header">
-				<div class="logo"><img src="../IMG/logo1.png"></div>
 				<div class="face"><i class="fa fa-facebook-square"></i></div>
 				<ul class="face2">
 					<li class="f-icon"><i class="fa fa-facebook"></i></li>
@@ -79,16 +76,83 @@
 							<li class="item"><a href="#"><i class="fa fa-book"></i></br>Quản lý</a></li>
 							<li class="item"><a href="#"><i class="fa fa-money"></i></br>Nạp tiền</a></li>
 							<div class="sign">
-								<button type="button" class="sign-item"><i class="fa fa-sign-in"></i><span>Đăng nhập</span></button>
-								<button type="button" class="sign-item"><i class="fa fa-pencil"></i><span>Đăng ký</span></button>
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i><span>Đăng nhập</span></button>
+								<! Form đăng nhập>
+							<!-- Modal -->
+							  <div class="modal fade" id="myModal" role="dialog">
+							    <div class="modal-dialog">
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							          <h4 class="modal-title">Đăng nhập hệ thống!</h4>
+							        </div>
+							        <div class="modal-body">
+							          <form action="action_page">
+							            <div class="container form">
+							              <label><b>Tên đăng nhập</b></label>
+							              <input type="text" placeholder="Email hoặc số điện thoại" name="uname" required>
+
+							              <label><b>Mật khẩu</b></label>
+							              <input type="password" placeholder="Mật khẩu đăng nhập" name="psw" required>
+
+							              <button class="login" type="submit">Login</button>
+							              <input type="checkbox" checked="checked"> Remember me
+							            </div>
+
+							            <div class="container form" style="background-color:#f1f1f1">
+							              <span class="psw"><a href="#">Forgot password?</a></span>
+							            </div>
+							          </form>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							      
+							    </div>
+							  </div>
+								<! Form đăng ký>
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil"></i><span>Đăng ký</span></button>
+								<!-- Modal -->
+							  <div class="modal fade" id="myModal2" role="dialog">
+							    <div class="modal-dialog">
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							          <h4 class="modal-title">Đăng ký tài khoản!</h4>
+							        </div>
+							        <div class="modal-body">
+							          <form action="action_page">
+							            <div class="container form">
+							              <label><b>Tên tài khoản</b></label>
+							              <input type="text" placeholder="Tên của bạn" name="uname" required>
+										<label><b>Số điện thoại</b></label>
+										<input type="text" placeholder="Số điện thoại" name="uname" required>
+							              <label><b>Mật khẩu</b></label>
+							              <input type="password" placeholder="Mật khẩu" name="psw" required>
+							              <label><b>Nhập lại mật khẩu</b></label>
+							              <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
+							              <button class="login" type="submit">Đăng ký</button> 
+							            </div>   
+							          </form>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>  
+							    </div>
+							  </div>
 							</div>
 							<div class="clear"></div>
 						</ul>
 					</div>
-				</div>
-				
+				</div>		
 			</div>
-			<div class="wrap-content-postnews">
+			<div class="wrap-content">
 				<form class="form" id="form-dangtin" enctype="multipart/form-data" novalidate="novalidate">
 					<div class="wrapper form-step step1">
 						<div class="group-form">
@@ -189,13 +253,7 @@
 								</div>
 							</div>
 						</div>
-						<!Phần hình bản đồ>
-						<div class="group-form">
-								<div class="form-title"><h3>BẢN ĐỒ</h3></div>
-								<div class="group-form-body">
-									
-								</div>
-						</div>
+						
 						<!Thông tin mô tả chi tiết>
 						<div class="group-form">
 							<div class="form-title"><h3>THÔNG TIN MÔ TẢ CHI TIẾT</h3></div>
@@ -238,33 +296,85 @@
 					<button type="submit" class="btn-sub">Đăng tin ngay</button>
 					
 				</form>
-				</div>
-				<div class="side-bar-form">
-						<h3>
-							<b>Hướng dẫn đăng tin</b>
-						</h3>
-						<div class="huongdan">
-							<ul>
-								<li>- Nội dung phải viết bằng tiếng Việt có dấu</li>
-								<li>- Tiêu đề tin không dài quá 100 kí tự</li>
-								<li>- Các bạn nên điền đầy đủ thông tin vào các mục để tin đăng có hiệu quả hơn.</li>
-								<li>- Để tăng độ tin cậy và tin rao được nhiều người quan tâm hơn, hãy sửa vị trí tin rao của bạn trên bản đồ bằng cách kéo icon tới đúng vị trí của tin rao.</li>
-								<li>- Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng!</li>
-							</ul>
-						</div>
-				</div>
-				<div class="clear"></div>
-			</div>
-			
-			<div class="footer">
-				<img class="top-footer" src="../IMG/footer.png">
-				<div class="footer-content"></div>
 			</div>
 		</div>
+			<div class="side-bar">
+				<div class="search">
+						<div class="title-side">
+							TÌM PHÒNG
+						</div>
+						<div class="row">
+							<select class="select">
+								<option>Tỉnh, TP</option>
+								<option>Hà Nội</option>
+								<option>TP.HCM</option>
+							</select>
+							<select class="select">
+								<option>Quận, Huyện</option>
+								<option>Hai Bà Trưng</option>
+								<option>Thanh Xuân</option>
+								<option>Đống Đa</option>
+								<option>Cầu Giấy</option>
+								<option>Từ Liêm</option>
+							</select>
+							<select class="select">
+								<option>Gần ĐH, CĐ</option>
+								<option>Bách Khoa</option>
+								<option>Xây Dựng</option>
+								<option>Tài chính</option>
+								<option>Ngoại thương</option>
+							</select>
+							<select class="select">
+								<option>Bạn là?</option>
+								<option>Sinh viên</option>
+								<option>Người đi làm</option>
+								<option>Kinh doanh</option>
+							</select>
+						</div>
+						<div class="row">
+							<select class="select">
+								<option>Bạn cần tìm?</option>
+								<option>Thuê phòng trọ</option>
+								<option>Thuê nhà</option>
+								<option>Chung cư mini</option>
+								<option>Mặt bằng kinh doanh</option>
+							</select>
+							<select class="select">
+								<option>Diện tích?</option>
+								<option>Dưới 15m2</option>
+								<option>15m2 - 25m2</option>
+								<option>25m2 - 35m2</option>
+								<option>Trên 35m2</option>
+							</select>
+							<select class="select">
+								<option>Mức giá?</option>
+								<option>500 - 1000</option>
+								<option>1000 - 1500</option>
+								<option>1500 - 2000</option>
+								<option>2000 - 3000</option>
+								<option>Trên 3000</option>
+							</select>
+						</div>
+						<div class="icon-s"><i class="fa fa-search"></i><span>Tìm Kiếm</span></div>
+				</div>
+				<div class="news">
+					<div class="title-side">
+						TIN TỨC
+					</div>
+					<div class="new-item">Chung cư mini mới xây gồm 200 phòng toàn bộ nội thất trong phòng được thiết kế bằng gỗ rất mát mẻ, sang trọng. Chính thức đưa tòa nhà vào hoạt…</div>
+					<div class="new-item">Chung cư mini mới xây gồm 200 phòng toàn bộ nội thất trong phòng được thiết kế bằng gỗ rất mát mẻ, sang trọng. Chính thức đưa tòa nhà vào hoạt…</div>
+					<div class="new-item">Chung cư mini mới xây gồm 200 phòng toàn bộ nội thất trong phòng được thiết kế bằng gỗ rất mát mẻ, sang trọng. Chính thức đưa tòa nhà vào hoạt…</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>	
+	</div>
+	<div class="footer">
+		<img class="top-footer" src="../IMG/footer.png">
+		<div class="footer-content"></div>
 	</div>
 	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
 	<script src="../JAVASCRIPT/home.js"></script>
-	<script src="../JAVASCRIPT/sign-up.js"></script>
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,34 +1,28 @@
-.wrap-content-postnews{
-	margin: 40px 0;
-	width: 100%;
-}
 #form-dangtin{
-	width: 70% !important;
-	padding: 10px;
-	float: left;
-	border: none !important;
-}
-.side-bar-form{
-	width: 28%;
-	height: 400px;
-	padding: 10px;
-	float: right;
+	width: 100% !important;
+	margin-top: 10px;
+	border: none;
 }
 .group-form{
-	border: 2px solid red;
-	border-radius: 7px;
-	margin-top: 10px;
+	border: 2px solid #00914E;
+	margin-bottom: 20px;
 }
+.huongdan{padding: 10px;}
 .huongdan ul li{
 	text-align: justify;
 }
 #pwd{
-	height: 40px;
 	margin-top: 0 !important; 
 }
+.form-control{
+	margin: 0 !important;
+}
+.form-inline{
+	margin-bottom: 10px;
+}
 .form-title{
-	background-color: blue;
-	color: white;
+	background-color: #4FB748;
+	color: black;
 	padding: 10px;
 	margin-bottom:10px; 
 }
@@ -54,4 +48,7 @@
 h3{
 	margin: 0 !important;
 	font-size: 18px !important;
+}
+.group-form-body div.form-group label{
+	color: #E74C3C;
 }
