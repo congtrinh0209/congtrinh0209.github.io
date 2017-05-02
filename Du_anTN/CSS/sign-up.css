@@ -133,3 +133,6 @@ select{
 .upload{
 	margin: 7px;
 }
+#detail-item1{
+	border: none;
+}

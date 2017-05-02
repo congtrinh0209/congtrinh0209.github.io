@@ -75,6 +75,33 @@ ol, ul{
 .btn .btn-info span{
 	font-size: 1.1em !important;
 }
+/*option tab support*/
+.tab-pane{
+	padding: 10px;
+	font-size: 0.9em;
+}
+/*option form thong tin ca nhan*/
+#form_thong_tin_ca_nhan{
+	border: none;
+	padding: 5px;
+	position: relative;
+}
+#update{
+	margin-left: 15px;
+	width: 150px !important;
+}
+.avatar{
+	position: absolute;
+	top: 5%;
+	right: 5%;
+	display: none;
+}
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+/*option form thong tin ca nhan*/
 .login{width: 540px !important}
 #myModal > div > div > div.modal-body > form > div:nth-child(2) > span{
 	width: 160px !important;
@@ -98,7 +125,6 @@ input[type=text], input[type=password] {
 button {
     background-color: #4CAF50;
     color: white;
-
     margin: 8px 0;
     border: none;
     cursor: pointer;
@@ -120,10 +146,6 @@ button:hover {
     margin: 24px 0 12px 0;
 }
 
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
 .container {
     padding: 16px;
 }
@@ -319,7 +341,7 @@ i.fa.fa-bars{
 	#content-left{
 		max-width: 100%;
 	}
-	/***********Tùy chỉnh side ảnh*********/
+	/***********Tùy chỉnh slide ảnh*********/
 	#myCarousel{
 		margin-top: 7px;
 	}
@@ -329,7 +351,7 @@ i.fa.fa-bars{
 	.carousel-inner>.item>img {
     	border-radius: 7px !important;
 	}
-	/***********Tùy chỉnh side ảnh*********/
+	/***********Tùy chỉnh slide ảnh*********/
 	.image .icon-p{
 		background-color: rgba(41,51,57,.75);
 		display: none;
@@ -357,6 +379,7 @@ i.fa.fa-bars{
 	.content-right1 .item-cr1{
 		text-align: justify;
 		margin-bottom: 5px;
+		cursor: pointer;
 	}
 	.local, .area{font-weight: bold;color: black;}
 	.date{color: red;}
@@ -413,9 +436,6 @@ i.fa.fa-bars{
 		text-indent: 1.5em;
 		text-align: justify;
 	}
-	.des-detail-content{
-		padding: 10px;
-	}
 	.tab-content{
 		padding-top: 10px;
 		border: 1px solid #dddddd;
@@ -447,6 +467,7 @@ i.fa.fa-bars{
 		max-width: 40%;
 		margin-left: 60%;
 	}
+	.wrapper-container{min-height: 1000px;}
 	.wrap-content{
 		width: 100%;
 		position: relative;
@@ -484,10 +505,11 @@ i.fa.fa-bars{
 }
 /*********** CSS desktop screen-1024px ************/
 @media only screen and (min-width: 1023px){
-
+	.avatar{display: block;}
 	.wrapper-container{
 		position: relative;
 		margin-top: 480px;
+		padding-bottom: 70px;
 		width: 100%;
 		border-top: 2px solid #1D5D6F;
 		background-color: #fff;
@@ -580,7 +602,7 @@ i.fa.fa-bars{
 		border-radius: 50%;
 	}
 	.list:nth-child(1) .list-text .name{
-		font-size: 1.2em;
+		font-size: 1em;
 	    font-weight: bold;
 	    color: #E74C3C;
 	}
