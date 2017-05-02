@@ -80,6 +80,38 @@ ol, ul{
 	padding: 10px;
 	font-size: 0.9em;
 }
+/*option tab tin tức*/
+.image-new{
+	width: 25%;
+	height: 145px;
+	border: 1px solid black;
+	float: left;
+}
+.image-new img{width: 100%;}
+.new{
+	width: 75%;
+	height: 145px;
+	padding-left: 15px;
+	border: 1px solid black;
+	float: right;
+	position: relative;
+}
+.btn-new{
+	width: 100px;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+}
+.btn-new:hover{
+	background-color: red;
+	color: #fff;
+}
+.new-title h4:hover{
+	cursor: pointer;
+	color: #4CAF50;
+}
+/*option tab tin tức*/
+
 /*option form thong tin ca nhan*/
 #form_thong_tin_ca_nhan{
 	border: none;
@@ -379,13 +411,13 @@ i.fa.fa-bars{
 	.content-right1 .item-cr1{
 		text-align: justify;
 		margin-bottom: 5px;
-		cursor: pointer;
 	}
 	.local, .area{font-weight: bold;color: black;}
 	.date{color: red;}
 	#content-right .title a{
 		color: #288AD6;
 		text-align: justify;
+		cursor: pointer;
 	}
 	#content-right .price, .phone{
 		color: #66A400;

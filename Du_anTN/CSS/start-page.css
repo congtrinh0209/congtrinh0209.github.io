@@ -25,74 +25,121 @@ body{
 	position: relative;
 	width: 75%;
 	float: left;
-	border: 1px solid black;
+}
+.slogan-img{
+	opacity: 0;
+	width: 450px;
+	position: absolute;
+    left: 18%;
+    top: -5px;
+    transition: opacity ease 1s 1.5s;
+	animation: slogan-ani ease 1s 1.5s;
+}
+.slogan-text{
+	opacity: 0;
+	width: 450px;
+	position: absolute;
+    left: 19%;
+    top: 45px;
+    transition: opacity ease 1s 2s;
+	animation: slogan-ani ease 1s 2s;
 }
 .logo1{
 	position: absolute;
-	top: 170px;
-	left: 27%;
-	width: 390px;
-	height: 300px;
-
-	animation: logo-ani ease 2s 0.8s;
+    top: 220px;
+    left: 27%;
+    width: 300px;
+    height: 250px;
+	opacity: 0;
+	transition: opacity ease 2s 0.5s;
+	animation: logo-ani ease 2s 0.5s;
 }
 .logo2{
-	
+	opacity: 0;
 	position: absolute;
-	top: 0px;
-	left: 0%;
-	width: 270px;
-	height: 250px;
-	animation: logo-ani ease 2s 1.8s;
+    top: 100px;
+    left: 1%;
+    width: 190px;
+    height: 185px;
+	transition: opacity ease 1s 3.5s;
+	animation: logo-ani ease 1s 3.5s;
 }
 .logo3{
 	position: absolute;
-	top: 300px;
-	left: 2%;
-	width: 270px;
-	height: 250px;
-	
+	opacity: 0;
+	top: 350px;
+    left: 5%;
+    width: 200px;
+    height: 190px;
+	transition: opacity ease 1s 3s;
+	animation: logo-ani ease 1s 3s;
 }
 .logo4{
 	position: absolute;
-	top: 15px;
-	left: 66%;
-	width: 220px;
-	height: 230px;
-
+	opacity: 0;
+	top: 102px;
+    left: 65%;
+    width: 170px;
+    height: 175px;
+	transition: opacity ease 1s 3.5s;
+	animation: logo-ani ease 1s 3.5s;
 }
 .logo5{
 	position: absolute;
-	top: 445px;
-	left: 33%;
-	width: 230px;
-	height: 220px;
+	opacity: 0;
+	top: 460px;
+    left: 33%;
+    width: 185px;
+    height: 185px;
+	transition: opacity ease 1s 2.5s;
+	animation: logo-ania ease 1s 2.5s;
 }
 .logo6{
 	position: absolute;
-	top: 295px;
-	left: 66%;
-	width: 230px;
-	height: 230px;
+	opacity: 0;
+	top: 341px;
+    left: 62%;
+    width: 160px;
+    height: 185px;
+	transition: opacity ease 1s 3s;
+	animation: logo-ani ease 1s 3s;
 }
 .item{
 	width: 100%;
 	height: 100%;
 }
-
-@keyframes logo-ani{
+@keyframes slogan-ani{
 		0% {
-		    opacity: 0;
-		    transform: translate(0px,50px);
+		    transform: translate(80px,0px);
 		}
 		100% {
-		    opacity: 1;
+		    transform: translate(0px,0px);
+		}
+	}
+@keyframes logo-ania{
+		0% {
+		    transform: translate(0px,20px);
+		}
+		100% {
+		    transform: translate(0px,0px);
+		}
+	}
+	@keyframes logo-ani{
+		0% {
+		    transform: translate(0px,60px);
+		}
+		100% {
 		    transform: translate(0px,0px);
 		}
 	}
 
 .content-right{
+	position: relative;
+	opacity: 0;
 	width: 25%;
+	top: 50px;
+	left: -3%;
 	float: right;
-	border: 1px solid black;
+	transition: opacity ease 1.5s 4.2s;
+	animation: slogan-ani ease 1.5s 4.2s;
 }

@@ -27,4 +27,15 @@ $(window).scroll(function(){
 	}	
 })
 
-/************content trang đăng*****************/
+/************Start-page*****************/
+$(document).ready(function(){
+	$('.slogan-img').css('opacity','1');
+	$('.slogan-text').css('opacity','1');
+	$('.logo1').css('opacity','1');
+	$('.logo2').css('opacity','1');
+	$('.logo3').css('opacity','1');
+	$('.logo4').css('opacity','1');
+	$('.logo5').css('opacity','1');
+	$('.logo6').css('opacity','1');
+	$('.content-right').css('opacity','1');
+});
