@@ -119,25 +119,29 @@
 							          <h4 class="modal-title">Đăng nhập hệ thống!</h4>
 							        </div>
 							        <div class="modal-body">
-							          <form action="home.html" id="sign-in">
-							            <div class="container form">
-							              <label><b>Tên đăng nhập</b></label>
-							              <input type="text" id="uname" placeholder="Email hoặc số điện thoại" name="uname" required><span style="color:red" class="error1"></span>
+										<form action="home.html" id="sign-in"><!--Login form-->
+								            <div class="container form">
+								              <label><b>Tên đăng nhập</b></label>
+								              <input type="text" id="uname" placeholder="Email hoặc số điện thoại" name="uname" required><span style="color:red" class="error1"></span>
+								              <label><b>Mật khẩu</b></label>
+								              <input type="password" id="psw" placeholder="Mật khẩu đăng nhập" name="psw" required><span style="color:red" class="error2"></span>
 
-							              <label><b>Mật khẩu</b></label>
-							              <input type="password" id="psw" placeholder="Mật khẩu đăng nhập" name="psw" required><span style="color:red" class="error2"></span>
+								              <button class="login" type="submit">Login</button>
+								              <input type="checkbox" checked="checked"> Remember me
+								            </div>
+							          	</form>
 
-							              <button class="login" type="submit">Login</button>
-							              <input type="checkbox" checked="checked"> Remember me
-							            </div>
-
-							            <div class="container form" style="background-color:#f1f1f1">
-							              <span class="psw" id="forgot-pass" data-toggle="collapse" data-target="#send-mobile"><a>Forgot password?</a></span>
-							              <input type="text" id="send-mobile" class="collapse" placeholder="Số điện thoại" name="mobile" required>
-							              <span style="color:red" class="error3"></span>
-							              <button id="send">Gửi</button>
-							            </div>
-							          </form>
+							          <form id="request-pass">   <!--Request-password form-->
+								          <div class="container form" style="background-color:#f1f1f1">
+								              <div class="psw" id="forgot-pass" data-toggle="collapse" data-target="#u-mobile"><a>Forgot password?</a></div>
+								              <div class="collapse" id="u-mobile">
+								              	<input type="text" id="send-mobile"  placeholder="Nhập số điện thoại của bạn chúng tôi sẽ gửi lại mật khẩu cho bạn" name="mobile" required><span style="color:red" class="error3"></span></br>
+								              	<button id="send" type="submit">Gửi</button>
+								              </div>
+								              <span style="color:red" class="error3"></span>
+								              
+								            </div>
+							            </form>
 							        </div>
 							        <div class="modal-footer">
 							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -159,20 +163,21 @@
 							          <h4 class="modal-title">Đăng ký tài khoản!</h4>
 							        </div>
 							        <div class="modal-body">
-							          <form action="action_page">
-							            <div class="container form">
-							              <label><b>Tên tài khoản</b></label>
-							              <input type="text" placeholder="Tên của bạn" name="uname" required>
-										<label><b>Số điện thoại</b></label>
-										<input type="text" placeholder="Số điện thoại" name="uname" required>
-							              <label><b>Mật khẩu</b></label>
-							              <input type="password" placeholder="Mật khẩu" name="psw" required>
-							              <label><b>Nhập lại mật khẩu</b></label>
-							              <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
-							              <button class="login" type="submit">Đăng ký</button> 
-							            </div>   
-							          </form>
+							        	<form action="action_page" id="login-form">
+							            	<div class="container form">
+							            		<label><b>Tên tài khoản</b></label>
+							            		<input type="text" placeholder="Tên của bạn" name="uname" required>
+												<label><b>Số điện thoại</b></label>
+												<input type="text" placeholder="Số điện thoại" name="uname" required>
+							           			<label><b>Mật khẩu</b></label>
+							            		<input type="password" id="psw1" placeholder="Mật khẩu" name="psw" required>
+							            		<label><b>Nhập lại mật khẩu</b></label>
+							            		<input type="password" id="psw2" placeholder="Nhập lại mật khẩu" name="psw" required><span style="color:red" class="error4"></span>
+							            		<button class="login" type="submit">Đăng ký</button> 
+							            	</div>   
+							       		</form>
 							        </div>
+
 							        <div class="modal-footer">
 							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 							        </div>

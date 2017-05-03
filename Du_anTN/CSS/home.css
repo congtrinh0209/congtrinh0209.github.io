@@ -156,15 +156,11 @@ height: 145px;}
 	color: black;
 	background-color: #64a9de;
 }
-#send-mobile{
-	display: none;
+#send{width: 100px;}
+#forgot-pass:hover{
+	cursor: pointer;
 }
-.manager-user{
-	
-}
-.sign-out{
-	
-}
+#forgot-pass:hover a{color: red;}
 
 /*option form thong tin ca nhan*/
 #form_thong_tin_ca_nhan{
