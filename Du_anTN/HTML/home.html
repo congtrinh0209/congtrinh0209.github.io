@@ -52,12 +52,7 @@
 		<div class="container">
 			<div class="header">
 				<div class="face"><i class="fa fa-facebook-square"></i></div>
-				<ul class="face2">
-					<li class="f-icon"><i class="fa fa-facebook"></i></li>
-					<li class="f-share left"><a href=""><img src="../IMG/f-share1.jpg"></a></li>
-					<li class="f-share right"><a href=""><img src="../IMG/f-share.png"></a></li>
-					<div class="clear"></div>
-				</ul>
+				
 
 				<div class="main-menu">
 					<div class="menu-mobile">
@@ -124,20 +119,23 @@
 							          <h4 class="modal-title">Đăng nhập hệ thống!</h4>
 							        </div>
 							        <div class="modal-body">
-							          <form action="action_page">
+							          <form action="home.html" id="sign-in">
 							            <div class="container form">
 							              <label><b>Tên đăng nhập</b></label>
-							              <input type="text" placeholder="Email hoặc số điện thoại" name="uname" required>
+							              <input type="text" id="uname" placeholder="Email hoặc số điện thoại" name="uname" required><span style="color:red" class="error1"></span>
 
 							              <label><b>Mật khẩu</b></label>
-							              <input type="password" placeholder="Mật khẩu đăng nhập" name="psw" required>
+							              <input type="password" id="psw" placeholder="Mật khẩu đăng nhập" name="psw" required><span style="color:red" class="error2"></span>
 
 							              <button class="login" type="submit">Login</button>
 							              <input type="checkbox" checked="checked"> Remember me
 							            </div>
 
 							            <div class="container form" style="background-color:#f1f1f1">
-							              <span class="psw"><a href="#">Forgot password?</a></span>
+							              <span class="psw" id="forgot-pass" data-toggle="collapse" data-target="#send-mobile"><a>Forgot password?</a></span>
+							              <input type="text" id="send-mobile" class="collapse" placeholder="Số điện thoại" name="mobile" required>
+							              <span style="color:red" class="error3"></span>
+							              <button id="send">Gửi</button>
 							            </div>
 							          </form>
 							        </div>
@@ -181,6 +179,18 @@
 							      </div>  
 							    </div>
 							  </div>
+							</div>
+							<div class="info-acc">
+								<div class="img-ava">
+									<img src="../IMG/user.jpg">
+								</div>
+								<div class="info-user">
+									<p>Xin chào: <b style="color: red">Trịnh Công Trình</b></p>
+									<p>Bạn có: <i class="fa fa-money" style="color: red">10.000đ</i> tài khoản</p>
+									<button class="manager-user"><a href="../HTML/manager.html">Quản lý</a></button>
+									<button class="sign-out">Đăng xuất</button>
+								</div>
+								<div class="clear"></div>
 							</div>
 							<div class="clear"></div>
 						</ul>
@@ -228,6 +238,12 @@
 						      <span class="sr-only">Next</span>
 						    </a>
 						</div>
+						<ul class="face2">
+							<li class="f-icon"><i class="fa fa-facebook"></i></li>
+							<li class="f-share left"><a href=""><img src="../IMG/f-share1.jpg"></a></li>
+							<li class="f-share right"><a href=""><img src="../IMG/f-share.png"></a></li>
+							<div class="clear"></div>
+						</ul>
 					</div>
 					<div id="content-right">
 						<div class="content-right1">

@@ -118,7 +118,53 @@ height: 145px;}
 	border: 1px solid #4CAF50;
 	padding: 10px;
 }
-/*option tab tin tức*/
+/*option thông tin sau khi đăng nhập*/
+.info-acc{
+	display: none;
+	background-color: #fff;
+	position: absolute;
+	right: 0;
+	top: 2px;
+	width: 25%;
+	height: 75px;
+}
+.img-ava{
+	float: left;
+	width: 25%;
+}
+.img-ava img{
+	width: 100%;
+	height: 75px;
+	border-radius: 50%;
+}
+.info-user{
+	padding-left: 5px;
+	float: right;
+	width: 75%;
+}
+.info-user button{
+	color: white;
+	border-radius: 3px;
+	margin-top: 3px;
+	display: inline-block;
+	width: 45%;
+}
+.info-user button a{color: white;}
+.info-user button:hover a{color: black;}
+.info-user button:hover{
+	cursor: pointer;
+	color: black;
+	background-color: #64a9de;
+}
+#send-mobile{
+	display: none;
+}
+.manager-user{
+	
+}
+.sign-out{
+	
+}
 
 /*option form thong tin ca nhan*/
 #form_thong_tin_ca_nhan{
@@ -516,6 +562,7 @@ i.fa.fa-bars{
 	margin: 0;
 	}
 	#content-left{
+		position: relative;
 		max-width: 33%;
 		float: left;
 	}
@@ -717,11 +764,10 @@ i.fa.fa-bars{
 	.face{display: none;}
 	.face2{
 		display: block;
-		padding: 0 3px; 
+		padding: 0 3px;
 		position: absolute;
-		top: 50px;
-		right: 5px;
-		border-top-radius: 5px;
+		right: 0px;
+		border-top-radius: 5px;*/
 	}
 	.f-icon{
 		font-size: 1.8em;

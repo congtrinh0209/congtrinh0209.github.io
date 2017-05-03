@@ -39,3 +39,39 @@ $(document).ready(function(){
 	$('.logo6').css('opacity','1');
 	$('.content-right').css('opacity','1');
 });
+/************Đăng nhập*****************/
+$("#forgot-pass").on("click",function(){
+	$("#send-mobile").css("display","block");
+})
+$('#sign-in').on('submit',function() {
+	var user = [
+			user_1={fullname: 'Trịnh Công Trình', mobile: '0868979193', email:'congtrinh0209@gmail.com', pass:'02092008'},
+			];
+	var error = true;
+	if ($('#uname').val()!= user[0].mobile && $('#uname').val()!= user[0].email){
+			$('#uname').next('span').html('<i class="fa fa-exclamation-circle"></i>'+' Email hoặc số điện thoại không đúng</br>');
+			error = false;
+		}
+		else{
+			$('#uname').next('span').text(''); $('.error1').css('padding', '0px');
+		}
+	if ($('#psw').val()!= user[0].pass){
+			$('#psw').next('span').html('<i class="fa fa-exclamation-circle"></i>'+' Mật khẩu không chính xác</br>');
+			error = false;
+		}
+		else{
+			$('#psw').next('span').text(''); $('.error2').css('padding', '0px');
+		}
+	return error;
+})
+
+
+$(document).ready(function(){
+	if ($(location).attr('href').search('psw')>0){
+		$('.sign').css('display','none');
+		$('.info-acc').css('display','block');
+	}
+});
+$(".sign-out").on("click",function() {
+	window.location.href='home.html'
+})
