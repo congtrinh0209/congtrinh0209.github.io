@@ -23,7 +23,7 @@ body{
 }
 .content-left{
 	position: relative;
-	width: 75%;
+	width: 72%;
 	float: left;
 }
 .slogan-img{
@@ -136,10 +136,52 @@ body{
 .content-right{
 	position: relative;
 	opacity: 0;
-	width: 25%;
+	width: 28%;
 	top: 50px;
 	left: -3%;
 	float: right;
 	transition: opacity ease 1.5s 4.2s;
 	animation: slogan-ani ease 1.5s 4.2s;
+}
+.content-right img{
+	position: absolute;
+}
+.locale{}
+.icon-locale{
+	text-align: center;
+    width: 28px;
+    height: 28px;
+    background-image: url(../IMG/locale.png);
+    padding-top: 5px;
+    color: white;
+    float: left
+}
+.locale .locale-text{
+	text-align: center;
+	padding: 5px;
+	float: right;
+	color: white;
+}
+.hn{
+	position: absolute;
+	top: 95px;
+	left: 35%;
+	z-index: 5;
+}
+.hn .locale-text{
+	color: blue;
+	font-size: 1.2em;
+}
+.dn{
+	position: absolute;
+	top: 300px;
+    left: 67%;
+	z-index: 5;
+}
+.hcm{
+	position: absolute;
+	top: 478px;
+    left: 50%;
+	z-index: 5;
+	width: 145px;
 }

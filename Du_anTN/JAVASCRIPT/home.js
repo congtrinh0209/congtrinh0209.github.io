@@ -61,6 +61,16 @@ $('#sign-in').on('submit',function() {   /******Login*******/
 		}
 	return error;
 })
+/******Hiển thị sign-in, sign-up*******/
+$(document).ready(function(){
+	if ($(location).attr('href').search('psw')>0){
+		$('.sign').css('display','none');
+		$('.info-acc').css('display','block');
+	}
+});
+$(".sign-out").on("click",function() {
+	window.location.href='home.html';
+})
 /******Request-pass*******/
 $('#request-pass').on('submit',function() { 
 	var error = true;
@@ -82,17 +92,22 @@ $('#login-form').on('submit',function() {
 		else{
 			$('#psw2').next('span').text(''); $('.error4').css('padding', '0px');}
 	return error;
-	$("#myModal2").css("display","none");
-	$("#promp-signup").css("display","block");
 })
 
-/******Hiển thị sign-in, sign-up*******/
-$(document).ready(function(){
-	if ($(location).attr('href').search('psw')>0){
-		$('.sign').css('display','none');
-		$('.info-acc').css('display','block');
-	}
+/********** Lấy dữ liệu vào trang đưng ký thành công  **********/
+var url = decodeURIComponent($(location).attr('href'));
+var data_url = url.substring(url.search('html')+5);
+var arr_data = data_url.split('&'); /****Mảng dữ liệu từ URL****/
+var name = arr_data[0].substring(arr_data[0].search('=')+1).split('+').join(' ');
+var mobile = arr_data[1].substring(arr_data[1].search('=')+1);
+var email = arr_data[2].substring(arr_data[2].search('=')+1);
+var pass_word = arr_data[3].substring(arr_data[3].search('=')+1);
+/***** Gán dữ liệu****/
+$(".home").click(function(){
+    window.location.href = 'home.html';
 });
-$(".sign-out").on("click",function() {
-	window.location.href='home.html'
-})
+$('.user-name').val(name);
+$('.your-email').val(email);
+$('.your-mobile').val(mobile);
+$('.pass').val(pass_word);
+
