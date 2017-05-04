@@ -15,32 +15,32 @@
 	<div class="banner">
 		<ul class="list-banner">
 			<li class="list item1">
-				<div class="list-text">
+				<div class="list-text ">
 					<img src="../IMG/logo-option2png.png">
 					<p class="name">TÌM PHÒNG CÙNG BẠN</p>
 					<p class="slogan">Sứ mệnh của chúng tôi là mang đến sự hợp tác thoải mái giữa người cho thuê nhà và người đi thuê, vì lợi ích của cả hai bên.</p>
 				</div>
 			</li>
 			<li class="list item2">
-				<div class="list-text">
+				<div class="list-text room">
 					<img class="img-item" src="../IMG/room.png">
 					<p>PHÒNG CHO THUÊ</p>
 				</div>
 			</li>
 			<li class="list item3">
-				<div class="list-text">
+				<div class="list-text house">
 					<img class="img-item" src="../IMG/house.png">
 					<p>NHÀ CHO THUÊ</p>
 				</div>
 			</li>
 			<li class="list item4">
-				<div class="list-text">
+				<div class="list-text flat">
 					<img class="img-item" src="../IMG/flat.png">
 					<p>CHUNG CƯ</p>
 				</div>
 			</li>
 			<li class="list item5">
-				<div class="list-text">
+				<div class="list-text store">
 					<img class="img-item" src="../IMG/store.png">
 					<p>MẶT BẰNG CỬA HÀNG</p>
 				</div>
@@ -102,7 +102,7 @@
 							<li class="item"><a href="#"><i class="fa fa-users"></i></br>Ở ghép</a></li>
 							<li class="item"><a href="../HTML/news.html"><i class="fa fa-newspaper-o"></i></br>Tin tức</a></li>
 							<li class="item"><a href="../HTML/support.html"><i class="fa fa-life-ring"></i></br>Hướng dẫn</a></li>
-							<li class="item"><a href="../HTML/post2.html"><i class="fa fa-upload"></i></br>Đăng tin</a></li>
+							<li class="item"><a><i class="fa fa-upload"></i></br>Đăng tin</a></li>
 							<li class="item"><a href="../HTML/manager.html"><i class="fa fa-book"></i></br>Quản lý</a></li>
 							<li class="item"><a href="#"><i class="fa fa-money"></i></br>Nạp tiền</a></li>
 							<div class="sign">
@@ -204,6 +204,11 @@
 				</div>		
 			</div>
 			<div class="wrap-content">
+				<!--Form thông báo-->
+				<div class="alert alert-danger alert-dismissable fade in" style="display: none">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>Bạn cần đăng nhập để sử dụng chức năng này!</strong>
+				</div>
 				<div class="content">
 					<div id="content-left">
 					
@@ -415,7 +420,7 @@
 							</select>
 						</div>
 						<div class="row">
-							<select class="select">
+							<select class="select loaihinh">
 								<option>Bạn cần tìm?</option>
 								<option>Thuê phòng trọ</option>
 								<option>Thuê nhà</option>
