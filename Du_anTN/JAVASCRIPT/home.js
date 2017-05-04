@@ -14,8 +14,25 @@ $('.item-mobile:nth-child(6)').click(function(){
 	$('i.fa.fa-bars').css('display','block');
 	$('.item-dropdown').css('opacity','0')
 });
-/************menu-fixed*****************/
+/************Trang Start-Page*****************/
+$(document).ready(function(){
+	$(".hn").hover(function() {
+		$(".first").css({"display": "block","visibility": "visible"})
+	},function(){$(".first").css({"display": "none","visibility": "hidden"})});
 
+	$(".dn").hover(function() {
+		$(".second").css({"display": "block","visibility": "visible"})
+	},function(){$(".second").css({"display": "none","visibility": "hidden"})});
+
+	$(".hcm").hover(function() {
+		$(".third").css({"display": "block","visibility": "visible"})
+	},function(){$(".third").css({"display": "none","visibility": "hidden"})});
+	
+	$(".container-popover").hover(function() {
+		$(this).css({"display": "block","visibility": "visible"})
+	},function(){$(this).css({"display": "none","visibility": "hidden"})})
+});
+/************menu-fixed*****************/
 $(window).scroll(function(){
 	if ($(this).scrollTop()>$(".banner").height()){
 		$('.header').addClass("header-fixed");
