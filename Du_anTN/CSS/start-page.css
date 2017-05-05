@@ -152,6 +152,7 @@ p{display: inline-block;}
 }
 
 .icon-locale{
+    border-radius: 50%;
 	text-align: center;
     width: 28px;
     height: 28px;
@@ -214,7 +215,7 @@ p{display: inline-block;}
 	display: none;
 	visibility: hidden;
     margin-top: 36px;
-    margin-left: 34%;
+    margin-left: 26%;
 }
 .third{
 	display: none;
@@ -315,4 +316,22 @@ p{display: inline-block;}
     left: 87px;
     width: 124px;
     height: 84px;
+}
+.nav-bar{
+	background-color: rgba(255, 255, 255, 0.36);
+    position: fixed;
+    top: 190px;
+    right: 2px;
+    border-radius: 43px;
+    padding: 25px 10px 10px;
+    padding-left: 10px !important;
+    opacity: 0;
+    transition: opacity ease 1.3s 5s;
+    animation: logo-ani ease 1.3s 5s;
+}
+.ico{
+	margin-bottom: 20px;
+}
+.ico img{
+	width: 70px;
 }

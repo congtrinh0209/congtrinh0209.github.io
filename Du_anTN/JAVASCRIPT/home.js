@@ -15,6 +15,19 @@ $('.item-mobile:nth-child(6)').click(function(){
 	$('.item-dropdown').css('opacity','0')
 });
 /************Trang Start-Page*****************/
+
+$(document).ready(function(){
+	$('.slogan-img').css('opacity','1');
+	$('.slogan-text').css('opacity','1');
+	$('.logo1').css('opacity','1');
+	$('.logo2').css('opacity','1');
+	$('.logo3').css('opacity','1');
+	$('.logo4').css('opacity','1');
+	$('.logo5').css('opacity','1');
+	$('.logo6').css('opacity','1');
+	$('.nav-bar').css('opacity','1');
+	$('.content-right').css('opacity','1');
+});
 $(document).ready(function(){
 	$(".hn").hover(function() {
 		$(".first").css({"display": "block","visibility": "visible"})
@@ -44,18 +57,6 @@ $(window).scroll(function(){
 	}	
 })
 
-/************Start-page*****************/
-$(document).ready(function(){
-	$('.slogan-img').css('opacity','1');
-	$('.slogan-text').css('opacity','1');
-	$('.logo1').css('opacity','1');
-	$('.logo2').css('opacity','1');
-	$('.logo3').css('opacity','1');
-	$('.logo4').css('opacity','1');
-	$('.logo5').css('opacity','1');
-	$('.logo6').css('opacity','1');
-	$('.content-right').css('opacity','1');
-});
 /************Đăng nhập*****************/
 var user = [
 			user_1={fullname: 'Trịnh Công Trình', mobile: '0868979193', email:'congtrinh0209@gmail.com', pass:'02092008'},
