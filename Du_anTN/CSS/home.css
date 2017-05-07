@@ -188,11 +188,15 @@ height: 145px;}
 	right: 5%;
 	display: none;
 }
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
+#fileDisplayArea {
+  width: 100%;
+  height: 200px;
+  border: 1px solid black;
 }
-
+#fileDisplayArea img{
+	width: 300px;
+	height: 200px;
+}
 /*option form thong tin ca nhan*/
 .login{width: 540px !important}
 #myModal > div > div > div.modal-body > form > div:nth-child(2) > span{

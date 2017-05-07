@@ -1,3 +1,8 @@
+.notice{
+	padding: 10px;
+	background-color: #D9534F;
+	color: white;
+}
 #form-dangtin{
 	width: 100% !important;
 	margin-top: 10px;
@@ -53,3 +58,16 @@ h3{
 .group-form-body div.form-group label{
 	color: #E74C3C;
 }
+#files-list .file-detail{
+    padding: 10px;
+    border-radius: 3px;
+    float: left;
+    margin: 0 10px 0 0;
+}
+.thumbnail{
+	width: 300px;
+    height: 200px;
+}
+ ul li span.title{
+ 	font-weight: bold;
+ }

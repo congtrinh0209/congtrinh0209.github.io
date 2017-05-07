@@ -15,7 +15,7 @@ $('.item-mobile:nth-child(6)').click(function(){
 	$('.item-dropdown').css('opacity','0')
 });
 /************Trang Start-Page*****************/
-
+	
 $(document).ready(function(){
 	$('.slogan-img').css('opacity','1');
 	$('.slogan-text').css('opacity','1');
@@ -43,7 +43,24 @@ $(document).ready(function(){
 	
 	$(".container-popover").hover(function() {
 		$(this).css({"display": "block","visibility": "visible"})
-	},function(){$(this).css({"display": "none","visibility": "hidden"})})
+		},function(){$(this).css({"display": "none","visibility": "hidden"})});
+	/******Request-locale*******/
+	switch (data_url)
+		{
+		    case "locale=hanoi" : {
+		        $(".locale-item").val($(".locale-item>option:nth-child(2)").val());
+		        break;
+		    }
+		    case "locale=danang" : {
+		        $(".locale-item").val($(".locale-item>option:nth-child(3)").val());
+		        break;
+		    }
+		    case "locale=hochiminh" : {
+		        $(".locale-item").val($(".locale-item>option:nth-child(4)").val());
+		        break;
+		    }
+		}
+
 });
 /************menu-fixed*****************/
 $(window).scroll(function(){
@@ -152,6 +169,4 @@ $('.user-name').val(name);
 $('.your-email').val(email);
 $('.your-mobile').val(mobile);
 $('.pass').val(pass_word);
-
-
 

@@ -8,7 +8,6 @@
 	<link rel="stylesheet" type="text/css" href="../CSS/start-page.css">
 	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../../materialize/css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap-theme.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -50,6 +49,7 @@
 			<img src="../IMG/map.png">
 			<div class="locale hn">
 				<div class="icon-locale">1</div>
+				<div class="wave wave-hn"></div>
 				<div class="locale-text">Hà Nội</div>
 				<div class="clear"></div>
 			</div>
@@ -61,12 +61,16 @@
 	                	<li>
 	                		<img src="../IMG/hn.jpg">
 	                	</li>
-	                	<li class="view-more"><div>Tìm phòng</div></li> 
+	                	<li class="view-more"><div><form action="home.html" id="request-locale-hn">
+	                		<input type="text" value="hanoi" name="locale" style="display: none;"></input>
+	                		<button type="submit"> Tìm phòng</button>
+	                	</form></div></li>
 	                </ul>
 	            </div>
             </div>
 			<div class="locale dn">
 				<div class="icon-locale">2</div>
+				<div class="wave wave-dn"></div>
 				<div class="locale-text">Đà Nẵng</div>
 				<div class="clear"></div>
 			</div>
@@ -78,12 +82,16 @@
 	                	<li>
 	                		<img src="../IMG/dn.jpg">
 	                	</li>
-	                	<li class="view-more"><div>Tìm phòng</div></li> 
+	                	<li class="view-more"><div><form action="home.html" id="request-locale-hn">
+	                		<input type="text" value="danang" name="locale" style="display: none;"></input>
+	                		<button type="submit"> Tìm phòng</button>
+	                	</form></div></li>
 	                </ul>
 	            </div>
             </div>
 			<div class="locale hcm">
 				<div class="icon-locale">3</div>
+				<div class="wave wave-hcm"></div>
 				<div class="locale-text">Tp. Hồ Chí Minh</div>
 				<div class="clear"></div>
 			</div>
@@ -95,14 +103,17 @@
 	                	<li>
 	                		<img src="../IMG/hcm.jpg">
 	                	</li>
-	                	<li class="view-more"><div>Tìm phòng</div></li> 
+	                	<li class="view-more"><div><form action="home.html" id="request-locale-hn">
+	                		<input type="text" value="hochiminh" name="locale" style="display: none;"></input>
+	                		<button type="submit"> Tìm phòng</button>
+	                	</form></div></li>
 	                </ul>
 	            </div>
             </div>
 			
 		</div>
 		<ul class="nav-bar">
-			<li class="ico home"><img src="../IMG/home.png"></li>
+			<li class="ico home"><a href="home.html"><img src="../IMG/home.png"></a></li>
 			<li class="ico about"><img src="../IMG/about.png"></li>
 			<li class="ico face"><img src="../IMG/face.png"></li>
 		</ul>
@@ -110,7 +121,7 @@
 	</div>
 	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
 	<script src="../JAVASCRIPT/home.js"></script>
-	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 	<script src="../../materialize/js/materialize.min.js"></script>
 </body>
+
 </html>
