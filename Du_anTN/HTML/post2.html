@@ -76,7 +76,7 @@
 								</div>
 								<div class="info-user">
 									<p>Xin chào: <b style="color: red">Trịnh Công Trình</b></p>
-									<p>Bạn có: <i class="fa fa-money" style="color: red">10.000đ</i> tài khoản</p>
+									<p>Hạng thành viên: <b style="color: red">VIP</b></p>
 									<button class="manager-user"><a href="../HTML/manager.html">Quản lý</a></button>
 									<button class="sign-out">Đăng xuất</button>
 								</div>
@@ -184,19 +184,15 @@
 										<option>Hoàng Đạo Thúy</option>
 									</select>
 								  </div>
-								<div class="form-group">
+								<div class="form-group"><!--Thông tin vị trí cụ thể-->
 									    <label for="email">Số nhà, Tên đường cụ thể</label></br>
-									    <input type="text" class="form-control" id="email">
+									    <input id="pac-input" class="controls" type="text" placeholder="Nhập địa chỉ nhà chi tiết...">
+									    <p style="position: absolute; top: 85px; color: #E74C3C">Vị trí trên bản đồ.</p>
+									    <div id="map"></div>
 								</div>
 							</div>
 						</div>
-						<!--Thông tin vị trí cụ thể-->
-
-							<div class="group-form">
-								<div class="form-title"><h3>VỊ TRÍ TRÊN BẢN ĐỒ</h3></div>
-								<div id="mapholder"></div>
-							</div>
-
+					
 						<!--Thông tin mô tả chi tiết-->
 						<div class="group-form">
 							<div class="form-title"><h3>THÔNG TIN MÔ TẢ CHI TIẾT</h3></div>
@@ -215,10 +211,10 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-12">
-												<p>Định dạng ảnh hỗ trợ: .jpg .png .jpeg .gif - Dung lượng ảnh không quá 2MB</p>
+  												<p>Định dạng ảnh hỗ trợ: .jpg .png .jpeg .gif - Dung lượng ảnh không quá 2MB</p>
 												<input type=file id="files" multiple />
 												<div id="files-list"></div>
-											</div>
+  											</div>
 										</div>
 									</div>
 								</div>
@@ -310,113 +306,122 @@
 		<img class="top-footer" src="../IMG/footer.png">
 		<div class="footer-content"></div>
 	</div>
-	<script src="https://maps.google.com/maps/api/js?&key=AIzaSyD3fFxtvFJIvNa42oy1_NJN9OiiquuNhQY"></script>
-
-<script>
-window.onload = function(){
-	var x = document.getElementById("demo");
-	    if (navigator.geolocation) {
-	        navigator.geolocation.getCurrentPosition(showPosition, showError);
-	    } else { 
-	        x.innerHTML = "Geolocation is not supported by this browser.";
-	    }
-	function showPosition(position) {
-	    lat = position.coords.latitude;
-	    lon = position.coords.longitude;
-	    latlon = new google.maps.LatLng(lat, lon)
-	    mapholder = document.getElementById('mapholder')
-	    mapholder.style.height = '450px';
-	    mapholder.style.width = '833px';
-
-	    var myOptions = {
-	    center:latlon,zoom:16,
-	    mapTypeId:google.maps.MapTypeId.ROADMAP,
-	    mapTypeControl:false,
-	    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
-	    }
-	    
-	    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
-	    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
-	}
-
-	function showError(error) {
-	    switch(error.code) {
-	        case error.PERMISSION_DENIED:
-	            x.innerHTML = "User denied the request for Geolocation."
-	            break;
-	        case error.POSITION_UNAVAILABLE:
-	            x.innerHTML = "Location information is unavailable."
-	            break;
-	        case error.TIMEOUT:
-	            x.innerHTML = "The request to get user location timed out."
-	            break;
-	        case error.UNKNOWN_ERROR:
-	            x.innerHTML = "An unknown error occurred."
-	            break;
-	    }
-	}
-}
-</script>
-	<script type="text/javascript">
-		var maxImageWidth = 800,
-		    totalFiles = 0,
-		    currentTotalFiles = 0,
-		    fileTypeError = false,
-		    fileSizeError = false;
+	<!--Script Load file-->
+	<script type="text/javascript">	
 		function handleFileSelect(event) {
+		  // Lấy danh sách các files mà User chọn
 		  var files = event.target.files;
-		  totalFiles = files.length;
-		  currentTotalFiles = 0;
-		  fileTypeError = false;
-		  fileSizeError = false;
-		  for (var i = 0; i < files.length; i++) {    
+		  for (var i = 0; i < files.length; i++) {
 		    var file = files[i];
+		    // Duyệt từng file trong danh sách và render vào DIV trống đặt sẵn
 		    renderFileInfo(file);
 		  }
 		}
+		// Hàm thực hiện tạo HTML cho việc hiển thị chi tiết một file nào đó truyền vào
 		function renderFileInfo(file) {
+		  // Khởi tạo đối tượng `FileReader`
 		  var fileReader = new FileReader();
+
+		  // Hàm xử lý sự kiện `onload` sau khi file được load
 		  fileReader.onload = function(event) {
+		    // Truy cập vào thuộc tính `result` để lấy được dữ liệu File dưới dạng `data URL`
 		    var imageUrl = event.target.result,
 		        fileDetailHtml = '',
 		        detailElement = document.createElement('div');
+		    // Trường hợp là file ảnh thì hiển thị thêm Thumbnail
 		    if (file.type.match('image.*')) {
-		      var imageObj = new Image();
-		      imageObj.onload = function(e) {
-		        if (imageObj.width < maxImageWidth) {
-		          fileDetailHtml += '<img class="thumbnail" src="' + imageUrl + '" />';  
-		          fileDetailHtml += '<ul class="file-info">'
-		          fileDetailHtml += '</ul>';
-		          detailElement.className = 'file-detail';
-		          detailElement.innerHTML = fileDetailHtml;
-		          document.getElementById('files-list').appendChild(detailElement);
-		        } else {
-		          fileSizeError = true;
-		        }
-		        checkError();
-		      }  
-		      imageObj.src = imageUrl;
-		    } else {
-		      fileTypeError = true;
-		      
-		      checkError();
-		    }    
+		      fileDetailHtml += '<img class="thumbnail" src="' + imageUrl + '" />';
+		    }
+		    // Lấy các thông tin liên quan khác của File
+		    fileDetailHtml += '<ul class="file-info">'
+		    fileDetailHtml += '<li><span class="title">Name</span>: ' + file.name + '</li>';
+		    fileDetailHtml += '<li><span class="title">Size</span>: ' + file.size + ' bytes</li>';
+		    fileDetailHtml += '<li><span class="title">Last Modified</span>: ' + (file.lastModifiedDate ? file.lastModifiedDate.toLocaleDateString() : 'N/A') + '</li>';
+		    fileDetailHtml += '<li><span class="title">Type</span>: ' + file.type + '</li>';
+		    fileDetailHtml += '</ul>';
+		    detailElement.className = 'file-detail';
+		    detailElement.innerHTML = fileDetailHtml;
+		    // Sau khi chuẩn bị xong thông tin thì ghi dữ liệu HTML vào DIV trống chuẩn bị sẵn
+		    document.getElementById('files-list').appendChild(detailElement);
 		  }
+		  // Truyền `File` vào đối tượng `FileReader` và chỉ thị đọc ra dữ liệu dưới dạng `data URL`
+		  // Sau khi load thành công sẽ thực hiện đoạn code trong `onload` function phía trên
 		  fileReader.readAsDataURL(file);
 		}
-		function checkError() {
-		  currentTotalFiles++;
 
-		  if (currentTotalFiles == totalFiles) {
-		    if (fileSizeError) {
-		      console.log('Error on file size!');
-		    } else if (fileTypeError) {
-		      console.log('Error on file type');
-		    }
-		  }
-		}
 		document.getElementById("files").addEventListener('change', handleFileSelect, false);
+
 	</script>
+
+	<!--Script google map-->
+	<script>
+	    function initAutocomplete() {
+	        var map = new google.maps.Map(document.getElementById('map'), {
+	          center: {lat: 21.028511, lng: 105.804817},
+	          zoom: 13,
+	          mapTypeId: 'roadmap'
+	        });
+
+	        // Create the search box and link it to the UI element.
+	        var input = document.getElementById('pac-input');
+	        var searchBox = new google.maps.places.SearchBox(input);
+	        // Bias the SearchBox results towards current map's viewport.
+	        map.addListener('bounds_changed', function() {
+	          searchBox.setBounds(map.getBounds());
+	        });
+	        var markers = [];
+	        // Listen for the event fired when the user selects a prediction and retrieve
+	        // more details for that place.
+	        searchBox.addListener('places_changed', function() {
+	          var places = searchBox.getPlaces();
+	          if (places.length == 0) {
+	            return;
+	          }
+	          // Clear out the old markers.
+	          markers.forEach(function(marker) {
+	            marker.setMap(null);
+	          });
+	          markers = [];
+	          // For each place, get the icon, name and location.
+	          var bounds = new google.maps.LatLngBounds();
+	          places.forEach(function(place) {
+	            if (!place.geometry) {
+	              console.log("Returned place contains no geometry");
+	              return;
+	            }
+	            var icon = {
+	              url: place.icon,
+	              size: new google.maps.Size(71, 71),
+	              origin: new google.maps.Point(0, 0),
+	              anchor: new google.maps.Point(17, 34),
+	              scaledSize: new google.maps.Size(25, 25)
+	            };
+	            // Create a marker for each place.
+	            markers.push(new google.maps.Marker({
+	              map: map,
+	              icon: icon,
+	              title: place.name,
+	              position: place.geometry.location
+	            }));
+	            if (place.geometry.viewport) {
+	              // Only geocodes have viewport.
+	              bounds.union(place.geometry.viewport);
+	            } else {
+	              bounds.extend(place.geometry.location);
+	            }
+	          });
+	          map.fitBounds(bounds);
+	        function moveMarker( map, marker ) {
+			    marker.setPosition( new google.maps.LatLng( Lat, Lng) );
+			    map.panTo( new google.maps.LatLng( Lat, Lng) );
+			};
+	        });
+	        
+	      }
+
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3fFxtvFJIvNa42oy1_NJN9OiiquuNhQY&libraries=places&callback=initAutocomplete"
+         async defer></script>
 	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
 	<script src="../JAVASCRIPT/home.js"></script>
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>

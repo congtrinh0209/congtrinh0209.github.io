@@ -192,7 +192,7 @@
 								</div>
 								<div class="info-user">
 									<p>Xin chào: <b style="color: red">Trịnh Công Trình</b></p>
-									<p>Bạn có: <i class="fa fa-money" style="color: red">10.000đ</i> tài khoản</p>
+									<p>Hạng thành viên: <b style="color: red">VIP</b></p>
 									<button class="manager-user"><a href="../HTML/manager.html">Quản lý</a></button>
 									<button class="sign-out">Đăng xuất</button>
 								</div>
@@ -209,6 +209,7 @@
 					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 					<strong>Bạn cần đăng nhập để sử dụng chức năng này!</strong>
 				</div>
+				<!--Content1-->
 				<div class="content">
 					<div id="content-left">
 					
@@ -382,8 +383,10 @@
 								</div>	    
 							</div>
 					<div class="clear"></div>
-
-					</div>	
+				</div>
+				<!--Content2-->
+				<!--Content3-->
+				<!--Content4-->
 			</div>
 		</div>
 			<div class="side-bar">
@@ -462,16 +465,19 @@
 		<img class="top-footer" src="../IMG/footer.png">
 		<div class="footer-content"></div>
 	</div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4&callback=myMap"></script>
 	<script>
-		function myMap() {
+		window.onload = function myMap() {
 		var mapProp= {
 		    center:new google.maps.LatLng(21.028511, 105.804817),
 		    zoom:16,
 		};
 		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		var marker = new google.maps.Marker({position:mapProp.center});marker.setMap(map);
 		}
+		
 		</script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+	
 	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
 	<script src="../JAVASCRIPT/home.js"></script>
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>

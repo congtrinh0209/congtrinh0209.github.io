@@ -71,13 +71,85 @@ h3{
 ul li span.title{
  	font-weight: bold;
  }
- #mapholder{
- 	width: 833px;
- 	height: 450px;
- }
  .wrap-content{
  	margin-top: 20px;
  }
 .side-bar{
 	margin-top: 10px;
 }
+/******CSS Map**********/
+ #map{
+ 	width: 810px;
+ 	height: 450px;
+ 	margin-top: 91px;
+ }
+ #description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+}
+#infowindow-content .title {
+    font-weight: bold;
+}
+      #infowindow-content {
+        display: none;
+      }
+      #map #infowindow-content {
+        display: inline;
+      }
+      .pac-card {
+        margin: 10px 10px 0 0;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        font-family: Roboto;
+      }
+      #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+      }
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+      #form-dangtin > div > div:nth-child(2) > div.group-form-body > div:nth-child(3){
+      	position: relative;
+      }
+      #pac-input {
+        background-color: #fff;
+        font-family: "Helvetica Neue";
+        font-size: 15px;
+        position: absolute !important;
+        top: 22px !important;
+        left: 0px !important;
+        text-overflow: ellipsis;
+        width: 450px;
+		color: #555;
+	    background-image: none;
+	    border: 1px solid #ccc;
+	    border-radius: 4px;
+	    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+      }
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+      #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+      }
+      #target {
+        width: 345px;
+      }
+     
