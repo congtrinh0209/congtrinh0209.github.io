@@ -68,6 +68,16 @@ h3{
 	width: 300px;
     height: 200px;
 }
- ul li span.title{
+ul li span.title{
  	font-weight: bold;
  }
+ #mapholder{
+ 	width: 833px;
+ 	height: 450px;
+ }
+ .wrap-content{
+ 	margin-top: 20px;
+ }
+.side-bar{
+	margin-top: 10px;
+}

@@ -445,6 +445,11 @@ i.fa.fa-bars{
 	.carousel-inner>.item>img {
     	border-radius: 7px !important;
 	}
+	.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+	    display: block;
+	    max-width: 100%;
+	    height: 200px !important;
+	}
 	/***********Tùy chỉnh slide ảnh*********/
 	.image .icon-p{
 		background-color: rgba(41,51,57,.75);
