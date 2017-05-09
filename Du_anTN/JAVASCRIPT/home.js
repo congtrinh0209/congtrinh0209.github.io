@@ -15,7 +15,6 @@ $('.item-mobile:nth-child(6)').click(function(){
 	$('.item-dropdown').css('opacity','0')
 });
 /************Trang Start-Page*****************/
-	
 $(document).ready(function(){
 	$('.slogan-img').css('opacity','1');
 	$('.slogan-text').css('opacity','1');
