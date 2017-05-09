@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kênh thông tin tìm kiếm phòng trọ</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Phòng trọ, Tìm kiếm phòng trọ, Cho thuê nhà trọ">
+	<meta name="author" content="congtrinh0209">
+	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/search-nearby.css">
+	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	
+	<div class="wrapper-container" style="margin-top: 0 !important">
+		<div class="container">
+			<div class="header">
+				<div class="face"><i class="fa fa-facebook-square"></i></div>
+				
+
+				<div class="main-menu">
+					<div class="menu-mobile">
+						<ul>
+							<li class="item-mobile"><i class="fa fa-search"></i><p>Tìm phòng</p></li>
+							<li class="item-mobile"><i class="fa fa-binoculars"></i><p>Giúp tôi</p></li>
+							<li class="item-mobile"><i class="fa fa-book"></i><p>Quản lý</p></li>
+							<li class="item-mobile"><i class="fa fa-upload"></i><p>Đăng tin</p></li>
+							<li class="item-mobile">
+								<div class="icon1"></div>
+								<div class="icon2"></div>
+								<i class="fa fa-bars"></i>
+							</li>
+							<li class="item-mobile">
+								<div class="icon3"></div>
+								<div class="icon4"></div>
+							</li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+					<div class="menu-dropdown">
+						<ul>
+							<li class="item-dropdown"><i class="fa fa-home"></i><a href="#">Trang chủ</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Phòng cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Nhà cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Căn hộ cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Mặt bằng cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-users"></i><a href="#">Ở ghép</a></li>
+							<li class="item-dropdown"><i class="fa fa-life-ring"></i><a href="#">Hướng dẫn</a></li>
+							<li class="item-dropdown"><i class="fa fa-upload"></i><a href="#">Đăng tin</a></li>
+							<li class="item-dropdown"><i class="fa fa-money"></i><a href="#">Nạp tiền</a></li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+					<div class="menu-1024">
+						<ul>
+							<li class="item"><a href="../HTML/home.html"><i class="fa fa-home"></i></br>Trang chủ</a></li>
+							<li class="item"><a href="#"><i class="fa fa-user-secret"></i></br>Cho thuê</a>
+								<ul class="sub-menu">
+									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Phòng cho thuê</a></li>
+									<li class="sub-item" id="sub2"><a href=""><i class="fa fa-bolt"></i>Nhà cho thuê</a></li>
+									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Chung cư mini</a></li>
+									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Mặt bằng cho thuê</a></li>
+								</ul>
+							</li>
+							<li class="item"><a href="#"><i class="fa fa-binoculars"></i></br>Giúp tôi</a></li>
+							<li class="item"><a href="#"><i class="fa fa-users"></i></br>Ở ghép</a></li>
+							<li class="item"><a href="#"><i class="fa fa-newspaper-o"></i></br>Tin tức</a></li>
+							<li class="item"><a href="../HTML/support.html"><i class="fa fa-life-ring"></i></br>Hướng dẫn</a></li>
+							<li class="item"><a href="../HTML/post2.html"><i class="fa fa-upload"></i></br>Đăng tin</a></li>
+							<li class="item"><a href="../HTML/manager.html"><i class="fa fa-book"></i></br>Quản lý</a></li>
+							<li class="item"><a href="#"><i class="fa fa-money"></i></br>Nạp tiền</a></li>
+							<div class="sign">
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i><span>Đăng nhập</span></button>
+								<! Form đăng nhập>
+							<!-- Modal -->
+							  <div class="modal fade" id="myModal" role="dialog">
+							    <div class="modal-dialog">
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							          <h4 class="modal-title">Đăng nhập hệ thống!</h4>
+							        </div>
+							        <div class="modal-body">
+							          <form action="action_page">
+							            <div class="container form">
+							              <label><b>Tên đăng nhập</b></label>
+							              <input type="text" placeholder="Email hoặc số điện thoại" name="uname" required>
+
+							              <label><b>Mật khẩu</b></label>
+							              <input type="password" placeholder="Mật khẩu đăng nhập" name="psw" required>
+
+							              <button class="login" type="submit">Login</button>
+							              <input type="checkbox" checked="checked"> Remember me
+							            </div>
+
+							            <div class="container form" style="background-color:#f1f1f1">
+							              <span class="psw"><a href="#">Forgot password?</a></span>
+							            </div>
+							          </form>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>
+							      
+							    </div>
+							  </div>
+								<! Form đăng ký>
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil"></i><span>Đăng ký</span></button>
+								<!-- Modal -->
+							  <div class="modal fade" id="myModal2" role="dialog">
+							    <div class="modal-dialog">
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							          <h4 class="modal-title">Đăng ký tài khoản!</h4>
+							        </div>
+							        <div class="modal-body">
+							          <form action="action_page">
+							            <div class="container form">
+							              <label><b>Tên tài khoản</b></label>
+							              <input type="text" placeholder="Tên của bạn" name="uname" required>
+										<label><b>Số điện thoại</b></label>
+										<input type="text" placeholder="Số điện thoại" name="uname" required>
+							              <label><b>Mật khẩu</b></label>
+							              <input type="password" placeholder="Mật khẩu" name="psw" required>
+							              <label><b>Nhập lại mật khẩu</b></label>
+							              <input type="password" placeholder="Nhập lại mật khẩu" name="psw" required>
+							              <button class="login" type="submit">Đăng ký</button> 
+							            </div>   
+							          </form>
+							        </div>
+							        <div class="modal-footer">
+							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							        </div>
+							      </div>  
+							    </div>
+							  </div>
+							</div>
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</div>		
+			</div>
+			<div class="wrap-content">
+				<!--Tìm quanh đây-->
+				<div id="mapholder"></div>
+
+				<div class="content">
+					<div id="content-left">
+					
+						<div id="myCarousel" class="carousel slide" data-ride="carousel">
+						  <!-- Indicators -->
+						  	<ol class="carousel-indicators">
+						      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						      <li data-target="#myCarousel" data-slide-to="1"></li>
+						      <li data-target="#myCarousel" data-slide-to="2"></li>
+						      <li data-target="#myCarousel" data-slide-to="3"></li>
+						    </ol>
+
+						    <!-- Wrapper for slides -->
+						    <div class="carousel-inner" role="listbox">
+						      <div class="item active">
+						        <img src="../IMG/img-p1/1.jpg" alt="anh1" width="460" height="345">
+						      </div>
+
+						      <div class="item">
+						        <img src="../IMG/img-p1/2.jpg" alt="anh2" width="460" height="345">
+						      </div>
+						      <div class="item">
+						        <img src="../IMG/img-p1/3.jpg" alt="anh3" width="460" height="345">
+						      </div>
+								<div class="item">
+							        <img src="../IMG/img-p1/4.jpg" alt="anh3" width="460" height="345">
+							    </div>
+						      
+						    </div>
+
+						    <!-- Left and right controls -->
+						    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+						      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						      <span class="sr-only">Previous</span>
+						    </a>
+						    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+						      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						      <span class="sr-only">Next</span>
+						    </a>
+						</div>
+						<ul class="face2">
+							<li class="f-icon"><i class="fa fa-facebook"></i></li>
+							<li class="f-share left"><a href="https://facebook.com" target="_blank"><img src="../IMG/f-share1.jpg"></a></li>
+							<li class="f-share right"><a href=""><img src="../IMG/f-share.png"></a></li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+					<div id="content-right">
+						<div class="content-right1">
+							<div class="item-cr1 title"><a data-toggle="collapse" data-target="#content-detail"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p></a></div>
+							<div class="item-cr1 summarize-desc"><p>Nhà tôi chính chủ còn 1 phòng trống cần cho thuê gấp vào ở được ngay, tại địa chỉ số 131A ngõ 105/20 đường Doãn Kế Thiện, Mai Dịch, cách nhà nghỉ Thanh Trà 2: 10m.</p>
+							</div>
+							<div class="item-cr1 local"><p>Khu vực: Huyện Từ Liêm, Hà Nội</p></div>
+							<div class="item-cr1 area"><p>Diện tích: 45m²</p></div>
+							<div class="item-cr1 date"><p>Ngày đăng: 20/08/2016</p></div>
+						</div>
+						<div class="content-right2">
+							<div class="price-service">
+								<p>Giá dịch vụ:</p>
+								<div class="item-cr1 water-price"><i class="fa fa-shower"></i> Nước: <span>25.000/m3</span></div>
+								<div class="item-cr1 electric-price"><i class="fa fa-bolt"></i> Điện: <span>3.500/số</span></div>
+								<div class="item-cr1 internet-price"><i class="fa fa-wifi"></i> Mạng: <span>50.000/tháng</span></div>
+								<div class="item-cr1 park-price"><i class="fa fa-motorcycle"></i> Gửi xe: <span>Free</span></div>
+								<div class="item-cr1 line"></div>
+								<div class="item-cr1">Ư.tính: 250.000đ/ng/tháng</div>
+							</div>
+							<div class="item-cr1 price"><i class="fa fa-money"></i><span> Phòng: 1.5tr/tháng</span></div>
+							<div class="item-cr1 phone"><i class="fa fa-phone"></i><span> LH: 0988870225</span></div>
+							<button type="text" class="button-detail" data-toggle="collapse" data-target="#content-detail"><i class="fa fa-arrow-right"></i> Xem chi tiết</button>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+
+					<!--Thông tin xem chi tiết-->
+					<div id="content-detail" class="collapse">
+							<div class="menu-detail"><!-- Navs Tabs-->
+								<button type="text" id="btn-close" class="button-detail" data-toggle="collapse" data-target="#content-detail"><i class="fa fa-times"></i>Đóng</button>
+								<ul class="nav nav-tabs">
+								    <li class="active"><a data-toggle="tab" href="#menu1">THÔNG TIN CHUNG</a></li>
+								    <li><a data-toggle="tab" href="#menu2">MÔ TẢ CHI TIẾT</a></li>
+								    <li><a data-toggle="tab" href="#menu3">HÌNH ẢNH</a></li>
+								    <li><a data-toggle="tab" href="#menu4">VỊ TRÍ</a></li>
+								</ul>
+							<!-- Content navs tabs-->
+								<div class="tab-content">
+								    <div id="menu1" class="tab-pane fade in active">
+								    
+								    	<table id="detail-item1" class="table table-bordered">
+										    <tbody>
+										    	
+										      <tr>
+										        <td>Địa chỉ</td>
+										        <td colspan="3" >Số 131A ngõ 105/20 đường Doãn Kế Thiện, Mai Dịch, cách nhà nghỉ Thanh Trà 2: 10m.</td>
+										      </tr>
+										      <tr>
+										        <th>Loại hình cho thuê</th>
+										        <td>Chung cư mini</td>
+										        <th>Ngày cập nhật</th>
+										        <td>20/08/2017</td>
+										      </tr>
+										      <tr>
+										        <th>Người đăng</th>
+										        <td>Trịnh Công Trình</td>
+										        <th>Điện thoại</th>
+										        <td>0868.97.91.93</td>
+										      </tr>
+										      <tr>
+										        <th>Email</th>
+										        <td>congtrinh0209@gmail.com</td>
+										        <th>ADSDSDAS</th>
+										        <td>ddddddđ</td>
+										      </tr>
+										      <tr>
+										        <th>Diện tích</th>
+										        <td>40m2</td>
+										        <th>Giá cho thuê</th>
+										        <td>4 triệu/tháng</td>
+										      </tr>
+										    </tbody>
+										</table>
+								    </div>
+								    <div id="menu2" class="tab-pane fade">
+								    	<div id="detail-item2" class="des-detail-content">
+										 	<p>Nhà cao cấp giá bình dân chỉ 2tr5 bạn đã sở hữu 1 phòng sạch sẽ và an ninh nhất quận 9.Đến xem là mê liền * Giảm 10% cho bạn thuê phòng lần đầu tiên Hiện tại bên mình đang có phòng trọ cho thuê, mình xin mô tả thông tin như sau:</br>Địa chỉ: SỐ 568 ĐƯỜNG LÊ VĂN VIỆT, PHƯỜNG LONG THẠNH MỸ, QUẬN 9, HCM.  Nhà gần chợ và siêu thị bạn thoải mái nấu những món ăn mà mình yêu thích nhé</br>- Gần các trường ĐH giao thông vận tải, ĐH sư phạm kĩ thuật thuận lợi cho các bạn sinh viên</br> - Gần nơi sầm uất như VINCOM PLAZA, siêu thị CoopMart, cây xăng Tân phú, bệnh viện quận 9....</br>- Toàn bộ phòng được lát gạch men nên phòng ốc rất sạch sẽ và cao cấp</br> Vì số lượng có hạn nên gọi ngay cho mình để đặt phòng nhé.(MS. HẰNG)</p>
+										</div>
+								    </div>
+								    <div id="menu3" class="tab-pane fade">
+									    <div id="detail-item3" class="image-item">
+											<div id="myCarousel2" class="carousel slide" data-ride="carousel">
+											  <!-- Indicators -->
+											  	<ol class="carousel-indicators">
+											      <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+											      <li data-target="#myCarousel2" data-slide-to="1"></li>
+											      <li data-target="#myCarousel2" data-slide-to="2"></li>
+											      <li data-target="#myCarousel2" data-slide-to="3"></li>
+											    </ol>
+
+											    <!-- Wrapper for slides -->
+											    <div class="carousel-inner" role="listbox">
+											      <div class="item active">
+											        <img src="../IMG/img-p1/1.jpg" alt="anh1" width="100%" style="height: 400px !important">
+											      </div>
+											      <div class="item">
+											        <img src="../IMG/img-p1/2.jpg" alt="anh2" width="100%" style="height: 400px !important">
+											      </div>
+											      <div class="item">
+											        <img src="../IMG/img-p1/3.jpg" alt="anh3" width="100%" style="height: 400px !important">
+											      </div>
+													<div class="item">
+												        <img src="../IMG/img-p1/4.jpg" alt="anh4" width="100%" style="height: 400px !important">
+												    </div>
+											    </div>
+										   		 <!-- Left and right controls -->
+											    <a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
+											      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+											      <span class="sr-only">Previous</span>
+											    </a>
+											    <a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next">
+											      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+											      <span class="sr-only">Next</span>
+											    </a>
+											</div>
+										</div>
+									</div>
+								    <div id="menu4" class="tab-pane fade">
+									    <div id="detail-item4" class="des-detail-content">
+											<div id="googleMap" style="width:100%;height:400px;"></div>
+										</div>
+								    </div>
+								</div>	    
+							</div>
+					<div class="clear"></div>
+					</div>
+				</div>	
+			</div>
+		
+			<div class="side-bar">
+				<div class="search">
+						<div class="title-side">
+							TÌM PHÒNG
+						</div>
+						<div class="row">
+							<select class="select">
+								<option>Tỉnh, TP</option>
+								<option>Hà Nội</option>
+								<option>TP.HCM</option>
+							</select>
+							<select class="select">
+								<option>Quận, Huyện</option>
+								<option>Hai Bà Trưng</option>
+								<option>Thanh Xuân</option>
+								<option>Đống Đa</option>
+								<option>Cầu Giấy</option>
+								<option>Từ Liêm</option>
+							</select>
+							<select class="select">
+								<option>Gần ĐH, CĐ</option>
+								<option>Bách Khoa</option>
+								<option>Xây Dựng</option>
+								<option>Tài chính</option>
+								<option>Ngoại thương</option>
+							</select>
+							<select class="select">
+								<option>Bạn là?</option>
+								<option>Sinh viên</option>
+								<option>Người đi làm</option>
+								<option>Kinh doanh</option>
+							</select>
+						</div>
+						<div class="row">
+							<select class="select">
+								<option>Bạn cần tìm?</option>
+								<option>Thuê phòng trọ</option>
+								<option>Thuê nhà</option>
+								<option>Chung cư mini</option>
+								<option>Mặt bằng kinh doanh</option>
+							</select>
+							<select class="select">
+								<option>Diện tích?</option>
+								<option>Dưới 15m2</option>
+								<option>15m2 - 25m2</option>
+								<option>25m2 - 35m2</option>
+								<option>Trên 35m2</option>
+							</select>
+							<select class="select">
+								<option>Mức giá?</option>
+								<option>500 - 1000</option>
+								<option>1000 - 1500</option>
+								<option>1500 - 2000</option>
+								<option>2000 - 3000</option>
+								<option>Trên 3000</option>
+							</select>
+						</div>
+						<div class="icon-s"><i class="fa fa-search"></i><span>Tìm Kiếm</span></div>
+				</div>
+				
+			</div>
+			<div class="clear"></div>	
+		</div>
+	</div>
+	<div class="footer">
+		<img class="top-footer" src="../IMG/footer.png">
+		<div class="footer-content"></div>
+	</div>
+	<script src="https://maps.google.com/maps/api/js?&key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4"></script>
+	<script>
+		window.onload = function myMap() {
+		var mapProp= {
+		    center:new google.maps.LatLng(21.028511, 105.804817),
+		    zoom:16,
+		};
+		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		var marker = new google.maps.Marker({position:mapProp.center});marker.setMap(map);
+		}
+		
+	</script>
+	
+	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
+	<script src="../JAVASCRIPT/home.js"></script>
+	<script src="../JAVASCRIPT/search-nearby.js"></script>
+	<script src="../../bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

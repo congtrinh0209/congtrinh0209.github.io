@@ -1,0 +1,19 @@
+.container-locale{
+  width:400px;
+}
+.wrap-content {
+    padding-top: 10px;
+}
+.clear{clear: both;}
+.content-left-locale{
+  width: 40%;
+  float: left
+}
+.content-left-locale img{
+  width: 100%;
+}
+.content-right-locale{
+  padding-left:5px;
+  width: 58%;
+  float: right;
+}
