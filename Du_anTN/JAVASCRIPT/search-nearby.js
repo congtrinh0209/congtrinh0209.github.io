@@ -3,7 +3,7 @@ window.onload = function(){
         if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(showPosition, showError);
         } else { 
-            x.innerHTML = "Geolocation is not supported by this browser.";
+            x.innerHTML = "Geolocation không hỗ trợ trên trình duyệt này.";
         }
     function showPosition(position) 
     {
@@ -12,16 +12,17 @@ window.onload = function(){
         latlon = new google.maps.LatLng(lat, lon)
         mapholder = document.getElementById('mapholder')
         mapholder.style.height = '500px';
-        mapholder.style.width = '888px';
+        mapholder.style.width = '873px';
         var myOptions = {
             center:latlon,
             zoom:16,
             mapTypeId:google.maps.MapTypeId.ROADMAP,
-            mapTypeControl:false,
+            mapTypeControl:true,
             navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
         }
         var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
-        var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+        var marker = new google.maps.Marker({position:latlon,map:map,title:"Vị trí của bạn!"});
+
         /**** Circle position center*****/
         var myCity = new google.maps.Circle({
             center: latlon,
@@ -80,8 +81,32 @@ window.onload = function(){
             var infowindow = new google.maps.InfoWindow({
               content: feature.content,
             });
-              marker.addListener('click', function() {
-              infowindow.open(map, marker);
+            marker.addListener('click', function() {
+            infowindow.open(map, marker);/********Hiển thị content**********/
+             /***********Chỉ đường*************/
+            directionsService = new google.maps.DirectionsService;
+            directionsDisplay = new google.maps.DirectionsRenderer({
+                map: map
+            });
+                            // get route from A to B
+             var pointB = feature.position;
+            calculateAndDisplayRoute(directionsService, directionsDisplay, latlon, pointB);
+            function calculateAndDisplayRoute(directionsService, directionsDisplay, latlon, pointB) {
+                    directionsService.route({
+                        origin: latlon,
+                        destination: pointB,
+                        avoidTolls: true,
+                        avoidHighways: false,
+                        travelMode: google.maps.TravelMode.DRIVING
+                        },
+                         function (response, status) {
+                            if (status == google.maps.DirectionsStatus.OK) {
+                                directionsDisplay.setDirections(response);
+                            } else {
+                                window.alert('Directions request failed due to ' + status);
+                            }
+                    });
+                }
             });
         });
 
