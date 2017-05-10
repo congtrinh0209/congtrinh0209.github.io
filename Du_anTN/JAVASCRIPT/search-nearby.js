@@ -9,10 +9,10 @@ window.onload = function(){
     {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
-        latlon = new google.maps.LatLng(lat, lon)
-        mapholder = document.getElementById('mapholder')
+        latlon = new google.maps.LatLng(lat, lon);
+        mapholder = document.getElementById('mapholder');
         mapholder.style.height = '500px';
-        mapholder.style.width = '873px';
+        mapholder.style.width = '870px';
         var myOptions = {
             center:latlon,
             zoom:16,
@@ -58,38 +58,33 @@ window.onload = function(){
         };
         var features = [
           {
-            position: new google.maps.LatLng(21.014850397782606, 105.84704875946045),
+            position: new google.maps.LatLng(21.014237, 105.846857),
             type: 'house',
             content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
             title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
           },
           {
-            position: new google.maps.LatLng(21.01460252052368, 105.8472016453743),
+            position: new google.maps.LatLng(21.015273, 105.847307),
             type: 'store',
             content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
             title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
           },
           {
-            position: new google.maps.LatLng(21.014474826017402, 105.84643721580505),
+            position: new google.maps.LatLng(21.014122, 105.848245),
             type: 'flat',
             content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
             title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
           }, {
-            position: new google.maps.LatLng(21.014019131005732, 105.8461931347847),
+            position: new google.maps.LatLng(21.012680, 105.847253),
             type: 'room',
             content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
             title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
           }, {
-            position: new google.maps.LatLng(21.013288013023292, 105.84807872772217),
+            position: new google.maps.LatLng(21.013036, 105.849183),
             type: 'house',
             content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
             title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
-          }, {
-            position: new google.maps.LatLng(21.01578181167918, 105.84837913513184),
-            type: 'store',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
-            title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
-          }, 
+          },
         ];
         /*******Create markers and Content when click marker********/
         features.forEach(function(feature) {
