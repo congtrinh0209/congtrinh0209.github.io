@@ -6,7 +6,7 @@
 	<meta name="description" content="Phòng trọ, Tìm kiếm phòng trọ, Cho thuê nhà trọ">
 	<meta name="author" content="congtrinh0209">
 	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
-	
+	<link rel="stylesheet" type="text/css" href="../CSS/search-nearby.css">
 	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap-theme.min.css">
@@ -18,7 +18,7 @@
 		<div class="container">
 			<div class="header">
 				<div class="face"><i class="fa fa-facebook-square"></i></div>
-
+				
 				<div class="main-menu">
 					<div class="menu-mobile">
 						<ul>
@@ -64,7 +64,7 @@
 							</li>
 							<li class="item"><a href="#"><i class="fa fa-binoculars"></i></br>Giúp tôi</a></li>
 							<li class="item"><a href="#"><i class="fa fa-users"></i></br>Tìm quanh đây</a></li>
-							<li class="item"><a href="../HTML/news.html"><i class="fa fa-newspaper-o"></i></br>Tin tức</a></li>
+							<li class="item"><a href="#"><i class="fa fa-newspaper-o"></i></br>Tin tức</a></li>
 							<li class="item"><a href="../HTML/support.html"><i class="fa fa-life-ring"></i></br>Hướng dẫn</a></li>
 							<li class="item"><a href="../HTML/post2.html"><i class="fa fa-upload"></i></br>Đăng tin</a></li>
 							<li class="item"><a href="../HTML/manager.html"><i class="fa fa-book"></i></br>Quản lý</a></li>
@@ -134,7 +134,6 @@
 							            </div>   
 							          </form>
 							        </div>
-							        <div class="clear"></div>
 							        <div class="modal-footer">
 							          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 							        </div>
@@ -148,71 +147,115 @@
 				</div>		
 			</div>
 			<div class="wrap-content">
-				<div class="wrapper">
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs tab" role="tablist">
-						<li role="presentation" class="active"><a href="#support1" role="tab" data-toggle="tab">HƯỚNG DẪN ĐĂNG KÝ</a></li>
-						<li role="presentation" class=""><a href="#support2" role="tab" data-toggle="tab">HƯỚNG DẪN TÌM PHÒNG</a></li>
-						<li role="presentation" class=""><a href="#support3" role="tab" data-toggle="tab">HƯỚNG DẪN ĐĂNG TIN</a></li>
-						<li role="presentation" class=""><a href="#support4"  role="tab" data-toggle="tab">BẢNG PHÍ ĐĂNG TIN</a></li>
-					</ul>
-
-					<!-- Tab panes -->
-					<div class="tab-content">
-						<div role="tabpanel" class="tab-pane active" id="support1">	
-							<h4 style="color: red">Lợi ích khi là thành viên của <i>timphongcungban.com</i></h4>
-							<p>-  Đăng tin rao cho thuê phòng trọ, nhà cho thuê, cho thuê căn  hộ, tìm người ở ghép hiệu quả, chuyên nghiệp, lượt truy cập cao nhất, đứng top 1 từ khóa cho thuê phòng trọ, nhà trọ, thuê nhà nguyên căn, tìm người ở ghép...</br>
-							-  Quản lý các tin đã đăng: dễ dàng làm mới, đăng tin, sửa tin, hạ tin nhưng vẫn còn lưu lại, xóa tin đăng ở trang cá nhân.</p>
- 							</br>
-							<strong>Bước 1:</strong> Click vào đề mục đăng ký ở góc phải trên cùng trang.</br>
-							<!--Chèn ảnh-->
-							<strong>Bước 2:</strong> Điền đầy đủ thông tin vào mẫu, tất cả đều bắt buộc và chính xác. Click đăng ký để hoàn tất quá trình.</br>
-							<!--Chèn ảnh-->
-							<i>Quý khách vui lòng nhớ tên tài khoản và mật khẩu đã đăng ký để tiến hành quá trình đăng nhập vào hệ thống và đăng tin</i>
+				<!--Tìm quanh đây-->
+				<div class="help-form">
+					<p style="font-size: 20px; color: #00914E;">Cảm ơn bạn đã đồng hành cùng chúng tôi. Sự hài lòng của bạn là thành công lớn nhất của <i style="font-size: 22px; color: red;">timphongcungban.vn</i></p>
+					<p>Khó khăn:</br>- Bạn đang loay hoay tìm phòng trọ. </br> - Bạn kinh doanh phòng trọ nhưng chưa hiệu quả...</br>
+					Giải pháp:</br>
+					- Đội ngũ công tác viên hùng hậu, nhiệt tình chúng tôi sẽ giúp bạn tìm được nơi ở phù hợp, nhanh chóng nhất.</br>
+					- Các chiến lược marketing khoa học của chúng tôi khu trọ của bạn sẽ không còn tình trạng trống phòng...</br> Thật đơn giản hãy gửi yêu cầu cho chúng tôi.</p>
+					<form class="form-help">
+						<div class="form-group">
+						  <label for="usr">Tên của bạn:</label>
+						  <input type="text" class="form-control" id="usr">
 						</div>
-						<div role="tabpanel" class="tab-pane" id="support2">
-							
+						<div class="form-group">
+						  <label for="mobile">Số điện thoại:</label>
+						  <input type="text" class="form-control" id="mobile">
 						</div>
-						<div role="tabpanel" class="tab-pane" id="support3">
-							<p style="color: blue">Sau khi đã đăng ký tài khoản, để đăng tin trên timphongcungban.com bạn vui lòng đăng nhập tài khoản, sau đó vào phần <i>ĐĂNG TIN</i> để đăng tin mới như ảnh bên dưới:</p>
-							<!--Chèn ảnh-->
-							<i>Lưu ý khi đăng tin:</i>
-								<p>+  Điền đầy đủ các thông tin bắt buộc vào các ô nhập liệu trong phần đăng tin.</p>
-								<p>+  Phần giá cho thuê, vui lòng nhập chính xác 1 giá duy nhất (Không nhập giá từ ....đến ....) và chọn đúng đơn vị giá là triệu/tháng hoặc nghìn/tháng.</p>
-								<p>+  Diện tích nhập đúng 1 diện tích duy nhất (Không nhập diện tích từ ....đến ....)</p>
-								<p>+ Sau khi nhập đầy đủ các thông tin, bấm ĐĂNG TIN NGAY và chờ vài giây để tin bạn hiển thị trên website, nếu đăng tin thành công hệ thống sẽ báo bạn đã đăng tin thành công, nếu hệ thống cảnh báo màu đỏ, các ô chọn màu bị sai, vui lòng nhập lại cho chính xác và bấm ĐĂNG TIN NGAY.</p>
+						<div class="form-group">
+						  <label for="comment">Yêu cầu của bạn:</label>
+						  <textarea class="form-control" rows="6" id="comment"></textarea>
 						</div>
-						<div role="tabpanel" class="tab-pane" id="support4">
-							<p style="color: blue">Tin thường:</p>
-							Tiêu đề tin chữ thường, màu xanh.</br>
-							+  Phí đăng tin: 10.000 đồng/tin/10 ngày.</br>
-							+  Phí uptin: 2.000 đồng/1 lần uptin.</br>
-							<p style="color: #FFB237">Tin VIP VÀNG: (Số người xem cao hơn 30% so với tin thường)</p>
-							Đứng đầu danh sách tin rao trang chủ và trang khu vực Quận, Huyện sau tin SUPPER VIP.</br>
-							Tiêu đề tin chữ HOA màu vàng.</br>
-							+ Phí đăng tin: 15.000 đồng/tin/1 ngày. (Đăng tối thiểu 3 ngày)</br>
-							+ Phí uptin: 2.000 đồng/1 lần uptin.</br>
-							<p style="color: red">Tin SUPER VIP: (Số người xem cao hơn 50% so với tin thường)</p>
-							Đứng đầu danh sách tin rao trang chủ và trang khu vực Quận, Huyện.
-							Tiêu đề tin chữ HOA màu đỏ, có dấu PT phía trước tiêu đề tin.</br>
-							+ Phí đăng tin: 20.000 đồng/tin/1 ngày. (Đăng tối thiểu 3 ngày)</br>
-							+ Phí uptin: 3.000 đồng/1 lần uptin.</br>
-						</div>
-					</div>
-				</div>
-					
+						<button type="submit" class="btn btn-default">Gửi</button>
+					</form>
+				</div>	
 			</div>
-					
-			
+		
+			<div class="side-bar">
+				<div class="search">
+						<div class="title-side">
+							TÌM PHÒNG
+						</div>
+						<div class="row">
+							<select class="select">
+								<option>Tỉnh, TP</option>
+								<option>Hà Nội</option>
+								<option>TP.HCM</option>
+							</select>
+							<select class="select">
+								<option>Quận, Huyện</option>
+								<option>Hai Bà Trưng</option>
+								<option>Thanh Xuân</option>
+								<option>Đống Đa</option>
+								<option>Cầu Giấy</option>
+								<option>Từ Liêm</option>
+							</select>
+							<select class="select">
+								<option>Gần ĐH, CĐ</option>
+								<option>Bách Khoa</option>
+								<option>Xây Dựng</option>
+								<option>Tài chính</option>
+								<option>Ngoại thương</option>
+							</select>
+							<select class="select">
+								<option>Bạn là?</option>
+								<option>Sinh viên</option>
+								<option>Người đi làm</option>
+								<option>Kinh doanh</option>
+							</select>
+						</div>
+						<div class="row">
+							<select class="select">
+								<option>Bạn cần tìm?</option>
+								<option>Thuê phòng trọ</option>
+								<option>Thuê nhà</option>
+								<option>Chung cư mini</option>
+								<option>Mặt bằng kinh doanh</option>
+							</select>
+							<select class="select">
+								<option>Diện tích?</option>
+								<option>Dưới 15m2</option>
+								<option>15m2 - 25m2</option>
+								<option>25m2 - 35m2</option>
+								<option>Trên 35m2</option>
+							</select>
+							<select class="select">
+								<option>Mức giá?</option>
+								<option>500 - 1000</option>
+								<option>1000 - 1500</option>
+								<option>1500 - 2000</option>
+								<option>2000 - 3000</option>
+								<option>Trên 3000</option>
+							</select>
+						</div>
+						<div class="icon-s"><i class="fa fa-search"></i><span>Tìm Kiếm</span></div>
+				</div>
+				
+			</div>
+			<div class="clear"></div>	
 		</div>
 	</div>
 	<div class="footer">
 		<img class="top-footer" src="../IMG/footer1.png">
 		<div class="footer-content"></div>
 	</div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4&callback=myMap"></script>
+	<script>
+		window.onload = function myMap() {
+			var mapProp= {
+			    center:new google.maps.LatLng(21.028511, 105.804817),
+			    zoom:16,
+			};
+			var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+			var marker = new google.maps.Marker({position:mapProp.center});marker.setMap(map);
+		}
+		
+	</script>
+	
 	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
 	<script src="../JAVASCRIPT/home.js"></script>
-	<script src="../JAVASCRIPT/sign-up.js"></script>
+	<script src="../JAVASCRIPT/search-nearby.js"></script>
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

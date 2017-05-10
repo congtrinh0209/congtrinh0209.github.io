@@ -197,6 +197,29 @@ height: 145px;}
 	width: 300px;
 	height: 200px;
 }
+/********CSS form help*******/
+.help-form{
+	width: 99%;
+	border: 2px solid #4FB748;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: justify;
+}
+.wrap-content > div >.form-help{
+	margin-top:10px; 
+	padding: 10px; 
+	border: 1px solid #4FB748;
+	border-radius: 7px;
+}
+.wrap-content > div >.form-help>.form-group{
+	width: 60%;
+}
+.wrap-content > div > form > div:nth-child(3){
+	width: 99% !important;
+}
+div.wrap-content > div > form > button{
+	width: 10%;
+}
 /*option form thong tin ca nhan*/
 .login{width: 540px !important}
 #myModal > div > div > div.modal-body > form > div:nth-child(2) > span{
@@ -553,7 +576,7 @@ i.fa.fa-bars{
 	.footer-content{
 		width: 100%;
 		height: 100px;
-		background-color: black;
+		background-color: #4FB748;
 	}
 	.footer .top-footer{
 		width: 100%;
@@ -835,12 +858,16 @@ i.fa.fa-bars{
 		float: left;
 		border-bottom: 2px solid white;
 	}
+	.main-menu > div.menu-1024 > ul > li:nth-child(4){width: 10.1%}
 	.menu-1024 .item:hover{
 		cursor: pointer;
 	}
-	.menu-1024 .item:nth-child(6){
-		width: 9% !important;
+	.menu-1024 .item:nth-child(3){
+		width: 7% !important;
 	}
+	/*.menu-1024 .item:nth-child(6){
+		width: 9% !important;
+	}*/
 	.menu-1024 .item a{
 		width: 100%;
 		color: #004824;
