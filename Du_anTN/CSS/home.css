@@ -2,7 +2,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-family: Helvetica Neue Medium, Helvetica, Arial, sans-serif;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
 }
@@ -580,7 +580,7 @@ i.fa.fa-bars{
 	.footer-content{
 		width: 100%;
 		height: 100px;
-		background-color: #4FB748;
+		background-color: #004824;
 	}
 	.footer .top-footer{
 		width: 100%;

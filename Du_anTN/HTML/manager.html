@@ -62,7 +62,7 @@
 								</ul>
 							</li>
 							<li class="item"><a href="#"><i class="fa fa-binoculars"></i></br>Giúp tôi</a></li>
-							<li class="item"><a href="#"><i class="fa fa-users"></i></br>Tìm quanh đây</a></li>
+							<li class="item"><a href="#"><i class="fa fa-map-marker"></i></br>Tìm quanh đây</a></li>
 							<li class="item"><a href="../HTML/news.html"><i class="fa fa-newspaper-o"></i></br>Tin tức</a></li>
 							<li class="item"><a href="../HTML/support.html"><i class="fa fa-life-ring"></i></br>Hướng dẫn</a></li>
 							<li class="item"><a href="../HTML/post2.html"><i class="fa fa-upload"></i></br>Đăng tin</a></li>
@@ -87,7 +87,8 @@
 				</div>		
 			</div>
 			<div class="wrap-content">
-				<div class="wrapper">
+				<div class="container-content">
+					<div class="wrapper">
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs tab" role="tablist">
 						<li role="presentation" class=""><a href="#quan_ly_tin" aria-controls="quan_ly_tin" role="tab" data-toggle="tab">Quản lý tin</a></li>
@@ -117,10 +118,11 @@
 								</table>
 							</div>
 							<div class="page_navigation">
-							<p></p>
+								<p></p>
+							</div>
 						</div>
-					</div>
-					<div role="tabpanel" class="tab-pane active" id="thong_tin_ca_nhan">
+					
+						<div role="tabpanel" class="tab-pane active" id="thong_tin_ca_nhan">
 						<form id="form_thong_tin_ca_nhan" class="js-form-thong-tin-ca-nhan">
 							<div class="form-group">
 								<div class="row">
@@ -134,7 +136,7 @@
 								<div class="row">
 									<div class="col-sm-6 col-xs-12">
 										<label for="last_name">Họ của bạn</label>
-										<input type="text" class="form-control" name="last_name" id="last_name" placeholder="" value="">
+										<input type="text" class="form-control" name="last_name" id="last_name" placeholder="" value="Trịnh">
 									</div>
 								</div>
 							</div>
@@ -142,7 +144,7 @@
 								<div class="row">
 									<div class="col-sm-6 col-xs-12">
 										<label for="first_name">Tên của bạn</label>
-										<input type="text" class="form-control" name="first_name" id="first_name" placeholder="" value="">
+										<input type="text" class="form-control" name="first_name" id="first_name" placeholder="" value="Công Trình">
 									</div>
 								</div>
 							</div>
@@ -165,8 +167,8 @@
 							<div class="form-group">
 								<div class="row">
 									<div class="col-sm-6 col-xs-12">
-										<label for="password_old">Mật khẩu cũ</label>
-										<input type="password" class="form-control" name="password" id="password_old" placeholder="" value="">
+										<label for="password_old">Mật khẩu</label>
+										<input type="password" class="form-control" name="password" id="password_old" placeholder="" value="02092008">
 									</div>
 								</div>
 							</div>
@@ -200,8 +202,8 @@
 							<button type="submit" class="btn btn-primary" id="update">Lưu</button>
 
 						</form>
-					</div>
-							<div role="tabpanel" class="tab-pane" id="lich_su_giao_dich">
+						</div>
+						<div role="tabpanel" class="tab-pane" id="lich_su_giao_dich">
 								<div class="table-responsive">
 									<table class="table table-bordered table-hover">
 										<thead>
@@ -217,12 +219,11 @@
 										</tbody>
 									</table>
 								</div>
-							</div>
+						</div>
 					</div>
-					</div>
-					
-			</div>
-					
+					</div>	
+				</div>	
+			</div>			
 		</div>
 	</div>
 	<div class="footer">
