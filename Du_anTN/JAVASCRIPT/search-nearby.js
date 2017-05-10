@@ -25,8 +25,18 @@ window.onload = function(){
             position:latlon,
             map:map,
             title:"Vị trí của bạn!",
-            icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/position-marker.png'
+            icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/position-marker.png',
+            draggable: true,
+            animation: google.maps.Animation.DROP,
         });
+        marker.addListener('click', toggleBounce);
+        function toggleBounce() {
+            if (marker.getAnimation() !== null) {
+              marker.setAnimation(null);
+            } else {
+              marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+          }
 
         /**** Circle position center*****/
         var myCity = new google.maps.Circle({
@@ -60,30 +70,30 @@ window.onload = function(){
           {
             position: new google.maps.LatLng(21.014237, 105.846857),
             type: 'house',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
-            title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
+            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 32 THỂ GIAO - LÊ ĐẠI HÀNH - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 45m²</p><p>Giá: 3 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
+            title: "Diện tích: 45m2 + Giá:3tr/tháng"
           },
           {
             position: new google.maps.LatLng(21.015273, 105.847307),
             type: 'store',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
-            title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
+            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>CHO THUÊ CĂN HỘ TẠI SỐ 41B - NGUYỄN ĐÌNH CHIỂU - LÊ ĐẠI HÀNH - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 35m²</p><p>Giá: 2 triệu/tháng</p><p>Ngày đăng: 07/05/2017</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
+            title: "Diện tích: 35m2 + Giá:2tr/tháng"
           },
           {
             position: new google.maps.LatLng(21.014122, 105.848245),
             type: 'flat',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
-            title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
+            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>CHO THUÊ MẶT BẰNG KINH DOANH TẠI SỐ 266 BÀ TRIỆU- LÊ ĐẠI HÀNH - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 20m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 01/05/2017</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
+            title: "Diện tích: 20m2 + Giá:1,5tr/tháng"
           }, {
             position: new google.maps.LatLng(21.012680, 105.847253),
             type: 'room',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
-            title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
+            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>CHO THUÊ NHÀ RIÊNG TẠI SỐ 135-BÙI THỊ XUÂN- QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 25m²</p><p>Giá: 1,8 triệu/tháng</p><p>Ngày đăng: 11/05/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
+            title: "Diện tích: 25m2 + Giá:1,8tr/tháng"
           }, {
             position: new google.maps.LatLng(21.013036, 105.849183),
             type: 'house',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</p><p>Diện tích: 45m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
-            title: "Diện tích: 45m2 + Giá:1,5tr/tháng"
+            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p> 41B - NGUYỄN ĐÌNH CHIỂU - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 15m²</p><p>Giá: 1,2 triệu/tháng</p><p>Ngày đăng: 28/04/2017</p><button class="btn-locale">Xem phòng</button></div><div class="clear"></div></div>',
+            title: "Diện tích: 15m2 + Giá:1,2tr/tháng"
           },
         ];
         /*******Create markers and Content when click marker********/
