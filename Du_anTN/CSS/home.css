@@ -45,6 +45,7 @@ ol, ul{
 	top: 0px;
 	right: 5px;
 	color: white;
+	display: none;
 }
 .face:hover{cursor: pointer;}
 .face2{display: none}
@@ -449,8 +450,7 @@ i.fa.fa-bars{
 	}
 	/*********** CSS Content**********/
 	.container-content{
-		width: 74%;
-		float: left;
+		width: 100%;
 	}
 	.content{
 		width: 100%;
@@ -633,6 +633,10 @@ i.fa.fa-bars{
 /*********** CSS desktop screen-1024px ************/
 @media only screen and (min-width: 1023px){
 	.avatar{display: block;}
+	.container-content{
+		width: 74%;
+		float: left;
+	}
 	.wrapper-container{
 		position: relative;
 		margin-top: 480px;

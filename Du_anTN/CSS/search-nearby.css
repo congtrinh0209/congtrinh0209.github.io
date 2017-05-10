@@ -50,6 +50,10 @@
 		color: red;
 		background-position: right top;
 	}
+#mapholder > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(2) > div.gm-style-iw > div:nth-child(1) > div > div > div.content-right-locale > button:hover a{color: red}
 .btn-direction{
 	margin-left: 5px;
+}
+#mapholder > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(2) > div.gm-style-iw > div:nth-child(1) > div > div > div.content-right-locale > button>a{
+	color: white;
 }
