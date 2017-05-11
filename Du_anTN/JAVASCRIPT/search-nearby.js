@@ -11,7 +11,7 @@ window.onload = function(){
         latlon = new google.maps.LatLng(lat, lon);
         mapholder = document.getElementById('mapholder');
         mapholder.style.height = '500px';
-        mapholder.style.width = '870px';
+        mapholder.style.width = '100%';
         var myOptions = {
             center:latlon,
             zoom:16,
