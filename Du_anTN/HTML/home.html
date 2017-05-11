@@ -100,7 +100,7 @@
 									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Mặt bằng cho thuê</a></li>
 								</ul>
 							</li>
-							<li class="item"><a href="#"><i class="fa fa-binoculars"></i></br>Giúp tôi</a></li>
+							<li class="item"><a href="help.html"><i class="fa fa-binoculars"></i></br>Giúp tôi</a></li>
 							<li class="item"><a href="search-nearby.html" target="_blank"><i class="fa fa-map-marker"></i></br>Tìm quanh đây</a></li>
 							<li class="item"><a href="../HTML/news.html"><i class="fa fa-newspaper-o"></i></br>Tin tức</a></li>
 							<li class="item"><a href="../HTML/support.html"><i class="fa fa-life-ring"></i></br>Hướng dẫn</a></li>
@@ -1197,6 +1197,9 @@
             mapTypeId:google.maps.MapTypeId.ROADMAP,
             mapTypeControl:true, 
         }
+        var mapholder = document.getElementById('googleMap');
+        mapholder.style.height = '400px';
+        mapholder.style.width = '100%';
         var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
         var marker = new google.maps.Marker({
             position:latlon,
