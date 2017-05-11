@@ -62,17 +62,19 @@ $(document).ready(function(){
 
 });
 /************menu-fixed*****************/
-$(window).scroll(function(){
-	if ($(this).scrollTop()>$(".banner").height()){
-		$('.header').addClass("header-fixed");
-		$('.wrap-content').addClass("wrap-content-fixed");
-	}
-	else{
-	$('.header').removeClass("header-fixed");
-	$('.wrap-content').removeClass("wrap-content-fixed");
-	}	
-})
-
+var window_with = window.innerWidth;
+	if (window_with > 600) {
+	$(window).scroll(function(){
+		if ($(this).scrollTop()>$(".banner").height()){
+			$('.header').addClass("header-fixed");
+			$('.wrap-content').addClass("wrap-content-fixed");
+		}
+		else{
+		$('.header').removeClass("header-fixed");
+		$('.wrap-content').removeClass("wrap-content-fixed");
+		}	
+	})
+}
 /************Đăng nhập*****************/
 var user = [
 			user_1={fullname: 'Trịnh Công Trình', mobile: '0868979193', email:'congtrinh0209@gmail.com', pass:'02092008'},
