@@ -580,6 +580,7 @@ i.fa.fa-bars{
 	
 /**************Content footer**********************/
 	.footer{
+		padding-top: 140px;
 		background-color: #fff;
 		position: relative;
 		z-index: 2;
@@ -656,7 +657,7 @@ i.fa.fa-bars{
 	}
 	a{font-size: 0.9em}
 	.banner{
-		width: 1024px;
+		min-width: 1024px;
 		display: block;
 		height: 480px;
 		position: fixed;

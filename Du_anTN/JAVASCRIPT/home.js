@@ -59,10 +59,15 @@ $(document).ready(function(){
 		        break;
 		    }
 		}
-
+	$(".item-mobile:nth-child(1)").on("click",function() {
+		window.location.href='#menu-search';
+	});
+	$(".item-mobile:nth-child(2)").on("click",function() {
+		window.location.href='search-nearby.html';
+	});
 });
 /************menu-fixed*****************/
-var window_with = window.innerWidth;
+	var window_with = window.innerWidth;
 	if (window_with > 600) {
 	$(window).scroll(function(){
 		if ($(this).scrollTop()>$(".banner").height()){
