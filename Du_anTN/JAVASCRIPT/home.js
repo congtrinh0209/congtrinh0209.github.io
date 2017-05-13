@@ -1,16 +1,16 @@
-$('.item-mobile:nth-child(5)').click(function(){
+$('.item-mobile:nth-child(4)').click(function(){
 	$('.icon1').css('transform','rotateZ(-45deg)');
 	$('.icon2').css('transform','rotateZ(45deg)');
-	$('.item-mobile:nth-child(6)').css({'opacity':'1','z-index':'3'});
+	$('.item-mobile:nth-child(5)').css({'opacity':'1','z-index':'3'});
 	$('i.fa.fa-bars').css('display','none');
 	$('.item-dropdown').css('opacity','1')
 	$('.menu-dropdown').css('max-height','360px')
 });
-$('.item-mobile:nth-child(6)').click(function(){
+$('.item-mobile:nth-child(5)').click(function(){
 	$('.icon1').css('transform','rotateZ(0deg)');
 	$('.icon2').css('transform','rotateZ(0deg)');
 	$('.menu-dropdown').css('max-height','0px')
-	$('.item-mobile:nth-child(6)').css({'opacity':'0','z-index':'1'});
+	$('.item-mobile:nth-child(5)').css({'opacity':'0','z-index':'1'});
 	$('i.fa.fa-bars').css('display','block');
 	$('.item-dropdown').css('opacity','0')
 });
@@ -27,6 +27,9 @@ $(document).ready(function(){
 	$('.nav-bar').css('opacity','1');
 	$('.content-right').css('opacity','1');
 });
+/************banner-mobile*********************/
+$(".sign-mobile").html($(".sign").html());
+/************banner-mobile*********************/
 $(document).ready(function(){
 	$(".hn").hover(function() {
 		$(".first").css({"display": "block","visibility": "visible"})
@@ -65,21 +68,22 @@ $(document).ready(function(){
 	$(".item-mobile:nth-child(2)").on("click",function() {
 		window.location.href='search-nearby.html';
 	});
-});
-/************menu-fixed*****************/
+	/************menu-fixed*****************/
 	var window_with = window.innerWidth;
-	if (window_with > 600) {
-	$(window).scroll(function(){
-		if ($(this).scrollTop()>$(".banner").height()){
-			$('.header').addClass("header-fixed");
-			$('.wrap-content').addClass("wrap-content-fixed");
-		}
-		else{
-		$('.header').removeClass("header-fixed");
-		$('.wrap-content').removeClass("wrap-content-fixed");
-		}	
-	})
-}
+	if (window_with > 768) {
+		$(window).scroll(function(){
+			if ($(this).scrollTop()>$(".banner").height()){
+				$('.header').addClass("header-fixed");
+				$('.wrap-content').addClass("wrap-content-fixed");
+			}
+			else{
+			$('.header').removeClass("header-fixed");
+			$('.wrap-content').removeClass("wrap-content-fixed");
+			}	
+		})
+	}
+});
+
 /************Đăng nhập*****************/
 var user = [
 			user_1={fullname: 'Trịnh Công Trình', mobile: '0868979193', email:'congtrinh0209@gmail.com', pass:'02092008'},

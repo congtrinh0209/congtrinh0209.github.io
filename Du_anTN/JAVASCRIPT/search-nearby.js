@@ -25,7 +25,7 @@ window.onload = function(){
             map:map,
             title:"Vị trí của bạn!",
             icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/position-marker.png',
-            draggable: true,
+            draggable: false,
             animation: google.maps.Animation.DROP,
         });
         marker.addListener('click', toggleBounce);

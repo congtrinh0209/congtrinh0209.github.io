@@ -12,6 +12,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<div class="banner-mobile">
+		<img src="../IMG/logo-option2png.png">
+		<div class="form-acc">
+			<div class="sign-mobile"></div>
+			<div class="info-acc-mobile"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
 	<div class="banner">
 		<ul class="list-banner">
 			<li class="list item1">
@@ -62,7 +70,6 @@
 						<ul>
 							<li class="item-mobile"><i class="fa fa-search"></i><p>Tìm phòng</p></li>
 							<li class="item-mobile"><i class="fa fa-map-marker"></i><p>Tìm quanh đây</p></li>
-							<li class="item-mobile"><i class="fa fa-book"></i><p>Quản lý</p></li>
 							<li class="item-mobile"><i class="fa fa-upload"></i><p>Đăng tin</p></li>
 							<li class="item-mobile">
 								<div class="icon1"></div>
@@ -117,7 +124,6 @@
 							      <!-- Modal content-->
 							      <div class="modal-content">
 							        <div class="modal-header">
-							          <button type="button" class="close" data-dismiss="modal">&times;</button>
 							          <h4 class="modal-title">Đăng nhập hệ thống!</h4>
 							        </div>
 							        <div class="modal-body">
@@ -160,7 +166,7 @@
 							      <!-- Modal content-->
 							      <div class="modal-content">
 							        <div class="modal-header">
-							          <button type="button" class="close" data-dismiss="modal">&times;</button>
+							        
 							          <h4 class="modal-title">Đăng ký tài khoản!</h4>
 							        </div>
 							        <div class="modal-body">
@@ -297,7 +303,7 @@
 									    <li class="active"><a data-toggle="tab" href="#menu1">THÔNG TIN CHUNG</a></li>
 									    <li><a data-toggle="tab" href="#menu2">MÔ TẢ CHI TIẾT</a></li>
 									    <li><a data-toggle="tab" href="#menu3">HÌNH ẢNH</a></li>
-									    <li><a data-toggle="tab" href="#menu4">VỊ TRÍ</a></li>
+									    <li><a id="position-item" data-toggle="tab" href="#menu4">VỊ TRÍ</a></li>
 									</ul>
 								<!-- Content navs tabs-->
 									<div class="tab-content">
@@ -1179,9 +1185,9 @@
 		<img class="top-footer" src="../IMG/footer1.png">
 		<div class="footer-content"></div>
 	</div>
-	
+	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
 	<script>
-	window.onload = function(){
+	$("#position-item").on("click",function(){
     var x = document.getElementById("demo");
         if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -1201,13 +1207,13 @@
         var mapholder = document.getElementById('googleMap');
         mapholder.style.height = '400px';
         mapholder.style.width = '100%';
-        var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
+        var map = new google.maps.Map(document.getElementById("googleMap"), myOptions,);
         var marker = new google.maps.Marker({
             position:latlon,
             map:map,
             title:"Vị trí của bạn!",
             icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/position-marker.png',
-            draggable: true,
+            draggable: false,
         });
         var marker = new google.maps.Marker({
                 position: {lat: 20.999145, lng: 105.814108},
@@ -1252,8 +1258,7 @@
                 }
         });
            
-    }
-
+    };
     function showError(error) {
         switch(error.code) {
             case error.PERMISSION_DENIED:
@@ -1270,13 +1275,13 @@
                 break;
         }
     }
-}
+});
 	    </script>
-    	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4&callback=myMap"></script>
+    	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4"></script>
 		
 	</script>
 	
-	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
+	
 	<script src="../JAVASCRIPT/home.js"></script>
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
 </body>
