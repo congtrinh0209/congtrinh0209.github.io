@@ -28,7 +28,11 @@ $(document).ready(function(){
 	$('.content-right').css('opacity','1');
 });
 /************banner-mobile*********************/
-$(".sign-mobile").html($(".sign").html());
+var window_width = window.innerWidth;
+if (window_width < 769) {
+	$(".sign-mobile").html($(".sign").html());
+	$(".info-acc-mobile").html($(".info-acc").html());
+}
 /************banner-mobile*********************/
 $(document).ready(function(){
 	$(".hn").hover(function() {
@@ -69,8 +73,8 @@ $(document).ready(function(){
 		window.location.href='search-nearby.html';
 	});
 	/************menu-fixed*****************/
-	var window_with = window.innerWidth;
-	if (window_with > 768) {
+	
+	if (window_width > 768) {
 		$(window).scroll(function(){
 			if ($(this).scrollTop()>$(".banner").height()){
 				$('.header').addClass("header-fixed");
@@ -113,6 +117,8 @@ $(document).ready(function(){
 	if ($(location).attr('href').search('psw')>0){
 		$('.sign').css('display','none');
 		$('.info-acc').css('display','block');
+		$('.sign-mobile').css('display','none');
+		$('.info-acc-mobile').css('display','block');
 	}
 	$(".sign-out").on("click",function() {
 	window.location.href='home.html';

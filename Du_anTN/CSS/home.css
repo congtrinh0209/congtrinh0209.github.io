@@ -46,15 +46,52 @@ ol, ul{
 	display: none;
 }
 .banner-mobile{
-	height: 70px;
+	height: 90px;
 }
 .banner-mobile>img:nth-child(1){
 	height: 70px;
 }
-.form-acc{
-	float: right;
-	width: 32%;
+.banner-mobile>img:nth-child(2){
+	position: absolute;
+	width: 90px;
+	top: 72px;
+	left: 0;
 }
+.form-acc{
+	margin-top: 0;
+	float: right;
+	width: 67%;
+	position: relative;
+}
+.sign-mobile{
+	position: relative;
+	float: right;
+}
+.info-acc-mobile{
+	font-size: 0.8em;
+	display: none;
+	float: right;
+	width: 225px;
+}
+.info-acc-mobile>.img-ava>img{
+	width: 100%;
+	max-height: 60px;
+}
+
+.info-acc-mobile>.info-user>button{
+	max-width: 80px;
+}
+.sign-mobile button{
+	padding: 0 !important;
+	border: none;
+	background-color: #E74C3C;
+	margin-top: 1px;
+	color: white;
+	height: 25px;
+	width: 100px;
+	font-size: 13px !important;
+}
+
 .face{
 	font-size: 1.6em;
 	position: absolute;
@@ -67,19 +104,7 @@ ol, ul{
 .face2{display: none}
 .clear{ clear: both;}
 /*********** CSS Form đăng nhập screen-320 ************/
-.sign-mobile{
-	position: relative;
-}
-.sign-mobile button{
-	padding: 0 !important;
-	border: none;
-	background-color: #E74C3C;
-	margin-top: 1px;
-	color: white;
-	height: 25px;
-	width: 100px;
-	font-size: 13px !important;
-}
+
 .btn .btn-info .btn-lg{
 	top: 0px;
 	right: 102px;
@@ -95,6 +120,20 @@ ol, ul{
 .btn .btn-info span{
 	font-size: 1.1em !important;
 }
+@media only screen and (max-width: 769px){
+	#myModal{
+		width: 90%;
+		margin: 0 auto;
+	}
+	button.login{
+		width: 30%;
+		height: 35px;
+		border-radius: 5px;
+		font-size: 16px;
+	}
+	
+}
+
 /*option tab support*/
 .tab-pane{
 	padding: 10px;
@@ -242,15 +281,7 @@ div.wrap-content > div > form > button{
 }
 .content{border: 2px solid #4FB748;}
 /*option form thong tin ca nhan*/
-.login{width: 540px !important}
-#myModal > div > div > div.modal-body > form > div:nth-child(2) > span{
-	width: 160px !important;
-}
-		/********Css form*********/
 
-.container .form{
-	width: 560px !important;
-}
 input[type=text], input[type=password], input[type=email] {
     width: 100%;
     padding: 12px 20px;
@@ -618,6 +649,11 @@ i.fa.fa-bars{
 	font-size: 1em;
 	margin: 0;
 	}
+		/********Css form*********/
+
+.container .form{
+	width: 560px !important;
+}
 	#content-left{
 		position: relative;
 		max-width: 33%;
@@ -668,12 +704,16 @@ i.fa.fa-bars{
 	}
 	a{font-size: 0.9em}
 	.banner{
-		min-width: 1024px;
+		width: 1024px;
 		display: block;
 		height: 480px;
 		position: fixed;
 		top:0;
 		left: 0;
+	}
+	.login{width: 540px !important}
+	#myModal > div > div > div.modal-body > form > div:nth-child(2) > span{
+		width: 160px !important;
 	}
 	.header-fixed{
 		border-bottom: 2px solid #00914E;
