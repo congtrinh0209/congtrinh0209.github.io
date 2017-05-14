@@ -36,7 +36,14 @@ ol, ul{
 	padding: 0 !important;
 	background-color: white;
 }
-
+.back-top img{
+	width: 50px;
+	position: fixed;
+	top: 50%;
+	right: 20px;
+	z-index: 123;
+	cursor: pointer;
+}
 .content{font-size: 0.9em}
 .banner{
 	margin-top: 0 !important;
@@ -47,15 +54,17 @@ ol, ul{
 }
 .banner-mobile{
 	height: 90px;
+
 }
 .banner-mobile>img:nth-child(1){
 	height: 70px;
+	margin-left: 3px;
 }
 .banner-mobile>img:nth-child(2){
 	position: absolute;
 	width: 90px;
 	top: 72px;
-	left: 0;
+	left: 3px;
 }
 .form-acc{
 	margin-top: 0;
@@ -915,7 +924,7 @@ i.fa.fa-bars{
 		background-color: white;
 	}
 	.menu-1024 .item{
-		width: 8%;
+		width: 9%;
 		height: 100%;
 		border-radius: 5px;
 		background-color: white;

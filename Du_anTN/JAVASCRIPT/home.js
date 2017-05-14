@@ -143,6 +143,13 @@ $(document).ready(function(){
 		
 		else {
 			$(".menu-1024>ul>li:nth-child(7)>a").on("click",function(){$(".alert-danger").css("display","block")});}
+
+	i = $(".info-acc-mobile").css("display");
+	if (i == "block"){
+			$(".menu-mobile>ul>.item-mobile:nth-child(3)").on("click",function(){window.location.href = '../HTML/post2.html'})}
+		
+		else {
+			$(".menu-mobile>ul>.item-mobile:nth-child(3)").on("click",function(){$(".alert-danger").css("display","block")});}
 });
 
 
