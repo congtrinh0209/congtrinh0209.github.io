@@ -130,7 +130,7 @@ ol, ul{
 	font-size: 1.1em !important;
 }
 @media only screen and (max-width: 769px){
-	#myModal{
+	#myModal,#myModal2{
 		width: 90%;
 		margin: 0 auto;
 	}
@@ -935,9 +935,6 @@ i.fa.fa-bars{
 	.main-menu > div.menu-1024 > ul > li:nth-child(4){width: 10.1%}
 	.menu-1024 .item:hover{
 		cursor: pointer;
-	}
-	.menu-1024 .item:nth-child(3){
-		width: 7% !important;
 	}
 	/*.menu-1024 .item:nth-child(6){
 		width: 9% !important;

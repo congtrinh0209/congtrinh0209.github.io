@@ -1,10 +1,10 @@
 window.onload = function(){
-    var x = document.getElementById("demo");
-        if (navigator.geolocation){
+    var x = document.getElementById("mapholder");
+    if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(showPosition, showError);
-        } else { 
-            x.innerHTML = "Geolocation không hỗ trợ trên trình duyệt này.";
-        }
+    } else { 
+        x.innerHTML = "Geolocation không hỗ trợ trên trình duyệt này.";
+    }
     function showPosition(position) {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
