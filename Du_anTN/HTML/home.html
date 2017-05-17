@@ -1182,6 +1182,7 @@
 	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4"></script>	
 	<script>
+<<<<<<< HEAD
 	$(".position.item1").on("click",function(){
     	var mapholder = document.getElementById('googleMap1');
         if (navigator.geolocation)
@@ -1212,6 +1213,31 @@
             	draggable: false,
         	});
         	var marker = new google.maps.Marker({
+=======
+	$("#position-item").on("click",function(){
+    function showPosition(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        latlon = new google.maps.LatLng(lat, lon);
+        var myOptions = {
+            center: {lat: 20.999145, lng: 105.814108},
+            zoom:16,
+            mapTypeId:google.maps.MapTypeId.ROADMAP,
+            mapTypeControl:true, 
+        }
+        var mapholder = document.getElementById('googleMap');
+        mapholder.style.height = '400px';
+        mapholder.style.width = '100%';
+        var map = new google.maps.Map(document.getElementById("googleMap"), myOptions,);
+        var marker = new google.maps.Marker({
+            position:latlon,
+            map:map,
+            title:"Vị trí của bạn!",
+            icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/position-marker.png',
+            draggable: false,
+        });
+        var marker = new google.maps.Marker({
+>>>>>>> dc00594b81f2c97284b7d79b1466b09f09b5de3d
                 position: {lat: 20.999145, lng: 105.814108},
                 icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/house-marker.png',
                 map: map,
@@ -1252,6 +1278,7 @@
                             }
                     });
                 }
+<<<<<<< HEAD
         	});   
     	};
    		function showError(error) {
@@ -1271,6 +1298,16 @@
         	}
     	}
 	});
+=======
+        });
+           
+    };
+
+});
+	    </script>
+    	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4"></script>
+		
+>>>>>>> dc00594b81f2c97284b7d79b1466b09f09b5de3d
 	</script>
 	<script src="../JAVASCRIPT/home.js"></script>
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
