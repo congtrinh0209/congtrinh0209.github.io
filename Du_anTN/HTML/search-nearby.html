@@ -174,6 +174,9 @@
 					</div>
 				</div>
 			</div>
+			<div class="icon-nav">
+				<span><a href="../HTML/home.html">Trang chủ</a> </span><i class="fa fa-angle-right"></i><span> <a href="../HTML/search-nearby.html">Tìm quanh đây</a></span>
+			</div>
 			<!--Content1-->
 			<div class="wrap-content">
 				<!--Form thông báo-->
@@ -184,9 +187,16 @@
 					</div>
 					<!--Tìm quanh đây-->
 					<div class="map-search">
+						<span>Bán kính tìm kiếm (đv: mét)</span>
+						<input class="input-radius" type="text" value="500"></input>
+						<button class="search-by-radius" onclick="search_locale()"><i class="fa fa-search"></i> Tìm</button>
 						<div id="mapholder"></div>
 					</div>
-					<div class="content">
+					<div class="result-search">
+						<i class="fa fa-hand-o-right"></i>
+						<span> Tìm được 5 địa điểm cho thuê quanh vị trí của bạn.</span>
+					</div>
+					<div class="content" id="locale1">
 						<div id="content-left">
 						
 							<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -363,7 +373,7 @@
 						<div class="clear"></div>
 					</div>
 					<!--Content 2-->
-					<div class="content">
+					<div class="content" id="locale2">
 						<div id="content-left">
 						
 							<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -605,9 +615,21 @@
 						<div class="title-side">
 							TIN TỨC
 						</div>
-						<div class="new-item">Chung cư mini mới xây gồm 200 phòng toàn bộ nội thất trong phòng được thiết kế bằng gỗ rất mát mẻ, sang trọng. Chính thức đưa tòa nhà vào hoạt…</div>
-						<div class="new-item">Chung cư mini mới xây gồm 200 phòng toàn bộ nội thất trong phòng được thiết kế bằng gỗ rất mát mẻ, sang trọng. Chính thức đưa tòa nhà vào hoạt…</div>
-						<div class="new-item">Chung cư mini mới xây gồm 200 phòng toàn bộ nội thất trong phòng được thiết kế bằng gỗ rất mát mẻ, sang trọng. Chính thức đưa tòa nhà vào hoạt…</div>
+						<div class="new-item">
+							<div class="news-img"><img src="../IMG/new1.jpg"></div>
+							<div class="news-detail">Những điều tân sinh viên cần biết khi thuê phòng trọ…</div>
+							<div class="clear"></div>
+						</div>
+						<div class="new-item">
+							<div class="news-img"><img src="../IMG/buyt.jpg"></div>
+							<div class="news-detail">Tổng hợp lộ trình các tuyến xe buýt khu vực Hà Nội, Tp. Hồ chí Minh, Đà Nẵng…</div>
+							<div class="clear"></div>
+						</div>
+						<div class="new-item">
+							<div class="news-img"><img src="../IMG/new1.jpg"></div>
+							<div class="news-detail">Những điều tân sinh viên cần biết khi thuê phòng trọ…</div>
+							<div class="clear"></div>
+						</div>
 					</div>
 				</div>
 				

@@ -1,4 +1,12 @@
-
+.result-search{
+  margin: 15px 0;
+  color: #23527c;
+  font-size: 1.2em;
+}
+.result-search i{
+  font-size: 1.3em;
+  color: red;
+}
 .container-locale{
   width:400px;
 }
@@ -26,6 +34,50 @@
 	border: 2px solid #4FB748;
 	padding: 5px;
 	border-radius: 5px;
+  position: relative;
+}
+.map-search span{
+  color: #00914E;
+  position: absolute;
+  z-index: 15;
+  top: 5px;
+  background-color: white;
+  right: 5px;
+  width: 210px;
+  height: 30px;
+  padding-left: 3px;
+  padding-top: 5px;
+  border: 1px solid #ccc;
+}
+.map-search > button{
+  position: absolute;
+  color: white;
+  top: 33px;
+  right: 5px;
+  width: 75px;
+  height: 29px;
+  z-index: 16;
+  background: linear-gradient(to left, #64a9de 50%,#288AD6 50%);
+  background-size: 200% 100%;
+  transition: background-position 150ms ease;
+}
+.map-search button:hover{
+    cursor: pointer;
+    color: red;
+    background-position: right top;
+}
+.input-radius{
+  color: #e60000;
+  width: 210px !important;
+  height: 30px !important;
+  position: absolute;
+  z-index: 15;
+  top: 25px;
+  right: 5px;
+}
+#mapholder{
+  width: 100%;
+  height: 500px;
 }
 #mapholder > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(2) > div.gm-style-iw > div:nth-child(1) > div > div > div.content-right-locale > p:nth-child(1){
 	color: red !important;
