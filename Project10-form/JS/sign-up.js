@@ -10,15 +10,13 @@ $(function () {
 	for (var i = 1; i <= 31; i++) {
 		display +="<option>"+i+"</option>";}
 	$('.date').html(display);
-}
-)
+})
 $(function () {
 	var display = "<option>Tháng</option>";
 	for (var i = 1; i <= 12; i++) {
 		display +="<option>"+i+"</option>";}
 	$('.month').html(display);
-}
-)
+})
 $('#sign-up').on('submit',function() {  /********** Hàm điều kiện dữ liệu nhập **********/
 	var error = true;
 		$('span').css('padding', '5px');

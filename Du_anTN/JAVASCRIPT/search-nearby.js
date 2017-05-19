@@ -41,10 +41,10 @@ function search_locale(){
             center: latlon,
             radius: parseFloat($('.input-radius').val()),
             strokeColor: "#0000FF",
-            strokeOpacity: 0.6,
+            strokeOpacity: 0.3,
             strokeWeight: 2,
             fillColor: "#0000FF",
-            fillOpacity: 0.3
+            fillOpacity: 0.2
         });
         myCity.setMap(map);
 

@@ -3,13 +3,13 @@ $('.item-mobile:nth-child(4)').click(function(){
 	$('.icon2').css('transform','rotateZ(45deg)');
 	$('.item-mobile:nth-child(5)').css({'opacity':'1','z-index':'3'});
 	$('i.fa.fa-bars').css('display','none');
-	$('.item-dropdown').css('opacity','1')
+	$('.item-dropdown').css('opacity','1');
 	$('.menu-dropdown').css('max-height','360px')
 });
 $('.item-mobile:nth-child(5)').click(function(){
 	$('.icon1').css('transform','rotateZ(0deg)');
 	$('.icon2').css('transform','rotateZ(0deg)');
-	$('.menu-dropdown').css('max-height','0px')
+	$('.menu-dropdown').css('max-height','0px');
 	$('.item-mobile:nth-child(5)').css({'opacity':'0','z-index':'1'});
 	$('i.fa.fa-bars').css('display','block');
 	$('.item-dropdown').css('opacity','0')
@@ -27,6 +27,7 @@ $(document).ready(function(){
 	$('.nav-bar').css('opacity','1');
 	$('.content-right').css('opacity','1');
 });
+
 /************banner-mobile*********************/
 var window_width = window.innerWidth;
 if (window_width < 769) {
@@ -65,7 +66,9 @@ $(document).ready(function(){
 		        $(".locale-item").val($(".locale-item>option:nth-child(4)").val());
 		        break;
 		    }
+		    default: {$(".locale-item").val("Tỉnh, TP")}
 		}
+
 	$(".item-mobile:nth-child(1)").on("click",function() {
 		window.location.href='#menu-search';
 	});
@@ -87,7 +90,51 @@ $(document).ready(function(){
 		})
 	}
 });
+/************locale menu search****************/
+	var district_hn = ['Quận Ba Đình','Quận Hoàn Kiếm','Quận Hai Bà Trưng','Quận Đống Đa','Quận Tây Hồ','Quận Cầu Giấy','Quận Thanh Xuân','Quận Hoàng Mai','Quận Long Biên','Huyện Từ Liêm','Huyện Thanh Trì','Huyện Gia Lâm','Huyện Đông Anh','Huyện Sóc Sơn','Quận Hà Đông','Thị xã Sơn Tây','Huyện Ba Vì','Huyện Phúc Thọ','Huyện Thạch Thất','Huyện Quốc Oai','Huyện Chương Mỹ','Huyện Đan Phượng','Huyện Hoài Đức','Huyện Thanh Oai','Huyện Mỹ Đức','Huyện Ứng Hoà','Huyện Thường Tín','Huyện Phú Xuyên','Huyện Mê Linh'];
+	var district_hcm = ['Quận 1','Quận 2','Quận 3','Quận 4','Quận 5','Quận 6','Quận 7','Quận 8','Quận 9','Quận 10','Quận 11','Quận 12','Quận Thủ Đức','Quận Gò Vấp','Quận Bình Thạnh','Quận Tân Bình','Quận Tân Phú','Quận Phú Nhuận','Quận Bình Tân','Huyện Củ Chi','Huyện Hóc Môn','Huyện Bình Chánh','Huyện Nhà Bè','Huyện Cần Giờ'];
+	var district_dn = ['Quận Hải Châu','Quận Thanh Khê','Quận Sơn Trà','Quận Ngũ Hành Sơn','Quận Liên Chiểu','Huyện Hòa Vang','Quận Cẩm Lệ','Huyện Hoàng Sa'];
+window.onload = function select_locale() {
+	var display_locale = "<option>Quận, Huyện</option>";
+	if ($(".locale-item").val() == "Hà Nội"){
+		for (var i = 0; i < district_hn.length; i++) {
+			display_locale += "<option>"+district_hn[i]+"</option>"
+		};
+	}
+	else if ($(".locale-item").val() == "Đà Nẵng"){
+		for (var i = 0; i < district_dn.length; i++) {
+			display_locale += "<option>"+district_dn[i]+"</option>"
+		};
+	}
+	else if ($(".locale-item").val() == "TP.Hồ Chí Minh"){
+		for (var i = 0; i < district_hcm.length; i++) {
+			display_locale += "<option>"+district_hcm[i]+"</option>"
+		};
+	}
+	else {display_locale += ""}
+	$(".locale_district").html(display_locale);
 
+	$(".locale-item").click(function() {
+		var display_locale = "<option>Quận, Huyện</option>";
+		if ($(".locale-item").val() == "Hà Nội"){
+			for (var i = 0; i < district_hn.length; i++) {
+				display_locale += "<option>"+district_hn[i]+"</option>"
+			};
+		}
+		else if ($(".locale-item").val() == "Đà Nẵng"){
+			for (var i = 0; i < district_dn.length; i++) {
+				display_locale += "<option>"+district_dn[i]+"</option>"
+			};
+		}
+		else if ($(".locale-item").val() == "TP.Hồ Chí Minh"){
+			for (var i = 0; i < district_hcm.length; i++) {
+				display_locale += "<option>"+district_hcm[i]+"</option>"
+			};
+		}
+		$(".locale_district").html(display_locale)
+	})
+}
+/************************************/
 /************Đăng nhập*****************/
 var user = [
 			user_1={fullname: 'Trịnh Công Trình', mobile: '0868979193', email:'congtrinh0209@gmail.com', pass:'02092008'},
