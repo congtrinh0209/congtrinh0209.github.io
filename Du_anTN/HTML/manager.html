@@ -181,29 +181,55 @@
 					<div class="wrapper">
 					<!-- Nav tabs -->
 					<ul class="nav nav-tabs tab" role="tablist">
-						<li role="presentation" class=""><a href="#quan_ly_tin" aria-controls="quan_ly_tin" role="tab" data-toggle="tab">Quản lý tin</a></li>
-						<li role="presentation" class="active"><a href="#thong_tin_ca_nhan" aria-controls="thong_tin_ca_nhan" role="tab" data-toggle="tab">Thông tin cá nhân</a></li>
-						<li role="presentation" class=""><a href="#lich_su_giao_dich" aria-controls="lich_su_giao_dich" role="tab" data-toggle="tab">Lịch sử giao dịch</a></li>
+						<li role="presentation" class="active"><a href="#quan_ly_tin" aria-controls="quan_ly_tin" role="tab" data-toggle="tab">Quản lý tin</a></li>
+						<li role="presentation" class=""><a href="#thong_tin_ca_nhan" aria-controls="thong_tin_ca_nhan" role="tab" data-toggle="tab">Thông tin cá nhân</a></li>
 					</ul>
 
 					<!-- Tab panes -->
 					<div class="tab-content">
-						<div role="tabpanel" class="tab-pane" id="quan_ly_tin">
+						<div role="tabpanel" class="tab-pane active" id="quan_ly_tin">
 							<div class="table-responsive">
-								<header class="page-header">
-		   						 	<span>Chưa có dữ liệu trong khu vực này</span>
-								</header>
 								<table class="table table-bordered table-hover">
 									<thead>
 										<tr>
 											<th style="white-space: nowrap;" class="td_center">Mã số</th>
+											<th style="white-space: nowrap;">Trạng thái</th>
 											<th style="white-space: nowrap;">Tiêu đề</th>
-											<th style="white-space: nowrap;">Ngày đăng</th>
+											<th style="white-space: nowrap;">Ngày đăng tin</th>
 											<th style="white-space: nowrap;">Ngày hết hạn</th>
 											<th style="white-space: nowrap; text-align: center;">Thao tác</th>
 										</tr>
 									</thead>
 									<tbody>
+										<tr>
+											<td class="td_col2 td_matin">102230</td>
+											<td class="td_col2 td_matin" id="status" style="color: green">Tin đang được đăng</td>
+											<td class="td_col3">
+												<a href="../HTML/home.html#content1" class="" target="_blank">NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 3/108 NGUYỄN TRÃI - THƯỢNG ĐÌNH -THANH XUÂN</a>
+											</td>
+											<td class="td_col4">19-05-2017</td>
+											<td class="td_col4">29-05-2017</td>
+											<td>
+												<a class="btn btn_action" href="../HTML/post-edit.html"><i class="fa fa-pencil"></i> Sửa</a>
+												<a class="btn btn_action" id="st1" style="color: red"><i class="fa fa-expeditedssl" ></i> Ngừng đăng tin</a>
+												<a class="btn btn_action" id="st2" style="color: green"><i class="fa fa-refresh"></i> Đăng lại</a>
+
+											</td>
+										</tr>
+										<tr>
+											<td class="td_col2 td_matin">102340</td>
+											<td class="td_col2 td_matin" id="status2" style="color: red">Tin đã ngừng đăng</td>
+											<td class="td_col3">
+												<a href="../HTML/home.html#content1" class="" target="_blank">NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</a>
+											</td>
+											<td class="td_col4">15-04-2017</td>
+											<td class="td_col4">20-04-2017</td>
+											<td>
+												<a class="btn btn_action" href="../HTML/post-edit.html"><i class="fa fa-pencil"></i> Sửa</a>
+												<a class="btn btn_action" id="st1-2" style="color: red"><i class="fa fa-expeditedssl" ></i> Ngừng đăng tin</a>
+												<a class="btn btn_action" id="st2-2" style="color: green"><i class="fa fa-refresh"></i> Đăng lại</a>
+											</td>
+										</tr>
 									</tbody>
 								</table>
 							</div>
@@ -212,7 +238,7 @@
 							</div>
 						</div>
 					
-						<div role="tabpanel" class="tab-pane active" id="thong_tin_ca_nhan">
+						<div role="tabpanel" class="tab-pane" id="thong_tin_ca_nhan">
 						<form id="form_thong_tin_ca_nhan" class="js-form-thong-tin-ca-nhan">
 							<div class="form-group">
 								<div class="row">
@@ -320,6 +346,7 @@
 		<img class="top-footer" src="../IMG/footer1.png">
 		<div class="footer-content"></div>
 	</div>
+	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
 	<script type="text/javascript">
 	/********** Load ảnh đại diện trang Manager  **********/
 			window.onload = function() {
@@ -340,11 +367,31 @@
 				} else {
 					fileDisplayArea.innerHTML = "File not supported!"
 				}
-			});
+			});	
 	}
+			$("#st1").click(function(){
+				$('#status').html("Tin đã ngừng đăng");
+				$('#status').css("color","red")
+			})
+			$("#st2").click(function(){
+				$('#status').html("Tin đang được đăng");
+				$('#status').css("color","green")
+			})
+			$("#st1-2").click(function(){
+				$('#status2').html("Tin đã ngừng đăng");
+				$('#status2').css("color","red")
+			})
+			$("#st2-2").click(function(){
+				$('#status2').html("Tin đang được đăng");
+				$('#status2').css("color","green")
+			})
+			/*var d = new Date();
+document.getElementById("demo").innerHTML = d.getFullYear();
+document.getElementById("demo").innerHTML = d.getDate();
+document.getElementById("demo").innerHTML = d.getMonth()+1;*/
 
 	</script>
-	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
+	
 	<script src="../JAVASCRIPT/home.js"></script>
 	<script src="../JAVASCRIPT/sign-up.js"></script>
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
