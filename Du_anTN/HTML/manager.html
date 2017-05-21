@@ -203,31 +203,30 @@
 									<tbody>
 										<tr>
 											<td class="td_col2 td_matin">102230</td>
-											<td class="td_col2 td_matin" id="status" style="color: green">Tin đang được đăng</td>
+											<td class="td_col2 td_matin" id="status" style="color: #4CAF50">Tin đang được đăng</td>
 											<td class="td_col3">
 												<a href="../HTML/home.html#content1" class="" target="_blank">NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 3/108 NGUYỄN TRÃI - THƯỢNG ĐÌNH -THANH XUÂN</a>
 											</td>
-											<td class="td_col4">19-05-2017</td>
-											<td class="td_col4">29-05-2017</td>
+											<td class="td_col4 date-up item1" style="color: #4CAF50"></td>
+											<td class="td_col4 date-dead item1" style="color: #ED2327"></td>
 											<td>
 												<a class="btn btn_action" href="../HTML/post-edit.html"><i class="fa fa-pencil"></i> Sửa</a>
-												<a class="btn btn_action" id="st1" style="color: red"><i class="fa fa-expeditedssl" ></i> Ngừng đăng tin</a>
-												<a class="btn btn_action" id="st2" style="color: green"><i class="fa fa-refresh"></i> Đăng lại</a>
-
+												<a class="btn btn_action" id="st1" style="color: #ED2327"><i class="fa fa-expeditedssl" ></i> Ngừng đăng tin</a>
+												<a class="btn btn_action" id="st2" style="color: #4CAF50"><i class="fa fa-refresh"></i> Đăng lại</a>
 											</td>
 										</tr>
 										<tr>
 											<td class="td_col2 td_matin">102340</td>
-											<td class="td_col2 td_matin" id="status2" style="color: red">Tin đã ngừng đăng</td>
+											<td class="td_col2 td_matin" id="status2" style="color: #ED2327">Tin đã ngừng đăng</td>
 											<td class="td_col3">
 												<a href="../HTML/home.html#content1" class="" target="_blank">NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 131A, NGÕ 105/20 ĐƯỜNG DOÃN KẾ THIỆN, MAI DỊCH, QUẬN CẦU GIẤY</a>
 											</td>
-											<td class="td_col4">15-04-2017</td>
-											<td class="td_col4">20-04-2017</td>
+											<td class="td_col4 date-up item2" style="color: #4CAF50"></td>
+											<td class="td_col4 date-dead item2" style="color: #ED2327"></td>
 											<td>
 												<a class="btn btn_action" href="../HTML/post-edit.html"><i class="fa fa-pencil"></i> Sửa</a>
-												<a class="btn btn_action" id="st1-2" style="color: red"><i class="fa fa-expeditedssl" ></i> Ngừng đăng tin</a>
-												<a class="btn btn_action" id="st2-2" style="color: green"><i class="fa fa-refresh"></i> Đăng lại</a>
+												<a class="btn btn_action" id="st1-2" style="color: #ED2327"><i class="fa fa-expeditedssl" ></i> Ngừng đăng tin</a>
+												<a class="btn btn_action" id="st2-2" style="color: #4CAF50"><i class="fa fa-refresh"></i> Đăng lại</a>
 											</td>
 										</tr>
 									</tbody>
@@ -347,51 +346,7 @@
 		<div class="footer-content"></div>
 	</div>
 	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
-	<script type="text/javascript">
-	/********** Load ảnh đại diện trang Manager  **********/
-			window.onload = function() {
-			var fileInput = document.getElementById('fileInput');
-			var fileDisplayArea = document.getElementById('fileDisplayArea');
-			fileInput.addEventListener('change', function(e) {
-				var file = fileInput.files[0];
-				var imageType = /image.*/;
-				if (file.type.match(imageType)) {
-					var reader = new FileReader();
-					reader.onload = function(e) {
-						fileDisplayArea.innerHTML = "";
-						var img = new Image();
-						img.src = reader.result;
-						fileDisplayArea.appendChild(img);
-					}
-					reader.readAsDataURL(file);	
-				} else {
-					fileDisplayArea.innerHTML = "File not supported!"
-				}
-			});	
-	}
-			$("#st1").click(function(){
-				$('#status').html("Tin đã ngừng đăng");
-				$('#status').css("color","red")
-			})
-			$("#st2").click(function(){
-				$('#status').html("Tin đang được đăng");
-				$('#status').css("color","green")
-			})
-			$("#st1-2").click(function(){
-				$('#status2').html("Tin đã ngừng đăng");
-				$('#status2').css("color","red")
-			})
-			$("#st2-2").click(function(){
-				$('#status2').html("Tin đang được đăng");
-				$('#status2').css("color","green")
-			})
-			/*var d = new Date();
-document.getElementById("demo").innerHTML = d.getFullYear();
-document.getElementById("demo").innerHTML = d.getDate();
-document.getElementById("demo").innerHTML = d.getMonth()+1;*/
-
-	</script>
-	
+	<script src="../JAVASCRIPT/manager.js"></script>
 	<script src="../JAVASCRIPT/home.js"></script>
 	<script src="../JAVASCRIPT/sign-up.js"></script>
 	<script src="../../bootstrap/js/bootstrap.min.js"></script>
