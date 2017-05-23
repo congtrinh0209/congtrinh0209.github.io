@@ -77,5 +77,4 @@
 			date_status2(date_st2);
 			$('#status2').html("Tin đang được đăng");
 			$('#status2').css("color","#4CAF50");
-			date_st2 = date_current;
 		})

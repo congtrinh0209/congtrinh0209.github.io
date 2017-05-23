@@ -27,7 +27,264 @@ $(document).ready(function(){
 	$('.nav-bar').css('opacity','1');
 	$('.content-right').css('opacity','1');
 });
-
+/****************JS MAP-DEMO ITEM-1************************/
+$(".position.item1").on("click",function(){
+    	var mapholder = document.getElementById('googleMap1');
+        if (navigator.geolocation)
+     	   {
+            	navigator.geolocation.getCurrentPosition(showPosition, showError);
+        	} 
+        	else { 
+            	mapholder.innerHTML = "Geolocation không hỗ trợ trên trình duyệt này."
+        	};
+    	function showPosition(position) {
+        	lat = position.coords.latitude;
+        	lon = position.coords.longitude;
+        	latlon = new google.maps.LatLng(lat, lon);
+        	var myOptions = {
+           		center: {lat: 20.999145, lng: 105.814108},
+            	zoom:16,
+            	mapTypeId:google.maps.MapTypeId.ROADMAP,
+            	mapTypeControl:true,
+        	}
+       		mapholder.style.height = '400px';
+        	mapholder.style.width = '100%';
+        	var map = new google.maps.Map(mapholder, myOptions);
+        	var marker = new google.maps.Marker({
+            	position:latlon,
+            	map:map,
+            	title:"Vị trí của bạn!",
+            	icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/position-marker.png',
+            	draggable: false,
+        	});
+        	var marker = new google.maps.Marker({
+                position: {lat: 20.999145, lng: 105.814108},
+                icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/house-marker.png',
+                map: map,
+                title: "Chỉ đường tới đây",
+                draggable: false,
+       		});
+        	var myCity = new google.maps.Circle({
+            	center: {lat: 20.999145, lng: 105.814108},
+            	radius: 60,
+            	strokeColor: "#E74C3C",
+            	strokeOpacity: 0.5,
+            	strokeWeight: 2,
+            	fillColor: "#E74C3C",
+            	fillOpacity: 0.3
+        	});
+        	myCity.setMap(map);
+        	
+              /***********Chỉ đường*************/       	
+        	marker.addListener('click', function() {
+            	directionsService = new google.maps.DirectionsService;
+            	directionsDisplay = new google.maps.DirectionsRenderer({
+                map: map
+            	});
+                            // get route from A to B
+            	calculateAndDisplayRoute(directionsService, directionsDisplay);
+            	function calculateAndDisplayRoute(directionsService, directionsDisplay){
+                    directionsService.route({
+                        origin: latlon,
+          				destination: {lat: 20.999145, lng: 105.814108},
+                        avoidTolls: true,
+                        avoidHighways: false,
+                        travelMode: google.maps.TravelMode.DRIVING
+                        },
+                        function (response, status) {
+                            if (status == google.maps.DirectionsStatus.OK) {
+                                directionsDisplay.setDirections(response);
+                            } else {
+                                window.alert('Directions request failed due to ' + status);
+                            }
+                    });
+                }
+        	});
+        	/***********Tìm Bus Lân cận*************/
+        	var pyrmont = {lat: 20.999145, lng: 105.814108};
+        	var service = new google.maps.places.PlacesService(map);
+				service.nearbySearch({
+				location: pyrmont,
+				radius: 1000,
+				type: ['university']
+				}, processResults);
+			function processResults(results, status, pagination) {
+			  if (status !== google.maps.places.PlacesServiceStatus.OK) {
+			    return;
+			  } else {
+			    createMarkers(results);
+			  }
+			}
+			function createMarkers(places) {
+				var bounds = new google.maps.LatLngBounds();
+				var placesList = document.getElementById('places');
+				for (var i = 0, place; place = places[i]; i++) {
+				var image = {
+				  url: place.icon,
+				  size: new google.maps.Size(71, 71),
+				  origin: new google.maps.Point(0, 0),
+				  anchor: new google.maps.Point(17, 34),
+				  scaledSize: new google.maps.Size(15, 15)
+				};
+				var marker = new google.maps.Marker({
+				  map: map,
+				  icon: image,
+				  title: place.name,
+				  position: place.geometry.location
+				});
+				placesList.innerHTML += '<li>' + place.name + '</li>';
+				bounds.extend(place.geometry.location);
+				}
+				map.fitBounds(bounds);
+			}  
+    	};
+    	
+   		function showError(error) {
+        	switch(error.code) {
+            	case error.PERMISSION_DENIED:
+                mapholder.innerHTML = "Google map đã bị tắt."
+                	break;
+            	case error.POSITION_UNAVAILABLE:
+                mapholder.innerHTML = "Không có thông tin vị trí."
+                	break;
+            	case error.TIMEOUT:
+                mapholder.innerHTML = "The request to get user location timed out."
+                	break;
+            	case error.UNKNOWN_ERROR:
+                mapholder.innerHTML = "An unknown error occurred."
+                	break;
+        	}
+    	}
+	});
+/****************JS MAP-DEMO ITEM-2************************/
+$(".position.item2").on("click",function(){
+    	var mapholder2 = document.getElementById('googleMap2');
+        if (navigator.geolocation)
+     	   {
+            	navigator.geolocation.getCurrentPosition(showPosition, showError);
+        	} 
+        	else { 
+            	mapholder2.innerHTML = "Geolocation không hỗ trợ trên trình duyệt này."
+        	};
+    	function showPosition(position) {
+        	lat = position.coords.latitude;
+        	lon = position.coords.longitude;
+        	latlon = new google.maps.LatLng(lat, lon);
+        	var myOptions = {
+           		center: {lat: 21.039610, lng: 105.777585},
+            	zoom:16,
+            	mapTypeId:google.maps.MapTypeId.ROADMAP,
+            	mapTypeControl:true,
+        	}
+       		mapholder2.style.height = '400px';
+        	mapholder2.style.width = '100%';
+        	var map = new google.maps.Map(mapholder2, myOptions);
+        	var marker = new google.maps.Marker({
+            	position:latlon,
+            	map:map,
+            	title:"Vị trí của bạn!",
+            	icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/position-marker.png',
+            	draggable: false,
+        	});
+        	var marker = new google.maps.Marker({
+                position: {lat: 21.039610, lng: 105.777585},
+                icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/flat-marker.png',
+                map: map,
+                title: "Chỉ đường tới đây",
+                draggable: false,
+       		});
+        	var myCity = new google.maps.Circle({
+            	center: {lat: 21.039610, lng: 105.777585},
+            	radius: 60,
+            	strokeColor: "#E74C3C",
+            	strokeOpacity: 0.5,
+            	strokeWeight: 2,
+            	fillColor: "#E74C3C",
+            	fillOpacity: 0.3
+        	});
+        	myCity.setMap(map);
+        	
+              /***********Chỉ đường*************/       	
+        	marker.addListener('click', function() {
+            	directionsService = new google.maps.DirectionsService;
+            	directionsDisplay = new google.maps.DirectionsRenderer({
+                map: map
+            	});
+                            // get route from A to B
+            	calculateAndDisplayRoute(directionsService, directionsDisplay);
+            	function calculateAndDisplayRoute(directionsService, directionsDisplay){
+                    directionsService.route({
+                        origin: latlon,
+          				destination: {lat: 21.039610, lng: 105.777585},
+                        avoidTolls: true,
+                        avoidHighways: false,
+                        travelMode: google.maps.TravelMode.DRIVING
+                        },
+                        function (response, status) {
+                            if (status == google.maps.DirectionsStatus.OK) {
+                                directionsDisplay.setDirections(response);
+                            } else {
+                                window.alert('Directions request failed due to ' + status);
+                            }
+                    });
+                }
+        	});
+        	/***********Tìm trường Lân cận*************/
+        	var pyrmont = {lat: 21.039610, lng: 105.777585};
+        	var service = new google.maps.places.PlacesService(map);
+				service.nearbySearch({
+				location: pyrmont,
+				radius: 1000,
+				type: ['university']
+				}, processResults);
+			function processResults(results, status, pagination) {
+			  if (status !== google.maps.places.PlacesServiceStatus.OK) {
+			    return;
+			  } else {
+			    createMarkers(results);
+			  }
+			}
+			function createMarkers(places) {
+				var bounds = new google.maps.LatLngBounds();
+				var placesList = document.getElementById('places2');
+				for (var i = 0, place; place = places[i]; i++) {
+				var image = {
+				  url: place.icon,
+				  size: new google.maps.Size(71, 71),
+				  origin: new google.maps.Point(0, 0),
+				  anchor: new google.maps.Point(17, 34),
+				  scaledSize: new google.maps.Size(15, 15)
+				};
+				var marker = new google.maps.Marker({
+				  map: map,
+				  icon: image,
+				  title: place.name,
+				  position: place.geometry.location
+				});
+				placesList.innerHTML += '<li>' + place.name + '</li>';
+				bounds.extend(place.geometry.location);
+				}
+				map.fitBounds(bounds);
+			}  
+    	};
+    	
+   		function showError(error) {
+        	switch(error.code) {
+            	case error.PERMISSION_DENIED:
+                mapholder2.innerHTML = "Google map đã bị tắt."
+                	break;
+            	case error.POSITION_UNAVAILABLE:
+                mapholder2.innerHTML = "Không có thông tin vị trí."
+                	break;
+            	case error.TIMEOUT:
+                mapholder2.innerHTML = "The request to get user location timed out."
+                	break;
+            	case error.UNKNOWN_ERROR:
+                mapholder2.innerHTML = "An unknown error occurred."
+                	break;
+        	}
+    	}
+	});
 /************banner-mobile*********************/
 var window_width = window.innerWidth;
 if (window_width < 769) {

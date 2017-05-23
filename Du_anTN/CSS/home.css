@@ -252,7 +252,7 @@ height: 145px;}
 .info{
 	color: #4CAF50;
 }
-/*option form thong tin ca nhan*/
+/*option form thong tin ca nhan Manager*/
 #form_thong_tin_ca_nhan{
 	border: none;
 	padding: 5px;
@@ -276,6 +276,15 @@ height: 145px;}
 #fileDisplayArea img{
 	width: 300px;
 	height: 200px;
+}
+#st1,#st1-2{
+	color: #ED2327
+}
+#st2,#st2-2{
+	color: #4CAF50;
+}
+#st1:hover,#st2:hover,#st1-2:hover,#st2-2:hover{
+	color: black;
 }
 /********CSS form help*******/
 .help-form{
@@ -436,8 +445,116 @@ i.fa.fa-bars{
 	left: 50px;
 	color: #fbf7f7;
 }
-/************** Form đăng nhập********/
+/************** Menu university near-by Map********/
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 15px;
+  padding-left: 10px;
+}
+#places{
+  font-size: 12px;
+}
+#right-panel select, #right-panel input {
+  font-size: 10px;
+}
 
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 10px;
+}
+#right-panel {
+	font-family: Arial, Helvetica, sans-serif;
+	position: absolute;
+	right: 5px;
+	top: 2%;
+	height: 300px;
+	width: 23%;
+	padding: 5px;
+	z-index: 1;
+	border: 1px solid #999;
+	background: #fff;
+}
+#right-panel h2 {
+	font-size: 18px;
+	color: green;
+	margin: 0 0 5px 10px;
+}
+#right-panel ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	height: 265px;
+	width: 100%;
+	overflow-y: scroll;
+	overflow-x: scroll;
+}
+#right-panel li {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#right-panel li:nth-child(odd) {
+  background-color: #fcfcfc;
+}
+/*************/
+#right-panel2 {
+  font-family: 'Roboto','sans-serif';
+  line-height: 15px;
+  padding-left: 10px;
+}
+#places2{
+  font-size: 12px;
+}
+#right-panel2 select, #right-panel input {
+  font-size: 10px;
+}
+
+#right-panel2 select {
+  width: 100%;
+}
+
+#right-panel2 i {
+  font-size: 10px;
+}
+#right-panel2 {
+	font-family: Arial, Helvetica, sans-serif;
+	position: absolute;
+	right: 5px;
+	top: 2%;
+	height: 300px;
+	width: 23%;
+	padding: 5px;
+	z-index: 1;
+	border: 1px solid #999;
+	background: #fff;
+}
+#right-panel2 h2 {
+	font-size: 18px;
+	color: green;
+	margin: 0 0 5px 10px;
+}
+#right-panel2 ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	height: 265px;
+	width: 100%;
+	overflow-y: scroll;
+	overflow-x: scroll;
+}
+#right-panel2 li {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#right-panel2 li:nth-child(odd) {
+  background-color: #fcfcfc;
+}
 /************** Menu tim kiem screen mobile*/
 	.search{
 		width: 100%;
