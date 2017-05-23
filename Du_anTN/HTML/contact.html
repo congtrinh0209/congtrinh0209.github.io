@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Kênh thông tin tìm kiếm phòng trọ</title>
+	<meta charset="utf-8">
+	<meta name="description" content="Phòng trọ, Tìm kiếm phòng trọ, Cho thuê nhà trọ">
+	<meta name="author" content="congtrinh0209">
+	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/search-nearby.css">
+	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="back-top"><a href="#view"><img src="../IMG/back-top.png"></a></div>
+	<div class="banner-mobile">
+		<img src="../IMG/logo-option2png.png">
+		<img src="../IMG/slogan-mobile.png">
+		<div class="form-acc">
+			<div class="sign-mobile"></div>
+			<div class="info-acc-mobile"></div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="wrapper-container" style="margin-top: 0 !important">
+		<div class="container">
+			<div class="header">
+				<div class="face">
+					<i class="fa fa-facebook-square">
+						
+					</i>
+				</div>
+				
+				<div class="main-menu">
+					<div class="menu-mobile">
+						<ul>
+							<li class="item-mobile"><i class="fa fa-search"></i><p>Tìm phòng</p></li>
+							<li class="item-mobile"><i class="fa fa-map-marker"></i><p>Tìm quanh đây</p></li>
+							<li class="item-mobile"><i class="fa fa-upload"></i><p>Đăng tin</p></li>
+							<li class="item-mobile">
+								<div class="icon1"></div>
+								<div class="icon2"></div>
+								<i class="fa fa-bars"></i>
+							</li>
+							<li class="item-mobile">
+								<div class="icon3"></div>
+								<div class="icon4"></div>
+							</li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+					<div class="menu-dropdown">
+						<ul>
+							<li class="item-dropdown"><i class="fa fa-home"></i><a href="../HTML/home.html">Trang chủ</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Phòng cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Nhà cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Căn hộ cho thuê</a></li>
+							<li class="item-dropdown"><i class="fa fa-bolt"></i><a href="#">Mặt bằng cho thuê</a></li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+					<div class="menu-1024">
+						<ul>
+							<li class="item"><a href="../HTML/home.html"><i class="fa fa-home"></i></br>Trang chủ</a></li>
+							<li class="item"><a href="#"><i class="fa fa-user-secret"></i></br>Cho thuê</a>
+								<ul class="sub-menu">
+									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Phòng cho thuê</a></li>
+									<li class="sub-item" id="sub2"><a href=""><i class="fa fa-bolt"></i>Nhà cho thuê</a></li>
+									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Chung cư mini</a></li>
+									<li class="sub-item"><a href=""><i class="fa fa-bolt"></i>Mặt bằng cho thuê</a></li>
+								</ul>
+							</li>
+							<li class="item"><a href="help.html"><i class="fa fa-binoculars"></i></br>Giúp tôi</a></li>
+							<li class="item"><a href="search-nearby.html" target="_blank"><i class="fa fa-map-marker"></i></br>Tìm quanh đây</a></li>
+							<li class="item"><a href="../HTML/news.html"><i class="fa fa-newspaper-o"></i></br>Tin tức</a></li>
+							<li class="item"><a href="../HTML/support.html"><i class="fa fa-life-ring"></i></br>Hướng dẫn</a></li>
+							<li class="item"><a><i class="fa fa-upload"></i></br>Đăng tin</a></li>
+							<li class="item"><a href="../HTML/manager.html"><i class="fa fa-book"></i></br>Quản lý</a></li>
+							
+							<div class="sign">
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i><span> Đăng nhập</span></button>
+								<!-- Form đăng nhập-->
+								<!-- Modal -->
+								<div class="modal fade" id="myModal" role="dialog">
+							    	<div class="modal-dialog">							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							          <h4 class="modal-title">Đăng nhập hệ thống!</h4>
+							        </div>
+							        <div class="modal-body">
+										<form action="home.html" id="sign-in"><!--Login form-->
+								            <div class="container form">
+								              <label><b>Tên đăng nhập:</b></label>
+								              <input type="text" id="uname" placeholder="Email hoặc số điện thoại" name="uname" value="0868979193" required><span style="color:red" class="error1"></span>
+								              <label><b>Mật khẩu:</b></label>
+								              <input type="password" id="psw" placeholder="Mật khẩu đăng nhập" name="psw" value="02092008" required><span style="color:red" class="error2"></span>
+								              <button class="login" type="submit">Login</button></br>
+								              <input type="checkbox" checked="checked"> Remember me
+								            </div>
+							          	</form>
+
+							        	<form id="request-pass">   <!--Request-password form-->
+								          <div class="container form" style="background-color:#f1f1f1">
+								              <div class="psw" id="forgot-pass" data-toggle="collapse" data-target="#u-mobile"><a>Forgot password?</a></div>
+								              <div class="collapse" id="u-mobile">
+								              	<input type="text" id="send-mobile"  placeholder="Nhập số điện thoại của bạn chúng tôi sẽ gửi lại mật khẩu cho bạn" name="mobile" required><span style="color:red" class="error3"></span></br>
+								              	<button id="send" type="submit">Gửi</button>
+								              </div>
+								              <span style="color:red" class="error3"></span>
+								              
+								            </div>
+							            </form>
+							        </div>
+							        <div class="modal-footer">
+										<button type="button" class="btn " data-dismiss="modal">Close</button>
+							        </div>
+							      </div>  
+							    	</div>
+							  	</div>
+								<!-- Form đăng ký-->
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil"></i><span> Đăng ký</span></button>
+								<!-- Modal -->
+								<div class="modal fade" id="myModal2" role="dialog">
+							    	<div class="modal-dialog">
+							    
+							      <!-- Modal content-->
+							      <div class="modal-content">
+							        <div class="modal-header">
+							        
+							          <h4 class="modal-title">Đăng ký tài khoản!</h4>
+							        </div>
+							        <div class="modal-body">
+							        	<form action="signup-success.html" id="login-form">
+							            	<div class="container form">
+							            		<label><b>Họ tên:</b></label>
+							            		<input type="text" placeholder="Họ tên bạn" name="name" required>
+												<label><b>Số điện thoại:</b></label>
+												<input type="text" placeholder="Số điện thoại của bạn" name="mobile" required>
+												<label><b>Email:</b></label>
+												<input type="email" placeholder="Email của bạn" name="email" required>
+							           			<label><b>Mật khẩu:</b></label>
+							            		<input type="password" id="psw1" placeholder="Mật khẩu" name="pass" required>
+							            		<label><b>Nhập lại mật khẩu:</b></label>
+							            		<input type="password" id="psw2" placeholder="Nhập lại mật khẩu" name="pass" required><span style="color:red" class="error4"></span>
+							            		<button class="login" type="submit">Đăng ký</button> 
+							            	</div>   
+							       		</form>
+							        </div>
+
+							        <div class="modal-footer">
+							          <button type="button" class="btn " data-dismiss="modal">Close</button>
+							        </div>
+							      </div>  
+							    	</div>
+								</div>
+							</div>
+							<div class="info-acc">
+								<div class="img-ava">
+									<img src="../IMG/user.jpg">
+								</div>
+								<div class="info-user">
+									<p>Xin chào: <b style="color: red">Trịnh Công Trình</b></p>
+									<p>Hạng thành viên: <b style="color: red">VIP</b></p>
+									<button class="manager-user"><a href="../HTML/manager.html">Quản lý</a></button>
+									<button class="sign-out">Đăng xuất</button>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="icon-nav">
+				<span><a href="../HTML/home.html">Trang chủ</a> </span><i class="fa fa-angle-right"></i><span> <a href="../HTML/search-nearby.html">Giới thiệu</a></span>
+			</div>
+			<!--Content1-->
+			<div class="wrap-content">
+				<!--Form thông báo-->
+				<div class="container-content" style="margin-top: 10px">
+					<div class="alert alert-danger alert-dismissable fade in" style="display: none">
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+						<strong>Bạn cần đăng nhập để sử dụng chức năng này!</strong>
+
+				</div>
+				<!--Kết thúc phần nội dung-->
+				<div class="side-bar">
+					<div class="search">
+							<div class="title-side">
+								TÌM PHÒNG
+							</div>
+							<div class="row">
+								<select class="select locale-item">
+									<option>Tỉnh, TP</option>
+									<option>Hà Nội</option>
+									<option>Đà Nẵng</option>
+									<option>TP.HCM</option>
+								</select>
+								<select class="select">
+									<option>Quận, Huyện</option>
+									<option>Hai Bà Trưng</option>
+									<option>Thanh Xuân</option>
+									<option>Đống Đa</option>
+									<option>Cầu Giấy</option>
+									<option>Từ Liêm</option>
+								</select>
+								<select class="select">
+									<option>Gần ĐH, CĐ</option>
+									<option>Bách Khoa</option>
+									<option>Xây Dựng</option>
+									<option>Tài chính</option>
+									<option>Ngoại thương</option>
+								</select>
+								<select class="select">
+									<option>Bạn là?</option>
+									<option>Sinh viên</option>
+									<option>Người đi làm</option>
+									<option>Kinh doanh</option>
+								</select>
+							</div>
+							<div class="row">
+								<select class="select loaihinh">
+									<option>Bạn cần tìm?</option>
+									<option>Thuê phòng trọ</option>
+									<option>Thuê nhà</option>
+									<option>Chung cư mini</option>
+									<option>Mặt bằng kinh doanh</option>
+								</select>
+								<select class="select">
+									<option>Diện tích?</option>
+									<option>Dưới 15m2</option>
+									<option>15m2 - 25m2</option>
+									<option>25m2 - 35m2</option>
+									<option>Trên 35m2</option>
+								</select>
+								<select class="select">
+									<option>Mức giá?</option>
+									<option>500 - 1000</option>
+									<option>1000 - 1500</option>
+									<option>1500 - 2000</option>
+									<option>2000 - 3000</option>
+									<option>Trên 3000</option>
+								</select>
+							</div>
+							<div class="icon-s"><i class="fa fa-search"></i><span>Tìm Kiếm</span></div>
+					</div>
+					<div class="news">
+						<div class="title-side">
+							TIN TỨC
+						</div>
+						<div class="new-item">
+							<div class="news-img"><img src="../IMG/new1.jpg"></div>
+							<div class="news-detail">Những điều tân sinh viên cần biết khi thuê phòng trọ…</div>
+							<div class="clear"></div>
+						</div>
+						<div class="new-item">
+							<div class="news-img"><img src="../IMG/buyt.jpg"></div>
+							<div class="news-detail">Tổng hợp lộ trình các tuyến xe buýt khu vực Hà Nội, Tp. Hồ chí Minh, Đà Nẵng…</div>
+							<div class="clear"></div>
+						</div>
+						<div class="new-item">
+							<div class="news-img"><img src="../IMG/new1.jpg"></div>
+							<div class="news-detail">Những điều tân sinh viên cần biết khi thuê phòng trọ…</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="clear"></div>	
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<img class="top-footer" src="../IMG/footer1.png">
+		<div class="footer-content"></div>
+	</div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4&language=vi&region=vie&callback=myMap"></script>
+	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
+	<script src="../JAVASCRIPT/home.js"></script>
+	<script src="../JAVASCRIPT/search-nearby.js"></script>
+	<script src="../../bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

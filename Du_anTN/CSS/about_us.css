@@ -1,0 +1,11 @@
+.wrapper_padding {
+    border: 1px solid #dedede;
+    border-radius: 2px;
+    box-shadow: 0 0 6px #ebebeb;
+    background: #fff;
+    padding: 0 15px 15px;
+    font-size: 14px;
+}
+article p {
+    margin: 0 0 10px 0 !important;
+}
