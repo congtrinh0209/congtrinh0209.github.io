@@ -9,7 +9,7 @@
 body{
 	width: 100%;
 	margin: 0 auto !important;
-	background-color: white !important;
+	background-color: #F4F5F7 !important;
 	font-size: 16px !important;
 }
 a{
@@ -28,7 +28,7 @@ ol, ul{
 		position: relative;
 		width: 100%;
 		border-top: 2px solid #1D5D6F;
-		background-color: #fff;
+		background-color: F4F5F7;
 }
 .container{
 	position: relative;
@@ -758,8 +758,7 @@ i.fa.fa-bars{
 	
 /**************Content footer**********************/
 	.footer{
-		padding-top: 140px;
-		background-color: #fff;
+		background-color: #F4F5F7;
 		position: relative;
 		z-index: 2;
 	}
@@ -777,20 +776,47 @@ i.fa.fa-bars{
 		background-color: transparent !important;
 	}
 	#f-content1{
+		text-align: center;
 		float: left;
-		padding-left: 7%;
+		padding-top: 20px;
+		width: 23%;
 		margin-bottom: 20px;
 	}
 	#f-content1 img:nth-child(1){
-		width: 150px;
-		margin-left: 20px;
+		width: 70%;
+		margin-bottom: 10px;
 	}
 	#f-content1 img:nth-child(2){
-		width: 200px;
-		margin: 0 auto;
+		width: 100%;
 	}
 	#f-content2{
 		float: left;
+		text-align: justify;
+		width: 40%;
+	}
+	.footer-link{
+		width: 33%;
+		margin-left: 20px;
+		float: left;
+	}
+	.row1 img{
+		width: 100%;
+	}
+	.row1 a{
+		display: inline-block;
+		width: 11%;
+		margin-left: 20px;
+	}
+	.footer-link>.row1{
+		margin-left: 20px;
+	}
+	.row1 img:hover{
+		opacity: 0.8;
+		cursor: pointer;
+	}
+	.row2 img{
+		margin-top: 10px;
+		width: 100%;
 	}
 	.footer-nav li{
 		display: inline-block;
@@ -800,13 +826,23 @@ i.fa.fa-bars{
 		color: red;
 	}
 	.footer-nav li a{
-		color: white ;
+		color: #2196F3;
 		font-size: 	18px !important;
+	}
+	.bot-footer{
+		border-top: 1px solid #c1c1c1;
+		margin-top: 15px;
+		padding-top: 15px;
+		text-align: center;
+	}
+	.bot-footer>p{
+		color: #c1c1c1;
 	}
 /*********** CSS menu-mobile screen-600 ************/
 @media only screen and (min-width: 600px){
 	.banner{
-		display: none;}
+		display: none;
+	}
 	.menu-dropdown{
 		max-width: 40%;
 		margin-left: 60%;
@@ -868,7 +904,7 @@ i.fa.fa-bars{
 		padding-bottom: 70px;
 		width: 100%;
 		border-top: 2px solid #1D5D6F;
-		background-color: #fff;
+		background-color: #F4F5F7;
 	}
 	.wrap-content-fixed{
 		margin-top: 90px;
@@ -1307,6 +1343,10 @@ i.fa.fa-bars{
 		width: 1200px;
 		top:0;
 		z-index: 3;
+	}
+	.wrapper-fcontent{
+		width: 1200px;
+		margin: 0 auto;
 	}
 	.list-banner{
 		width: 1200px;

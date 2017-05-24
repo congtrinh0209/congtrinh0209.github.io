@@ -33,7 +33,8 @@
 			$(".date-dead.item1").html(date_dead1.getDate()+"-"+(date_dead1.getMonth()+1)+"-"+date_dead1.getFullYear());
 			//So sánh ngày hết hạn và thời gian hiện tại
 			if (msec_datedead1 < msec_date_current) {
-				$('#status').html("Tin đã hết hạn")
+				$('#status').html("Tin đã hết hạn");
+				$('#status').css("color","red");
 			};
 		}
 		//demo date 2
