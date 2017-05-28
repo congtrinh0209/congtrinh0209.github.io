@@ -62,7 +62,7 @@ $(".position.item1").on("click",function(){
         	});
         	var marker = new google.maps.Marker({
                 position: {lat: 20.999145, lng: 105.814108},
-                icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/house-marker.png',
+                icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/house-marker2.png',
                 map: map,
                 title: "Chỉ đường tới đây",
                 draggable: false,
@@ -191,7 +191,7 @@ $(".position.item2").on("click",function(){
         	});
         	var marker = new google.maps.Marker({
                 position: {lat: 21.039610, lng: 105.777585},
-                icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/flat-marker.png',
+                icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/flat-marker2.png',
                 map: map,
                 title: "Chỉ đường tới đây",
                 draggable: false,

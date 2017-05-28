@@ -69,7 +69,9 @@ ol, ul{
 }
 .banner-mobile{
 	height: 90px;
-
+}
+.pagination{
+	margin: 20px auto !important;
 }
 .banner-mobile>img:nth-child(1){
 	height: 70px;
@@ -196,7 +198,6 @@ div.wrap-content > div > div > div:nth-child(2) > div > a > p
 	text-align: justify;
 }
 .side-bar > div.news > div.icon-s{
-	float: right;
 	margin-top: 10px;
 }
 #news > div > div > a > p:hover{
@@ -654,7 +655,7 @@ i.fa.fa-bars{
 	}
 	.icon-s:hover{
 		cursor: pointer;
-		color: red;
+		color: #cc3300;
 		background-position: right top;
 	}
 	.icon-s i{
