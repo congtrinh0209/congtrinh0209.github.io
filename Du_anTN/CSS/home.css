@@ -20,7 +20,7 @@ a{
 img{
 	vertical-align: middle;
 }
-p{margin: 0 !important;}
+p{margin: 0 !important}
 ol, ul{
 	list-style: none;
 }
@@ -28,7 +28,7 @@ ol, ul{
 		position: relative;
 		width: 100%;
 		border-top: 2px solid #1D5D6F;
-		background-color: F4F5F7;
+		background-color: #F4F5F7;
 }
 .container{
 	position: relative;
@@ -38,22 +38,24 @@ ol, ul{
 }
 .icon-nav{
 	width: 100%;
+	font-size: 18px;
 	margin: 10px 0;
-	color: #337ab7;
-	background-color: #F8F8F8;
-	padding: 10px 0;
+	color: #1d2a36;
+	padding: 10px 20px;
+	background-color: #33cc66;
 }
 .icon-nav a{
 	display: inline-block;
+	color: #1d2a36;
 }
 .icon-nav a:hover{
-	color: #E74C3C;
+	color: #d93d05;
 }
 .back-top img{
 	width: 50px;
 	position: fixed;
 	bottom: 1%;
-	right: 20px;
+	right: 0px;
 	z-index: 123;
 	cursor: pointer;
 }
@@ -153,6 +155,19 @@ ol, ul{
 		border-radius: 5px;
 		font-size: 16px;
 	}
+	.footer{
+		margin-top: 20px;
+	}
+	.wrapper-fcontent{
+		padding: 5px;
+	}
+	#f-content1,#f-content2,.footer-link{
+		width: 100% !important;
+		margin-bottom: 10px;
+	}
+	.footer-link {
+    margin-left: 0px !important;
+	}
 }
 
 /*option tab support*/
@@ -166,8 +181,27 @@ ol, ul{
 	height: 145px;
 	float: left;
 }
-.image-new img{width: 100%;
-height: 145px;}
+div.wrap-content > div > div > div:nth-child(2) > div > a > p
+.image-new img{
+	width: 100%;
+	height: 145px;
+}
+#news > div > div > a > p{
+	font-size: 18px;
+	margin-top: 10px !important;
+	text-align: justify;
+}
+#new-item > div > div.article-content > p{
+	margin: 0 0 10px !important;
+	text-align: justify;
+}
+.side-bar > div.news > div.icon-s{
+	float: right;
+	margin-top: 10px;
+}
+#news > div > div > a > p:hover{
+	color: #33CC66;
+}
 .new{
 	width: 75%;
 	height: 145px;
@@ -541,7 +575,7 @@ i.fa.fa-bars{
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	height: 265px;
+	height: 260px;
 	width: 100%;
 	overflow-y: scroll;
 	overflow-x: scroll;
@@ -764,7 +798,7 @@ i.fa.fa-bars{
 	}
 	.footer-content{
 		width: 100%;
-		color: white;
+		color: #c1c1c1;
 		background-color: #004824;
 		font-size: 15px;
 		padding-bottom:10px; 
@@ -778,8 +812,9 @@ i.fa.fa-bars{
 	#f-content1{
 		text-align: center;
 		float: left;
-		padding-top: 20px;
+		padding-top: 5px;
 		width: 23%;
+		margin-right: 15px;
 		margin-bottom: 20px;
 	}
 	#f-content1 img:nth-child(1){
@@ -906,8 +941,8 @@ i.fa.fa-bars{
 		border-top: 2px solid #1D5D6F;
 		background-color: #F4F5F7;
 	}
-	.wrap-content-fixed{
-		margin-top: 90px;
+	.icon-nav-fixed{
+		margin-top: 110px;
 	}
 	a{font-size: 0.9em}
 	.banner{
@@ -929,6 +964,11 @@ i.fa.fa-bars{
 		width: 1024px;
 		top:0;
 		z-index: 3;
+	}
+	.hmobile-fixed{
+		position: fixed;
+		top:0;
+		left: 0;
 	}
 	.list-banner{
 		width: 94%;
@@ -1121,7 +1161,7 @@ i.fa.fa-bars{
 		background-color: white;
 	}
 	.menu-1024 .item{
-		width: 9%;
+		width: 8.5%;
 		height: 100%;
 		border-radius: 5px;
 		background-color: white;
@@ -1129,13 +1169,10 @@ i.fa.fa-bars{
 		float: left;
 		border-bottom: 2px solid white;
 	}
-	.main-menu > div.menu-1024 > ul > li:nth-child(4){width: 10.1%}
+	.main-menu > div.menu-1024 > ul > li:nth-child(4){width: 10.7%}
 	.menu-1024 .item:hover{
 		cursor: pointer;
 	}
-	/*.menu-1024 .item:nth-child(6){
-		width: 9% !important;
-	}*/
 	.menu-1024 .item a{
 		width: 100%;
 		color: #004824;
@@ -1201,7 +1238,7 @@ i.fa.fa-bars{
 	.sign{
 		display: inline-block;
 		float: right;
-		width: 25%;
+		width: 27%;
 	}
 	.sign button{
 		border: none;

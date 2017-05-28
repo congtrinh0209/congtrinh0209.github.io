@@ -27,6 +27,9 @@ $(document).ready(function(){
 	$('.nav-bar').css('opacity','1');
 	$('.content-right').css('opacity','1');
 });
+$('.news >.icon-s').click(function(){
+	window.location.href = '../HTML/news.html';
+});
 /****************JS MAP-DEMO ITEM-1************************/
 $(".position.item1").on("click",function(){
     	var mapholder = document.getElementById('googleMap1');
@@ -100,7 +103,7 @@ $(".position.item1").on("click",function(){
                     });
                 }
         	});
-        	/***********Tìm Bus Lân cận*************/
+        	/***********ĐH, CĐ Lân cận*************/
         	var pyrmont = {lat: 20.999145, lng: 105.814108};
         	var service = new google.maps.places.PlacesService(map);
 				service.nearbySearch({
@@ -338,11 +341,11 @@ $(document).ready(function(){
 		$(window).scroll(function(){
 			if ($(this).scrollTop()>$(".banner").height()){
 				$('.header').addClass("header-fixed");
-				$('.wrap-content').addClass("wrap-content-fixed");
+				$('.icon-nav').addClass("icon-nav-fixed");
 			}
 			else{
 			$('.header').removeClass("header-fixed");
-			$('.wrap-content').removeClass("wrap-content-fixed");
+			$('.icon-nav').removeClass("icon-nav-fixed");
 			}	
 		})
 	}
@@ -390,8 +393,29 @@ window.onload = function select_locale() {
 		}
 		$(".locale_district").html(display_locale)
 	})
+	/************locale trang Đăng tin****************/
+	$("#district").html(display_locale);
+	$("#province").click(function() {
+		var display_locale = "<option>Quận, Huyện</option>";
+		if ($("#province").val() == "Hà Nội"){
+			for (var i = 0; i < district_hn.length; i++) {
+				display_locale += "<option>"+district_hn[i]+"</option>"
+			};
+		}
+		else if ($("#province").val() == "Đà Nẵng"){
+			for (var i = 0; i < district_dn.length; i++) {
+				display_locale += "<option>"+district_dn[i]+"</option>"
+			};
+		}
+		else if ($("#province").val() == "TP.Hồ Chí Minh"){
+			for (var i = 0; i < district_hcm.length; i++) {
+				display_locale += "<option>"+district_hcm[i]+"</option>"
+			};
+		}
+		$("#district").html(display_locale)
+	})
 }
-/************************************/
+
 /************Đăng nhập*****************/
 var user = [
 			user_1={fullname: 'Trịnh Công Trình', mobile: '0868979193', email:'congtrinh0209@gmail.com', pass:'02092008'},
@@ -440,7 +464,7 @@ $(document).ready(function(){
 	$(".store").on('click',function(){
 		$(".loaihinh").val($(".loaihinh>option:nth-child(5)").val());
 	})
-	/********** Điều kiện truy cập các trang quản lý, đăng tin, nạp tiền**********/
+	/********** Điều kiện truy cập các trang quản lý, đăng tin**********/
 	a = $(".info-acc").css("display");
 	if (a == "block"){
 			$(".menu-1024>ul>li:nth-child(7)>a").attr("href","../HTML/post2.html")}

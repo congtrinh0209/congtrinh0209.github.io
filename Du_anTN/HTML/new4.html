@@ -6,7 +6,6 @@
 	<meta name="description" content="Phòng trọ, Tìm kiếm phòng trọ, Cho thuê nhà trọ">
 	<meta name="author" content="congtrinh0209">
 	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
-	<link rel="stylesheet" type="text/css" href="../CSS/about_us.css">
 	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap-theme.min.css">
@@ -94,9 +93,9 @@
 										<form action="home.html" id="sign-in"><!--Login form-->
 								            <div class="container form">
 								              <label><b>Tên đăng nhập:</b></label>
-								              <input type="text" id="uname" placeholder="Email hoặc số điện thoại" name="uname" value="0868979193" required><span style="color:red" class="error1"></span>
+								              <input type="text" id="uname" placeholder="Email hoặc số điện thoại" name="uname" required><span style="color:red" class="error1"></span>
 								              <label><b>Mật khẩu:</b></label>
-								              <input type="password" id="psw" placeholder="Mật khẩu đăng nhập" name="psw" value="02092008" required><span style="color:red" class="error2"></span>
+								              <input type="password" id="psw" placeholder="Mật khẩu đăng nhập" name="psw" required><span style="color:red" class="error2"></span>
 								              <button class="login" type="submit">Login</button></br>
 								              <input type="checkbox" checked="checked"> Remember me
 								            </div>
@@ -175,45 +174,82 @@
 				</div>
 			</div>
 			<div class="icon-nav">
-				<span><a href="../HTML/home.html">Trang chủ</a> </span><i class="fa fa-angle-right"></i><span> <a href="../HTML/search-nearby.html">Quy định</a></span>
+				<span><a href="../HTML/home.html">Trang chủ</a> </span><i class="fa fa-angle-right"></i><span> <a href="../HTML/news.html">Tin tức</a></span>
 			</div>
-
 			<div class="wrap-content">
-				<!--Form thông báo-->
-				<div class="container-content" style="margin-top: 10px">
-					<div class="alert alert-danger alert-dismissable fade in" style="display: none">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong>Bạn cần đăng nhập để sử dụng chức năng này!</strong>
-					</div>
-					<div class="wrapper_padding">
-                        <div id="primary" class="content-area">
-                			<div id="content" class="site-content" role="main">   
-								<article >
-									<header class="entry-header"><h1 class="entry-title">Quy định sử dụng</h1></header><!-- .entry-header -->
-									<div class="entry-content">
-										<p><strong>Trước khi bạn đăng tin lên website. xin vui lòng đọc kỹ các quy định sau đây:</strong></p>
-										<p>1. Không được đăng ký tài khoản và khai báo những thông tin giả mạo, đặt tên tài khoản phản cảm, thô tục</p>
-										<p>2. Không được phép đăng tin liên quan đến các vấn đề mà pháp luật Việt Nam không cho phép.</p>
-										<p>3. Không được đăng những bài viết, thông tin có nội dung vi phạm pháp luật: đả kích, bôi nhọ, chỉ trích hay bàn luận về chính trị, tôn giáo, phản động, kỳ thị văn hóa, dân tộc, cũng như vi phạm khác liên quan đến thuần phong mỹ tục của dân tộc Việt Nam.</p>
-										<p>4. Tiêu đề và nội dung của tin đăng phải dùng tiếng Việt có dấu. Không được sử dụng từ ngữ thô tục, mất văn hoá.</p>
-										<p>5. Tin đăng phải có địa chỉ liên lạc cụ thể không được cho địa chỉ sai. hay dùng thông tin địa chỉ của người khác</p>
-										<p>6. Các bài viết không có nội dung hoặc nội dung không liên quan đến chuyên mục. Những bài viết này sẽ bị xóa mà không cần báo trước.</p>
-										<p>7. Không tạo nhiều tài khoản để đăng tin, nếu chúng tôi phát hiện sẽ xóa và ban toàn bộ nick.</p>
-										<p>8. Không được đăng quá nhiều tin trong ngày và không đăng tin có tiêu đề, nội dung tương tự nhau.</p>
-										<p>9. Khi phát hiện tin đăng không đúng sự thật, hay chỗ cho thuê là dịch vụ hay cò nhà trọ, bạn vui lòng thông báo cho Ban quản trị biết để chúng tôi kịp thời xử lý.</p>
-										<p>10. Những trường hợp cố tình spam, vi phạm nội quy nhiều lần thì chúng tôi sẽ cấm không cho bạn đăng tin và tất cả mọi tin đăng của bạn sẽ không được hiển thị trên <strong>Timphongcungban.com</strong></p>
-										<p><strong>Tất cả các tin đăng sai phạm quy định trên sẽ bị xóa mà không cần thông báo trước.</strong></p>
-										<p><strong>Chúng tôi không chịu trách nhiệm về nội dung các bài đăng trên website.</strong></p>
-									</div>
-								</article><!-- #post-## -->
+				<div class="container-content">
+					<div class="content" id="new-item" style="border: none;">
+					    <div class="col-md-12">
+				            <div class="article-title">
+				                <h3 style="color: #33cc66">Sinh viên Mỹ chọn ngành học thế nào?</h3>
+				            </div>
+            				<div class="clearfix"></div>
+            				<div class="article-hr"><hr style="border-color: #33cc66"></div>
+            				<div class="article-content">
+            					<p><strong>Sinh viên Mỹ chọn ngành vào cuối năm thứ nhất hoặc năm hai. Họ có thể chuyển ngành trong quá trình học hoặc học thêm chuyên ngành khác.</strong></p>
 
-               				 </div><!-- #content -->
-          				</div><!-- #primary -->
-                    </div>
+								<p>Chọn ngành là quyết định quan trọng, khó khăn đối với phần lớn sinh viên, vì nó ảnh hưởng nghề nghiệp, thu nhập tương lai, cũng như mức độ thành công của mỗi người.</p>
+
+								<p>Tổng số chương trình học thuật của các trường đại học, cao đẳng ở Mỹ lên đến gần 1.500. Mỗi 10 năm, con số này lại tăng thêm 355 nhằm đáp ứng nhu cầu thực tế của xã hội.</p>
+
+								<p style="text-align: center;"><img alt="sinh-vien-my-chon-nganh-hoc-the-nao" src="../IMG/img-news/img4-1.jpg"></p>
+
+								<p><strong>Không bắt buộc chọn chuyên ngành khi ứng tuyển</strong></p>
+
+								<p>Số lượng ngành học lớn giúp sinh viên Mỹ có nhiều sự lựa chọn hơn, nhưng cũng khiến họ khó đưa ra quyết định. Quy định về việc chọn ngành ở Mỹ khá khác với Việt Nam, tạo thuận lợi nhất cho người học.</p>
+
+								<p>Trung Dũng, du học sinh Việt Nam tại Đại học California, cho biết hầu hết các trường tuyển sinh chủ yếu dựa trên điểm trung bình học tập (GPA), điểm bài thi đánh giá năng lực (SAT hoặc ACT) và điểm TOEFL, IELTS đối với sinh viên quốc tế.</p>
+
+								<p>Việc chọn chuyên ngành không bắt buộc. Một số trường yêu cầu thí sinh liệt kê chuyên ngành dự định theo học, nhưng ứng viên hoàn toàn có thể đánh dấu “undecided” hoặc “undeclared” nếu họ chưa chắc chắn.</p>
+
+								<p>Cũng theo nam sinh này, sinh viên Mỹ thường chọn chuyên ngành vào cuối năm học thứ nhất hoặc thứ hai. Tuy nhiên, theo bà Libby Elizabeth Rafferty, cố vấn tuyển sinh quốc tế Đại học San Jose, sinh viên nước ngoài bắt buộc phải nêu rõ chuyên ngành họ ứng tuyển khi nộp đơn nhưng được phép chuyển chuyên ngành trong quá trình học.</p>
+
+								<p>Hai năm đầu, sinh viên tham gia các khóa học họ hứng thú, dành thời gian xác định đam mê, cũng như năng lực của bản thân trước khi quyết định.</p>
+
+								<p>Những bạn đã xác định đam mê vẫn nên dành hai năm đầu tiên để khám phá thêm bản thân bằng cách học những lớp học mới hơn.</p>
+
+								<p>“Ở Mỹ, các bạn có thể chọn ngành thoải mái trong hai năm đầu tiên, miễn là phù hợp thời gian biểu và năng lực. Trong một học kỳ, các khóa học của một sinh viên có thể trải rộng khắp những ngành không liên quan nhau. Họ có thể chọn 5 lớp bao gồm Vẽ, Lịch sử, Kinh tế, Kỹ năng thuyết trình và Khoa học Máy tính”, Ngọc Sơn, sinh viên Đại học Earlham, cho biết.</p>
+
+								<p>Bà Laura Shier, Giám đốc Nghiên cứu tiếng Anh học thuật tại Đại học Lewis &amp; Clark, khuyến khích sinh viên chọn các lớp ở nhiều ngành khác nhau để phát triển bản thân toàn diện, đồng thời có thêm nhiều sự lựa chọn khi quyết định chuyên ngành.</p>
+
+								<p style="text-align: center;"><img alt="sinh-vien-my-chon-nganh-hoc-the-nao" src="../IMG/img-news/img4-2.jpg"></p>
+
+								<p><strong>Dễ dàng chuyển chuyên ngành học</strong></p>
+
+								<p>Tiến sĩ Alfredo R. Varela, Giám đốc Chương trình Quốc tế tại Đại học St Mary, cho hay sinh viên có thể chuyển ngành trong quá trình học, thậm chí chuyển từ một ngành xã hội sang ngành thuộc khối kinh doanh.</p>
+
+								<p>Thủ tục chuyển ngành không phức tạp nhưng đối với những người chưa lựa chọn các khóa học cần thiết cho chuyên ngành mới, họ sẽ phải mất thêm từ một đến hai năm để hoàn thành chương trình và nhận bằng.</p>
+
+								<p>Một điểm đặc biệt khác ở các trường đại học Mỹ là sinh viên có thể theo học hai chuyên ngành chính hoặc nhiều chuyên ngành phụ bên cạnh chuyên ngành chính.</p>
+
+								<p>Trường hợp có thêm ngành phụ khá phổ biến, số lượng sinh viên tốt nghiệp với hai chuyên ngành chính trở lên cũng không hiếm. Nhưng nếu vậy, sinh viên sẽ phải trải qua quá trình học tập vất vả.</p>
+
+								<p>Sinh viên Mỹ thường chọn ngành căn cứ 3 yếu tố chính là đam mê, năng lực và triển vọng việc làm, thu nhập.</p>
+
+								<p>Theo các nhà tuyển sinh đại học Mỹ, yếu tố được xem xét nhiều nhất là đam mê. Tuy nhiên, tiến sĩ Varela khuyên sinh viên nên cân bằng giữa sở thích và năng lực.</p>
+
+								<p>Họ sẽ được phụ huynh, giáo viên trường trung học, cũng như đại học tư vấn để đưa ra quyết định ngành học.</p>
+
+								<p>Ngọc Sơn cho hay: “Ở trường mình, mỗi sinh viên sẽ có một giáo sư hướng dẫn về định hướng chương trình học. Đầu mỗi học kỳ, giáo sư có một buổi nói chuyện với sinh viên về lịch học kỳ này, qua đó thống nhất chương trình học và nhắc nhở sinh viên về các khóa học bắt buộc để đạt yêu cầu tốt nghiệp”.</p>
+
+								<p>Sơn cho biết thêm một số trường còn có trung tâm hướng nghiệp nhằm hỗ trợ sinh viên hoàn thiện CV, giới thiệu cơ hội thực tập cũng như việc làm. Các thông tin này thường được lấy qua hệ thống cựu học sinh và các tổ chức có liên kết với trường nên chủ yếu dành riêng cho học sinh của trường đó.</p>
+
+								<p>Cũng theo Sơn, sinh viên Việt Nam ở đây chọn ngành khá đa dạng. Thông thường, những bạn theo những ngành liên quan kỹ thuật sẽ xác định chuyên ngành trước khi ứng tuyển vào trường. Trong khi đó, du học sinh thuộc khối ngành xã hội và kinh tế thường đổi ngành nhiều lần hoặc học thêm ngành phụ.</p>
+
+								<p>Gần đây, Chính phủ Mỹ quyết định tăng thời gian ở lại nước này cho người tốt nghiệp khối ngành Khoa học, Công nghệ, Kỹ thuật và Toán lên tới 3 năm. Chính sách mới có thể ảnh hưởng lựa chọn ngành nghề của du học sinh.</p>
+
+								<p>Nhiều bạn có thể sẽ chuyển ngành hoặc học thêm ngành chính liên quan 4 khối ngành này để có cơ hội ở lại lâu hơn. Các khối ngành khác, sau khi tốt nghiệp, sẽ chỉ được ở lại 12 tháng.</p>
+								<p>&nbsp;</p>
+								<p>&nbsp;</p>
+							</div>
+        				</div>
+   					</div>
+						
 				</div>
-				<!--Kết thúc phần nội dung-->
-				<div class="side-bar">
-					<div class="search">
+			</div>
+		
+			<div class="side-bar">
+				<div class="search" id="menu-search">
 							<div class="title-side">
 								TÌM PHÒNG
 							</div>
@@ -222,15 +258,10 @@
 									<option>Tỉnh, TP</option>
 									<option>Hà Nội</option>
 									<option>Đà Nẵng</option>
-									<option>TP.HCM</option>
+									<option>TP.Hồ Chí Minh</option>
 								</select>
-								<select class="select">
-									<option>Quận, Huyện</option>
-									<option>Hai Bà Trưng</option>
-									<option>Thanh Xuân</option>
-									<option>Đống Đa</option>
-									<option>Cầu Giấy</option>
-									<option>Từ Liêm</option>
+								<select class="select locale_district">
+									
 								</select>
 								<select class="select">
 									<option>Gần ĐH, CĐ</option>
@@ -272,30 +303,9 @@
 							</div>
 							<div class="icon-s"><i class="fa fa-search"></i><span>Tìm Kiếm</span></div>
 					</div>
-					<div class="news">
-						<div class="title-side">
-							TIN TỨC
-						</div>
-						<div class="new-item">
-							<div class="news-img"><img src="../IMG/new1.jpg"></div>
-							<div class="news-detail">Những điều tân sinh viên cần biết khi thuê phòng trọ…</div>
-							<div class="clear"></div>
-						</div>
-						<div class="new-item">
-							<div class="news-img"><img src="../IMG/buyt.jpg"></div>
-							<div class="news-detail">Tổng hợp lộ trình các tuyến xe buýt khu vực Hà Nội, Tp. Hồ chí Minh, Đà Nẵng…</div>
-							<div class="clear"></div>
-						</div>
-						<div class="new-item">
-							<div class="news-img"><img src="../IMG/new1.jpg"></div>
-							<div class="news-detail">Những điều tân sinh viên cần biết khi thuê phòng trọ…</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
 				
-				<div class="clear"></div>	
 			</div>
+			<div class="clear"></div>	
 		</div>
 	</div>
 	<div class="footer">

@@ -52,7 +52,7 @@ function search_locale(){
         var iconBase = 'https://congtrinh0209.github.io/Du_anTN/IMG/';
         var icons = {
           house: {
-            icon: iconBase + 'house-marker.png'
+            icon: iconBase + 'house-marker2.png'
           },
           room: {
             icon: iconBase + 'room-marker.png'

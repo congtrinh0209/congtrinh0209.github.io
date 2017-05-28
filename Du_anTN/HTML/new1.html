@@ -6,7 +6,6 @@
 	<meta name="description" content="Phòng trọ, Tìm kiếm phòng trọ, Cho thuê nhà trọ">
 	<meta name="author" content="congtrinh0209">
 	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
-	<link rel="stylesheet" type="text/css" href="../CSS/about_us.css">
 	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap-theme.min.css">
@@ -94,9 +93,9 @@
 										<form action="home.html" id="sign-in"><!--Login form-->
 								            <div class="container form">
 								              <label><b>Tên đăng nhập:</b></label>
-								              <input type="text" id="uname" placeholder="Email hoặc số điện thoại" name="uname" value="0868979193" required><span style="color:red" class="error1"></span>
+								              <input type="text" id="uname" placeholder="Email hoặc số điện thoại" name="uname" required><span style="color:red" class="error1"></span>
 								              <label><b>Mật khẩu:</b></label>
-								              <input type="password" id="psw" placeholder="Mật khẩu đăng nhập" name="psw" value="02092008" required><span style="color:red" class="error2"></span>
+								              <input type="password" id="psw" placeholder="Mật khẩu đăng nhập" name="psw" required><span style="color:red" class="error2"></span>
 								              <button class="login" type="submit">Login</button></br>
 								              <input type="checkbox" checked="checked"> Remember me
 								            </div>
@@ -175,45 +174,76 @@
 				</div>
 			</div>
 			<div class="icon-nav">
-				<span><a href="../HTML/home.html">Trang chủ</a> </span><i class="fa fa-angle-right"></i><span> <a href="../HTML/search-nearby.html">Quy định</a></span>
+				<span><a href="../HTML/home.html">Trang chủ</a> </span><i class="fa fa-angle-right"></i><span> <a href="../HTML/news.html">Tin tức</a></span>
 			</div>
-
 			<div class="wrap-content">
-				<!--Form thông báo-->
-				<div class="container-content" style="margin-top: 10px">
-					<div class="alert alert-danger alert-dismissable fade in" style="display: none">
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-						<strong>Bạn cần đăng nhập để sử dụng chức năng này!</strong>
-					</div>
-					<div class="wrapper_padding">
-                        <div id="primary" class="content-area">
-                			<div id="content" class="site-content" role="main">   
-								<article >
-									<header class="entry-header"><h1 class="entry-title">Quy định sử dụng</h1></header><!-- .entry-header -->
-									<div class="entry-content">
-										<p><strong>Trước khi bạn đăng tin lên website. xin vui lòng đọc kỹ các quy định sau đây:</strong></p>
-										<p>1. Không được đăng ký tài khoản và khai báo những thông tin giả mạo, đặt tên tài khoản phản cảm, thô tục</p>
-										<p>2. Không được phép đăng tin liên quan đến các vấn đề mà pháp luật Việt Nam không cho phép.</p>
-										<p>3. Không được đăng những bài viết, thông tin có nội dung vi phạm pháp luật: đả kích, bôi nhọ, chỉ trích hay bàn luận về chính trị, tôn giáo, phản động, kỳ thị văn hóa, dân tộc, cũng như vi phạm khác liên quan đến thuần phong mỹ tục của dân tộc Việt Nam.</p>
-										<p>4. Tiêu đề và nội dung của tin đăng phải dùng tiếng Việt có dấu. Không được sử dụng từ ngữ thô tục, mất văn hoá.</p>
-										<p>5. Tin đăng phải có địa chỉ liên lạc cụ thể không được cho địa chỉ sai. hay dùng thông tin địa chỉ của người khác</p>
-										<p>6. Các bài viết không có nội dung hoặc nội dung không liên quan đến chuyên mục. Những bài viết này sẽ bị xóa mà không cần báo trước.</p>
-										<p>7. Không tạo nhiều tài khoản để đăng tin, nếu chúng tôi phát hiện sẽ xóa và ban toàn bộ nick.</p>
-										<p>8. Không được đăng quá nhiều tin trong ngày và không đăng tin có tiêu đề, nội dung tương tự nhau.</p>
-										<p>9. Khi phát hiện tin đăng không đúng sự thật, hay chỗ cho thuê là dịch vụ hay cò nhà trọ, bạn vui lòng thông báo cho Ban quản trị biết để chúng tôi kịp thời xử lý.</p>
-										<p>10. Những trường hợp cố tình spam, vi phạm nội quy nhiều lần thì chúng tôi sẽ cấm không cho bạn đăng tin và tất cả mọi tin đăng của bạn sẽ không được hiển thị trên <strong>Timphongcungban.com</strong></p>
-										<p><strong>Tất cả các tin đăng sai phạm quy định trên sẽ bị xóa mà không cần thông báo trước.</strong></p>
-										<p><strong>Chúng tôi không chịu trách nhiệm về nội dung các bài đăng trên website.</strong></p>
-									</div>
-								</article><!-- #post-## -->
+				<div class="container-content">
+					<div class="content" id="new-item" style="border: none;">
+					    <div class="col-md-12">
+				            <div class="article-title">
+				                <h3 style="color: #33cc66">Ý tưởng kinh doanh nhà trọ, ngồi không mỗi tháng kiếm trăm triệu?</h3>
+				            </div>
+            				<div class="clearfix"></div>
+            				<div class="article-hr"><hr style="border-color: #33cc66"></div>
+            				<div class="article-content">
+			                	<p>Những thành phố lớn thường là vùng trọng điểm kinh tế, tập trung các dịch vụ quan trọng nên đã trở thành “miền đất hứa” cho nhiều người tìm đến lập nghiệp hay học tập. Cũng vì vậy mà nhu cầu về nhà ở tại đây rất cao, tạo điều kiện cho các dịch vụ kinh doanh cho thuê phong trọ, nhà trọ phát triển, thậm chí có người còn kháo nhau rằng, mở nhà trọ thì ngồi không mỗi tháng cũng kiếm được trăm triệu. Đúng là không thể phủ nhận tiềm năng của ý tưởng kinh doanh này, nhưng sự thực có màu hồng như thế không? Hãy cùng chúng tôi tìm hiểu cơ hội và thách thức bạn phải đối mặt nếu lựa chọn ý tưởng này.</p>
 
-               				 </div><!-- #content -->
-          				</div><!-- #primary -->
-                    </div>
+								<p style="text-align: center;"><img alt="y-tuong-kinh-doanh-nha-tro-ngoi-khong-moi-thang-kiem-tram-trieu" src="../IMG/img-news/img1.jpg"></p>
+
+								<p><span style="font-size:16px"><strong>Ý tưởng kinh doanh nhà trọ đầy tiềm năng</strong></span></p>
+
+								<p><strong>Nhu cầu lớn</strong></p>
+
+								<p>Những thành phố lớn có tốc độ tăng dân số và đô thị hóa thường rất cao, lại thêm số lượng dân tỉnh lẻ tìm đến lập nghiệp hoặc học tập mỗi năm khá nhiều nên vấn đề nhu cầu bạn không phải quá lo lắng. Kể cả đối với những thành phố nhỏ hơn thì các khu gần trung tâm, khu công nghiệp cũng không thiếu người muốn tìm phòng trọ gần để tiện cho việc di chuyển.</p>
+								<p><strong>Doanh thu ổn định</strong></p>
+
+								<p>Ý tưởng kinh doanh nhà trọ thường không bị ảnh hưởng nhiều bởi sự biến động của thị trường bất động sản, dù giá đất có giảm thì hàng tháng bạn vẫn thu được một khoản tiền cố định. Điều này giúp bạn giảm khá nhiều áp lực tài chính nếu phải đi huy động vốn từ nhiều nguồn vay khác nhau.<br>
+								Cơ hội gia tăng giá trị bất động sản</p>
+
+								<p>Ngoài khoản tiền thu được hàng tháng từ các khách hàng thuê trọ bạn còn nắm trong tay một nguồn bất động sản không nhỏ và có khả năng gia tăng giá trị trong tương lai. Dù sau này bạn không còn kinh doanh nhà trọ nữa thì vẫn có thể sang nhượng lại với giá cao hơn nhiều.</p>
+
+								<p><strong>Khá… nhàn hạ</strong></p>
+
+								<p>Thực tế là việc đầu tư nhà trọ chỉ vất vả trong giai đoạn đầu về việc huy động vốn, lập kế hoạch và triển khai xây dựng, lắp đặt, còn khi đã có khách hàng thì mọi thứ đều đi vào hệ thống. Bạn không phải mất quá nhiều thời gian vào việc quản lý hay điều hành, chỉ cần kiểm tra thường xuyên để nắm bắt tình hình khu trọ là được.</p>
+
+								<p><strong><span style="font-size:16px">Những thách thức khi kinh doanh nhà trọ</span></strong></p>
+
+								<p><strong>Đầu tư lớn, thu bạc cắc</strong></p>
+
+								<p>Để hoàn thiện một khu trọ bạn phải tốn khá nhiều tiền đầu tư, trung bình khoảng trên dưới 1 tỷ cho khu hơn 10 phòng (tính cả tiền mua đất, xây dựng, lắp đặt trang thiết bị,…). Thế nhưng khi hưởng thành quả thì tiền thu về khá lẻ so với vốn, mỗi phòng từ 2 đến 3 triệu, chưa trừ chi phí thì tổng được hơn 30 triệu. Vì vậy tốc độ thu hồi vốn thường khá lâu, khoảng 5 đến 6 năm với quy mô trung bình. Nếu bạn phải đi vay vốn để đầu tư thì cần phải xem xét thật kỹ tránh các tình huống xấu sau này.</p>
+
+								<p><strong>Đối tượng khách hàng phức tạp</strong></p>
+
+								<p>Một khu trọ có nhiều loại người khác nhau, nếu bạn không biết sàng lọc và kiểm soát ngay từ đầu thì rất dễ xảy ra tình trạng loạn. Rất nhiều khu trọ từng gặp rắc rối vì có những đối tượng thiếu ý thức chung, hay nhậu nhẹt, mắc tệ nạn xã hội,… Vì vậy việc tìm kiếm và lựa chọn khách hàng là cực kỳ quan trọng nếu bạn muốn việc kinh doanh của mình diễn ra thuận lợi.</p>
+
+								<p><strong>Cần khả năng quản lý thật tốt</strong></p>
+
+								<p>Xây lên một khu trọ, đất là đất của bạn, nhà cũng là nhà bạn xây nên bạn quý trọng mọi thứ ở đó, nhưng với khách hàng thì chưa chắc, rất nhiều người thường tùy ý trong việc bảo quản đồ đạc dẫn đến hư hại. Nếu bạn không biết bao quát tình hình, không thể quản lý tốt tài sản của mình thì chỉ sau một thời gian ngắn khu trọ sẽ xuống cấp nghiêm trọng, tốn của bạn không ít tiền để tu sửa.</p>
+
+								<p><strong>Vấn đề thủ tục</strong></p>
+
+								<p>Chuyện đăng ký tạm trú tạm vắng luôn khiến các chủ trọ đau đầu, vì nếu làm cho vài chục người thì thủ tục rất lằng nhằng, còn nếu không làm thì sẽ bị phạt hành chính. Để đảm bảo, ngay khi ký hợp đồng với người thuê nhà bạn nên yêu cầu họ đi đăng ký ngay sau đó.</p>
+
+								<p><strong>Vấn đề an ninh</strong></p>
+
+								<p>Vài chục người sống trong một khu trọ không phải chuyện đơn giản, số tài sản chung và riêng là con số khổng lồ, nếu bạn không có biện pháp đảm bảo an ninh thì rất dễ xảy ra tình trạng mất cắp. Hiện nay nhiều khu trọ lớn còn lắp đặt hệ thống camera tại mỗi tầng, có khu vực gửi xe, thậm chí là bảo vệ riêng rất chuyên nghiệp, bạn nên cân nhắc về vấn đề này khi xây dựng.</p>
+
+								<p><strong>Chi phí dự phòng</strong></p>
+
+								<p>Mặc dù nhà trọ là tài sản cố định nhưng mức độ tiêu hao lại cưc kì nhanh nếu khả năng quản lý của bạn kém, lúc này cần phải có một khoản phí dự phòng để tu sửa và xử lý tình huống bất ngờ. Ngay từ lúc lập kế hoạch, huy động vốn bạn nên tính toán trước khoản này và thường xuyên bổ sung để tránh thiếu hụt.</p>
+
+								<p>Qua đây có thể thấy ý tưởng kinh doanh nhà trọ rất tiềm năng nhưng cũng tràn đầy thách thức chứ không tràn ngập màu hồng “ngồi không mỗi tháng kiếm trăm triệu” nhưng một số người lầm tưởng. Nếu bạn lựa chọn làm giàu bằng cách này thì hãy lập một kế hoạch thật chi tiết để thành công được đảm bảo hơn.</p>
+								<p>&nbsp;</p>
+								<p>&nbsp;</p>
+							</div>
+        				</div>
+   					</div>
+						
 				</div>
-				<!--Kết thúc phần nội dung-->
-				<div class="side-bar">
-					<div class="search">
+			</div>
+		
+			<div class="side-bar">
+				<div class="search" id="menu-search">
 							<div class="title-side">
 								TÌM PHÒNG
 							</div>
@@ -222,15 +252,10 @@
 									<option>Tỉnh, TP</option>
 									<option>Hà Nội</option>
 									<option>Đà Nẵng</option>
-									<option>TP.HCM</option>
+									<option>TP.Hồ Chí Minh</option>
 								</select>
-								<select class="select">
-									<option>Quận, Huyện</option>
-									<option>Hai Bà Trưng</option>
-									<option>Thanh Xuân</option>
-									<option>Đống Đa</option>
-									<option>Cầu Giấy</option>
-									<option>Từ Liêm</option>
+								<select class="select locale_district">
+									
 								</select>
 								<select class="select">
 									<option>Gần ĐH, CĐ</option>
@@ -272,30 +297,9 @@
 							</div>
 							<div class="icon-s"><i class="fa fa-search"></i><span>Tìm Kiếm</span></div>
 					</div>
-					<div class="news">
-						<div class="title-side">
-							TIN TỨC
-						</div>
-						<div class="new-item">
-							<div class="news-img"><img src="../IMG/new1.jpg"></div>
-							<div class="news-detail">Những điều tân sinh viên cần biết khi thuê phòng trọ…</div>
-							<div class="clear"></div>
-						</div>
-						<div class="new-item">
-							<div class="news-img"><img src="../IMG/buyt.jpg"></div>
-							<div class="news-detail">Tổng hợp lộ trình các tuyến xe buýt khu vực Hà Nội, Tp. Hồ chí Minh, Đà Nẵng…</div>
-							<div class="clear"></div>
-						</div>
-						<div class="new-item">
-							<div class="news-img"><img src="../IMG/new1.jpg"></div>
-							<div class="news-detail">Những điều tân sinh viên cần biết khi thuê phòng trọ…</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
 				
-				<div class="clear"></div>	
 			</div>
+			<div class="clear"></div>	
 		</div>
 	</div>
 	<div class="footer">
