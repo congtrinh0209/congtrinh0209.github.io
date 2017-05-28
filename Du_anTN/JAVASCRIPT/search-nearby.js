@@ -55,13 +55,13 @@ function search_locale(){
             icon: iconBase + 'house-marker2.png'
           },
           room: {
-            icon: iconBase + 'room-marker.png'
+            icon: iconBase + 'room-marker2.png'
           },
           store: {
-            icon: iconBase + 'store-marker.png'
+            icon: iconBase + 'store-marker2.png'
           },
          flat: {
-            icon: iconBase + 'flat-marker.png'
+            icon: iconBase + 'flat-marker2.png'
           },
         };
         var features = [
