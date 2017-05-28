@@ -8,6 +8,16 @@ function search_locale(){
     function showPosition(position) {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
+        lat_pst1 = position.coords.latitude + 0.001;
+        lon_pst1 = position.coords.longitude + 0.001;
+        lat_pst2 = position.coords.latitude - 0.001;
+        lon_pst2 = position.coords.longitude - 0.002;
+        lat_pst3 = position.coords.latitude - 0.001;
+        lon_pst3 = position.coords.longitude + 0.001;
+        lat_pst4 = position.coords.latitude + 0.001;
+        lon_pst4 = position.coords.longitude;
+        lat_pst5 = position.coords.latitude - 0.002;
+        lon_pst5 = position.coords.longitude;
         latlon = new google.maps.LatLng(lat, lon);
         mapholder = document.getElementById('mapholder');
         mapholder.style.height = '500px';
@@ -66,31 +76,31 @@ function search_locale(){
         };
         var features = [
           {
-            position: new google.maps.LatLng(21.014237, 105.846857),
+            position: new google.maps.LatLng(lat_pst1, lon_pst1),
             type: 'room',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 32 THỂ GIAO - LÊ ĐẠI HÀNH - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 45m²</p><p>Giá: 3 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale"><a href="#locale1">Xem phòng</a></button></div><div class="clear"></div></div>',
+            content: '<div class="container-locale"><div class="content-left-locale"><img src="https://congtrinh0209.github.io/Du_anTN/IMG/img-p1/1.jpg"></div><div class="content-right-locale"><p>NHÀ TÔI CHÍNH CHỦ CHO THUÊ PHÒNG TRỌ TẠI SỐ 32 THỂ GIAO - LÊ ĐẠI HÀNH - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 45m²</p><p>Giá: 3 triệu/tháng</p><p>Ngày đăng: 20/08/2016</p><button class="btn-locale"><a href="#locale1">Xem phòng</a></button></div><div class="clear"></div></div>',
             title: "Diện tích: 45m2 + Giá:3tr/tháng"
           },
           {
-            position: new google.maps.LatLng(21.015273, 105.847307),
+            position: new google.maps.LatLng(lat_pst2, lon_pst2),
             type: 'flat',
             content: '<div class="container-locale"><div class="content-left-locale"><img src="https://congtrinh0209.github.io/Du_anTN/IMG/123.jpg"></div><div class="content-right-locale"><p>CHO THUÊ CĂN HỘ TẠI SỐ 41B - NGUYỄN ĐÌNH CHIỂU - LÊ ĐẠI HÀNH - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 35m²</p><p>Giá: 2 triệu/tháng</p><p>Ngày đăng: 07/05/2017</p><button class="btn-locale"><a href="#locale2">Xem phòng</a></button></div><div class="clear"></div></div>',
             title: "Diện tích: 35m2 + Giá:2tr/tháng"
           },
           {
-            position: new google.maps.LatLng(21.014122, 105.848245),
+            position: new google.maps.LatLng(lat_pst3, lon_pst3),
             type: 'store',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>CHO THUÊ MẶT BẰNG KINH DOANH TẠI SỐ 266 BÀ TRIỆU- LÊ ĐẠI HÀNH - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 20m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 01/05/2017</p><button class="btn-locale"><a href="#locale1">Xem phòng</a></button></div><div class="clear"></div></div>',
+            content: '<div class="container-locale"><div class="content-left-locale"><img src="https://congtrinh0209.github.io/Du_anTN/IMG/img-p2/1.jpg"></div><div class="content-right-locale"><p>CHO THUÊ MẶT BẰNG KINH DOANH TẠI SỐ 266 BÀ TRIỆU- LÊ ĐẠI HÀNH - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 20m²</p><p>Giá: 1,5 triệu/tháng</p><p>Ngày đăng: 01/05/2017</p><button class="btn-locale"><a href="#locale1">Xem phòng</a></button></div><div class="clear"></div></div>',
             title: "Diện tích: 20m2 + Giá:1,5tr/tháng"
           }, {
-            position: new google.maps.LatLng(21.012680, 105.847253),
+            position: new google.maps.LatLng(lat_pst4, lon_pst4),
             type: 'house',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p>CHO THUÊ NHÀ RIÊNG TẠI SỐ 135-BÙI THỊ XUÂN- QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 25m²</p><p>Giá: 1,8 triệu/tháng</p><p>Ngày đăng: 11/05/2016</p><button class="btn-locale"><a href="#locale2">Xem phòng</a></button></div><div class="clear"></div></div>',
+            content: '<div class="container-locale"><div class="content-left-locale"><img src="https://congtrinh0209.github.io/Du_anTN/IMG/img-p3/1.jpg"></div><div class="content-right-locale"><p>CHO THUÊ NHÀ RIÊNG TẠI SỐ 135-BÙI THỊ XUÂN- QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 25m²</p><p>Giá: 1,8 triệu/tháng</p><p>Ngày đăng: 11/05/2016</p><button class="btn-locale"><a href="#locale2">Xem phòng</a></button></div><div class="clear"></div></div>',
             title: "Diện tích: 25m2 + Giá:1,8tr/tháng"
           }, {
-            position: new google.maps.LatLng(21.013036, 105.849183),
+            position: new google.maps.LatLng(lat_pst5, lon_pst5),
             type: 'house',
-            content: '<div class="container-locale"><div class="content-left-locale"><img src="http://chothuesaigon.net/chothuesg_1.20150302184614608.jpg"></div><div class="content-right-locale"><p> 41B - NGUYỄN ĐÌNH CHIỂU - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 15m²</p><p>Giá: 1,2 triệu/tháng</p><p>Ngày đăng: 28/04/2017</p><button class="btn-locale"><a href="#locale1">Xem phòng</a></button></div><div class="clear"></div></div>',
+            content: '<div class="container-locale"><div class="content-left-locale"><img src="https://congtrinh0209.github.io/Du_anTN/IMG/img-p1/1.jpg"></div><div class="content-right-locale"><p> 41B - NGUYỄN ĐÌNH CHIỂU - QUẬN HAI BÀ TRƯNG</p><p>Diện tích: 15m²</p><p>Giá: 1,2 triệu/tháng</p><p>Ngày đăng: 28/04/2017</p><button class="btn-locale"><a href="#locale1">Xem phòng</a></button></div><div class="clear"></div></div>',
             title: "Diện tích: 15m2 + Giá:1,2tr/tháng"
           },
         ];
