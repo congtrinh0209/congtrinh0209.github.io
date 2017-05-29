@@ -18,7 +18,7 @@ $(function(){
 	card = shuffle(card);
 	var display = "";
 	for (var i = 0; i < card.length; i++) {
-		display += '<div class="content">' + '<div class="card" data-name="'+card[i]+'" onclick = "flip(this)">'+'<div class="back-card"><img src="../IMG/'+card[i]+'.jpg"></div>'+'<div class="front-card"><img src="../IMG/card-back2.jpg"></div>'+'</div></div>'};			
+		display += '<li class="sp">'+'<div class="content">' + '<div class="card" data-name="'+card[i]+'" onclick = "flip(this)">'+'<div class="back-card"><img src="../IMG/'+card[i]+'.jpg"></div>'+'<div class="front-card"><img src="../IMG/card-back2.jpg"></div>'+'</div></div>'};			
 	$("#wrapper").html(display);
 	$('.card').css('pointer-events', 'none');
 });

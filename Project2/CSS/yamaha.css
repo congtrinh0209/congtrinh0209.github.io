@@ -14,10 +14,13 @@ a{
 }
 body{
 	max-width: 1000px;
-	margin: 0 auto;
+	margin: 0 auto !important;
 	font-family: arial;
 	font-size: 16px;
 	background-color: #0d0d0d;
+}
+.wrap-img{
+	overflow: hidden;
 }
 #container{
 	background-color: white;
@@ -33,6 +36,9 @@ body{
 	height: 58px;
 	width: 825px;
 	background-color: #5f5f5f;
+}
+.clear{
+	clear: both;
 }
 #menu li{
 	font-size: 18px;
@@ -86,10 +92,6 @@ h1{
 	position: absolute;
 	text-align: center;
 	top: 85%;
-}
-.row{
-	float: left;
-	margin: 30px 0 30px 30px;
 }
 
 	/* Style footer*/
