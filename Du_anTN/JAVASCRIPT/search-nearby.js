@@ -11,11 +11,11 @@ function search_locale(){
         lat_pst1 = position.coords.latitude + 0.001;
         lon_pst1 = position.coords.longitude + 0.001;
         lat_pst2 = position.coords.latitude - 0.001;
-        lon_pst2 = position.coords.longitude - 0.002;
+        lon_pst2 = position.coords.longitude + 0.002;
         lat_pst3 = position.coords.latitude - 0.001;
         lon_pst3 = position.coords.longitude + 0.001;
-        lat_pst4 = position.coords.latitude + 0.001;
-        lon_pst4 = position.coords.longitude;
+        lat_pst4 = position.coords.latitude + 0.003;
+        lon_pst4 = position.coords.longitude + 0.002;
         lat_pst5 = position.coords.latitude - 0.002;
         lon_pst5 = position.coords.longitude;
         latlon = new google.maps.LatLng(lat, lon);
