@@ -9,6 +9,12 @@
 li{
 	list-style-type: none;
 }
+.pagination li:hover{
+	cursor: pointer;
+}
+.text-center{
+	margin-top: 20px;
+}
 a{
 	text-decoration: none;
 }
@@ -75,6 +81,7 @@ h1{
 	float: left;
 	margin-left: 10px;
 	position: relative;
+	overflow: hidden;
 }
 #xeso{
 	clear: both;
@@ -107,4 +114,7 @@ h1{
 	padding: 10px 0 0 5px;
 	font-weight: bold;
 	font-size: 95%;
+}
+.row{
+	margin-top: 20px;
 }
