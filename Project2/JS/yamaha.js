@@ -1,5 +1,5 @@
 var imgs = [
-	img_1 = {name: 'acruzo.png' , alt: 'acruzo', title: 'ACUZO', description: 'ACUZO-1'},
+	img_1 = {name: 'acruzo.png' , alt: 'acruzo', title: 'ACUZO', description: 'ACUZO'},
 	img_2 = {name: 'deluxe.png' , alt: 'deluxe', title: 'DELUXE', description: 'DELUXE'},
 	img_3 = {name: 'janus.png' , alt: 'janus', title: 'JANUS', description: 'JANUS'},
 	img_4 = {name: 'NVX155Standard.png' , alt: 'NVX155Standard', title: 'NVX155Standard', description: 'NVX155-Standard'},
@@ -10,11 +10,13 @@ var imgs = [
 	img_9 = {name: 'granderpremium.jpg' , alt: 'granderpremium', title: 'granderpremium', description: 'GRANDER-PREMIUM'},
 	img_10 = {name: 'deluxe.png' , alt: 'deluxe', title: 'deluxe', description: 'DELUXE'},
 ];
-var imgs_per_page;
-var number_page;
-var display = "";
-var display2 = "";
-function load_page(a) {
+var imgs_per_page;	// Số ảnh trên 1 trang
+var number_page;	// Số trang
+var display = "";	// html nội dung trang
+var display2 = "";	// html pagination
+var bf_pagination = '<li class="previous"><a>«</a></li> <li class="decrease_1"><a>...</a></li>';
+var af_pagination = '<li><a>...</a></li> <li class="next "><a>»</a></li>';
+function load_page(a) {					// hàm load trang khi click page
 		if (a == number_page) {
 			for (var i = (a-1)*imgs_per_page; i < imgs.length; i++) {
 			display += '<li class="sp">'+'<a href="#" class="wrap-img">'+'<img src="../IMG/'+imgs[i].name+' " '+' alt="'+imgs[i].alt+' " '+' title=" '+imgs[i].title+' " ></a><a href="#"><p>'+imgs[i].description+'</p></a></li>';
@@ -30,25 +32,41 @@ function load_page(a) {
 			display = "";
 		}
 	}
-function pagination() {
-	imgs_per_page = $("#ipp").val();
-	number_page = Math.ceil(imgs.length / imgs_per_page);
-	//***************
-	for (var i = 0; i < imgs_per_page; i++) {
+function add_content(c){ 	// hàm đổ dữ liệu trang và pagination
+	for (var i = 0; i < imgs_per_page; i++) {	// vòng lặp add nội dung trang
 		display += '<li class="sp">'+'<a href="#" class="wrap-img">'+'<img src="../IMG/'+imgs[i].name+' " '+' alt="'+imgs[i].alt+' " '+' title=" '+imgs[i].title+' " ></a><a href="#"><p>'+imgs[i].description+'</p></a></li>';
 	}
-	for (var i = 1; i <= number_page; i++) {
+	for (var i = 1; i <= c; i++) {	// vòng lặp cho pagination
 		display2 += '<li><a onclick="load_page('+i+')">'+i+'</a></li>';
 	}
 	$(".list_sp").html(display);
 	$(".pagination").html(display2);
 	display = "";
 	display2 = "";
-	$(".pagination>li:nth-child(1)").addClass("active");
+	$(".pagination li:first").addClass("active");
 	$(".pagination>li").click(function() {
 		$(".pagination>li").removeClass("active");
 		$(this).addClass("active");
 	});
+}
+function pagination() {
+	imgs_per_page = $("#ipp").val();
+	number_page = Math.ceil(imgs.length / imgs_per_page);
+	var c;
+	//*************
+	if (number_page <= 5) {
+		c = number_page;
+		add_content(c)
+	}
+	else {
+		c = 5;
+		add_content(c);
+		$(".pagination li:first").before(bf_pagination);
+    	$(".pagination li:last").after(af_pagination);
+    	$(".previous").addClass("disabled");
+    	$(".decrease_1").css("display","none");
+	}
+
 };
 $(document).ready(pagination());
 

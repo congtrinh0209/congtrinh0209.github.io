@@ -80,6 +80,7 @@ h1{
 	height: 225px;
 	float: left;
 	margin-left: 10px;
+	margin-bottom: 10px;
 	position: relative;
 	overflow: hidden;
 }
