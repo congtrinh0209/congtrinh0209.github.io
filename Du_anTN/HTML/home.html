@@ -8,13 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
 	<link rel="stylesheet" type="text/css" href="../css2/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="../../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../pannellum/pannellum.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:url" content="https://congtrinh0209.github.io/Du_anTN/HTML/home.html" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Trang tìm kiếm phòng trọ nhanh chóng, hiệu quả cho mọi đối tượng "/>
-	<meta property="og:description" content="Trang tìm kiếm phòng trọ nhanh chóng, hiệu quả cho mọi đối tượng " />
-	<meta property="og:image" content="https://congtrinh0209.github.io/Du_anTN/IMG/123.jpg" />
+	
 </head>
 <body>
 	<div class="back-top"><a href="#view"><img src="../IMG/back-top.png" title="Về đầu trang"></a></div>
@@ -307,6 +304,7 @@
 									    <li class="active"><a data-toggle="tab" href="#menu1">THÔNG TIN CHUNG</a></li>
 									    <li><a data-toggle="tab" href="#menu2">MÔ TẢ CHI TIẾT</a></li>
 									    <li><a data-toggle="tab" href="#menu3">HÌNH ẢNH</a></li>
+									    <li><a data-toggle="tab" href="#menu5">Ảnh 360<sup>o</sup></a></li>
 									    <li class="position item1"><a data-toggle="tab" href="#menu4">VỊ TRÍ</a></li>
 									</ul>
 								<!-- Content navs tabs-->
@@ -388,15 +386,18 @@
 												</div>
 											</div>
 										</div>
-								    <div id="menu4" class="tab-pane fade" style="position: relative;">
-									    <div id="detail-item4" class="des-detail-content">
-											<div id="googleMap1" style="width:100%;height:400px;"></div>
-											<div id="right-panel">
-											  <h2>CĐ, ĐH gần nhất</h2>
-											  <ul id="places"></ul>
+									    <div id="menu4" class="tab-pane fade" style="position: relative;">
+										    <div id="detail-item4" class="des-detail-content">
+												<div id="googleMap1" style="width:100%;height:400px;"></div>
+												<div id="right-panel">
+												  <h2>CĐ, ĐH gần nhất</h2>
+												  <ul id="places"></ul>
+												</div>
 											</div>
 										</div>
-									</div>
+										<div id="menu5" class="tab-pane fade">
+											<div id="panorama1" class="panorama"></div>
+										</div>
 									</div>	    
 								</div>
 						</div>
@@ -486,6 +487,7 @@
 									    <li class="active"><a data-toggle="tab" href="#menu2_1">THÔNG TIN CHUNG</a></li>
 									    <li><a data-toggle="tab" href="#menu2_2">MÔ TẢ CHI TIẾT</a></li>
 									    <li><a data-toggle="tab" href="#menu2_3">HÌNH ẢNH</a></li>
+									    <li><a data-toggle="tab" href="#menu2_5">Ảnh 360<sup>o</sup></a></li>
 									    <li class="position item2"><a data-toggle="tab" href="#menu2_4">VỊ TRÍ</a></li>
 									</ul>
 								<!-- Content navs tabs-->
@@ -578,6 +580,9 @@
 												</div>
 											</div>
 									    </div>
+									    <div id="menu2_5" class="tab-pane fade">
+											<div id="panorama2" class="panorama"></div>
+										</div>
 									</div>	    
 								</div>
 						</div>
@@ -1238,18 +1243,10 @@
 			</div>
 		</div>
 	</div>
-	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=1772123429767126";
-		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
 	<script src="../JAVASCRIPT/jquery-3.2.0.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4&language=vi&region=vie&libraries=places"></script>	
 	<script type="text/javascript" src="../JAVASCRIPT/home.js"></script>
+	<script type="text/javascript" src="../../pannellum/pannellum.js"></script>
 	<script type="text/javascript" src="../../bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
