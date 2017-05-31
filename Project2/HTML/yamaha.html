@@ -6,6 +6,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="../CSS/yamaha.css">
+		<link rel="stylesheet" href="https://cdn.pannellum.org/2.3/pannellum.css"/>
+   		<script type="text/javascript" src="https://cdn.pannellum.org/2.3/pannellum.js"></script>
 	</head>
 
 	<body>
@@ -28,6 +30,7 @@
 				<div id="banner"><img src="../IMG/banner.jpg" alt="banner" title="yamaha"></div>
 			</div>
 			<div id="content">
+				<div id="panorama"></div>
 				<div id="xega">
 					<h1>XE GA YAMAHA</h1>
 					<div class="row">
@@ -103,6 +106,12 @@
 				</p>
 			</div>
 		</div>
+		<script type="text/javascript">
+			pannellum.viewer('panorama', {
+			    "type": "equirectangular",
+			    "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg"
+			});
+		</script>
 	</body>
 
 </html>

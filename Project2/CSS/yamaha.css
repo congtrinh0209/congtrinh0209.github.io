@@ -6,6 +6,10 @@
 	-webkit-box-sizing:border-box;
 	border-image:0;
 }
+#panorama {
+        width: 400px;
+        height: 300px;
+}
 li{
 	list-style-type: none;
 }
