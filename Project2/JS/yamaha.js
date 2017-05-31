@@ -14,8 +14,8 @@ var imgs_per_page;	// Số ảnh trên 1 trang
 var number_page;	// Số trang
 var display = "";	// html nội dung trang
 var display2 = "";	// html pagination
-var bf_pagination = '<li class="previous"><a>«</a></li> <li class="decrease_1"><a>...</a></li>';
-var af_pagination = '<li><a>...</a></li> <li class="next "><a>»</a></li>';
+var bf_pagination = '<li class="first"><a>First</a></li>';
+var af_pagination = '<li class="last "><a>Last</a></li>';
 function load_page(a) {					// hàm load trang khi click page
 		if (a == number_page) {
 			for (var i = (a-1)*imgs_per_page; i < imgs.length; i++) {
@@ -32,11 +32,11 @@ function load_page(a) {					// hàm load trang khi click page
 			display = "";
 		}
 	}
-function add_content(c){ 	// hàm đổ dữ liệu trang và pagination
+function add_content(b,c){ 	// hàm đổ dữ liệu trang và pagination
 	for (var i = 0; i < imgs_per_page; i++) {	// vòng lặp add nội dung trang
 		display += '<li class="sp">'+'<a href="#" class="wrap-img">'+'<img src="../IMG/'+imgs[i].name+' " '+' alt="'+imgs[i].alt+' " '+' title=" '+imgs[i].title+' " ></a><a href="#"><p>'+imgs[i].description+'</p></a></li>';
 	}
-	for (var i = 1; i <= c; i++) {	// vòng lặp cho pagination
+	for (var i = b; i <= c; i++) {	// vòng lặp cho pagination
 		display2 += '<li><a onclick="load_page('+i+')">'+i+'</a></li>';
 	}
 	$(".list_sp").html(display);
@@ -47,24 +47,27 @@ function add_content(c){ 	// hàm đổ dữ liệu trang và pagination
 	$(".pagination>li").click(function() {
 		$(".pagination>li").removeClass("active");
 		$(this).addClass("active");
+
 	});
 }
 function pagination() {
 	imgs_per_page = $("#ipp").val();
 	number_page = Math.ceil(imgs.length / imgs_per_page);
+	var b;
 	var c;
 	//*************
 	if (number_page <= 5) {
+		b = 1;
 		c = number_page;
-		add_content(c)
+		add_content(b,c)
 	}
 	else {
+		b = 1;
 		c = 5;
-		add_content(c);
+		add_content(b,c);
 		$(".pagination li:first").before(bf_pagination);
     	$(".pagination li:last").after(af_pagination);
-    	$(".previous").addClass("disabled");
-    	$(".decrease_1").css("display","none");
+    	$(".first").css("display","none");
 	}
 
 };
