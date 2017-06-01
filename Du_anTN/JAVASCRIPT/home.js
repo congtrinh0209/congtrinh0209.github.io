@@ -30,6 +30,59 @@ $(document).ready(function(){
 $('.news >.icon-s').click(function(){
 	window.location.href = '../HTML/news.html';
 });
+/***************Pannellum API***************************/
+$(document).ready(function(){
+	pannellum.viewer('panorama1', {   
+	    "default": {
+	        "firstScene": "circle",
+	        "author": "CongTrinh0209",
+	        "sceneFadeDuration": 1000
+	    },
+
+	    "scenes": {
+	        "circle": {
+	            "title": "Home",
+	            "hfov": 110,
+	            "pitch": -3,
+	            "yaw": 117,
+	            "type": "equirectangular",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg",
+	            "autoLoad": true,
+	            "hotSpots": [
+	                {
+	                    "pitch": -2.1,
+	                    "yaw": 132.9,
+	                    "type": "scene",
+	                    "text": "Phòng tắm",
+	                    "sceneId": "wc"
+	                }
+	            ]
+	        },
+
+	        "wc": {
+	            "title": "bath_room",
+	            "hfov": 110,
+	            "yaw": 5,
+	            "type": "equirectangular",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg",
+	            "autoLoad": true,
+	            "hotSpots": [
+	                {
+	                    "pitch": -0.6,
+	                    "yaw": 37.1,
+	                    "type": "scene",
+	                    "text": "Phòng chính",
+	                    "sceneId": "circle",
+	                    "targetYaw": -23,
+	                    "targetPitch": 2
+	                }
+	            ]
+	        }
+	    }
+	});
+});
+
+
 /****************JS MAP-DEMO ITEM-1************************/
 $(".position.item1").on("click",function(){
     	var mapholder = document.getElementById('googleMap1');

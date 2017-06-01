@@ -139,6 +139,10 @@ ol, ul{
 	top: 0;
 	right: 0;
 }
+.panorama {
+    width: 100%;
+    height: 400px;
+}
 .btn .btn-info i{
 	font-size: 1.4em !important;
 	padding-right: 5px;
