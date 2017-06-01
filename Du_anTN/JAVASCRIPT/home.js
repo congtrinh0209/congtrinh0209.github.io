@@ -36,7 +36,6 @@ $("document").ready(function(){
 	    "default": {
 	        "firstScene": "circle",
 	        "author": "CongTrinh0209",
-	        "sceneFadeDuration": 1000
 	    },
 
 	    "scenes": {
