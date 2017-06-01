@@ -31,11 +31,12 @@ $('.news >.icon-s').click(function(){
 	window.location.href = '../HTML/news.html';
 });
 /***************Pannellum API***************************/
-$("document").ready(function(){
+$("#menu5").click(function(){
 	pannellum.viewer('panorama1', {   
 	    "default": {
 	        "firstScene": "circle",
 	        "author": "CongTrinh0209",
+	        "sceneFadeDuration": 1000
 	    },
 
 	    "scenes": {
