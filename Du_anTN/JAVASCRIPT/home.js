@@ -215,9 +215,7 @@ $(".position.item1").on("click",function(){
                 }
         	});
         	/***********ĐH, CĐ Lân cận*************/
-        	
-        	
-        	
+
         	var pyrmont = {lat: 20.999145, lng: 105.814108};
         	var item = 'university';
         	var service = new google.maps.places.PlacesService(map);
@@ -237,21 +235,21 @@ $(".position.item1").on("click",function(){
 				var bounds = new google.maps.LatLngBounds();
 				var placesList = document.getElementById('places');
 				for (var i = 0, place; place = places[i]; i++) {
-				var image = {
-				  url: place.icon,
-				  size: new google.maps.Size(71, 71),
-				  origin: new google.maps.Point(0, 0),
-				  anchor: new google.maps.Point(17, 34),
-				  scaledSize: new google.maps.Size(15, 15)
-				};
-				var marker = new google.maps.Marker({
-				  map: map,
-				  icon: image,
-				  title: place.name,
-				  position: place.geometry.location
-				});
-				placesList.innerHTML += '<li>' + place.name + '</li>';
-				bounds.extend(place.geometry.location);
+					var image = {
+					  url: place.icon,
+					  size: new google.maps.Size(71, 71),
+					  origin: new google.maps.Point(0, 0),
+					  anchor: new google.maps.Point(17, 34),
+					  scaledSize: new google.maps.Size(15, 15)
+					};
+					var marker = new google.maps.Marker({
+					  map: map,
+					  icon: image,
+					  title: place.name,
+					  position: place.geometry.location
+					});
+					placesList.innerHTML += '<li>' + place.name + '</li>';
+					bounds.extend(place.geometry.location);
 				}
 				map.fitBounds(bounds);
 			};
