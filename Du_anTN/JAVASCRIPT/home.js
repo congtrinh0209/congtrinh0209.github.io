@@ -42,9 +42,6 @@ $("document").ready(function(){
 	    "scenes": {
 	        "circle": {
 	            "title": "timphongcungban.com",
-	            "hfov": 110,
-	            "pitch": -3,
-	            "yaw": 117,
 	            "type": "equirectangular",
 	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_095201_0.jpg",
 	            "autoLoad": true,
@@ -61,8 +58,6 @@ $("document").ready(function(){
 
 	        "phonghoc": {
 	            "title": "Phòng học",
-	            "hfov": 110,
-	            "yaw": 5,
 	            "type": "equirectangular",
 	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg",
 	            "autoLoad": true,
