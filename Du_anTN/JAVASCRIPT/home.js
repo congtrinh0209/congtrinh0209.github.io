@@ -46,7 +46,7 @@ $(document).ready(function(){
 	            "yaw": -50,
 	            "type": "equirectangular",
 	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_155002_1.jpg",
-	            "autoLoad": true,
+	            
 	            "autoRotate": -3,
 	            "hotSpots": [
 	                {
@@ -345,12 +345,7 @@ $(".position.item2").on("click",function(){
         	}
     	}
 	});
-/************banner-mobile*********************/
-var window_width = window.innerWidth;
-if (window_width < 769) {
-	$(".sign-mobile").html($(".sign").html());
-	$(".info-acc-mobile").html($(".info-acc").html());
-}
+
 /************banner-mobile*********************/
 $(document).ready(function(){
 	$(".hn").hover(function() {
@@ -407,6 +402,9 @@ $(document).ready(function(){
 		})
 	}
 });
+/************banner-mobile*********************/
+	$(".sign-mobile").html($(".sign").html());
+	$(".info-acc-mobile").html($(".info-acc").html());
 /************locale menu search****************/
 	var district_hn = ['Quận Ba Đình','Quận Hoàn Kiếm','Quận Hai Bà Trưng','Quận Đống Đa','Quận Tây Hồ','Quận Cầu Giấy','Quận Thanh Xuân','Quận Hoàng Mai','Quận Long Biên','Huyện Từ Liêm','Huyện Thanh Trì','Huyện Gia Lâm','Huyện Đông Anh','Huyện Sóc Sơn','Quận Hà Đông','Thị xã Sơn Tây','Huyện Ba Vì','Huyện Phúc Thọ','Huyện Thạch Thất','Huyện Quốc Oai','Huyện Chương Mỹ','Huyện Đan Phượng','Huyện Hoài Đức','Huyện Thanh Oai','Huyện Mỹ Đức','Huyện Ứng Hoà','Huyện Thường Tín','Huyện Phú Xuyên','Huyện Mê Linh'];
 	var district_hcm = ['Quận 1','Quận 2','Quận 3','Quận 4','Quận 5','Quận 6','Quận 7','Quận 8','Quận 9','Quận 10','Quận 11','Quận 12','Quận Thủ Đức','Quận Gò Vấp','Quận Bình Thạnh','Quận Tân Bình','Quận Tân Phú','Quận Phú Nhuận','Quận Bình Tân','Huyện Củ Chi','Huyện Hóc Môn','Huyện Bình Chánh','Huyện Nhà Bè','Huyện Cần Giờ'];
