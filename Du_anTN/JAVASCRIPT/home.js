@@ -31,12 +31,11 @@ $('.news >.icon-s').click(function(){
 	window.location.href = '../HTML/news.html';
 });
 /***************Pannellum API***************************/
-window.onload = function() {
+$(document).ready(function(){
 	pannellum.viewer('panorama1', {   
 	    "default": {
 	        "firstScene": "circle",
 	        "author": "CongTrinh0209",
-	        "sceneFadeDuration": 1000
 	    },
 
 	    "scenes": {
@@ -84,7 +83,8 @@ window.onload = function() {
 	        }
 	    }
 	});
-};
+});
+
 
 /****************JS MAP-DEMO ITEM-1************************/
 $(".position.item1").on("click",function(){
