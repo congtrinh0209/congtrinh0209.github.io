@@ -31,6 +31,7 @@ $('.news >.icon-s').click(function(){
 	window.location.href = '../HTML/news.html';
 });
 /***************Pannellum API***************************/
+$(window).load(function() {
 	pannellum.viewer('panorama1', {   
 	    "default": {
 	        "firstScene": "circle",
@@ -83,7 +84,7 @@ $('.news >.icon-s').click(function(){
 	        }
 	    }
 	});
-
+});
 
 /****************JS MAP-DEMO ITEM-1************************/
 $(".position.item1").on("click",function(){
