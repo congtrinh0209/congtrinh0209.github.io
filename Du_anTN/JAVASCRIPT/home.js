@@ -48,6 +48,7 @@ $(document).ready(function(){
 	            "type": "equirectangular",
 	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg",
 	            "autoLoad": true,
+	            "autoRotate": -3,
 	            "hotSpots": [
 	                {
 	                    "pitch": -2.1,
@@ -66,6 +67,7 @@ $(document).ready(function(){
 	            "type": "equirectangular",
 	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg",
 	            "autoLoad": true,
+	            "autoRotate": -3,
 	            "hotSpots": [
 	                {
 	                    "pitch": -0.6,
