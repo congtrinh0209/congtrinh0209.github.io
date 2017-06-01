@@ -31,7 +31,7 @@ $('.news >.icon-s').click(function(){
 	window.location.href = '../HTML/news.html';
 });
 /***************Pannellum API***************************/
-$("#menu5").click(function(){
+$(document).ready(function(){
 	pannellum.viewer('panorama1', {   
 	    "default": {
 	        "firstScene": "circle",
