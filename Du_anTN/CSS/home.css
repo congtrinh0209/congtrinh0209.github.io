@@ -1159,7 +1159,7 @@ i.fa.fa-bars{
 		cursor: pointer;
 		opacity: 0.5;}
 	/************* Menu cho desktop*********/
-	.menu-mobile,.sign-mobile,.info-acc-mobile{
+	.menu-mobile{
 		display: none;
 	}
 	.menu-dropdown{
