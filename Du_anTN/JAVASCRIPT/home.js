@@ -84,6 +84,8 @@ $(document).ready(function(){
 	        }
 	    }
 	});
+	var click_pano = "<p>Click để<br>xem<br>ảnh 360</p><p></p>";
+	$("#panorama1>div.pnlm-load-button").html(click_pano);
 });
 
 
