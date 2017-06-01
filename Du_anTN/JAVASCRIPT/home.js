@@ -43,41 +43,42 @@ $(document).ready(function(){
 	            "title": "Phòng chính",
 	            "hfov": 110,
 	            "pitch": -3,
-	            "yaw": 117,
+	            "yaw": -50,
 	            "type": "equirectangular",
 	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_155002_1.jpg",
 	            "autoLoad": true,
 	            "autoRotate": -3,
 	            "hotSpots": [
 	                {
-	                    "pitch": -2.1,
-	                    "yaw": 132.9,
+	                    "pitch": -3,
+	                    "yaw": -85,
 	                    "type": "scene",
 	                    "text": "Phòng học",
 	                    "sceneId": "phonghoc",
-	                    "targetYaw": -23,
-	                    "targetPitch": 2
+	                    "targetYaw": -50,
+	                    "targetPitch": 0
 	                }
 	            ]
 	        },
 
 	        "phonghoc": {
 	            "title": "Phòng học",
-	            "hfov": 110,
-	            "yaw": 5,
+	            "hfov": 100,
+	            "pitch": -50,
+	            "yaw": 80,
 	            "type": "equirectangular",
 	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_162248_3.jpg",
 	            "autoLoad": true,
 	            "autoRotate": -3,
 	            "hotSpots": [
 	                {
-	                    "pitch": -0.6,
-	                    "yaw": 37.1,
+	                    "pitch": 0,
+	                    "yaw": -60,
 	                    "type": "scene",
 	                    "text": "Phòng chính",
 	                    "sceneId": "circle",
-	                    "targetYaw": -23,
-	                    "targetPitch": 2
+	                    "targetYaw": -48,
+	                    "targetPitch": 0
 	                }
 	            ]
 	        }
