@@ -5,7 +5,7 @@
 }
 .result-search i{
   font-size: 1.3em;
-  color: red;
+  color: #66A400;
 }
 
 .wrap-content {
@@ -110,3 +110,6 @@
 #mapholder > div > div > div:nth-child(1) > div:nth-child(4) > div:nth-child(4) > div:nth-child(2) > div.gm-style-iw > div:nth-child(1) > div > div > div.content-right-locale > button>a{
 	color: white;
 }
+.side-bar {
+    margin-top: 30px;
+    }
