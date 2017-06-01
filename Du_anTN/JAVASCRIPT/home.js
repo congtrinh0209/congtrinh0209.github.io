@@ -41,7 +41,7 @@ $("document").ready(function(){
 
 	    "scenes": {
 	        "circle": {
-	            "title": "Home",
+	            "title": "timphongcungban.com",
 	            "hfov": 110,
 	            "pitch": -3,
 	            "yaw": 117,
@@ -53,14 +53,14 @@ $("document").ready(function(){
 	                    "pitch": -2.1,
 	                    "yaw": 132.9,
 	                    "type": "scene",
-	                    "text": "Phòng tắm",
-	                    "sceneId": "wc"
+	                    "text": "Phòng học",
+	                    "sceneId": "phonghoc"
 	                }
 	            ]
 	        },
 
-	        "wc": {
-	            "title": "bath_room",
+	        "phonghoc": {
+	            "title": "Phòng học",
 	            "hfov": 110,
 	            "yaw": 5,
 	            "type": "equirectangular",
