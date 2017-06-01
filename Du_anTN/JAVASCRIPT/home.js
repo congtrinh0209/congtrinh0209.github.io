@@ -64,7 +64,7 @@ $("document").ready(function(){
 	            "hfov": 110,
 	            "yaw": 5,
 	            "type": "equirectangular",
-	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_095201_0-min.jpg",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg",
 	            "autoLoad": true,
 	            "hotSpots": [
 	                {
