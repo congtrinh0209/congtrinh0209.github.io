@@ -139,7 +139,7 @@ ol, ul{
 	top: 0;
 	right: 0;
 }
-#panorama1 {
+#panorama1,#panorama2 {
     width: 100%;
     height: 400px;
 }
@@ -520,6 +520,10 @@ i.fa.fa-bars{
 	font-size: 18px;
 	color: green;
 	margin: 0 0 5px 10px;
+}
+#right-panel .near_by_item{
+	font-size: 16px;
+	color: green;
 }
 #right-panel ul {
 	list-style-type: none;

@@ -84,8 +84,60 @@ $(document).ready(function(){
 	        }
 	    }
 	});
+	pannellum.viewer('panorama2', {   
+	    "default": {
+	        "firstScene": "circle",
+	        "author": "CongTrinh0209",
+	    },
+
+	    "scenes": {
+	        "circle": {
+	            "title": "Phòng chính",
+	            "hfov": 110,
+	            "pitch": -3,
+	            "yaw": -50,
+	            "type": "equirectangular",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_155002_1.jpg",
+	            
+	            "autoRotate": -3,
+	            "hotSpots": [
+	                {
+	                    "pitch": -3,
+	                    "yaw": -85,
+	                    "type": "scene",
+	                    "text": "Phòng học",
+	                    "sceneId": "phonghoc",
+	                    "targetYaw": -50,
+	                    "targetPitch": 0
+	                }
+	            ]
+	        },
+
+	        "phonghoc": {
+	            "title": "Phòng học",
+	            "hfov": 100,
+	            "pitch": -50,
+	            "yaw": 80,
+	            "type": "equirectangular",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_162248_3.jpg",
+	            "autoLoad": true,
+	            "autoRotate": -3,
+	            "hotSpots": [
+	                {
+	                    "pitch": 0,
+	                    "yaw": -60,
+	                    "type": "scene",
+	                    "text": "Phòng chính",
+	                    "sceneId": "circle",
+	                    "targetYaw": -48,
+	                    "targetPitch": 0
+	                }
+	            ]
+	        }
+	    }
+	});
 	var click_pano = "<p>Click để<br>xem<br>ảnh 360</p><p></p>";
-	$("#panorama1>div.pnlm-load-button").html(click_pano);
+	$(".panorama>div.pnlm-load-button").html(click_pano);
 });
 
 
@@ -163,12 +215,16 @@ $(".position.item1").on("click",function(){
                 }
         	});
         	/***********ĐH, CĐ Lân cận*************/
+        	
+        	
+        	
         	var pyrmont = {lat: 20.999145, lng: 105.814108};
+        	var item = 'university';
         	var service = new google.maps.places.PlacesService(map);
 				service.nearbySearch({
 				location: pyrmont,
 				radius: 1000,
-				type: ['university']
+				type: [item]
 				}, processResults);
 			function processResults(results, status, pagination) {
 			  if (status !== google.maps.places.PlacesServiceStatus.OK) {
@@ -198,7 +254,8 @@ $(".position.item1").on("click",function(){
 				bounds.extend(place.geometry.location);
 				}
 				map.fitBounds(bounds);
-			}  
+			};
+			
     	};
     	
    		function showError(error) {
