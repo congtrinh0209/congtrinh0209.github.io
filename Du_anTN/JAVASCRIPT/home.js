@@ -31,7 +31,7 @@ $('.news >.icon-s').click(function(){
 	window.location.href = '../HTML/news.html';
 });
 /***************Pannellum API***************************/
-$(document).ready(function(){
+$("document").ready(function(){
 	pannellum.viewer('panorama1', {   
 	    "default": {
 	        "firstScene": "circle",
@@ -46,7 +46,7 @@ $(document).ready(function(){
 	            "pitch": -3,
 	            "yaw": 117,
 	            "type": "equirectangular",
-	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_095201_0.jpg",
 	            "autoLoad": true,
 	            "hotSpots": [
 	                {
