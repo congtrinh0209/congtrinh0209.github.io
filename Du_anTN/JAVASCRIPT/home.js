@@ -43,7 +43,7 @@ $("document").ready(function(){
 	        "circle": {
 	            "title": "timphongcungban.com",
 	            "type": "equirectangular",
-	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_095201_0.jpg",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg",
 	            "autoLoad": true,
 	            "hotSpots": [
 	                {
