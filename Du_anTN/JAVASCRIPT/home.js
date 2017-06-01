@@ -31,7 +31,6 @@ $('.news >.icon-s').click(function(){
 	window.location.href = '../HTML/news.html';
 });
 /***************Pannellum API***************************/
-$(document).ready(function(){
 	pannellum.viewer('panorama1', {   
 	    "default": {
 	        "firstScene": "circle",
@@ -55,7 +54,9 @@ $(document).ready(function(){
 	                    "yaw": 132.9,
 	                    "type": "scene",
 	                    "text": "Phòng học",
-	                    "sceneId": "phonghoc"
+	                    "sceneId": "phonghoc",
+	                    "targetYaw": -23,
+	                    "targetPitch": 2
 	                }
 	            ]
 	        },
@@ -65,7 +66,7 @@ $(document).ready(function(){
 	            "hfov": 110,
 	            "yaw": 5,
 	            "type": "equirectangular",
-	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170530_095353_0.jpg",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_162248_3.jpg",
 	            "autoLoad": true,
 	            "autoRotate": -3,
 	            "hotSpots": [
@@ -82,7 +83,6 @@ $(document).ready(function(){
 	        }
 	    }
 	});
-});
 
 
 /****************JS MAP-DEMO ITEM-1************************/
