@@ -484,7 +484,7 @@ i.fa.fa-bars{
 	left: 50px;
 	color: #fbf7f7;
 }
-/************** Menu university near-by Map********/
+/************** Menu near-by Map********/
 #right-panel {
   font-family: 'Roboto','sans-serif';
   line-height: 15px;
@@ -552,7 +552,7 @@ i.fa.fa-bars{
 #places2{
   font-size: 12px;
 }
-#right-panel2 select, #right-panel input {
+#right-panel2 select, #right-panel2 input {
   font-size: 10px;
 }
 
@@ -579,6 +579,10 @@ i.fa.fa-bars{
 	font-size: 18px;
 	color: green;
 	margin: 0 0 5px 10px;
+}
+#right-panel2 .near_by_item2{
+	font-size: 16px;
+	color: green;
 }
 #right-panel2 ul {
 	list-style-type: none;
