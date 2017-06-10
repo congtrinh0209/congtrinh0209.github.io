@@ -24,6 +24,7 @@ p{margin: 0 !important}
 ol, ul{
 	list-style: none;
 }
+
 .wrapper-container{
 		position: relative;
 		width: 100%;
@@ -55,7 +56,7 @@ ol, ul{
 	width: 50px;
 	position: fixed;
 	bottom: 1%;
-	right: 0px;
+	right: 0 px;
 	z-index: 123;
 	cursor: pointer;
 }
