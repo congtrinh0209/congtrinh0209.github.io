@@ -13,5 +13,6 @@
     <orderEntry type="library" name="react-bootstrap-table-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="react-color-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="sass-graph-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="react-dom-DefinitelyTyped" level="application" />
   </component>
 </module>
