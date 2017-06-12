@@ -478,10 +478,10 @@ $(document).ready(function(){
 	/************menu-fixed*****************/
 	$(window).scroll(function(){
 			if ($(this).scrollTop()>$(".banner").height()){
-				$('.back-top>img').addClass(".back-top-visibility");
+				$('.back-top>img').addClass("back-top-visibility");
 			}
 			else{
-			$('.back-top>img').removeClass(".back-top-visibility");
+			$('.back-top>img').removeClass("back-top-visibility");
 			}	
 		})
 	if (window_width > 768) {
