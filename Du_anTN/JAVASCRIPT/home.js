@@ -41,7 +41,7 @@ $(document).ready(function(){
 
 	    "scenes": {
 	        "circle": {
-	            "title": "Phòng chính",
+	            "title": "Hình ảnh mang tính minh họa",
 	            "hfov": 110,
 	            "pitch": -3,
 	            "yaw": -50,
