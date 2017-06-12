@@ -14,6 +14,20 @@ $('.item-mobile:nth-child(5)').click(function(){
 	$('i.fa.fa-bars').css('display','block');
 	$('.item-dropdown').css('opacity','0')
 });
+/************banner-mobile*********************/
+var window_width = window.innerWidth;
+if (window_width < 769) {
+	$(".sign-mobile").html($(".sign").html());
+	$(".info-acc-mobile").html($(".info-acc").html());
+}
+$(window).scroll(function(){
+			if ($(this).scrollTop()>$(".banner").height()){
+				$('.back-top>img').addClass("back-top-visibility");
+			}
+			else{
+			$('.back-top>img').removeClass("back-top-visibility");
+			}	
+		})
 /************Trang Start-Page*****************/
 $(document).ready(function(){
 	$('.slogan-img').css('opacity','1');
@@ -476,14 +490,7 @@ $(document).ready(function(){
 		window.location.href='search-nearby.html';
 	});
 	/************menu-fixed*****************/
-	$(window).scroll(function(){
-			if ($(this).scrollTop()>$(".banner").height()){
-				$('.back-top>img').addClass("back-top-visibility");
-			}
-			else{
-			$('.back-top>img').removeClass("back-top-visibility");
-			}	
-		})
+	
 	if (window_width > 768) {
 		$(window).scroll(function(){
 			if ($(this).scrollTop()>$(".banner").height()){
@@ -497,12 +504,7 @@ $(document).ready(function(){
 		})
 	}
 });
-/************banner-mobile*********************/
-var window_width = window.innerWidth;
-if (window_width < 769) {
-	$(".sign-mobile").html($(".sign").html());
-	$(".info-acc-mobile").html($(".info-acc").html());
-}
+
 
 /************locale menu search****************/
 	var district_hn = ['Quận Ba Đình','Quận Hoàn Kiếm','Quận Hai Bà Trưng','Quận Đống Đa','Quận Tây Hồ','Quận Cầu Giấy','Quận Thanh Xuân','Quận Hoàng Mai','Quận Long Biên','Huyện Từ Liêm','Huyện Thanh Trì','Huyện Gia Lâm','Huyện Đông Anh','Huyện Sóc Sơn','Quận Hà Đông','Thị xã Sơn Tây','Huyện Ba Vì','Huyện Phúc Thọ','Huyện Thạch Thất','Huyện Quốc Oai','Huyện Chương Mỹ','Huyện Đan Phượng','Huyện Hoài Đức','Huyện Thanh Oai','Huyện Mỹ Đức','Huyện Ứng Hoà','Huyện Thường Tín','Huyện Phú Xuyên','Huyện Mê Linh'];
