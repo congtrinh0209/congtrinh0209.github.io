@@ -21,6 +21,6 @@ class Note2 extends React.Component{
 //
 ReactDOM.render(
     <div>
-        <Note cont1 = "NodeJS là cái quái gì?" cont2 = "ReactJS là cái quái gì?">Môn học NodeJS</Note>
+        <Note cont1 = "NodeJS is a framework js?" cont2 = "ReactJS is a library js?">Môn học NodeJS</Note>
     </div>
     ,document.getElementById("root"));
