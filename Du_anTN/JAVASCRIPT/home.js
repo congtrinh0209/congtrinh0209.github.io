@@ -45,7 +45,7 @@ $(document).ready(function(){
 	            "pitch": -3,
 	            "yaw": -50,
 	            "type": "equirectangular",
-	            "panorama": "https://pannellum.org/images/alma.jpg",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_155002_1.jpg",
 	            "autoRotate": -3,
 	            "hotSpots": [
 	                {
@@ -66,7 +66,7 @@ $(document).ready(function(){
 	            "pitch": -50,
 	            "yaw": 80,
 	            "type": "equirectangular",
-	            "panorama": "https://pannellum.org/images/alma.jpg",
+	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_162248_3.jpg",
 	            "autoLoad": true,
 	            "autoRotate": -3,
 	            "hotSpots": [
@@ -97,7 +97,6 @@ $(document).ready(function(){
 	            "yaw": -50,
 	            "type": "equirectangular",
 	            "panorama": "https://congtrinh0209.github.io/Du_anTN/IMG/IMG-360/PANO_20170601_155002_1.jpg",
-	            
 	            "autoRotate": -3,
 	            "hotSpots": [
 	                {
@@ -477,7 +476,14 @@ $(document).ready(function(){
 		window.location.href='search-nearby.html';
 	});
 	/************menu-fixed*****************/
-	
+	$(window).scroll(function(){
+			if ($(this).scrollTop()>$(".banner").height()){
+				$('.back-top>img').addClass("back-top-visibility");
+			}
+			else{
+			$('.back-top>img').removeClass("back-top-visibility");
+			}	
+		})
 	if (window_width > 768) {
 		$(window).scroll(function(){
 			if ($(this).scrollTop()>$(".banner").height()){
