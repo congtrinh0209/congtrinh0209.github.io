@@ -52,7 +52,7 @@ ol, ul{
 .icon-nav a:hover{
 	color: #d93d05;
 }
-.back-top img{
+.back-top a img{
 	width: 50px;
 	position: fixed;
 	bottom: 56%;

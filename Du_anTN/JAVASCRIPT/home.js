@@ -14,20 +14,7 @@ $('.item-mobile:nth-child(5)').click(function(){
 	$('i.fa.fa-bars').css('display','block');
 	$('.item-dropdown').css('opacity','0')
 });
-/************banner-mobile*********************/
-var window_width = window.innerWidth;
-if (window_width < 769) {
-	$(".sign-mobile").html($(".sign").html());
-	$(".info-acc-mobile").html($(".info-acc").html());
-}
-$(window).scroll(function(){
-			if ($(this).scrollTop()>$(".banner").height()){
-				$('back-top>a>img').addClass("back-top-visibility");
-			}
-			else{
-			$('.back-top>a>img').removeClass("back-top-visibility");
-			}	
-		})
+
 /************Trang Start-Page*****************/
 $(document).ready(function(){
 	$('.slogan-img').css('opacity','1');
@@ -490,19 +477,41 @@ $(document).ready(function(){
 		window.location.href='search-nearby.html';
 	});
 	/************menu-fixed*****************/
-	
-	if (window_width > 768) {
+	var window_width = window.innerWidth;
+
+	if (window_width >= 769) {
 		$(window).scroll(function(){
 			if ($(this).scrollTop()>$(".banner").height()){
 				$('.header').addClass("header-fixed");
 				$('.icon-nav').addClass("icon-nav-fixed");
+				$('.back-top>a>img').addClass("back-top-visibility");
 			}
 			else{
 			$('.header').removeClass("header-fixed");
 			$('.icon-nav').removeClass("icon-nav-fixed");
+			$('.back-top>a>img').removeClass("back-top-visibility");
+			}	
+		})
+		
+	}
+	/************banner-mobile*********************/
+	if (window_width < 769) {
+		$(".sign-mobile").html($(".sign").html());
+		$(".info-acc-mobile").html($(".info-acc").html());
+		$(window).scroll(function(){
+			if ($(this).scrollTop()>$(".banner-mobile").height()){
+				$('.header').addClass("header-fixed");
+				$('.icon-nav').addClass("icon-nav-fixed");
+				$('.back-top>a>img').addClass("back-top-visibility");
+			}
+			else{
+			$('.header').removeClass("header-fixed");
+			$('.icon-nav').removeClass("icon-nav-fixed");
+			$('.back-top>a>img').removeClass("back-top-visibility");
 			}	
 		})
 	}
+
 });
 
 
