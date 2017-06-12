@@ -22,10 +22,10 @@ if (window_width < 769) {
 }
 $(window).scroll(function(){
 			if ($(this).scrollTop()>$(".banner").height()){
-				$('.back-top>img').addClass("back-top-visibility");
+				$('back-top>a>img').addClass("back-top-visibility");
 			}
 			else{
-			$('.back-top>img').removeClass("back-top-visibility");
+			$('.back-top>a>img').removeClass("back-top-visibility");
 			}	
 		})
 /************Trang Start-Page*****************/
