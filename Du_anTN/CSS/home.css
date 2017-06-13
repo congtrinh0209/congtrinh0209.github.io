@@ -166,19 +166,7 @@ ol, ul{
 		border-radius: 5px;
 		font-size: 16px;
 	}
-	.footer{
-		margin-top: 20px;
-	}
-	.wrapper-fcontent{
-		padding: 5px;
-	}
-	#f-content1,#f-content2,.footer-link{
-		width: 100% !important;
-		margin-bottom: 10px;
-	}
-	.footer-link {
-    margin-left: 0px !important;
-	}
+	
 }
 
 /*option tab support*/
@@ -514,7 +502,6 @@ i.fa.fa-bars{
 	position: absolute;
 	right: 5px;
 	top: 2%;
-	height: 300px;
 	width: 23%;
 	padding: 5px;
 	z-index: 1;
@@ -534,7 +521,7 @@ i.fa.fa-bars{
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	height: 265px;
+	max-height: 250px;
 	width: 100%;
 	overflow-y: scroll;
 	overflow-x: scroll;
@@ -573,7 +560,6 @@ i.fa.fa-bars{
 	position: absolute;
 	right: 5px;
 	top: 2%;
-	height: 300px;
 	width: 23%;
 	padding: 5px;
 	z-index: 1;
@@ -593,7 +579,7 @@ i.fa.fa-bars{
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	height: 260px;
+	max-height: 250px;
 	width: 100%;
 	overflow-y: scroll;
 	overflow-x: scroll;
@@ -606,6 +592,27 @@ i.fa.fa-bars{
 }
 #right-panel2 li:nth-child(odd) {
   background-color: #fcfcfc;
+}
+@media only screen and (max-width: 767px){
+	#right-panel, #right-panel2{
+		width: 50% !important;
+	}
+	#right-panel ul, #right-panel2 ul{
+		max-height: 100px !important;
+	}
+	.footer{
+		margin-top: 20px;
+	}
+	.wrapper-fcontent{
+		padding: 5px;
+	}
+	#f-content1,#f-content2,.footer-link{
+		width: 100% !important;
+		margin-bottom: 10px;
+	}
+	.footer-link {
+    margin-left: 0px !important;
+	}
 }
 /************** Menu tim kiem screen mobile*/
 	.search{
@@ -813,6 +820,7 @@ i.fa.fa-bars{
 		background-color: #F4F5F7;
 		position: relative;
 		z-index: 2;
+		padding-top: 20px;
 	}
 	.footer-content{
 		width: 100%;
@@ -849,7 +857,7 @@ i.fa.fa-bars{
 	}
 	.footer-link{
 		width: 33%;
-		margin-left: 20px;
+		margin-left: 10px;
 		float: left;
 	}
 	.row1 img{
@@ -896,10 +904,7 @@ i.fa.fa-bars{
 	.banner{
 		display: none;
 	}
-	.menu-dropdown{
-		max-width: 40%;
-		margin-left: 60%;
-	}
+	
 	.wrap-content{
 		width: 100%;
 		position: relative;
