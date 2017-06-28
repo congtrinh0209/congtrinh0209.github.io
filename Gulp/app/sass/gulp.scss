@@ -1,0 +1,36 @@
+@import "../../bourbon/bourbon";
+$color-black: #0d0d0d;
+$color-white: #ffff;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-image: 0;
+}
+
+body{
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 16px;
+  background-color: $color-black;
+  font-family: $helvetica;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+.clear{
+  clear: both;
+}
+#container{
+  background-color: $color-white;
+  #header{
+    @import "header";
+  }
+  #content{
+    @import "content";
+  }
+
+}
