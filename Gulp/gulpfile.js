@@ -1,5 +1,8 @@
 var gulp = require('gulp');
-var scss = require('gulp-sass');
-gulp.task('hello', function () {
-    console.log("Hello world");
+var sass = require('gulp-sass');
+var globSass = require('gulp-sass-globbing');
+gulp.task('sass', function () {
+    return gulp.src(['app/sass/**/*.scss','!app/sass/**/_*']);
+    .pipe(sass());
+    .pipe(gulp.dest('app/CSS'))
 });

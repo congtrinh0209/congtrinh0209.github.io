@@ -1,0 +1,36 @@
+#xega{
+  h1{
+    font-size: 20px;
+    margin: 20px 0 0 15px;
+  }
+  .row{
+    margin-top: 20px;
+    ul{
+      li.sp{
+        max-width: 230px;
+        height: 225px;
+        float: left;
+        margin: 0 0 10px 10px;
+        position: relative;
+        overflow: hidden;
+        &:hover{
+          border-bottom: 5px solid #ff0000;
+          transform: scale(1.2);
+        }
+        a{
+          img{
+            max-width: 100%;
+          }
+          p{
+            width: 220px;
+            @include position(absolute, 85% null null null);
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+#xeso{
+  clear: both;
+}

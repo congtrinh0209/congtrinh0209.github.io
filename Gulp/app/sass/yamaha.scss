@@ -32,5 +32,7 @@ a{
   #content{
     @import "content";
   }
-
+  #footer{
+    @import "footer";
+  }
 }
