@@ -1,6 +1,6 @@
 @import "../../bourbon/bourbon";
-$color-black: #0d0d0d;
-$color-white: #ffff;
+$color-black: #000000;
+$color-white: #ffffff;
 *{
   margin: 0;
   padding: 0;
@@ -10,9 +10,9 @@ $color-white: #ffff;
 
 body{
   max-width: 1000px;
+  background-color: $color-black;
   margin: 0 auto;
   font-size: 16px;
-  background-color: $color-black;
   font-family: $helvetica;
 }
 li{
