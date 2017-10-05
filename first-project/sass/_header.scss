@@ -1,0 +1,276 @@
+//Style navigation
+nav{
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #004824;
+  @include tablet{
+    background: $color-white;
+  }
+  border: none;
+  .container-fluid{
+    @include tablet{
+      padding: 0;
+    }
+    .navbar-header{
+      //***Phần nav cho mobile**
+      .nav-mobile{       
+        padding-top: 5px;
+        display: inline-block;
+        width: 80%;
+        @include tablet{
+          display: none;
+        }
+        li{
+          width: 30%;
+          text-align: center;
+          color: $color-white;
+          float: left;
+          &:nth-child(2){
+            width: 40%;
+          }
+          a{
+            color: $color-white;
+          }
+        }
+      }
+      button{
+        border-color: $color-white;
+        span{
+          color: $color-black;
+        }
+      }
+    }
+    #myNavbar{
+      @include tablet{
+        padding: 0;
+      }
+      ul.nav{
+        margin-top: 0;
+        margin-bottom: 0;
+        background-color: #1D9E74;
+        @include tablet{
+          background-color: $color-white;
+          -webkit-padding-start: 0;
+        }
+        @include desktop-md{
+
+        }
+        li:nth-child(3),li:nth-child(7){
+          display: none;
+          @include tablet{
+            display: block;
+          }
+        }
+        li.item{
+          border-bottom: 1px solid white;
+          @include tablet{
+            border-radius: 5px;
+            background-color: $color-white;
+            border-bottom: 2px solid white;
+          }
+          a{
+            width: 100%;
+            @include text($color-white,1.2em);
+            transition: all 0.5s ease;
+            @include tablet{
+              padding: 15px 11px;
+              color: #004824;
+              font-family: Lato-Bold;
+              text-align: center;
+            }
+            @include desktop-lg{
+              padding: 15px 20px;
+            }
+            i{
+              color: #0e211e;
+            }
+            p{
+              display: inline-block;
+              @include position(absolute,null,null,null,50px);
+              @include tablet{
+                display: block;
+                @include position(static,null,null,null,null);
+              }
+            }
+          }
+          &:hover{
+            cursor: pointer;
+            background-color: $color-white;
+            border-bottom: 2px solid red;
+            a{
+              transform: translate(0,-4px);
+              color: #004824;
+            }
+          }
+        }
+        li.open a{
+          background-color: transparent;
+        }
+        //********Menu drop-down*******
+        li.dropdown{      
+          .dropdown-toggle{}
+          .dropdown-menu{
+            background-color: #2A3B45;
+            @include position(absolute,42px,null,null,null);
+            @include tablet{
+              width: 200px;
+              top: 72px;
+            }
+            width: 100%;
+            z-index: 2;
+            padding: 0;
+            border: none;
+            .sub-item{
+              color: white;
+              border-bottom: 1px solid white;
+              border-radius: 5px;
+              a{
+                height: 40px;
+                line-height: 40px;
+                text-align: left;
+                color: $color-white;
+                i{
+                  color: #23BB39;
+                }
+                p{
+                  @include tablet{
+                    display: inline-block;
+                    @include position(absolute,null,null,null,30px);
+                  }
+                  @include desktop-md{
+                    left: 40px;
+                  }
+                }
+                @include tablet{
+                  line-height: 16px;
+                }
+              }
+              &:hover{
+                background-color: #004824;
+                border-bottom: 2px solid red;
+              }
+              &:hover a{
+                color: $color-white;
+              }
+            }
+          }
+        }
+      }
+      //**Sign-in, Sign-up**
+      ul.navbar-right{      
+        @include tablet{
+          display: inline-block;
+          margin: 0;
+          width: 260px;
+          background-color: transparent;
+          @include position(absolute,-45px,0,null,null);
+        }
+        @include desktop-md{
+          @include position(static,null,null,null,null);
+          margin-top: 10px;
+        }
+        li{
+          background-color: #FA681F;
+          border-bottom: 1px solid white;
+          @include tablet{
+            background-color: transparent;
+            margin-left: 5px;
+            border: none;
+          }
+          button{
+            color: $color-black;
+            background-color: transparent;
+            border: none;
+            span{
+              @include position(absolute,null,null,null,50px)
+              @include tablet{
+                @include position(static,null,null,null,null)
+              }
+            }
+            @include tablet{
+              @include btn1;
+            }
+          }
+        }
+      }
+    }
+  }
+  //**** Show infomation-acc
+  section.info-acc{
+    display: none;
+    background-color: white;
+    @include position(absolute,-90px,0,null,null);
+    width: 180px;
+    font-size: 10px;
+    @include tablet{
+      width: 250px;
+      font-size: 14px;
+    }
+    @include desktop-md{
+      @include position(absolute,0,5px,null,null);
+    }
+    padding: 0 1px;
+    .img-ava{
+      float: left;
+      img{
+        width: 50px;
+        height: 45px;
+        border-radius: 50%;
+        @include tablet{
+          height: 72px;
+          width: 75px;
+        }
+      }
+    }
+    .info-user{
+      float: right;
+      text-align: right;
+      @include tablet{
+        padding-top: 5px;
+      }
+      p{
+        font-size: 11px;
+        @include tablet{
+          font-size: 14px;
+        }
+      }
+      button{
+        @include btn1;
+        padding: 5px 7px;
+        margin-top: 5px;
+      }
+    }
+  }
+}
+//*****Modal form sign-in, sign-up
+section#myModal{
+  button{
+    @include btn1;
+    width: 100%;
+    padding: 10px;
+  }
+  .modal-dialog{
+    .modal-content{
+      .modal-header{
+        background-color: #5cb85c;
+        h4{
+          @include text(white,18px);
+        }
+      }
+      .modal-body{
+        .psw:hover{
+          cursor: pointer;
+        }
+      }
+      .modal-footer{
+        button{
+          @include btn2;
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+section#myModal2{
+  @extend #myModal;
+}

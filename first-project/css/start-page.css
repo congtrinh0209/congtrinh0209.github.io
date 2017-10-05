@@ -1,0 +1,474 @@
+@font-face {
+  font-family: Lato-Bold;
+  src: url("../fonts/Lato/fonts/Lato-Bold.woff2") format("woff2"), url("../fonts/Lato/fonts/Lato-Bold.ttf") format("truetype"), url("../fonts/Lato/fonts/Lato-Bold.eot") format("eot"); }
+
+@font-face {
+  font-family: Lato-Light;
+  src: url("../fonts/Lato/fonts/Lato-Light.woff2") format("woff2"), url("../fonts/Lato/fonts/Lato-Light.ttf") format("truetype"), url("../fonts/Lato/fonts/Lato-Light.eot") format("eot"); }
+
+@font-face {
+  font-family: Lato-Regular;
+  src: url("../fonts/Lato/fonts/Lato-Regular.woff2") format("woff2"), url("../fonts/Lato/fonts/Lato-Regular.ttf") format("truetype"), url("../fonts/Lato/fonts/Lato-Regular.eot") format("eot"); }
+
+@font-face {
+  font-family: Lato-Italic;
+  src: url("../fonts/Lato/fonts/Lato-Italic.woff2") format("woff2"), url("../fonts/Lato/fonts/Lato-Italic.ttf") format("truetype"), url("../fonts/Lato/fonts/Lato-Italic.eot") format("eot"); }
+
+@-webkit-keyframes mouse-scroll {
+  0% {
+    bottom: 30px; }
+  50% {
+    bottom: 45px; }
+  100% {
+    bottom: 30px; } }
+
+@keyframes mouse-scroll {
+  0% {
+    bottom: 30px; }
+  50% {
+    bottom: 45px; }
+  100% {
+    bottom: 30px; } }
+
+@-webkit-keyframes wave-animation {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    visibility: visible; }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    visibility: hidden; }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    visibility: visible; } }
+
+@keyframes wave-animation {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    visibility: visible; }
+  50% {
+    opacity: 0;
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    visibility: hidden; }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+    visibility: visible; } }
+
+body {
+  font-family: Lato-Regular, Helvetica, sans-serif;
+  font-size: 14px; }
+
+ol, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+
+a {
+  text-decoration: none;
+  color: #000000; }
+  a:hover {
+    text-decoration: none;
+    cursor: pointer; }
+
+p {
+  margin: 0; }
+
+button {
+  border: none; }
+
+img {
+  vertical-align: middle; }
+
+.row {
+  margin: 0;
+  padding: 0; }
+
+.clear {
+  clear: both; }
+
+.wrap-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family: Helvetica ,"Helvetica Neue", Arial; }
+  .wrap-content .ad-audio {
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    background-image: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/banner1.jpg");
+    position: fixed;
+    top: 0;
+    z-index: -1; }
+  .wrap-content .content {
+    color: #1d2129;
+    background-position: center top;
+    padding: 20px; }
+    @media all and (min-width: 768px) {
+      .wrap-content .content {
+        padding: 40px 0; } }
+    @media all and (min-width: 1200px) {
+      .wrap-content .content {
+        background-position: center;
+        background-size: cover; } }
+    .wrap-content .content h5 {
+      font-size: 18px;
+      text-transform: uppercase; }
+    .wrap-content .content h2 {
+      font-size: 40px; }
+    .wrap-content .content .text-des {
+      font-size: 15px;
+      margin-top: 20px;
+      line-height: 2em;
+      text-indent: 22px; }
+    .wrap-content .content button {
+      background-color: #5cb85c;
+      color: #ffffff;
+      font-size: 1.2em;
+      border-radius: 5px;
+      border: none;
+      background: -webkit-gradient(linear, right top, left top, color-stop(50%, #69D17A), color-stop(50%, #5cb85c));
+      background: linear-gradient(to left, #69D17A 50%, #5cb85c 50%);
+      background-size: 200% 100%;
+      -webkit-transition: background-position 100ms ease;
+      transition: background-position 100ms ease;
+      background-position: left bottom;
+      width: 125px;
+      height: 40px;
+      margin-top: 30px; }
+      .wrap-content .content button:hover {
+        background-position: right top;
+        color: black;
+        cursor: pointer; }
+      .wrap-content .content button a {
+        color: #ffffff; }
+      .wrap-content .content button:hover a {
+        color: #000000; }
+    .wrap-content .content .type1 {
+      max-width: 1020px;
+      margin: 0 auto;
+      position: relative; }
+      .wrap-content .content .type1 .content-left {
+        width: 100%;
+        text-align: left; }
+        @media all and (min-width: 768px) {
+          .wrap-content .content .type1 .content-left {
+            float: left;
+            width: 60%;
+            padding-left: 15%;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%); } }
+      .wrap-content .content .type1 .content-right {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        overflow: hidden; }
+        @media all and (min-width: 768px) {
+          .wrap-content .content .type1 .content-right {
+            float: right;
+            width: 40%; } }
+        .wrap-content .content .type1 .content-right .wrap-right {
+          opacity: 0;
+          -webkit-transform: translateX(120px);
+          transform: translateX(120px);
+          -webkit-transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+          transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+          transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+          transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95); }
+          .wrap-content .content .type1 .content-right .wrap-right img {
+            width: 75%;
+            padding-top: 40px;
+            -webkit-transform: rotate(5deg);
+            transform: rotate(5deg); }
+    .wrap-content .content .type2 {
+      max-width: 1020px;
+      margin: 0 auto;
+      position: relative; }
+      .wrap-content .content .type2 .content-right {
+        width: 100%;
+        text-align: left; }
+        @media all and (min-width: 768px) {
+          .wrap-content .content .type2 .content-right {
+            float: right;
+            width: 60%;
+            padding-right: 10%;
+            padding-left: 5%;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%); } }
+      .wrap-content .content .type2 .content-left {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        overflow: hidden; }
+        @media all and (min-width: 768px) {
+          .wrap-content .content .type2 .content-left {
+            float: left;
+            width: 40%; } }
+        .wrap-content .content .type2 .content-left .wrap-right {
+          opacity: 0;
+          -webkit-transform: translateX(-120px);
+          transform: translateX(-120px);
+          -webkit-transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+          transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+          transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+          transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95); }
+          .wrap-content .content .type2 .content-left .wrap-right img {
+            width: 75%;
+            padding-top: 40px;
+            -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg); }
+    .wrap-content .content .type3 {
+      max-width: 1020px;
+      margin: 0 auto;
+      position: relative; }
+      .wrap-content .content .type3 .content-right {
+        width: 100%;
+        text-align: left; }
+        @media all and (min-width: 768px) {
+          .wrap-content .content .type3 .content-right {
+            float: right;
+            width: 50%;
+            padding-right: 10%;
+            padding-left: 5%;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%); } }
+      .wrap-content .content .type3 .content-left {
+        width: 100%;
+        min-height: 400px;
+        text-align: center; }
+        @media all and (min-width: 768px) {
+          .wrap-content .content .type3 .content-left {
+            float: left;
+            width: 50%; } }
+        .wrap-content .content .type3 .content-left .wrap-right img {
+          width: 75%;
+          padding-top: 40px; }
+  .wrap-content .content1 {
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    text-align: center;
+    position: relative;
+    padding-top: 0; }
+    .wrap-content .content1 .logo {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      z-index: 10; }
+      .wrap-content .content1 .logo img {
+        height: 200px; }
+    .wrap-content .content1 .slogan {
+      max-width: 1020px;
+      font-size: 1em;
+      line-height: 70px;
+      position: relative;
+      top: 65%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      color: #ffffff; }
+      @media all and (min-width: 768px) {
+        .wrap-content .content1 .slogan {
+          font-size: 1.2em; } }
+      @media all and (min-width: 992px) {
+        .wrap-content .content1 .slogan {
+          font-size: 1.5em; } }
+      .wrap-content .content1 .slogan .btn-enter {
+        background-color: #5cb85c;
+        color: #ffffff;
+        font-size: 1.2em;
+        border-radius: 5px;
+        border: none;
+        background: -webkit-gradient(linear, right top, left top, color-stop(50%, #69D17A), color-stop(50%, #5cb85c));
+        background: linear-gradient(to left, #69D17A 50%, #5cb85c 50%);
+        background-size: 200% 100%;
+        -webkit-transition: background-position 100ms ease;
+        transition: background-position 100ms ease;
+        background-position: left bottom;
+        width: 200px;
+        height: 45px;
+        margin: 0 auto; }
+        .wrap-content .content1 .slogan .btn-enter:hover {
+          background-position: right top;
+          color: black;
+          cursor: pointer; }
+        .wrap-content .content1 .slogan .btn-enter a {
+          font-size: 18px;
+          color: #ffffff;
+          line-height: 45px; }
+        .wrap-content .content1 .slogan .btn-enter:hover a {
+          color: #000000; }
+    .wrap-content .content1 .scroll-icon img {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+      transform: translateX(-50%);
+      -webkit-animation: mouse-scroll 1.2s linear infinite;
+      animation: mouse-scroll 1.2s linear infinite; }
+  .wrap-content .content2 {
+    background-image: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/bg9.jpg");
+    background-size: cover;
+    color: #ffffff;
+    font-weight: bold; }
+    .wrap-content .content2 .content-right .wrap-right img {
+      -webkit-transform: rotate(0deg) !important;
+      transform: rotate(0deg) !important;
+      padding: 0 !important;
+      width: 80% !important; }
+    .wrap-content .content2 .content-right .wrap-right .locale:hover {
+      cursor: pointer; }
+    .wrap-content .content2 .content-right .wrap-right .locale .icon-locale {
+      border-radius: 50%;
+      text-align: center;
+      width: 28px;
+      height: 28px;
+      background-image: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/locale.png");
+      padding-top: 5px;
+      color: white;
+      float: left; }
+    .wrap-content .content2 .content-right .wrap-right .locale .locale-text {
+      text-align: center;
+      padding: 5px;
+      float: right;
+      color: white;
+      font-size: 1.2em; }
+    .wrap-content .content2 .content-right .wrap-right .locale .wave {
+      position: absolute;
+      display: block;
+      z-index: -1;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      opacity: 0;
+      background-color: #3061AE;
+      visibility: hidden;
+      -webkit-transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
+      transition: opacity .3s, visibility 0s 1s, -webkit-transform .3s;
+      transition: opacity .3s, transform .3s, visibility 0s 1s;
+      transition: opacity .3s, transform .3s, visibility 0s 1s, -webkit-transform .3s;
+      -webkit-animation: wave-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+      animation: wave-animation 1s cubic-bezier(0.24, 0, 0.38, 1) infinite; }
+    .wrap-content .content2 .content-right .wrap-right .locale.hn {
+      position: absolute;
+      top: 21%;
+      left: 39%;
+      z-index: 5;
+      padding-top: 0; }
+      .wrap-content .content2 .content-right .wrap-right .locale.hn .locale-text {
+        color: red;
+        font-size: 1.2em; }
+      .wrap-content .content2 .content-right .wrap-right .locale.hn .wave-hn {
+        top: 0;
+        left: 0; }
+    .wrap-content .content2 .content-right .wrap-right .locale.dn {
+      position: absolute;
+      top: 47%;
+      left: 59%;
+      z-index: 5;
+      padding-top: 20px; }
+      .wrap-content .content2 .content-right .wrap-right .locale.dn .wave-dn {
+        top: 21px;
+        left: 0; }
+    .wrap-content .content2 .content-right .wrap-right .locale.hcm {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      z-index: 5;
+      padding-top: 20px; }
+      .wrap-content .content2 .content-right .wrap-right .locale.hcm .wave-hcm {
+        top: 21px;
+        left: 0; }
+    .wrap-content .content2 .content-right .wrap-right .container-popover {
+      display: none;
+      visibility: hidden;
+      width: 75%;
+      position: absolute;
+      z-index: 20;
+      background: #fff;
+      border: 1px solid #d4d5d5;
+      border-radius: 10px;
+      -webkit-box-shadow: 5px 5px 10px #03325d;
+      box-shadow: 5px 5px 10px #03325d; }
+      .wrap-content .content2 .content-right .wrap-right .container-popover.first {
+        top: 29%;
+        left: 7%; }
+      .wrap-content .content2 .content-right .wrap-right .container-popover.second {
+        top: 59%;
+        left: 26%; }
+      .wrap-content .content2 .content-right .wrap-right .container-popover.third {
+        top: 35%;
+        left: 17%; }
+      .wrap-content .content2 .content-right .wrap-right .container-popover .ppover .triangle_border {
+        position: absolute;
+        width: 20px;
+        height: 13px;
+        top: -13px;
+        margin-left: 44.5%;
+        background: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/boder-top.png") no-repeat; }
+      .wrap-content .content2 .content-right .wrap-right .container-popover .ppover .locale-item3 {
+        background: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/boder-bottom.png") no-repeat;
+        position: absolute;
+        width: 20px;
+        height: 13px;
+        top: 100%; }
+      .wrap-content .content2 .content-right .wrap-right .container-popover .ppover ul li.text {
+        margin: 0 auto;
+        font-size: 18px;
+        color: #0558a4;
+        padding: 10px 0; }
+      .wrap-content .content2 .content-right .wrap-right .container-popover .ppover ul li.img {
+        position: absolute;
+        border: 1px solid #e2e2e2;
+        width: 89%;
+        top: 50px;
+        left: 13px; }
+      .wrap-content .content2 .content-right .wrap-right .container-popover .ppover ul li.view-more {
+        font-size: 16px;
+        color: #fff;
+        margin: 10px 0; }
+        .wrap-content .content2 .content-right .wrap-right .container-popover .ppover ul li.view-more:hover {
+          opacity: 0.6; }
+        .wrap-content .content2 .content-right .wrap-right .container-popover .ppover ul li.view-more div {
+          border-radius: 4px;
+          text-align: center;
+          cursor: pointer; }
+          .wrap-content .content2 .content-right .wrap-right .container-popover .ppover ul li.view-more div button {
+            margin-top: 0;
+            font-size: 1em; }
+  .wrap-content .content3 {
+    background-image: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/bg2.jpg"); }
+  .wrap-content .content4 {
+    padding: 20px;
+    background-image: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/bg3.jpg"); }
+    @media all and (min-width: 768px) {
+      .wrap-content .content4 {
+        padding: 20px 0; } }
+    @media all and (min-width: 1200px) {
+      .wrap-content .content4 {
+        background-position: center 100%;
+        background-size: cover; } }
+  .wrap-content .content5 {
+    background-image: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/bg4.jpg");
+    color: #ffffff; }
+  .wrap-content .content6 {
+    background-image: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/bg1.jpg"); }

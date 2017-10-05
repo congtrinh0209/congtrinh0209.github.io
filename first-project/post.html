@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+		<title>Kênh thông tin tìm kiếm nhà ở, bất động sản cho thuê</title>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+		      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta name="description" content="Phòng trọ, Tìm kiếm phòng trọ, Cho thuê nhà trọ">
+		<meta name="author" content="congtrinh0209">
+		<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="./css/normalize.css">
+		<link rel="stylesheet" type="text/css" href="./css/home.css">
+		<link rel="stylesheet" type="text/css" href="./css/post.css">
+		<link rel='shortcut icon' type='image/x-icon' href='./images/logo-option2png.ico'/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</head>
+<body data-spy="scroll" data-target=".header" data-offset="475">
+<div class="wrapper-content">
+		<!---------- Phần banner ------->
+		<article class="banner">
+				<ul class="list-banner">
+						<li class="list item1">
+								<img class="logo-bg" src="./images/bg1.png">
+								<span class="list-text ">
+													<img src="./images/logo-option2png.png">
+													<span class="name">TÌM PHÒNG CÙNG BẠN</span>
+													<span class="slogan">Sứ mệnh của chúng tôi là mang đến sự hợp tác thoải mái giữa người cho thuê nhà và người đi thuê, vì lợi ích của cả hai bên.</span>
+											</span>
+						</li>
+						<li class="list item2">
+								<img class="logo-bg" src="./images/bg2.png">
+								<span class="list-text room">
+													<a href="#view"><img class="img-item" src="./images/room.png"></a>
+													<span>PHÒNG CHO THUÊ</span>
+											</span>
+						</li>
+						<li class="list item3">
+								<img class="logo-bg" src="./images/bg2.png">
+								<span class="list-text house">
+													<a href="#view"><img class="img-item" src="./images/house.png"></a>
+													<span>NHÀ CHO THUÊ</span>
+											</span>
+						</li>
+						<li class="list item4">
+								<img class="logo-bg" src="./images/bg2.png">
+								<span class="list-text flat">
+													<a href="#view"><img class="img-item" src="./images/flat.png"></a>
+													<span>CHUNG CƯ</span>
+											</span>
+						</li>
+						<li class="list item5">
+								<img class="logo-bg" src="./images/bg2.png">
+								<span class="list-text store">
+													<a href="#view"><img class="img-item" src="./images/store.png"></a>
+													<span>MẶT BẰNG CỬA HÀNG</span>
+											</span>
+						</li>
+				</ul>
+		</article>
+		<header class="header" data-spy="affix" data-offset-top="480" id="view">
+				<!---------- Phần nav-bar ------->
+				<nav class="navbar navbar-inverse">
+						<div class="container-fluid">
+								<div class="navbar-header">
+										<ul class="nav-mobile">   <!--Nav for mobile-->
+												<li><a href="#menu-search"><i class="fa fa-search"></i><p>Tìm phòng</p></a></li>
+												<li class="search_nearby"><a><i class="fa fa-map-marker"></i><p>Tìm quanh đây</p></a></li>
+												<li><a href="post.html"><i class="fa fa-upload"></i><p>Đăng tin</p></a></li>
+												<div class="clear"></div>
+										</ul>
+										<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+												<span class="icon-bar"></span>
+										</button>
+								</div>
+								<div class="collapse navbar-collapse" id="myNavbar">
+										<ul class="nav navbar-nav">
+												<li class="item"><a href="home.html"><i class="fa fa-home"></i><p>Trang chủ<p></p></a></li>
+												<li class="item dropdown">
+														<a class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-secret"></i><p>Cho thuê <span class="caret"></span></p></a>
+														<ul class="dropdown-menu">
+																<li class="sub-item house"><a><i class="fa fa-bolt"></i><p>Nhà cho thuê</p></a></li>
+																<li class="sub-item room"><a><i class="fa fa-bolt"></i><p>Phòng cho thuê</p></a></li>
+																<li class="sub-item flat"><a><i class="fa fa-bolt"></i><p>Chung cư mini</p></a></li>
+																<li class="sub-item store"><a><i class="fa fa-bolt"></i><p>Mặt bằng cho thuê</p></a></li>
+														</ul>
+												</li>
+												<li class="item search_nearby"><a><i class="fa fa-map-marker"></i><p>Tìm quanh đây</p></a></li>
+												<li class="item"><a href="support.html"><i class="fa fa-binoculars"></i><p>Giúp tôi</p></a></li>
+												<li class="item"><a href="news.html"><i class="fa fa-newspaper-o"></i><p>Tin tức</p></a></li>
+												<li class="item"><a href="guide.html"><i class="fa fa-life-ring"></i><p>Hướng dẫn</p></a></li>
+												<li class="item"><a href="post.html"><i class="fa fa-upload"></i><p>Đăng tin</p></a></li>
+												<li class="item"><a href="manage.html"><i class="fa fa-book"></i><p>Quản lý</p></a></li>
+										</ul>
+										<ul class="nav navbar-nav navbar-right"> <!-- Sign-in, Sign-up-->
+												<li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-sign-in"></i><span> Đăng nhập</span></button></li>
+												<li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2"><i class="fa fa-pencil"></i><span> Đăng ký</span></button></li>
+										</ul>
+								</div>
+						</div>
+						<!-- Show infomation acc -->
+						<section class="info-acc">
+								<div class="img-ava">
+										<img src="./images/user.jpg">
+								</div>
+								<div class="info-user">
+										<p>Xin chào: <b style="color: red">Trịnh Công Trình</b></p>
+										<button class="manager-user">Quản lý</button>
+										<button class="sign-out">Đăng xuất</button>
+								</div>
+								<div class="clear"></div>
+						</section>
+				</nav>
+				<!-- Modal Sign-in, Sign-up -->
+				<!-- Modal Sign-in -->
+				<section class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog">
+								<!-- Modal content-->
+								<div class="modal-content">
+										<div class="modal-header">
+												<h4 class="modal-title"><i class="fa fa-lock"></i>  Đăng nhập hệ thống !</h4>
+										</div>
+										<div class="modal-body">
+												<form action="home.html" id="sign-in" role="form">    <!--Login form-->
+														<div class="form-group">
+																<label><b><i class="fa fa-user"></i> Tên đăng nhập:</b></label>
+																<input type="text" class="form-control" id="uname" placeholder="Email hoặc số điện thoại" name="uname" value="0868979193" required>
+																<span style="color:red" class="error1"></span>
+														</div>
+														<div class="form-group">
+																<label><b><i class="fa fa-eye"></i> Mật khẩu:</b></label>
+																<input type="password" class="form-control" id="psw" placeholder="Mật khẩu đăng nhập" name="psw" value="02092008" required>
+																<span style="color:red" class="error2"></span>
+														</div>
+														<button class="login" type="submit"><i class="fa fa-power-off"></i> Login</button></br>
+														<div class="checkbox">
+																<label><input type="checkbox" value="" checked>Remember me</label>
+														</div>
+												</form>
+												<div class="psw" id="forgot-pass" data-toggle="collapse" data-target="#u-mobile"><a>Forgot password?</a></div>
+												<form id="request-pass">   <!--Request-password form-->
+														<div class="form-group" style="background-color:#f1f1f1">
+																<div class="collapse" id="u-mobile">
+																		<input type="text" class="form-control" id="send-mobile"  placeholder="Nhập số điện thoại của bạn chúng tôi sẽ gửi lại mật khẩu cho bạn" name="mobile" requisec><span style="color:red" class="error3"></span></br>
+																		<button id="send" type="submit"><i class="fa fa-paper-plane-o"></i> Send</button>
+																</div>
+																<span style="color:red" class="error3"></span>
+														</div>
+												</form>
+										</div>
+										<div class="modal-footer">
+												<button type="button" class="btn" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+										</div>
+								</div>
+						</div>
+				</section>
+				<!-- Modal Sign-up -->
+				<section class="modal fade" id="myModal2" role="dialog">
+						<div class="modal-dialog">
+								<!-- Modal content-->
+								<div class="modal-content">
+										<div class="modal-header">
+												<h4 class="modal-title"><i class="fa fa-user-plus"></i> Đăng ký tài khoản !</h4>
+										</div>
+										<div class="modal-body">
+												<form action="signup-success.html" id="login-form">
+														<div class="form-group">
+																<label><b>Họ tên:</b></label>
+																<input type="text" class="form-control" placeholder="Họ tên bạn" name="name" required>
+														</div>
+														<div class="form-group">
+																<label><b>Số điện thoại:</b></label>
+																<input type="text" class="form-control" placeholder="Số điện thoại của bạn" name="mobile" required>
+														</div>
+														<div class="form-group">
+																<label><b>Email:</b></label>
+																<input type="email" class="form-control" placeholder="Email của bạn" name="email" required>
+														</div>
+														<div class="form-group">
+																<label><b>Mật khẩu:</b></label>
+																<input type="password" class="form-control" id="psw1" placeholder="Mật khẩu" name="pass" required>
+														</div>
+														<div class="form-group">
+																<label><b>Nhập lại mật khẩu:</b></label>
+																<input type="password" class="form-control" id="psw2" placeholder="Nhập lại mật khẩu" name="pass" required><span style="color:red" class="error4"></span>
+														</div>
+														<button class="login" type="submit"><i class="fa fa-pencil"></i> Đăng ký</button>
+												</form>
+										</div>
+										<div class="modal-footer">
+												<button type="button" class="btn " data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+										</div>
+								</div>
+						</div>
+				</section>
+		</header>
+		<main class="wrapper">
+				<article class="main-content col-xs-12 col-md-9">
+						<div class="nav-text">
+								<ol>
+										<li><a href="home.html">Trang chủ</a></li>
+										<li id="arrow1">  <i class="fa fa-angle-right"></i>  </li>
+										<li class="active" id="search-target">Đăng tin</li>
+								</ol>
+						</div>
+						<section class="wrap-content">
+								<div class="content post" style="border: none;">
+										<h3 class="notice">Là người văn minh và tôn trọng người xem, hãy viết nội dung bằng Tiếng Việt có dấu!</h3>
+										<form class="form" id="form-dangtin" enctype="multipart/form-data" novalidate="novalidate">
+												<div class="wrapper form-step step1">
+														<!--Thông tin cơ bản-->
+														<div class="group-form">
+																<div class="form-title"><h3>THÔNG TIN CƠ BẢN</h3></div>
+																<div class="group-form-body">
+																		<div class="form-group">
+																				<label for="tieude">Tiêu đề tin:</label>
+																				<input type="email" class="form-control" id="tieude" placeholder="Hãy đặt tiêu đề đầy đủ, ý nghĩa khách hàng sẽ quan tâm hơn">
+																		</div>
+																		<!--form-row 1-->
+																		<div class="form-inline">
+																				<div class="form-group">
+																						<label for="type">Loại hình cho thuê:</label></br>
+																						<select class="form-control" id="type">
+																								<option>Chọn loại hình cho thuê</option>
+																								<option>Thuê phòng trọ</option>
+																								<option>Thuê nhà</option>
+																								<option>Chung cư mini</option>
+																								<option>Mặt bằng kinh doanh</option>
+																						</select>
+																				</div>
+																				<div class="form-group">
+																						<label for="mobile">Số điện thoại:</label></br>
+																						<input type="text" class="form-control" id="mobile">
+																				</div>
+																		</div>
+																		<!--form-row 2-->
+																		<div class="form-inline">
+																				<div class="form-group ">
+																						<label for="price">Giá cho thuê:</label></br>
+																						<input type="text" class="form-control" id="price">
+																				</div>
+																				<div class="form-group">
+																						<label for="unit">Đơn vị:</label></br>
+																						<select class="form-control" id="unit">
+																								<option>Triệu/tháng</option>
+																								<option>Nghìn/tháng</option>
+																						</select>
+																				</div>
+																		</div>
+																		<!--form-row 3-->
+																		<h4>Giá dịch vụ cơ bản:</h4>
+																		<div class="form-inline">
+																				<div class="form-group">
+																						<label for="price-electric">Giá điện:</label></br>
+																						<input type="text" class="form-control" id="price-electric" placeholder="ex: 3.000đồng/số">
+																				</div>
+																				<div class="form-group">
+																						<label for="price-water">Giá nước:</label></br>
+																						<input type="text" class="form-control" id="price-water" placeholder="ex: 15.000đồng/m3, 50.000đồng/tháng">
+																				</div>
+																				<div class="form-group">
+																						<label for="price-internet">Internet:</label></br>
+																						<input type="text" class="form-control" id="price-internet" placeholder="ex: 50.000đồng/tháng">
+																				</div>
+																				<div class="form-group">
+																						<label for="price-park">Gửi xe:</label></br>
+																						<input type="text" class="form-control" id="price-park" placeholder="ex: Free, 50.000đồng/tháng">
+																				</div>
+																		</div>
+																</div>
+														</div>
+														<!--Phần địa chỉ-->
+														<div class="group-form">
+																<div class="form-title"><h3>ĐỊA CHỈ</h3></div>
+																<div class="group-form-body">
+																		<div class="form-inline">
+																				<div class="form-group">
+																						<label for="province">Tỉnh/Thành phố</label></br>
+																						<select class="form-control" id="province">
+																								<option>Hà Nội</option>
+																								<option>Đà Nẵng</option>
+																								<option>Tp.Hồ Chí Minh</option>
+																						</select>
+																				</div>
+																				<div class="form-group">
+																						<label for="district">Quận/Huyện</label></br>
+																						<select class="form-control" id="district">
+																						</select>
+																				</div>
+																				<div class="form-group">
+																						<label for="ward">Phường/Xã</label></br>
+																						<select class="form-control" id="ward">
+																								<option>Phường/Xã</option>
+																								<option>Nguyễn Đình Chiểu</option>
+																								<option>Trần Nhân Tông</option>
+																								<option>Hoàng Đạo Thúy</option>
+																						</select>
+																				</div>
+																		</div>
+																		<div class="form-group"><!--Thông tin vị trí cụ thể-->
+																				<label for="pac-input">Số nhà, Tên đường cụ thể</label></br>
+																				<input id="pac-input" class="controls" type="text" placeholder="Nhập địa chỉ nhà chi tiết...">
+																				<p style="position: absolute; top: 85px; color:rgba(89, 68, 206, 0.88) ">Vị trí trên bản đồ.</p>
+																				<i style="position: absolute; top: 110px;color: #E74C3C; font-size: 0.8em">Để tăng độ tin cậy và tin rao được nhiều người quan tâm hơn,
+																						hãy sửa vị trí tin rao của bạn trên bản đồ bằng cách kéo icon <img
+																										src="./images/img-map/position-marker.png" style="width: 20px;height: 25px;"> tới đúng vị
+																						trí	của tin rao.</i>
+																				<div id="map"></div>
+																		</div>
+																</div>
+														</div>
+														<!--Thông tin mô tả chi tiết-->
+														<div class="group-form">
+																<div class="form-title"><h3>THÔNG TIN MÔ TẢ CHI TIẾT</h3></div>
+																<div class="group-form-body">
+																		<div class="form-group">
+																				<label for="comment">Giới thiệu mô tả về tin đăng của bạn. Ví dụ: Khu nhà có vị trí thuận lợi: Gần trường học, gần trạm xe buýt ...Tổng diện tích 52m2, đường đi ô tô vào tận cửa...</label>
+																				<textarea class="form-control" rows="5" id="comment"></textarea>
+																		</div>
+																</div>
+														</div>
+														<!--Phần hình ảnh hoặc video-->
+														<div class="group-form">
+																<div class="form-title"><h3>HÌNH ẢNH HOẶC VIDEO VỀ PHÒNG TRỌ.</h3></div>
+																<div class="group-form-body">
+																		<p style="color: #044880; font-size: 0.9em">Tin đăng có hình ảnh hoặc video rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có. Hãy đăng ảnh hoặc video để được giao dịch nhanh chóng!</p>
+																		<div class="form-group">
+																				<div class="row">
+																						<div class="col-sm-12">
+																								<p>Định dạng ảnh hỗ trợ: .jpg .png .jpeg .gif - Dung lượng ảnh không quá 2MB</p>
+																								<input type=file id="files" multiple />
+																								<div id="files-list"></div>
+																						</div>
+																				</div>
+																		</div>
+																</div>
+														</div>
+														<button type="submit" class="btn-sub">Đăng tin ngay</button>
+										</form>
+								</div>
+						</section>
+				</article>
+				<aside class="side-bar col-xs-12 col-md-3">
+						<section class="search-bar">
+								<div class="search" id="menu-search">
+										<div class="title-side">
+												TÌM PHÒNG
+										</div>
+										<div class="row">
+												<select class="select locale-item">
+														<option>Tỉnh, TP</option>
+														<option>Hà Nội</option>
+														<option>Đà Nẵng</option>
+														<option>TP.Hồ Chí Minh</option>
+												</select>
+												<select class="select locale_district">
+
+												</select>
+												<select class="select">
+														<option>Gần ĐH, CĐ</option>
+														<option>Bách Khoa</option>
+														<option>Xây Dựng</option>
+														<option>Tài chính</option>
+														<option>Ngoại thương</option>
+												</select>
+												<select class="select">
+														<option>Bạn là?</option>
+														<option>Sinh viên</option>
+														<option>Người đi làm</option>
+														<option>Kinh doanh</option>
+												</select>
+										</div>
+										<div class="row">
+												<select class="select loaihinh">
+														<option>Bạn cần tìm?</option>
+														<option>Thuê phòng trọ</option>
+														<option>Thuê nhà</option>
+														<option>Chung cư mini</option>
+														<option>Mặt bằng kinh doanh</option>
+												</select>
+												<select class="select">
+														<option>Diện tích?</option>
+														<option>Dưới 15m2</option>
+														<option>15m2 - 25m2</option>
+														<option>25m2 - 35m2</option>
+														<option>Trên 35m2</option>
+												</select>
+												<select class="select">
+														<option>Mức giá?</option>
+														<option>500 - 1000</option>
+														<option>1000 - 1500</option>
+														<option>1500 - 2000</option>
+														<option>2000 - 3000</option>
+														<option>Trên 3000</option>
+												</select>
+										</div>
+										<div class="icon-s"><i class="fa fa-search"></i><span> Tìm Kiếm</span></div>
+								</div>
+						</section>
+				</aside>
+				<div class="clear"></div>
+		</main>
+		<footer>
+				<img class="top-footer" src="./images/img-footer/footer1.png">
+				<div class="footer-content">
+						<div class="wrapper-fcontent">
+								<div class="f-content1 col-xs-12 col-sm-3">
+										<img src="./images/img-footer/logo-face.png">
+										<img src="./images/img-footer/slogan.png">
+								</div>
+								<div class="f-content2 col-xs-12 col-sm-5">
+										<ul class="footer-nav">
+												<li class="item"><a href="about-us.html">Giới thiệu</a></li>
+												<li class="item"><a href="rules.html">Quy định sử dụng</a></li>
+										</ul>
+										<div class="text-copyright">
+												<p>Website đăng tin chia sẻ miễn phí thông tin về phòng trọ cho thuê, nhà riêng cho thuê, văn phòng, mặt bằng kinh doanh...nhằm giúp người thuê phòng và người cho thuê phòng tương tác với nhau không qua trung gian môi giới.</p></br>
+												<p style="color: #2196F3;margin-bottom: 10px !important;">MỌI CHI TIẾT XIN LIÊN HỆ:</p>
+												<p>Email: <strong>timphongcungban@gmail.com</strong><br>
+												</p>
+												<p>Zalo: <strong>0868 97 91 93</strong></p>
+												<p>Hỗ trợ đăng tin: <strong>0868 97 91 93</strong><br><p>
+										</div>
+								</div>
+								<div class="footer-link col-xs-12 col-sm-4">
+										<div class="row1">
+												<a href="https://www.facebook.com/Timphongcungbancom-1064749426960008/"><img src="./images/img-footer/face-icon.png" title="FacePage"></a>
+												<a href="https://plus.google.com/u/0/105034502578187630822"><img src="./images/img-footer/google-icon.png" title="Google"></a>
+												<a href="https://chat.zalo.me/"><img src="./images/img-footer/zalo-icon.png" title="Zalo"></a>
+										</div>
+										<div class="row2">
+												<img src="./images/img-footer/img-footer.png">
+										</div>
+								</div>
+								<div class="clear"></div>
+								<div class="bot-footer">
+										<p>© Copyright 2017 Timphongcungban.com. All rights reserved.</p>
+								</div>
+						</div>
+				</div>
+		</footer>
+</div>
+<!--Script google map-->
+<script>
+	function initAutocomplete() {
+		var map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: 21.028511, lng: 105.804817},
+			zoom: 13,
+			mapTypeId: 'roadmap'
+		});
+
+		// Create the search box and link it to the UI element.
+		var input = document.getElementById('pac-input');
+		var searchBox = new google.maps.places.SearchBox(input);
+		// Bias the SearchBox results towards current map's viewport.
+		map.addListener('bounds_changed', function() {
+			searchBox.setBounds(map.getBounds());
+		});
+		var markers = [];
+		// Listen for the event fired when the user selects a prediction and retrieve
+		// more details for that place.
+		searchBox.addListener('places_changed', function() {
+			var places = searchBox.getPlaces();
+			if (places.length == 0) {
+				return;
+			}
+			// Clear out the old markers.
+			markers.forEach(function(marker) {
+				marker.setMap(null);
+			});
+			markers = [];
+			// For each place, get the icon, name and location.
+			var bounds = new google.maps.LatLngBounds();
+			places.forEach(function(place) {
+				if (!place.geometry) {
+					console.log("Returned place contains no geometry");
+					return;
+				}
+				var icon = {
+					url: place.icon,
+					size: new google.maps.Size(71, 71),
+					origin: new google.maps.Point(0, 0),
+					anchor: new google.maps.Point(17, 34),
+					scaledSize: new google.maps.Size(25, 25)
+				};
+				// Create a marker for each place.
+				markers.push(new google.maps.Marker({
+					map: map,
+					icon: 'https://congtrinh0209.github.io/Du_anTN/IMG/position-marker.png',
+					title: place.name,
+					position: place.geometry.location,
+					draggable: true,
+				}));
+				if (place.geometry.viewport) {
+					// Only geocodes have viewport.
+					bounds.union(place.geometry.viewport);
+				} else {
+					bounds.extend(place.geometry.location);
+				}
+			});
+			map.fitBounds(bounds);
+			function moveMarker( map, marker ) {
+				marker.setPosition( new google.maps.LatLng( Lat, Lng) );
+				map.panTo( new google.maps.LatLng( Lat, Lng) );
+			};
+		});
+
+	}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDUYFDaXnS0a217T0rP3xNrnqxuErZsD4&language=vi&region=vie&libraries=places&callback=initAutocomplete"
+        async defer></script>
+<script src="./js/jquery-3.2.0.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/home.js"></script>
+</body>
+</html>
