@@ -269,13 +269,22 @@ img {
     padding-top: 0; }
     .wrap-content .content1 .logo {
       position: absolute;
-      top: -20px;
+      overflow: hidden;
       left: 50%;
       -webkit-transform: translateX(-50%);
       transform: translateX(-50%);
       z-index: 10; }
       .wrap-content .content1 .logo img {
-        height: 200px; }
+        height: 200px;
+        opacity: 0;
+        -webkit-transform: translateY(100px);
+        transform: translateY(100px);
+        -webkit-transition: opacity 2s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 2s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        transition: opacity 2s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 2s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        transition: opacity 2s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 2s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        transition: opacity 2s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 2s cubic-bezier(0.03, 0.68, 0.26, 0.95), -webkit-transform 2s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        -webkit-transition-delay: 1s;
+        transition-delay: 1s; }
     .wrap-content .content1 .slogan {
       max-width: 1020px;
       font-size: 1em;
@@ -285,7 +294,28 @@ img {
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      color: #ffffff; }
+      color: #ffffff;
+      overflow: hidden; }
+      .wrap-content .content1 .slogan h1:nth-child(1) {
+        opacity: 0;
+        -webkit-transform: translateX(-200px);
+        transform: translateX(-200px);
+        -webkit-transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        -webkit-transition-delay: 2s;
+        transition-delay: 2s; }
+      .wrap-content .content1 .slogan h1:nth-child(2) {
+        opacity: 0;
+        -webkit-transform: translateX(200px);
+        transform: translateX(200px);
+        -webkit-transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        transition: opacity 1.5s cubic-bezier(0.01, 0.04, 0.26, 0.95), transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95), -webkit-transform 1.5s cubic-bezier(0.03, 0.68, 0.26, 0.95);
+        -webkit-transition-delay: 3s;
+        transition-delay: 3s; }
       @media all and (min-width: 768px) {
         .wrap-content .content1 .slogan {
           font-size: 1.2em; } }
@@ -304,6 +334,11 @@ img {
         -webkit-transition: background-position 100ms ease;
         transition: background-position 100ms ease;
         background-position: left bottom;
+        opacity: 0;
+        -webkit-transition: opacity 1s cubic-bezier(0.01, 0.04, 0.26, 0.95);
+        transition: opacity 1s cubic-bezier(0.01, 0.04, 0.26, 0.95);
+        -webkit-transition-delay: 4s;
+        transition-delay: 4s;
         width: 200px;
         height: 45px;
         margin: 0 auto; }
@@ -321,6 +356,11 @@ img {
       position: absolute;
       bottom: 30px;
       left: 50%;
+      opacity: 0;
+      -webkit-transition: opacity 1s cubic-bezier(0.01, 0.04, 0.26, 0.95);
+      transition: opacity 1s cubic-bezier(0.01, 0.04, 0.26, 0.95);
+      -webkit-transition-delay: 4s;
+      transition-delay: 4s;
       -webkit-transform: translateX(-50%);
       transform: translateX(-50%);
       -webkit-animation: mouse-scroll 1.2s linear infinite;

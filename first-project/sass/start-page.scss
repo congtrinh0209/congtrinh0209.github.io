@@ -292,12 +292,16 @@ img{
     padding-top: 0;
     .logo{
       position: absolute;
-      top: -20px;
+      overflow: hidden;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10;
       img{
         height: 200px;
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 2s cubic-bezier(.01, .04, .26, .95), transform 2s cubic-bezier(.03, .68, .26, .95);
+        transition-delay: 1s;
       }
     }
     .slogan{
@@ -309,6 +313,19 @@ img{
       left: 50%;
       transform: translate(-50%, -50%);
       color: $color-white;
+      overflow: hidden;
+      h1:nth-child(1){
+        opacity: 0;
+        transform: translateX(-200px);
+        transition: opacity 1.5s cubic-bezier(.01, .04, .26, .95), transform 1.5s cubic-bezier(.03, .68, .26, .95);
+        transition-delay: 2s;
+      }
+      h1:nth-child(2){
+        opacity: 0;
+        transform: translateX(200px);
+        transition: opacity 1.5s cubic-bezier(.01, .04, .26, .95), transform 1.5s cubic-bezier(.03, .68, .26, .95);
+        transition-delay: 3s;
+      }
       @include tablet{
         font-size: 1.2em;
       }
@@ -317,6 +334,9 @@ img{
       }
       .btn-enter{
         @include btn1;
+        opacity: 0;
+        transition: opacity 1s cubic-bezier(.01, .04, .26, .95);
+        transition-delay: 4s;
         width: 200px;
         height: 45px;
         margin: 0 auto;
@@ -332,6 +352,9 @@ img{
       position: absolute;
       bottom: 30px;
       left: 50%;
+      opacity: 0;
+      transition: opacity 1s cubic-bezier(.01, .04, .26, .95);
+      transition-delay: 4s;
       transform: translateX(-50%);
       animation: mouse-scroll 1.2s linear infinite;
     }
