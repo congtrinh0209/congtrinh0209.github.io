@@ -289,9 +289,17 @@ article.main-content{
           width: 150px !important;
         }
         .avatar{
-          position: absolute;
-          top: 5%;
-          right: 5%;
+          margin: 0 auto;
+          text-align: center;
+          margin-bottom: 20px;
+          input{
+            margin: 0 auto;
+          }
+          @include tablet{
+            position: absolute;
+            top: 5%;
+            right: 5%;
+          }
         }
         #displayImg {
           width: 300px;

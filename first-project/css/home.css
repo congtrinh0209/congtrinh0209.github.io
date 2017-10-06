@@ -770,9 +770,16 @@ img {
             margin-left: 15px;
             width: 150px !important; }
           .wrapper-content main article.main-content .wrap-content .content #thong_tin_ca_nhan .avatar {
-            position: absolute;
-            top: 5%;
-            right: 5%; }
+            margin: 0 auto;
+            text-align: center;
+            margin-bottom: 20px; }
+            .wrapper-content main article.main-content .wrap-content .content #thong_tin_ca_nhan .avatar input {
+              margin: 0 auto; }
+            @media all and (min-width: 768px) {
+              .wrapper-content main article.main-content .wrap-content .content #thong_tin_ca_nhan .avatar {
+                position: absolute;
+                top: 5%;
+                right: 5%; } }
           .wrapper-content main article.main-content .wrap-content .content #thong_tin_ca_nhan #displayImg {
             width: 300px;
             height: 200px;
