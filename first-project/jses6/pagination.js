@@ -2,7 +2,7 @@
 $(document).ready(function() {
     $.getJSON("./data.json", (data) => {
         const length_arr = data.news.length;  // Kích thước mảng dữ liệu tin tức
-        const nper_page = 2;                  // Số tin trên 1 trang
+        const nper_page = 5;                  // Số tin trên 1 trang
         var stt_b;                            // Số thứ tự box giữa pagination
         var number_page = Math.ceil(length_arr / nper_page); // Tính số trang
         function pagination(a, b) {            // Hàm render html cho mỗi trang
