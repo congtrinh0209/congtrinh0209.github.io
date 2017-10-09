@@ -10,7 +10,6 @@ $(window).scroll( () => {
 	let c = $(".content2").innerHeight();
 	let d = $(".content6").innerHeight();
 	let e = $(".content3").innerHeight();
-	let f = $(".content4").innerHeight();
 	if (window_width >= 769) {
 		if (a>250){
 			transition(".wr1");
@@ -34,7 +33,7 @@ $(window).scroll( () => {
 			if (a> b+c+d+400){
 				transition(".wr3");
 			}
-			if (a> b+c+d+e+f+400){
+			if (a> b+c+d+e+400){
 				transition(".wr4");
 			}
 	}
