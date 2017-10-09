@@ -74,7 +74,6 @@ $desktop-lg-width: 1200px;
   background-position: left bottom;
   &:hover{
     background-position: right top;
-    color: black;
     cursor: pointer;
   }
 }
@@ -130,11 +129,19 @@ img{
   font-family: Helvetica ,"Helvetica Neue", Arial;
   .ad-audio{
     width:100%;
-    height: 100vh;
     background-position: center;
     background-image: url("https://raw.githubusercontent.com/congtrinh0209/first_project/master/app/images/img-startpage/banner2.jpg");
-    @include position(fixed, 0, null, null, null);
+    @include tablet{
+      height: 100vh;
+      @include position(fixed, 0, null, null, null);
+    }
     z-index: -1;
+    video{
+      width: 100%;
+      position: relative;
+      z-index: 5;
+      vertical-align: middle;
+    }
   }
   .content{
     color: #1d2129;
@@ -284,8 +291,12 @@ img{
     }
   }
   .content1{
+    padding: 0;
+    @include tablet{
+      height: 100vh;
+      padding: 20px;
+    }
     width: 100%;
-    height: 100vh;
     background: transparent;
     text-align: center;
     position: relative;
@@ -305,38 +316,39 @@ img{
       }
     }
     .slogan{
-      max-width: 1020px;
-      font-size: 1em;
-      line-height: 70px;
-      position: relative;
-      top: 65%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: $color-white;
-      overflow: hidden;
-      h1:nth-child(1){
-        opacity: 0;
-        transform: translateX(-200px);
-        transition: opacity 1.5s cubic-bezier(.01, .04, .26, .95), transform 1.5s cubic-bezier(.03, .68, .26, .95);
-        transition-delay: 2s;
-      }
-      h1:nth-child(2){
-        opacity: 0;
-        transform: translateX(200px);
-        transition: opacity 1.5s cubic-bezier(.01, .04, .26, .95), transform 1.5s cubic-bezier(.03, .68, .26, .95);
-        transition-delay: 3s;
+      .navbar-header{
+        background: #004824;
+        .nav-mobile{
+          padding-top: 5px;
+          display: inline-block;
+          width: 100%;
+          @include tablet{
+            display: none;
+          }
+          li{
+            width: 33.33%;
+            text-align: center;
+            color: $color-white;
+            float: left;
+            a{
+              color: $color-white;
+            }
+          }
+        }
       }
       @include tablet{
-        font-size: 1.2em;
-      }
-      @include desktop-md{
+        max-width: 1020px;
+        position: relative;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -75%);
         font-size: 1.5em;
       }
+      overflow: hidden;
       .btn-enter{
         @include btn1;
-        opacity: 0;
-        transition: opacity 1s cubic-bezier(.01, .04, .26, .95);
-        transition-delay: 4s;
+        display: none;
+        opacity: 0.8;
         width: 200px;
         height: 45px;
         margin: 0 auto;
@@ -346,17 +358,22 @@ img{
           line-height: 45px;
         }
         &:hover a{color: $color-black}
+        &:hover{opacity: 1}
+        @include tablet{
+          display: block;
+        }
       }
     }
     .scroll-icon img{
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      opacity: 0;
-      transition: opacity 1s cubic-bezier(.01, .04, .26, .95);
-      transition-delay: 4s;
-      transform: translateX(-50%);
-      animation: mouse-scroll 1.2s linear infinite;
+      display: none;
+      @include tablet{
+        display: block;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: mouse-scroll 1.2s linear infinite;
+      }
     }
   }
   .content2{
