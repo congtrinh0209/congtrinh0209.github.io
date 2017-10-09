@@ -6,6 +6,11 @@ function transition(selector) {
 $(window).scroll( () => {
 	const window_width = $(window).width();
 	let a = $(window).scrollTop();
+	let b = $(".ad-audio").innerHeight();
+	let c = $(".content2").innerHeight();
+	let d = $(".content6").innerHeight();
+	let e = $(".content3").innerHeight();
+	let f = $(".content4").innerHeight();
 	if (window_width >= 769) {
 		if (a>250){
 			transition(".wr1");
@@ -16,29 +21,27 @@ $(window).scroll( () => {
 		if (a>1700){
 			transition(".wr3");
 		}
-		if (a>2900){
+		if (a>2700){
 			transition(".wr4");
 		}
 	} else {
-			if (a>600){
+			if (a> b+250){
 				transition(".wr1");
 			}
-			if (a>1700){
+			if (a> b+c+50){
 				transition(".wr2");
 			}
-			if (a>2700){
+			if (a> b+c+d+400){
 				transition(".wr3");
 			}
-		if (a>4600){
-			transition(".wr4");
-		}
+			if (a> b+c+d+e+f+400){
+				transition(".wr4");
+			}
 	}
 });
 $(window).ready( () => {
-	$(".logo>img").css({"transform":"translateY(0)", "opacity":"1"});
-	$(".slogan h1").css({"transform":"translateX(0)", "opacity":"1"});
-	$(".btn-enter").css("opacity","1");
-	$(".scroll-icon img").css("opacity","1");
+	// $(".logo>img").css({"transform":"translateY(0)", "opacity":"0.6"});
+	// $(".slogan h1").css({"transform":"translateX(0)", "opacity":"0.6"});
 	$(".hn").hover(function() {
 		$(".first").css({"display": "block","visibility": "visible"})
 	},function(){$(".first").css({"display": "none","visibility": "hidden"})});
