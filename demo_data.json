@@ -1,9 +1,9 @@
 {
   "users": [
-    {"name" : "Tom Cruise", "job" : "Engineer", "birthday" : "1990", "language" : "English"}, 
-    {"name" : "Mark Jonh", "job" : "Doctor", "birthday" : "1980", "language" : "France"},
-    {"name" : "Bob Davis", "job" : "Manager", "birthday" : "1986", "language" : "English"},
-    {"name" : "Seman Sun", "job" : "Footballer", "birthday" : "1994", "language" : "German"},
-    {"name" : "Anna Tran", "job" : "Student", "birthday" : "1995", "language" : "Vietnamese"}
+    {"name" : "Tom Cruise", "job" : "Engineer", "birthday" : "12/10/1990", "language" : "English"}, 
+    {"name" : "Mark Jonh", "job" : "Doctor", "birthday" : "01/08/1980", "language" : "France"},
+    {"name" : "Bob Davis", "job" : "Manager", "birthday" : "10/10/1986", "language" : "English"},
+    {"name" : "Seman Sun", "job" : "Footballer", "birthday" : "20/08/1994", "language" : "German"},
+    {"name" : "Anna Tran", "job" : "Student", "birthday" : "02/09/1995", "language" : "Vietnamese"}
   ]
 }
