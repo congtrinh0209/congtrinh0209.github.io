@@ -1,0 +1,46 @@
+{
+  "name": "Test API extension",
+  "short_name": "API_TEST_EXT VueJS",
+  "description": "Extentsion for test API",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "icons": {
+    "32": "images/icons8-rest-api-32.png",
+    "100": "images/icons8-rest-api-100.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "32": "images/icons8-rest-api-32.png",
+      "48": "images/icons8-rest-api-48.png"
+    },
+    "default_title": "TEST API",
+    "default_popup": "index.html"
+  },
+  "omnibox": {
+    "keyword": "api"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "permissions": [
+    "bookmarks",
+    "clipboardRead",
+    "clipboardWrite",
+    "commands",
+    "contentSettings",
+    "contextMenus",
+    "cookies",
+    "debugger",
+    "declarativeContent",
+    "history",
+    "management",
+    "notifications",
+    "pageCapture",
+    "proxy",
+    "tabCapture",
+    "tabs",
+    "topSites",
+    "webNavigation",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ]
+}
