@@ -4,6 +4,7 @@ import 'vuetify/dist/vuetify.min.css'
 import './stylus/main.css'
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import axios from 'axios'
 import App from './App'
 import router from './router'
 Vue.config.productionTip = false
