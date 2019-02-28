@@ -2919,9 +2919,7 @@ box-shadow:0 0 0 2px #68b, inset 0 0 0 1px #ddd;
   font-weight: 500;
   color: #ffffff
 }
-.jv-node {
-  text-align: start !important
-}
+
 .v-menu__content .v-list > div {
   border-bottom: 1px dashed #ddd;
 }

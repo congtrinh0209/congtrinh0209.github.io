@@ -1,10 +1,10 @@
 <template>
-  <div class="mx-2 my-2 container">
-    <v-btn class="mx-0 my-0" style="position:absolute;top: 2px;right: 2px;z-index: 501" icon color="#f19d27" title="Lưu request" @click="saveRequest">
+  <div class="mx-2 my-0 container">
+    <v-btn class="mx-0 my-0" style="position:absolute;top: 2px;right: 2px;z-index: 501" icon color="#f19d27" title="Save request" @click="saveRequest">
       <v-icon color="white" size="18px">bookmark</v-icon>
     </v-btn>
     <v-layout wrap class="px-2 py-4">
-      <v-card flat>
+      <v-card flat style="background-color:transparent">
         <v-layout wrap>
           <v-flex style="width:100%">
             <v-layout wrap>
@@ -29,10 +29,13 @@
           <v-flex class="text-xs-right">
             <div class="d-inline-block">
               <v-btn small color="#e67e22" class="white--text" @click="showRecord">
-                Đã lưu
+                Saved &nbsp;
+                <v-icon size="18">save</v-icon>
               </v-btn>
-              <v-menu right offset-y>
-                <v-btn small slot="activator" color="#e67e22" class="white--text">Config &nbsp; <v-icon size="18">arrow_drop_down</v-icon></v-btn>
+              <v-menu right>
+                <v-btn small slot="activator" color="#e67e22" class="white--text">Config &nbsp;
+                  <v-icon size="18">settings</v-icon>
+                </v-btn>
                 <v-list>
                   <v-list-tile v-for="(item, index) in configItems" :key="index" @click="changeConfig(item, index)">
                     <v-list-tile-title>{{ item.name }}</v-list-tile-title>
@@ -40,7 +43,8 @@
                 </v-list>
               </v-menu>
               <v-btn small color="blue" class="white--text" @click="sendRequest">
-                Send
+                Send &nbsp;
+                <v-icon size="18">send</v-icon>
               </v-btn>
             </div>
           </v-flex>
@@ -48,18 +52,18 @@
             <v-progress-circular
               class="mt-2"
               :size="50"
-              color="primary"
+              color="white"
               indeterminate
             ></v-progress-circular>
           </v-flex>
           <v-flex class="wrap-config mt-2 py-2" v-if="showConfig">
             <div>
               <v-flex class="text-xs-right">
-                <span v-if="configItem === 'HEADER'">Header option</span>
-                <span v-if="configItem === 'PARAM'">Params option</span>
-                <span v-if="configItem === 'DATA'">Data option</span>
+                <span class="text-bold" v-if="configItem === 'HEADER'">Header option</span>
+                <span class="text-bold" v-if="configItem === 'PARAM'">Params option</span>
+                <span class="text-bold" v-if="configItem === 'DATA'">Data option</span>
                 <v-btn icon slot="activator" @click="addField()">
-                  <v-icon color="blue" size="22px">add</v-icon>
+                  <v-icon color="white" size="22px">add</v-icon>
                 </v-btn>
               </v-flex>
               <v-data-table
@@ -106,9 +110,7 @@
           <!-- response -->
           <v-flex class="mt-2 wrap-result" v-if="showResult">
             <div>
-              <v-tabs
-                slider-color="blue"
-              >
+              <v-tabs slider-color="blue">
                 <v-tab :key="1" ripple>
                   Headers
                 </v-tab>
@@ -124,8 +126,7 @@
                       :value="jsonHeaders"
                       :expand-depth=2
                       copyable
-                      boxed
-                      sort>
+                      boxed>
                     </json-viewer>
                   </v-card>
                 </v-tab-item>
@@ -135,8 +136,7 @@
                       :value="jsonData"
                       :expand-depth=2
                       copyable
-                      boxed
-                      sort>
+                      boxed>
                     </json-viewer>
                   </v-card>
                 </v-tab-item>
@@ -150,7 +150,7 @@
           </v-flex>
           <!--  -->
           <v-flex class="mt-2 wrap-history" v-if="showHistory">
-            <v-layout class="py-1" wrap v-for="item in recordStorage" :key="item.time">
+            <v-layout class="py-1" wrap v-for="(item, index) in recordStorage" :key="index">
               <v-flex class="pt-2 cord-time">
                 <span class="text-bold">{{dateTimeView(item.time)}}</span>
               </v-flex>
@@ -162,6 +162,7 @@
               </v-flex>
               <v-flex class="cord-action">
                 <v-icon color="green" title="send" @click="sendCord(item)">play_arrow</v-icon>
+                <v-icon class="ml-2" color="red" title="clear" @click="removeCord(item, index)">clear</v-icon>
               </v-flex>
             </v-layout>
           </v-flex>
@@ -336,8 +337,26 @@ export default {
           vm.showHistory = false
           vm.showResult = true
         }, 2000)
-      }).catch(function (errorRes, response) {
-        console.log('response', errorRes.headers)
+      }).catch(function (errorRes) {
+        console.log('errorResponse', errorRes.response)
+        let response = errorRes.response
+        if (response) {
+          let headerContent = {
+            'General': {
+              'Request URL': response.config['url'],
+              'Request Method': response.config['method'],
+              'Status Code': response.status
+            },
+            'Response Header': {
+              'content-type': response.headers['content-type']
+            },
+            'Request Headers': response.config.headers
+          }
+          vm.jsonHeaders = headerContent
+        }
+        if (response.data) {
+          vm.jsonData = response.data
+        }
         setTimeout(function () {
           vm.loading = false
           vm.showConfig = false
@@ -371,6 +390,7 @@ export default {
     },
     showRecord () {
       let vm = this
+      vm.loading = false
       vm.showConfig = false
       vm.showResult = false
       vm.showHistory = true
@@ -393,6 +413,11 @@ export default {
         vm.sendRequest()
       }, 1000)
     },
+    removeCord (item, index) {
+      let vm = this
+      vm.recordStorage.splice(index, 1)
+      localStorage.removeItem(localStorage.key(index))
+    },
     dateTimeView (arg) {
       if (arg) {
         let value = new Date(Number(arg))
@@ -406,7 +431,6 @@ export default {
 </script>
 <style>
   .container {
-    border:1px solid #dedede;
     position:relative;
     width: auto !important
   }
@@ -432,6 +456,7 @@ export default {
     max-height:150px;
     overflow: hidden;
     overflow-y: auto;
+    background: #ffffff
   }
   .wrap-history .layout{
     border: 1px dashed #ddd;
@@ -440,14 +465,14 @@ export default {
     width: 110px
   }
   .wrap-history .layout .cord-url{
-    width: calc(100% - 180px);
+    width: calc(100% - 190px);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left
   }
   .wrap-history .layout .cord-action{
-    width: 70px
+    width: 80px
   }
   .wrap-history .layout .cord-action .v-icon:hover{
     cursor: pointer;
@@ -456,7 +481,8 @@ export default {
     border: 1px dashed #ddd;
   }
   .wrap-result .reponse-item {
-    max-width:500px;
+    background: #ffffff;
+    max-width:535px;
     max-height:300px;
     border: 1px solid #eee;
     border-top-left-radius: inherit;
@@ -467,5 +493,19 @@ export default {
     overflow-y: auto;
     overflow-x: auto;
     color: #d32f2f
+  }
+  .jv-node {
+    text-align: start !important
+  }
+  .jv-container .jv-tooltip {
+    top: 0 !important
+  }
+  .theme--light.v-text-field--box>.v-input__control>.v-input__slot, .theme--light.v-text-field--box>.v-input__control>.v-input__slot:hover {
+    background: #ffffff;
+  }
+  .jv-container .jv-code, .jv-container .jv-code.open {
+    max-height: 250px !important;
+    overflow: hidden !important;
+    overflow-y: auto !important;
   }
 </style>
