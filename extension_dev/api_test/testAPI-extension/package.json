@@ -13,11 +13,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "cors": "^2.8.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vuetify": "1.5.2",
-    "axios": "^0.18.0",
-    "cors": "^2.8.4"
+    "vuetify": "1.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

@@ -1,13 +1,15 @@
 <template>
-  <div class="mx-2 my-2" style="border:1px solid #dedede">
-    <v-layout wrap class="px-2 py-2">
+  <div class="mx-2 my-2 container">
+    <v-btn class="mx-0 my-0" style="position:absolute;top: 2px;right: 2px;z-index: 501" icon color="#f19d27" title="Lưu request" @click="saveRequest">
+      <v-icon color="white" size="18px">bookmark</v-icon>
+    </v-btn>
+    <v-layout wrap class="px-2 py-4">
       <v-card flat>
         <v-layout wrap>
           <v-flex style="width:100%">
             <v-layout wrap>
               <v-autocomplete
-                class="mx-2"
-                style="max-width:120px"
+                class="mx-2 methods-select"
                 box
                 label="methods"
                 :items="methods"
@@ -25,22 +27,32 @@
             </v-layout>
           </v-flex>
           <v-flex class="text-xs-right">
-            <div style="display:inline-block">
-              <v-menu bottom offset-y>
-                <v-btn slot="activator" color="blue" class="white--text">Config &nbsp; <v-icon size="18">arrow_drop_down</v-icon></v-btn>
+            <div class="d-inline-block">
+              <v-btn small color="#e67e22" class="white--text" @click="showRecord">
+                Đã lưu
+              </v-btn>
+              <v-menu right offset-y>
+                <v-btn small slot="activator" color="#e67e22" class="white--text">Config &nbsp; <v-icon size="18">arrow_drop_down</v-icon></v-btn>
                 <v-list>
                   <v-list-tile v-for="(item, index) in configItems" :key="index" @click="changeConfig(item, index)">
                     <v-list-tile-title>{{ item.name }}</v-list-tile-title>
                   </v-list-tile>
                 </v-list>
               </v-menu>
-              <v-btn color="blue" class="white--text" @click="sendRequest">
+              <v-btn small color="blue" class="white--text" @click="sendRequest">
                 Send
               </v-btn>
             </div>
           </v-flex>
-          <!-- configs -->
-          <v-flex style="width:100%" v-if="showConfig">
+          <v-flex class="my-4" style="width:100%" v-if="loading">
+            <v-progress-circular
+              class="mt-2"
+              :size="50"
+              color="primary"
+              indeterminate
+            ></v-progress-circular>
+          </v-flex>
+          <v-flex class="wrap-config mt-2 py-2" v-if="showConfig">
             <div>
               <v-flex class="text-xs-right">
                 <span v-if="configItem === 'HEADER'">Header option</span>
@@ -91,6 +103,68 @@
               </v-data-table>
             </div>
           </v-flex>
+          <!-- response -->
+          <v-flex class="mt-2 wrap-result" v-if="showResult">
+            <div>
+              <v-tabs
+                slider-color="blue"
+              >
+                <v-tab :key="1" ripple>
+                  Headers
+                </v-tab>
+                <v-tab :key="2" ripple>
+                  Preview
+                </v-tab>
+                <v-tab :key="3" ripple>
+                  Response
+                </v-tab>
+                <v-tab-item :key="1">
+                  <v-card flat>
+                    <json-viewer
+                      :value="jsonHeaders"
+                      :expand-depth=2
+                      copyable
+                      boxed
+                      sort>
+                    </json-viewer>
+                  </v-card>
+                </v-tab-item>
+                <v-tab-item :key="2">
+                  <v-card flat>
+                    <json-viewer
+                      :value="jsonData"
+                      :expand-depth=2
+                      copyable
+                      boxed
+                      sort>
+                    </json-viewer>
+                  </v-card>
+                </v-tab-item>
+                <v-tab-item :key="3">
+                  <div class="px-2 py-2 reponse-item">
+                    <span>{{JSON.stringify(jsonData)}}</span>
+                  </div>
+                </v-tab-item>
+              </v-tabs>
+            </div>
+          </v-flex>
+          <!--  -->
+          <v-flex class="mt-2 wrap-history" v-if="showHistory">
+            <v-layout class="py-1" wrap v-for="item in recordStorage" :key="item.time">
+              <v-flex class="pt-2 cord-time">
+                <span class="text-bold">{{dateTimeView(item.time)}}</span>
+              </v-flex>
+              <v-flex class="pt-2 cord-url">
+                <v-tooltip top>
+                  <span slot="activator" style="color:blue">{{item.url}}</span>
+                  <span>{{item.url}}</span>
+                </v-tooltip>
+              </v-flex>
+              <v-flex class="cord-action">
+                <v-icon color="green" title="send" @click="sendCord(item)">play_arrow</v-icon>
+              </v-flex>
+            </v-layout>
+          </v-flex>
         </v-layout>
       </v-card>
     </v-layout>
@@ -98,7 +172,10 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import axios from 'axios'
+import JsonViewer from 'vue-json-viewer'
+Vue.use(JsonViewer)
 export default {
   props: [],
   components: {
@@ -113,7 +190,10 @@ export default {
     ],
     method: 'GET',
     urlRequest: '',
+    showHistory: false,
     showConfig: false,
+    showResult: false,
+    recordStorage: '',
     configItems: [
       {'name': 'HEADER', 'value': 'HEADER'},
       {'name': 'PARAM', 'value': 'PARAM'},
@@ -122,14 +202,16 @@ export default {
     itemsTable: [],
     itemsTableSet: [],
     headersOption: [
-      {'name': 'groupId', 'value': 402132},
-      {'name': 'Token', 'value': '1adf0r'}
+      {'name': 'groupId', 'value': window.themeDisplay ? window.themeDisplay.getScopeGroupId() : ''},
+      {'name': 'Token', 'value': window.Liferay ? window.Liferay.authToken : ''}
     ],
     paramOption: [],
     dataOption: [],
     configItem: '',
     editedIndex: '',
     editedItem: {'name': '', 'value': ''},
+    jsonHeaders: '',
+    jsonData: '',
     e1: true,
     e2: true,
     rules: {
@@ -185,28 +267,39 @@ export default {
       }
       if (!vm.itemsTable || vm.itemsTable === []) {
         vm.itemsTable = [
-          {'name': 'key1', 'value': 'value1'},
-          {'name': 'key2', 'value': 'value2'},
-          {'name': 'key3', 'value': 'value3'}
+          {'name': 'key', 'value': 'value'},
+          {'name': 'key', 'value': 'value'},
+          {'name': 'key', 'value': 'value'}
         ]
       }
+      vm.showResult = false
+      vm.showHistory = false
       vm.showConfig = true
     },
     sendRequest () {
       let vm = this
+      vm.loading = true
+      vm.showConfig = false
+      vm.showResult = false
+      vm.showHistory = false
       let headersOption = {}
       let paramsOption = {}
       let dataOption = new URLSearchParams()
       for (let key in vm.headersOption) {
-        headersOption[vm.headersOption[key].name] = vm.headersOption[key].value
+        if (vm.headersOption[key].name && vm.headersOption[key].name !== 'key') {
+          headersOption[vm.headersOption[key].name] = vm.headersOption[key].value
+        }
       }
       for (let key in vm.paramOption) {
-        paramsOption[vm.paramOption[key].name] = vm.paramOption[key].value
+        if (vm.paramOption[key].name && vm.paramOption[key].name !== 'key') {
+          paramsOption[vm.paramOption[key].name] = vm.paramOption[key].value
+        }
       }
       for (let key in vm.dataOption) {
-        dataOption.append(vm.dataOption[key].name, vm.dataOption[key].value)
+        if (vm.dataOption[key].name && vm.dataOption[key].name !== 'key') {
+          dataOption.append(vm.dataOption[key].name, vm.dataOption[key].value)
+        }
       }
-      console.log('headers', headersOption)
       var url = vm.urlRequest
       var typeMethod = vm.method
       var headers = headersOption
@@ -219,9 +312,38 @@ export default {
         params: paramGet,
         data: dataUpdate
       }).then(function (response) {
-        console.log('response', response)
-      }).catch(function (error) {
-        console.log('error', error.response)
+        if (response) {
+          let headerContent = {
+            'General': {
+              'Request URL': response.config['url'],
+              'Request Method': response.config['method'],
+              'Status Code': response.status
+            },
+            'Response Header': {
+              'cache-control': response.headers['cache-control'],
+              'content-type': response.headers['content-type']
+            },
+            'Request Headers': response.config.headers
+          }
+          vm.jsonHeaders = headerContent
+        }
+        if (response.data) {
+          vm.jsonData = response.data
+        }
+        setTimeout(function () {
+          vm.loading = false
+          vm.showConfig = false
+          vm.showHistory = false
+          vm.showResult = true
+        }, 2000)
+      }).catch(function (errorRes, response) {
+        console.log('response', errorRes.headers)
+        setTimeout(function () {
+          vm.loading = false
+          vm.showConfig = false
+          vm.showHistory = false
+          vm.showResult = true
+        }, 2000)
       })
     },
     addField () {
@@ -232,9 +354,118 @@ export default {
     deleteField (index) {
       let vm = this
       vm.itemsTable.splice(index, 1)
+    },
+    saveRequest () {
+      let vm = this
+      let lengthStorage = localStorage.length + 1
+      let cordName = 'cord_' + (new Date()).getTime() + '_' + lengthStorage
+      let cordData = {
+        'url': vm.urlRequest,
+        'method': vm.method,
+        'headersOption': vm.headersOption,
+        'paramOption': vm.paramOption,
+        'dataOption': vm.dataOption,
+        'time': (new Date()).getTime()
+      }
+      localStorage.setItem(cordName, JSON.stringify(cordData))
+    },
+    showRecord () {
+      let vm = this
+      vm.showConfig = false
+      vm.showResult = false
+      vm.showHistory = true
+      vm.recordStorage = []
+      let lengthStorage = localStorage.length
+      for (let i = 0; i < lengthStorage; i++) {
+        if (localStorage.key(i).indexOf('cord_') >= 0) {
+          vm.recordStorage.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
+        }
+      }
+    },
+    sendCord (itemCord) {
+      let vm = this
+      vm.urlRequest = itemCord.url
+      vm.method = itemCord.method
+      vm.headersOption = itemCord.headersOption
+      vm.paramOption = itemCord.paramOption
+      vm.dataOption = itemCord.dataOption
+      setTimeout(function () {
+        vm.sendRequest()
+      }, 1000)
+    },
+    dateTimeView (arg) {
+      if (arg) {
+        let value = new Date(Number(arg))
+        return `${value.getDate().toString().padStart(2, '0')}/${(value.getMonth() + 1).toString().padStart(2, '0')}/${value.getFullYear()}-${value.getHours().toString().padStart(2, '0')}:${value.getMinutes().toString().padStart(2, '0')}`
+      } else {
+        return ''
+      }
     }
   }
 }
 </script>
-<style scoped>
+<style>
+  .container {
+    border:1px solid #dedede;
+    position:relative;
+    width: auto !important
+  }
+  .bookmark_btn {
+    position:absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 501
+  }
+  .methods-select {
+    max-width: 120px;
+  }
+  .wrap-config {
+    width:100%;
+    border: 1px dashed #ddd;
+  }
+  .wrap-result {
+    width:100%;
+  }
+  .wrap-history {
+    width:100%;
+    font-size:12px;
+    max-height:150px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .wrap-history .layout{
+    border: 1px dashed #ddd;
+  }
+  .wrap-history .layout .cord-time{
+    width: 110px
+  }
+  .wrap-history .layout .cord-url{
+    width: calc(100% - 180px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left
+  }
+  .wrap-history .layout .cord-action{
+    width: 70px
+  }
+  .wrap-history .layout .cord-action .v-icon:hover{
+    cursor: pointer;
+  }
+  .wrap-result > div {
+    border: 1px dashed #ddd;
+  }
+  .wrap-result .reponse-item {
+    max-width:500px;
+    max-height:300px;
+    border: 1px solid #eee;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    text-align: left;
+    font-size:12px;
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: auto;
+    color: #d32f2f
+  }
 </style>

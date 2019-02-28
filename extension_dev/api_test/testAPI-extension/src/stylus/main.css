@@ -1,3 +1,4 @@
+
 .receipt-wrapper {
   max-width: 750px;
   margin: 30px auto;
@@ -2917,4 +2918,19 @@ box-shadow:0 0 0 2px #68b, inset 0 0 0 1px #ddd;
   text-align: left;
   font-weight: 500;
   color: #ffffff
+}
+.jv-node {
+  text-align: start !important
+}
+.v-menu__content .v-list > div {
+  border-bottom: 1px dashed #ddd;
+}
+.v-list__tile {
+  height: 32px !important;
+}
+.v-text-field--box > .v-input__control > .v-input__slot {
+  border-radius: 0px !important
+}
+.v-menu__content .v-list .v-list__tile {
+  font-size: 14px !important
 }
