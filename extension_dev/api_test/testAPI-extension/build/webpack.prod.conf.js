@@ -124,6 +124,18 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: path.resolve(__dirname, '../dist/manifest.json'),
       },
       {
+        from: path.resolve(__dirname, '../src/background.js'),
+        to: path.resolve(__dirname, '../dist/background.js'),
+      },
+      {
+        from: path.resolve(__dirname, '../src/contentScript.js'),
+        to: path.resolve(__dirname, '../dist/contentScript.js'),
+      },
+      {
+        from: path.resolve(__dirname, '../src/jquery.js'),
+        to: path.resolve(__dirname, '../dist/jquery.js'),
+      },
+      {
         from: path.resolve(__dirname, '../src/assets'),
         to: 'images',
         ignore: ['.*']
