@@ -1,173 +1,171 @@
 <template>
-  <div class="mx-2 my-0 container">
-    <v-btn class="mx-0 my-0" style="position:absolute;top: 2px;right: 2px;z-index: 501" icon color="#f19d27" title="Save request" @click="saveRequest">
-      <v-icon color="white" size="18px">bookmark</v-icon>
-    </v-btn>
-    <v-layout wrap class="px-2 py-4">
-      <v-card flat style="background-color:transparent">
+  <div class="container-content">
+    <div class="bookmark_btn">
+      <v-btn class="mx-0 my-0" icon color="#f19d27" title="Save request" @click="saveRequest">
+        <v-icon color="white" size="18px">bookmark</v-icon>
+      </v-btn>
+    </div>
+    <v-layout wrap>
+      <v-flex style="width:100%">
         <v-layout wrap>
-          <v-flex style="width:100%">
-            <v-layout wrap>
-              <v-autocomplete
-                class="mx-2 methods-select"
-                box
-                label="methods"
-                :items="methods"
-                v-model="method"
-                item-value="value"
-                item-text="name"
-              ></v-autocomplete>
-              <v-text-field
-                class="mx-2"
-                box
-                label="url"
-                v-model="urlRequest"
-                clearable
-              ></v-text-field>
-            </v-layout>
-          </v-flex>
+          <v-autocomplete
+            class="mx-2 methods-select"
+            box
+            label="methods"
+            :items="methods"
+            v-model="method"
+            item-value="value"
+            item-text="name"
+          ></v-autocomplete>
+          <v-text-field
+            class="mx-2"
+            box
+            label="url"
+            v-model="urlRequest"
+            clearable
+          ></v-text-field>
+        </v-layout>
+      </v-flex>
+      <v-flex class="text-xs-right">
+        <div class="d-inline-block">
+          <v-btn small color="#e67e22" class="white--text" @click="showRecord">
+            Saved &nbsp;
+            <v-icon size="18">save</v-icon>
+          </v-btn>
+          <v-menu right>
+            <v-btn small slot="activator" color="#e67e22" class="white--text">Config &nbsp;
+              <v-icon size="18">settings</v-icon>
+            </v-btn>
+            <v-list>
+              <v-list-tile v-for="(item, index) in configItems" :key="index" @click="changeConfig(item, index)">
+                <v-list-tile-title>{{ item.name }}</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+          <v-btn small color="blue" class="white--text" @click="sendRequest">
+            Send &nbsp;
+            <v-icon size="18">send</v-icon>
+          </v-btn>
+        </div>
+      </v-flex>
+      <v-flex class="my-4 text-xs-center" style="width:100%" v-if="loading">
+        <v-progress-circular
+          class="mt-2"
+          :size="50"
+          color="white"
+          indeterminate
+        ></v-progress-circular>
+      </v-flex>
+      <v-flex class="wrap-config mt-2 py-2" v-if="showConfig">
+        <div>
           <v-flex class="text-xs-right">
-            <div class="d-inline-block">
-              <v-btn small color="#e67e22" class="white--text" @click="showRecord">
-                Saved &nbsp;
-                <v-icon size="18">save</v-icon>
+            <span class="text-bold white--text" v-if="configItem === 'HEADER'">Header option</span>
+            <span class="text-bold" v-if="configItem === 'PARAM'">Params option</span>
+            <span class="text-bold" v-if="configItem === 'DATA'">Data option</span>
+            <v-btn icon slot="activator" @click="addField()">
+              <v-icon color="white" size="22px">add</v-icon>
+            </v-btn>
+          </v-flex>
+          <v-data-table
+            class="elevation-1 mx-2 mt-2"
+            hide-actions
+            hide-headers
+            :items="itemsTable"
+            no-data-text="No data"
+          >
+            <template slot="items" slot-scope="props">
+              <td style="border-right: 1px solid #dedede;max-width:150px">
+                <v-edit-dialog
+                  lazy
+                > {{ props.item.name }}
+                  <v-text-field
+                    slot="input"
+                    v-model="props.item.name"
+                    label="Edit"
+                    single-line
+                    clearable
+                  ></v-text-field>
+                </v-edit-dialog>
+              </td>
+              <td>
+                <v-edit-dialog
+                  lazy
+                > {{ props.item.value }}
+                  <v-text-field
+                    slot="input"
+                    v-model="props.item.value"
+                    label="Edit"
+                    single-line
+                    clearable
+                  ></v-text-field>
+                </v-edit-dialog>
+              </td>
+              <v-btn style="position:absolute;right:5px" icon slot="activator" @click="deleteField(props.index)">
+                <v-icon color="red" size="22px">clear</v-icon>
               </v-btn>
-              <v-menu right>
-                <v-btn small slot="activator" color="#e67e22" class="white--text">Config &nbsp;
-                  <v-icon size="18">settings</v-icon>
-                </v-btn>
-                <v-list>
-                  <v-list-tile v-for="(item, index) in configItems" :key="index" @click="changeConfig(item, index)">
-                    <v-list-tile-title>{{ item.name }}</v-list-tile-title>
-                  </v-list-tile>
-                </v-list>
-              </v-menu>
-              <v-btn small color="blue" class="white--text" @click="sendRequest">
-                Send &nbsp;
-                <v-icon size="18">send</v-icon>
-              </v-btn>
-            </div>
+            </template>
+          </v-data-table>
+        </div>
+      </v-flex>
+      <!-- response -->
+      <v-flex class="mt-2 wrap-result" v-if="showResult">
+        <div>
+          <v-tabs slider-color="blue">
+            <v-tab :key="1" ripple>
+              Headers
+            </v-tab>
+            <v-tab :key="2" ripple>
+              Preview
+            </v-tab>
+            <v-tab :key="3" ripple>
+              Response
+            </v-tab>
+            <v-tab-item :key="1">
+              <v-card flat>
+                <json-viewer
+                  :value="jsonHeaders"
+                  :expand-depth=2
+                  copyable
+                  boxed>
+                </json-viewer>
+              </v-card>
+            </v-tab-item>
+            <v-tab-item :key="2">
+              <v-card flat>
+                <json-viewer
+                  :value="jsonData"
+                  :expand-depth=2
+                  copyable
+                  boxed>
+                </json-viewer>
+              </v-card>
+            </v-tab-item>
+            <v-tab-item :key="3">
+              <div class="px-2 py-2 reponse-item">
+                <span>{{JSON.stringify(jsonData)}}</span>
+              </div>
+            </v-tab-item>
+          </v-tabs>
+        </div>
+      </v-flex>
+      <!--  -->
+      <v-flex class="mt-2 wrap-history" v-if="showHistory">
+        <v-layout class="py-1" wrap v-for="(item, index) in recordStorage" :key="index">
+          <v-flex class="pt-2 cord-time">
+            <span class="text-bold">{{dateTimeView(item.time)}}</span>
           </v-flex>
-          <v-flex class="my-4" style="width:100%" v-if="loading">
-            <v-progress-circular
-              class="mt-2"
-              :size="50"
-              color="white"
-              indeterminate
-            ></v-progress-circular>
+          <v-flex class="pt-2 cord-url">
+            <v-tooltip top>
+              <span slot="activator" style="color:blue">{{item.url}}</span>
+              <span>{{item.url}}</span>
+            </v-tooltip>
           </v-flex>
-          <v-flex class="wrap-config mt-2 py-2" v-if="showConfig">
-            <div>
-              <v-flex class="text-xs-right">
-                <span class="text-bold" v-if="configItem === 'HEADER'">Header option</span>
-                <span class="text-bold" v-if="configItem === 'PARAM'">Params option</span>
-                <span class="text-bold" v-if="configItem === 'DATA'">Data option</span>
-                <v-btn icon slot="activator" @click="addField()">
-                  <v-icon color="white" size="22px">add</v-icon>
-                </v-btn>
-              </v-flex>
-              <v-data-table
-                class="elevation-1 mx-2 mt-2"
-                hide-actions
-                hide-headers
-                :items="itemsTable"
-                no-data-text="No data"
-              >
-                <template slot="items" slot-scope="props">
-                  <td style="border-right: 1px solid #dedede;width:100px">
-                    <v-edit-dialog
-                      lazy
-                    > {{ props.item.name }}
-                      <v-text-field
-                        slot="input"
-                        v-model="props.item.name"
-                        label="Edit"
-                        single-line
-                        clearable
-                      ></v-text-field>
-                    </v-edit-dialog>
-                  </td>
-                  <td>
-                    <v-edit-dialog
-                      lazy
-                    > {{ props.item.value }}
-                      <v-text-field
-                        slot="input"
-                        v-model="props.item.value"
-                        label="Edit"
-                        single-line
-                        clearable
-                      ></v-text-field>
-                    </v-edit-dialog>
-                  </td>
-                  <v-btn style="position:absolute;right:5px" icon slot="activator" @click="deleteField(props.index)">
-                    <v-icon color="red" size="22px">clear</v-icon>
-                  </v-btn>
-                </template>
-              </v-data-table>
-            </div>
-          </v-flex>
-          <!-- response -->
-          <v-flex class="mt-2 wrap-result" v-if="showResult">
-            <div>
-              <v-tabs slider-color="blue">
-                <v-tab :key="1" ripple>
-                  Headers
-                </v-tab>
-                <v-tab :key="2" ripple>
-                  Preview
-                </v-tab>
-                <v-tab :key="3" ripple>
-                  Response
-                </v-tab>
-                <v-tab-item :key="1">
-                  <v-card flat>
-                    <json-viewer
-                      :value="jsonHeaders"
-                      :expand-depth=2
-                      copyable
-                      boxed>
-                    </json-viewer>
-                  </v-card>
-                </v-tab-item>
-                <v-tab-item :key="2">
-                  <v-card flat>
-                    <json-viewer
-                      :value="jsonData"
-                      :expand-depth=2
-                      copyable
-                      boxed>
-                    </json-viewer>
-                  </v-card>
-                </v-tab-item>
-                <v-tab-item :key="3">
-                  <div class="px-2 py-2 reponse-item">
-                    <span>{{JSON.stringify(jsonData)}}</span>
-                  </div>
-                </v-tab-item>
-              </v-tabs>
-            </div>
-          </v-flex>
-          <!--  -->
-          <v-flex class="mt-2 wrap-history" v-if="showHistory">
-            <v-layout class="py-1" wrap v-for="(item, index) in recordStorage" :key="index">
-              <v-flex class="pt-2 cord-time">
-                <span class="text-bold">{{dateTimeView(item.time)}}</span>
-              </v-flex>
-              <v-flex class="pt-2 cord-url">
-                <v-tooltip top>
-                  <span slot="activator" style="color:blue">{{item.url}}</span>
-                  <span>{{item.url}}</span>
-                </v-tooltip>
-              </v-flex>
-              <v-flex class="cord-action">
-                <v-icon color="green" title="send" @click="sendCord(item)">play_arrow</v-icon>
-                <v-icon class="ml-2" color="red" title="clear" @click="removeCord(item, index)">clear</v-icon>
-              </v-flex>
-            </v-layout>
+          <v-flex class="cord-action">
+            <v-icon color="green" title="send" @click="sendCord(item)">play_arrow</v-icon>
+            <v-icon class="ml-2" color="red" title="clear" @click="removeCord(item, index)">clear</v-icon>
           </v-flex>
         </v-layout>
-      </v-card>
+      </v-flex>
     </v-layout>
   </div>
 </template>
@@ -306,64 +304,66 @@ export default {
       var headers = headersOption
       var paramGet = paramsOption
       var dataUpdate = dataOption
-      axios({
-        method: typeMethod,
-        url: url,
-        headers: headers,
-        params: paramGet,
-        data: dataUpdate
-      }).then(function (response) {
-        if (response) {
-          let headerContent = {
-            'General': {
-              'Request URL': response.config['url'],
-              'Request Method': response.config['method'],
-              'Status Code': response.status
-            },
-            'Response Header': {
-              'cache-control': response.headers['cache-control'],
-              'content-type': response.headers['content-type']
-            },
-            'Request Headers': response.config.headers
+      if (url && typeMethod) {
+          axios({
+          method: typeMethod,
+          url: url,
+          headers: headers,
+          params: paramGet,
+          data: dataUpdate
+        }).then(function (response) {
+          if (response) {
+            let headerContent = {
+              'General': {
+                'Request URL': response.config['url'],
+                'Request Method': response.config['method'],
+                'Status Code': response.status
+              },
+              'Response Header': {
+                'cache-control': response.headers['cache-control'],
+                'content-type': response.headers['content-type']
+              },
+              'Request Headers': response.config.headers
+            }
+            vm.jsonHeaders = headerContent
           }
-          vm.jsonHeaders = headerContent
-        }
-        if (response.data) {
-          vm.jsonData = response.data
-        }
-        setTimeout(function () {
-          vm.loading = false
-          vm.showConfig = false
-          vm.showHistory = false
-          vm.showResult = true
-        }, 2000)
-      }).catch(function (errorRes) {
-        console.log('errorResponse', errorRes.response)
-        let response = errorRes.response
-        if (response) {
-          let headerContent = {
-            'General': {
-              'Request URL': response.config['url'],
-              'Request Method': response.config['method'],
-              'Status Code': response.status
-            },
-            'Response Header': {
-              'content-type': response.headers['content-type']
-            },
-            'Request Headers': response.config.headers
+          if (response.data) {
+            vm.jsonData = response.data
           }
-          vm.jsonHeaders = headerContent
-        }
-        if (response.data) {
-          vm.jsonData = response.data
-        }
-        setTimeout(function () {
-          vm.loading = false
-          vm.showConfig = false
-          vm.showHistory = false
-          vm.showResult = true
-        }, 2000)
-      })
+          setTimeout(function () {
+            vm.loading = false
+            vm.showConfig = false
+            vm.showHistory = false
+            vm.showResult = true
+          }, 2000)
+        }).catch(function (errorRes) {
+          console.log('errorResponse', errorRes.response)
+          let response = errorRes.response
+          if (response) {
+            let headerContent = {
+              'General': {
+                'Request URL': response.config['url'],
+                'Request Method': response.config['method'],
+                'Status Code': response.status
+              },
+              'Response Header': {
+                'content-type': response.headers['content-type']
+              },
+              'Request Headers': response.config.headers
+            }
+            vm.jsonHeaders = headerContent
+          }
+          if (response.data) {
+            vm.jsonData = response.data
+          }
+          setTimeout(function () {
+            vm.loading = false
+            vm.showConfig = false
+            vm.showHistory = false
+            vm.showResult = true
+          }, 2000)
+        })
+      }
     },
     addField () {
       let vm = this
@@ -409,9 +409,9 @@ export default {
       vm.headersOption = itemCord.headersOption
       vm.paramOption = itemCord.paramOption
       vm.dataOption = itemCord.dataOption
-      setTimeout(function () {
-        vm.sendRequest()
-      }, 1000)
+      // setTimeout(function () {
+      //   vm.sendRequest()
+      // }, 1000)
     },
     removeCord (item, index) {
       let vm = this
@@ -430,21 +430,26 @@ export default {
 }
 </script>
 <style>
-  .container {
-    position:relative;
-    width: auto !important
+  .methods-select {
+    max-width: 150px;
+  }
+  .container-content {
+    position: relative;
+    min-height: 350px;
+    margin: 0 auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px
   }
   .bookmark_btn {
     position:absolute;
-    top: 2px;
-    right: 2px;
+    top: 10px;
+    right: 10px;
     z-index: 501
-  }
-  .methods-select {
-    max-width: 120px;
   }
   .wrap-config {
     width:100%;
+    position: relative;
     border: 1px dashed #ddd;
   }
   .wrap-result {
@@ -482,8 +487,8 @@ export default {
   }
   .wrap-result .reponse-item {
     background: #ffffff;
-    max-width:535px;
-    max-height:300px;
+    /* max-width:535px; */
+    max-height:350px;
     border: 1px solid #eee;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
@@ -504,8 +509,24 @@ export default {
     background: #ffffff;
   }
   .jv-container .jv-code, .jv-container .jv-code.open {
-    max-height: 250px !important;
+    max-height: 350px !important;
     overflow: hidden !important;
     overflow-y: auto !important;
+  }
+  @media only screen and (max-width: 600px) {
+    .methods-select {
+      max-width: 100% !important
+    }
+    .container-content {
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 20px
+    }
+    .bookmark_btn {
+      position:absolute;
+      top: 0px;
+      right: 0px;
+      z-index: 501
+    }
   }
 </style>

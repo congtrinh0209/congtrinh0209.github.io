@@ -13,14 +13,14 @@
       "32": "images/icons8-rest-api-32.png",
       "48": "images/icons8-rest-api-48.png"
     },
-    "default_title": "TEST API",
-    "default_popup": "index.html"
+    "default_title": "TEST API"
   },
   "omnibox": {
     "keyword": "api"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "persistent": true
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
