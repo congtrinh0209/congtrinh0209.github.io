@@ -60,8 +60,8 @@
         <div>
           <v-flex class="text-xs-right">
             <span class="text-bold white--text" v-if="configItem === 'HEADER'">Header Option</span>
-            <span class="text-bold" v-if="configItem === 'PARAM'">Params Option</span>
-            <span class="text-bold" v-if="configItem === 'DATA'">Data Option</span>
+            <span class="text-bold white--text" v-if="configItem === 'PARAM'">Params Option</span>
+            <span class="text-bold white--text" v-if="configItem === 'DATA'">Data Option</span>
             <v-btn icon slot="activator" @click="addField()">
               <v-icon color="white" size="22px">add</v-icon>
             </v-btn>
@@ -386,7 +386,9 @@ export default {
         'dataOption': vm.dataOption,
         'time': (new Date()).getTime()
       }
-      localStorage.setItem(cordName, JSON.stringify(cordData))
+      if (vm.urlRequest && vm.method) {
+        localStorage.setItem(cordName, JSON.stringify(cordData))
+      }
     },
     showRecord () {
       let vm = this
@@ -421,7 +423,7 @@ export default {
     dateTimeView (arg) {
       if (arg) {
         let value = new Date(Number(arg))
-        return `${value.getDate().toString().padStart(2, '0')}/${(value.getMonth() + 1).toString().padStart(2, '0')}/${value.getFullYear()}-${value.getHours().toString().padStart(2, '0')}:${value.getMinutes().toString().padStart(2, '0')}`
+        return `${value.getDate().toString().padStart(2, '0')}/${(value.getMonth() + 1).toString().padStart(2, '0')}/${value.getFullYear()} - ${value.getHours().toString().padStart(2, '0')}:${value.getMinutes().toString().padStart(2, '0')}`
       } else {
         return ''
       }
@@ -449,6 +451,7 @@ export default {
   }
   .wrap-config {
     width:100%;
+    font-size: 14px;
     position: relative;
     border: 1px dashed #ddd;
   }

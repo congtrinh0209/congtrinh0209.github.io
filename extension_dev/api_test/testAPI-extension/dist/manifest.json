@@ -1,6 +1,6 @@
 {
-  "name": "Test API extension",
-  "short_name": "API_TEST_EXT VueJS",
+  "name": "CONECT API extension",
+  "short_name": "API_CONECT_EXT VueJS",
   "description": "Extension for test API",
   "version": "0.0.1",
   "manifest_version": 2,
@@ -13,7 +13,7 @@
       "32": "images/icons8-rest-api-32.png",
       "48": "images/icons8-rest-api-48.png"
     },
-    "default_title": "TEST API"
+    "default_title": "API"
   },
   "omnibox": {
     "keyword": "api"
