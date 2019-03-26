@@ -59,9 +59,9 @@
       <v-flex class="wrap-config mt-2 py-2" v-if="showConfig">
         <div>
           <v-flex class="text-xs-right">
-            <span class="text-bold white--text" v-if="configItem === 'HEADER'">Header option</span>
-            <span class="text-bold" v-if="configItem === 'PARAM'">Params option</span>
-            <span class="text-bold" v-if="configItem === 'DATA'">Data option</span>
+            <span class="text-bold white--text" v-if="configItem === 'HEADER'">Header Option</span>
+            <span class="text-bold" v-if="configItem === 'PARAM'">Params Option</span>
+            <span class="text-bold" v-if="configItem === 'DATA'">Data Option</span>
             <v-btn icon slot="activator" @click="addField()">
               <v-icon color="white" size="22px">add</v-icon>
             </v-btn>
@@ -74,7 +74,7 @@
             no-data-text="No data"
           >
             <template slot="items" slot-scope="props">
-              <td style="border-right: 1px solid #dedede;max-width:150px">
+              <td style="border-right: 1px solid #dedede;width:150px">
                 <v-edit-dialog
                   lazy
                 > {{ props.item.name }}
