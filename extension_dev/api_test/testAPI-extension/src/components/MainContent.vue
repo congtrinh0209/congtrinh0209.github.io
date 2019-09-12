@@ -433,7 +433,7 @@ export default {
 </script>
 <style>
   .methods-select {
-    max-width: 150px;
+    max-width: 350px;
   }
   .container-content {
     position: relative;
