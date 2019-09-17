@@ -75,30 +75,19 @@
           >
             <template slot="items" slot-scope="props">
               <td style="border-right: 1px solid #dedede;width:150px">
-                <v-edit-dialog
-                  lazy
-                > {{ props.item.name }}
-                  <v-text-field
-                    slot="input"
-                    v-model="props.item.name"
-                    label="Edit"
-                    single-line
-                    clearable
-                  ></v-text-field>
-                </v-edit-dialog>
+                <v-text-field
+                  v-model="props.item.name"
+                  placeholder="key"
+                  clearable
+                  solo
+                ></v-text-field>
               </td>
               <td>
-                <v-edit-dialog
-                  lazy
-                > {{ props.item.value }}
-                  <v-text-field
-                    slot="input"
-                    v-model="props.item.value"
-                    label="Edit"
-                    single-line
-                    clearable
-                  ></v-text-field>
-                </v-edit-dialog>
+                <v-text-field
+                  v-model="props.item.value"
+                  placeholder="value"
+                  clearable
+                ></v-text-field>
               </td>
               <v-btn style="position:absolute;right:5px" icon slot="activator" @click="deleteField(props.index)">
                 <v-icon color="red" size="22px">clear</v-icon>
