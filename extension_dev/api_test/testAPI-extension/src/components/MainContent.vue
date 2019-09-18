@@ -148,7 +148,7 @@
           <v-flex class="pt-2 cord-url" @click="sendCord(item)">
             <v-tooltip top>
               <span slot="activator">
-                <span color="green" style="text-transform: uppercase;">{{item.method}}</span> - <span color="blue">{{item.url}}</span>
+                <span style="text-transform: uppercase;color: green">{{item.method}}</span> - <span style="color: blue">{{item.url}}</span>
               </span>
               <div>
                 <json-viewer
@@ -492,7 +492,7 @@ export default {
   .wrap-history {
     width:100%;
     font-size:12px;
-    max-height:600px;
+    max-height:350px;
     overflow: hidden;
     overflow-y: auto;
     background: #ffffff
