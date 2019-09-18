@@ -67,14 +67,14 @@
             </v-btn>
           </v-flex>
           <v-data-table
-            class="elevation-1 mx-2 mt-2"
+            class="table-data elevation-1 mx-2 mt-2"
             hide-actions
             hide-headers
             :items="itemsTable"
             no-data-text="No data"
           >
             <template slot="items" slot-scope="props">
-              <td style="border-right: 1px solid #dedede;width:150px">
+              <td style="border-right: 1px solid #dedede;width:250px">
                 <v-text-field
                   v-model="props.item.name"
                   placeholder="key"
@@ -84,13 +84,15 @@
               </td>
               <td>
                 <v-text-field
+                  class="input-value"
                   v-model="props.item.value"
                   placeholder="value"
                   clearable
+                  solo
                 ></v-text-field>
               </td>
               <v-btn style="position:absolute;right:5px" icon slot="activator" @click="deleteField(props.index)">
-                <v-icon color="red" size="22px">clear</v-icon>
+                <v-icon color="red" size="22px">delete_outline</v-icon>
               </v-btn>
             </template>
           </v-data-table>
@@ -139,18 +141,27 @@
       </v-flex>
       <!--  -->
       <v-flex class="mt-2 wrap-history" v-if="showHistory">
-        <v-layout class="py-1" wrap v-for="(item, index) in recordStorage" :key="index">
-          <v-flex class="pt-2 cord-time">
+        <v-layout class="py-1 cord-item" wrap v-for="(item, index) in recordStorage" :key="index" style="cursor: pointer;">
+          <v-flex class="pt-2 cord-time" @click="sendCord(item)">
             <span class="text-bold">{{dateTimeView(item.time)}}</span>
           </v-flex>
-          <v-flex class="pt-2 cord-url">
+          <v-flex class="pt-2 cord-url" @click="sendCord(item)">
             <v-tooltip top>
-              <span slot="activator" style="color:blue">{{item.url}}</span>
-              <span>{{item.url}}</span>
+              <span slot="activator">
+                <span color="green" style="text-transform: uppercase;">{{item.method}}</span> - <span color="blue">{{item.url}}</span>
+              </span>
+              <div>
+                <json-viewer
+                  :value="item"
+                  :expand-depth=5
+                  copyable
+                  boxed>
+                </json-viewer>
+              </div>
             </v-tooltip>
           </v-flex>
           <v-flex class="cord-action">
-            <v-icon color="green" title="send" @click="sendCord(item)">play_arrow</v-icon>
+            <v-icon color="blue" title="edit" @click="editCord(item, index)">edit</v-icon>
             <v-icon class="ml-2" color="red" title="clear" @click="removeCord(item, index)">clear</v-icon>
           </v-flex>
         </v-layout>
@@ -176,6 +187,20 @@ export default {
       {'name': 'PUT', 'value': 'PUT'},
       {'name': 'DELETE', 'value': 'DELETE'}
     ],
+    configs: [
+      {
+        title: 'Header Option',
+        data: ''
+      },
+      {
+        title: 'Params Option',
+        data: ''
+      },
+      {
+        title: 'Data Option',
+        data: ''
+      }
+    ],
     method: 'GET',
     urlRequest: '',
     showHistory: false,
@@ -188,7 +213,6 @@ export default {
       {'name': 'DATA', 'value': 'DATA'}
     ],
     itemsTable: [],
-    itemsTableSet: [],
     headersOption: [
       {'name': 'groupId', 'value': window.themeDisplay ? window.themeDisplay.getScopeGroupId() : ''},
       {'name': 'Token', 'value': window.Liferay ? window.Liferay.authToken : ''}
@@ -223,6 +247,7 @@ export default {
   created () {
     var vm = this
     vm.$nextTick(function () {
+      vm.showRecord()
     })
   },
   updated () {
@@ -356,7 +381,7 @@ export default {
     },
     addField () {
       let vm = this
-      let item = {'name': 'key', 'value': 'value'}
+      let item = {'name': '', 'value': ''}
       vm.itemsTable.push(item)
     },
     deleteField (index) {
@@ -395,6 +420,7 @@ export default {
     },
     sendCord (itemCord) {
       let vm = this
+      console.log('cord item', itemCord)
       vm.urlRequest = itemCord.url
       vm.method = itemCord.method
       vm.headersOption = itemCord.headersOption
@@ -403,6 +429,9 @@ export default {
       // setTimeout(function () {
       //   vm.sendRequest()
       // }, 1000)
+    },
+    editCord (item, index) {
+      let vm = this
     },
     removeCord (item, index) {
       let vm = this
@@ -421,8 +450,21 @@ export default {
 }
 </script>
 <style>
+  .table-data .v-text-field.v-text-field--solo .v-input__control {
+    height: 32px;
+    min-height: 32px;
+    padding: 0;
+  }
+  .table-data .v-text-field.v-text-field--solo .v-input__control .v-input__slot {
+    box-shadow: none !important
+  }
+  .table-data .input-value {
+    width: calc(100% - 30px);
+    width: -moz-calc(100% - 30px);
+    width: -webkit-calc(100% - 30px);
+  }
   .methods-select {
-    max-width: 350px;
+    max-width: 250px;
   }
   .container-content {
     position: relative;
@@ -450,13 +492,16 @@ export default {
   .wrap-history {
     width:100%;
     font-size:12px;
-    max-height:150px;
+    max-height:600px;
     overflow: hidden;
     overflow-y: auto;
     background: #ffffff
   }
   .wrap-history .layout{
     border: 1px dashed #ddd;
+  }
+  .cord-item:hover{
+    background-color: #dedede
   }
   .wrap-history .layout .cord-time{
     width: 110px
