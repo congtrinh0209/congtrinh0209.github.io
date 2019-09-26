@@ -18,7 +18,7 @@
           min-height="32"
         >
           <template v-slot:append>
-            <v-btn depressed text class="ma-0 px-0" color="primary" @click="showSearchAdvanced">Nâng cao</v-btn>
+            <v-btn depressed text class="ma-0 px-0" color="primary" @click.native="showSearchAdvanced">Nâng cao</v-btn>
           </template>
         </v-text-field>
 
