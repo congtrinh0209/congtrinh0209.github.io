@@ -24,9 +24,9 @@
 
         <div class="flex-grow-0"></div>
 
-        <v-btn height="32" depressed class="ma-1 px-1" color="primary">Tìm kiếm</v-btn>
-        <v-btn height="32" class="ma-1 px-1" outlined color="primary">Thêm mới</v-btn>
-        <v-btn height="32" class="ma-1 px-1 mr-0" outlined color="primary">Xuất excel</v-btn>
+        <v-btn height="32" depressed class="ma-1 px-1 mr-0" color="primary" @click="submitSearch">Tìm kiếm</v-btn>
+        <!-- <v-btn height="32" class="ma-1 px-1" outlined color="primary">Thêm mới</v-btn>
+        <v-btn height="32" class="ma-1 px-1 mr-0" outlined color="primary">Xuất excel</v-btn> -->
       </v-app-bar>
       <div class="searchAdvanced-content py-2">
         <v-flex class="xs12" v-if="searchAdvanced && itemsFilter.length > 0">
@@ -35,10 +35,9 @@
               <v-select
                 class="select-search"
                 :items="keyFilterItems"
-                v-model="item['key']"
-                item-text="name"
-                item-value="value"
-                return-object
+                v-model="item['keyCode']"
+                item-text="keyName"
+                item-value="keyCode"
                 hide-details
                 solo
                 flat
@@ -50,10 +49,9 @@
               <v-select
                 class="select-search"
                 :items="typeFilterItems"
-                v-model="item['type']"
-                item-text="name"
-                item-value="value"
-                return-object
+                v-model="item['typeCode']"
+                item-text="typeName"
+                item-value="typeCode"
                 hide-details
                 solo
                 flat
@@ -81,7 +79,7 @@
                   </v-btn>
                 </v-flex>
                 <v-flex xs6 class="pl-1">
-                  <v-btn width="100%" height="32" color="red" dense small dark @click="removeSearchItem">
+                  <v-btn width="100%" height="32" color="red" dense small dark @click="removeSearchItem(item, index)">
                     <v-icon>remove</v-icon>
                   </v-btn> 
                 </v-flex>
@@ -92,76 +90,6 @@
       </div>
       
     </div>
-    <!-- <v-layout wrap>
-      <v-flex class="xs12 sm9">
-        <v-text-field
-          class="input-search"
-          height="32"
-          single-lines
-          hide-details
-          outlined
-        >
-          <template v-slot:append>
-            <v-btn depressed text color="primary" class="pr-2 priamry--text"
-              @click="showSearchAdvanced"
-            >
-              Nâng cao
-            </v-btn>
-          </template>
-        </v-text-field>
-      </v-flex>
-      <v-flex class="xs12 sm3">
-        <v-btn depressed color="primary" small class="pr-2">
-          Tìm kiếm
-        </v-btn>
-        <v-btn depressed color="primary" small class="pr-2">
-          Thêm mới
-        </v-btn>
-        <v-btn depressed color="primary" small>
-          Xuất excel
-        </v-btn>
-      </v-flex>
-      <v-flex class="xs12" v-if="searchAdvanced && itemsFilter.length > 0">
-        <v-layout wrap v-for="(item, index) in itemsFilter" :key="index">
-          <v-flex xs12 sm3>
-            <v-select
-              :items="keyFilterItems"
-              v-model="item['key']"
-              item-text="name"
-              item-value="value"
-              return-object
-            ></v-select>
-          </v-flex>
-          <v-flex xs12 sm2>
-            <v-select
-              :items="typeFilterItems"
-              v-model="item['type']"
-              item-text="name"
-              item-value="value"
-              return-object
-            ></v-select>
-          </v-flex>
-          <v-flex xs12 sm4>
-            <v-text-field
-              v-model="item['value']"
-              class="input-search"
-              height="32"
-              single-lines
-              hide-details
-              outlined
-            ></v-text-field>
-          </v-flex>
-          <v-flex xs12 sm3>
-            <v-btn color="primary" small dark>
-              <v-icon>add</v-icon>
-            </v-btn>
-            <v-btn color="red" small dark>
-              <v-icon>remove</v-icon>
-            </v-btn>
-          </v-flex>
-        </v-layout>
-      </v-flex>
-    </v-layout> -->
   </div>
 </template>
 
@@ -187,36 +115,91 @@ export default {
   },
   created () {
     var vm = this
-    console.log('filter_options', vm.filter_options)
     vm.createFilterConfig()
+    vm.getSearchItems()
   },
   watch: {
-    filter_options (val) {
+    '$route': function (newRoute, oldRoute) {
+      let vm = this
       vm.createFilterConfig()
+      vm.getSearchItems()
     }
   },
   methods: {
     createFilterConfig () {
       let vm = this
-      let keyFilterAll = []
-      let typeFilterAll = []
-      for (let key in vm.filter_options) {
-        keyFilterAll.push(vm.filter_options[key]['key'])
-        typeFilterAll.push(vm.filter_options[key]['type'])
+      vm.keyFilterItems = vm.filter_options.length > 0 ? vm.removeDublicate(vm.filter_options, 'keyCode') : []
+      vm.typeFilterItems = vm.filter_options.length > 0 ? vm.removeDublicate(vm.filter_options, 'typeCode') : []
+    },
+    getSearchItems () {
+      let vm = this
+      let current = vm.$router.history.current
+      let newQuery = current.query
+      vm.itemsFilter = []
+      for (let key in newQuery) {
+        if (newQuery[key] && String(key).indexOf('filter_field_') === 0) {
+          vm.itemsFilter.push({
+            keyCode: newQuery[key],
+            typeCode: newQuery[String(key).replace('filter_field_', 'filter_type_')],
+            fields: '',
+            value: newQuery[String(key).replace('filter_field_', 'filter_value_')]
+          })
+        }
       }
-      vm.keyFilterItems = keyFilterAll.length > 0 ? vm.removeDublicate(keyFilterAll, 'value') : []
-      vm.typeFilterItems = typeFilterAll.length > 0 ? vm.removeDublicate(typeFilterAll, 'value') : []
-      console.log(vm.keyFilterItems, vm.typeFilterItems)
+      if (vm.itemsFilter.length > 0) {
+        vm.searchAdvanced = true
+      } else {
+        vm.searchAdvanced = false
+      }
     },
     addSearchItem () {
       let vm = this
       vm.itemsFilter.push(
         {
-          key: {name: '', value: ''},
-          type: {name: '', value: ''},
+          keyCode: '',
+          typeCode: '',
+          fields: '',
           value: ''
         }
       )
+    },
+    showSearchAdvanced () {
+      let vm = this
+      vm.searchAdvanced = !vm.searchAdvanced
+      if (vm.searchAdvanced && vm.itemsFilter.length === 0) {
+        vm.itemsFilter = [
+          {
+            keyCode: '',
+            typeCode: '',
+            fields: '',
+            value: ''
+          }
+        ]
+      }
+    },
+    submitSearch () {
+      let vm = this
+      let current = vm.$router.history.current
+      let newQuery = current.query
+      let queryString = '?'
+      for (let key in vm.itemsFilter) {
+        let index = Number(key) + 1
+        newQuery['filter_field_' + index] = vm.itemsFilter[key]['keyCode']
+        newQuery['filter_type_' + index] = vm.itemsFilter[key]['typeCode']
+        newQuery['filter_value_' + index] = vm.itemsFilter[key]['value']
+      }
+      for (let key in newQuery) {
+        if (newQuery[key] !== '' && newQuery[key] !== undefined && newQuery[key] !== null) {
+          queryString += key + '=' + newQuery[key] + '&'
+        }
+      }
+      
+      vm.$router.push({
+        path: current.path + queryString,
+        query: {
+          renew: Math.floor(Math.random() * (100 - 1 + 1)) + 1
+        }
+      })
     },
     removeSearchItem (item, index) {
       let vm = this
@@ -231,19 +214,6 @@ export default {
       .map((e, i, final) => final.indexOf(e) === i && i)
       .filter(e => arr[e]).map(e => arr[e]);
       return result;
-    },
-    showSearchAdvanced () {
-      let vm = this
-      vm.searchAdvanced = !vm.searchAdvanced
-      if (vm.searchAdvanced && vm.itemsFilter.length === 0) {
-        vm.itemsFilter = [
-          {
-            key: {name: '', value: ''},
-            type: {name: '', value: ''},
-            value: ''
-          }
-        ]
-      }
     }
   },
   setup(props, ctx) {

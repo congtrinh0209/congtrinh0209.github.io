@@ -1,5 +1,6 @@
 
 import Vue from 'vue'
+import router from './router'
 import App from './App'
 import Vuetify from 'vuetify/lib'
 
@@ -13,6 +14,7 @@ export default new Vuetify(opts)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  router,
   vuetify: new Vuetify(),
   render: h => h(App)
 }).$mount('#app')
