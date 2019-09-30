@@ -43,6 +43,7 @@
                 flat
                 height="32"
                 min-height="32"
+                @change="changeKeySearch(item, index)"
               ></v-select>
             </v-flex>
             <v-flex xs12 sm2 class="pr-2">
@@ -61,6 +62,31 @@
             </v-flex>
             <v-flex xs12 sm4 class="pr-2">
               <v-text-field
+                v-if="item['fields'].toLocaleLowerCase() === 'input'"
+                v-model="item['value']"
+                class="search-input-appbar input-search"
+                single-lines
+                hide-details
+                solo
+                flat
+                height="32"
+                min-height="32"
+              ></v-text-field>
+              <v-select
+                v-else-if="item['fields'].toLocaleLowerCase() === 'select'"
+                class="select-search"
+                :items="item['options']"
+                v-model="item['value']"
+                :item-text="item['itemText']"
+                :item-value="item['itemValue']"
+                hide-details
+                solo
+                flat
+                height="32"
+                min-height="32"
+              ></v-select>
+              <v-text-field
+                v-else
                 v-model="item['value']"
                 class="search-input-appbar input-search"
                 single-lines
@@ -141,7 +167,7 @@ export default {
           vm.itemsFilter.push({
             keyCode: newQuery[key],
             typeCode: newQuery[String(key).replace('filter_field_', 'filter_type_')],
-            fields: '',
+            fields: vm.getFields(newQuery[key])['fields'],
             value: newQuery[String(key).replace('filter_field_', 'filter_value_')]
           })
         }
@@ -189,7 +215,9 @@ export default {
         newQuery['filter_value_' + index] = vm.itemsFilter[key]['value']
       }
       for (let key in newQuery) {
-        if (newQuery[key] !== '' && newQuery[key] !== undefined && newQuery[key] !== null) {
+        if (newQuery[key] !== '' && newQuery[key] !== undefined && newQuery[key] !== null &&
+          Number(String(key).split('_').pop()) <= vm.itemsFilter.length
+        ) {
           queryString += key + '=' + newQuery[key] + '&'
         }
       }
@@ -207,6 +235,23 @@ export default {
       if (vm.itemsFilter.length === 0) {
         vm.searchAdvanced = false
       }
+    },
+    changeKeySearch(item, index) {
+      let vm = this
+      vm.itemsFilter[index]['value'] = ''
+      vm.itemsFilter[index]['fields'] = vm.getFields(item['keyCode'])['fields']
+      if (String(vm.itemsFilter[index]['fields']).toLowerCase() === 'select') {
+        vm.itemsFilter[index]['options'] = []
+        vm.itemsFilter[index]['itemText'] = vm.getFields(item['keyCode'])['itemText']
+        vm.itemsFilter[index]['itemValue'] = vm.getFields(item['keyCode'])['itemValue']
+      }
+    },
+    getFields (keyCode) {
+      let vm = this
+      let fields = vm.filter_options.filter(function (item) {
+        return String(item['keyCode']) === String(keyCode)
+      })
+      return fields[0]
     },
     removeDublicate (arr, key) {
       let result = arr

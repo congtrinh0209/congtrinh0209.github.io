@@ -35,7 +35,10 @@ export default {
         keyCode: 'laneStatus',
         typeName: 'Chứa',
         typeCode: 'contains',
-        fields: 'select'
+        fields: 'select',
+        resourceApi: '',
+        itemText: '',
+        itemValue: ''
       },
       {
         keyName: 'Ngày tạo',
