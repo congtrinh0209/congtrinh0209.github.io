@@ -1,12 +1,6 @@
 "use strict";
 
-var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
-  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
-} : function (obj) {
-  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
-};
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 (function (e) {
   function t(t) {
@@ -51,20 +45,22 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
   }var c = l;n.push(["56d7", "chunk-vendors"]), a();
 })({ "1b71": function b71(module, __webpack_exports__, __webpack_require__) {
     "use strict";
-
     __webpack_require__.d(__webpack_exports__, "a", function () {
       return templateDefault;
-    });var templateDefault = { template: '\n        <div @click="doReadEvent(item[\'eventId\'])" style="display: flex;cursor: pointer;">\n            <div class="v-avatar white--text" style="height: 36px;width: 36px;margin-right: 8px;margin-top: 3px;">\n                <img :src="item[\'avatar\']" :alt="item[\'userName\']">\n            </div>\n            <p style="margin-bottom: 0px;">\n                <strong>{{item["userName"]}}</strong> {{item["title"]}}\n                <a href="javascript:;" style="\n                    color: #0072c2;\n                    font-weight: bold;\n                    border-bottom: 1px dotted;\n                ">\n                    {{dossier["dossierNo"]}}\n                </a>\n                <br/>\n                <span style="color: rgb(90, 90, 90) !important;font-size: 11px;">\n                    <i aria-hidden="true" class="v-icon material-icons theme--light" style="font-size: 15px; color: rgb(0, 114, 194);">event</i>\n                        {{new Date(item["notificationDate"]).toLocaleString(\'vi-VN\')}}\n                </span>\n            </p>\n        </div>\n    ', data: { item: {}, dossier: {} }, created: function created() {
+    });var templateDefault = { template: '\n        <div @click="doReadEvent(item[\'eventId\'])" style="display: flex;cursor: pointer;">\n            <div class="v-avatar white--text" style="height: 36px;width: 36px;margin-right: 8px;margin-top: 3px;">\n                <img :src="item[\'avatar\']" :alt="item[\'userName\']">\n            </div>\n            <p style="margin-bottom: 0px;">\n                <strong>{{item["userName"]}}</strong> {{item["title"]}}\n                <a href="javascript:;" style="\n                    color: #0072c2;\n                    font-weight: bold;\n                    border-bottom: 1px dotted;\n                ">\n                    {{dossier["dossierNo"]}}\n                </a>\n                <br/>\n                <span style="color: rgb(90, 90, 90) !important;font-size: 11px;">\n                    <i aria-hidden="true" class="v-icon material-icons theme--light" style="font-size: 15px; color: rgb(0, 114, 194);">event</i>\n                        {{new Date(item["notificationDate"]).toLocaleString(\'vi-VN\')}}\n                </span>\n            </p>\n        </div>\n    ', data: function data() {
+        return { item: {}, dossier: {} };
+      }, created: function created() {
         var vm = this;if (void 0 !== vm.$parent.item && null !== vm.$parent.item && (vm.item = vm.$parent.item, vm.item.hasOwnProperty("data"))) {
           var dataObject = eval(" ( " + vm.item["data"] + " ) ");vm.dossier = dataObject["Dossier"];
         }
-      }, methods: { doReadEvent: function doReadEvent(e) {
+      }, methods: {
+        doReadEvent: function doReadEvent(e) {
           var t = this;t.$parent.markReadEventId(e, t.item["viewRootURI"], t.dossier["dossierId"], t.dossier["originality"]);
-        } } },
+        }
+      } },
         testData = [{ guestUrl: "", data: '{"Dossier":{"dossierTemplateNo":"MAU_SNGV_LSVK01","cachedModel":true,"originality":3,"originalReferenceUid":"8f30c78e-a6ce-4a2f-bb22-ba5cb5282110","delegateWardCode":"07897","dossierStatus":"new","dossierRegister":"","durationCount":7,"referenceUid":"8f30c78e-a6ce-4a2f-bb22-ba5cb5282110","sampleCount":"1","applicantNote":"","dossierSubStatus":"new_0","password":"4656","dossierNo":"09.H44.181214.00108","govAgencyCode":"SNGV","originalDossierActionId":"37801","originalGovAgencyCode":"SNGV","originalOriginality":3,"dossierNote":"","finderCacheEnabled":true,"modelClass":"org.opencps.dossiermgt.model.Dossier","endorsementDate":null,"originDossierId":"0","processNo":"QT_SNGV_LSVK01","dossierActionId":"37801","wardName":"Phường Tân Dân","correcttingDate":null,"postalTelNo":"","originalServiceCode":"SNGV_LSVK01","userUuid":"3071a2f7-3926-e6ca-dafa-676f91a70706","postalDistrictName":"","submitting":false,"originalUuid":"1577ffc9-a398-c144-4dc0-e9db730fb338","serviceCode":"SNGV_LSVK01","modelClassName":"org.opencps.dossiermgt.model.Dossier","delegateEmail":"","serverNo":"SERVER_DVC","applicantIdNo":"131487417","createDate":1544782856576,"originalViaPostal":0,"address":"","registerBookName":"","districtName":"Thành phố Việt Trì","delegateCityName":"Tỉnh Phú Thọ","entityCacheEnabled":true,"userId":"240262","originalCompanyId":"20099","escapedModel":false,"originalOriginDossierId":"0","delegateDistrictName":"Thành phố Việt Trì","contactTelNo":"0947006999","delegateIdNo":"131487417","applicantIdType":"citizen","originalDossierStatus":"new","finishDate":null,"dossierStatusText":"Hồ sơ mới nhận","dossierSubStatusText":"Chờ bàn giao thụ lý","viaPostal":0,"columnBitmask":"0","dueDate":1545733258736,"govAgencyName":"Sở Ngoại vụ","groupId":"53365","dossierTemplateName":"Cấp visa, gia hạn visa.","registerBookCode":"","originalDossierId":"23601","originDossierNo":"","uuid":"1577ffc9-a398-c144-4dc0-e9db730fb338","briefNote":"","notification":false,"postalWardCode":"","postalCityName":"","originalUserId":"240262","durationUnit":0,"wardCode":"07897","new":false,"originalApplicantIdNo":"131487417","contactName":"","delegateName":"VI TRƯỜNG SƠN","delegateTelNo":"0947006999","receiveDate":1544782858736,"extendDate":null,"applicantName":"VI TRƯỜNG SƠN","folderId":"0","dossierName":"Cấp visa, gia hạn visa","companyId":"20099","postalAddress":"","processDate":null,"modifiedDate":1544782867802,"postalServiceName":"","dossierId":"23601","delegateAddress":"","districtCode":"227","originalDossierTemplateNo":"MAU_SNGV_LSVK01","cityCode":"25","submitDate":null,"cancellingDate":null,"stagedModelType":{"classSimpleName":"Dossier","referrerClassNameId":"0","referrerClassName":null,"className":"org.opencps.dossiermgt.model.Dossier","classNameId":"34906"},"lockState":"","applicantIdDate":null,"delegateCityCode":"25","cityName":"Tỉnh Phú Thọ","postalServiceCode":"","original":false,"contactEmail":"","originalDossierNo":"09.H44.181214.00108","releaseDate":null,"postalDistrictCode":"","delegateDistrictCode":"227","counter":96,"delegateWardName":"Phường Tân Dân","serviceName":"Cấp visa, gia hạn visa","userName":"Lê Phương Thảo","postalCityCode":"","primaryKeyObj":"23601","originalGroupId":"53365","postalWardName":"","online":false,"primaryKey":"23601"}}', notificationText: "Thông báo tiếp nhận hồ sơ", notifyMessage: "", title: "Thông báo tiếp nhận hồ sơ", userId: "0", userUrl: "" }, { guestUrl: "", data: '{"Dossier":{"dossierTemplateNo":"MAU_SNGV_LSVK01","cachedModel":true,"originality":3,"originalReferenceUid":"8f30c78e-a6ce-4a2f-bb22-ba5cb5282110","delegateWardCode":"07897","dossierStatus":"new","dossierRegister":"","durationCount":7,"referenceUid":"8f30c78e-a6ce-4a2f-bb22-ba5cb5282110","sampleCount":"1","applicantNote":"","dossierSubStatus":"new_0","password":"4656","dossierNo":"09.H44.181214.00108","govAgencyCode":"SNGV","originalDossierActionId":"37801","originalGovAgencyCode":"SNGV","originalOriginality":3,"dossierNote":"","finderCacheEnabled":true,"modelClass":"org.opencps.dossiermgt.model.Dossier","endorsementDate":null,"originDossierId":"0","processNo":"QT_SNGV_LSVK01","dossierActionId":"37801","wardName":"Phường Tân Dân","correcttingDate":null,"postalTelNo":"","originalServiceCode":"SNGV_LSVK01","userUuid":"3071a2f7-3926-e6ca-dafa-676f91a70706","postalDistrictName":"","submitting":false,"originalUuid":"1577ffc9-a398-c144-4dc0-e9db730fb338","serviceCode":"SNGV_LSVK01","modelClassName":"org.opencps.dossiermgt.model.Dossier","delegateEmail":"","serverNo":"SERVER_DVC","applicantIdNo":"131487417","createDate":1544782856576,"originalViaPostal":0,"address":"","registerBookName":"","districtName":"Thành phố Việt Trì","delegateCityName":"Tỉnh Phú Thọ","entityCacheEnabled":true,"userId":"240262","originalCompanyId":"20099","escapedModel":false,"originalOriginDossierId":"0","delegateDistrictName":"Thành phố Việt Trì","contactTelNo":"0947006999","delegateIdNo":"131487417","applicantIdType":"citizen","originalDossierStatus":"new","finishDate":null,"dossierStatusText":"Hồ sơ mới nhận","dossierSubStatusText":"Chờ bàn giao thụ lý","viaPostal":0,"columnBitmask":"0","dueDate":1545733258736,"govAgencyName":"Sở Ngoại vụ","groupId":"53365","dossierTemplateName":"Cấp visa, gia hạn visa.","registerBookCode":"","originalDossierId":"23601","originDossierNo":"","uuid":"1577ffc9-a398-c144-4dc0-e9db730fb338","briefNote":"","notification":false,"postalWardCode":"","postalCityName":"","originalUserId":"240262","durationUnit":0,"wardCode":"07897","new":false,"originalApplicantIdNo":"131487417","contactName":"","delegateName":"VI TRƯỜNG SƠN","delegateTelNo":"0947006999","receiveDate":1544782858736,"extendDate":null,"applicantName":"VI TRƯỜNG SƠN","folderId":"0","dossierName":"Cấp visa, gia hạn visa","companyId":"20099","postalAddress":"","processDate":null,"modifiedDate":1544782867802,"postalServiceName":"","dossierId":"23601","delegateAddress":"","districtCode":"227","originalDossierTemplateNo":"MAU_SNGV_LSVK01","cityCode":"25","submitDate":null,"cancellingDate":null,"stagedModelType":{"classSimpleName":"Dossier","referrerClassNameId":"0","referrerClassName":null,"className":"org.opencps.dossiermgt.model.Dossier","classNameId":"34906"},"lockState":"","applicantIdDate":null,"delegateCityCode":"25","cityName":"Tỉnh Phú Thọ","postalServiceCode":"","original":false,"contactEmail":"","originalDossierNo":"09.H44.181214.00108","releaseDate":null,"postalDistrictCode":"","delegateDistrictCode":"227","counter":96,"delegateWardName":"Phường Tân Dân","serviceName":"Cấp visa, gia hạn visa","userName":"Lê Phương Thảo","postalCityCode":"","primaryKeyObj":"23601","originalGroupId":"53365","postalWardName":"","online":false,"primaryKey":"23601"}}', notificationText: "Thông báo tiếp nhận hồ sơ", notifyMessage: "", title: "Thông báo tiếp nhận hồ sơ", userId: "0", userUrl: "" }];
   }, "56d7": function d7(e, t, a) {
     "use strict";
-
     a.r(t);a("0f18");var i = a("a026"),
         o = a("bb71");i["a"].use(o["a"], { theme: { primary: "#001f4d", secondary: "#424242", accent: "#001f4d", error: "#FF5252", info: "#2196F3", success: "#4CAF50", warning: "#FFC107" }, customProperties: !0, iconfont: "md" });var n = function n() {
       var e = this,
@@ -104,9 +100,11 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
         u = [],
         m = a("da1e"),
         g = m["a"],
-        f = a("2877"),
-        h = Object(f["a"])(g, p, u, !1, null, null, null);h.options.__file = "template_rendering.vue";var v = h.exports,
-        w = a("1b71");c.a.options = { closeButton: !0, timeOut: "15000" };var y = { components: { "template-rendering": v }, data: { isSignedIn: !1, userNameLogin: "", drawerLogin: !1, avatarURL: "http://via.placeholder.com/350x150", notificationCount: 0, isShowUserMenu: !1, toggle_exclusive: 0, forgottenURLStr: "", userName: "", passWord: "", userData: {}, colorBG: "009688", templateDefault: w["a"], testData: [], testDataSeen: [] }, created: function created() {
+        h = a("2877"),
+        f = Object(h["a"])(g, p, u, !1, null, null, null);f.options.__file = "template_rendering.vue";var v = f.exports,
+        w = a("1b71");c.a.options = { closeButton: !0, timeOut: "15000" };var y = { components: { "template-rendering": v }, data: function data() {
+        return { isSignedIn: !1, userNameLogin: "", drawerLogin: !1, avatarURL: "http://via.placeholder.com/350x150", notificationCount: 0, isShowUserMenu: !1, toggle_exclusive: 0, forgottenURLStr: "", userName: "", passWord: "", userData: {}, colorBG: "009688", templateDefault: w["a"], testData: [], testDataSeen: [] };
+      }, created: function created() {
         var e = this;e.$nextTick(function () {
           e.isSignedIn = window.themeDisplay.isSignedIn(), e.userNameLogin = window.themeDisplay.getUserName(), e.colorBG = e.intToRGB(e.hashCode(e.userNameLogin));var t = window.themeDisplay.getLayoutRelativeURL().substring(0, window.themeDisplay.getLayoutRelativeURL().lastIndexOf("/"));e.forgottenURLStr = "" !== t ? t + "/register/#/cap-lai-mat-khau" : window.themeDisplay.getURLHome() + "/register/#/cap-lai-mat-khau", e.isSignedIn && (e.userData = {}, e.pullNotificationCount(), setTimeout(function () {
             l.a.get("/o/v1/opencps/users/" + window.themeDisplay.getUserId()).then(function (t) {
@@ -116,9 +114,11 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
             });
           }, 1e3));
         });
-      }, watch: { $route: function $route(e, t) {
+      },
+      watch: { $route: function $route(e, t) {
           var a = this;a.notificationCount < 5 && a.pullNotificationCount();
-        } }, methods: { getImageAvatar: function getImageAvatar(e) {
+        } }, methods: {
+        getImageAvatar: function getImageAvatar(e) {
           var t = this,
               a = { headers: { groupId: window.themeDisplay ? window.themeDisplay.getScopeGroupId() : "" } };l.a.get("/o/v1/opencps/users/avatar/" + e["className"] + "/" + e["classPK"], a).then(function (e) {
             if (e.data) {
@@ -127,46 +127,56 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
           }).catch(function (e) {
             t.avatarURL = "";
           });
-        }, markRead: function markRead() {
+        },
+        markRead: function markRead() {
           var e = this;for (var _t in e.testData) {
             l.a.post("/o/rest/v2/notifications/" + e.testData[_t]["eventId"] + "/mark").then(function (e) {});
           }e.drawerLogin = !1;
-        }, markReadEventId: function markReadEventId(e) {
+        },
+        markReadEventId: function markReadEventId(e) {
           var t = this,
               a = "";a = String(t.userData["className"]).indexOf("Employee") >= 0 ? "employee" : "applicant";var i = window.themeDisplay.getSiteAdminURL().split("/~")[0].replace("group", "web");l.a.post("/o/rest/v2/notifications/" + e["eventId"] + "/mark").then(function (t) {
             var o = i + "/dich-vu-cong#/danh-sach-ho-so/0/chi-tiet-ho-so/" + e["dossierId"] + "?t=" + new Date().getTime();"employee" === a && (o = i + "#/danh-sach-ho-so/0/chi-tiet-ho-so/" + e["dossierId"] + "?t=" + new Date().getTime()), window.location.href = o;
           }).catch(function (t) {
             var o = i + "/dich-vu-cong#/danh-sach-ho-so/0/chi-tiet-ho-so/" + e["dossierId"] + "?t=" + new Date().getTime();"employee" === a && (o = i + "#/danh-sach-ho-so/0/chi-tiet-ho-so/" + e["dossierId"] + "?t=" + new Date().getTime()), window.location.href = o;
           });
-        }, pullNotificationCount: function pullNotificationCount() {
+        },
+        pullNotificationCount: function pullNotificationCount() {
           var e = this,
               t = {};l.a.get("/o/rest/v2/notifications/count?archived=false", t).then(function (t) {
             var a = t.data;e.notificationCount = a["total"];
           }).catch(function (t) {
             e.notificationCount = 0;
           });
-        }, pullNotificationData: function pullNotificationData() {
+        },
+        pullNotificationData: function pullNotificationData() {
           var e = this,
               t = {};e.testData = [], e.testDataSeen = [], l.a.get("/o/rest/v2/notifications?archived=false", t).then(function (t) {
             var a = t.data;e.notificationCount = a["total"], e.testData = a["data"];
           }).catch(function (e) {}), l.a.get("/o/rest/v2/notifications?archived=true&start=0&end=10", t).then(function (t) {
             e.testDataSeen = t.data["data"];
           }).catch(function (e) {});
-        }, showNoti: function showNoti() {
+        },
+        showNoti: function showNoti() {
           var e = this;e.drawerLogin = !e.drawerLogin, e.pullNotificationData();
-        }, doRegisterRedirect: function doRegisterRedirect() {
+        },
+        doRegisterRedirect: function doRegisterRedirect() {
           var e = window.themeDisplay.getLayoutRelativeURL().substring(0, window.themeDisplay.getLayoutRelativeURL().lastIndexOf("/"));window.location.href = "" !== e ? e + "/register" : window.themeDisplay.getURLHome() + "/register";
-        }, doUserInfo: function doUserInfo() {
+        },
+        doUserInfo: function doUserInfo() {
           if (null !== window.themeDisplay && void 0 !== window.themeDisplay) {
             var _e = window.themeDisplay.getLayoutRelativeURL().substring(0, window.themeDisplay.getLayoutRelativeURL().lastIndexOf("/"));window.location.href = _e + "/profile";
           } else window.location.href = "/profile";
-        }, doExitApp: function doExitApp() {
+        },
+        doExitApp: function doExitApp() {
           var e = this;"undefined" !== typeof Storage && (sessionStorage.removeItem("userLogout"), String(e.userData["className"]).indexOf("Employee") >= 0 ? sessionStorage.setItem("userLogout", "employee") : sessionStorage.setItem("userLogout", "applicant")), window.location.href = "/c/portal/logout";
-        }, goToDangKyPage: function goToDangKyPage() {
+        },
+        goToDangKyPage: function goToDangKyPage() {
           if (null !== window.themeDisplay && void 0 !== window.themeDisplay) {
             var _e2 = window.themeDisplay.getLayoutRelativeURL().substring(0, window.themeDisplay.getLayoutRelativeURL().lastIndexOf("/"));window.location.href = "" !== _e2 ? _e2 + "/register" : window.themeDisplay.getURLHome() + "/register";
           } else window.location.href = "/register";
-        }, goToDangNhap: function goToDangNhap() {
+        },
+        goToDangNhap: function goToDangNhap() {
           var e = this;l.a.post("/o/v1/opencps/login", {}, { headers: { Authorization: "BASIC " + window.btoa(e.userName + ":" + e.passWord) } }).then(function (e) {
             if ("" !== e.data && "ok" !== e.data && "captcha" !== e.data) {
               if ("pending" === e.data) {
@@ -178,7 +188,8 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
           }).catch(function (e) {
             c.a.error("Tên đăng nhập hoặc mật khẩu không chính xác.");
           });
-        }, goToDangNhapPress: function goToDangNhapPress(e) {
+        },
+        goToDangNhapPress: function goToDangNhapPress(e) {
           var t = this;13 == e.keyCode && l.a.post("/o/v1/opencps/login", {}, { headers: { Authorization: "BASIC " + window.btoa(t.userName + ":" + t.passWord) } }).then(function (e) {
             if (console.log(e.data), "" !== e.data && "ok" !== e.data && "captcha" !== e.data) "pending" === e.data ? window.location.href = window.themeDisplay.getURLHome() + "/register#/xac-thuc-tai-khoan?active_user_id=" + window.themeDisplay.getUserId() + "&redirectURL=" + window.themeDisplay.getURLHome() : window.location.href = e.data;else if ("ok" === e.data) window.location.href = window.themeDisplay.getURLHome();else if ("captcha" === e.data) {
               var _e5 = window.themeDisplay.getLayoutRelativeURL().substring(0, window.themeDisplay.getLayoutRelativeURL().lastIndexOf("/"));window.location.href = "" !== _e5 ? _e5 + "/register#/login" : window.themeDisplay.getURLHome() + "/register#/login";
@@ -186,13 +197,16 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
           }).catch(function (e) {
             c.a.error("Tên đăng nhập hoặc mật khẩu không chính xác.");
           });
-        }, hashCode: function hashCode(e) {
+        },
+        hashCode: function hashCode(e) {
           for (var t = 0, a = 0; a < e.length; a++) {
             t = e.charCodeAt(a) + ((t << 5) - t);
           }return t;
-        }, intToRGB: function intToRGB(e) {
+        },
+        intToRGB: function intToRGB(e) {
           var t = (16777215 & e).toString(16).toUpperCase();return "00000".substring(0, 6 - t.length) + t;
-        } } },
+        }
+      } },
         b = y,
         _ = a("6544"),
         x = a.n(_),
@@ -208,10 +222,9 @@ var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "sym
         U = a("5d23"),
         V = a("e449"),
         A = a("f774"),
-        O = Object(f["a"])(b, n, s, !1, null, null, null);O.options.__file = "App.vue";var P = O.exports;x()(O, { VAvatar: D["a"], VBtn: N["a"], VChip: C["a"], VFlex: S["a"], VIcon: I["a"], VLayout: L["a"], VList: k["a"], VListTile: T["a"], VListTileAction: R["a"], VListTileContent: U["a"], VListTileTitle: U["b"], VMenu: V["a"], VNavigationDrawer: A["a"] }), l.a.defaults.headers.common["Token"] = void 0 !== window.Liferay ? window.Liferay.authToken : "", i["a"].config.productionTip = !0, new i["a"]({ el: "#app_login", components: { App: P }, template: "<App/>" });
+        O = Object(h["a"])(b, n, s, !1, null, null, null);O.options.__file = "App.vue";var P = O.exports;x()(O, { VAvatar: D["a"], VBtn: N["a"], VChip: C["a"], VFlex: S["a"], VIcon: I["a"], VLayout: L["a"], VList: k["a"], VListTile: T["a"], VListTileAction: R["a"], VListTileContent: U["a"], VListTileTitle: U["b"], VMenu: V["a"], VNavigationDrawer: A["a"] }), l.a.defaults.headers.common["Token"] = void 0 !== window.Liferay ? window.Liferay.authToken : "", i["a"].config.productionTip = !0, new i["a"]({ el: "#app_login", components: { App: P }, template: "<App/>" });
   }, da1e: function da1e(module, __webpack_exports__, __webpack_require__) {
     "use strict";
-
     var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a026");__webpack_exports__["a"] = { props: { item: { type: Object, default: function _default() {
             return { dossierId: 0 };
           }
