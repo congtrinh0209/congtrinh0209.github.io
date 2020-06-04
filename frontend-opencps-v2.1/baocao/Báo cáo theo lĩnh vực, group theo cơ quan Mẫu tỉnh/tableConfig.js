@@ -90,7 +90,7 @@
                           "",
                           "",
                           {
-                              text: "Ghi chú",
+                              text: "\n\n\Ghi chú",
                               rowSpan: 3,
                               alignment: "center",
                               bold: true,
@@ -173,7 +173,7 @@
                           "",
                           "",
                           {
-                              text: "\nSố mới tiếp nhận",
+                              text: "Số mới tiếp nhận",
                               alignment: "center",
                               bold: true,
                               style: "tdStyle"
@@ -221,7 +221,7 @@
                               style: "tdStyle"
                           },
                           {
-                              text: "\nQuá hạn",
+                              text: "Quá hạn",
                               alignment: "center",
                               bold: true,
                               style: "tdStyle"
