@@ -32,7 +32,7 @@
        },
        {
          text: [
-           {text: 'BÁO CÁO CHI TIẾT PHÍ, LỆ PHÍ\n'},
+           {text: 'BÁO CÁO TỔNG HỢP PHÍ, LỆ PHÍ THEO THỦ TỤC HÀNH CHÍNH\n'},
            {text: "Đơn vị: [$groupIds$]\n", fontSize: 11},
            {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11}
          ], 

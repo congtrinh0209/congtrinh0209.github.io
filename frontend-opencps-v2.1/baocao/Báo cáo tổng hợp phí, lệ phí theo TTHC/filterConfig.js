@@ -142,11 +142,6 @@
        key: "domainCode",
        label: "Lĩnh vực",
        display: "domainName"
-    },
-    {
-       key: "serviceCode",
-       label: "Thủ tục",
-       display: "serviceName"
     }
   ], 
   filters: [
@@ -168,45 +163,30 @@
   reportConfig: [
     {
       "selected": true,
-      "value": "dossierNo",
-      "text": "Mã hồ sơ"
+      "value": "serviceName",
+      "text": "Tên TTHC"
     },
     {
       "selected": true,
-      "value": "applicantName",
+      "value": "totalDossier",
       "align": "left",
-      "text": "Người đăng ký"
+      "text": "Số hồ sơ phải thu phí, lệ phí"
     },
     {
       "selected": true,
-      "value": "address",
+      "value": "totalFeeAmount",
       "align": "left",
-      "text": "Địa chỉ người nộp"
-    },
-    {
-      "selected": true,
-      "value": "paymentDate",
-      "text": "Ngày thu"
-    },
-    {
-      "selected": true,
-      "value": "paymentFee",
-      "text": "Lệ phí"
-    },
-    {
-      "selected": true,
-      "value": "paymentAmount",
       "text": "Phí"
+    },
+    {
+      "selected": true,
+      "value": "totalPaymentAmount",
+      "text": "Lệ phí"
     },
     {
       "selected": true,
       "value": "totalAmount",
       "text": "Tổng"
-    },
-    {
-      "selected": true,
-      "value": "note",
-      "text": "Diễn giải"
     }
   ]
 }
