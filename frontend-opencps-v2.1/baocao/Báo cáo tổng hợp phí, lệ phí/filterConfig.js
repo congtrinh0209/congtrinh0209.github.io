@@ -1,6 +1,6 @@
 
 {
-  api: "/o/rest/statistics/feesummary?paymentStatus=-1&type=service",
+  api: "/o/rest/statistics/feesummary",
   exclusive: false,
   customize: true,
   groupIds: [
@@ -163,8 +163,8 @@
   reportConfig: [
     {
       "selected": true,
-      "value": "serviceName",
-      "text": "Tên TTHC"
+      "value": "domainName",
+      "text": "Lĩnh vực"
     },
     {
       "selected": true,

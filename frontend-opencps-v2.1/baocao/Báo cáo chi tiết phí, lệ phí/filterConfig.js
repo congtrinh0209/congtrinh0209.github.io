@@ -152,17 +152,17 @@
   filters: [
     {
       label: "Từ ngày",
-      key: "fromReceiveDate",
+      key: "fromStatisticDate",
       value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
       type: "date",
-      before: "toReceiveDate"  
+      before: "toStatisticDate"  
     },
     {
       label: "Đến ngày",
-      key: "toReceiveDate",
+      key: "toStatisticDate",
       value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
       type: "date",
-      after: "fromReceiveDate"  
+      after: "fromStatisticDate"  
     }
   ],
   reportConfig: [

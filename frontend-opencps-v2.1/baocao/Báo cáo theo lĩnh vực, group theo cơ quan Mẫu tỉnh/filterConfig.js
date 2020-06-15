@@ -1,5 +1,5 @@
 {
-  api: "/o/rest/statistics/feesummary?paymentStatus=-1&&type=service",
+  api: "/o/rest/dossiers",
   exclusive: false,
   customize: false,
   groupIds: [
