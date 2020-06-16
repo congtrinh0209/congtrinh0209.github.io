@@ -1,6 +1,6 @@
 
 {
-  api: "/o/rest/statistics/feesummary?paymentStatus=-1&type=service",
+  api: "/o/rest/statistics/feesummary?paymentStatus=-1&&type=service",
   exclusive: false,
   customize: true,
   groupIds: [
@@ -147,46 +147,52 @@
   filters: [
     {
       label: "Từ ngày",
-      key: "fromStatisticDate",
+      key: "fromReceiveDate",
       value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
       type: "date",
-      before: "toStatisticDate"  
+      before: "toReceiveDate"  
     },
     {
       label: "Đến ngày",
-      key: "toStatisticDate",
+      key: "toReceiveDate",
       value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
       type: "date",
-      after: "fromStatisticDate"  
+      after: "fromReceiveDate"  
     }
   ],
   reportConfig: [
     {
       "selected": true,
       "value": "serviceName",
-      "text": "Tên TTHC"
+      "text": "Tên TTHC",
+      "align": "left"
     },
     {
       "selected": true,
       "value": "totalDossier",
-      "align": "left",
+      "align": "center",
       "text": "Số hồ sơ phải thu phí, lệ phí"
     },
     {
       "selected": true,
       "value": "totalFeeAmount",
-      "align": "left",
-      "text": "Phí"
+      "align": "center",
+      "text": "Phí",
+      "type": "currency"
     },
     {
       "selected": true,
+      "align": "center",
       "value": "totalPaymentAmount",
-      "text": "Lệ phí"
+      "text": "Lệ phí",
+      "type": "currency"
     },
     {
       "selected": true,
+      "align": "center",
       "value": "totalAmount",
-      "text": "Tổng"
+      "text": "Tổng",
+      "type": "currency"
     }
   ]
 }
