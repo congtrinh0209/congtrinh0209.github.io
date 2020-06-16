@@ -1,12 +1,16 @@
-
 {
-  api: "/o/rest/statistics/feesummary?paymentStatus=-1",
+  api: "/o/rest/statistics/summary",
   exclusive: false,
-  customize: true,
+  customize: false,
   groupIds: [
     {
+      selected: true,
+      value: 0,
+      text: "Tất cả"
+    },
+    {
       value: 45022,
-      text: "Sở Tài nguyên và Môi trường Hậu Giang"
+      text: "Sở Tài nguyên và Môi trường"
     },
     {
       value: 45027,
@@ -137,69 +141,82 @@
           text: "Cấp xã huyện Châu Thành A "
     } 
   ],
+  sumKey: "domainCode",
   groupBy: [
     {
-       key: "domainCode",
-       label: "Lĩnh vực",
-       display: "domain",
-       showGroup: false
+       key: "govAgencyCode",
+       label: "Cơ quan",
+       display: "govAgencyName"
     }
-  ], 
+  ],
   filters: [
     {
       label: "Từ ngày",
       key: "fromStatisticDate",
-      value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
+      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
       type: "date",
-      before: "toStatisticDate"  
+      before: "toStatisticDate"
     },
     {
       label: "Đến ngày",
       key: "toStatisticDate",
-      value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
-      type: "date",
-      after: "fromStatisticDate"  
+      value: new Date().toLocaleDateString('vi-VN'),
+      type: "date", 
+      after: "fromStatisticDate" 
     }
   ],
   reportConfig: [
     {
       "selected": true,
-      "value": "domain",
-      "align": "left",
-      "text": "Lĩnh vực",
-      "width": 300
+      "value": "serviceName",
+      "text": "",
+      "align": "left"
     },
     {
       "selected": true,
-      "value": "totalDossier",
-      "align": "center",
-      "text": "Số hồ sơ phải thu phí, lệ phí",
-      "width": 100
+      "value": "onegateCount",
+      "text": "",
+      "align": "center"
     },
     {
       "selected": true,
-      "value": "totalFeeAmount",
-      "align": "center",
-      "text": "Phí",
-      "type": "currency",
-      "width": 90
+      "value": "onlineCount",
+      "text": "",
+      "align": "center"
     },
     {
       "selected": true,
-      "value": "totalPaymentAmount",
-      "align": "center",
-      "text": "Lệ phí",
-      "type": "currency",
-      "width": 90
+      "value": "fromViaPostalCount",
+      "text": "",
+      "align": "center"
     },
     {
       "selected": true,
-      "value": "totalAmount",
-      "align": "center",
-      "text": "Tổng",
-      "type": "currency",
-      "width": 90
+      "value": "doneOnegateCount",
+      "text": "",
+      "align": "center"
+    },
+    {
+      "selected": true,
+      "value": "doneViaPostalCount",
+      "text": "",
+      "align": "center"
+    },
+    {
+      "selected": true,
+      "value": "note",
+      "text": "",
+      "align": "center"
     }
-  ]
+  ],
+  selection: [
+    {
+        "key": "govAgencyCode",
+        "value": ""
+    }
+  ],
+  merge: ["domainCode","govAgencyCode"],
+  sort: "domainName",
+  statistics: true,
+  autoHeader: false
 }
-

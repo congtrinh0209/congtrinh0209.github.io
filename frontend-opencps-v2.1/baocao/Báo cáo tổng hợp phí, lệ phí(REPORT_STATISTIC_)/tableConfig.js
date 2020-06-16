@@ -103,12 +103,13 @@
          fontSize: 10
        },
        tableExample: {
-          width: "100%" 
+          width: "100%"
        }
      },
      defaultStyle: {
        columnGap: 20,
-       fontSize: 11
+       fontSize: 11,
+       width: "100%"
      }
    } 
 }
