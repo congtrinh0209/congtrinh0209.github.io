@@ -137,6 +137,14 @@
           text: "Cấp xã huyện Châu Thành A "
     } 
   ],
+  groupBy: [
+    {
+       key: "domainCode",
+       label: "Lĩnh vực",
+       display: "domain",
+       showGroup: false
+    }
+  ], 
   filters: [
     {
       label: "Từ ngày",
@@ -157,29 +165,35 @@
     {
       "selected": true,
       "value": "domain",
+      "align": "left",
       "text": "Lĩnh vực"
     },
     {
       "selected": true,
       "value": "totalDossier",
-      "align": "left",
+      "align": "center",
       "text": "Số hồ sơ phải thu phí, lệ phí"
     },
     {
       "selected": true,
       "value": "totalFeeAmount",
-      "align": "left",
-      "text": "Phí"
+      "align": "center",
+      "text": "Phí",
+      "type": "currency"
     },
     {
       "selected": true,
       "value": "totalPaymentAmount",
-      "text": "Lệ phí"
+      "align": "center",
+      "text": "Lệ phí",
+      "type": "currency"
     },
     {
       "selected": true,
       "value": "totalAmount",
-      "text": "Tổng"
+      "align": "center",
+      "text": "Tổng",
+      "type": "currency"
     }
   ]
 }

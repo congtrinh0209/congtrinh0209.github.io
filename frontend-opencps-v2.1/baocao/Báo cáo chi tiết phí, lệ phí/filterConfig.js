@@ -152,17 +152,17 @@
   filters: [
     {
       label: "Từ ngày",
-      key: "fromStatisticDate",
+      key: "fromReceiveDate",
       value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
       type: "date",
-      before: "toStatisticDate"  
+      before: "toReceiveDate"  
     },
     {
       label: "Đến ngày",
-      key: "toStatisticDate",
+      key: "toReceiveDate",
       value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
       type: "date",
-      after: "fromStatisticDate"  
+      after: "fromReceiveDate"  
     }
   ],
   reportConfig: [
@@ -191,17 +191,20 @@
     {
       "selected": true,
       "value": "paymentFee",
-      "text": "Lệ phí"
+      "text": "Lệ phí",
+      "type": "currency"
     },
     {
       "selected": true,
       "value": "paymentAmount",
-      "text": "Phí"
+      "text": "Phí",
+      "type": "currency"
     },
     {
       "selected": true,
       "value": "totalAmount",
-      "text": "Tổng"
+      "text": "Tổng",
+      "type": "currency"
     },
     {
       "selected": true,
@@ -210,4 +213,3 @@
     }
   ]
 }
-
