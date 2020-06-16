@@ -1,6 +1,6 @@
 
 {
-  api: "/o/rest/statistics/feesummary",
+  api: "/o/rest/statistics/feesummary?paymentStatus=-1",
   exclusive: false,
   customize: true,
   groupIds: [
@@ -137,13 +137,6 @@
           text: "Cấp xã huyện Châu Thành A "
     } 
   ],
-  groupBy: [
-    {
-       key: "domainCode",
-       label: "Lĩnh vực",
-       display: "domainName"
-    }
-  ], 
   filters: [
     {
       label: "Từ ngày",
@@ -163,7 +156,7 @@
   reportConfig: [
     {
       "selected": true,
-      "value": "domainName",
+      "value": "domain",
       "text": "Lĩnh vực"
     },
     {
