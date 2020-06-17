@@ -5,7 +5,7 @@
   groupIds: [
     {
       selected: true,
-      value: 0,
+      value: "all",
       text: "Tất cả"
     },
     {
