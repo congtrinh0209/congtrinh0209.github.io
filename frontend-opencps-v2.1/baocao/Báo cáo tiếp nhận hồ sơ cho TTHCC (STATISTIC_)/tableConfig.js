@@ -385,7 +385,7 @@
                     ]
                   },
                   {
-                      width: 100,
+                      width: 85,
                       style: "title",
                       text: ""
                   }
