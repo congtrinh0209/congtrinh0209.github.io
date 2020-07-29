@@ -5906,7 +5906,7 @@
 		<userConfig>{}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_11">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Hồ sơ chờ hoàn thành thanh toán</reportName>
 		<reportCode>REPORT_11</reportCode>
 		<filterConfig>
@@ -6210,5 +6210,297 @@
 		</tableConfig>
 		<userConfig>{}</userConfig>
     </DynamicReport>   	
+	<DynamicReport label="REPORT_12">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ trễ hạn giải quyết</reportName>
+		<reportCode>REPORT_12</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+        api: "/o/rest/v2/dossiers?status=releasing,posting,done&time=overtime",
+        exclusive: false,
+        customize: true,
+        groupIds: [
+        ],
+        sumKey: "",
+        groupBy: [
+            {
+            key: "domainCode",
+            label: "Lĩnh vực",
+            display: "domainName"
+            },
+            {
+            key: "serviceCode",
+            label: "Thủ tục",
+            display: "serviceName"
+            },
+            {
+            key: "govAgencyCode",
+            label: "Cơ quan",
+            display: "govAgencyName"
+            }
+        ], 
+        filters: [
+            {
+            label: "Lĩnh vực",
+            clearable: "true",
+            source: "",
+            key: "domain",
+            valueMapping: "domainCode",
+            nameMapping: "domainName",
+            type: "select",
+            multiple: "true",
+            api: "/o/rest/v2/serviceinfos/statistics/domains",
+            proxyApi: "/serviceinfos/statistics/domains",
+            class: "xs12 sm6 px-3 mb-3"
+            },
+            {
+            label: "Từ ngày",
+            key: "fromReleaseDate",
+            value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+            type: "date", 
+            before: "toReleaseDate" 
+            },
+            {
+            label: "Đến ngày",
+            key: "toReleaseDate",
+            value: new Date().toLocaleDateString('vi-VN'),
+            type: "date", 
+            after: "fromFinishDate" 
+            }  
+        ],
+        reportConfig: [
+            {
+            "selected": true,
+            "value": "dossierNo",
+            "text": "Mã hồ sơ"
+            },
+            {
+            "value": "serviceCode",
+            "text": "Mã thủ tục"
+            },
+            {
+            "selected": true,
+            "value": "dossierName",
+            "align": "left",
+            "text": "Nội dung"
+            },
+            {
+            "value": "govAgencyName",
+            "text": "Cơ quan thụ lý"
+            },
+            {
+            "value": "registerBookName",
+            "text": "Sổ theo dõi"
+            },
+            {
+            "selected": true,
+            "value": "applicantName",
+            "align": "left",
+            "text": "Chủ hồ sơ"
+            },
+            {
+            "value": "address",
+            "text": "Địa chỉ",
+            "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+            },
+            {
+            "value": "contactTelNo",
+            "text": "Số điện thoại"
+            },
+            {
+            "value": "contactEmail",
+            "text": "Thư điện tử"
+            },
+            {
+            "value": "delegateName",
+            "text": "Người nộp hồ sơ"
+            },
+            {
+            "value": "delegateTelNo",
+            "text": "Điện thoại liên lạc"
+            },
+            {
+            "value": "submitDate",
+            "text": "Ngày gửi"
+            },
+            {
+            "value": "receiveDate",
+            "text": "Ngày tiếp nhận"
+            },
+            {
+            "selected": true,
+            "value": "dueDate",
+            "text": "Ngày hẹn trả"
+            },
+            {
+            "value": "extendDate",
+            "text": "Ngày gia hạn"
+            },
+            {
+            "selected": true,
+            "value": "releaseDate",
+            "text": "Ngày hoàn thành"
+            },
+            {
+            "selected": true,
+            "value": "finishDate",
+            "text": "Ngày trả kết quả"
+            },
+            {
+            "value": "dossierStatusText",
+            "text": "Trạng thái"
+            },
+            {
+            "value": "online",
+            "text": "Trực tuyến"
+            },
+            {
+            "value": "originDossierNo",
+            "text": "Mã hồ sơ gốc"
+            },   
+            {
+            "selected": true,
+            "value": "dossierOverdue",
+            "text": "Hạn xử lý"
+            },
+            {
+            "selected": true,
+            "value": "dossierNote",
+            "align": "left",
+            "text": "Ghi chú",
+			"calculator": 'dataInput["extendDate"] ? "Có thư xin lỗi" : "Không có thư xin lỗi"'
+            },
+            {
+            "value": "applicantNote",
+            "align": "left",
+            "text": "Ghi chú nộp."
+            },
+            {
+            "value": "briefNote",
+            "align": "left",
+            "text": "Chi tiết nội dung"
+            }
+        ]
+        }
 
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+        docDefinition: {
+            pageOrientation: 'landscape',
+            content: [
+                {
+                    columns: [
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "UBND TỈNH ĐỒNG THÁP\n"},
+                                {text: "[$siteName$]\n"}
+                            ]
+                        },
+                        {
+                            width: 100,
+                            style: "title",
+                            text: ''
+                        },
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                {text: "-------------------------------------------\n"},
+                                {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                text: [
+                    {text: 'BÁO CÁO HỒ SƠ TRỄ HẠN GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
+                    {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$]", fontSize: 11},
+                ], 
+                margin: [0, 20],
+                style: 'headerTitle'
+                },
+                {
+                style: 'tableExample',
+                table: {
+                    widths: "[$tableWidth$]",
+                    body: ["[$report$]"]
+                },
+                margin: [0, 0, 0, 20]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'title',
+                    text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+                    }
+                ]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'titleSub',
+                    text: '(Ký và ghi rõ họ tên)'
+                    }
+                ]
+                }
+            ],
+            styles: {
+                ngayThangNam: {
+                fontSize: 10,
+                italics: true,
+                bold: false,
+                alignment: 'center'
+                },
+                headerTitle: {
+                    alignment: 'center',
+                    bold: true,
+                    fontSize: 13
+                },
+                borderHeader: {
+                    alignment: 'left'
+                },
+                title: {
+                bold: true,
+                alignment: 'center'
+                },
+                titleSub: {
+                    fontSize: 10,
+                    italics: true,
+                    alignment: 'center'
+                },
+                tdStyle: {
+                fontSize: 10
+                },
+                tableExample: {
+                width: "100%" 
+                }
+            },
+            defaultStyle: {
+                columnGap: 20,
+                fontSize: 11
+            }
+            } 
+        }
+		]]>
+		</tableConfig>
+		<userConfig>{}</userConfig>
+    </DynamicReport>
 </DynamicReportList>
