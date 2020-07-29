@@ -4463,10 +4463,6 @@
                 },
                 {
                 "value": "overtime",
-                "name": "Quá hạn"
-                },
-                {
-                "value": "overdue",
                 "name": "Trễ hạn"
                 }
             ]
@@ -4579,7 +4575,8 @@
             {
             "selected": true,
             "value": "dossierOverdue",
-            "text": "Hạn xử lý"
+            "text": "Hạn xử lý",
+			"calculator": 'dataInput["dossierStatus"] == "done" && dataInput["dossierOverdue"] == "Quá hạn" ? "Trễ hạn" : dataInput["dossierOverdue"]'
             },
             {
             "selected": true,
@@ -4782,10 +4779,6 @@
                 "name": "Đúng hạn"
                 },
                 {
-                "value": "overdue",
-                "name": "Quá hạn"
-                },
-                {
                 "value": "overtime",
                 "name": "Trễ hạn"
                 }
@@ -4899,7 +4892,8 @@
             {
             "selected": true,
             "value": "dossierOverdue",
-            "text": "Hạn xử lý"
+            "text": "Hạn xử lý",
+			"calculator": 'dataInput["dossierStatus"] == "done" && dataInput["dossierOverdue"] == "Quá hạn" ? "Trễ hạn" : dataInput["dossierOverdue"]'
             },
             {
             "selected": true,
@@ -5744,10 +5738,6 @@
                 {
                 "value": "overdue",
                 "name": "Quá hạn"
-                },
-                {
-                "value": "overtime",
-                "name": "Trễ hạn"
                 },
                 {
                 "value": "delay",
@@ -7397,7 +7387,8 @@
             {
             "selected": true,
             "value": "dossierOverdue",
-            "text": "Hạn xử lý"
+            "text": "Hạn xử lý",
+			"calculator": 'dataInput["dossierStatus"] == "done" && dataInput["dossierOverdue"] == "Quá hạn" ? "Trễ hạn" : dataInput["dossierOverdue"]'
             },
             {
             "selected": true,
