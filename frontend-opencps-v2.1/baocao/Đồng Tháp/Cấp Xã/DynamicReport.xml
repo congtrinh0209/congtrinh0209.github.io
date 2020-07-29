@@ -3066,6 +3066,11 @@
 							]
 						},
 						{
+                            width: 100,
+                            style: "title",
+                            text: ""
+                        },
+						{
 							width: 300,
 							style: "title",
 							text: [

@@ -2902,7 +2902,7 @@
 		<userConfig>{}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="STATISTIC_04">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Tổng hợp hồ sơ theo cơ quan</reportName>
 		<reportCode>STATISTIC_04</reportCode>
 		<filterConfig>
