@@ -7,7 +7,7 @@
 		<filterConfig>
 		<![CDATA[
 		{
-            api: "/o/rest/v2/dossiers?register=SCT",
+            api: "/o/rest/v2/dossiers",
             autoHeader: false,
 			hiddenStt: true,
             exclusive: false,
@@ -33,6 +33,16 @@
                 }
             ], 
             filters: [
+				{
+				  label: "Chọn sổ theo dõi",
+				  key: "register",
+				  value: "",
+				  type: "select",
+				  source: "",
+				  api: "/o/rest/v2/dictcollections/REGISTER_BOOK/dictitems",
+				  valueMapping: "itemCode",
+				  nameMapping: "itemName"
+				},
                 {
                 label: "Từ ngày",
                 key: "fromReceiveDate",
@@ -178,6 +188,11 @@
                                 {text: "PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
                                 {text: "--------------------\n"}
                             ]
+                        },
+						{
+                            width: 100,
+                            style: "title",
+                            text: ''
                         },
                         {
                             width: 300,
@@ -454,7 +469,7 @@
 		<filterConfig>
 		<![CDATA[
 		{
-        api: "/o/rest/v2/dossiers?register=REGISTER_01",
+        api: "/o/rest/v2/dossiers",
         autoHeader: false,
 		hiddenStt: true,
         exclusive: false,
@@ -480,6 +495,16 @@
             }
         ], 
         filters: [
+			{
+			  label: "Chọn sổ theo dõi",
+			  key: "register",
+			  value: "",
+			  type: "select",
+			  source: "",
+			  api: "/o/rest/v2/dictcollections/REGISTER_BOOK/dictitems",
+			  valueMapping: "itemCode",
+			  nameMapping: "itemName"
+			},
             {
             label: "Từ ngày",
             key: "fromReleaseDateDate",
@@ -625,6 +650,11 @@
                                 {text: "PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
                                 {text: "--------------------\n"}
                             ]
+                        },
+						{
+                            width: 100,
+                            style: "title",
+                            text: ''
                         },
                         {
                             width: 300,
@@ -918,6 +948,16 @@
             }
         ], 
         filters: [
+			{
+			  label: "Chọn sổ theo dõi",
+			  key: "register",
+			  value: "",
+			  type: "select",
+			  source: "",
+			  api: "/o/rest/v2/dictcollections/REGISTER_BOOK/dictitems",
+			  valueMapping: "itemCode",
+			  nameMapping: "itemName"
+			},
             {
             label: "Từ ngày",
             key: "fromReceiveDate",
