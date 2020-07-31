@@ -2948,260 +2948,200 @@
 		<filterConfig>
 		<![CDATA[
         {
-		  api: "/o/rest/statistics/votings",
-		  exclusive: false,
-		  customize: false,
-		  groupIds: [
-			{
-			  selected: true,
-			  value: 223437,
-			  text: "Cổng DVC"
-			}
+			api: "/o/rest/statistics/votingsCountPoint",
+			exclusive: false,
+			customize: false,
+			groupIds: [
+			],
+			sumKey: "votingCode",
+			notSumkey: true,
+			filters: [
+			  {
+				label: "Từ ngày",
+				key: "fromStatisticDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date" 
+			  },
+			  {
+				label: "Đến ngày",
+				key: "toStatisticDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date" 
+			  }
+			],
+			reportConfig: [
+			  {
+				"selected": true,
+				"value": "votingSubject",
+				"text": "",
+				"align": "left"
+			  },
+			  {
+				"selected": true,
+				"value": "totalVoted",
+				"text": "",
+				"align": "center"
+			  }
+			],
+			statistics: true,
+			autoHeader: false
 
-		  ],
-		  sumKey: "domain",
-		  subKey: "votingCode",
-		  filters: [
-			{
-			  label: "Từ ngày",
-			  key: "fromStatisticDate",
-			  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-			  type: "date" 
-			},
-			{
-			  label: "Đến ngày",
-			  key: "toStatisticDate",
-			  value: new Date().toLocaleDateString('vi-VN'),
-			  type: "date" 
-			}
-		  ],
-		  reportConfig: [
-			{
-			  "selected": true,
-			  "value": "domainName",
-			  "subValue": "votingSubject",
-			  "text": "",
-			  "align": "left"
-			},
-			{
-			  "selected": true,
-			  "value": "totalVoted",
-			  "text": "",
-			  "align": "center"
-			},
-			{
-			  "selected": true,
-			  "value": "percentVeryGood",
-			  "text": "",
-			  "align": "center"
-			},
-			{
-			  "selected": true,
-			  "value": "percentGood",
-			  "text": "",
-			  "align": "center"
-			},
-			{
-			  "selected": true,
-			  "value": "percentBad",
-			  "text": "",
-			  "align": "center"
-			}
-		  ],
-		  selection: [
-			{
-				"key": "govAgencyCode",
-				"value": "STNMT",
-				"compare": "="
-			}
-		  ],
-		  merge: ["domain","govAgencyCode","votingCode"],
-		  sort: "domain",
-		  statistics: true
-		}
+		  }
 		]]>
 		</filterConfig>
 		<tableConfig>
 		<![CDATA[
 		{
-			  docDefinition: {
-			  pageOrientation: "portrait",
-			  content: [
-				  {
-					  columns: [
-						  {
-							  width: 200,
-							  style: "title",
-							  text: [
-								 {text: "UBND TỈNH ĐỒNG THÁP\n"},
-								 {text: "[$siteName$]\n"}
-							  ]
-						  },
-						  {
-							  width: 250,
-							  style: "title",
-							  text: [
-								  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-								  {text: "Độc lập - Tự do - Hạnh phúc\n"},
-								  {text: "-------------------------------------------\n"},
-								  {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-							  ]
-						  }
-					  ]
-				  },
-				  {
-					  text: [
-						  {text: "BÁO CÁO ĐÁNH GIÁ MỨC ĐÔ HÀI LÒNG DỊCH VỤ CỦA ĐƠN VỊ\n"},
-						  {text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11}
-					  ], 
-					  margin: [0, 20],
-					  style: "headerTitle"
-				  },
-				  {
-					  style: "tableExample",
-					  table: {
-						  widths: [20, "*", 35, 35, 35, 35],
-						  headerRows: 1,
-						  body: [
-							  [
-								  {
-									  text: "STT",
-									  alignment: "center",
-									  bold: true,
-									  style: "tdStyle" 
-								  },
-								  {
-									  text: "Lĩnh vực / Câu hỏi",
-									  alignment: "center",
-									  bold: true,
-									  style: "tdStyle"
-								  },
-								  {
-									  text: "Số bình chọn",
-									  alignment: "center",
-									  bold: true,
-									  style: "tdStyle"
-								  },
-								  {
-									  text: "Tỉ lệ rất hài lòng",
-									  alignment: "center",
-									  bold: true,
-									  style: "tdStyle"
-								  },
-								  {
-									  text: "Tỉ lệ hài lòng",
-									  alignment: "center",
-									  bold: true,
-									  style: "tdStyle"
-								  },
-								  {
-									  text: "Tỉ lệ không hài lòng",
-									  alignment: "center",
-									  bold: true,
-									  style: "tdStyle"
-								  }
-							  ],
-							  [
-								  {
-									  text: "(1)",
-									  alignment: "center",
-									  fontSize: 8
-								  },
-								  {
-									  text: "(2)",
-									  alignment: "center",
-									  fontSize: 8
-								  },
-								  {
-									  text: "(3)",
-									  alignment: "center",
-									  fontSize: 8
-								  },
-								  {
-									  text: "(4)",
-									  alignment: "center",
-									  fontSize: 8
-								  },
-								  {
-									  text: "(5)",
-									  alignment: "center",
-									  fontSize: 8
-								  },
-								  {
-									  text: "(6)",
-									  alignment: "center",
-									  fontSize: 8
-								  }
-							  ],
-							  "[$report$]"
+		  docDefinition: {
+		  pageOrientation: "landscape",
+		  content: [
+			  {
+				  columns: [
+					  {
+						  width: 300,
+						  style: "title",
+						  text: [
+							 {text: "UBND TỈNH ĐỒNG THÁP\n"},
+							 {text: "[$siteName$]\n"}
 						  ]
 					  },
-					  margin: [0, 0, 0, 20]
-				  },
-				  {
-					  columns: [
-						  {
-							  width: "*",
-							  text: [
-								{text: "Nơi nhận:", bold: true }
-							  ]
-						  },
-						  {
-							  width: 150,
-							  style: "title",
-							  text: "THỦ TRƯỞNG ĐƠN VỊ"
-						  }
-					  ]
-				  },
-				  {
-					  columns: [
-						  {
-							  width: "*",
-							  text: ""
-						  },
-						  {
-							  width: 150,
-							  style: "titleSub",
-							  text: "(Ký và ghi rõ họ tên)"
-						  }
-					  ]
-				  }
-			  ],
-			  styles: {
-				  ngayThangNam: {
-					  fontSize: 10,
-					  italics: true,
-					  bold: false,
-					  alignment: "right"
-				  },
-				  headerTitle: {
-					  alignment: "center",
-					  bold: true,
-					  fontSize: 13
-				  },
-				  borderHeader: {
-					  alignment: "left"
-				  },
-				  title: {
-					  bold: true,
-					  alignment: "center"
-				  },
-				  titleSub: {
-					  fontSize: 10,
-					  italics: true,
-					  alignment: "center"
-				  },
-				  tdStyle: {
-					  fontSize: 10,
-					  margin: [0, 2]
-				  }
+					  {
+						  width: 100,
+						  style: "title",
+						  text: ""
+					  },
+					  {
+						  width: 300,
+						  style: "title",
+						  text: [
+							  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+							  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+							  {text: "------------------------------------\n"},
+							  {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+						  ]
+					  }
+				  ]
 			  },
-			  defaultStyle: {
-				  columnGap: 20,
-				  fontSize: 11
+			  {
+				  text: [
+					  {text: "BÁO CÁO MỨC ĐỘ HÀI LÒNG DỊCH VỤ CỦA ĐƠN VỊ\n"},
+					  {text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11}
+				  ], 
+				  margin: [0, 20],
+				  style: "headerTitle"
+			  },
+			  {
+				  style: "tableExample",
+				  table: {
+					widths: [20, "*", 50],
+					headerRows: 1,
+					body: [
+						[
+							{
+								text: "STT",
+								alignment: "center",
+								bold: true,
+								style: "tdStyle"
+							},
+							{
+								text: "Tiêu chí đánh giá",
+								alignment: "center",
+								bold: true,
+								style: "tdStyle"
+							},
+							{
+								text: "Tổng số điểm",
+								alignment: "center",
+								bold: true,
+								style: "tdStyle"
+							}
+						],
+						[
+							{
+								text: "(1)",
+								alignment: "center",
+								fontSize: 8
+							},
+							{
+								text: "(2)",
+								alignment: "center",
+								fontSize: 8
+							},
+							{
+								text: "(3)",
+								alignment: "center",
+								fontSize: 8
+							}
+						],
+						"[$report$]"
+					]
+				},
+				margin: [0, 0, 0, 25]
+			  },              
+			  {
+				  columns: [
+					  {
+						  width: "*",
+						  text: [
+							{text: "Nơi nhận:", bold: true }
+						  ]
+					  },
+					  {
+						  width: 150,
+						  style: "title",
+						  text: "THỦ TRƯỞNG ĐƠN VỊ"
+					  }
+				  ]
+			  },
+			  {
+				  columns: [
+					  {
+						  width: "*",
+						  text: ""
+					  },
+					  {
+						  width: 150,
+						  style: "titleSub",
+						  text: "(Ký và ghi rõ họ tên)"
+					  }
+				  ]
 			  }
-		   }
-		}
+		  ],
+		  styles: {
+			  ngayThangNam: {
+				  fontSize: 10,
+				  italics: true,
+				  bold: false,
+				  alignment: "center"
+			  },
+			  headerTitle: {
+				  alignment: "center",
+				  bold: true,
+				  fontSize: 13
+			  },
+			  borderHeader: {
+				  alignment: "left"
+			  },
+			  title: {
+				  bold: true,
+				  alignment: "center"
+			  },
+			  titleSub: {
+				  fontSize: 10,
+				  italics: true,
+				  alignment: "center"
+			  },
+			  tdStyle: {
+				  fontSize: 10,
+				  margin: [0, 2]
+			  }
+		  },
+		  defaultStyle: {
+			  columnGap: 20,
+			  fontSize: 11
+		  }
+	   }
+	}
 		]]>
 		</tableConfig>
 		<userConfig>{}</userConfig>
