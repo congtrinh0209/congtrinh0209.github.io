@@ -969,8 +969,13 @@
                           style: "title",
                           text: [
                             {text: "TỔNG CỤC CHÍNH TRỊ\n"},
-                            {text: "CỤC TUYÊN HUẤN\n"}
+                            {text: "[$agency$]\n"}
                           ]
+                      },
+                      {
+                          width: 100,
+                          style: "title",
+                          text: ""
                       },
                       {
                           width: 300,
@@ -1353,7 +1358,7 @@
                   fontSize: 10,
                   italics: true,
                   bold: false,
-                  alignment: "right"
+                  alignment: "center"
               },
               headerTitle: {
                   alignment: "center",
@@ -1586,8 +1591,13 @@
                           style: "title",
                           text: [
                             {text: "TỔNG CỤC CHÍNH TRỊ\n"},
-                            {text: "CỤC TUYÊN HUẤN\n"}
+                            {text: "[$agency$]\n"}
                           ]
+                      },
+                      {
+                          width: 100,
+                          style: "title",
+                          text: ""
                       },
                       {
                           width: 300,
@@ -2557,8 +2567,13 @@
                           style: "title",
                           text: [
                             {text: "TỔNG CỤC CHÍNH TRỊ\n"},
-                            {text: "CỤC TUYÊN HUẤN\n"}
+                            {text: "[$agency$]\n"}
                           ]
+                      },
+                      {
+                          width: 100,
+                          style: "title",
+                          text: ""
                       },
                       {
                           width: 300,
@@ -2620,7 +2635,7 @@
               fontSize: 10,
               italics: true,
               bold: false,
-              alignment: 'right'
+              alignment: 'center'
             },
             headerTitle: {
                 alignment: 'center',
