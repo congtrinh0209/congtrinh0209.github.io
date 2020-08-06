@@ -2676,7 +2676,7 @@
   </DynamicReport>
   <DynamicReport>
     
-    <sharing>9</sharing>
+    <sharing>1</sharing>
     <reportName>Hồ sơ đã trả kết quả</reportName>
     <reportCode>REPORT_03</reportCode>
     <filterConfig><![CDATA[{
@@ -2704,6 +2704,18 @@
         }
       ], 
       filters: [
+        {
+            label: "Chọn lĩnh vực",
+            source: "",
+            key: "domain",
+            value: "",
+            valueMapping: "domainCode",
+            nameMapping: "domainName",
+            type: "select",
+            api: "/o/rest/v2/serviceinfos/statistics/domains",
+            clearable: true,
+            appendItem: [{name: "Tất cả lĩnh vực", value: ""}]
+        },
         {
           label: "Từ ngày",
           key: "fromFinishDate",
@@ -2972,7 +2984,7 @@
   </DynamicReport>
   <DynamicReport>
     
-    <sharing>9</sharing>
+    <sharing>1</sharing>
     <reportName>Hồ sơ hoàn thành giải quyết</reportName>
     <reportCode>REPORT_04</reportCode>
     <filterConfig><![CDATA[{
@@ -3000,6 +3012,18 @@
         }
       ], 
       filters: [
+        {
+            label: "Chọn lĩnh vực",
+            source: "",
+            key: "domain",
+            value: "",
+            valueMapping: "domainCode",
+            nameMapping: "domainName",
+            type: "select",
+            api: "/o/rest/v2/serviceinfos/statistics/domains",
+            clearable: true,
+            appendItem: [{name: "Tất cả lĩnh vực", value: ""}]
+        },
         {
           label: "Từ ngày",
           key: "fromReleaseDate",
@@ -3263,7 +3287,7 @@
   </DynamicReport>
   <DynamicReport>
     
-    <sharing>9</sharing>
+    <sharing>1</sharing>
     <reportName>Hồ sơ từ chối giải quyết</reportName>
     <reportCode>REPORT_05</reportCode>
     <filterConfig><![CDATA[{
@@ -3291,6 +3315,18 @@
         }
       ], 
       filters: [
+        {
+            label: "Chọn lĩnh vực",
+            source: "",
+            key: "domain",
+            value: "",
+            valueMapping: "domainCode",
+            nameMapping: "domainName",
+            type: "select",
+            api: "/o/rest/v2/serviceinfos/statistics/domains",
+            clearable: true,
+            appendItem: [{name: "Tất cả lĩnh vực", value: ""}]
+        },
         {
           label: "Từ ngày",
           key: "fromReleaseDate",
@@ -3530,7 +3566,7 @@
   </DynamicReport>
   <DynamicReport>
     
-    <sharing>9</sharing>
+    <sharing>1</sharing>
     <reportName>Hồ sơ rút không giải quyết</reportName>
     <reportCode>REPORT_06</reportCode>
     <filterConfig><![CDATA[{
@@ -3558,6 +3594,18 @@
         }
       ], 
       filters: [
+        {
+            label: "Chọn lĩnh vực",
+            source: "",
+            key: "domain",
+            value: "",
+            valueMapping: "domainCode",
+            nameMapping: "domainName",
+            type: "select",
+            api: "/o/rest/v2/serviceinfos/statistics/domains",
+            clearable: true,
+            appendItem: [{name: "Tất cả lĩnh vực", value: ""}]
+        },
         {
           label: "Từ ngày",
           key: "fromReleaseDate",
@@ -3797,7 +3845,7 @@
   </DynamicReport>
   <DynamicReport>
     
-    <sharing>9</sharing>
+    <sharing>1</sharing>
     <reportName>Hồ sơ đang thụ lý giải quyết</reportName>
     <reportCode>REPORT_07</reportCode>
     <filterConfig><![CDATA[{
@@ -3825,6 +3873,18 @@
         }
       ], 
       filters: [
+        {
+            label: "Chọn lĩnh vực",
+            source: "",
+            key: "domain",
+            value: "",
+            valueMapping: "domainCode",
+            nameMapping: "domainName",
+            type: "select",
+            api: "/o/rest/v2/serviceinfos/statistics/domains",
+            clearable: true,
+            appendItem: [{name: "Tất cả lĩnh vực", value: ""}]
+        },
         {
           label: "Hạn xử lý",
           key: "time",
