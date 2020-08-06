@@ -15,11 +15,6 @@
         sumKey: "govAgencyCode",
         groupBy: [
           {
-            key: "",
-            label: "Không nhóm",
-            display: ""
-          },
-          {
             key: "domainCode",
             label: "Lĩnh vực",
             display: "domainName"
@@ -43,6 +38,10 @@
             type: "select",
             source: [
               {
+                  "name": "Tất cả đơn vị",
+                  "value": ""
+              },
+              {
                   "name": "Bộ tư lệnh 86",
                   "value": "000.00.43.G11"
               },
@@ -50,16 +49,20 @@
                   "name": "Cục tuyên huấn",
                   "value": "BQP-CTH"
               }
-            ]
+            ],
+            clearable: true
           },
           {
               label: "Chọn lĩnh vực",
               source: "",
               key: "domain",
+              value: "",
               valueMapping: "domainCode",
               nameMapping: "domainName",
               type: "select",
-              api: "/o/rest/v2/serviceinfos/statistics/domains"
+              api: "/o/rest/v2/serviceinfos/statistics/domains",
+              clearable: true,
+              appendItem: [{name: "Tất cả lĩnh vực", value: ""}]
           },
           {
             label: "Từ ngày",
@@ -126,7 +129,7 @@
             "text": ""
           }
         ],
-          govAgencyName: "BỘ QUỐC PHÒNG"
+        govAgencyName: "BỘ QUỐC PHÒNG"
       }
       ]]></filterConfig>
       <tableConfig><![CDATA[{
@@ -165,7 +168,7 @@
               {
                 text: [
                   {text: 'SỔ THEO DÕI HỒ SƠ\n'},
-                  {text: "Thuộc lĩnh vực: [$fromReceiveDate$] đến ngày [$toReceiveDate$]", fontSize: 11},
+                  {text: "Thuộc lĩnh vực: [$domain$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -2212,7 +2215,8 @@
           "value": "dossierOverdue",
           "text": "Hạn xử lý"
         }
-      ]
+      ],
+      govAgencyName: "BỘ QUỐC PHÒNG"
     }
     ]]></filterConfig>
     <tableConfig><![CDATA[{
@@ -2225,8 +2229,9 @@
                           width: 300,
                           style: "title",
                           text: [
-                            {text: "TỔNG CỤC CHÍNH TRỊ\n"},
-                            {text: "CỤC TUYÊN HUẤN\n"}
+                            {text: "[$siteName$]\n"},
+                            {style: "title",text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"},
+                            {style: "title",text: "------------------------\n"},
                           ]
                       },
                       {
