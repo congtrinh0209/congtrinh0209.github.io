@@ -1880,7 +1880,7 @@
 		<filterConfig>
 		<![CDATA[
         {
-        api: "/o/rest/statistics?agency=total&domain=total",
+        api: "/o/rest/statistics?agency=total&domain=total&month=0",
         exclusive: false,
         groupIds: [
         ],
