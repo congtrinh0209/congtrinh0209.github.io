@@ -9,7 +9,7 @@
                      width: 300,
                      style: "title",
                      text: [
-                        {text: "[$groupIdsHeader$]\n"},
+                        {text: "[$siteName$]\n"},
                        {text: "--------------------------------\n"}
                      ]
                  },
@@ -33,7 +33,7 @@
        {
          text: [
            {text: 'BÁO CÁO TỔNG HỢP PHÍ, LỆ PHÍ\n'},
-           {text: "Đơn vị: [$groupIds$]\n", fontSize: 11},
+           {text: "Đơn vị: [$siteName$]\n", fontSize: 11},
            {text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]\n", fontSize: 11}
          ], 
          margin: [0, 20],

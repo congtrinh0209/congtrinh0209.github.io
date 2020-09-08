@@ -5700,7 +5700,7 @@
   </DynamicReport>
   <DynamicReport>
       
-      <sharing>9</sharing>
+      <sharing>1</sharing>
       <reportName>Tổng hợp đánh giá cán bộ</reportName>
       <reportCode>STATISTIC_09</reportCode>
       <filterConfig><![CDATA[{
@@ -5710,12 +5710,12 @@
     groupIds: [
       {
         selected: true,
-        value: 52737,
+        value: 272435,
         text: "Cổng DVC"
       }
     ],
-    sumKey: "employeeId",
-    subKey: "votingSubject",
+   	sumKey: "employeeId",
+    notSumkey: true,
     filters: [
       {
         label: "Từ ngày",
@@ -5734,7 +5734,6 @@
       {
         "selected": true,
         "value": "employeeName",
-        "subValue": "votingSubject",
         "text": "",
         "align": "left"
       },
@@ -5746,19 +5745,19 @@
       },
       {
         "selected": true,
-        "value": "percentVeryGood",
+        "value": "veryGoodCount",
         "text": "",
         "align": "center"
       },
       {
         "selected": true,
-        "value": "percentGood",
+        "value": "goodCount",
         "text": "",
         "align": "center"
       },
       {
         "selected": true,
-        "value": "percentBad",
+        "value": "badCount",
         "text": "",
         "align": "center"
       }
@@ -5776,8 +5775,9 @@
       }
     ],
       sort: "employeeName",
-    merge: ["employeeId","govAgencyCode","votingSubject"],
-    statistics: true
+    merge: ["employeeId","govAgencyCode"],
+    statistics: true,
+    autoHeader: false
   }]]></filterConfig>
       <tableConfig><![CDATA[{
         docDefinition: {
@@ -5828,7 +5828,7 @@
                                 style: "tdStyle" 
                             },
                             {
-                                text: "Cán bộ / Câu hỏi",
+                                text: "Cán bộ",
                                 alignment: "center",
                                 bold: true,
                                 style: "tdStyle"
@@ -5840,19 +5840,19 @@
                                 style: "tdStyle"
                             },
                             {
-                                text: "Tỉ lệ rất hài lòng",
+                                text: "Số rất hài lòng",
                                 alignment: "center",
                                 bold: true,
                                 style: "tdStyle"
                             },
                             {
-                                text: "Tỉ lệ hài lòng",
+                                text: "Số hài lòng",
                                 alignment: "center",
                                 bold: true,
                                 style: "tdStyle"
                             },
                             {
-                                text: "Tỉ lệ không hài lòng",
+                                text: "Số không hài lòng",
                                 alignment: "center",
                                 bold: true,
                                 style: "tdStyle"
