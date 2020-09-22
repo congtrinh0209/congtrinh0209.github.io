@@ -1,0 +1,205 @@
+REPORT_001
+
+
+{
+  api: "/o/rest/v2/applicants",
+  proxyApi: "/applicants",
+  exclusive: false,
+  customize: true,
+  groupIds: [
+    {
+      selected: true,
+      value: "",
+      text: "Dịch vụ công"
+    }
+  ],
+  sumKey: "applicantIdNo",
+  filters: [
+    {
+      label: "Loại người dùng",
+      key: "type",
+      value: "",
+      type: "select",
+      source: [
+        {
+          "value": "",
+          "name": "Tất cả"
+        },
+        {
+          "value": "citizen",
+          "name": "Công dân"
+        },
+        {
+          "value": "business",
+          "name": "Doanh nghiệp"
+        }
+      ]
+    },
+    {
+      label: "Từ ngày",
+      key: "fromRegistryDate",
+      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+      type: "date", 
+      before: "toRegistryDate" 
+    },
+    {
+      label: "Đến ngày",
+      key: "toRegistryDate",
+      value: new Date().toLocaleDateString('vi-VN'),
+      type: "date", 
+      after: "fromRegistryDate" 
+    }
+  ],
+  reportConfig: [
+    {
+      "selected": true,
+      "value": "applicantName",
+      "text": "Tên",
+      "align": "left"
+    },
+    {
+      "selected": true,
+      "value": "applicantIdNo",
+      "text": "Số CMND/căn cước, MST",
+      "align": "left"
+    },
+    {
+      "selected": true,
+      "value": "applicantIdType",
+      "align": "left",
+      "text": "Loại người dùng",
+      "calculator": 'dataInput["applicantIdType"] == "citizen" ? "Công dân" : "Tổ chức, doanh nghiệp" '
+    },
+    {
+      "selected": true,
+      "value": "address",
+      "align": "left",
+      "text": "Địa chỉ",
+      "calculator": 'dataInput["address"] +" "+(dataInput["wardName"] ? (dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]) : "") '
+    },
+    {
+      "selected": true,
+      "value": "contactTelNo",
+      "text": "Số điện thoại",
+      "align": "left"
+    },
+    {
+      "selected": true,
+      "value": "contactEmail",
+      "text": "Email",
+      "align": "left"
+    }
+  ]
+}
+
+
+
+//////////////////////////////////
+
+
+{
+   docDefinition: {
+      pageOrientation: 'landscape',
+      content: [
+        {
+              columns: [
+                  {
+                      width: 300,
+                      style: "title",
+                      text: [
+                         {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+                         {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
+                      ]
+                  },
+                  {
+                      width: 300,
+                      style: "title",
+                      text: [
+                          {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                          {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                          {text: "-------------------------------------------\n"},
+                          {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                      ]
+                  }
+              ]
+        },
+        {
+          text: [
+            {text: 'THỐNG KÊ CÔNG DÂN, DOANH NGHIỆP\n'},
+            {text: "Từ ngày [$fromRegistryDate$] đến ngày [$toRegistryDate$]", fontSize: 11},
+          ], 
+          margin: [0, 20],
+          style: 'headerTitle'
+        },
+        {
+          style: 'tableExample',
+          table: {
+            widths: "[$tableWidth$]",
+            body: ["[$report$]"]
+          },
+          margin: [0, 0, 0, 20]
+        },
+        {
+          columns: [
+            {
+              width: '*',
+              text: ''
+            },
+            {
+              width: 150,
+              style: 'title',
+              text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              width: '*',
+              text: ''
+            },
+            {
+              width: 150,
+              style: 'titleSub',
+              text: '(Ký và ghi rõ họ tên)'
+            }
+          ]
+        }
+      ],
+      styles: {
+        ngayThangNam: {
+          fontSize: 10,
+          italics: true,
+          bold: false,
+          alignment: 'right'
+        },
+        headerTitle: {
+            alignment: 'center',
+            bold: true,
+            fontSize: 13
+        },
+        borderHeader: {
+            alignment: 'left'
+        },
+        title: {
+          bold: true,
+          alignment: 'center'
+        },
+        titleSub: {
+            fontSize: 10,
+            italics: true,
+            alignment: 'center'
+        },
+        tdStyle: {
+          fontSize: 10
+        },
+        tableExample: {
+           width: "100%" 
+        }
+      },
+      defaultStyle: {
+        columnGap: 20,
+        fontSize: 11
+      }
+    } 
+}
