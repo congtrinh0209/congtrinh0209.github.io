@@ -562,7 +562,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								 {text: "-------------------------------------------\n"}
 							  ]
@@ -1233,7 +1233,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								 {text: "-------------------------------------------\n"}
 							  ]
@@ -1899,7 +1899,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								 {text: "-------------------------------------------\n"}
 							  ]
@@ -2587,7 +2587,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								 {text: "-------------------------\n"}
 							  ]
@@ -3252,7 +3252,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								{text: "--------------------------\n"}
 							  ]
@@ -3916,7 +3916,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								{text: "---------------------------\n"}
 							  ]
@@ -4580,7 +4580,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								{text: "--------------------------\n"}
 							  ]
@@ -5244,7 +5244,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								{text: "--------------------------\n"}
 							  ]
@@ -6678,7 +6678,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								{text: "--------------------------\n"}
 							  ]
@@ -7342,7 +7342,7 @@
 							  width: 300,
 							  style: "title",
 							  text: [
-								 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+								 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								{text: "--------------------------\n"}
 							  ]
@@ -8504,7 +8504,7 @@
 						  width: 300,
 						  style: "title",
 						  text: [
-							 {text: "UBND TỈNH Đồng Tháp\n"},
+							 {text: "UBND TỈNH ĐỒNG THÁP\n"},
 							 {text: "[$siteName$]\n"}
 						  ]
 					  },
@@ -9514,7 +9514,7 @@
 						  width: 300,
 						  style: "title",
 						  text: [
-							 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+							 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 							 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 							{text: "--------------------------\n"}
 						  ]
@@ -10345,7 +10345,7 @@
 						  width: 300,
 						  style: "title",
 						  text: [
-							 {text: "VĂN PHÒNG UBND TỈNH Đồng Tháp\n"},
+							 {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
 							 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 							{text: "--------------------------\n"}
 						  ]
