@@ -7641,7 +7641,7 @@
             text: "Cấp xã huyện Tháp Mười"
         } 
 			  ],
-			  sumKey: "domainCode",
+			  sumKey: "serviceCode",
 			  groupBy: [
 				{
 				   key: "govAgencyCode",
@@ -7715,8 +7715,8 @@
 					"value": ""
 				}
 			  ],
-			  merge: ["domainCode","govAgencyCode"],
-			  sort: "domainName",
+			  merge: ["serviceCode","govAgencyCode"],
+			  sort: "serviceName",
 			  statistics: true,
 			  autoHeader: false
 			}
