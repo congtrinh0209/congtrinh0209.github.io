@@ -1730,7 +1730,7 @@
 	</DynamicReport>
 	<DynamicReport label="REPORT_STATISTIC_012">
 		<sharing>1</sharing>
-		<reportName>Tổng hợp kết quả đánh giá của cơ quan, đơn vị</reportName>
+		<reportName>Tổng hợp kết quả đánh giá của đơn vị</reportName>
 		<reportCode>REPORT_STATISTIC_013</reportCode>
 		<filterConfig>
 		<![CDATA[
