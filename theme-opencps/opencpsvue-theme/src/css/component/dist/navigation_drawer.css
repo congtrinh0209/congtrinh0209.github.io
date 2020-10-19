@@ -1,0 +1,121 @@
+.control-menu {
+  z-index: 200;
+}
+
+.navigation-drawer .input-group--text-field {
+  margin-top: -8px;
+}
+
+.navigation-drawer .list--group__header--active {
+  background: #eceaea;
+}
+.navigation-drawer .list--group__header--active a {
+  color: inherit;
+}
+.navigation-drawer .list--group__header--active.theme--dark a {
+  color: #757575;
+  height: 32px;
+}
+.navigation-drawer .list--group__header--active.theme--dark a .icon {
+  color: #ffc107;
+  padding-left: 8px;
+}
+
+.navigation-drawer--is-mobile.navigation-drawer--open {
+  padding: 0px !important;
+}
+.navigation-drawer--is-mobile.navigation-drawer--open > div {
+  margin: 0px !important;
+}
+
+.jx-content {
+  width: -webkit-calc(100% - 300px);
+  width: calc(100% - 300px);
+}
+.jx-content .jx-content-wrap {
+  width: 100%;
+}
+.jx-content .jx-content-wrap .row-header {
+  width: 100%;
+}
+
+.panel-dossier-navigation {
+  font-size: 13px;
+  box-shadow: none !important;
+}
+.panel-dossier-navigation > li {
+  background-color: transparent !important;
+}
+.panel-dossier-navigation > li:first-child {
+  margin-bottom: 10px;
+}
+.panel-dossier-navigation > li > div:first-child {
+  background-color: #14bef0;
+  color: white;
+  padding: 6px 15px;
+}
+.panel-dossier-navigation > li > div:first-child .icon {
+  color: white !important;
+  padding-left: 0;
+}
+.panel-dossier-navigation .tracuu-dossier-navigation .list {
+  border: 1px solid #ddd;
+  border-top: 0;
+}
+.panel-dossier-navigation .tracuu-dossier-navigation .list .list__tile__action {
+  display: none;
+}
+.panel-dossier-navigation .tracuu-dossier-navigation > ul {
+  padding: 0;
+}
+.panel-dossier-navigation .tracuu-dossier-navigation > ul > li:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+.panel-dossier-navigation .tracuu-dossier-navigation > ul > li:not(:last-child) > ul.list--group > li a .status__counter {
+  top: 3px;
+}
+.panel-dossier-navigation .tracuu-dossier-navigation > ul > li:not(:last-child) > ul.list--group > li a .list__tile__action:first-child .icon {
+  top: 0px;
+}
+.panel-dossier-navigation .tracuu-dossier-navigation a {
+  color: black !important;;
+  font-size: 13px;
+  padding: 0 16px;
+  height: 38px;
+}
+.panel-dossier-navigation .status-dossier-navigation a {
+  color: black !important;;
+  font-size: 13px;
+  padding: 5px;
+  height: auto;
+}
+.panel-dossier-navigation .status-dossier-navigation a .status__counter {
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  width: 40px;
+  background: #f6f6f6;
+  text-align: center;
+}
+.panel-dossier-navigation .status-dossier-navigation .list--group .list__tile__action .icon {
+  color: black !important;;
+}
+.panel-dossier-navigation .list__tile__action:first-child .icon {
+  color: #ffc107;
+  padding-left: 8px;
+  position: absolute;
+  top: 5px;
+}
+.panel-dossier-navigation .list__tile__title {
+  white-space: normal;
+  height: auto;
+  line-height: normal;
+}
+
+.theme--light .navigation-drawer {
+  will-change: unset;
+}
+
+.navigation-drawer--is-mobile:not(.navigation-drawer--close) > div {
+	padding: 15px;
+}

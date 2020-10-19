@@ -1,0 +1,61 @@
+/*------------------------------
+			Table
+------------------------------*/
+body table.table {
+  margin: 0;
+}
+.table__overflow .datatable thead th.column.sortable i {
+    position: absolute;
+}
+.table__overflow.elevation-1 {
+  -webkit-box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 2px 2px 1px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 2px 2px 1px -1px rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.table__overflow .table > thead > tr > th {
+	vertical-align: middle;
+	border-bottom: 0px solid #ddd;
+	float: unset;
+	font-family: "Roboto-Bold";
+	font-size: 13px;
+    padding: 5px 10px;
+}
+
+@media (max-width: 991px) {
+  body table.table {
+    min-width: 1000px;
+  }
+}
+
+
+body .datatable.table th {
+	white-space: nowrap !important;
+}
+body .datatable.table th, body .datatable.table td {
+	border: 1px solid #ddd !important;
+}
+body .danhSachHoSoTable__class table.table th:nth-child(1), body .danhSachHoSoTable__class table.table td:nth-child(1) {
+    padding: 0;
+}
+
+.danhSachHoSoTable__class table th:not(:last-child), .danhSachHoSoTable__class table td:not(:last-child) {
+    border-right: 1px solid #f3f3f3
+}
+/*------------------------------
+			Pagination
+------------------------------*/
+body .pagination button {
+  box-shadow: none;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  font-size: 13px;
+  width: 30px;
+  height: 30px;
+}
+body .pagination button i {
+  font-size: 1.5em !important;
+}
+body .pagination li:not(:first-child) button {
+  margin-left: -1px;
+}

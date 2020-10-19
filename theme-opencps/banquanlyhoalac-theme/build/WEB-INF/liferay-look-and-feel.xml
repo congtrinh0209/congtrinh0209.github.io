@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.1.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_1_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.1.0+</version>
+	</compatibility>
+	<theme id="banquanlyhoalac" name="banquanlyhoalac">
+		<template-extension>ftl</template-extension>
+		<settings>
+			<setting type="select" configurable="true" key="theme_type" options="home,page,other" value="page"/>
+		</settings>
+		<color-scheme id="dvc" name="Cổng DVC">
+			<default-cs>true</default-cs>
+			<css-class>dvc-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/custom-images/color-schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<color-scheme id="motcua" name="MCĐT">
+			<default-cs>true</default-cs>
+			<css-class>motcua-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/custom-images/color-schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<portlet-decorator id="barebone" name="Barebone">
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>

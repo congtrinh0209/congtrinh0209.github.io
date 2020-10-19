@@ -1,0 +1,64 @@
+/*------------------------------
+			Table
+------------------------------*/
+body table.table {
+	margin: 0;
+}
+
+.table__overflow .datatable thead th.column.sortable i {
+    position: absolute;
+}
+
+.table__overflow {
+	
+	&.elevation-1 {
+		
+		-webkit-box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 2px 1px -1px rgba(0,0,0,0.2), 2px 2px 1px -1px rgba(0,0,0,0.1);
+	    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 2px 1px -1px rgba(0,0,0,0.2), 2px 2px 1px -1px rgba(0,0,0,0.1);
+	    border-left: 1px solid rgba(0,0,0,0.1);
+	    
+	}
+	
+	.table > thead > tr > th {
+		
+		vertical-align: middle;
+	    border-bottom: 0px solid #ddd;
+	    float: unset;
+	    font-family: "Roboto-Bold";
+	    font-size: 13px;
+	    
+	}
+    
+}
+
+@media (max-width: 991px) {
+	body table.table {
+		min-width: 1000px;
+	}
+}
+
+
+
+/*------------------------------
+			Pagination
+------------------------------*/
+body .pagination {
+	
+	button {
+		box-shadow: none;
+		margin: 0;
+		border: 1px solid #ccc;
+		border-radius: 0;
+		font-size: 13px;
+		width: 30px;
+		height: 30px;
+		
+		i {
+			font-size: 1.5em !important;
+		}
+	}
+	
+	li:not(:first-child) button {
+		margin-left: -1px;
+	}
+}

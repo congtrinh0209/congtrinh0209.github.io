@@ -1042,68 +1042,59 @@
                     style: "tableExample",
                     table: {
                         widths: [15, 60, 200, 100, 100, 60, 60, 60, 60, "*"],
-                        headerRows: 2,
+                        headerRows: 1,
                         body: [
                             [
                                 {
-                                    text: "\n\n\nTT",
-                                    rowSpan: 2,
+                                    text: "TT",
                                     alignment: "center",
                                     bold: true,
                                     style: "tdStyle"
                                 },
                                 {
-                                    text: "\n\n\nMã hồ sơ",
-                                    rowSpan: 2,
+                                    text: "Mã hồ sơ",
                                     alignment: "center",
                                     bold: true,
                                     style: "tdStyle"
                                 },
                                 {
-                                    text: "\n\n\nNội dung hồ sơ",
-                                    rowSpan: 2,
+                                    text: "Nội dung hồ sơ",
                                     alignment: "center",
                                     bold: true,
                                     style: "tdStyle"
                                 },
                                 {
-                                    text: "\n\n\nTên cá nhân, tổ chức",
-                                    rowSpan: 2,
+                                    text: "Tên cá nhân, tổ chức",
                                     alignment: "center",
                                     bold: true,
                                     style: "tdStyle"
                                 },
                                 {
-                                    text: "\n\n\nĐịa chỉ",
-                                    rowSpan: 2,
+                                    text: "Địa chỉ",
                                     alignment: "center",
                                     bold: true,
                                     style: "tdStyle"
                                 },
                                 {
-                                    text: "\n\n\nNgày nhận",
-                                    rowSpan: 2,
+                                    text: "Ngày nhận",
                                     alignment: "center",
                                     bold: true,
                                     style: "tdStyle"
                                 },
                                 {
-                                    text: "\n\n\nNgày trả",
-                                    rowSpan: 2,
+                                    text: "Ngày trả",
                                     alignment: "center",
                                     bold: true,
                                     style: "tdStyle"
                                 },
                                 {
-                                    text: "\n\n\nNgày phòng nhận",
-                                    rowSpan: 2,
+                                    text: "Ngày phòng nhận",
                                     alignment: "center",
                                     bold: true,
                                     style: "tdStyle"
                                 },
                                 {
-                                    text: "\n\n\nNgày phòng trả kết quả",
-                                    rowSpan: 2,
+                                    text: "Ngày phòng trả kết quả",
                                     alignment: "center",
                                     bold: true,
                                     style: "tdStyle"
@@ -1362,68 +1353,59 @@
 					   style: "tableExample",
 					   table: {
 						   widths: [15, 60, 160, 80, 60, 100, 60, 60, "*"],
-						   headerRows: 2,
+						   headerRows: 1,
 						   body: [
 							   [
 								   {
-									   text: "\n\n\nTT",
-									   rowSpan: 2,
+									   text: "TT",
 									   alignment: "center",
 									   bold: true,
 									   style: "tdStyle"
 								   },
 								   {
-									   text: "\n\n\nMã hồ sơ",
-									   rowSpan: 2,
+									   text: "Mã hồ sơ",
 									   alignment: "center",
 									   bold: true,
 									   style: "tdStyle"
 								   },
 								   {
-									   text: "\n\n\nNội dung hồ sơ",
-									   rowSpan: 2,
+									   text: "Nội dung hồ sơ",
 									   alignment: "center",
 									   bold: true,
 									   style: "tdStyle"
 								   },
 								   {
-									   text: "\n\n\nTên cá nhân, tổ chức",
-									   rowSpan: 2,
+									   text: "Tên cá nhân, tổ chức",
 									   alignment: "center",
 									   bold: true,
 									   style: "tdStyle"
 								   },
 								   {
-									   text: "\n\n\nSố điện thoại",
-									   rowSpan: 2,
+									   text: "Số điện thoại",
 									   alignment: "center",
 									   bold: true,
 									   style: "tdStyle"
 								   },
 								   {
-									   text: "\n\n\nĐịa chỉ",
-									   rowSpan: 2,
+									   text: "Địa chỉ",
 									   alignment: "center",
 									   bold: true,
 									   style: "tdStyle"
 								   },
 								   {
-									   text: "\n\n\nNgày nhận",
-									   rowSpan: 2,
+									   text: "Ngày nhận",
 									   alignment: "center",
 									   bold: true,
 									   style: "tdStyle"
 								   },
 								   {
-									   text: "\n\n\nNgày hoàn thành",
-									   rowSpan: 2,
+									   text: "Ngày hoàn thành",
 									   alignment: "center",
 									   bold: true,
 									   style: "tdStyle"
 								   },
 								   {
-									   text: "\n\n\nKý nhận",
-									   rowSpan: 2,
+									   text: "Ký nhận",
 									   alignment: "center",
 									   bold: true,
 									   style: "tdStyle"

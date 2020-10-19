@@ -1,0 +1,5 @@
+@import url(jquery.jexcel.min.css); 
+
+.dklr-theme #footer > div.toggle:not(.dklr) {
+	display: none;
+}

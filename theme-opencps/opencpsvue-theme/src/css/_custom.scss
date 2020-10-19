@@ -1,0 +1,251 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+@font-face {
+	font-family: 'Roboto-Regular';
+	src: url("../fonts/Roboto-Regular.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Roboto-Bold';
+	src: url("../fonts/Roboto-Bold.ttf");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@import url(orgin.css);
+@import url(./page/dist/page.css);
+@import url(./page/dist/nav.css);
+
+/* Component. */
+@import url(./component/dist/list_header.css);
+@import url(./component/dist/input.css);
+@import url(./component/dist/button.css);
+@import url(./component/dist/select.css);
+@import url(./component/dist/table.css);
+@import url(./component/dist/tabmenu.css);
+@import url(./component/dist/navigation_drawer.css);
+@import url(jquery-ui.css);
+
+
+@import url(color_schemes/dklr.css);
+@import url(color_schemes/duongbo.css);
+
+
+/* Comment. */
+@import url(jquery-comments.css);
+
+@import url(apaca.min.css);
+
+/*------------------------------
+			New CSS
+------------------------------*/
+.table_history_style .table {
+
+	td {
+		height: auto;
+		padding: 10px !important;
+
+		&:first-child {
+			width: 1%;
+			text-align: center;
+		}
+		
+		p {
+			margin-bottom: 10px;
+			
+			&:last-child {
+				margin-bottom: 2px;
+			}
+		}
+	}
+	
+	
+	tr {
+	
+		&:nth-child(odd) td:first-child {
+			background-color: #E9F7F8;
+		}
+		
+		&:nth-child(even) td:first-child {
+			background-color: #D9E7E8;
+		}
+	}
+}
+
+
+.text {
+	
+	&-light-blue, &-hover-light-blue:hover {
+		color: #14bef0 !important;
+	}
+	
+	&-blue, &-text-hover-blue:hover {
+		color: #0b72ba !important;
+	}
+	
+	&-light-gray {
+		color: #939393 !important;
+	}
+	
+	&-orange {
+		color: orange !important;
+	}
+	
+	&-underline {
+		display: inline-block;
+		border-bottom: 1px solid currentColor;
+	}
+	
+	&-link {
+		color: #14bef0 !important;
+		
+		&:hover {
+			color: #0b72ba !important;
+		}
+	}
+	
+	&-black {
+		color: #2a2a2a !important;
+	}
+}
+
+.text-ellipsis {
+	width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card i,
+.card__text i {
+    font-size: 16px;
+}
+
+.border-right-1 {
+    border-right: 1px solid #e1e2e1;
+}
+code {
+	cursor: pointer;
+}
+.menu__content {
+	margin-top: -8.6%;
+    margin-left: -5.1%;
+}
+
+
+.snack.snackbar-error {
+  background-color: #bd362f;
+  opacity: 0.8;
+}
+.snackbar-success{
+  background-color: #51a351;
+  opacity: 0.8;
+}
+
+.pagination .pagination__more:hover,
+.pagination .pagination__more {
+  margin: 0;
+  background: transparent;
+  border-color: #f6f6f6;
+  margin-right: 1px;
+  cursor: pointer;
+}
+
+
+
+.alpaca-field-table label{
+  display: none;
+}
+.alpaca-field-table td > div:first-child {
+  margin: 0;
+}
+
+.alpaca-field-table td > div:first-child .alpaca-control{
+  margin-top: 8px;
+}
+
+.alpaca-field-table table.table thead th{
+  padding: 8px;
+  font-family: 'Roboto-bold';
+}
+
+.alpaca-field-table .alpaca-array-actionbar button {
+	padding: 0 !important;
+    min-width: 0px !important;
+    border: 0;
+    box-shadow: none;
+        background-color: transparent !important;
+}
+.alpaca-field-table .actionbar{
+	    padding: 0;
+    min-width: 120px;
+    text-align: center;
+}
+.alpaca-field-table .alpaca-array-actionbar button i {
+  margin-left: 3px;
+}
+
+/* TEMP. */
+	
+
+
+
+    html .theme--dark .navigation-drawer, html .application .theme--dark.navigation-drawer {
+        background-color: #f6f6f6;
+    }
+    
+    .list--group {
+        position: relative;
+        padding: 0;
+    }
+
+    html .list__tile__action{
+            min-width: 42px;
+    }
+
+    .theme--dark .list .list__tile--link:hover,
+.application .theme--dark.list .list__tile--link:hover,
+.theme--dark .list .list__tile--highlighted,
+.application .theme--dark.list .list__tile--highlighted,
+.theme--dark .list .list__group__header:hover,
+.application .theme--dark.list .list__group__header:hover {
+  background: rgb(246, 246, 246);
+  text-decoration: none;
+}
+
+
+.list__tile--highlighted, .list__tile--link:hover {
+    background: rgb(236, 234, 234) !important;
+    cursor: pointer;
+}
+
+.solo .input-group--switch_inline .switch-label {
+	display: none;
+}
+
+.solo .input-group--switch_inline .switch-control .input-group__details,
+.solo .radio-group--row .input-group__details{
+	display: none;
+}
+
+.solo .input-group--switch_inline .switch-control .input-group--selection-controls,
+.solo .radio-group--row .input-group--selection-controls{
+	margin: 0;
+}
+
+.solo .input-group--switch_inline .switch-control .input-group--selection-controls > label{
+	padding-left: 0;
+}
+
+.solo .radio-group--row {
+	padding: 0 0 0 25px;
+}
+.solo.checkbox .input-group__details {
+		display: none;
+	}

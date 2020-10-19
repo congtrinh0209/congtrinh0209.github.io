@@ -1,0 +1,108 @@
+.header_tools.row-blue {
+  background: #e1e2e1;
+}
+
+.row-blue {
+  background-color: #dbebf0;
+  padding-right: 15px;
+  font-family: 'Roboto-Bold';
+  align-items: center;
+}
+.row-blue .order-number {
+  float: left;
+  padding: 7px 10px;
+  background-color: #aad0de;
+  color: white;
+  margin-right: 15px;
+}
+.row-blue .order-number-detail {
+  align-items: center;
+  padding: 7px 10px;
+}
+.row-blue .order-number-detail > span:first-child {
+  color: red;
+}
+.row-blue .label-info {
+  color: white;
+  margin-right: 15px;
+}
+
+.background-triangle-small, .background-triangle-big {
+  background-color: #0b72ba;
+  display: inline-block;
+  padding: 3px;
+  width: 25px;
+  text-align: right;
+  color: white;
+  position: relative;
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+.background-triangle-small:before, .background-triangle-big:before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  right: -4px;
+  border-top: 28px solid #0b72ba;
+  border-left: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+}
+.background-triangle-small + div.header_tools, .background-triangle-big + div.header_tools {
+  width: -webkit-calc( 100% - 100% );
+  width: calc(100% - 100% );
+}
+.background-triangle-small + div.header_tools .switch-control, .background-triangle-big + div.header_tools .switch-control {
+  margin: 3px 0px 0 20px;
+}
+.background-triangle-small i.setting_action_all, .background-triangle-big i.setting_action_all {
+  font-size: 16px;
+  padding: 0 3px 0 9px;
+  cursor: pointer;
+}
+
+.background-triangle-big {
+  padding: 10px 5px 10px 15px;
+  width: auto;
+  margin-right: 30px;
+}
+.background-triangle-big + div .input-group {
+  min-height: inherit;
+}
+.background-triangle-big + div .input-group .input-group__input {
+  padding: 0 16px;
+}
+.background-triangle-big + div button {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+}
+
+.row-blue + .panel {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.card {
+  width: 100%;
+  box-shadow: none;
+  border-color: #e1e2e1;
+  margin: 0;
+}
+
+.jx-content {
+  width: -webkit-calc(100% - 300px);
+  width: calc(100% - 300px);
+}
+.jx-content .jx-content-wrap {
+  width: 100%;
+}
+.jx-content .jx-content-wrap .row-header {
+  background-color: #e1e2e1;
+  overflow: hidden;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}

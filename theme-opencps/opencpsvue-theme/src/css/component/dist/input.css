@@ -1,0 +1,70 @@
+body .input-group--text-field input, body .input-group--text-field textarea {
+	font-size: 13px;
+}
+
+.input-group--switch_inline .switch-control {
+  display: flex;
+  display: -webkit-box;
+  padding: 0 15px;
+}
+.input-group--switch_inline .input-group__append-icon {
+  position: absolute;
+  right: 15px;
+}
+.input-group--switch_inline .input-group--selection-controls__container__right.input-group.input-group--selection-controls.switch label {
+  left: 0;
+}
+.input-group--switch_inline .input-group.input-group--selection-controls.switch label {
+  padding-left: 14px;
+}
+.input-group--switch_inline .input-group--prepend-icon.input-group--selection-controls.switch label {
+  padding-left: 0px !important;
+}
+.input-group--switch_inline.input-group--full_label .input-group--selection-controls.checkbox label {
+  top: 0px;
+}
+.input-group--switch_inline .radio-group--column {
+  padding-top: 0px;
+}
+.input-group--switch_inline .radio-group--column .input-group__input {
+  display: flex;
+  display: -webkit-box;
+}
+
+.switch-control label {
+  font-weight: normal;
+}
+
+.switch-label .switch-middle {
+  display: inherit;
+  margin-top: 5px;
+}
+
+.input-group.input-group--selection-controls.switch .input-group--selection-controls__ripple {
+  left: 0;
+}
+
+html .input-group--prepend-icon.input-group--selection-controls.switch label,
+html .input-group--selection-controls__container__right.input-group.input-group--selection-controls.switch label,
+html .input-group--append-icon.input-group--selection-controls.switch label {
+  padding-left: 0px;
+}
+
+.input-group--selection-controls__container__right .input-group__input .input-group--selection-controls__container {
+  position: absolute !important;
+  right: 15px;
+  top: 15px;
+}
+.input-group--selection-controls__container__right.input-group.input-group--selection-controls.checkbox .input-group__input .icon--selection-control {
+  position: absolute;
+  right: -100%;
+  margin-right: 15px;
+}
+.input-group--selection-controls__container__right.input-group--prepend-icon.input-group--selection-controls.switch label {
+  left: 32px;
+}
+
+.input-group.input-group--solo {
+  background: transparent;
+  box-shadow: none;
+}

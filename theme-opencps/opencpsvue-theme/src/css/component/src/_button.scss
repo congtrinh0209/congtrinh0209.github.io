@@ -1,0 +1,23 @@
+.row-blue {
+	
+	.btn-border-left {
+		
+		.btn__content {
+			
+			padding-right: 0;
+			
+		}
+	}
+}
+
+body .btn {
+	font-size: 13px;
+	
+	&-border-left{
+		border-left: 2px solid white;
+	}
+	
+	&__loading {
+		color: black;
+	}
+}

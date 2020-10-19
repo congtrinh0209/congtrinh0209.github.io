@@ -1,0 +1,290 @@
+// Main Variable
+$main-color: #00aeef;
+$main-color-dark: #043f6f;
+$sub-color: #faf60a;
+
+
+
+//Mixin
+@mixin box-shadow($value) {
+  	-webkit-box-shadow: $value;
+    box-shadow: $value;
+}
+
+@mixin transform($value) {
+  	-webkit-transform: $value;
+    transform: $value;
+}
+
+@mixin transition($value) {
+  	-webkit-transition: $value;
+    transition: $value;
+}
+
+@mixin d_flex {
+  	display: -webkit-box;
+  	display: flex;
+}
+
+@mixin flex_wrap($value) {
+  	-webkit-flex-wrap: $value;
+  	flex-wrap: $value;
+}
+
+@mixin flex_align($value) {
+  	-webkit-align-items: $value;
+  	align-items: $value;
+}
+
+@mixin flex_justify($value) {
+  	-webkit-justify-content: $value;
+  	justify-content: $value;
+}
+
+
+
+
+
+/*------------------------------
+			Global
+------------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	overflow-y: auto;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	color: #2a2a2a;
+	
+	a, a:hover, a:focus {
+		color: inherit;
+		text-decoration: none;
+	}
+	
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	
+	.portlet {
+		margin: 0;
+		
+		.portlet-content {
+			padding: 0;
+			border: 0;
+			background-color: transparent;
+			
+			h2 {
+				display: none;
+			}
+		}
+	}
+	
+	&.home-theme {	
+
+	}
+	
+	&.page-theme {
+		
+	}
+	
+	.truncated {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: block;
+	}
+
+	.text {
+
+		&-medium {
+			font-weight: 500;
+		}
+
+		&-bold {
+			font-weight: bold;
+		}
+	}
+	
+	.pointer {
+		
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	
+	#wrapper {
+		padding: 0;
+	}
+
+	.container {
+		padding: 15px;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	body .container {
+		max-width: 940px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	body .container {
+		max-width: 1170px;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	body .container {
+		max-width: 1300px;
+	}
+}
+
+
+
+/*------------------------------
+			Footer
+------------------------------*/
+body #footer {
+	color: white;
+	background: url('../images/bg-footer.jpg') center center no-repeat;
+	background-size: 1920px 100%;
+	padding: 15px 0 45px;
+	overflow: hidden;
+	color: white;
+
+	.container {
+		@include d_flex;
+		@include flex_wrap(wrap);
+		padding: 0 15px !important;
+	}
+	
+	p {
+		margin: 0;
+	}
+	
+	.site-name {
+		text-transform: uppercase;
+		font-size: 16px;
+
+		span {
+			display: block;
+			font-size: 18px;
+			font-weight: bold;
+		}
+	}
+
+	.info-wrapper {
+		margin-left: auto;
+
+    	span {
+    		display: block;
+    	}
+
+    	i {
+    		width: 16px;
+			text-align: center;
+			margin-right: 5px;
+    	}
+	}
+
+	.copyright {
+		margin: -5px 0 0;
+		width: 100%;
+	}
+}
+
+
+
+/*------------------------------
+			Navbar
+------------------------------*/
+body #navigation {
+	margin-left: auto;
+	
+	ul {
+		@include d_flex;
+		
+		li {
+			float: left;
+			
+			a {
+				display: block;
+				white-space: nowrap;
+				position: relative;
+				padding: 10px 15px;
+				text-transform: uppercase;
+				color: white;
+				
+				&:focus {
+					outline: none;
+				}
+			}
+			
+			&.selected, &:hover {
+				
+				a {
+					background-color: $main-color-dark;
+					border-radius: 20px;
+				}
+			}
+		}
+		
+		.child-menu {
+			display: none;
+		}
+	}
+}
+
+
+
+/*------------------------------
+			Header
+------------------------------*/
+body #banner {
+	position: relative;
+	background: url("../images/bg-header.jpg") left center no-repeat;
+	background-size: 1920px 100%;
+	padding: 15px 0;
+
+	.container {
+		padding: 0 15px !important;
+		@include d_flex;
+		@include flex_align(center);
+	}
+
+	.mLogo {
+		@include d_flex;
+		@include flex_align(center);
+
+		img {
+			margin-right: 15px;
+		}
+
+		.text-logo {
+			font-family: 'Oswald', sans-serif;
+			text-shadow: -1px -1px 0 #fff, 
+		             	 1px -1px 0 #fff, 
+		             	 -1px 1px 0 #fff,  
+		             	 1px 1px 0 #fff;
+		    color: $main-color-dark;
+		    font-size: 18px;
+		    text-transform: uppercase;
+		    font-weight: 500;
+
+		    span {
+		    	display: block;
+		    	font-size: 24px;
+		    	font-weight: bold;
+		    }
+		}
+	}
+}

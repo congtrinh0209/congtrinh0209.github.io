@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.1.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_1_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.1.0+</version>
+	</compatibility>
+	<theme id="hethongxulynghiepvu" name="hethongxulynghiepvu">
+		<template-extension>ftl</template-extension>
+		<settings>
+	    	<setting type="select" configurable="true" 
+	        	key="theme_type" 
+	    	    options="home,page,kios"                   
+		        value="page" >
+		    </setting>
+        </settings>
+		<color-scheme id="dklr" name="Đăng kiểm">
+			<default-cs>true</default-cs>
+			<css-class>dklr-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<color-scheme id="duongbo" name="Đường bộ">
+			<default-cs>true</default-cs>
+			<css-class>duongbo-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<color-scheme id="duongsat" name="Đường sắt">
+			<default-cs>true</default-cs>
+			<css-class>duongsat-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<color-scheme id="dtnd" name="Đường thủy nội địa">
+			<default-cs>true</default-cs>
+			<css-class>dtnd-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<color-scheme id="hangkhong" name="Hàng không">
+			<default-cs>true</default-cs>
+			<css-class>hangkhong-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<color-scheme id="hanghai" name="Hàng hải">
+			<default-cs>true</default-cs>
+			<css-class>hanghai-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<color-scheme id="bogt" name="Bộ GT">
+			<default-cs>true</default-cs>
+			<css-class>bogt-theme</css-class>
+			<color-scheme-images-path>
+				${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+		<portlet-decorator id="barebone" name="Barebone">
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>

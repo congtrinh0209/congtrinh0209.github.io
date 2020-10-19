@@ -1,0 +1,164 @@
+.control-menu {
+    z-index: 200;
+}
+.navigation-drawer .input-group--text-field {
+    margin-top: -8px;
+}
+.navigation-drawer .list--group__header--active {
+	
+    background: rgb(236, 234, 234);
+    
+    a {
+	    color: inherit;
+	}
+	
+	&.theme--dark a{
+	    color: #757575;
+	     height: 32px;
+	     
+	     .icon {
+	        color: #ffc107;
+			padding-left: 8px;
+	    }
+	}
+}
+
+
+.navigation-drawer--is-mobile {
+	
+	&.navigation-drawer--open {
+		padding: 0px !important;
+		
+		> div {
+			margin: 0px !important;
+		}
+	}
+}
+
+.jx-content {
+  	
+  	width: -webkit-calc(100% - 300px);
+  	width: calc(100% - 300px);
+  
+  	.jx-content-wrap {
+	  width: 100%;
+	  
+	  	.row-header {
+		  width: 100%;
+		}
+
+	}
+}
+
+
+.panel-dossier-navigation {
+    font-size: 13px;
+    box-shadow: none !important;
+    
+    > li {
+	    background-color: transparent !important;
+	    
+	    &:first-child {
+		    margin-bottom: 10px;
+		}
+		
+		> div {
+			&:first-child {
+			    background-color: #14bef0;
+			    color: white;
+			    padding: 6px 15px;
+			    
+			    .icon {
+				    color: white !important;
+				    padding-left: 0;
+				}
+
+			}
+		}
+	}
+	
+	.tracuu-dossier-navigation {
+		.list {
+		    border: 1px solid #ddd;
+		    border-top: 0;
+		    
+		    .list__tile__action {
+			    display: none;
+			}
+		}
+		
+		> ul {
+			padding: 0;
+			
+			> li:not(:last-child) {
+			    border-bottom: 1px solid #ddd;
+			    
+			    > ul.list--group {
+				    > li a {
+					    .status__counter {
+						    top: 3px;
+						}
+						.list__tile__action:first-child .icon {
+						    top: 0px;
+						}
+				    }
+			    }
+			}
+		}
+		
+		a {
+		    color: black !important;
+		    font-size: 13px;
+		    padding: 0 16px;
+		    height: 38px;
+		}
+		
+	}
+	
+	.status-dossier-navigation {
+		a {
+		    color: black !important;
+		    font-size: 13px;
+		    padding: 5px;
+		    height: auto;
+		    
+		    .status__counter {
+			    position: absolute;
+			    right: 7px;
+			    top: 10px;
+			    width: 40px;
+			    background: #f6f6f6;
+			    text-align: center;
+			}
+
+		}
+		
+		.list--group .list__tile__action .icon {
+		    color: black !important;
+		}
+		
+	}
+	
+	.list__tile__action:first-child .icon {
+	    color: #ffc107;
+	    padding-left: 8px;
+	    position: absolute;
+	    top: 5px;
+	}
+	
+	.list__tile__title {
+	    white-space: normal;
+	    height: auto;
+	    line-height: normal;
+	}
+
+}
+
+.theme--light .navigation-drawer{
+	will-change: unset;
+}
+
+.navigation-drawer--is-mobile:not(.navigation-drawer--close) > div {
+	padding: 15px;
+}
+  

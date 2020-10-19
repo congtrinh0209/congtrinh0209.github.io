@@ -1,0 +1,13 @@
+.row-blue .btn-border-left .btn__content {
+  padding-right: 0;
+}
+
+body .btn {
+  font-size: 13px;
+}
+body .btn-border-left {
+  border-left: 2px solid white;
+}
+body .btn__loading {
+  color: black;
+}

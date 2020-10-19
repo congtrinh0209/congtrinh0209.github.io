@@ -1,0 +1,153 @@
+html {
+	overflow: auto;
+}
+body #wrapper {
+	padding-top: 0;
+}
+body a, body a:hover, body a:focus {
+	text-decoration: none;
+	color: inherit;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+.home-theme {
+	background: url("/o/tinhdongthap-theme/images/main-bg.jpg") center center no-repeat;
+	background-size: cover;
+}
+
+#navigation {
+	background: url("/o/tinhdongthap-theme/images/bg-nav.jpg") left top repeat-x;
+	background-size: auto 100%;
+	position: relative;
+}
+#navigation ul {
+	list-style: none;
+	display: -webkit-box;
+	display: flex;
+	max-width: 1300px;
+	margin: auto;
+	padding: 0 15px;
+}
+#navigation li a {
+	display: block;
+	padding: 10px 15px;
+	color: white;
+	text-transform: uppercase;
+}
+#navigation .selected a, #navigation li:hover a {
+	background: url("/o/tinhdongthap-theme/images/nav-active.jpg") left top repeat-x;
+	background-size: auto 100%;
+	font-weight: bold;
+}
+#navigation li > ul, #navigation .nav-toggle {
+	display: none;
+}
+#navigation .nav-toggle {
+	display: none;
+	width: 40px;
+	text-align: center;
+	line-height: 28px;
+	border: 1px solid white;
+	border-radius: 4px;
+	color: white;
+	font-size: 20px;
+	font-size: 18px;
+	margin: 10px 15px;
+}
+
+@media screen and (max-width: 991px) {
+	#navigation .nav-toggle {
+		display: inline-block;
+	}
+	body #navigation > ul {
+		display: none;
+		width: 100%;
+		position: absolute;
+		background-color: white;
+		left: 0;
+		top: 100%;
+		border: 1px solid #ccc;
+		padding: 0;
+		max-height: 200px;
+		overflow: auto;
+	}
+	body #navigation > ul a {
+		color: #204b03;
+	}
+	#navigation .selected a, #navigation li:hover a {
+		color: white;
+	}
+}
+
+#footer {
+	text-align: center;
+	background: url("/o/tinhdongthap-theme/images/bg-footer.jpg") left top repeat-y;
+	background-size: 100% auto;
+	color: white;
+	padding: 10px 15px;
+	position: relative;
+}
+#footer p {
+	margin-bottom: 5px;
+}
+#footer p:last-child {
+	margin-bottom: 0;
+}
+#footer > img {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+@media screen and (max-width: 1366px) {
+	#footer > img {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	#footer span {
+		display: block;
+		margin-bottom: 5px;
+	}
+	#footer .hid {
+		display: none;
+	}
+}
+
+
+
+.page-theme #banner {
+	background: url("/o/tinhdongthap-theme/images/bg-header.jpg") right center no-repeat;
+	background-size: cover;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.page-theme #banner .cont {
+	max-width: 1300px;
+	padding: 0 15px;
+	margin: auto;
+}
+.page-theme #banner .mLogo > a {
+	display: inline-block;
+	position: relative;
+	z-index: 100;
+}
+.page-theme #banner img {
+	max-width: 100%;
+}
+
+@media screen and (max-width: 1366px) {
+	.page-theme #banner {
+		background: url("/o/tinhdongthap-theme/images/bg-header-sm.jpg") right center no-repeat;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.page-theme #banner #react-root {
+		display: none;
+	}
+}

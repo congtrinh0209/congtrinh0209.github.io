@@ -1,0 +1,25 @@
+.menu__content--select .card {
+  margin-bottom: 0;
+}
+.menu__content--select ul {
+  margin-bottom: 0;
+  padding: 0;
+}
+.menu__content--select ul li a {
+  border-bottom: 1px dashed #ddd;
+  display: block;
+  padding: 5px 10px 5px 20px;
+  font-size: 13px;
+  height: auto;
+  color: rgba(0, 0, 0, 0.87);
+  position: relative;
+}
+.menu__content--select ul li a:before {
+  content: "-";
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+.menu__content--select ul li:last-child a {
+  border-bottom: 0;
+}

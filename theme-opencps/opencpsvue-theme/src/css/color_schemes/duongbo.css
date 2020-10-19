@@ -1,0 +1,18 @@
+.duongbo-theme #footer div.toggle:not(.duongbo) {
+	display: none;
+}
+.duongbo-theme footer .site-name .version {
+	margin-top: 0;
+}
+.duongbo-theme #footer .contact > .mail:before {
+	content: "";
+}
+.duongbo-theme #footer .contact > .mail a {
+	text-decoration: underline;
+}
+.duongbo-theme #banner {
+	padding: 5px 0;
+}
+.duongbo-theme  {
+	background-color: #1976d2 !important;
+}

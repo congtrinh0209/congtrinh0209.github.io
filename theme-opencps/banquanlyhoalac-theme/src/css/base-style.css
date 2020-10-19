@@ -1,0 +1,229 @@
+html {
+	overflow: auto;
+}
+body #wrapper {
+	padding-top: 0;
+	background-color: transparent !important;
+}
+body a, body a:hover, body a:focus {
+	text-decoration: none;
+	color: inherit;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+}
+
+@media screen and (min-width: 1360px) {
+	body #banner .container, body #navigation .container, body #footer .container {
+		padding-left: 0;
+		padding-right: 0;
+		max-width: 1300px;
+		margin: auto;
+	}
+}
+
+
+
+/*---------- Header ----------*/
+#banner {
+	padding: 10px 0;
+}
+#banner .container {
+	padding: 0 15px;
+	position: relative;
+}
+#banner img {
+	max-width: 100%;
+	display: block;
+}
+
+@media screen and (max-width: 767px) {
+	#banner {
+		display: none;
+	}
+}
+
+
+
+/*---------- Footer ----------*/
+#footer {
+	background-color: #036edb;
+	padding: 10px 0;
+	color: white;
+}
+#footer .container {
+	display: -webkit-box;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 0 15px;
+}
+#footer label {
+	width: 100%;
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+#footer p {
+	margin-bottom: 0;
+}
+#footer p:nth-child(3) {
+	margin: 0 15px;
+}
+#footer .developed {
+	font-size: 12px;
+	width: 100%;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 991px) {
+	#footer .container {
+		max-width: 100%;
+	}
+	#footer p {
+		width: 100%;
+	}
+	#footer p:not(:nth-child(2)) {
+		margin: 5px 0 0;
+	}
+}
+
+
+
+/*---------- Navbar ----------*/
+#navigation {
+	background-color: #f9f9f9;
+	position: relative;
+	padding: 5px 0;
+}
+#navigation ul {
+	display: flex;
+	list-style: none;
+	margin-bottom: 0;
+	overflow: hidden;
+	margin: auto;
+	padding: 0;
+}
+#navigation li a {
+	padding: 10px 20px;
+	display: block;
+	color: #2a2a2a;
+	position: relative;
+	border-radius: 50px;
+}
+#navigation li:hover a, #navigation li.selected a {
+	color: white;
+	background-color: #036edb;
+}
+#navigation .child-menu {
+	display: none;
+}
+#navigation .nav-toggle {
+	display: none;
+	border: 1px solid #036edb;
+	background-color: #036edb;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: normal;
+    float: right;
+    position: relative;
+    z-index: 10;
+    margin: 10px 15px 0 0;
+}
+#navigation.nav-fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+	border-bottom: 1px solid #036edb;
+}
+#navigation .mLogo {
+	display: none;
+}
+#navigation .mLogo img {
+	max-width: 75%;
+    margin-left: 15px;
+}
+.custom-link, .signed-in .custom-link {
+	display: none;
+}
+
+@media screen and (min-width: 1025px) {
+	#navigation li a[href$="dang-ky-xep-hang"] {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	#navigation {
+		min-height: 48px;
+	}
+	#navigation .nav-toggle, #navigation .mLogo {
+		display: inline-block;
+	}
+	.mBody #navigation > ul {
+		display: none;
+		width: 100%;
+		position: absolute;
+		background-color: #faf4f1;
+		left: 0;
+		top: 100%;
+		border: 1px solid #ccc;
+		padding: 0;
+		max-height: 450px;
+		overflow: auto;
+		z-index: 5;
+		padding: 0 !important;
+	}
+	#navigation li a {
+		border-radius: 0;
+	}
+	#navigation .custom-link {
+		padding: 0;
+	}
+	#navigation .custom-link a {
+		border: 0;
+	}
+	.custom-link {
+		display: block;
+	}
+	.signed-out #react-root {
+		display: none;
+	}
+}
+
+
+
+/*---------- BTT & BTH ----------*/
+body .btt, body .bth {
+	position: fixed;
+	bottom: 100px;
+	right: 30px;
+	background-color: #036edb;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 40px;
+	display: none;
+	color: white;
+	font-size: 24px;
+}
+body .btt.btt-is-visible, body .bth.btt-is-visible {
+	display: block;
+}
+body .btt:hover, body .bth:hover {
+	background-color: #036edb;
+	color: white !important;
+}
+body .bth {
+	right: auto;
+	left: 30px;
+}
+
+
+
+/*---------- Login ----------*/
