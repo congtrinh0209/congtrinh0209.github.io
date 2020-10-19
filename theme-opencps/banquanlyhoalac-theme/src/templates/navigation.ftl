@@ -1,9 +1,6 @@
 <nav class="${nav_css_class}" id="navigation">
-	<a href="${site_default_url}" class="mLogo"> 
-		<img src="${themeDisplay.getPathThemeRoot()}/images/${logo_img}">
-	</a>
 	<a href="#" class="nav-toggle"><i class="fa fa-bars"></i></a>
-	<ul aria-label="<@liferay.language key="site-pages" />" role="menubar" class="container">
+	<ul aria-label="<@liferay.language key="site-pages" />" role="menubar">
 		<#list nav_items as nav_item>
 			<#assign
 				nav_item_attr_has_popup = ""
@@ -43,10 +40,10 @@
 			</li>
 		</#list>
 		<li class="custom-link">
-			<a href="/web/dich-vu-cong-hoa-lac/dang-ky#/login-dichvucong">Đăng nhập</a>
+			<a href="/web/dich-vu-cong-hoa-lac/register#/login-dichvucong">Đăng nhập</a>
 		</li>
 		<li class="custom-link">
-			<a href="/web/dich-vu-cong-hoa-lac/dang-ky#/">Đăng ký</a>
+			<a href="/web/dich-vu-cong-hoa-lac/register">Đăng ký</a>
 		</li>
 	</ul>
 </nav>
