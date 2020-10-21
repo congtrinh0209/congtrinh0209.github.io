@@ -41,9 +41,6 @@ article, .glass::before {
   .glass, .glass::before {
     transition: transform 0.5s ease-out;
   }
-  /* .glass::before {
-    background-image: url('http://hanhchinhcong.phutho.gov.vn/o/parent-opencps-vue/images/bg-home.jpg');
-  } */
 
   body .v-navigation-drawer--fixed {
     position: absolute;
@@ -69,7 +66,7 @@ body .v-list__group__header--active {
 body .v-navigation-drawer>.v-list:not(.v-list--dense) .v-list__tile,
 body .v-input,
 body .v-label {
-    font-size: 14px;
+    font-size: 13px;
 }
 body .v-list__tile__title {
     font-size: 12px;
@@ -178,7 +175,7 @@ body table.v-table thead th:not(:first-child) {
 
 table.v-table tbody td {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 13px;
     border-right: 1px solid #d3d3d3;
     vertical-align: top;
 }
@@ -203,7 +200,7 @@ body .v-text-field>.v-input__control>.v-input__slot:before {
 }
 body .menuable__content__active .v-list .v-list__tile {
     padding: 0 16px;
-    font-size: 14px;
+    font-size: 13px;
     border-bottom: 1px dashed #ddd;
 }
 body .menuable__content__active .v-list > div:last-child .v-list__tile {
@@ -291,7 +288,7 @@ body .notification_wrap > div:last-child {
     background: transparent;
 }
 body #react-root .theme--light .v-list__tile__title {
-    font-size: 14px ;
+    font-size: 13px ;
 }
 body #react-root .application--wrap {
     background: transparent !important;
@@ -395,7 +392,7 @@ body .v-select.v-text-field--enclosed:not(.v-text-field--single-line) .v-select_
 }
 
 #app_serviceinfo .v-tabs__item--active {
-    background: #0a72ba;
+    background: #0167d3;
     color: #fff;
 }
 
@@ -419,14 +416,14 @@ body .v-select.v-text-field--enclosed:not(.v-text-field--single-line) .v-select_
 
 #app_serviceinfo table.table tbody td{
     font-weight: 400;
-    font-size: 14px;
+    font-size: 13px;
     border-right: 1px solid #d3d3d3;
     vertical-align: top;
     margin: 0;
 }
 #app_serviceinfo table.table tbody tr {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 13px;
     vertical-align: top;
 }
 #app_serviceinfo table {
@@ -439,10 +436,10 @@ body .wrap_report .v-card__title.headline {
     font-size: 16px!important;
     font-weight: 700;
     color: #fff;
-    background-color: #00204a;
+    background-color: #0167d3;
 }
 body #app_serviceinfo .v-navigation-drawer .v-tabs__item {
-    border-bottom: 1px solid #0072bf;
+    border-bottom: 1px solid #0167d3;
 }
 body .detail__pie:after, 
 body .detail__pie:before {
@@ -458,7 +455,7 @@ body .report__table {
 body #app .theme--light.v-subheader {
     color: rgb(31, 31, 31);
     height: 32px;
-    font-size: 14px;
+    font-size: 13px;
     float: right;
 }
 body .help-block.alpaca-message {
@@ -514,5 +511,5 @@ body .absolute__btn_panel {
 
 body .v-dialog .v-toolbar .v-toolbar__content {
     height: 40px !important;
-    background-color: #00204a;
+    background-color: #0167d3;
 }

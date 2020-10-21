@@ -3,11 +3,11 @@
 
 
 <#if theme_color_id == "dvc">
-	<#assign site_title = 'Bộ Ngoại giao'/>
+	<#assign site_title = 'Cổng DVC trực tuyến Ban quản lý khu công nghệ cao Hòa Lạc'/>
 	<#assign logo_img = 'logo-dvc.png'/>
-	<#assign tracking_script = 'var _govaq=window._govaq||[];_govaq.push(["trackPageView"]),_govaq.push(["enableLinkTracking"]),function(){_govaq.push(["setTrackerUrl","https://f-emc.ngsp.gov.vn/tracking"]),_govaq.push(["setSiteId","97"]);var e=document,t=e.createElement("script"),a=e.getElementsByTagName("script")[0];t.type="text/javascript",t.async=!0,t.defer=!0,t.src="https://f-emc.ngsp.gov.vn/embed/gov-tracking.min.js",a.parentNode.insertBefore(t,a)}();'/>
+	<#assign tracking_script = ''/>
 <#elseif theme_color_id == "motcua">
-	<#assign site_title = 'Bộ Ngoại giao'/>
-	<#assign logo_img = 'logo-dvc.png'/>
+	<#assign site_title = 'Hệ thống thông tin MCĐT Ban quản lý khu công nghệ cao Hòa Lạc'/>
+	<#assign logo_img = 'logo-motcua.png'/>
 	<#assign tracking_script = ''/>
 </#if>

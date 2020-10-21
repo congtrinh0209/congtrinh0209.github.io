@@ -8,7 +8,7 @@
 	<theme id="banquanlyhoalac" name="banquanlyhoalac">
 		<template-extension>ftl</template-extension>
 		<settings>
-			<setting type="select" configurable="true" key="theme_type" options="home,page,other" value="page"/>
+			<setting type="select" configurable="true" key="theme_type" options="home,page" value="page"/>
 		</settings>
 		<color-scheme id="dvc" name="Cổng DVC">
 			<default-cs>true</default-cs>

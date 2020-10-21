@@ -11,6 +11,7 @@ body .status__counter {
     height: 22px;
     font-size: 12px;
     line-height: 22px;
+	top: 6px;
 }
 body .navigation-drawer .list__group__header__prepend-icon .icon {
     color: #00204A;
@@ -34,7 +35,8 @@ body .theme--light .list .list__tile--link:hover {
     width: 100%;
 }
 .background-triangle-big, .background-triangle-small {
-    background-color: #00204A;
+    /* background-color: #00204A; */
+	background-color: #0167d3;
     display: inline-block;
     text-align: left;
     color: #fff;
@@ -54,7 +56,7 @@ body .no__hidden_class.row-header .background-triangle-big {
     transform: rotate(45deg);
     right: -4px;
     top: 2px;
-    border-top: 26px solid #00204A;
+    border-top: 26px solid #0167d3;
     border-left: 26px solid transparent;
     border-bottom: 25px solid transparent;
 }

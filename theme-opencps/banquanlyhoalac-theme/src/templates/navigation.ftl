@@ -1,6 +1,6 @@
 <nav class="${nav_css_class}" id="navigation">
 	<a href="#" class="nav-toggle"><i class="fa fa-bars"></i></a>
-	<ul aria-label="<@liferay.language key="site-pages" />" role="menubar">
+	<ul aria-label="<@liferay.language key="site-pages" />" role="menubar" class="container">
 		<#list nav_items as nav_item>
 			<#assign
 				nav_item_attr_has_popup = ""
@@ -40,10 +40,10 @@
 			</li>
 		</#list>
 		<li class="custom-link">
-			<a href="/web/dich-vu-cong-hoa-lac/register#/login-dichvucong">Đăng nhập</a>
+			<a href="/web/cong-dich-vu-cong-tinh-son-la/register#/login-dichvucong">Đăng nhập</a>
 		</li>
 		<li class="custom-link">
-			<a href="/web/dich-vu-cong-hoa-lac/register">Đăng ký</a>
+			<a href="/web/cong-dich-vu-cong-tinh-son-la/register">Đăng ký</a>
 		</li>
 	</ul>
 </nav>
