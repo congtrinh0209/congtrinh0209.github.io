@@ -1,0 +1,71 @@
+.text-xs-center {
+    text-align: center;
+}
+.text-xs-right {
+    text-align: right;
+}
+.d-inline-block {
+    display: inline-block;
+}
+.form-login {
+    margin-bottom: 0px;
+}
+.body_login {
+    width: 100%;
+    background: url(../images/background-login.png) center center no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0px;
+}
+.body_login .panel-body {
+    display: block;
+    position: absolute;
+    width: 375px;
+    top: 120px;
+    right: 190px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+    margin: auto;
+}
+.logo-login {
+    margin-bottom: 25px;
+}
+.btn-login {
+    width: 115px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #1069e2 0%, #063d86 100%);
+    color: #ffffff
+}
+.btn-login:hover {
+    color: #ffffff
+}
+.login-div, .register-div {
+    position: relative;
+}
+.icon-login, .icon-register {
+    color: #ffffff;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.btn-register {
+    width: 100px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    color:#085097;
+    border-color: #085097;
+    margin-right: 5px;
+}
+.icon-register {
+    color: #085097;
+}
+.btn-register:hover {
+    background: linear-gradient(to right, #1069e2 0%, #063d86 100%);
+    color: #ffffff !important
+}
+.register-div:hover {
+    color: #ffffff !important
+}

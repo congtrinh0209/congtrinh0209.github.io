@@ -39,11 +39,11 @@
 				</#if>
 			</li>
 		</#list>
-		<li class="custom-link">
+		<!-- <li class="custom-link">
 			<a href="/web/cong-dich-vu-cong-tinh-son-la/register#/login-dichvucong">Đăng nhập</a>
 		</li>
 		<li class="custom-link">
 			<a href="/web/cong-dich-vu-cong-tinh-son-la/register">Đăng ký</a>
-		</li>
+		</li> -->
 	</ul>
 </nav>

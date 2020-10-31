@@ -1,0 +1,51 @@
+
+<!-- Localization completed -->
+<div ng-if="!isIE">
+    <div class='panel panel-default login body_login' ng-class='{"panel-danger": errorMessage, "panel-success": successMessage}'>
+        <div class='panel-heading' ng-if='errorMessage'>{{errorMessage}}</div>
+        <div class='panel-heading' ng-if='successMessage'>{{successMessage}}</div>
+        <div class='panel-body' style="padding: 30px; background: #f6f8fc">
+            <form name='loginForm' ng-submit='onLogin()' class="form-login text-xs-center">
+                <div class="header_login">
+                    <div class="logo-login">
+                        <img src="/hmdm/images/logo-login.png">
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <!-- <label for='username' localized>login.username</label> -->
+                    <input type='text' class='form-control' id='username'
+                           ng-model='login.username' localized-placeholder="login.username.placeholder"
+                           required/>
+                </div>
+                <div class='form-group'>
+                    <!-- <label for='password' localized>login.password</label> -->
+                    <input type='password' class='form-control' id='password'
+                           ng-model='login.password' localized-placeholder='login.password.placeholder'
+                           required/>
+                </div>
+                <div class="d-inline-block register-div">
+                    <i class="fa fa-user-plus icon-register" aria-hidden="true"></i>
+                    <button class='btn btn-default text-xs-right btn-register' onclick="this.disabled=true">Đăng ký</button>
+                </div>
+                <div class="d-inline-block login-div">
+                    <i class="fa fa-sign-in icon-login" aria-hidden="true"></i>
+                    <button type='submit' class='btn btn-default text-xs-right btn-login' 
+                    style="opacity: 1" ng-disabled='loginForm.$invalid' localized>login.submit</button>
+                </div>
+                
+            </form>
+        </div>
+        <div class="footer-login text-xs-center text-bold">
+            <span>Phát triển bởi </span> <span><img src="/hmdm/images/logo-fds.png"></span> <br>
+            <span>Địa chỉ: Tầng 8, Tòa nhà VAPA, Số 4, Ngõ 3, Đường Tôn Thất Thuyết, Quận Cầu Giấy, TP. Hà Nội</span> <br>
+            <span>Điện thoại: (024) 6262 7617</span> <br>
+            <span>Thư điện tử: contact@fds.vn</span>
+        </div>
+    </div>
+</div>
+
+<!-- <div class='content-wrapper width-1000' ng-if="isIE">
+    <div localized>ie.browser.notice.1</div>
+    <div ng-bind-html="'ie.browser.notice.2' | localize"></div>
+</div> -->
+
