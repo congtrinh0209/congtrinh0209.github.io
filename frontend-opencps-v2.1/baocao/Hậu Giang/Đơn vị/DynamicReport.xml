@@ -2126,6 +2126,18 @@
     ],
     sumKey: "domainCode",
     filters: [
+		{
+        label: "Lĩnh vực",
+        source: "",
+        key: "domain",
+        valueMapping: "domainCode",
+        nameMapping: "domainName",
+        type: "select",
+        multiple: "true",
+        api: "/o/rest/v2/serviceinfos/statistics/domains",
+        proxyApi: "/serviceinfos/statistics/domains",
+        class: "xs12 sm6 px-3 mb-3"
+   },
       {
         label: "Từ ngày",
         key: "fromStatisticDate",
