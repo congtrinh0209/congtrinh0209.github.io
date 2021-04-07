@@ -441,7 +441,7 @@
 		<userConfig>{}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="REGISTER_02">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Sổ theo dõi trả kết quả</reportName>
 		<reportCode>REGISTER_02</reportCode>
 		<filterConfig>
@@ -881,7 +881,7 @@
 		<userConfig>{}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="REGISTER_04">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Danh sách bàn giao tiếp nhận</reportName>
 		<reportCode>REGISTER_04</reportCode>
 		<filterConfig>
@@ -1180,7 +1180,7 @@
 		<userConfig>{}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="REGISTER_05">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Danh sách bàn giao kết quả</reportName>
 		<reportCode>REGISTER_05</reportCode>
 		<filterConfig>
@@ -1482,210 +1482,6 @@
 				 fontSize: 11
 			   }
 			 } 
-		}
-
-		]]>
-		</tableConfig>
-		<userConfig>{}</userConfig>
-	</DynamicReport>
-	<DynamicReport label="REPORT_STATISTIC_011">
-		<sharing>1</sharing>
-		<reportName>Tổng hợp hồ sơ dịch vụ công mức 3, 4</reportName>
-		<reportCode>REPORT_STATISTIC_011</reportCode>
-		<filterConfig>
-		<![CDATA[
-		
-		
-		
-		{
-		  api: "/o/rest/statistics/dossier/summary",
-		  exclusive: false,
-		  customize: true,
-		  groupIds: [],
-		  
-		  sumKey: "serviceCode",
-		  filters: [
-			{
-			  label: "Mức độ",
-			  key: "serviceLevel",
-			  value: "3,4",
-			  type: "select",
-			  source: [
-				{name: "Tất cả", value: "3,4"},
-				{name: "Mức độ 3", value: "3"},
-				{name: "Mức độ 4", value: "4"}
-			  ]  
-			},
-			{
-			  label: "Từ ngày",
-			  key: "fromReceiveDate",
-			  value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
-			  type: "date",
-			  before: "toReceiveDate"  
-			},
-			{
-			  label: "Đến ngày",
-			  key: "toReceiveDate",
-			  value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
-			  type: "date",
-			  after: "fromReceiveDate"  
-			}
-		  ],
-		  reportConfig: [
-			{
-			  "selected": true,
-			  "value": "govAgencyName",
-			  "text": "Tên đơn vị",
-			  "align": "left",
-			  "width": 150
-			},
-			{
-			  "selected": true,
-			  "value": "serviceName",
-			  "align": "left",
-			  "text": "Tên thủ tục"
-			},
-			{
-			  "selected": true,
-			  "value": "serviceLevel",
-			  "align": "center",
-			  "text": "Mức độ",
-			  "width": 50,
-			  "calculator": '"Mức độ " + dataInput["serviceLevel"]',
-			},
-			{
-			  "selected": true,
-			  "value": "releaseDossierOnline3Count",
-			  "text": "Số lượng hồ sơ trực tuyến đã giải quyết",
-			  "calculator": 'dataInput["serviceLevel"] == 3 ? dataInput["releaseDossierOnline3Count"] : dataInput["releaseDossierOnline4Count"]',
-			},
-			{
-			  "selected": true,
-			  "value": "releaseDossierOnegate3Count",
-			  "text": "Số lượng hồ sơ trực tiếp đã giải quyết",
-			  "calculator": 'dataInput["serviceLevel"] == 3 ? dataInput["releaseDossierOnegate3Count"] : dataInput["releaseDossierOnegate4Count"]'
-			}
-		  ]
-		}
-		
-		
-		]]>
-		</filterConfig>
-		<tableConfig>
-		<![CDATA[
-		
-		{
-		  docDefinition: {
-			 pageOrientation: 'landscape',
-			 content: [
-			   {
-					 columns: [
-						 {
-							 width: 300,
-							 style: "title",
-							 text: [
-								{text: "[$siteName$]\n"},
-							   {text: "--------------------------------\n"}
-							 ]
-						 },
-						 {
-							 width: 100,
-							  style: "title",
-							 text: ''
-						   },
-						 {
-							 width: 300,
-							 style: "title",
-							 text: [
-								 {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-								 {text: "Độc lập - Tự do - Hạnh phúc\n"},
-								 {text: "----------------------------\n"},
-								 {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-							 ]
-						 }
-					 ]
-			   },
-			   {
-				 text: [
-				   {text: 'BÁO CÁO TỔNG HỢP HỒ SƠ DỊCH VU CÔNG\n'},
-				   {text: "Đơn vị: [$siteName$]\n", fontSize: 11},
-				   {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11}
-				 ], 
-				 margin: [0, 20],
-				 style: 'headerTitle'
-			   },
-			   {
-				 style: 'tableExample',
-				 table: {
-				   widths: "[$tableWidth$]",
-				   body: ["[$report$]"]
-				 },
-				 margin: [0, 0, 0, 20]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'title',
-					 text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-				   }
-				 ]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'titleSub',
-					 text: '(Ký và ghi rõ họ tên)'
-				   }
-				 ]
-			   }
-			 ],
-			 styles: {
-			   ngayThangNam: {
-				 fontSize: 10,
-				 italics: true,
-				 bold: false,
-				 alignment: 'center'
-			   },
-			   headerTitle: {
-				   alignment: 'center',
-				   bold: true,
-				   fontSize: 13
-			   },
-			   borderHeader: {
-				   alignment: 'left'
-			   },
-			   title: {
-				 bold: true,
-				 alignment: 'center',
-				 textTransform: 'uppercase'
-			   },
-			   titleSub: {
-				   fontSize: 10,
-				   italics: true,
-				   alignment: 'center'
-			   },
-			   tdStyle: {
-				 fontSize: 10
-			   },
-			   tableExample: {
-				  width: "100%" 
-			   }
-			 },
-			 defaultStyle: {
-			   columnGap: 20,
-			   fontSize: 11
-			 }
-		   } 
 		}
 
 		]]>
@@ -2323,13 +2119,47 @@
 		<filterConfig>
 		<![CDATA[
 		{
-    api: "/o/rest/statistics",
+    api: "/o/statistic/dossier/groupcount?type=20&groupBy=domainCode",
+	apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=domainCode",
     exclusive: false,
     customize: false,
     groupIds: [
     ],
     sumKey: "domainCode",
     filters: [
+		{
+			label: "Chọn đơn vị",
+			key: "govAgencyCode",
+			value: "",
+			type: "select",
+			clearable: true,
+			source: [
+				{
+					"name": "UBND Phường Ngã Bảy",
+					"value": "XTPNB_PHUONGNGABAY"
+				},
+				{
+					"name": "UBND Phường Lái Hiếu",
+					"value": "XTPNB_PHUONGLAIHIEU"
+				},
+				{
+					"name": "UBND Phường Hiệp Thành",
+					"value": "XTPNB_PHUONGHIEPTHANH"
+				},
+				{
+					"name": "UBND Phường Hiệp Lợi",
+					"value": "XTPNB_PHUONGHIEPLOI"
+				},
+				{
+					"name": "UBND Xã Đại Thành",
+					"value": "XTPNB_XADAITHANH"
+				},
+				{
+					"name": "UBND Xã Tân Thành",
+					"value": "XTPNB_XATANTHANH"
+				}
+			  ]
+		},
 		{
         label: "Lĩnh vực",
         source: "",
@@ -2340,17 +2170,18 @@
         multiple: "true",
         api: "/o/rest/v2/serviceinfos/statistics/domains",
         proxyApi: "/serviceinfos/statistics/domains",
-        class: "xs12 sm6 px-3 mb-3"
-   },
+        class: "xs12 sm6 px-3 mb-3",
+		clearable: true
+		},
       {
         label: "Từ ngày",
-        key: "fromStatisticDate",
+        key: "fromDate",
         value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
         type: "date" 
       },
       {
         label: "Đến ngày",
-        key: "toStatisticDate",
+        key: "toDate",
         value: new Date().toLocaleDateString('vi-VN'),
         type: "date" 
       }
@@ -2491,7 +2322,7 @@
         {
             text: [
                 {text: "BÁO CÁO TỔNG HỢP THEO LĨNH VỰC\n"},
-                {text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11}
+                {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
             ], 
             margin: [0, 20],
             style: "headerTitle"
@@ -2793,7 +2624,7 @@
 }
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 15}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="STATISTIC_031">
 		<sharing>1</sharing>
@@ -2802,7 +2633,8 @@
 		<filterConfig>
 		<![CDATA[
 		{
-			api: "/o/rest/statistics?isReportServiceCode=true",
+			api: "/o/statistic/dossier/groupcount?type=20&groupBy=serviceCode",
+			apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=serviceCode",
 			exclusive: false,
 			customize: false,
 			groupIds: [
@@ -2810,26 +2642,60 @@
 			sumKey: "serviceCode",
 			filters: [
 			{
+				label: "Chọn đơn vị",
+				key: "govAgencyCode",
+				value: "",
+				type: "select",
+				clearable: true,
+				source: [
+					{
+						"name": "UBND Phường Ngã Bảy",
+						"value": "XTPNB_PHUONGNGABAY"
+					},
+					{
+						"name": "UBND Phường Lái Hiếu",
+						"value": "XTPNB_PHUONGLAIHIEU"
+					},
+					{
+						"name": "UBND Phường Hiệp Thành",
+						"value": "XTPNB_PHUONGHIEPTHANH"
+					},
+					{
+						"name": "UBND Phường Hiệp Lợi",
+						"value": "XTPNB_PHUONGHIEPLOI"
+					},
+					{
+						"name": "UBND Xã Đại Thành",
+						"value": "XTPNB_XADAITHANH"
+					},
+					{
+						"name": "UBND Xã Tân Thành",
+						"value": "XTPNB_XATANTHANH"
+					}
+				  ]
+			},
+			{
 				label: "Thủ tục",
 				source: "",
-				key: "service",
+				key: "serviceCode",
 				valueMapping: "serviceCode",
 				nameMapping: "serviceName",
 				type: "select",
 				multiple: "true",
 				api: "/o/rest/v2/serviceinfos",
 				proxyApi: "/serviceinfos",
-				class: "xs12 sm6 px-3 mb-3"
+				class: "xs12 sm6 px-3 mb-3",
+				clearable: true
 		   },
 			  {
 				label: "Từ ngày",
-				key: "fromStatisticDate",
+				key: "fromDate",
 				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
 				type: "date" 
 			  },
 			  {
 				label: "Đến ngày",
-				key: "toStatisticDate",
+				key: "toDate",
 				value: new Date().toLocaleDateString('vi-VN'),
 				type: "date" 
 			  }
@@ -2908,18 +2774,6 @@
 				"value": "overtimeCount",
 				"text": "",
 				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "deniedCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "cancelledCount",
-				"text": "",
-				"align": "center"
 			  }
 			],
 			selection: [
@@ -2972,7 +2826,7 @@
 					{
 						text: [
 							{text: "BÁO CÁO TỔNG HỢP THEO THỦ TỤC\n"},
-							{text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11}
+							{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
 						], 
 						margin: [0, 20],
 						style: "headerTitle"
@@ -2980,7 +2834,7 @@
 					{
 						style: "tableExample",
 						table: {
-							widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+							widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
 							headerRows: 3,
 							body: [
 								[
@@ -3038,20 +2892,6 @@
 										alignment: "center",
 										bold: true,
 										style: "tdStyle"
-									},
-									{
-										text: "Hồ sơ trả lại",
-										rowSpan: 3,
-										alignment: "center",
-										bold: true,
-										style: "tdStyle"
-									},
-									{
-										text: "Hồ sơ rút",
-										rowSpan: 3,
-										alignment: "center",
-										bold: true,
-										style: "tdStyle"
 									}
 								],
 								[
@@ -3075,8 +2915,6 @@
 										alignment: "center",
 										style: "tdStyle"
 									},
-									"",
-									"",
 									"",
 									"",
 									""
@@ -3122,8 +2960,6 @@
 										alignment: "center",
 										style: "tdStyle"
 									},
-									"",
-									"",
 									""
 								],
 								[
@@ -3189,16 +3025,6 @@
 									},
 									{
 										text: "(13)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(14)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(15)",
 										alignment: "center",
 										fontSize: 8
 									}
@@ -3274,10 +3100,10 @@
 			}
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 16}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="STATISTIC_02">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Tổng hợp hồ sơ cả năm của đơn vị</reportName>
 		<reportCode>STATISTIC_02</reportCode>
 		<filterConfig>
@@ -4893,240 +4719,19 @@
 		</tableConfig>
 		<userConfig>{}</userConfig>
 	</DynamicReport>
-	<DynamicReport label="REPORT_STATISTIC_12">
-		<sharing>9</sharing>
-		<reportName>Báo cáo thu phí</reportName>
-		<reportCode>REPORT_STATISTIC_12</reportCode>
-		<filterConfig>
-		<![CDATA[
-		
-
-{
-  api: "/o/rest/statistics/feedetail?paymentStatus=5&type=service",
-  exclusive: false,
-  customize: true,
-  groupIds: [
-  ],
-  groupBy: [
-    {
-       key: "domainCode",
-       label: "Lĩnh vực",
-       display: "domainName"
-    },
-    {
-       key: "serviceCode",
-       label: "Thủ tục",
-       display: "serviceName"
-    }
-  ],
-  sumKey: "domainCode",
-  filters: [
-    {
-      label: "Hình thức thanh toán",
-      key: "paymentMethod",
-      value: "total",
-      type: "select",
-      source: [
-        {name: "Tất cả", value: "total"},
-        {name: "Trực tiếp", value: "direct"},
-        {name: "Trực tuyến", value: "online"}
-      ]  
-    },
-    {
-      label: "Từ ngày",
-      key: "fromReceiveDate",
-      value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
-      type: "date",
-      before: "toReceiveDate"  
-    },
-    {
-      label: "Đến ngày",
-      key: "toReceiveDate",
-      value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
-      type: "date",
-      after: "fromReceiveDate"  
-    }
-  ],
-  reportConfig: [
-    {
-      "selected": true,
-      "value": "dossierNo",
-      "text": "Mã hồ sơ"
-    },
-    {
-      "selected": true,
-      "value": "applicantName",
-      "align": "left",
-      "text": "Người đăng ký"
-    },
-    {
-      "selected": true,
-      "value": "address",
-      "align": "left",
-      "text": "Địa chỉ người nộp"
-    },
-    {
-      "selected": true,
-      "value": "paymentDate",
-      "text": "Ngày thu"
-    },
-    {
-      "selected": true,
-      "value": "paymentFee",
-      "text": "Lệ phí",
-      "type": "currency"
-    },
-    {
-      "selected": true,
-      "value": "paymentAmount",
-      "text": "Phí",
-      "type": "currency"
-    },
-    {
-      "selected": true,
-      "value": "totalAmount",
-      "text": "Tổng",
-      "type": "currency"
-    },
-    {
-      "selected": true,
-      "value": "note",
-      "text": "Diễn giải"
-    }
-  ]
-}
-
-		]]>
-		</filterConfig>
-		<tableConfig>
-		<![CDATA[
-
-{
-  docDefinition: {
-     pageOrientation: 'landscape',
-     content: [
-       {
-             columns: [
-                 {
-                     width: 300,
-                     style: "title",
-                     text: [
-                        {text: "[$siteName$]\n"},
-                       {text: "--------------------------------\n"}
-                     ]
-                 },
-                 {
-                     width: 100,
-                      style: "title",
-                     text: ''
-                   },
-                 {
-                     width: 300,
-                     style: "title",
-                     text: [
-                         {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-                         {text: "Độc lập - Tự do - Hạnh phúc\n"},
-                         {text: "----------------------------\n"},
-                         {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-                     ]
-                 }
-             ]
-       },
-       {
-         text: [
-           {text: 'BÁO CÁO CHI TIẾT PHÍ, LỆ PHÍ\n'},
-           {text: "Đơn vị: [$siteName$]\n", fontSize: 11},
-           {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11}
-         ], 
-         margin: [0, 20],
-         style: 'headerTitle'
-       },
-       {
-         style: 'tableExample',
-         table: {
-           widths: "[$tableWidth$]",
-           body: ["[$report$]"]
-         },
-         margin: [0, 0, 0, 20]
-       },
-       {
-         columns: [
-           {
-             width: '*',
-             text: ''
-           },
-           {
-             width: 150,
-             style: 'title',
-             text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-           }
-         ]
-       },
-       {
-         columns: [
-           {
-             width: '*',
-             text: ''
-           },
-           {
-             width: 150,
-             style: 'titleSub',
-             text: '(Ký và ghi rõ họ tên)'
-           }
-         ]
-       }
-     ],
-     styles: {
-       ngayThangNam: {
-         fontSize: 10,
-         italics: true,
-         bold: false,
-         alignment: 'center'
-       },
-       headerTitle: {
-           alignment: 'center',
-           bold: true,
-           fontSize: 13
-       },
-       borderHeader: {
-           alignment: 'left'
-       },
-       title: {
-         bold: true,
-         alignment: 'center',
-         textTransform: 'uppercase'
-       },
-       titleSub: {
-           fontSize: 10,
-           italics: true,
-           alignment: 'center'
-       },
-       tdStyle: {
-         fontSize: 10
-       },
-       tableExample: {
-          width: "100%" 
-       }
-     },
-     defaultStyle: {
-       columnGap: 20,
-       fontSize: 11
-     }
-   } 
-}
-
-		]]>
-		</tableConfig>
-		<userConfig>{}</userConfig>
-	</DynamicReport>
 	<DynamicReport label="REPORT_01">
 		<sharing>1</sharing>
 		<reportName>Hồ sơ tiếp nhận trực tiếp</reportName>
 		<reportCode>REPORT_01</reportCode>
 		<filterConfig>
 		<![CDATA[
+		
 		{
-        api: "/o/rest/v2/dossiers?online=false",
+		version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=2",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=2",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=2",
         exclusive: false,
         customize: true,
         groupIds: [
@@ -5151,77 +4756,46 @@
         ], 
         filters: [
             {
-            label: "Lĩnh vực",
-            clearable: "true",
-            source: "",
-            key: "domain",
-            valueMapping: "domainCode",
-            nameMapping: "domainName",
-            type: "select",
-            multiple: "true",
-            api: "/o/rest/v2/serviceinfos/statistics/domains",
-            proxyApi: "/serviceinfos/statistics/domains",
-            class: "xs12 sm6 px-3 mb-3"
-            },
-            {
-            label: "Trạng thái",
-            key: "status",
-            value: "",
-            type: "select",
-            source: [
-                {
-                "value": "",
-                "name": "Tất cả"
-                },
-                {
-                "value": "new,receiving",
-                "name": "Chờ bàn giao"
-                },
-                {
-                "value": "processing,planning",
-                "name": "Đang thụ lý"
-                },
-                {
-                "value": "processing,planning",
-                "name": "Xử lý liên thông"
-                },
-                {
-                "value": "waiting",
-                "name": "Chờ bổ sung điều kiện"
-                },
-                {
-                "value": "unresolved",
-                "name": "Từ chối giải quyết"
-                },
-                {
-                "value": "cancelled",
-                "name": "Rút hồ sơ"
-                },
-                {
-                "value": "releasing,posting",
-                "name": "Chờ trả kết quả"
-                },
-                {
-                "value": "done",
-                "name": "Đã trả kết quả"
-                }       
-            ]
-            },
-            {
             label: "Từ ngày",
-            key: "fromReceiveDate",
+            key: "fromDate",
             value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
             type: "date", 
-            before: "toReceiveDate" 
+            before: "toDate" 
             },
             {
             label: "Đến ngày",
-            key: "toReceiveDate",
+            key: "toDate",
             value: new Date().toLocaleDateString('vi-VN'),
             type: "date", 
-            after: "fromReceiveDate" 
-            }
-            
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  clearable: "true",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
         ],
         reportConfig: [
             {
@@ -5327,11 +4901,6 @@
             "value": "briefNote",
             "align": "left",
             "text": "Chi tiết nội dung"
-            },
-            {
-            "selected": true,
-            "value": "dossierOverdue",
-            "text": "Hạn xử lý"
             }
         ]
         }
@@ -5374,7 +4943,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ TIẾP NHẬN TRỰC TIẾP CỦA ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Trạng thái: [$status$]", fontSize: 11},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -5453,7 +5022,7 @@
         }
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 1}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="REPORT_02">
 		<sharing>1</sharing>
@@ -5462,7 +5031,11 @@
 		<filterConfig>
 		<![CDATA[
 		{
-        api: "/o/rest/v2/dossiers?online=true",
+        version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=4&online=true",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=4&online=true",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=4&online=true",
         exclusive: false,
         customize: true,
         groupIds: [
@@ -5486,77 +5059,47 @@
             }
         ], 
         filters: [
-            {
-            label: "Lĩnh vực",
-            clearable: "true",
-            source: "",
-            key: "domain",
-            valueMapping: "domainCode",
-            nameMapping: "domainName",
-            type: "select",
-            multiple: "true",
-            api: "/o/rest/v2/serviceinfos/statistics/domains",
-            proxyApi: "/serviceinfos/statistics/domains",
-            class: "xs12 sm6 px-3 mb-3"
-            },
-            {
-            label: "Trạng thái",
-            key: "status",
-            value: "",
-            type: "select",
-            source: [
-                {
-                "value": "",
-                "name": "Tất cả"
-                },
-                {
-                "value": "new,receiving",
-                "name": "Chờ bàn giao"
-                },
-                {
-                "value": "processing,planning",
-                "name": "Đang thụ lý"
-                },
-                {
-                "value": "processing,planning",
-                "name": "Xử lý liên thông"
-                },
-                {
-                "value": "waiting",
-                "name": "Chờ bổ sung điều kiện"
-                },
-                {
-                "value": "unresolved",
-                "name": "Từ chối giải quyết"
-                },
-                {
-                "value": "cancelled",
-                "name": "Rút hồ sơ"
-                },
-                {
-                "value": "releasing,posting",
-                "name": "Chờ trả kết quả"
-                },
-                {
-                "value": "done",
-                "name": "Đã trả kết quả"
-                }       
-            ]
-            },
-            {
+			{
             label: "Từ ngày",
-            key: "fromReceiveDate",
+            key: "fromDate",
             value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
             type: "date", 
-            before: "toReceiveDate" 
+            before: "toDate" 
             },
             {
             label: "Đến ngày",
-            key: "toReceiveDate",
+            key: "toDate",
             value: new Date().toLocaleDateString('vi-VN'),
             type: "date", 
-            after: "fromReceiveDate" 
-            }
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+            
             
         ],
         reportConfig: [
@@ -5663,11 +5206,6 @@
             "value": "briefNote",
             "align": "left",
             "text": "Chi tiết nội dung"
-            },
-            {
-            "selected": true,
-            "value": "dossierOverdue",
-            "text": "Hạn xử lý"
             }
         ]
         }
@@ -5710,7 +5248,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ TIẾP NHẬN TRỰC TUYẾN TẠI ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Trạng thái: [$status$]", fontSize: 11},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -5789,7 +5327,7 @@
         }
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 2}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="REPORT_03">
 		<sharing>1</sharing>
@@ -5798,7 +5336,11 @@
 		<filterConfig>
 		<![CDATA[
 		{
-        api: "/o/rest/v2/dossiers?status=done",
+        version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=5",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=5",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=5",
         exclusive: false,
         customize: true,
         groupIds: [
@@ -5823,60 +5365,46 @@
         ], 
         filters: [
             {
-            label: "Lĩnh vực",
-            clearable: "true",
-            source: "",
-            key: "domain",
-            valueMapping: "domainCode",
-            nameMapping: "domainName",
-            type: "select",
-            multiple: "true",
-            api: "/o/rest/v2/serviceinfos/statistics/domains",
-            proxyApi: "/serviceinfos/statistics/domains",
-            class: "xs12 sm6 px-3 mb-3"
-            },
-            {
-            label: "Hạn xử lý",
-            key: "time",
-            value: "",
-            type: "select",
-            source: [
-                {
-                "value": "",
-                "name": "Tất cả"
-                },
-                {
-                "value": "betimes",
-                "name": "Sớm hạn"
-                },
-                {
-                "value": "ontime",
-                "name": "Đúng hạn"
-                },
-                {
-                "value": "overtime",
-                "name": "Quá hạn"
-                },
-                {
-                "value": "overdue",
-                "name": "Trễ hạn"
-                }
-            ]
-            },
-            {
             label: "Từ ngày",
-            key: "fromFinishDate",
+            key: "fromDate",
             value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
             type: "date", 
-            before: "toReceiveDate" 
+            before: "toDate" 
             },
             {
             label: "Đến ngày",
-            key: "toFinishDate",
+            key: "toDate",
             value: new Date().toLocaleDateString('vi-VN'),
             type: "date", 
-            after: "fromFinishDate" 
-            }
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+            
         ],
         reportConfig: [
             {
@@ -5967,11 +5495,6 @@
             {
             "value": "originDossierNo",
             "text": "Mã hồ sơ gốc"
-            },   
-            {
-            "selected": true,
-            "value": "dossierOverdue",
-            "text": "Hạn xử lý"
             },
             {
             "selected": true,
@@ -6030,7 +5553,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ ĐÃ TRẢ KẾT QUẢ TẠI ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromFinishDate$] đến ngày [$toFinishDate$] - Hạn xử lý: [$time$]", fontSize: 11},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -6109,7 +5632,7 @@
         }
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 3}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="REPORT_04">
 		<sharing>1</sharing>
@@ -6118,7 +5641,11 @@
 		<filterConfig>
 		<![CDATA[
 		{
-        api: "/o/rest/v2/dossiers?status=releasing,posting,done",
+        version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=9",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=9",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=9",
         exclusive: false,
         customize: true,
         groupIds: [
@@ -6143,60 +5670,46 @@
         ], 
         filters: [
             {
-            label: "Lĩnh vực",
-            clearable: "true",
-            source: "",
-            key: "domain",
-            valueMapping: "domainCode",
-            nameMapping: "domainName",
-            type: "select",
-            multiple: "true",
-            api: "/o/rest/v2/serviceinfos/statistics/domains",
-            proxyApi: "/serviceinfos/statistics/domains",
-            class: "xs12 sm6 px-3 mb-3"
-            },
-            {
-            label: "Hạn xử lý",
-            key: "time",
-            value: "",
-            type: "select",
-            source: [
-                {
-                "value": "",
-                "name": "Tất cả"
-                },
-                {
-                "value": "betimes",
-                "name": "Sớm hạn"
-                },
-                {
-                "value": "ontime",
-                "name": "Đúng hạn"
-                },
-                {
-                "value": "overdue",
-                "name": "Quá hạn"
-                },
-                {
-                "value": "overtime",
-                "name": "Trễ hạn"
-                }
-            ]
-            },
-            {
             label: "Từ ngày",
-            key: "fromReleaseDate",
+            key: "fromDate",
             value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
             type: "date", 
-            before: "toReleaseDate" 
+            before: "toDate" 
             },
             {
             label: "Đến ngày",
-            key: "toReleaseDate",
+            key: "toDate",
             value: new Date().toLocaleDateString('vi-VN'),
             type: "date", 
-            after: "fromFinishDate" 
-            }  
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+            
         ],
         reportConfig: [
             {
@@ -6290,11 +5803,6 @@
             },   
             {
             "selected": true,
-            "value": "dossierOverdue",
-            "text": "Hạn xử lý"
-            },
-            {
-            "selected": true,
             "value": "dossierNote",
             "align": "left",
             "text": "Ghi chú"
@@ -6350,7 +5858,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$] - Hạn xử lý: [$time$]", fontSize: 11},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -6429,7 +5937,922 @@
         }
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 4}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_041">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ hoàn thành sớm hạn</reportName>
+		<reportCode>REPORT_041</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+        version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=10",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=10",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=10",
+        exclusive: false,
+        customize: true,
+        groupIds: [
+        ],
+        sumKey: "",
+        groupBy: [
+            {
+            key: "domainCode",
+            label: "Lĩnh vực",
+            display: "domainName"
+            },
+            {
+            key: "serviceCode",
+            label: "Thủ tục",
+            display: "serviceName"
+            },
+            {
+            key: "govAgencyCode",
+            label: "Cơ quan",
+            display: "govAgencyName"
+            }
+        ], 
+        filters: [
+            {
+            label: "Từ ngày",
+            key: "fromDate",
+            value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+            type: "date", 
+            before: "toDate" 
+            },
+            {
+            label: "Đến ngày",
+            key: "toDate",
+            value: new Date().toLocaleDateString('vi-VN'),
+            type: "date", 
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+            
+        ],
+        reportConfig: [
+            {
+            "selected": true,
+            "value": "dossierNo",
+            "text": "Mã hồ sơ"
+            },
+            {
+            "value": "serviceCode",
+            "text": "Mã thủ tục"
+            },
+            {
+            "selected": true,
+            "value": "dossierName",
+            "align": "left",
+            "text": "Nội dung"
+            },
+            {
+            "value": "govAgencyName",
+            "text": "Cơ quan thụ lý"
+            },
+            {
+            "value": "registerBookName",
+            "text": "Sổ theo dõi"
+            },
+            {
+            "selected": true,
+            "value": "applicantName",
+            "align": "left",
+            "text": "Chủ hồ sơ"
+            },
+            {
+            "value": "address",
+            "text": "Địa chỉ",
+            "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+            },
+            {
+            "value": "contactTelNo",
+            "text": "Số điện thoại"
+            },
+            {
+            "value": "contactEmail",
+            "text": "Thư điện tử"
+            },
+            {
+            "value": "delegateName",
+            "text": "Người nộp hồ sơ"
+            },
+            {
+            "value": "delegateTelNo",
+            "text": "Điện thoại liên lạc"
+            },
+            {
+            "value": "submitDate",
+            "text": "Ngày gửi"
+            },
+            {
+            "value": "receiveDate",
+            "text": "Ngày tiếp nhận"
+            },
+            {
+            "selected": true,
+            "value": "dueDate",
+            "text": "Ngày hẹn trả"
+            },
+            {
+            "value": "extendDate",
+            "text": "Ngày gia hạn"
+            },
+            {
+            "selected": true,
+            "value": "releaseDate",
+            "text": "Ngày hoàn thành"
+            },
+            {
+            "selected": true,
+            "value": "finishDate",
+            "text": "Ngày trả kết quả"
+            },
+            {
+            "value": "dossierStatusText",
+            "text": "Trạng thái"
+            },
+            {
+            "value": "online",
+            "text": "Trực tuyến"
+            },
+            {
+            "value": "originDossierNo",
+            "text": "Mã hồ sơ gốc"
+            },   
+            {
+            "selected": true,
+            "value": "dossierNote",
+            "align": "left",
+            "text": "Ghi chú"
+            },
+            {
+            "value": "applicantNote",
+            "align": "left",
+            "text": "Ghi chú nộp."
+            },
+            {
+            "value": "briefNote",
+            "align": "left",
+            "text": "Chi tiết nội dung"
+            }
+        ]
+        }
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+        docDefinition: {
+            pageOrientation: 'landscape',
+            content: [
+                {
+                    columns: [
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "UBND TỈNH HẬU GIANG\n"},
+                                {text: "[$siteName$]\n"}
+                            ]
+                        },
+                        {
+                            width: 100,
+                            style: "title",
+                            text: ''
+                        },
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                {text: "-------------------------------------------\n"},
+                                {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                text: [
+                    {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH SỚM HẠN CỦA ĐƠN VỊ\n'},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                ], 
+                margin: [0, 20],
+                style: 'headerTitle'
+                },
+                {
+                style: 'tableExample',
+                table: {
+                    widths: "[$tableWidth$]",
+                    body: ["[$report$]"]
+                },
+                margin: [0, 0, 0, 20]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'title',
+                    text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+                    }
+                ]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'titleSub',
+                    text: '(Ký và ghi rõ họ tên)'
+                    }
+                ]
+                }
+            ],
+            styles: {
+                ngayThangNam: {
+                fontSize: 10,
+                italics: true,
+                bold: false,
+                alignment: 'center'
+                },
+                headerTitle: {
+                    alignment: 'center',
+                    bold: true,
+                    fontSize: 13
+                },
+                borderHeader: {
+                    alignment: 'left'
+                },
+                title: {
+                bold: true,
+                alignment: 'center'
+                },
+                titleSub: {
+                    fontSize: 10,
+                    italics: true,
+                    alignment: 'center'
+                },
+                tdStyle: {
+                fontSize: 10
+                },
+                tableExample: {
+                width: "100%" 
+                }
+            },
+            defaultStyle: {
+                columnGap: 20,
+                fontSize: 11
+            }
+            } 
+        }
+		]]>
+		</tableConfig>
+		<userConfig>{"order": 5}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_042">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ hoàn thành đúng hạn</reportName>
+		<reportCode>REPORT_042</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+        version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=11",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=11",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=11",
+        exclusive: false,
+        customize: true,
+        groupIds: [
+        ],
+        sumKey: "",
+        groupBy: [
+            {
+            key: "domainCode",
+            label: "Lĩnh vực",
+            display: "domainName"
+            },
+            {
+            key: "serviceCode",
+            label: "Thủ tục",
+            display: "serviceName"
+            },
+            {
+            key: "govAgencyCode",
+            label: "Cơ quan",
+            display: "govAgencyName"
+            }
+        ], 
+        filters: [
+            {
+            label: "Từ ngày",
+            key: "fromDate",
+            value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+            type: "date", 
+            before: "toDate" 
+            },
+            {
+            label: "Đến ngày",
+            key: "toDate",
+            value: new Date().toLocaleDateString('vi-VN'),
+            type: "date", 
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+            
+        ],
+        reportConfig: [
+            {
+            "selected": true,
+            "value": "dossierNo",
+            "text": "Mã hồ sơ"
+            },
+            {
+            "value": "serviceCode",
+            "text": "Mã thủ tục"
+            },
+            {
+            "selected": true,
+            "value": "dossierName",
+            "align": "left",
+            "text": "Nội dung"
+            },
+            {
+            "value": "govAgencyName",
+            "text": "Cơ quan thụ lý"
+            },
+            {
+            "value": "registerBookName",
+            "text": "Sổ theo dõi"
+            },
+            {
+            "selected": true,
+            "value": "applicantName",
+            "align": "left",
+            "text": "Chủ hồ sơ"
+            },
+            {
+            "value": "address",
+            "text": "Địa chỉ",
+            "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+            },
+            {
+            "value": "contactTelNo",
+            "text": "Số điện thoại"
+            },
+            {
+            "value": "contactEmail",
+            "text": "Thư điện tử"
+            },
+            {
+            "value": "delegateName",
+            "text": "Người nộp hồ sơ"
+            },
+            {
+            "value": "delegateTelNo",
+            "text": "Điện thoại liên lạc"
+            },
+            {
+            "value": "submitDate",
+            "text": "Ngày gửi"
+            },
+            {
+            "value": "receiveDate",
+            "text": "Ngày tiếp nhận"
+            },
+            {
+            "selected": true,
+            "value": "dueDate",
+            "text": "Ngày hẹn trả"
+            },
+            {
+            "value": "extendDate",
+            "text": "Ngày gia hạn"
+            },
+            {
+            "selected": true,
+            "value": "releaseDate",
+            "text": "Ngày hoàn thành"
+            },
+            {
+            "selected": true,
+            "value": "finishDate",
+            "text": "Ngày trả kết quả"
+            },
+            {
+            "value": "dossierStatusText",
+            "text": "Trạng thái"
+            },
+            {
+            "value": "online",
+            "text": "Trực tuyến"
+            },
+            {
+            "value": "originDossierNo",
+            "text": "Mã hồ sơ gốc"
+            },   
+            {
+            "selected": true,
+            "value": "dossierNote",
+            "align": "left",
+            "text": "Ghi chú"
+            },
+            {
+            "value": "applicantNote",
+            "align": "left",
+            "text": "Ghi chú nộp."
+            },
+            {
+            "value": "briefNote",
+            "align": "left",
+            "text": "Chi tiết nội dung"
+            }
+        ]
+        }
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+        docDefinition: {
+            pageOrientation: 'landscape',
+            content: [
+                {
+                    columns: [
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "UBND TỈNH HẬU GIANG\n"},
+                                {text: "[$siteName$]\n"}
+                            ]
+                        },
+                        {
+                            width: 100,
+                            style: "title",
+                            text: ''
+                        },
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                {text: "-------------------------------------------\n"},
+                                {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                text: [
+                    {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH ĐÚNG HẠN CỦA ĐƠN VỊ\n'},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                ], 
+                margin: [0, 20],
+                style: 'headerTitle'
+                },
+                {
+                style: 'tableExample',
+                table: {
+                    widths: "[$tableWidth$]",
+                    body: ["[$report$]"]
+                },
+                margin: [0, 0, 0, 20]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'title',
+                    text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+                    }
+                ]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'titleSub',
+                    text: '(Ký và ghi rõ họ tên)'
+                    }
+                ]
+                }
+            ],
+            styles: {
+                ngayThangNam: {
+                fontSize: 10,
+                italics: true,
+                bold: false,
+                alignment: 'center'
+                },
+                headerTitle: {
+                    alignment: 'center',
+                    bold: true,
+                    fontSize: 13
+                },
+                borderHeader: {
+                    alignment: 'left'
+                },
+                title: {
+                bold: true,
+                alignment: 'center'
+                },
+                titleSub: {
+                    fontSize: 10,
+                    italics: true,
+                    alignment: 'center'
+                },
+                tdStyle: {
+                fontSize: 10
+                },
+                tableExample: {
+                width: "100%" 
+                }
+            },
+            defaultStyle: {
+                columnGap: 20,
+                fontSize: 11
+            }
+            } 
+        }
+		]]>
+		</tableConfig>
+		<userConfig>{"order": 6}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_043">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ hoàn thành trễ hạn</reportName>
+		<reportCode>REPORT_043</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+        version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=12",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=12",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=12",
+        exclusive: false,
+        customize: true,
+        groupIds: [
+        ],
+        sumKey: "",
+        groupBy: [
+            {
+            key: "domainCode",
+            label: "Lĩnh vực",
+            display: "domainName"
+            },
+            {
+            key: "serviceCode",
+            label: "Thủ tục",
+            display: "serviceName"
+            },
+            {
+            key: "govAgencyCode",
+            label: "Cơ quan",
+            display: "govAgencyName"
+            }
+        ], 
+        filters: [
+            {
+            label: "Từ ngày",
+            key: "fromDate",
+            value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+            type: "date", 
+            before: "toDate" 
+            },
+            {
+            label: "Đến ngày",
+            key: "toDate",
+            value: new Date().toLocaleDateString('vi-VN'),
+            type: "date", 
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+            
+        ],
+        reportConfig: [
+            {
+            "selected": true,
+            "value": "dossierNo",
+            "text": "Mã hồ sơ"
+            },
+            {
+            "value": "serviceCode",
+            "text": "Mã thủ tục"
+            },
+            {
+            "selected": true,
+            "value": "dossierName",
+            "align": "left",
+            "text": "Nội dung"
+            },
+            {
+            "value": "govAgencyName",
+            "text": "Cơ quan thụ lý"
+            },
+            {
+            "value": "registerBookName",
+            "text": "Sổ theo dõi"
+            },
+            {
+            "selected": true,
+            "value": "applicantName",
+            "align": "left",
+            "text": "Chủ hồ sơ"
+            },
+            {
+            "value": "address",
+            "text": "Địa chỉ",
+            "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+            },
+            {
+            "value": "contactTelNo",
+            "text": "Số điện thoại"
+            },
+            {
+            "value": "contactEmail",
+            "text": "Thư điện tử"
+            },
+            {
+            "value": "delegateName",
+            "text": "Người nộp hồ sơ"
+            },
+            {
+            "value": "delegateTelNo",
+            "text": "Điện thoại liên lạc"
+            },
+            {
+            "value": "submitDate",
+            "text": "Ngày gửi"
+            },
+            {
+            "value": "receiveDate",
+            "text": "Ngày tiếp nhận"
+            },
+            {
+            "selected": true,
+            "value": "dueDate",
+            "text": "Ngày hẹn trả"
+            },
+            {
+            "value": "extendDate",
+            "text": "Ngày gia hạn"
+            },
+            {
+            "selected": true,
+            "value": "releaseDate",
+            "text": "Ngày hoàn thành"
+            },
+            {
+            "selected": true,
+            "value": "finishDate",
+            "text": "Ngày trả kết quả"
+            },
+            {
+            "value": "dossierStatusText",
+            "text": "Trạng thái"
+            },
+            {
+            "value": "online",
+            "text": "Trực tuyến"
+            },
+            {
+            "value": "originDossierNo",
+            "text": "Mã hồ sơ gốc"
+            },   
+            {
+            "selected": true,
+            "value": "dossierNote",
+            "align": "left",
+            "text": "Ghi chú"
+            },
+            {
+            "value": "applicantNote",
+            "align": "left",
+            "text": "Ghi chú nộp."
+            },
+            {
+            "value": "briefNote",
+            "align": "left",
+            "text": "Chi tiết nội dung"
+            }
+        ]
+        }
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+        docDefinition: {
+            pageOrientation: 'landscape',
+            content: [
+                {
+                    columns: [
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "UBND TỈNH HẬU GIANG\n"},
+                                {text: "[$siteName$]\n"}
+                            ]
+                        },
+                        {
+                            width: 100,
+                            style: "title",
+                            text: ''
+                        },
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                {text: "-------------------------------------------\n"},
+                                {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                text: [
+                    {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH TRỄ HẠN CỦA ĐƠN VỊ\n'},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                ], 
+                margin: [0, 20],
+                style: 'headerTitle'
+                },
+                {
+                style: 'tableExample',
+                table: {
+                    widths: "[$tableWidth$]",
+                    body: ["[$report$]"]
+                },
+                margin: [0, 0, 0, 20]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'title',
+                    text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+                    }
+                ]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'titleSub',
+                    text: '(Ký và ghi rõ họ tên)'
+                    }
+                ]
+                }
+            ],
+            styles: {
+                ngayThangNam: {
+                fontSize: 10,
+                italics: true,
+                bold: false,
+                alignment: 'center'
+                },
+                headerTitle: {
+                    alignment: 'center',
+                    bold: true,
+                    fontSize: 13
+                },
+                borderHeader: {
+                    alignment: 'left'
+                },
+                title: {
+                bold: true,
+                alignment: 'center'
+                },
+                titleSub: {
+                    fontSize: 10,
+                    italics: true,
+                    alignment: 'center'
+                },
+                tdStyle: {
+                fontSize: 10
+                },
+                tableExample: {
+                width: "100%" 
+                }
+            },
+            defaultStyle: {
+                columnGap: 20,
+                fontSize: 11
+            }
+            } 
+        }
+		]]>
+		</tableConfig>
+		<userConfig>{"order": 7}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_05">
 		<sharing>1</sharing>
@@ -6438,318 +6861,304 @@
 		<filterConfig>
 		<![CDATA[
 		{
-  api: "/o/rest/v2/dossiers?status=unresolved",
-  exclusive: false,
-  customize: true,
-  groupIds: [
-  ],
-  sumKey: "",
-  groupBy: [
-    {
-       key: "domainCode",
-       label: "Lĩnh vực",
-       display: "domainName"
-    },
-    {
-       key: "serviceCode",
-       label: "Thủ tục",
-       display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
-    }
-  ], 
-  filters: [
-    {
-      label: "Lĩnh vực",
-      clearable: "true",
-      source: "",
-      key: "domain",
-      valueMapping: "domainCode",
-      nameMapping: "domainName",
-      type: "select",
-      multiple: "true",
-      api: "/o/rest/v2/serviceinfos/statistics/domains",
-      proxyApi: "/serviceinfos/statistics/domains",
-      class: "xs12 sm6 px-3 mb-3"
- 	},
-    {
-      label: "Hạn xử lý",
-      key: "time",
-      value: "",
-      type: "select",
-      source: [
-        {
-          "value": "",
-          "name": "Tất cả"
-        },
-        {
-          "value": "betimes",
-          "name": "Sớm hạn"
-        },
-        {
-          "value": "ontime",
-          "name": "Đúng hạn"
-        },
-        {
-          "value": "overdue",
-          "name": "Quá hạn"
-        },
-        {
-          "value": "overtime",
-          "name": "Trễ hạn"
-        }
-      ]
-    },
-    {
-      label: "Từ ngày",
-      key: "fromReleaseDate",
-      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-      type: "date", 
-      before: "toReleaseDate" 
-    },
-    {
-      label: "Đến ngày",
-      key: "toReleaseDate",
-      value: new Date().toLocaleDateString('vi-VN'),
-      type: "date", 
-      after: "fromReleaseDate" 
-    } 
-  ],
-  reportConfig: [
-    {
-      "selected": true,
-      "value": "dossierNo",
-      "text": "Mã hồ sơ"
-    },
-    {
-      "value": "serviceCode",
-      "text": "Mã thủ tục"
-    },
-    {
-      "selected": true,
-      "value": "dossierName",
-      "align": "left",
-      "text": "Nội dung"
-    },
-    {
-      "value": "govAgencyName",
-      "text": "Cơ quan thụ lý"
-    },
-    {
-      "value": "registerBookName",
-      "text": "Sổ theo dõi"
-    },
-    {
-      "selected": true,
-      "value": "applicantName",
-      "align": "left",
-      "text": "Chủ hồ sơ"
-    },
-    {
-      "value": "address",
-      "text": "Địa chỉ",
-      "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
-    },
-    {
-      "value": "contactTelNo",
-      "text": "Số điện thoại"
-    },
-    {
-      "value": "contactEmail",
-      "text": "Thư điện tử"
-    },
-    {
-      "value": "delegateName",
-      "text": "Người nộp hồ sơ"
-    },
-    {
-      "value": "delegateTelNo",
-      "text": "Điện thoại liên lạc"
-    },
-    {
-      "value": "submitDate",
-      "text": "Ngày gửi"
-    },
-    {
-      "selected": true,
-      "value": "receiveDate",
-      "text": "Ngày tiếp nhận"
-    },
-    {
-      "selected": true,
-      "value": "dueDate",
-      "text": "Ngày hẹn trả"
-    },
-    {
-      "value": "extendDate",
-      "text": "Ngày gia hạn"
-    },
-    {
-      "selected": true,
-      "value": "releaseDate",
-      "text": "Ngày từ chối"
-    },
-    {
-      "selected": true,
-      "value": "finishDate",
-      "text": "Ngày trả thông báo"
-    },
-    {
-      "value": "dossierStatusText",
-      "text": "Trạng thái"
-    },
-    {
-      "value": "online",
-      "text": "Trực tuyến"
-    },
-    {
-      "value": "originDossierNo",
-      "text": "Mã hồ sơ gốc"
-    },   
-    {
-      "value": "dossierOverdue",
-      "text": "Hạn xử lý"
-    },
-    {
-      "selected": true,
-      "value": "dossierNote",
-      "align": "left",
-      "text": "Ghi chú"
-    },
-    {
-      "value": "applicantNote",
-      "align": "left",
-      "text": "Ghi chú nộp."
-    },
-    {
-      "value": "briefNote",
-      "align": "left",
-      "text": "Chi tiết nội dung"
-    }
-  ]
-}
+			  version: "2",
+				numberPerPage: "500",
+				api: "/o/statistic/dossier/groupcount?type=17",
+				apiLayDanhSach: "/o/statistic/dossier/list?type=17",
+				apiExportExcel: "/o/statistic/dossier/list/export?type=17",
+			  exclusive: false,
+			  customize: true,
+			  groupIds: [
+			  ],
+			  sumKey: "",
+			  groupBy: [
+				{
+				   key: "domainCode",
+				   label: "Lĩnh vực",
+				   display: "domainName"
+				},
+				{
+				   key: "serviceCode",
+				   label: "Thủ tục",
+				   display: "serviceName"
+				},
+				{
+				   key: "govAgencyCode",
+				   label: "Cơ quan",
+				   display: "govAgencyName"
+				}
+			  ], 
+			  filters: [
+				{
+				  label: "Từ ngày",
+				  key: "fromDate",
+				  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				  type: "date", 
+				  before: "toDate" 
+				},
+				{
+				  label: "Đến ngày",
+				  key: "toDate",
+				  value: new Date().toLocaleDateString('vi-VN'),
+				  type: "date", 
+				  after: "fromDate" 
+				},
+				{
+				  label: "Lĩnh vực",
+				  clearable: "true",
+				  source: "",
+				  key: "domainCode",
+				  value: "",
+				  valueMapping: "domainCode",
+				  nameMapping: "domainName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos/statistics/domains",
+				  proxyApi: "/serviceinfos/statistics/domains",
+				  class: "xs12 px-3 mb-3"
+				},
+				{
+				  label: "Thủ tục",
+				  source: "",
+				  key: "serviceCode",
+				  value: "",
+				  valueMapping: "serviceCode",
+				  nameMapping: "serviceName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos",
+				  class: "xs12 px-3 mb-3"
+				}
+				
+			  ],
+			  reportConfig: [
+				{
+				  "selected": true,
+				  "value": "dossierNo",
+				  "text": "Mã hồ sơ"
+				},
+				{
+				  "value": "serviceCode",
+				  "text": "Mã thủ tục"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierName",
+				  "align": "left",
+				  "text": "Nội dung"
+				},
+				{
+				  "value": "govAgencyName",
+				  "text": "Cơ quan thụ lý"
+				},
+				{
+				  "value": "registerBookName",
+				  "text": "Sổ theo dõi"
+				},
+				{
+				  "selected": true,
+				  "value": "applicantName",
+				  "align": "left",
+				  "text": "Chủ hồ sơ"
+				},
+				{
+				  "value": "address",
+				  "text": "Địa chỉ",
+				  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+				},
+				{
+				  "value": "contactTelNo",
+				  "text": "Số điện thoại"
+				},
+				{
+				  "value": "contactEmail",
+				  "text": "Thư điện tử"
+				},
+				{
+				  "value": "delegateName",
+				  "text": "Người nộp hồ sơ"
+				},
+				{
+				  "value": "delegateTelNo",
+				  "text": "Điện thoại liên lạc"
+				},
+				{
+				  "value": "submitDate",
+				  "text": "Ngày gửi"
+				},
+				{
+				  "selected": true,
+				  "value": "receiveDate",
+				  "text": "Ngày tiếp nhận"
+				},
+				{
+				  "selected": true,
+				  "value": "dueDate",
+				  "text": "Ngày hẹn trả"
+				},
+				{
+				  "value": "extendDate",
+				  "text": "Ngày gia hạn"
+				},
+				{
+				  "selected": true,
+				  "value": "releaseDate",
+				  "text": "Ngày từ chối"
+				},
+				{
+				  "selected": true,
+				  "value": "finishDate",
+				  "text": "Ngày trả thông báo"
+				},
+				{
+				  "value": "dossierStatusText",
+				  "text": "Trạng thái"
+				},
+				{
+				  "value": "online",
+				  "text": "Trực tuyến"
+				},
+				{
+				  "value": "originDossierNo",
+				  "text": "Mã hồ sơ gốc"
+				},   
+				{
+				  "selected": true,
+				  "value": "dossierNote",
+				  "align": "left",
+				  "text": "Ghi chú"
+				},
+				{
+				  "value": "applicantNote",
+				  "align": "left",
+				  "text": "Ghi chú nộp."
+				},
+				{
+				  "value": "briefNote",
+				  "align": "left",
+				  "text": "Chi tiết nội dung"
+				}
+			  ]
+			}
 
 		]]>
 		</filterConfig>
 		<tableConfig>
 		<![CDATA[
 		{
-   docDefinition: {
-      pageOrientation: 'landscape',
-      content: [
-        {
-              columns: [
-                  {
-                      width: 300,
-                      style: "title",
-                      text: [
-                         {text: "UBND TỈNH HẬU GIANG\n"},
-                         {text: "[$siteName$]\n"}
-                      ]
-                  },
-                {
-                     width: 100,
-                      style: "title",
-                     text: ''
-                   },
-                  {
-                      width: 300,
-                      style: "title",
-                      text: [
-                          {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-                          {text: "Độc lập - Tự do - Hạnh phúc\n"},
-                          {text: "-------------------------------------------\n"},
-                          {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-                      ]
-                  }
-              ]
-        },
-        {
-          text: [
-            {text: 'BÁO CÁO HỒ SƠ TỪ CHỐI GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
-            {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$]", fontSize: 11},
-          ], 
-          margin: [0, 20],
-          style: 'headerTitle'
-        },
-        {
-          style: 'tableExample',
-          table: {
-            widths: "[$tableWidth$]",
-            body: ["[$report$]"]
-          },
-          margin: [0, 0, 0, 20]
-        },
-        {
-          columns: [
-            {
-              width: '*',
-              text: ''
-            },
-            {
-              width: 150,
-              style: 'title',
-              text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-            }
-          ]
-        },
-        {
-          columns: [
-            {
-              width: '*',
-              text: ''
-            },
-            {
-              width: 150,
-              style: 'titleSub',
-              text: '(Ký và ghi rõ họ tên)'
-            }
-          ]
-        }
-      ],
-      styles: {
-        ngayThangNam: {
-          fontSize: 10,
-          italics: true,
-          bold: false,
-          alignment: 'center'
-        },
-        headerTitle: {
-            alignment: 'center',
-            bold: true,
-            fontSize: 13
-        },
-        borderHeader: {
-            alignment: 'left'
-        },
-        title: {
-          bold: true,
-          alignment: 'center'
-        },
-        titleSub: {
-            fontSize: 10,
-            italics: true,
-            alignment: 'center'
-        },
-        tdStyle: {
-          fontSize: 10
-        },
-        tableExample: {
-           width: "100%" 
-        }
-      },
-      defaultStyle: {
-        columnGap: 20,
-        fontSize: 11
-      }
-    } 
-}
+			   docDefinition: {
+				  pageOrientation: 'landscape',
+				  content: [
+					{
+						  columns: [
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									 {text: "UBND TỈNH HẬU GIANG\n"},
+									 {text: "[$siteName$]\n"}
+								  ]
+							  },
+							{
+								 width: 100,
+								  style: "title",
+								 text: ''
+							   },
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+									  {text: "-------------------------------------------\n"},
+									  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								  ]
+							  }
+						  ]
+					},
+					{
+					  text: [
+						{text: 'BÁO CÁO HỒ SƠ TỪ CHỐI GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
+						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+					  ], 
+					  margin: [0, 20],
+					  style: 'headerTitle'
+					},
+					{
+					  style: 'tableExample',
+					  table: {
+						widths: "[$tableWidth$]",
+						body: ["[$report$]"]
+					  },
+					  margin: [0, 0, 0, 20]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'title',
+						  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+						}
+					  ]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'titleSub',
+						  text: '(Ký và ghi rõ họ tên)'
+						}
+					  ]
+					}
+				  ],
+				  styles: {
+					ngayThangNam: {
+					  fontSize: 10,
+					  italics: true,
+					  bold: false,
+					  alignment: 'center'
+					},
+					headerTitle: {
+						alignment: 'center',
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: 'left'
+					},
+					title: {
+					  bold: true,
+					  alignment: 'center'
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: 'center'
+					},
+					tdStyle: {
+					  fontSize: 10
+					},
+					tableExample: {
+					   width: "100%" 
+					}
+				  },
+				  defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				  }
+				} 
+			}
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 8}</userConfig>
     </DynamicReport>   
 	<DynamicReport label="REPORT_06">
 		<sharing>1</sharing>
@@ -6758,199 +7167,185 @@
 		<filterConfig>
 		<![CDATA[
 		{
-  api: "/o/rest/v2/dossiers?status=cancelled",
-  exclusive: false,
-  customize: true,
-  groupIds: [
-  ],
-  sumKey: "",
-  groupBy: [
-    {
-       key: "domainCode",
-       label: "Lĩnh vực",
-       display: "domainName"
-    },
-    {
-       key: "serviceCode",
-       label: "Thủ tục",
-       display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
-    }
-  ], 
-  filters: [
-    {
-      label: "Lĩnh vực",
-      clearable: "true",
-      source: "",
-      key: "domain",
-      valueMapping: "domainCode",
-      nameMapping: "domainName",
-      type: "select",
-      multiple: "true",
-      api: "/o/rest/v2/serviceinfos/statistics/domains",
-      proxyApi: "/serviceinfos/statistics/domains",
-      class: "xs12 sm6 px-3 mb-3"
- 	},
-    {
-      label: "Hạn xử lý",
-      key: "time",
-      value: "",
-      type: "select",
-      source: [
-        {
-          "value": "",
-          "name": "Tất cả"
-        },
-        {
-          "value": "betimes",
-          "name": "Sớm hạn"
-        },
-        {
-          "value": "ontime",
-          "name": "Đúng hạn"
-        },
-        {
-          "value": "overdue",
-          "name": "Quá hạn"
-        },
-        {
-          "value": "overtime",
-          "name": "Trễ hạn"
-        }
-      ]
-    },
-    {
-      label: "Từ ngày",
-      key: "fromReleaseDate",
-      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-      type: "date", 
-      before: "toReleaseDate" 
-    },
-    {
-      label: "Đến ngày",
-      key: "toReleaseDate",
-      value: new Date().toLocaleDateString('vi-VN'),
-      type: "date", 
-      after: "fromReleaseDate" 
-    } 
-  ],
-  reportConfig: [
-    {
-      "selected": true,
-      "value": "dossierNo",
-      "text": "Mã hồ sơ"
-    },
-    {
-      "value": "serviceCode",
-      "text": "Mã thủ tục"
-    },
-    {
-      "selected": true,
-      "value": "dossierName",
-      "align": "left",
-      "text": "Nội dung"
-    },
-    {
-      "value": "govAgencyName",
-      "text": "Cơ quan thụ lý"
-    },
-    {
-      "value": "registerBookName",
-      "text": "Sổ theo dõi"
-    },
-    {
-      "selected": true,
-      "value": "applicantName",
-      "align": "left",
-      "text": "Chủ hồ sơ"
-    },
-    {
-      "value": "address",
-      "text": "Địa chỉ",
-      "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
-    },
-    {
-      "value": "contactTelNo",
-      "text": "Số điện thoại"
-    },
-    {
-      "value": "contactEmail",
-      "text": "Thư điện tử"
-    },
-    {
-      "value": "delegateName",
-      "text": "Người nộp hồ sơ"
-    },
-    {
-      "value": "delegateTelNo",
-      "text": "Điện thoại liên lạc"
-    },
-    {
-      "value": "submitDate",
-      "text": "Ngày gửi"
-    },
-    {
-      "selected": true,
-      "value": "receiveDate",
-      "text": "Ngày tiếp nhận"
-    },
-    {
-      "selected": true,
-      "value": "dueDate",
-      "text": "Ngày hẹn trả"
-    },
-    {
-      "value": "extendDate",
-      "text": "Ngày gia hạn"
-    },
-    {
-      "selected": true,
-      "value": "releaseDate",
-      "text": "Ngày xin rút"
-    },
-    {
-      "selected": true,
-      "value": "finishDate",
-      "text": "Ngày trả hồ sơ"
-    },
-    {
-      "value": "dossierStatusText",
-      "text": "Trạng thái"
-    },
-    {
-      "value": "online",
-      "text": "Trực tuyến"
-    },
-    {
-      "value": "originDossierNo",
-      "text": "Mã hồ sơ gốc"
-    },   
-    {
-      "value": "dossierOverdue",
-      "text": "Hạn xử lý"
-    },
-    {
-      "selected": true,
-      "value": "dossierNote",
-      "align": "left",
-      "text": "Ghi chú"
-    },
-    {
-      "value": "applicantNote",
-      "align": "left",
-      "text": "Ghi chú nộp."
-    },
-    {
-      "value": "briefNote",
-      "align": "left",
-      "text": "Chi tiết nội dung"
-    }
-  ]
-}
+		  version: "2",
+			numberPerPage: "500",
+			api: "/o/statistic/dossier/groupcount?type=18",
+			apiLayDanhSach: "/o/statistic/dossier/list?type=18",
+			apiExportExcel: "/o/statistic/dossier/list/export?type=18",
+		  exclusive: false,
+		  customize: true,
+		  groupIds: [
+		  ],
+		  sumKey: "",
+		  groupBy: [
+			{
+			   key: "domainCode",
+			   label: "Lĩnh vực",
+			   display: "domainName"
+			},
+			{
+			   key: "serviceCode",
+			   label: "Thủ tục",
+			   display: "serviceName"
+			},
+			{
+			   key: "govAgencyCode",
+			   label: "Cơ quan",
+			   display: "govAgencyName"
+			}
+		  ], 
+		  filters: [
+			{
+			  label: "Từ ngày",
+			  key: "fromDate",
+			  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+			  type: "date", 
+			  before: "toDate" 
+			},
+			{
+			  label: "Đến ngày",
+			  key: "toDate",
+			  value: new Date().toLocaleDateString('vi-VN'),
+			  type: "date", 
+			  after: "fromDate" 
+			},
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+			
+		  ],
+		  reportConfig: [
+			{
+			  "selected": true,
+			  "value": "dossierNo",
+			  "text": "Mã hồ sơ"
+			},
+			{
+			  "value": "serviceCode",
+			  "text": "Mã thủ tục"
+			},
+			{
+			  "selected": true,
+			  "value": "dossierName",
+			  "align": "left",
+			  "text": "Nội dung"
+			},
+			{
+			  "value": "govAgencyName",
+			  "text": "Cơ quan thụ lý"
+			},
+			{
+			  "value": "registerBookName",
+			  "text": "Sổ theo dõi"
+			},
+			{
+			  "selected": true,
+			  "value": "applicantName",
+			  "align": "left",
+			  "text": "Chủ hồ sơ"
+			},
+			{
+			  "value": "address",
+			  "text": "Địa chỉ",
+			  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+			},
+			{
+			  "value": "contactTelNo",
+			  "text": "Số điện thoại"
+			},
+			{
+			  "value": "contactEmail",
+			  "text": "Thư điện tử"
+			},
+			{
+			  "value": "delegateName",
+			  "text": "Người nộp hồ sơ"
+			},
+			{
+			  "value": "delegateTelNo",
+			  "text": "Điện thoại liên lạc"
+			},
+			{
+			  "value": "submitDate",
+			  "text": "Ngày gửi"
+			},
+			{
+			  "selected": true,
+			  "value": "receiveDate",
+			  "text": "Ngày tiếp nhận"
+			},
+			{
+			  "selected": true,
+			  "value": "dueDate",
+			  "text": "Ngày hẹn trả"
+			},
+			{
+			  "value": "extendDate",
+			  "text": "Ngày gia hạn"
+			},
+			{
+			  "selected": true,
+			  "value": "releaseDate",
+			  "text": "Ngày xin rút"
+			},
+			{
+			  "selected": true,
+			  "value": "finishDate",
+			  "text": "Ngày trả hồ sơ"
+			},
+			{
+			  "value": "dossierStatusText",
+			  "text": "Trạng thái"
+			},
+			{
+			  "value": "online",
+			  "text": "Trực tuyến"
+			},
+			{
+			  "value": "originDossierNo",
+			  "text": "Mã hồ sơ gốc"
+			},   
+			{
+			  "selected": true,
+			  "value": "dossierNote",
+			  "align": "left",
+			  "text": "Ghi chú"
+			},
+			{
+			  "value": "applicantNote",
+			  "align": "left",
+			  "text": "Ghi chú nộp."
+			},
+			{
+			  "value": "briefNote",
+			  "align": "left",
+			  "text": "Chi tiết nội dung"
+			}
+		  ]
+		}
 
 		]]>
 		</filterConfig>
@@ -6990,7 +7385,7 @@
         {
           text: [
             {text: 'BÁO CÁO HỒ SƠ RÚT KHÔNG GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
-            {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$]", fontSize: 11},
+            {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
           ], 
           margin: [0, 20],
           style: 'headerTitle'
@@ -7069,7 +7464,7 @@
 }
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 9}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_07">
 		<sharing>1</sharing>
@@ -7078,337 +7473,1222 @@
 		<filterConfig>
 		<![CDATA[
 		{
-  api: "/o/rest/v2/dossiers?status=processing,interoperating,planning",
-  exclusive: false,
-  customize: true,
-  groupIds: [
-  ],
-  sumKey: "",
-  groupBy: [
-    {
-       key: "domainCode",
-       label: "Lĩnh vực",
-       display: "domainName"
-    },
-    {
-       key: "serviceCode",
-       label: "Thủ tục",
-       display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
-    }
-  ], 
-  filters: [
-    {
-      label: "Lĩnh vực",
-      clearable: "true",
-      source: "",
-      key: "domain",
-      valueMapping: "domainCode",
-      nameMapping: "domainName",
-      type: "select",
-      multiple: "true",
-      api: "/o/rest/v2/serviceinfos/statistics/domains",
-      proxyApi: "/serviceinfos/statistics/domains",
-      class: "xs12 sm6 px-3 mb-3"
- 	},
-    {
-      label: "Hạn xử lý",
-      key: "time",
-      value: "",
-      type: "select",
-      source: [
-        {
-          "value": "",
-          "name": "Tất cả"
-        },
-        {
-          "value": "undue",
-          "name": "Còn hạn"
-        },
-        {
-          "value": "coming",
-          "name": "Sắp đến hạn"
-        },
-        {
-          "value": "overdue",
-          "name": "Quá hạn"
-        },
-        {
-          "value": "overtime",
-          "name": "Trễ hạn"
-        },
-        {
-          "value": "delay",
-          "name": "Xin gia hạn"
-        }
-      ]
-    },
-    {
-      label: "Sắp đến hạn",
-      key: "DueDateExtend",
-      value: "",
-      type: "select",
-      source: [
-        {
-          "value": "1",
-          "name": "1 ngày"
-        },
-        {
-          "value": "2",
-          "name": "2 ngày"
-        },
-        {
-          "value": "3",
-          "name": "3 ngày"
-        },
-        {
-          "value": "5",
-          "name": "5 ngày"
-        },
-        {
-          "value": "7",
-          "name": "7 ngày"
-        }
-      ]
-    }  
-  ],
-  reportConfig: [
-    {
-      "selected": true,
-      "value": "dossierNo",
-      "text": "Mã hồ sơ"
-    },
-    {
-      "value": "serviceCode",
-      "text": "Mã thủ tục"
-    },
-    {
-      "selected": true,
-      "value": "dossierName",
-      "align": "left",
-      "text": "Nội dung"
-    },
-    {
-      "value": "govAgencyName",
-      "text": "Cơ quan thụ lý"
-    },
-    {
-      "value": "registerBookName",
-      "text": "Sổ theo dõi"
-    },
-    {
-      "selected": true,
-      "value": "applicantName",
-      "align": "left",
-      "text": "Chủ hồ sơ"
-    },
-    {
-      "value": "address",
-      "text": "Địa chỉ",
-      "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
-    },
-    {
-      "value": "contactTelNo",
-      "text": "Số điện thoại"
-    },
-    {
-      "value": "contactEmail",
-      "text": "Thư điện tử"
-    },
-    {
-      "value": "delegateName",
-      "text": "Người nộp hồ sơ"
-    },
-    {
-      "value": "delegateTelNo",
-      "text": "Điện thoại liên lạc"
-    },
-    {
-      "value": "submitDate",
-      "text": "Ngày gửi"
-    },
-    {
-      "selected": true,
-      "value": "receiveDate",
-      "text": "Ngày tiếp nhận"
-    },
-    {
-      "selected": true,
-      "value": "dueDate",
-      "text": "Ngày hẹn trả"
-    },
-    {
-      "selected": true,
-      "value": "extendDate",
-      "text": "Ngày hẹn lại"
-    },
-    {
-      "value": "releaseDate",
-      "text": "Ngày hoàn thành"
-    },
-    {
-      "value": "finishDate",
-      "text": "Ngày trả"
-    },
-    {
-      "selected": true,
-      "value": "dossierStatusText",
-      "text": "Trạng thái"
-    },
-    {
-      "value": "online",
-      "text": "Trực tuyến"
-    },
-    {
-      "value": "originDossierNo",
-      "text": "Mã hồ sơ gốc"
-    },   
-    {
-      "selected": true,
-      "value": "dossierOverdue",
-      "text": "Hạn xử lý"
-    },
-    {
-      "selected": true,
-      "value": "dossierNote",
-      "align": "left",
-      "text": "Ghi chú"
-    },
-    {
-      "value": "applicantNote",
-      "align": "left",
-      "text": "Ghi chú nộp."
-    },
-    {
-      "value": "briefNote",
-      "align": "left",
-      "text": "Chi tiết nội dung"
-    }
-  ]
-}
+			version: "2",
+			numberPerPage: "500",
+			api: "/o/statistic/dossier/groupcount?type=13",
+			apiLayDanhSach: "/o/statistic/dossier/list?type=13",
+			apiExportExcel: "/o/statistic/dossier/list/export?type=13",
+			  exclusive: false,
+			  customize: true,
+			  groupIds: [
+			  ],
+			  sumKey: "",
+			  groupBy: [
+				{
+				   key: "domainCode",
+				   label: "Lĩnh vực",
+				   display: "domainName"
+				},
+				{
+				   key: "serviceCode",
+				   label: "Thủ tục",
+				   display: "serviceName"
+				},
+				{
+				   key: "govAgencyCode",
+				   label: "Cơ quan",
+				   display: "govAgencyName"
+				}
+			  ], 
+			  filters: [
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				},
+				{
+				  label: "Lĩnh vực",
+				  clearable: "true",
+				  source: "",
+				  key: "domainCode",
+				  value: "",
+				  valueMapping: "domainCode",
+				  nameMapping: "domainName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos/statistics/domains",
+				  proxyApi: "/serviceinfos/statistics/domains",
+				  class: "xs12 px-3 mb-3"
+				},
+				{
+				  label: "Thủ tục",
+				  source: "",
+				  key: "serviceCode",
+				  value: "",
+				  valueMapping: "serviceCode",
+				  nameMapping: "serviceName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos",
+				  class: "xs12 px-3 mb-3"
+				}
+				
+			  ],
+			  reportConfig: [
+				{
+				  "selected": true,
+				  "value": "dossierNo",
+				  "text": "Mã hồ sơ"
+				},
+				{
+				  "value": "serviceCode",
+				  "text": "Mã thủ tục"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierName",
+				  "align": "left",
+				  "text": "Nội dung"
+				},
+				{
+				  "value": "govAgencyName",
+				  "text": "Cơ quan thụ lý"
+				},
+				{
+				  "value": "registerBookName",
+				  "text": "Sổ theo dõi"
+				},
+				{
+				  "selected": true,
+				  "value": "applicantName",
+				  "align": "left",
+				  "text": "Chủ hồ sơ"
+				},
+				{
+				  "value": "address",
+				  "text": "Địa chỉ",
+				  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+				},
+				{
+				  "value": "contactTelNo",
+				  "text": "Số điện thoại"
+				},
+				{
+				  "value": "contactEmail",
+				  "text": "Thư điện tử"
+				},
+				{
+				  "value": "delegateName",
+				  "text": "Người nộp hồ sơ"
+				},
+				{
+				  "value": "delegateTelNo",
+				  "text": "Điện thoại liên lạc"
+				},
+				{
+				  "value": "submitDate",
+				  "text": "Ngày gửi"
+				},
+				{
+				  "selected": true,
+				  "value": "receiveDate",
+				  "text": "Ngày tiếp nhận"
+				},
+				{
+				  "selected": true,
+				  "value": "dueDate",
+				  "text": "Ngày hẹn trả"
+				},
+				{
+				  "selected": true,
+				  "value": "extendDate",
+				  "text": "Ngày hẹn lại"
+				},
+				{
+				  "value": "releaseDate",
+				  "text": "Ngày hoàn thành"
+				},
+				{
+				  "value": "finishDate",
+				  "text": "Ngày trả"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierStatusText",
+				  "text": "Trạng thái"
+				},
+				{
+				  "value": "online",
+				  "text": "Trực tuyến"
+				},
+				{
+				  "value": "originDossierNo",
+				  "text": "Mã hồ sơ gốc"
+				},   
+				{
+				  "selected": true,
+				  "value": "dossierNote",
+				  "align": "left",
+				  "text": "Ghi chú"
+				},
+				{
+				  "value": "applicantNote",
+				  "align": "left",
+				  "text": "Ghi chú nộp."
+				},
+				{
+				  "value": "briefNote",
+				  "align": "left",
+				  "text": "Chi tiết nội dung"
+				}
+			  ]
+			}
 
 		]]>
 		</filterConfig>
 		<tableConfig>
 		<![CDATA[
 		{
-   docDefinition: {
-      pageOrientation: 'landscape',
-      content: [
-        {
-              columns: [
-                  {
-                      width: 300,
-                      style: "title",
-                      text: [
-                         {text: "UBND TỈNH HẬU GIANG\n"},
-                         {text: "[$siteName$]\n"}
-                      ]
-                  },
-                {
-                     width: 100,
-                      style: "title",
-                     text: ''
-                   },
-                  {
-                      width: 300,
-                      style: "title",
-                      text: [
-                          {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-                          {text: "Độc lập - Tự do - Hạnh phúc\n"},
-                          {text: "-------------------------------------------\n"},
-                          {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-                      ]
-                  }
-              ]
-        },
-        {
-          text: [
-            {text: 'BÁO CÁO HỒ SƠ ĐANG THỤ LÝ GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
-            {text: "Hạn xử lý: [$time$]", fontSize: 11},
-          ], 
-          margin: [0, 20],
-          style: 'headerTitle'
-        },
-        {
-          style: 'tableExample',
-          table: {
-            widths: "[$tableWidth$]",
-            body: ["[$report$]"]
-          },
-          margin: [0, 0, 0, 20]
-        },
-        {
-          columns: [
-            {
-              width: '*',
-              text: ''
-            },
-            {
-              width: 150,
-              style: 'title',
-              text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-            }
-          ]
-        },
-        {
-          columns: [
-            {
-              width: '*',
-              text: ''
-            },
-            {
-              width: 150,
-              style: 'titleSub',
-              text: '(Ký và ghi rõ họ tên)'
-            }
-          ]
-        }
-      ],
-      styles: {
-        ngayThangNam: {
-          fontSize: 10,
-          italics: true,
-          bold: false,
-          alignment: 'center'
-        },
-        headerTitle: {
-            alignment: 'center',
-            bold: true,
-            fontSize: 13
-        },
-        borderHeader: {
-            alignment: 'left'
-        },
-        title: {
-          bold: true,
-          alignment: 'center'
-        },
-        titleSub: {
-            fontSize: 10,
-            italics: true,
-            alignment: 'center'
-        },
-        tdStyle: {
-          fontSize: 10
-        },
-        tableExample: {
-           width: "100%" 
-        }
-      },
-      defaultStyle: {
-        columnGap: 20,
-        fontSize: 11
-      }
-    } 
-}
+			   docDefinition: {
+				  pageOrientation: 'landscape',
+				  content: [
+					{
+						  columns: [
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									 {text: "UBND TỈNH HẬU GIANG\n"},
+									 {text: "[$siteName$]\n"}
+								  ]
+							  },
+							{
+								 width: 100,
+								  style: "title",
+								 text: ''
+							   },
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+									  {text: "-------------------------------------------\n"},
+									  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								  ]
+							  }
+						  ]
+					},
+					{
+					  text: [
+						{text: 'BÁO CÁO HỒ SƠ ĐANG THỤ LÝ GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
+						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+					  ], 
+					  margin: [0, 20],
+					  style: 'headerTitle'
+					},
+					{
+					  style: 'tableExample',
+					  table: {
+						widths: "[$tableWidth$]",
+						body: ["[$report$]"]
+					  },
+					  margin: [0, 0, 0, 20]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'title',
+						  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+						}
+					  ]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'titleSub',
+						  text: '(Ký và ghi rõ họ tên)'
+						}
+					  ]
+					}
+				  ],
+				  styles: {
+					ngayThangNam: {
+					  fontSize: 10,
+					  italics: true,
+					  bold: false,
+					  alignment: 'center'
+					},
+					headerTitle: {
+						alignment: 'center',
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: 'left'
+					},
+					title: {
+					  bold: true,
+					  alignment: 'center'
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: 'center'
+					},
+					tdStyle: {
+					  fontSize: 10
+					},
+					tableExample: {
+					   width: "100%" 
+					}
+				  },
+				  defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				  }
+				} 
+			}
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 10}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_071">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ đang giải quyết còn hạn</reportName>
+		<reportCode>REPORT_071</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+			version: "2",
+			numberPerPage: "500",
+			api: "/o/statistic/dossier/groupcount?type=14",
+			apiLayDanhSach: "/o/statistic/dossier/list?type=14",
+			apiExportExcel: "/o/statistic/dossier/list/export?type=14",
+			  exclusive: false,
+			  customize: true,
+			  groupIds: [
+			  ],
+			  sumKey: "",
+			  groupBy: [
+				{
+				   key: "domainCode",
+				   label: "Lĩnh vực",
+				   display: "domainName"
+				},
+				{
+				   key: "serviceCode",
+				   label: "Thủ tục",
+				   display: "serviceName"
+				},
+				{
+				   key: "govAgencyCode",
+				   label: "Cơ quan",
+				   display: "govAgencyName"
+				}
+			  ], 
+			  filters: [
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				},
+				{
+				  label: "Lĩnh vực",
+				  clearable: "true",
+				  source: "",
+				  key: "domainCode",
+				  value: "",
+				  valueMapping: "domainCode",
+				  nameMapping: "domainName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos/statistics/domains",
+				  proxyApi: "/serviceinfos/statistics/domains",
+				  class: "xs12 px-3 mb-3"
+				},
+				{
+				  label: "Thủ tục",
+				  source: "",
+				  key: "serviceCode",
+				  value: "",
+				  valueMapping: "serviceCode",
+				  nameMapping: "serviceName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos",
+				  class: "xs12 px-3 mb-3"
+				}
+				
+			  ],
+			  reportConfig: [
+				{
+				  "selected": true,
+				  "value": "dossierNo",
+				  "text": "Mã hồ sơ"
+				},
+				{
+				  "value": "serviceCode",
+				  "text": "Mã thủ tục"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierName",
+				  "align": "left",
+				  "text": "Nội dung"
+				},
+				{
+				  "value": "govAgencyName",
+				  "text": "Cơ quan thụ lý"
+				},
+				{
+				  "value": "registerBookName",
+				  "text": "Sổ theo dõi"
+				},
+				{
+				  "selected": true,
+				  "value": "applicantName",
+				  "align": "left",
+				  "text": "Chủ hồ sơ"
+				},
+				{
+				  "value": "address",
+				  "text": "Địa chỉ",
+				  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+				},
+				{
+				  "value": "contactTelNo",
+				  "text": "Số điện thoại"
+				},
+				{
+				  "value": "contactEmail",
+				  "text": "Thư điện tử"
+				},
+				{
+				  "value": "delegateName",
+				  "text": "Người nộp hồ sơ"
+				},
+				{
+				  "value": "delegateTelNo",
+				  "text": "Điện thoại liên lạc"
+				},
+				{
+				  "value": "submitDate",
+				  "text": "Ngày gửi"
+				},
+				{
+				  "selected": true,
+				  "value": "receiveDate",
+				  "text": "Ngày tiếp nhận"
+				},
+				{
+				  "selected": true,
+				  "value": "dueDate",
+				  "text": "Ngày hẹn trả"
+				},
+				{
+				  "selected": true,
+				  "value": "extendDate",
+				  "text": "Ngày hẹn lại"
+				},
+				{
+				  "value": "releaseDate",
+				  "text": "Ngày hoàn thành"
+				},
+				{
+				  "value": "finishDate",
+				  "text": "Ngày trả"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierStatusText",
+				  "text": "Trạng thái"
+				},
+				{
+				  "value": "online",
+				  "text": "Trực tuyến"
+				},
+				{
+				  "value": "originDossierNo",
+				  "text": "Mã hồ sơ gốc"
+				},   
+				{
+				  "selected": true,
+				  "value": "dossierNote",
+				  "align": "left",
+				  "text": "Ghi chú"
+				},
+				{
+				  "value": "applicantNote",
+				  "align": "left",
+				  "text": "Ghi chú nộp."
+				},
+				{
+				  "value": "briefNote",
+				  "align": "left",
+				  "text": "Chi tiết nội dung"
+				}
+			  ]
+			}
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+			   docDefinition: {
+				  pageOrientation: 'landscape',
+				  content: [
+					{
+						  columns: [
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									 {text: "UBND TỈNH HẬU GIANG\n"},
+									 {text: "[$siteName$]\n"}
+								  ]
+							  },
+							{
+								 width: 100,
+								  style: "title",
+								 text: ''
+							   },
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+									  {text: "-------------------------------------------\n"},
+									  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								  ]
+							  }
+						  ]
+					},
+					{
+					  text: [
+						{text: 'BÁO CÁO HỒ SƠ ĐANG GIẢI QUYẾT CÒN HẠN CỦA ĐƠN VỊ\n'},
+						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+					  ], 
+					  margin: [0, 20],
+					  style: 'headerTitle'
+					},
+					{
+					  style: 'tableExample',
+					  table: {
+						widths: "[$tableWidth$]",
+						body: ["[$report$]"]
+					  },
+					  margin: [0, 0, 0, 20]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'title',
+						  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+						}
+					  ]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'titleSub',
+						  text: '(Ký và ghi rõ họ tên)'
+						}
+					  ]
+					}
+				  ],
+				  styles: {
+					ngayThangNam: {
+					  fontSize: 10,
+					  italics: true,
+					  bold: false,
+					  alignment: 'center'
+					},
+					headerTitle: {
+						alignment: 'center',
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: 'left'
+					},
+					title: {
+					  bold: true,
+					  alignment: 'center'
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: 'center'
+					},
+					tdStyle: {
+					  fontSize: 10
+					},
+					tableExample: {
+					   width: "100%" 
+					}
+				  },
+				  defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				  }
+				} 
+			}
+		]]>
+		</tableConfig>
+		<userConfig>{"order": 11}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_072">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ đang giải quyết sắp đến hạn</reportName>
+		<reportCode>REPORT_072</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+			version: "2",
+			numberPerPage: "500",
+			api: "/o/statistic/dossier/groupcount?type=15",
+			apiLayDanhSach: "/o/statistic/dossier/list?type=15",
+			apiExportExcel: "/o/statistic/dossier/list/export?type=15",
+			  exclusive: false,
+			  customize: true,
+			  groupIds: [
+			  ],
+			  sumKey: "",
+			  groupBy: [
+				{
+				   key: "domainCode",
+				   label: "Lĩnh vực",
+				   display: "domainName"
+				},
+				{
+				   key: "serviceCode",
+				   label: "Thủ tục",
+				   display: "serviceName"
+				},
+				{
+				   key: "govAgencyCode",
+				   label: "Cơ quan",
+				   display: "govAgencyName"
+				}
+			  ], 
+			  filters: [
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				},
+				{
+				  label: "Lĩnh vực",
+				  clearable: "true",
+				  source: "",
+				  key: "domainCode",
+				  value: "",
+				  valueMapping: "domainCode",
+				  nameMapping: "domainName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos/statistics/domains",
+				  proxyApi: "/serviceinfos/statistics/domains",
+				  class: "xs12 px-3 mb-3"
+				},
+				{
+				  label: "Thủ tục",
+				  source: "",
+				  key: "serviceCode",
+				  value: "",
+				  valueMapping: "serviceCode",
+				  nameMapping: "serviceName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos",
+				  class: "xs12 px-3 mb-3"
+				}
+				
+			  ],
+			  reportConfig: [
+				{
+				  "selected": true,
+				  "value": "dossierNo",
+				  "text": "Mã hồ sơ"
+				},
+				{
+				  "value": "serviceCode",
+				  "text": "Mã thủ tục"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierName",
+				  "align": "left",
+				  "text": "Nội dung"
+				},
+				{
+				  "value": "govAgencyName",
+				  "text": "Cơ quan thụ lý"
+				},
+				{
+				  "value": "registerBookName",
+				  "text": "Sổ theo dõi"
+				},
+				{
+				  "selected": true,
+				  "value": "applicantName",
+				  "align": "left",
+				  "text": "Chủ hồ sơ"
+				},
+				{
+				  "value": "address",
+				  "text": "Địa chỉ",
+				  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+				},
+				{
+				  "value": "contactTelNo",
+				  "text": "Số điện thoại"
+				},
+				{
+				  "value": "contactEmail",
+				  "text": "Thư điện tử"
+				},
+				{
+				  "value": "delegateName",
+				  "text": "Người nộp hồ sơ"
+				},
+				{
+				  "value": "delegateTelNo",
+				  "text": "Điện thoại liên lạc"
+				},
+				{
+				  "value": "submitDate",
+				  "text": "Ngày gửi"
+				},
+				{
+				  "selected": true,
+				  "value": "receiveDate",
+				  "text": "Ngày tiếp nhận"
+				},
+				{
+				  "selected": true,
+				  "value": "dueDate",
+				  "text": "Ngày hẹn trả"
+				},
+				{
+				  "selected": true,
+				  "value": "extendDate",
+				  "text": "Ngày hẹn lại"
+				},
+				{
+				  "value": "releaseDate",
+				  "text": "Ngày hoàn thành"
+				},
+				{
+				  "value": "finishDate",
+				  "text": "Ngày trả"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierStatusText",
+				  "text": "Trạng thái"
+				},
+				{
+				  "value": "online",
+				  "text": "Trực tuyến"
+				},
+				{
+				  "value": "originDossierNo",
+				  "text": "Mã hồ sơ gốc"
+				},   
+				{
+				  "selected": true,
+				  "value": "dossierNote",
+				  "align": "left",
+				  "text": "Ghi chú"
+				},
+				{
+				  "value": "applicantNote",
+				  "align": "left",
+				  "text": "Ghi chú nộp."
+				},
+				{
+				  "value": "briefNote",
+				  "align": "left",
+				  "text": "Chi tiết nội dung"
+				}
+			  ]
+			}
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+			   docDefinition: {
+				  pageOrientation: 'landscape',
+				  content: [
+					{
+						  columns: [
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									 {text: "UBND TỈNH HẬU GIANG\n"},
+									 {text: "[$siteName$]\n"}
+								  ]
+							  },
+							{
+								 width: 100,
+								  style: "title",
+								 text: ''
+							   },
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+									  {text: "-------------------------------------------\n"},
+									  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								  ]
+							  }
+						  ]
+					},
+					{
+					  text: [
+						{text: 'BÁO CÁO HỒ SƠ ĐANG GIẢI QUYẾT SẮP ĐẾN HẠN CỦA ĐƠN VỊ\n'},
+						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+					  ], 
+					  margin: [0, 20],
+					  style: 'headerTitle'
+					},
+					{
+					  style: 'tableExample',
+					  table: {
+						widths: "[$tableWidth$]",
+						body: ["[$report$]"]
+					  },
+					  margin: [0, 0, 0, 20]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'title',
+						  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+						}
+					  ]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'titleSub',
+						  text: '(Ký và ghi rõ họ tên)'
+						}
+					  ]
+					}
+				  ],
+				  styles: {
+					ngayThangNam: {
+					  fontSize: 10,
+					  italics: true,
+					  bold: false,
+					  alignment: 'center'
+					},
+					headerTitle: {
+						alignment: 'center',
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: 'left'
+					},
+					title: {
+					  bold: true,
+					  alignment: 'center'
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: 'center'
+					},
+					tdStyle: {
+					  fontSize: 10
+					},
+					tableExample: {
+					   width: "100%" 
+					}
+				  },
+				  defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				  }
+				} 
+			}
+		]]>
+		</tableConfig>
+		<userConfig>{"order": 12}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_073">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ đang giải quyết quá hạn</reportName>
+		<reportCode>REPORT_073</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+			version: "2",
+			numberPerPage: "500",
+			api: "/o/statistic/dossier/groupcount?type=16",
+			apiLayDanhSach: "/o/statistic/dossier/list?type=16",
+			apiExportExcel: "/o/statistic/dossier/list/export?type=16",
+			  exclusive: false,
+			  customize: true,
+			  groupIds: [
+			  ],
+			  sumKey: "",
+			  groupBy: [
+				{
+				   key: "domainCode",
+				   label: "Lĩnh vực",
+				   display: "domainName"
+				},
+				{
+				   key: "serviceCode",
+				   label: "Thủ tục",
+				   display: "serviceName"
+				},
+				{
+				   key: "govAgencyCode",
+				   label: "Cơ quan",
+				   display: "govAgencyName"
+				}
+			  ], 
+			  filters: [
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				},
+				{
+				  label: "Lĩnh vực",
+				  clearable: "true",
+				  source: "",
+				  key: "domainCode",
+				  value: "",
+				  valueMapping: "domainCode",
+				  nameMapping: "domainName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos/statistics/domains",
+				  proxyApi: "/serviceinfos/statistics/domains",
+				  class: "xs12 px-3 mb-3"
+				},
+				{
+				  label: "Thủ tục",
+				  source: "",
+				  key: "serviceCode",
+				  value: "",
+				  valueMapping: "serviceCode",
+				  nameMapping: "serviceName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos",
+				  class: "xs12 px-3 mb-3"
+				}
+				
+			  ],
+			  reportConfig: [
+				{
+				  "selected": true,
+				  "value": "dossierNo",
+				  "text": "Mã hồ sơ"
+				},
+				{
+				  "value": "serviceCode",
+				  "text": "Mã thủ tục"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierName",
+				  "align": "left",
+				  "text": "Nội dung"
+				},
+				{
+				  "value": "govAgencyName",
+				  "text": "Cơ quan thụ lý"
+				},
+				{
+				  "value": "registerBookName",
+				  "text": "Sổ theo dõi"
+				},
+				{
+				  "selected": true,
+				  "value": "applicantName",
+				  "align": "left",
+				  "text": "Chủ hồ sơ"
+				},
+				{
+				  "value": "address",
+				  "text": "Địa chỉ",
+				  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+				},
+				{
+				  "value": "contactTelNo",
+				  "text": "Số điện thoại"
+				},
+				{
+				  "value": "contactEmail",
+				  "text": "Thư điện tử"
+				},
+				{
+				  "value": "delegateName",
+				  "text": "Người nộp hồ sơ"
+				},
+				{
+				  "value": "delegateTelNo",
+				  "text": "Điện thoại liên lạc"
+				},
+				{
+				  "value": "submitDate",
+				  "text": "Ngày gửi"
+				},
+				{
+				  "selected": true,
+				  "value": "receiveDate",
+				  "text": "Ngày tiếp nhận"
+				},
+				{
+				  "selected": true,
+				  "value": "dueDate",
+				  "text": "Ngày hẹn trả"
+				},
+				{
+				  "selected": true,
+				  "value": "extendDate",
+				  "text": "Ngày hẹn lại"
+				},
+				{
+				  "value": "releaseDate",
+				  "text": "Ngày hoàn thành"
+				},
+				{
+				  "value": "finishDate",
+				  "text": "Ngày trả"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierStatusText",
+				  "text": "Trạng thái"
+				},
+				{
+				  "value": "online",
+				  "text": "Trực tuyến"
+				},
+				{
+				  "value": "originDossierNo",
+				  "text": "Mã hồ sơ gốc"
+				},   
+				{
+				  "selected": true,
+				  "value": "dossierNote",
+				  "align": "left",
+				  "text": "Ghi chú"
+				},
+				{
+				  "value": "applicantNote",
+				  "align": "left",
+				  "text": "Ghi chú nộp."
+				},
+				{
+				  "value": "briefNote",
+				  "align": "left",
+				  "text": "Chi tiết nội dung"
+				}
+			  ]
+			}
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+			   docDefinition: {
+				  pageOrientation: 'landscape',
+				  content: [
+					{
+						  columns: [
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									 {text: "UBND TỈNH HẬU GIANG\n"},
+									 {text: "[$siteName$]\n"}
+								  ]
+							  },
+							{
+								 width: 100,
+								  style: "title",
+								 text: ''
+							   },
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+									  {text: "-------------------------------------------\n"},
+									  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								  ]
+							  }
+						  ]
+					},
+					{
+					  text: [
+						{text: 'BÁO CÁO HỒ SƠ ĐANG GIẢI QUYẾT QUÁ HẠN CỦA ĐƠN VỊ\n'},
+						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+					  ], 
+					  margin: [0, 20],
+					  style: 'headerTitle'
+					},
+					{
+					  style: 'tableExample',
+					  table: {
+						widths: "[$tableWidth$]",
+						body: ["[$report$]"]
+					  },
+					  margin: [0, 0, 0, 20]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'title',
+						  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+						}
+					  ]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'titleSub',
+						  text: '(Ký và ghi rõ họ tên)'
+						}
+					  ]
+					}
+				  ],
+				  styles: {
+					ngayThangNam: {
+					  fontSize: 10,
+					  italics: true,
+					  bold: false,
+					  alignment: 'center'
+					},
+					headerTitle: {
+						alignment: 'center',
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: 'left'
+					},
+					title: {
+					  bold: true,
+					  alignment: 'center'
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: 'center'
+					},
+					tdStyle: {
+					  fontSize: 10
+					},
+					tableExample: {
+					   width: "100%" 
+					}
+				  },
+				  defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				  }
+				} 
+			}
+		]]>
+		</tableConfig>
+		<userConfig>{"order": 13}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_08">
 		<sharing>1</sharing>
@@ -7417,310 +8697,310 @@
 		<filterConfig>
 		<![CDATA[
 		{
-  api: "/o/rest/v2/dossiers?status=waiting,receiving&fromReceiveDate=1%2F1%2F1970",
-  exclusive: false,
-  customize: true,
-  groupIds: [
-  ],
-  sumKey: "",
-  groupBy: [
-    {
-       key: "domainCode",
-       label: "Lĩnh vực",
-       display: "domainName"
-    },
-    {
-       key: "serviceCode",
-       label: "Thủ tục",
-       display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
-    }
-  ], 
-  filters: [
-    {
-      label: "Lĩnh vực",
-      clearable: "true",
-      source: "",
-      key: "domain",
-      valueMapping: "domainCode",
-      nameMapping: "domainName",
-      type: "select",
-      multiple: "true",
-      api: "/o/rest/v2/serviceinfos/statistics/domains",
-      proxyApi: "/serviceinfos/statistics/domains",
-      class: "xs12 sm6 px-3 mb-3"
- 	},
-    {
-      label: "Hạn xử lý",
-      key: "time",
-      value: "",
-      type: "select",
-      source: [
-        {
-          "value": "",
-          "name": "Tất cả"
-        },
-        {
-          "value": "betimes",
-          "name": "Sớm hạn"
-        },
-        {
-          "value": "ontime",
-          "name": "Đúng hạn"
-        },
-        {
-          "value": "overdue",
-          "name": "Quá hạn"
-        },
-        {
-          "value": "overtime",
-          "name": "Trễ hạn"
-        }
-      ]
-    },
-  ],
-  reportConfig: [
-    {
-      "selected": true,
-      "value": "dossierNo",
-      "text": "Mã hồ sơ"
-    },
-    {
-      "value": "serviceCode",
-      "text": "Mã thủ tục"
-    },
-    {
-      "selected": true,
-      "value": "dossierName",
-      "align": "left",
-      "text": "Nội dung"
-    },
-    {
-      "value": "govAgencyName",
-      "text": "Cơ quan thụ lý"
-    },
-    {
-      "value": "registerBookName",
-      "text": "Sổ theo dõi"
-    },
-    {
-      "selected": true,
-      "value": "applicantName",
-      "align": "left",
-      "text": "Chủ hồ sơ"
-    },
-    {
-      "value": "address",
-      "text": "Địa chỉ",
-      "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
-    },
-    {
-      "value": "contactTelNo",
-      "text": "Số điện thoại"
-    },
-    {
-      "value": "contactEmail",
-      "text": "Thư điện tử"
-    },
-    {
-      "value": "delegateName",
-      "text": "Người nộp hồ sơ"
-    },
-    {
-      "value": "delegateTelNo",
-      "text": "Điện thoại liên lạc"
-    },
-    {
-      "value": "submitDate",
-      "text": "Ngày gửi"
-    },
-    {
-      "selected": true,
-      "value": "receiveDate",
-      "text": "Ngày tiếp nhận"
-    },
-    {
-      "selected": true,
-      "value": "dueDate",
-      "text": "Ngày hẹn trả"
-    },
-    {
-      "value": "extendDate",
-      "text": "Ngày gia hạn"
-    },
-    {
-      "value": "releaseDate",
-      "text": "Ngày hoàn thành"
-    },
-    {
-      "value": "finishDate",
-      "text": "Ngày trả"
-    },
-    {
-      "selected": true,
-      "value": "lastActionDate",
-      "text": "Ngày yêu cầu"
-    },
-    {
-      "value": "dossierStatusText",
-      "text": "Trạng thái"
-    },
-    {
-      "value": "online",
-      "text": "Trực tuyến"
-    },
-    {
-      "value": "originDossierNo",
-      "text": "Mã hồ sơ gốc"
-    },   
-    {
-      "value": "dossierOverdue",
-      "text": "Hạn xử lý"
-    },
-    {
-      "selected": true,
-      "value": "dossierNote",
-      "align": "left",
-      "text": "Ghi chú"
-    },
-    {
-      "value": "applicantNote",
-      "align": "left",
-      "text": "Ghi chú nộp."
-    },
-    {
-      "value": "briefNote",
-      "align": "left",
-      "text": "Chi tiết nội dung"
-    }
-  ]
-}
+			  version: "2",
+				numberPerPage: "500",
+				api: "/o/statistic/dossier/groupcount?type=19",
+				apiLayDanhSach: "/o/statistic/dossier/list?type=19",
+				apiExportExcel: "/o/statistic/dossier/list/export?type=19",
+			  exclusive: false,
+			  customize: true,
+			  groupIds: [
+			  ],
+			  sumKey: "",
+			  groupBy: [
+				{
+				   key: "domainCode",
+				   label: "Lĩnh vực",
+				   display: "domainName"
+				},
+				{
+				   key: "serviceCode",
+				   label: "Thủ tục",
+				   display: "serviceName"
+				},
+				{
+				   key: "govAgencyCode",
+				   label: "Cơ quan",
+				   display: "govAgencyName"
+				}
+			  ], 
+			  filters: [
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				},
+				{
+				  label: "Lĩnh vực",
+				  clearable: "true",
+				  source: "",
+				  key: "domainCode",
+				  value: "",
+				  valueMapping: "domainCode",
+				  nameMapping: "domainName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos/statistics/domains",
+				  proxyApi: "/serviceinfos/statistics/domains",
+				  class: "xs12 px-3 mb-3"
+				},
+				{
+				  label: "Thủ tục",
+				  source: "",
+				  key: "serviceCode",
+				  value: "",
+				  valueMapping: "serviceCode",
+				  nameMapping: "serviceName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos",
+				  class: "xs12 px-3 mb-3"
+				}
+			  ],
+			  reportConfig: [
+				{
+				  "selected": true,
+				  "value": "dossierNo",
+				  "text": "Mã hồ sơ"
+				},
+				{
+				  "value": "serviceCode",
+				  "text": "Mã thủ tục"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierName",
+				  "align": "left",
+				  "text": "Nội dung"
+				},
+				{
+				  "value": "govAgencyName",
+				  "text": "Cơ quan thụ lý"
+				},
+				{
+				  "value": "registerBookName",
+				  "text": "Sổ theo dõi"
+				},
+				{
+				  "selected": true,
+				  "value": "applicantName",
+				  "align": "left",
+				  "text": "Chủ hồ sơ"
+				},
+				{
+				  "value": "address",
+				  "text": "Địa chỉ",
+				  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+				},
+				{
+				  "value": "contactTelNo",
+				  "text": "Số điện thoại"
+				},
+				{
+				  "value": "contactEmail",
+				  "text": "Thư điện tử"
+				},
+				{
+				  "value": "delegateName",
+				  "text": "Người nộp hồ sơ"
+				},
+				{
+				  "value": "delegateTelNo",
+				  "text": "Điện thoại liên lạc"
+				},
+				{
+				  "value": "submitDate",
+				  "text": "Ngày gửi"
+				},
+				{
+				  "selected": true,
+				  "value": "receiveDate",
+				  "text": "Ngày tiếp nhận"
+				},
+				{
+				  "selected": true,
+				  "value": "dueDate",
+				  "text": "Ngày hẹn trả"
+				},
+				{
+				  "value": "extendDate",
+				  "text": "Ngày gia hạn"
+				},
+				{
+				  "value": "releaseDate",
+				  "text": "Ngày hoàn thành"
+				},
+				{
+				  "value": "finishDate",
+				  "text": "Ngày trả"
+				},
+				{
+				  "selected": true,
+				  "value": "lastActionDate",
+				  "text": "Ngày yêu cầu"
+				},
+				{
+				  "value": "dossierStatusText",
+				  "text": "Trạng thái"
+				},
+				{
+				  "value": "online",
+				  "text": "Trực tuyến"
+				},
+				{
+				  "value": "originDossierNo",
+				  "text": "Mã hồ sơ gốc"
+				},   
+				{
+				  "selected": true,
+				  "value": "dossierNote",
+				  "align": "left",
+				  "text": "Ghi chú"
+				},
+				{
+				  "value": "applicantNote",
+				  "align": "left",
+				  "text": "Ghi chú nộp."
+				},
+				{
+				  "value": "briefNote",
+				  "align": "left",
+				  "text": "Chi tiết nội dung"
+				}
+			  ]
+			}
 
 		]]>
 		</filterConfig>
 		<tableConfig>
 		<![CDATA[
 		{
-   docDefinition: {
-      pageOrientation: 'landscape',
-      content: [
-        {
-              columns: [
-                  {
-                      width: 300,
-                      style: "title",
-                      text: [
-                         {text: "UBND TỈNH HẬU GIANG\n"},
-                         {text: "[$siteName$]\n"}
-                      ]
-                  },
-                {
-                     width: 100,
-                      style: "title",
-                     text: ''
-                   },
-                  {
-                      width: 300,
-                      style: "title",
-                      text: [
-                          {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-                          {text: "Độc lập - Tự do - Hạnh phúc\n"},
-                          {text: "-------------------------------------------\n"},
-                          {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-                      ]
-                  }
-              ]
-        },
-        {
-          text: [
-            {text: 'BÁO CÁO HỒ SƠ TẠM DỪNG BỔ SUNG ĐIỀU KIỆN CỦA ĐƠN VỊ\n'}
-          ], 
-          margin: [0, 20],
-          style: 'headerTitle'
-        },
-        {
-          style: 'tableExample',
-          table: {
-            widths: "[$tableWidth$]",
-            body: ["[$report$]"]
-          },
-          margin: [0, 0, 0, 20]
-        },
-        {
-          columns: [
-            {
-              width: '*',
-              text: ''
-            },
-            {
-              width: 150,
-              style: 'title',
-              text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-            }
-          ]
-        },
-        {
-          columns: [
-            {
-              width: '*',
-              text: ''
-            },
-            {
-              width: 150,
-              style: 'titleSub',
-              text: '(Ký và ghi rõ họ tên)'
-            }
-          ]
-        }
-      ],
-      styles: {
-        ngayThangNam: {
-          fontSize: 10,
-          italics: true,
-          bold: false,
-          alignment: 'center'
-        },
-        headerTitle: {
-            alignment: 'center',
-            bold: true,
-            fontSize: 13
-        },
-        borderHeader: {
-            alignment: 'left'
-        },
-        title: {
-          bold: true,
-          alignment: 'center'
-        },
-        titleSub: {
-            fontSize: 10,
-            italics: true,
-            alignment: 'center'
-        },
-        tdStyle: {
-          fontSize: 10
-        },
-        tableExample: {
-           width: "100%" 
-        }
-      },
-      defaultStyle: {
-        columnGap: 20,
-        fontSize: 11
-      }
-    } 
-}
+		   docDefinition: {
+			  pageOrientation: 'landscape',
+			  content: [
+				{
+					  columns: [
+						  {
+							  width: 300,
+							  style: "title",
+							  text: [
+								 {text: "UBND TỈNH HẬU GIANG\n"},
+								 {text: "[$siteName$]\n"}
+							  ]
+						  },
+						{
+							 width: 100,
+							  style: "title",
+							 text: ''
+						   },
+						  {
+							  width: 300,
+							  style: "title",
+							  text: [
+								  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+								  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+								  {text: "-------------------------------------------\n"},
+								  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+							  ]
+						  }
+					  ]
+				},
+				{
+				  text: [
+					{text: 'BÁO CÁO HỒ SƠ TẠM DỪNG BỔ SUNG ĐIỀU KIỆN CỦA ĐƠN VỊ\n'},
+					{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+				  ], 
+				  margin: [0, 20],
+				  style: 'headerTitle'
+				},
+				{
+				  style: 'tableExample',
+				  table: {
+					widths: "[$tableWidth$]",
+					body: ["[$report$]"]
+				  },
+				  margin: [0, 0, 0, 20]
+				},
+				{
+				  columns: [
+					{
+					  width: '*',
+					  text: ''
+					},
+					{
+					  width: 150,
+					  style: 'title',
+					  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+					}
+				  ]
+				},
+				{
+				  columns: [
+					{
+					  width: '*',
+					  text: ''
+					},
+					{
+					  width: 150,
+					  style: 'titleSub',
+					  text: '(Ký và ghi rõ họ tên)'
+					}
+				  ]
+				}
+			  ],
+			  styles: {
+				ngayThangNam: {
+				  fontSize: 10,
+				  italics: true,
+				  bold: false,
+				  alignment: 'center'
+				},
+				headerTitle: {
+					alignment: 'center',
+					bold: true,
+					fontSize: 13
+				},
+				borderHeader: {
+					alignment: 'left'
+				},
+				title: {
+				  bold: true,
+				  alignment: 'center'
+				},
+				titleSub: {
+					fontSize: 10,
+					italics: true,
+					alignment: 'center'
+				},
+				tdStyle: {
+				  fontSize: 10
+				},
+				tableExample: {
+				   width: "100%" 
+				}
+			  },
+			  defaultStyle: {
+				columnGap: 20,
+				fontSize: 11
+			  }
+			} 
+		}
 		]]>
 		</tableConfig>
-		<userConfig>{}</userConfig>
+		<userConfig>{"order": 14}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_09">
-		<sharing>1</sharing>
-		<reportName>Hồ sơ chờ tiếp nhận trực tuyến</reportName>
+		<sharing>9</sharing>
+		<reportName>? Hồ sơ chờ tiếp nhận trực tuyến </reportName>
 		<reportCode>REPORT_09</reportCode>
 		<filterConfig>
 		<![CDATA[
@@ -7750,19 +9030,6 @@
   ], 
   filters: [
     {
-      label: "Lĩnh vực",
-      clearable: "true",
-      source: "",
-      key: "domain",
-      valueMapping: "domainCode",
-      nameMapping: "domainName",
-      type: "select",
-      multiple: "true",
-      api: "/o/rest/v2/serviceinfos/statistics/domains",
-      proxyApi: "/serviceinfos/statistics/domains",
-      class: "xs12 sm6 px-3 mb-3"
- 	},
-    {
       label: "Hạn xử lý",
       key: "time",
       value: "",
@@ -7790,6 +9057,32 @@
         }
       ]
     },
+	{
+	  label: "Lĩnh vực",
+	  clearable: "true",
+	  source: "",
+	  key: "domain",
+	  value: "",
+	  valueMapping: "domainCode",
+	  nameMapping: "domainName",
+	  type: "select",
+	  multiple: "true",
+	  api: "/o/rest/v2/serviceinfos/statistics/domains",
+	  proxyApi: "/serviceinfos/statistics/domains",
+	  class: "xs12 sm6 px-3 mb-3",
+	  parent: "service"
+	},
+	{
+	  label: "Thủ tục",
+	  source: "",
+	  key: "service",
+	  value: "",
+	  valueMapping: "serviceCode",
+	  nameMapping: "serviceName",
+	  type: "select",
+	  api: "/o/rest/v2/serviceinfos",
+	  class: "xs12 sm6 px-3 mb-3"
+	}
   ],
   reportConfig: [
     {
@@ -8027,936 +9320,9 @@
 		</tableConfig>
 		<userConfig>{}</userConfig>
     </DynamicReport>
-	<DynamicReport label="REPORT_STATISTIC_01">
-		<sharing>1</sharing>
-		<reportName>Báo cáo chi tiết phí, lệ phí</reportName>
-		<reportCode>REPORT_STATISTIC_01</reportCode>
-		<filterConfig>
-		<![CDATA[
-			
-		{
-		  api: "/o/rest/statistics/feedetail?paymentStatus=5&type=service",
-		  exclusive: false,
-		  customize: true,
-		  groupIds: [
-		  ],
-		  groupBy: [
-			{
-			   key: "domainCode",
-			   label: "Lĩnh vực",
-			   display: "domainName"
-			},
-			{
-			   key: "serviceCode",
-			   label: "Thủ tục",
-			   display: "serviceName"
-			}
-		  ],
-		  sumKey: "domainCode",
-		  filters: [
-			{
-			  label: "Hình thức thanh toán",
-			  key: "paymentMethod",
-			  value: "total",
-			  type: "select",
-			  source: [
-				{name: "Tất cả", value: "total"},
-				{name: "Trực tiếp", value: "direct"},
-				{name: "Trực tuyến", value: "online"}
-			  ]  
-			},
-			{
-			  label: "Từ ngày",
-			  key: "fromReleaseDate",
-			  value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
-			  type: "date",
-			  before: "toReleaseDate"  
-			},
-			{
-			  label: "Đến ngày",
-			  key: "toReleaseDate",
-			  value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
-			  type: "date",
-			  after: "fromReleaseDate"  
-			}
-		  ],
-		  reportConfig: [
-			{
-			  "selected": true,
-			  "value": "dossierNo",
-			  "text": "Mã hồ sơ"
-			},
-			{
-			  "selected": true,
-			  "value": "applicantName",
-			  "align": "left",
-			  "text": "Người đăng ký"
-			},
-			{
-			  "selected": true,
-			  "value": "address",
-			  "align": "left",
-			  "text": "Địa chỉ người nộp"
-			},
-			{
-			  "selected": true,
-			  "value": "paymentDate",
-			  "text": "Ngày thu"
-			},
-			{
-			  "selected": true,
-			  "value": "paymentFee",
-			  "text": "Lệ phí",
-			  "type": "currency"
-			},
-			{
-			  "selected": true,
-			  "value": "serviceAmount",
-			  "text": "Phí",
-			  "type": "currency"
-			},
-			{
-			  "selected": true,
-			  "value": "totalAmount",
-			  "text": "Tổng",
-			  "type": "currency"
-			},
-			{
-			  "selected": true,
-			  "value": "note",
-			  "text": "Diễn giải"
-			}
-		  ]
-		}
-
-		]]>
-		</filterConfig>
-		<tableConfig>
-		<![CDATA[
-		
-		
-		{
-		  docDefinition: {
-			 pageOrientation: 'landscape',
-			 content: [
-			   {
-					 columns: [
-						 {
-							 width: 300,
-							 style: "title",
-							 text: [
-								{text: "[$siteName$]\n"},
-							   {text: "--------------------------------\n"}
-							 ]
-						 },
-						 {
-							 width: 100,
-							  style: "title",
-							 text: ''
-						   },
-						 {
-							 width: 300,
-							 style: "title",
-							 text: [
-								 {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-								 {text: "Độc lập - Tự do - Hạnh phúc\n"},
-								 {text: "----------------------------\n"},
-								 {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-							 ]
-						 }
-					 ]
-			   },
-			   {
-				 text: [
-				   {text: 'BÁO CÁO CHI TIẾT PHÍ, LỆ PHÍ\n'},
-				   {text: "Đơn vị: [$siteName$]\n", fontSize: 11},
-				   {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$]\n", fontSize: 11}
-				 ], 
-				 margin: [0, 20],
-				 style: 'headerTitle'
-			   },
-			   {
-				 style: 'tableExample',
-				 table: {
-				   widths: "[$tableWidth$]",
-				   body: ["[$report$]"]
-				 },
-				 margin: [0, 0, 0, 20]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'title',
-					 text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-				   }
-				 ]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'titleSub',
-					 text: '(Ký và ghi rõ họ tên)'
-				   }
-				 ]
-			   }
-			 ],
-			 styles: {
-			   ngayThangNam: {
-				 fontSize: 10,
-				 italics: true,
-				 bold: false,
-				 alignment: 'center'
-			   },
-			   headerTitle: {
-				   alignment: 'center',
-				   bold: true,
-				   fontSize: 13
-			   },
-			   borderHeader: {
-				   alignment: 'left'
-			   },
-			   title: {
-				 bold: true,
-				 alignment: 'center',
-				 textTransform: 'uppercase'
-			   },
-			   titleSub: {
-				   fontSize: 10,
-				   italics: true,
-				   alignment: 'center'
-			   },
-			   tdStyle: {
-				 fontSize: 10
-			   },
-			   tableExample: {
-				  width: "100%" 
-			   }
-			 },
-			 defaultStyle: {
-			   columnGap: 20,
-			   fontSize: 11
-			 }
-		   } 
-		}
-
-
-		]]>
-		</tableConfig>
-		<userConfig>{}</userConfig>
-	</DynamicReport>
-	<DynamicReport label="REPORT_STATISTIC_02">
-		<sharing>1</sharing>
-		<reportName>Tổng hợp báo cáo phí, lệ phí</reportName>
-		<reportCode>REPORT_STATISTIC_02</reportCode>
-		<filterConfig>
-		<![CDATA[
-			{
-			  api: "/o/rest/statistics/feesummary?paymentStatus=-1",
-			  exclusive: false,
-			  customize: true,
-			  groupIds: [
-			  ],
-			  groupBy: [
-				{
-				   key: "domainCode",
-				   label: "Lĩnh vực",
-				   display: "domain",
-				   showGroup: false
-				}
-			  ],
-			  sumKey: "domainCode",
-			  filters: [
-				{
-				  label: "Từ ngày",
-				  key: "fromReleaseDate",
-				  value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
-				  type: "date",
-				  before: "toReleaseDate"  
-				},
-				{
-				  label: "Đến ngày",
-				  key: "toReleaseDate",
-				  value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
-				  type: "date",
-				  after: "fromReleaseDate"  
-				}
-			  ],
-			  reportConfig: [
-				{
-				  "selected": true,
-				  "value": "domain",
-				  "align": "left",
-				  "text": "Lĩnh vực",
-				  "width": 300
-				},
-				{
-				  "selected": true,
-				  "value": "totalDossier",
-				  "align": "center",
-				  "text": "Số hồ sơ phải thu phí, lệ phí",
-				  "width": 100
-				},
-				{
-				  "selected": true,
-				  "value": "totalFeeAmount",
-				  "align": "center",
-				  "text": "Phí",
-				  "type": "currency",
-				  "width": 90
-				},
-				{
-				  "selected": true,
-				  "value": "totalPaymentAmount",
-				  "align": "center",
-				  "text": "Lệ phí",
-				  "type": "currency",
-				  "width": 90
-				},
-				{
-				  "selected": true,
-				  "value": "totalAmount",
-				  "align": "center",
-				  "text": "Tổng",
-				  "type": "currency",
-				  "width": 90
-				}
-			  ]
-			}
-
-
-
-		]]>
-		</filterConfig>
-		<tableConfig>
-		<![CDATA[
-		
-		{
-		  docDefinition: {
-			 pageOrientation: 'landscape',
-			 content: [
-			   {
-					 columns: [
-						 {
-							 width: 300,
-							 style: "title",
-							 text: [
-								{text: "[$siteName$]\n"},
-							   {text: "--------------------------------\n"}
-							 ]
-						 },
-						 {
-							 width: 100,
-							  style: "title",
-							 text: ''
-						   },
-						 {
-							 width: 300,
-							 style: "title",
-							 text: [
-								 {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-								 {text: "Độc lập - Tự do - Hạnh phúc\n"},
-								 {text: "----------------------------\n"},
-								 {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-							 ]
-						 }
-					 ]
-			   },
-			   {
-				 text: [
-				   {text: 'BÁO CÁO TỔNG HỢP PHÍ, LỆ PHÍ\n'},
-				   {text: "Đơn vị: [$siteName$]\n", fontSize: 11},
-				   {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$]\n", fontSize: 11}
-				 ], 
-				 margin: [0, 20],
-				 style: 'headerTitle'
-			   },
-			   {
-				 style: 'tableExample',
-				 table: {
-				   widths: "[$tableWidth$]",
-				   body: ["[$report$]"]
-				 },
-				 margin: [0, 0, 0, 20]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'title',
-					 text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-				   }
-				 ]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'titleSub',
-					 text: '(Ký và ghi rõ họ tên)'
-				   }
-				 ]
-			   }
-			 ],
-			 styles: {
-			   ngayThangNam: {
-				 fontSize: 10,
-				 italics: true,
-				 bold: false,
-				 alignment: 'center'
-			   },
-			   headerTitle: {
-				   alignment: 'center',
-				   bold: true,
-				   fontSize: 13
-			   },
-			   borderHeader: {
-				   alignment: 'left'
-			   },
-			   title: {
-				 bold: true,
-				 alignment: 'center',
-				 textTransform: 'uppercase'
-			   },
-			   titleSub: {
-				   fontSize: 10,
-				   italics: true,
-				   alignment: 'center'
-			   },
-			   tdStyle: {
-				 fontSize: 10
-			   },
-			   tableExample: {
-				  width: "100%"
-			   }
-			 },
-			 defaultStyle: {
-			   columnGap: 20,
-			   fontSize: 11,
-			   width: "100%"
-			 }
-		   } 
-		}
-
-
-
-		]]>
-		</tableConfig>
-		<userConfig>{}</userConfig>
-	</DynamicReport>
-	<DynamicReport label="REPORT_STATISTIC_03">
-		<sharing>1</sharing>
-		<reportName>Tổng hợp hồ sơ  sử dụng dịch vụ bưu chính công ích</reportName>
-		<reportCode>REPORT_STATISTIC_03</reportCode>
-		<filterConfig>
-		<![CDATA[
-			{
-			  api: "/o/rest/statistics/summary",
-			  exclusive: false,
-			  customize: false,
-			  groupIds: [],
-			  sumKey: "serviceCode",
-			  groupBy: [
-				{
-				   key: "govAgencyCode",
-				   label: "Cơ quan",
-				   display: "govAgencyName"
-				}
-			  ],
-			  filters: [
-				{
-				  label: "Từ ngày",
-				  key: "fromStatisticDate",
-				  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-				  type: "date",
-				  before: "toStatisticDate"
-				},
-				{
-				  label: "Đến ngày",
-				  key: "toStatisticDate",
-				  value: new Date().toLocaleDateString('vi-VN'),
-				  type: "date", 
-				  after: "fromStatisticDate" 
-				}
-			  ],
-			  reportConfig: [
-				{
-				  "selected": true,
-				  "value": "serviceName",
-				  "text": "",
-				  "align": "left"
-				},
-				{
-				  "selected": true,
-				  "value": "onegateCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "onlineCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "fromViaPostalCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "doneOnegateCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "doneViaPostalCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "note",
-				  "text": "",
-				  "align": "center"
-				}
-			  ],
-			  selection: [
-				{
-					"key": "govAgencyCode",
-					"value": ""
-				}
-			  ],
-			  merge: ["serviceCode","govAgencyCode"],
-			  sort: "serviceName",
-			  statistics: true,
-			  autoHeader: false
-			}
-		]]>
-		</filterConfig>
-		<tableConfig>
-		<![CDATA[
-		{
-			docDefinition: {
-			pageOrientation: "landscape",
-			content: [
-			  {
-					  columns: [
-						  {
-							  width: 300,
-							  style: "title",
-							  text: "TỈNH HẬU GIANG"
-						  },
-						{
-							 width: 100,
-							  style: "title",
-							 text: ""
-						   },
-						  {
-							  width: 300,
-							  style: "title",
-							  text: [
-								  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-								  {text: "Độc lập - Tự do - Hạnh phúc\n"},
-								  {text: "------------------------------------\n"},
-								  {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-							  ]
-						  }
-					  ]
-				  },
-				{
-				  text: [
-					{text: "DANH SÁCH CÁC THỦ TỤC HÀNH CHÍNH THỰC HIỆN TIẾP NHẬN HỒ SƠ \n"},
-					{text: "VÀ TRẢ KẾT QUẢ GIẢI QUYẾT QUA DỊCH VỤ BƯU CHÍNH CÔNG ÍCH NĂM 2020 \n"},
-					{text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11, style: "ngayThangNam"}
-				  ], 
-					margin: [0, 10],
-					style: "headerTitle"
-				},
-				{
-					style: "tableExample",
-					table: {
-						widths: [20, "*", 35, 35, 35, 35, 35, 35],
-						headerRows: 2,
-						body: [
-							[
-								{
-									text: "\n\nSTT",
-									rowSpan: 2,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "\n\nTên thủ tục hành chính",
-									rowSpan: 2,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Tổng số hồ sơ tiếp nhận",
-									colSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								"",
-								"",
-								{
-									text: "Tổng số hồ sơ trả kết quả",
-									colSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								"",
-								""
-							],
-							[
-								"",
-								"",
-								{
-									text: "Nộp trực tiếp",         
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Nộp trực tuyến",        
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Qua bưu chính",      
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Trả trực tiếp",        
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Qua bưu chính",      
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Ghi chú",      
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								}
-							],
-							[
-								{
-									text: "(1)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(2)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(3)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(4)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(5)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(6)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(7)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(8)",
-									alignment: "center",
-									fontSize: 8
-								}
-							],
-							"[$report$]"
-						]
-					},
-					margin: [0, 0, 0, 5]
-				}
-			],
-			styles: {
-				ngayThangNam: {
-					fontSize: 10,
-					italics: true,
-					alignment: "center"
-				},
-				headerTitle: {
-					alignment: "center",
-					bold: true,
-					fontSize: 13
-				},
-				borderHeader: {
-					alignment: "left"
-				},
-				title: {
-					bold: true,
-					alignment: "center"
-				},
-				titleSub: {
-					fontSize: 10,
-					italics: true,
-					alignment: "center"
-				},
-				tdStyle: {
-					fontSize: 10,
-					margin: [0, 2]
-				}
-			},
-			defaultStyle: {
-				columnGap: 20,
-				fontSize: 11
-			}
-		 }
-		}
-		]]>
-		</tableConfig>
-		<userConfig>{}</userConfig>
-	</DynamicReport>
-	<DynamicReport label="REPORT_STATISTIC_99">
-		<sharing>9</sharing>
-		<reportName>Tổng hợp phí, lệ phí theo TTHC</reportName>
-		<reportCode>REPORT_STATISTIC_99</reportCode>
-		<filterConfig>
-		<![CDATA[
-			
-		{
-		  api: "/o/rest/statistics/feesummary?paymentStatus=-1&&type=service",
-		  exclusive: false,
-		  customize: true,
-		  groupIds: [
-		  ],
-		  groupBy: [
-			{
-			   key: "domainCode",
-			   label: "Lĩnh vực",
-			   display: "domainName"
-			}
-		  ], 
-		  filters: [
-			{
-			  label: "Từ ngày",
-			  key: "fromReleaseDate",
-			  value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
-			  type: "date",
-			  before: "toReleaseDate"  
-			},
-			{
-			  label: "Đến ngày",
-			  key: "toReleaseDate",
-			  value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
-			  type: "date",
-			  after: "fromReleaseDate"  
-			}
-		  ],
-		  reportConfig: [
-			{
-			  "selected": true,
-			  "value": "serviceName",
-			  "text": "Tên TTHC",
-			  "align": "left"
-			},
-			{
-			  "selected": true,
-			  "value": "totalDossier",
-			  "align": "center",
-			  "text": "Số hồ sơ phải thu phí, lệ phí"
-			},
-			{
-			  "selected": true,
-			  "value": "totalFeeAmount",
-			  "align": "center",
-			  "text": "Phí",
-			  "type": "currency"
-			},
-			{
-			  "selected": true,
-			  "align": "center",
-			  "value": "totalPaymentAmount",
-			  "text": "Lệ phí",
-			  "type": "currency"
-			},
-			{
-			  "selected": true,
-			  "align": "center",
-			  "value": "totalAmount",
-			  "text": "Tổng",
-			  "type": "currency"
-			}
-		  ]
-		}
-
-
-		]]>
-		</filterConfig>
-		<tableConfig>
-		<![CDATA[
-		
-		{
-		  docDefinition: {
-			 pageOrientation: 'landscape',
-			 content: [
-			   {
-					 columns: [
-						 {
-							 width: 300,
-							 style: "title",
-							 text: [
-								{text: "[$siteName$]\n"},
-							   {text: "--------------------------------\n"}
-							 ]
-						 },
-						 {
-							 width: 100,
-							  style: "title",
-							 text: ''
-						   },
-						 {
-							 width: 300,
-							 style: "title",
-							 text: [
-								 {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-								 {text: "Độc lập - Tự do - Hạnh phúc\n"},
-								 {text: "----------------------------\n"},
-								 {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-							 ]
-						 }
-					 ]
-			   },
-			   {
-				 text: [
-				   {text: 'BÁO CÁO TỔNG HỢP PHÍ, LỆ PHÍ THEO THỦ TỤC HÀNH CHÍNH\n'},
-				   {text: "Đơn vị: [$siteName$]\n", fontSize: 11},
-				   {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$]\n", fontSize: 11}
-				 ], 
-				 margin: [0, 20],
-				 style: 'headerTitle'
-			   },
-			   {
-				 style: 'tableExample',
-				 table: {
-				   widths: "[$tableWidth$]",
-				   body: ["[$report$]"]
-				 },
-				 margin: [0, 0, 0, 20]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'title',
-					 text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-				   }
-				 ]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'titleSub',
-					 text: '(Ký và ghi rõ họ tên)'
-				   }
-				 ]
-			   }
-			 ],
-			 styles: {
-			   ngayThangNam: {
-				 fontSize: 10,
-				 italics: true,
-				 bold: false,
-				 alignment: 'center'
-			   },
-			   headerTitle: {
-				   alignment: 'center',
-				   bold: true,
-				   fontSize: 13
-			   },
-			   borderHeader: {
-				   alignment: 'left'
-			   },
-			   title: {
-				 bold: true,
-				 alignment: 'center',
-				 textTransform: 'uppercase'
-			   },
-			   titleSub: {
-				   fontSize: 10,
-				   italics: true,
-				   alignment: 'center'
-			   },
-			   tdStyle: {
-				 fontSize: 10
-			   },
-			   tableExample: {
-				  width: "100%" 
-			   }
-			 },
-			 defaultStyle: {
-			   columnGap: 20,
-			   fontSize: 11
-			 }
-		   } 
-		}
-		]]>
-		</tableConfig>
-		<userConfig>{}</userConfig>
-	</DynamicReport>
 	<DynamicReport label="REPORT_10">
-		<sharing>1</sharing>
-		<reportName>Hồ sơ chờ bàn giao thụ lý</reportName>
+		<sharing>9</sharing>
+		<reportName>? Hồ sơ chờ bàn giao thụ lý</reportName>
 		<reportCode>REPORT_10</reportCode>
 		<filterConfig>
 		<![CDATA[
@@ -8986,19 +9352,6 @@
   ], 
   filters: [
     {
-      label: "Lĩnh vực",
-      clearable: "true",
-      source: "",
-      key: "domain",
-      valueMapping: "domainCode",
-      nameMapping: "domainName",
-      type: "select",
-      multiple: "true",
-      api: "/o/rest/v2/serviceinfos/statistics/domains",
-      proxyApi: "/serviceinfos/statistics/domains",
-      class: "xs12 sm6 px-3 mb-3"
- 	},
-    {
       label: "Hạn xử lý",
       key: "time",
       value: "",
@@ -9026,6 +9379,32 @@
         }
       ]
     },
+	{
+	  label: "Lĩnh vực",
+	  clearable: "true",
+	  source: "",
+	  key: "domain",
+	  value: "",
+	  valueMapping: "domainCode",
+	  nameMapping: "domainName",
+	  type: "select",
+	  multiple: "true",
+	  api: "/o/rest/v2/serviceinfos/statistics/domains",
+	  proxyApi: "/serviceinfos/statistics/domains",
+	  class: "xs12 sm6 px-3 mb-3",
+	  parent: "service"
+	},
+	{
+	  label: "Thủ tục",
+	  source: "",
+	  key: "service",
+	  value: "",
+	  valueMapping: "serviceCode",
+	  nameMapping: "serviceName",
+	  type: "select",
+	  api: "/o/rest/v2/serviceinfos",
+	  class: "xs12 sm6 px-3 mb-3"
+	}
   ],
   reportConfig: [
     {
@@ -9260,8 +9639,8 @@
 		<userConfig>{}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_11">
-		<sharing>1</sharing>
-		<reportName>Hồ sơ chờ hoàn thành thanh toán</reportName>
+		<sharing>9</sharing>
+		<reportName>? Hồ sơ chờ hoàn thành thanh toán</reportName>
 		<reportCode>REPORT_11</reportCode>
 		<filterConfig>
 		<![CDATA[
@@ -9290,19 +9669,7 @@
     }
   ], 
   filters: [
-    {
-      label: "Lĩnh vực",
-      clearable: "true",
-      source: "",
-      key: "domain",
-      valueMapping: "domainCode",
-      nameMapping: "domainName",
-      type: "select",
-      multiple: "true",
-      api: "/o/rest/v2/serviceinfos/statistics/domains",
-      proxyApi: "/serviceinfos/statistics/domains",
-      class: "xs12 sm6 px-3 mb-3"
- 	},
+    
     {
       label: "Hạn xử lý",
       key: "time",
@@ -9331,6 +9698,32 @@
         }
       ]
     },
+	{
+	  label: "Lĩnh vực",
+	  clearable: "true",
+	  source: "",
+	  key: "domain",
+	  value: "",
+	  valueMapping: "domainCode",
+	  nameMapping: "domainName",
+	  type: "select",
+	  multiple: "true",
+	  api: "/o/rest/v2/serviceinfos/statistics/domains",
+	  proxyApi: "/serviceinfos/statistics/domains",
+	  class: "xs12 sm6 px-3 mb-3",
+	  parent: "service"
+	},
+	{
+	  label: "Thủ tục",
+	  source: "",
+	  key: "service",
+	  value: "",
+	  valueMapping: "serviceCode",
+	  nameMapping: "serviceName",
+	  type: "select",
+	  api: "/o/rest/v2/serviceinfos",
+	  class: "xs12 sm6 px-3 mb-3"
+	}
   ],
   reportConfig: [
     {
@@ -9563,7 +9956,7 @@
 		]]>
 		</tableConfig>
 		<userConfig>{}</userConfig>
-    </DynamicReport>   	
+    </DynamicReport>    	
 	<DynamicReport>	
 		<sharing>9</sharing>
 		<reportName>Mức độ hài lòng dịch vụ tại Trung tâm HCC</reportName>
@@ -10279,1429 +10672,263 @@
 		<reportCode>STATISTIC_09</reportCode>
 		<filterConfig>
 		  <![CDATA[{
-    api: "/o/rest/statistics/persons",
-    exclusive: false,
-    customize: false,
-    groupIds: [
-      {
-        selected: true,
-        value: 272435,
-        text: "Cổng DVC"
-      }
-    ],
-   	sumKey: "employeeId",
-    
-    filters: [
-      {
-        label: "Từ ngày",
-        key: "fromStatisticDate",
-        value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-        type: "date" 
-      },
-      {
-        label: "Đến ngày",
-        key: "toStatisticDate",
-        value: new Date().toLocaleDateString('vi-VN'),
-        type: "date" 
-      }
-    ],
-    reportConfig: [
-      {
-        "selected": true,
-        "value": "employeeName",
-        "text": "",
-        "align": "left"
-      },
-      {
-        "selected": true,
-        "value": "totalVoted",
-        "text": "",
-        "align": "center"
-      },
-      {
-        "selected": true,
-        "value": "veryGoodCount",
-        "text": "",
-        "align": "center"
-      },
-      {
-        "selected": true,
-        "value": "goodCount",
-        "text": "",
-        "align": "center"
-      },
-      {
-        "selected": true,
-        "value": "badCount",
-        "text": "",
-        "align": "center"
-      }
-    ],
-    selection: [
-    ],
-      sort: "employeeName",
-    merge: ["employeeId","govAgencyCode"],
-    statistics: true,
-    autoHeader: false
-  }]]></filterConfig>
+	  api: "/o/rest/statistics/persons",
+	  exclusive: false,
+	  customize: false,
+	  groupIds: [
+		{
+		  selected: true,
+		  value: 223437,
+		  text: "Cổng DVC"
+		}
+	  ],
+	  sumKey: "employeeId",
+	  subKey: "votingSubject",
+	  filters: [
+		{
+		  label: "Từ ngày",
+		  key: "fromStatisticDate",
+		  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+		  type: "date" 
+		},
+		{
+		  label: "Đến ngày",
+		  key: "toStatisticDate",
+		  value: new Date().toLocaleDateString('vi-VN'),
+		  type: "date" 
+		}
+	  ],
+	  reportConfig: [
+		{
+		  "selected": true,
+		  "value": "employeeName",
+		  "subValue": "votingSubject",
+		  "text": "",
+		  "align": "left"
+		},
+		{
+		  "selected": true,
+		  "value": "totalVoted",
+		  "text": "",
+		  "align": "center"
+		},
+		{
+		  "selected": true,
+		  "value": "percentVeryGood",
+		  "text": "",
+		  "align": "center"
+		},
+		{
+		  "selected": true,
+		  "value": "percentGood",
+		  "text": "",
+		  "align": "center"
+		},
+		{
+		  "selected": true,
+		  "value": "percentBad",
+		  "text": "",
+		  "align": "center"
+		}
+	  ],
+	  selection: [
+		{
+			"key": "employeeId",
+			"value": "0",
+			"compare": "#"
+		},
+		{
+			"key": "govAgencyCode",
+			"value": "STP_test",
+			"compare": "="
+		}
+	  ],
+		sort: "employeeName",
+	  merge: ["employeeId","govAgencyCode","votingSubject"],
+	  statistics: true
+	}]]></filterConfig>
 		<tableConfig>
 		  <![CDATA[{
-        docDefinition: {
-        pageOrientation: "portrait",
-        content: [
-            {
-                columns: [
-                    {
-                        width: 200,
-                        style: "title",
-                        text: [
-                          {text: "UBND TỈNH HẬU GIANG\n"},
-                           {text: "[$siteName$]\n"}
-                        ]
-						
-                    },
-                    {
-                        width: 250,
-                        style: "title",
-                        text: [
-                            {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-                            {text: "Độc lập - Tự do - Hạnh phúc\n"},
-                            {text: "---------------------------\n"},
-                            {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-                        ]
-                    }
-                ]
-            },
-            {
-                text: [
-                    {text: "TỔNG HỢP KẾT QUẢ ĐÁNH GIÁ CÁN BỘ\n"},
-                    {text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11}
-                ], 
-                margin: [0, 20],
-                style: "headerTitle"
-            },
-            {
-                style: "tableExample",
-                table: {
-                    widths: [20, "*", 35, 35, 35, 35],
-                    headerRows: 1,
-                    body: [
-                        [
-                            {
-                                text: "STT",
-                                alignment: "center",
-                                bold: true,
-                                style: "tdStyle" 
-                            },
-                            {
-                                text: "Cán bộ",
-                                alignment: "center",
-                                bold: true,
-                                style: "tdStyle"
-                            },
-                            {
-                                text: "Số bình chọn",
-                                alignment: "center",
-                                bold: true,
-                                style: "tdStyle"
-                            },
-                            {
-                                text: "Số rất hài lòng",
-                                alignment: "center",
-                                bold: true,
-                                style: "tdStyle"
-                            },
-                            {
-                                text: "Số hài lòng",
-                                alignment: "center",
-                                bold: true,
-                                style: "tdStyle"
-                            },
-                            {
-                                text: "Số không hài lòng",
-                                alignment: "center",
-                                bold: true,
-                                style: "tdStyle"
-                            }
-                        ],
-                        [
-                            {
-                                text: "(1)",
-                                alignment: "center",
-                                fontSize: 8
-                            },
-                            {
-                                text: "(2)",
-                                alignment: "center",
-                                fontSize: 8
-                            },
-                            {
-                                text: "(3)",
-                                alignment: "center",
-                                fontSize: 8
-                            },
-                            {
-                                text: "(4)",
-                                alignment: "center",
-                                fontSize: 8
-                            },
-                            {
-                                text: "(5)",
-                                alignment: "center",
-                                fontSize: 8
-                            },
-                            {
-                                text: "(6)",
-                                alignment: "center",
-                                fontSize: 8
-                            }
-                        ],
-                        "[$report$]"
-                    ]
-                },
-                margin: [0, 0, 0, 20]
-            },
-            {
-                columns: [
-                    {
-                        width: "*",
-                        text: [
-                          {text: "Nơi nhận:", bold: true }
-                        ]
-                    },
-                    {
-                        width: 150,
-                        style: "title",
-                        text: "THỦ TRƯỞNG ĐƠN VỊ"
-                    }
-                ]
-            },
-            {
-                columns: [
-                    {
-                        width: "*",
-                        text: ""
-                    },
-                    {
-                        width: 150,
-                        style: "titleSub",
-                        text: "(Ký và ghi rõ họ tên)"
-                    }
-                ]
-            }
-        ],
-        styles: {
-            ngayThangNam: {
-                fontSize: 10,
-                italics: true,
-                bold: false,
-                alignment: "right"
-            },
-            headerTitle: {
-                alignment: "center",
-                bold: true,
-                fontSize: 13
-            },
-            borderHeader: {
-                alignment: "left"
-            },
-            title: {
-                bold: true,
-                alignment: "center"
-            },
-            titleSub: {
-                fontSize: 10,
-                italics: true,
-                alignment: "center"
-            },
-            tdStyle: {
-                fontSize: 10,
-                margin: [0, 2]
-            }
-        },
-        defaultStyle: {
-            columnGap: 20,
-            fontSize: 11
-        }
-    }
-  }]]></tableConfig>
-		<userConfig>{}</userConfig>
-	</DynamicReport>
-	
-	<DynamicReport label="REPORT_STATISTIC_100">
-		<sharing>1</sharing>
-		<reportName>Tổng hợp hồ sơ cấp xã theo lĩnh vực</reportName>
-		<reportCode>REPORT_STATISTIC_100</reportCode>
-		<filterConfig>
-		<![CDATA[
-		
-		
-		{
-			api: "/o/rest/statistics",
-			exclusive: false,
-			customize: false,
-			groupIds: [
-				{
-					selected: true,
-					value: '99203',
-					text: "Cấp xã huyện Long Mỹ"
-				  }
-			],
-			sumKey: "domainCode",
-			groupBy: [
-				{
-				   key: "govAgencyCode",
-				   label: "Cơ quan",
-				   display: "govAgencyName"
-				}
-			],
-			filters: [
-				{
-				label: "Lĩnh vực",
-				clearable: "true",
-				source: "",
-				key: "domain",
-				valueMapping: "domainCode",
-				nameMapping: "domainName",
-				type: "select",
-				multiple: "true",
-				api: "/o/rest/v2/serviceinfos/statistics/domains",
-				proxyApi: "/serviceinfos/statistics/domains",
-				class: "xs12 sm6 px-3 mb-3"
-				},
+		  docDefinition: {
+		  pageOrientation: "portrait",
+		  content: [
 			  {
-				label: "Từ ngày",
-				key: "fromStatisticDate",
-				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-				type: "date" 
-			  },
-			  {
-				label: "Đến ngày",
-				key: "toStatisticDate",
-				value: new Date().toLocaleDateString('vi-VN'),
-				type: "date" 
-			  }
-			],
-			reportConfig: [
-			  {
-				"selected": true,
-				"value": "domainName",
-				"text": "",
-				"align": "left"
-			  },
-			  {
-				"selected": true,
-				"value": "processCount",
-				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "remainingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "receivedCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "betimesCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "processingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "undueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overdueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "deniedCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "cancelledCount",
-				"text": "",
-				"align": "center"
-			  }
-			],
-			selection: [
-			  {
-				  "key": "govAgencyCode",
-				  "value": ""
-			  }
-			],
-			merge: ["domainCode","govAgencyCode"],
-			sort: "domainName",
-			statistics: true,
-			autoHeader: false
-		}
-		]]>
-		</filterConfig>
-		<tableConfig>
-			<![CDATA[
-				
-				{
-					docDefinition: {
-					pageOrientation: "landscape",
-					content: [
-						{
-							columns: [
-								{
-									width: 300,
-									style: "title",
-									text: [
-									   {text: "UBND TỈNH HẬU GIANG\n"},
-									   {text: "[$siteName$]\n"}
-									]
-								},
-								{
-									width: 100,
-									style: "title",
-									text: ""
-								},
-								{
-									width: 300,
-									style: "title",
-									text: [
-										{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-										{text: "Độc lập - Tự do - Hạnh phúc\n"},
-										{text: "------------------------------------\n"},
-										{text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-									]
-								}
-							]
-						},
-						{
-							text: [
-								{text: "BÁO CÁO TỔNG HỢP THEO LĨNH VỰC\n"},
-								{text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11}
-							], 
-							margin: [0, 20],
-							style: "headerTitle"
-						},
-						{
-							style: "tableExample",
-							table: {
-								widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-								headerRows: 3,
-								body: [
-									[
-										{
-											text: "\n\n\nSTT",
-											rowSpan: 3,
-											alignment: "center",
-											bold: true,
-											style: "tdStyle"
-										},
-										{
-											text: "\n\n\nLĩnh vực",
-											rowSpan: 3,
-											alignment: "center",
-											bold: true,
-											style: "tdStyle"
-										},
-										{
-											text: "Số đầu kỳ",
-											rowSpan: 3,
-											alignment: "center",
-											bold: true,
-											style: "tdStyle"
-										},
-										{
-											text: "Kỳ trước chuyển qua",
-											rowSpan: 3,
-											alignment: "center",
-											bold: true,
-											style: "tdStyle"
-										},
-										{
-											text: "Tiếp nhận trong kỳ",
-											rowSpan: 3,
-											alignment: "center",
-											bold: true,
-											style: "tdStyle"
-										},
-										{
-											text: "Kết quả giải quyết",
-											colSpan: 7,
-											alignment: "center",
-											bold: true,
-											style: "tdStyle"
-										},
-										"",
-										"",
-										"",
-										"",
-										"",
-										"",
-										{
-											text: "Tổng số chễ hạn",
-											rowSpan: 3,
-											alignment: "center",
-											bold: true,
-											style: "tdStyle"
-										},
-										{
-											text: "Hồ sơ trả lại",
-											rowSpan: 3,
-											alignment: "center",
-											bold: true,
-											style: "tdStyle"
-										},
-										{
-											text: "Hồ sơ rút",
-											rowSpan: 3,
-											alignment: "center",
-											bold: true,
-											style: "tdStyle"
-										}
-									],
-									[
-										"",
-										"",
-										"",
-										"",
-										"",
-										{
-											text: "Hồ sơ đã giải quyết xong",
-											colSpan: 4,           
-											alignment: "center",
-											style: "tdStyle"
-										},
-										"",
-										"",
-										"",
-										{
-											text: "Hồ sơ đang giải quyết",
-											colSpan: 3,           
-											alignment: "center",
-											style: "tdStyle"
-										},
-										"",
-										"",
-										"",
-										"",
-										""
-									],
-									[
-										"",
-										"",
-										"",
-										"",
-										"",
-										{
-											text: "Tổng số",
-											alignment: "center",
-											style: "tdStyle"
-										},
-										{
-											text: "Sớm hạn",
-											alignment: "center",
-											style: "tdStyle"
-										},
-										{
-											text: "Đúng hạn",
-											alignment: "center",
-											style: "tdStyle"
-										},
-										{
-											text: "Trễ hạn",
-											alignment: "center",
-											style: "tdStyle"
-										},
-										{
-											text: "Tổng số",
-											alignment: "center",
-											style: "tdStyle"
-										},
-										{
-											text: "Chưa đến hạn",
-											alignment: "center",
-											style: "tdStyle"
-										},
-										{
-											text: "Quá hạn",
-											alignment: "center",
-											style: "tdStyle"
-										},
-										"",
-										"",
-										""
-									],
-									[
-										{
-											text: "(1)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(2)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(3=4+5)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(4)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(5)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(6=7+8+9)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(7)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(8)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(9)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(10=11+12)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(11)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(12)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(13)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(14)",
-											alignment: "center",
-											fontSize: 8
-										},
-										{
-											text: "(15)",
-											alignment: "center",
-											fontSize: 8
-										}
-									],
-									"[$report$]"
-								]
-							},
-							margin: [0, 0, 0, 5]
-						},            
-						{
-							columns: [
-								{
-									width: "*",
-									text: [
-									  {text: "Nơi nhận:", bold: true }
-									]
-								},
-								{
-									width: 150,
-									style: "title",
-									text: "THỦ TRƯỞNG ĐƠN VỊ"
-								}
-							]
-						},
-						{
-							columns: [
-								{
-									width: "*",
-									text: ""
-								},
-								{
-									width: 150,
-									style: "titleSub",
-									text: "(Ký và ghi rõ họ tên)"
-								}
-							]
-						}
-					],
-					styles: {
-						ngayThangNam: {
-							fontSize: 10,
-							italics: true,
-							bold: false,
-							alignment: "center"
-						},
-						headerTitle: {
-							alignment: "center",
-							bold: true,
-							fontSize: 13
-						},
-						borderHeader: {
-							alignment: "left"
-						},
-						title: {
-							bold: true,
-							alignment: "center"
-						},
-						titleSub: {
-							fontSize: 10,
-							italics: true,
-							alignment: "center"
-						},
-						tdStyle: {
-							fontSize: 10,
-							margin: [0, 2]
-						}
-					},
-					defaultStyle: {
-						columnGap: 20,
-						fontSize: 11
-					}
-				 }
-				}
-				
-				
-			
-			
-			]]>
-		</tableConfig>
-		<userConfig>{}</userConfig>
-	</DynamicReport>
-	
-	<DynamicReport label="STATISTIC_100">
-		<sharing>1</sharing>
-		<reportName>Tình hình giải quyết của đơn vị cấp xã</reportName>
-		<reportCode>STATISTIC_99</reportCode>
-		<filterConfig>
-		<![CDATA[
-			{
-			  api: "/o/rest/statistics",
-			  exclusive: false,
-			  customize: false,
-			  groupIds: [
-				{
-					selected: true,
-					value: '99203',
-					text: "Cấp xã huyện Long Mỹ"
-				  }
-			  ],
-			  sumKey: "domainCode",
-			  filters: [
-
-				{
-					label: "Chọn đơn vị",
-					clearable: "true",
-					source: "",
-					appendItem: [{"name": "Tổng hợp đơn vị cấp xã","value": ""}],
-					key: "agency",
-					valueMapping: "itemCode",
-					nameMapping: "itemName",
-					type: "select",
-					api: "/o/rest/v2/dictcollections/REPORT_GROUP/dictitems?parent=HLONGMY"
-				},
-				{
-				  label: "Từ ngày",
-				  key: "fromStatisticDate",
-				  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-				  type: "date",
-				  before: "toStatisticDate"
-				},
-				{
-				  label: "Đến ngày",
-				  key: "toStatisticDate",
-				  value: new Date().toLocaleDateString('vi-VN'),
-				  type: "date", 
-				  after: "fromStatisticDate" 
-				},
-			  ],
-			  reportConfig: [
-				{
-				  "selected": true,
-				  "value": "domainName",
-				  "text": "",
-				  "align": "left"
-				},
-				{
-				  "selected": true,
-				  "value": "processCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "remainingCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "receivedCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "onegateCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "onlineCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "releaseCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "betimesCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "ontimeCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "overtimeCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "unresolvedCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "doneCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "releasingCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "processingCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "undueCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "overdueCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "dossierOnline3Count",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "dossierOnline4Count",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "receiveDossierSatCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "releaseDossierSatCount",
-				  "text": "",
-				  "align": "center"
-				},
-			  ],
-			  selection: [
-				{
-					"key": "govAgencyCode",
-					"value": ""
-				}
-			  ],
-			  merge: ["domainCode","govAgencyCode"],
-			  sort: "domainName",
-			  statistics: true
-			}
-		]]>
-		</filterConfig>
-		<tableConfig>
-			<![CDATA[
-				
-				{
-					  docDefinition: {
-					  pageOrientation: "landscape",
-					  content: [
-						  {
-							  columns: [
-								  {
-									  width: 300,
-									  style: "title",
-									  text: [
-										 {text: "[$agency$]\n"},
-										 {text: "--------------------\n"}
-									  ]
-								  },
-								{
-								  width: 100,
-								  style: "title",
-								  text: ""
-								},
-								  {
-									  width: 300,
-									  style: "title",
-									  text: [
-										  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-										  {text: "Độc lập - Tự do - Hạnh phúc\n"},
-										  {text: "------------------------------------\n"},
-										  {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-									  ]
-								  }
-							  ]
-						  },
-						  {
-							  text: [
-								  {text: "BÁO CÁO TỔNG HỢP TÌNH HÌNH GIẢI QUYẾT THỦ TỤC HÀNH CHÍNH CỦA ĐƠN VỊ\n"},
-								  {text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11}
-							  ], 
-							  margin: [0, 20],
-							  style: "headerTitle"
-						  },
-						  {
-							  style: "tableExample",
-							  table: {
-								  widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-								  headerRows: 3,
-								  body: [
-									  [
-										  {
-											  text: "\n\n\nSTT",
-											  rowSpan: 3,
-											  alignment: "center",
-											  bold: true,
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "\n\n\nLĩnh vực",
-											  rowSpan: 3,
-											  alignment: "center",
-											  bold: true,
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Nhận giải quyết",
-											  colSpan: 5,
-											  alignment: "center",
-											  bold: true,
-											  style: "tdStyle"
-										  },
-										  "",
-										  "",
-										  "",
-										  "",
-										  {
-											  text: "Kết quả giải quyết",
-											  colSpan: 7,
-											  alignment: "center",
-											  bold: true,
-											  style: "tdStyle"
-										  },
-										  "",
-										  "",
-										  "",
-										  "",
-										  "",
-										  "",
-										  {
-											  text: "Đang giải quyết",
-											  colSpan: 3,
-											  alignment: "center",
-											  bold: true,
-											  style: "tdStyle"
-										  },
-										  "",
-										  "",
-										  {
-											  text: "Số liệu khác liên quan",
-											  colSpan: 4,
-											  alignment: "center",
-											  bold: true,
-											  style: "tdStyle"
-										  },
-										  "",
-										  "",
-										  ""
-									  ],
-									  [
-										  "",
-										  "",
-										  {
-											  text: "\nTổng số",
-											  rowSpan: 2,           
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "\nTồn trước",
-											  rowSpan: 2,           
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Trong kỳ",
-											  colSpan: 3,
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  "",
-										  "",
-										  {
-											  text: "\nTổng số",
-											  rowSpan: 2,           
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Tình hình thực hiện",
-											  colSpan: 3,
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  "",
-										  "",
-										  {
-											  text: "Từ chối giải quyết",
-											  rowSpan: 2,
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Trả kết quả",
-											  colSpan: 2,
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  "",
-											  {
-											  text: "\nTổng số",
-											  rowSpan: 2,
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "\nCòn hạn",
-											  rowSpan: 2,
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "\nQuá hạn",
-											  rowSpan: 2,
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Số hồ sơ trực tuyến",
-											  colSpan: 2,
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  "",
-										  {
-											  text: "Số hồ sơ tiếp nhận và trả kết quả ngày thứ 7",
-											  colSpan: 2,
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  ""
-									  ],
-									  [
-										  "",
-										  "",
-										  "",
-										  "",
-										  {
-											  text: "\nTổng",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Một cửa",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Trực tuyến",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  "",
-										  {
-											  text: "Trước hạn",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Đúng hạn",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Quá hạn",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  "",
-										  {
-											  text: "Đã trả",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Chưa trả",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "\nTổng số",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Còn hạn",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Quá hạn",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Mức độ 3",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Mức độ 4",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Nhận hồ sơ",
-											  alignment: "center",
-											  style: "tdStyle"
-										  },
-										  {
-											  text: "Trả kết quả",
-											  alignment: "center",
-											  style: "tdStyle"
-										  }
-									  ],
-									  [
-										  {
-											  text: "(1)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(2)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(3)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(4)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(5)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(6)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(7)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(8)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(9)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(10)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(11)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(12)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(13)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(14)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(15)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(16)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(17)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(18)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(19)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(20)",
-											  alignment: "center",
-											  fontSize: 8
-										  },
-										  {
-											  text: "(21)",
-											  alignment: "center",
-											  fontSize: 8
-										  }
-									  ],
-									  "[$report$]"
-								  ]
-							  },
-							  margin: [0, 0, 0, 5]
-						  },
-						  {
-							  text: [
-								  {text: "Ghi chú: (3)=(4)+(5); (5)=(6)+(7); (8)=(9)+(10)+(11); (15)=(16)+(17)\n", fontSize: 10}
-							  ], 
-							  margin: [0, 0, 0, 20],
-						  },              
-						  {
-							  columns: [
-								  {
-									  width: "*",
-									  text: [
-										{text: "Nơi nhận:", bold: true }
-									  ]
-								  },
-								  {
-									  width: 150,
-									  style: "title",
-									  text: "THỦ TRƯỞNG ĐƠN VỊ"
-								  }
-							  ]
-						  },
-						  {
-							  columns: [
-								  {
-									  width: "*",
-									  text: ""
-								  },
-								  {
-									  width: 150,
-									  style: "titleSub",
-									  text: "(Ký và ghi rõ họ tên)"
-								  }
-							  ]
-						  }
-					  ],
-					  styles: {
-						  ngayThangNam: {
-							  fontSize: 10,
-							  italics: true,
-							  bold: false,
-							  alignment: "center"
-						  },
-						  headerTitle: {
-							  alignment: "center",
-							  bold: true,
-							  fontSize: 13
-						  },
-						  borderHeader: {
-							  alignment: "left"
-						  },
-						  title: {
-							  bold: true,
-							  alignment: "center"
-						  },
-						  titleSub: {
-							  fontSize: 10,
-							  italics: true,
-							  alignment: "center"
-						  },
-						  tdStyle: {
-							  fontSize: 10,
-							  margin: [0, 2]
-						  }
+				  columns: [
+					  {
+						  width: 200,
+						  style: "title",
+						  text: [
+							 {text: "VĂN PHÒNG UBND TỈNH HẬU GIANG\n"},
+							 {text: "TRUNG TÂM HÀNH CHÍNH CÔNG\n"},
+							 {text: "--------------------------\n"}
+						  ]
 					  },
-					  defaultStyle: {
-						  columnGap: 20,
-						  fontSize: 11
+					  {
+						  width: 250,
+						  style: "title",
+						  text: [
+							  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+							  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+							  {text: "-------------------------------\n"},
+							  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+						  ]
 					  }
-				   }
-				}
-				
-				
-			
-			
-			]]>
-		</tableConfig>
+				  ]
+			  },
+			  {
+				  text: [
+					  {text: "TỔNG HỢP KẾT QUẢ ĐÁNH GIÁ CÁN BỘ\n"},
+					  {text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11}
+				  ], 
+				  margin: [0, 20],
+				  style: "headerTitle"
+			  },
+			  {
+				  style: "tableExample",
+				  table: {
+					  widths: [20, "*", 35, 35, 35, 35],
+					  headerRows: 1,
+					  body: [
+						  [
+							  {
+								  text: "STT",
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle" 
+							  },
+							  {
+								  text: "Cán bộ / Câu hỏi",
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Số bình chọn",
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tỉ lệ rất hài lòng",
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tỉ lệ hài lòng",
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tỉ lệ không hài lòng",
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  }
+						  ],
+						  [
+							  {
+								  text: "(1)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(2)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(3)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(4)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(5)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(6)",
+								  alignment: "center",
+								  fontSize: 8
+							  }
+						  ],
+						  "[$report$]"
+					  ]
+				  },
+				  margin: [0, 0, 0, 20]
+			  },
+			  {
+				  columns: [
+					  {
+						  width: "*",
+						  text: [
+							{text: "Nơi nhận:", bold: true }
+						  ]
+					  },
+					  {
+						  width: 150,
+						  style: "title",
+						  text: "THỦ TRƯỞNG ĐƠN VỊ"
+					  }
+				  ]
+			  },
+			  {
+				  columns: [
+					  {
+						  width: "*",
+						  text: ""
+					  },
+					  {
+						  width: 150,
+						  style: "titleSub",
+						  text: "(Ký và ghi rõ họ tên)"
+					  }
+				  ]
+			  }
+		  ],
+		  styles: {
+			  ngayThangNam: {
+				  fontSize: 10,
+				  italics: true,
+				  bold: false,
+				  alignment: "right"
+			  },
+			  headerTitle: {
+				  alignment: "center",
+				  bold: true,
+				  fontSize: 13
+			  },
+			  borderHeader: {
+				  alignment: "left"
+			  },
+			  title: {
+				  bold: true,
+				  alignment: "center"
+			  },
+			  titleSub: {
+				  fontSize: 10,
+				  italics: true,
+				  alignment: "center"
+			  },
+			  tdStyle: {
+				  fontSize: 10,
+				  margin: [0, 2]
+			  }
+		  },
+		  defaultStyle: {
+			  columnGap: 20,
+			  fontSize: 11
+		  }
+	   }
+	}]]></tableConfig>
 		<userConfig>{}</userConfig>
 	</DynamicReport>
-	<DynamicReport label="REPORT_098">
-		<sharing>9</sharing>
-		<reportName></reportName>
-		<reportCode>REPORT_098</reportCode>
-		<filterConfig>
-		<![CDATA[
-		{}
-		]]>
-		</filterConfig>
-		<tableConfig>
-		<![CDATA[
-		{}
-		]]>
-		</tableConfig>
-		<userConfig>{}</userConfig>
-    </DynamicReport>
-	<DynamicReport label="REPORT_099">
-		<sharing>9</sharing>
-		<reportName></reportName>
-		<reportCode>REPORT_099</reportCode>
-		<filterConfig>
-		<![CDATA[
-		{}
-		]]>
-		</filterConfig>
-		<tableConfig>
-		<![CDATA[
-		{}
-		]]>
-		</tableConfig>
-		<userConfig>{}</userConfig>
-    </DynamicReport>
+
 </DynamicReportList>
