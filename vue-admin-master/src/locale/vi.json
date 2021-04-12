@@ -1,0 +1,118 @@
+{
+   "vi": "VietNam",
+   "user": "user|users",
+   "login": "Đăng nhập",
+   "register": "Đăng ký",
+   "username": "Tên đăng nhập",
+   "password": "Mật khẩu",
+   "login_account": "Tài khoản đăng nhập",
+   "sponsor": "Sponsor",
+   "home": "Trang chủ",
+   "media": "Tài liệu",
+   "dashboard": "Dashboard",
+   "task": "Công việc",
+   "CMS": "CMS",
+   "widget": "Widget",
+   "chart": "Biểu đồ",
+   "list": "Danh sách",
+   "social": "Social",
+   "statistic": "Thống kê",
+   "echart": "Echart",
+   "g2": "G2",
+   "mail": "Mail",
+   "inbox": "Hộp thư",
+   "table": "Bảng",
+   "access_denied": "Access Deny",
+   "basic_form": "Basic Form",
+   "step_form": "Wizard Form",
+   "form": "Form",
+   "acl": "ACL",
+   "user_list": "Danh sách người dùng",
+   "edit_user": "Cập nhật người dùng",
+   "create_user": "Thêm người dùng",
+   "changelog": "Changelog",
+   "calendar": "Lịch",
+   "all": "Tất cả",
+   "dir": "Danh mục",
+   "element": "Element",
+   "cascader": "Cascader",
+   "chat": "Chat",
+   "cms": "CMS",
+   "post": "Post",
+   "post_list": "Post List",
+   "task_list": "Danh sách công việc",
+   "kanboard": "Kanboard",
+   "file_type": "File Type",
+   "rule": {
+     "required": "{0} là bắt buộc"
+   },
+   "$vuetify": {
+     "badge": "Badge",
+     "close": "Close",
+     "dataIterator": {
+       "noResultsText": "Không tìm thấy bản ghi nào",
+       "loadingText": "Đang tải..."
+     },
+     "dataTable": {
+       "itemsPerPageText": "Số bản ghi một trang:",
+       "ariaLabel": {
+         "sortDescending": "Sắp xếp giảm dần.",
+         "sortAscending": "Sắp xếp tăng dần.",
+         "sortNone": "Không sắp xếp.",
+         "activateNone": "Activate to remove sorting.",
+         "activateDescending": "Activate to sort descending.",
+         "activateAscending": "Activate to sort ascending."
+       },
+       "sortBy": "Sort by"
+     },
+     "dataFooter": {
+       "itemsPerPageText": "Số bản ghi một trang:",
+       "itemsPerPageAll": "Tất cả",
+       "nextPage": "Trang sau",
+       "prevPage": "Trang trước",
+       "firstPage": "Trang đầu",
+       "lastPage": "Trang cuối",
+       "pageText": "{0}-{1} của {2}"
+     },
+     "datePicker": {
+       "itemsSelected": "{0} đã chọn",
+       "nextMonthAriaLabel": "Tháng sau",
+       "nextYearAriaLabel": "Năm sau",
+       "prevMonthAriaLabel": "Tháng trước",
+       "prevYearAriaLabel": "Năm trước"
+     },
+     "noDataText": "Không có dữ liệu",
+     "carousel": {
+       "prev": "Previous visual",
+       "next": "Next visual",
+       "ariaLabel": {
+         "delimiter": "Carousel slide {0} of {1}"
+       }
+     },
+     "calendar": {
+       "moreEvents": "{0} more"
+     },
+     "fileInput": {
+       "counter": "{0} files",
+       "counterSize": "{0} files ({1} in total)"
+     },
+     "timePicker": {
+       "am": "AM",
+       "pm": "PM"
+     },
+     "pagination": {
+       "ariaLabel": {
+         "wrapper": "Pagination Navigation",
+         "next": "Trang sau",
+         "previous": "Trang trước",
+         "page": "Đi tới trang {0}",
+         "currentPage": "Trang hiện tại, Trang {0}"
+       }
+     },
+     "rating": {
+       "ariaLabel": {
+         "icon": "Rating {0} of {1}"
+       }
+     }
+   }
+ }
