@@ -2,12 +2,12 @@
   <v-app dark>
     <router-view></router-view>
     <!-- theme setting -->
-    <v-btn small fab dark fixed top="top" right="right" class="setting-fab" color="red" @click="openThemeSettings">
+    <!-- <v-btn small fab dark fixed top="top" right="right" class="setting-fab" color="red" @click="openThemeSettings">
       <v-icon>mdi-silverware-variant</v-icon>
     </v-btn>
     <v-btn small fab dark fixed top="top" right="right" class="chat-fab" color="primary" @click="openOnlineUser">
       <v-icon>mdi-chat</v-icon>
-    </v-btn>
+    </v-btn> -->
     <!-- setting drawer -->
     <v-navigation-drawer v-model="rightDrawer" class="setting-drawer" temporary right hide-overlay fixed>
       <template v-if="showSetting">
@@ -85,4 +85,14 @@ export default {
   top: calc(50% + 40px) !important
   right: 0
   border-radius: 0
+</style>
+
+<style lang="sass">
+.v-toolbar__content
+  padding-left: 12px !important
+
+.admin
+  main
+    .container 
+      max-width: none !important
 </style>

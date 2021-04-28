@@ -1,7 +1,7 @@
 <template>
   <v-card tile class="notes">
-    <v-toolbar tile flat>
-      <v-subheader>Thông báo</v-subheader>
+    <v-toolbar tile flat height="48">
+      <v-subheader class="px-0">Bạn có 4 thông báo mới</v-subheader>
       <v-spacer />
       <!-- <v-btn text @click="handleClearNotification">clear</v-btn> -->
     </v-toolbar>
@@ -24,7 +24,7 @@
         </template>
       </v-list>
       <v-divider></v-divider>
-      <v-btn block text class="ma-0">All</v-btn>
+      <v-btn block text class="ma-0">Tất cả</v-btn>
       <v-divider></v-divider>
     </v-card-text>
   </v-card>

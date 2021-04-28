@@ -6,7 +6,7 @@
       :style="{
         bottom: fab ? '100px' : '',
       }"
-      aria-label="Scroll to top"
+      aria-label="Đầu trang"
       bottom
       small
       color="red"
@@ -14,10 +14,10 @@
       fab
       fixed
       right
-      title="Scroll to top"
+      title="Đầu trang"
       @click="toTop"
     >
-      <v-icon>mdi-rocket</v-icon>
+      <v-icon>mdi-arrow-up-bold-circle</v-icon>
     </v-btn>
   </v-fab-transition>
 </template>

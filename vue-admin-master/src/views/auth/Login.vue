@@ -1,63 +1,69 @@
 <template>
-  <v-container class="page-login" fill-height>
-    <v-row>
-      <v-col :cols="12">
-        <v-card class="pa-3 page-login__card" tile>
-          <v-card-title>
-            <img src="/static/m.png" alt="Vue Material Admin" height="48" contain />
-            <div class="primary--text display-1">Material Admin Template</div>
-          </v-card-title>
-          <v-card-text>
-            <v-alert type="success"> {{ $t('login_account') }} : admin/admin </v-alert>
-            <v-form ref="form" v-model="formValid" class="my-10" lazy-validation>
-              <v-text-field
-                v-model="formModel.username"
-                append-icon="mdi-email"
-                autocomplete="off"
-                name="login"
-                :label="$t('username')"
-                :placeholder="$t('username')"
-                type="text"
-                required
-                outlined
-                :rules="formRule.username"
-              />
-              <v-text-field
-                v-model="formModel.password"
-                append-icon="mdi-lock"
-                autocomplete="off"
-                name="password"
-                :label="$t('password')"
-                :placeholder="$t('password')"
-                type="password"
-                :rules="formRule.password"
-                required
-                outlined
-                @keyup.enter="handleLogin"
-              />
-            </v-form>
-          </v-card-text>
-          <v-card-actions>
-            <v-tooltip v-for="item in socialIcons" :key="item.text" bottom>
-              <template #activator="{ on, attrs }">
-                <v-btn color="primary" icon v-bind="attrs" v-on="on" @click="handleSocialLogin">
-                  <v-icon v-text="item.icon" />
-                </v-btn>
-              </template>
-              <span>{{ item.text }}</span>
-            </v-tooltip>
-            <v-spacer />
-            <v-btn large text @click="handleRegister">
-              {{ $t('register') }}
-            </v-btn>
-            <v-btn large tile color="primary" :loading="loading" @click="handleLogin">
-              {{ $t('login') }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div class="wrap-page-login">
+    <v-container class="page-login" fill-height>
+      <v-row>
+        <v-col :cols="12">
+          <v-card class="pa-3 page-login__card" tile>
+            <v-card-title class="mx-3 py-0">
+              <div class="image-title-login text-center">
+                <img src="https://vuetify-material-dashboard-free.vuetifyjs.com/img/vmd.a39402e6.svg" alt="" height="80" contain />
+              </div>
+              <div class="text-title-login white--text text-center">FDS ADMIN SYSTEM</div>
+            </v-card-title>
+            <v-card-text class="pb-0">
+              <!-- <v-alert type="success"> {{ $t('login_account') }} : admin/admin </v-alert> -->
+              <v-form ref="form" v-model="formValid" class="mt-10 mb-5" lazy-validation>
+                <v-text-field
+                  v-model="formModel.username"
+                  append-icon="mdi-email"
+                  autocomplete="off"
+                  name="login"
+                  :label="$t('username')"
+                  :placeholder="$t('username')"
+                  type="text"
+                  required
+                  outlined
+                  :rules="formRule.username"
+                />
+                <v-text-field
+                  v-model="formModel.password"
+                  append-icon="mdi-lock"
+                  autocomplete="off"
+                  name="password"
+                  :label="$t('password')"
+                  :placeholder="$t('password')"
+                  type="password"
+                  :rules="formRule.password"
+                  required
+                  outlined
+                  @keyup.enter="handleLogin"
+                />
+              </v-form>
+            </v-card-text>
+            <v-card-actions class="mx-2 pt-0">
+              <!-- <v-tooltip v-for="item in socialIcons" :key="item.text" bottom>
+                <template #activator="{ on, attrs }">
+                  <v-btn color="primary" icon v-bind="attrs" v-on="on" @click="handleSocialLogin">
+                    <v-icon v-text="item.icon" />
+                  </v-btn>
+                </template>
+                <span>{{ item.text }}</span>
+              </v-tooltip> -->
+              <!-- <v-spacer /> -->
+              <!-- <v-btn class="mr-2" tile color="#66bb6a" :loading="loading" @click="handleRegister">
+                <v-icon size="20" color="#fff" class="mr-2">mdi-account-edit</v-icon> 
+                <span class="white--text">{{ $t('register') }}</span>
+              </v-btn> -->
+              <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="handleLogin">
+                <v-icon size="20" color="#fff" class="mr-2">mdi-login-variant</v-icon> {{ $t('login') }}
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
+  
 </template>
 
 <script>
@@ -126,6 +132,49 @@ export default {
 <style lang="sass" scoped>
 .page-login
   &__card
-  max-width: 600px
+  max-width: 500px
   margin: 0 auto
+</style>
+<style lang="css" scoped>
+.wrap-page-login{
+  height: 100vh;
+  background-image: url(https://vue-material-dashboard-laravel.creative-tim.com/img/login.jpg);
+  background-position: top;
+  background-size: cover
+}
+.wrap-page-login:before {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  left: 0;
+  top: 0;
+  content: "";
+  background: rgba(0,0,0,.5)
+}
+.page-login__card {
+  border-radius: 6px !important;
+}
+.v-card__title {
+  background: linear-gradient(60deg,#1772c2,#43a047);
+  color: #fff;
+  margin-top: -55px;
+  height: auto;
+  border-radius: 6px !important;
+}
+.text-title-login {
+  width: 100%;
+  margin-top: -10px;
+  margin-bottom: 8px;
+}
+.image-title-login {
+  width: 100%;
+}
+.btn-submit-login {
+  width: 100%;
+  height: 42px !important;
+  background: linear-gradient(60deg,#1772c2,#43a047);
+  border-radius: 4px;
+}
 </style>

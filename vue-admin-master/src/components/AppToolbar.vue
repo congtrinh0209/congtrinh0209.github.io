@@ -3,12 +3,6 @@
     <v-app-bar-nav-icon @click="handleDrawerToggle" />
     <v-spacer />
     <v-toolbar-items>
-      <!-- <v-btn text href="mailto:wangqiangshen@gmail.com">Hire Me</v-btn>
-      <v-btn text href="https://www.isocked.com" target="_blank">Blog</v-btn>
-      <v-btn text href="http://doc.isocked.com/">Doc</v-btn>
-      <v-btn icon href="https://github.com/tookit/vue-material-admin">
-        <v-icon>mdi-github</v-icon>
-      </v-btn> -->
       <v-btn icon @click="handleFullScreen()">
         <v-icon>mdi-fullscreen</v-icon>
       </v-btn>
@@ -43,8 +37,8 @@
             rel="noopener"
             @click="item.click"
           >
-            <v-list-item-action v-if="item.icon">
-              <v-icon>{{ item.icon }}</v-icon>
+            <v-list-item-action v-if="item.icon" class="mr-4">
+              <v-icon :color="item.color">{{ item.icon }}</v-icon>
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -54,11 +48,11 @@
       </v-menu>
     </v-toolbar-items>
     <v-toolbar slot="extension" tag="div" dense color="white" light>
-      <v-icon>mdi-home</v-icon>
+      <v-icon color="#1e88e5">mdi-home</v-icon>
       <v-breadcrumbs :items="breadcrumbs" class="pa-3" />
       <v-spacer></v-spacer>
-      <v-btn icon small color="black">
-        <v-icon @click="handleGoBack" v-text="'mdi-arrow-left'" />
+      <v-btn class="mr-0" icon small color="#1e88e5">
+        <v-icon size="32" @click="handleGoBack" v-text="'mdi-arrow-left-bold-circle'" />
       </v-btn>
     </v-toolbar>
   </v-app-bar>
@@ -85,18 +79,21 @@ export default {
           href: '#',
           title: 'Thông tin tài khoản',
           click: this.handleProfile,
+          color: "#3f51b5",
         },
         {
           icon: 'mdi-cog',
           href: '#',
           title: 'Cài đặt',
           click: this.handleSetting,
+          color: "#03a9f4",
         },
         {
           icon: 'mdi-power',
           href: '#',
           title: 'Đăng xuất',
           click: this.handleLogut,
+          color: "red",
         },
       ],
     }
@@ -144,3 +141,7 @@ export default {
   },
 }
 </script>
+<style lang="sass" scoped>
+.v-toolbar 
+  box-shadow: none !important
+</style>

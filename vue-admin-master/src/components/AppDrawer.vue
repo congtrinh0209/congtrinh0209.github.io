@@ -8,7 +8,7 @@
     :width="drawerWidth"
   >
     <v-toolbar color="primary darken-1" dark>
-      <img :src="computeLogo" height="36" alt="Vue Material Admin Template" />
+      <img class="mr-2" :src="computeLogo" height="36" />
       <v-toolbar-title>
         <span class="hidden-sm-and-down">Admin System</span>
       </v-toolbar-title>
@@ -19,20 +19,20 @@
         <nav-list :items="computeMenu" :mini="mini" />
       </div>
     </vue-perfect-scrollbar>
-    <!-- <template #append>
-      <div class="grey lighten-3">
+    <template #append>
+      <div class="" style="background-color: #2196f3e0; border-color: #2196f3e0;">
         <template v-if="mini">
-          <v-btn block width="64" height="48" icon tile class="mx-auto" @click="handleDrawerCollapse">
-            <v-icon>mdi-arrow-collapse-right</v-icon>
+          <v-btn block width="64" height="36" icon tile class="mx-auto" @click="handleDrawerCollapse">
+            <v-icon color="#fff">mdi-arrow-collapse-right</v-icon>
           </v-btn>
         </template>
         <template v-else>
-          <v-btn right block height="48" icon tile @click="handleDrawerCollapse">
-            <v-icon>mdi-arrow-collapse-left</v-icon>
+          <v-btn right block height="36" icon tile @click="handleDrawerCollapse">
+            <v-icon color="#fff">mdi-arrow-collapse-left</v-icon>
           </v-btn>
         </template>
       </div>
-    </template> -->
+    </template>
   </v-navigation-drawer>
 </template>
 <script>
@@ -61,7 +61,7 @@ export default {
 
   computed: {
     computeLogo() {
-      return '/static/m.png'
+      return 'https://vuetify-material-dashboard-free.vuetifyjs.com/img/vmd.a39402e6.svg'
     },
     computeMenu() {
       return this.filterRouteItem(routes[0].children)
@@ -104,4 +104,6 @@ export default {
     max-height:  calc(100vh - 64px - 36px - 44px)
   &__inner
     height: calc(100vh - 64px - 36px - 44px)
+.v-toolbar 
+  box-shadow: none !important
 </style>

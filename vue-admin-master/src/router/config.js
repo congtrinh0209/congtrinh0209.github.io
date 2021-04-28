@@ -49,7 +49,7 @@ export const protectedRoute = [
     path: '/',
     component: LayoutDefault,
     meta: {
-      title: 'home',
+      title: 'Trang chủ',
       icon: '',
     },
     redirect: '/dashboard',
@@ -81,7 +81,7 @@ export const protectedRoute = [
         path: '/kanboard',
         meta: {
           title: 'kanboard',
-          icon: 'mdi-drag-variant',
+          icon: 'mdi-format-list-checkbox',
         },
         name: 'kanboard',
         component: () => import('@/views/task/KanBoard.vue'),
@@ -95,16 +95,6 @@ export const protectedRoute = [
       //   },
       //   redirect: '/chat/messaging',
       // },
-      {
-        path: '/media',
-        meta: {
-          title: 'media',
-          icon: 'mdi-image',
-          isNew: true,
-        },
-        redirect: '/media/file',
-      },
-
       //element
       // {
       //   path: '/element',
@@ -129,36 +119,45 @@ export const protectedRoute = [
       //task
       {
         path: '/task',
-        component: RouteWrapper,
-        redirect: '/task/list',
+        name: 'task',
         meta: {
           title: 'task',
-          icon: 'mdi-grid',
+          icon: 'mdi-calendar-account',
         },
-        children: [
-          {
-            path: '/task/list',
-            name: 'task',
-            meta: {
-              title: 'task',
-              icon: 'mdi-newspaper',
-            },
-            redirect: '/task/list',
-            component: RouteWrapper,
-            children: [
-              {
-                path: '/task/list',
-                name: 'task.list',
-                meta: {
-                  title: 'task_list',
-                  icon: 'mdi-calendar-account',
-                },
-                component: () => import('@/views/task/TaskList.vue'),
-              },
-            ],
-          },
-        ],
+        component: () => import('@/views/task/TaskList.vue'),
       },
+      // {
+      //   path: '/task',
+      //   component: RouteWrapper,
+      //   redirect: '/task/list',
+      //   meta: {
+      //     title: 'task',
+      //     icon: 'mdi-grid',
+      //   },
+      //   children: [
+      //     {
+      //       path: '/task/list',
+      //       name: 'task',
+      //       meta: {
+      //         title: 'task',
+      //         icon: 'mdi-newspaper',
+      //       },
+      //       redirect: '/task/list',
+      //       component: RouteWrapper,
+      //       children: [
+      //         {
+      //           path: '/task/list',
+      //           name: 'task.list',
+      //           meta: {
+      //             title: 'task_list',
+      //             icon: 'mdi-calendar-account',
+      //           },
+      //           component: () => import('@/views/task/TaskList.vue'),
+      //         },
+      //       ],
+      //     },
+      //   ],
+      // },
       //widgets
       // {
       //   path: '/widgets',
@@ -194,10 +193,51 @@ export const protectedRoute = [
         name: 'statistic',
         meta: {
           title: 'statistic',
-          icon: 'mdi-hexagon',
+          icon: 'mdi-chart-bar-stacked',
         },
         component: () => import('@/views/widgets/Statistic.vue'),
       },
+      //media
+      {
+        path: '/media',
+        meta: {
+          title: 'media',
+          icon: 'mdi-folder',
+          isNew: true,
+        },
+        component: () => import('@/views/media/MediaView.vue'),
+      },
+      // {
+      //   path: '/media',
+      //   meta: {
+      //     title: 'media',
+      //     icon: 'mdi-folder',
+      //   },
+      //   name: 'media',
+      //   component: LayoutMedia,
+      //   redirect: '/media/file',
+      //   children: [
+      //     {
+      //       path: '/media/file',
+      //       name: 'media.index',
+      //       meta: {
+      //         title: 'media manager',
+      //         icon: 'mdi-folder',
+      //       },
+      //       component: () => import('@/views/media/MediaView.vue'),
+      //     },
+      //     {
+      //       path: '/media/:type',
+      //       name: 'media.type',
+      //       meta: {
+      //         title: 'media manager',
+      //         icon: 'mdi-view',
+      //       },
+      //       props: true,
+      //       component: () => import('@/views/media/MediaView.vue'),
+      //     },
+      //   ],
+      // },
       //form
       {
         path: '/forms',
@@ -276,38 +316,6 @@ export const protectedRoute = [
           hidden: true,
         },
         component: () => import('@/views/error/Deny.vue'),
-      },
-    ],
-  },
-  //media
-  {
-    path: '/media',
-    meta: {
-      title: 'media',
-      icon: 'mdi-image',
-    },
-    name: 'media',
-    component: LayoutMedia,
-    redirect: '/media/file',
-    children: [
-      {
-        path: '/media/file',
-        name: 'media.index',
-        meta: {
-          title: 'media manager',
-          icon: 'mdi-view',
-        },
-        component: () => import('@/views/media/MediaView.vue'),
-      },
-      {
-        path: '/media/:type',
-        name: 'media.type',
-        meta: {
-          title: 'media manager',
-          icon: 'mdi-view',
-        },
-        props: true,
-        component: () => import('@/views/media/MediaView.vue'),
       },
     ],
   },

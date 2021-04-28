@@ -1,6 +1,6 @@
 <template>
-  <v-list-item :to="item.path">
-    <v-list-item-icon>
+  <v-list-item :to="item.path" class="px-3">
+    <v-list-item-icon class="my-3">
       <v-tooltip bottom>
         <template #activator="{ on, attrs }">
           <v-icon v-bind="attrs" v-on="on" v-text="item.icon" />
@@ -25,3 +25,8 @@ export default {
   computed: {},
 }
 </script>
+<style lang="css" scoped>
+  .v-list .v-list-item--active {
+    color: #1e88e5;
+  }
+</style>
