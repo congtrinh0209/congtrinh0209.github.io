@@ -106,14 +106,37 @@
       </v-list>
     </v-menu>
 
-    <v-btn
-      class="ml-2"
-      min-width="0"
-      text
-      to="/pages/user"
-    >
-      <v-icon>mdi-account</v-icon>
-    </v-btn>
+    <v-menu offset-y origin="center center" transition="scale-transition">
+      <template #activator="{ on }">
+        <v-btn slot="activator" class="ml-2" min-width="0" text v-on="on">
+          <v-icon>mdi-account</v-icon>
+        </v-btn>
+      </template>
+      <v-list class="pa-0">
+        <v-list-item
+          to="/pages/user"
+          rel="noopener"
+        >
+          <v-list-item-action class="mr-3">
+            <v-icon color="#3f51b5">mdi-account</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Thông tin tài khoản</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+          to="/login"
+          rel="noopener"
+        >
+          <v-list-item-action class="mr-3">
+            <v-icon color="red">mdi-power</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Đăng xuất</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-menu>
   </v-app-bar>
 </template>
 

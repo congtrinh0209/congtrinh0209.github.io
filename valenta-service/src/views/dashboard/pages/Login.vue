@@ -7,9 +7,9 @@
           <v-card class="pa-3 page-login__card" tile>
             <v-card-title class="mx-3 py-0">
               <div class="image-title-login text-center">
-                <img src="https://vuetify-material-dashboard-free.vuetifyjs.com/img/vmd.a39402e6.svg" alt="" height="80" contain />
+                <img src="/../assets/logo-valenta.png" alt="" height="80" contain />
               </div>
-              <div class="text-title-login white--text text-center">FDS ADMIN SYSTEM</div>
+              <div class="text-title-login white--text text-center">SƠN ĐẸP CHO MỌI NHÀ</div>
             </v-card-title>
             <v-card-text class="pb-0">
               <v-form ref="form" v-model="formValid" class="mt-10 mb-5" lazy-validation>
@@ -145,6 +145,8 @@ export default {
   width: 100%;
 }
 .btn-submit-login {
+  font-size: 18px;
+  font-weight: bold;
   width: 100%;
   height: 42px !important;
   background: linear-gradient(60deg,#1772c2,#43a047);
