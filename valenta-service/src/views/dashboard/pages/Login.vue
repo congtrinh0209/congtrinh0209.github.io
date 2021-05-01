@@ -6,8 +6,8 @@
         <v-col :cols="12">
           <v-card class="pa-3 page-login__card" tile>
             <v-card-title class="mx-3 py-0">
-              <div class="image-title-login text-center">
-                <img src="/../assets/logo-valenta.png" alt="" height="80" contain />
+              <div class="image-title-login text-center my-2">
+                <img src="https://photos.google.com/album/AF1QipNIT5EX51yfB_ymyU99h3IcDo3CE4jCgAMCUnpW/photo/AF1QipOcy27rMs_gAvBWBe1sF3S1_nKigxrAcYB-Kcbg" alt="" height="80" contain />
               </div>
               <div class="text-title-login white--text text-center">SƠN ĐẸP CHO MỌI NHÀ</div>
             </v-card-title>
@@ -42,7 +42,8 @@
             </v-card-text>
             <v-card-actions class="mx-2 pt-0">
               <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="handleLogin">
-                <v-icon size="20" color="#fff" class="mr-2">mdi-login-variant</v-icon> ĐĂNG NHẬP
+                <v-icon size="20" color="#fff" class="mr-2">mdi-login-variant</v-icon> 
+                <span>ĐĂNG NHẬP</span>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -130,7 +131,7 @@ export default {
   border-radius: 6px !important;
 }
 .v-card__title {
-  background: linear-gradient(60deg,#1772c2,#43a047);
+  background: linear-gradient(65deg,#49c217,#ff5200);
   color: #fff;
   margin-top: -55px;
   height: auto;
@@ -140,16 +141,18 @@ export default {
   width: 100%;
   margin-top: -10px;
   margin-bottom: 8px;
+  font-size: 16px;
+    font-weight: bold;
 }
 .image-title-login {
   width: 100%;
 }
 .btn-submit-login {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   width: 100%;
   height: 42px !important;
-  background: linear-gradient(60deg,#1772c2,#43a047);
+  background: linear-gradient(65deg,#49c217,#ff5200);
   border-radius: 4px;
 }
 </style>
