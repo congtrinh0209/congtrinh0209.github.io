@@ -1,49 +1,46 @@
 <template>
-<v-app>
   <div class="wrap-page-login">
     <v-container fluid class="page-login" fill-height>
       <v-row>
         <v-col :cols="12">
-          <v-card class="pa-3 page-login__card" tile>
+          <v-card class="pa-2 page-login__card" tile>
             <v-card-title class="mx-3 py-0">
               <div class="image-title-login text-center my-2">
                 <img src="http://hanoi.fds.vn:8077/documents/20126/519071/logo.png?t=1619886615424" alt="" height="80" contain />
               </div>
-              <div class="text-title-login white--text text-center">SƠN ĐẸP CHO MỌI NHÀ</div>
+              <div class="text-title-login white--text text-center">BẢO HÀNH ĐIỆN TỬ</div>
             </v-card-title>
             <v-card-text class="pb-0">
-              <v-form ref="form" v-model="formValid" class="mt-10 mb-5" lazy-validation>
+              <v-form ref="form" v-model="formValid" class="form-kichhoat mt-10 mb-5 pt-4" lazy-validation>
+                <div class="label-bh mb-2">MÃ THẺ BẢO HÀNH:</div>
                 <v-text-field
-                  v-model="formModel.username"
-                  append-icon="mdi-email"
+                  v-model="formModel.eCode"
                   autocomplete="off"
                   name="login"
-                  label="Tên đăng nhập"
-                  placeholder="Email/ số điện thoại"
                   type="text"
-                  required
-                  outlined
-                  :rules="formRule.username"
+                  solo
+                  class="font-weight-bold"
                 />
+                <div class="label-bh mb-2">MÃ BẢO MẬT:</div>
                 <v-text-field
-                  v-model="formModel.password"
-                  append-icon="mdi-lock"
+                  v-model="formModel.captcha"
                   autocomplete="off"
-                  name="password"
-                  label="Mật khẩu"
-                  placeholder="Mật khẩu"
-                  type="password"
-                  :rules="formRule.password"
-                  required
-                  outlined
-                  @keyup.enter="handleLogin"
+                  name="captcha"
+                  solo
+                  class="font-weight-bold"
                 />
               </v-form>
             </v-card-text>
             <v-card-actions class="mx-2 pt-0">
               <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="handleLogin">
                 <v-icon size="20" color="#fff" class="mr-2">mdi-login-variant</v-icon> 
-                <span>ĐĂNG NHẬP</span>
+                <span>KÍCH HOẠT BẢO HÀNH</span>
+              </v-btn>
+            </v-card-actions>
+            <v-card-actions class="mx-2 pt-0">
+              <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="handleLogin">
+                <v-icon size="20" color="#fff" class="mr-2">mdi-credit-card-search-outline</v-icon> 
+                <span>THÔNG TIN BẢO HÀNH</span>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -51,7 +48,6 @@
       </v-row>
     </v-container>
   </div>
-</v-app>
 </template>
 
 <script>
@@ -63,12 +59,12 @@ export default {
       loading: false,
       formValid: false,
       formModel: {
-        username: 'admin',
-        password: 'admin',
+        eCode: '',
+        captcha: '',
       },
       formRule: {
-        username: [(v) => !!v || this.$t('Thông tin bắt buộc', ['username'])],
-        password: [(v) => !!v || this.$t('Thông tin bắt buộc', ['password'])],
+        eCode: [(v) => !!v || this.$t('Thông tin bắt buộc', ['eCode'])],
+        captcha: [(v) => !!v || this.$t('Thông tin bắt buộc', ['captcha'])],
       }
     }
   },
@@ -80,18 +76,10 @@ export default {
         this.$store
           .dispatch('demoLogin', this.formModel)
           .then(() => {
-            const redirect = this.$route.query.redirect
-            const route = redirect ? { path: redirect } : { path: '/' }
-            this.$router.push(route)
-            this.loading = false
+
           })
           .catch(() => {
-            window._VMA.$emit('SHOW_SNACKBAR', {
-              show: true,
-              text: 'Auth Failed',
-              color: 'error',
-            })
-            this.loading = false
+
           })
       }
     },
@@ -103,6 +91,14 @@ export default {
 }
 </script>
 
+<style lang="css">
+header {
+  display: none !important;
+}
+main {
+  padding-top: 0px !important;
+}
+</style>
 <style lang="sass" scoped>
 .page-login
   &__card
@@ -110,17 +106,21 @@ export default {
   margin: 0 auto
 </style>
 <style lang="css" scoped>
+.label-bh {
+  font-weight: bold;
+  color: #0c0078;
+}
 .wrap-page-login{
-  height: 100vh;
-  background-image: url(http://hanoi.fds.vn:8077/documents/20126/519071/bg-login.jpg);
+  /* height: 100vh; */
+  background-image: url(http://hanoi.fds.vn:8077/documents/20126/519071/bg-baohanh.jpg);
   background-position: top;
   background-size: auto
 }
 .wrap-page-login:before {
-  position: absolute;
+  /* position: absolute; */
   z-index: 0;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   display: block;
   left: 0;
   top: 0;
@@ -129,11 +129,13 @@ export default {
 }
 .page-login__card {
   border-radius: 6px !important;
+  background-color: transparent;
+  box-shadow: none !important
 }
 .v-card__title {
   background: linear-gradient(65deg,#171cc2,#ff5200);
   color: #fff;
-  margin-top: -55px;
+  /* margin-top: -55px; */
   height: auto;
   border-radius: 6px !important;
 }
@@ -149,10 +151,10 @@ export default {
 }
 .btn-submit-login {
   font-size: 16px;
-  font-weight: bold;
+  /* font-weight: bold; */
   width: 100%;
   height: 42px !important;
-  background: linear-gradient(65deg,#49c217,#ff5200);
+  /* background: linear-gradient(65deg,#49c217,#ff5200); */
   border-radius: 4px;
 }
 </style>

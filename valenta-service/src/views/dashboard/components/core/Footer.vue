@@ -1,6 +1,6 @@
 <template>
   <v-footer
-    id="dashboard-core-footer"
+    id="dashboard-core-footer" class="py-0"
   >
     <v-container>
       <v-row
@@ -8,18 +8,15 @@
         no-gutters
       >
         <v-col
-          v-for="(link, i) in links"
-          :key="i"
-          class="text-center mb-sm-0 mb-5"
+          class=" mb-sm-0 font-weight-bold"
           cols="auto"
         >
-          <a
-            :href="link.href"
-            class="mr-0 grey--text text--darken-3"
-            rel="noopener"
-            target="_blank"
-            v-text="link.text"
-          />
+          <div>
+            <p class="mb-2 text-bold">CÔNG TY CP SẢN XUẤT SƠN HÀ NỘI</p>
+            <p class="mb-2"><v-icon>mdi-map-marker-star</v-icon> CCN Đắc Sở, Hoài Đức, Hà Nội</p>
+            <p class="mb-2"><v-icon>mdi-map-marker-star</v-icon> ACM building, 96 cao thắng P.4, Q.3, Tp.HCM</p>
+            <p><v-icon>mdi-map-marker-star</v-icon> A3-30 - khu đô thị minh khang - TP.Vinh, Nghệ An</p>
+          </div>
         </v-col>
 
         <v-spacer class="hidden-sm-and-down" />
@@ -28,12 +25,12 @@
           cols="12"
           md="auto"
         >
-          <div class="text-body-1 font-weight-light pt-6 pt-md-0 text-center">
-            &copy; 2019, made with
-            <v-icon size="18">
-              mdi-heart
-            </v-icon>
-            by <a href="https://www.creative-tim.com">Creative Tim</a> for a better web.
+          <div class="text-body-1 font-weight-bold pt-md-0">
+            <div>
+              <p class="mb-2"><v-icon>mdi-map-marker-star</v-icon> Địa chỉ: CCN Đắc Sở, Hoài Đức, Hà Nội</p>
+              <p class="mb-2"><v-icon>mdi-phone-in-talk</v-icon> Điện thoại: 0369648868</p>
+              <p><v-icon>mdi-email</v-icon> Email: valenta@hanoipaint.com.vn</p>
+            </div>
           </div>
         </v-col>
       </v-row>
@@ -75,4 +72,12 @@
       font-weight: 500
       text-decoration: none
       text-transform: uppercase
+</style>
+<style lang="css" scoped>
+  #dashboard-core-footer{
+    /* height: 100vh; */
+    background-image: url(http://hanoi.fds.vn:8077/documents/20126/519071/bg-footer.jpg);
+    background-position: top;
+    background-size: auto
+  }
 </style>

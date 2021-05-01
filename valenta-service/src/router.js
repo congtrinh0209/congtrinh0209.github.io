@@ -11,16 +11,15 @@ export default new Router({
       path: '/',
       component: () => import('@/views/dashboard/Index'),
       children: [
-        // Login
-        // {
-        //   name: 'Login',
-        //   path: '/login',
-        //   component: () => import('@/views/dashboard/pages/Login'),
-        // },
         // Dashboard
         {
-          name: 'Dashboard',
           path: '',
+          name: 'BaoHanh',
+          component: () => import('@/views/dashboard/pages/BaoHanh'),
+        },
+        {
+          name: 'Dashboard',
+          path: 'pages/dashboard',
           component: () => import('@/views/dashboard/Dashboard'),
         },
         // Pages
@@ -56,12 +55,7 @@ export default new Router({
           path: 'maps/google-maps',
           component: () => import('@/views/dashboard/maps/GoogleMaps'),
         },
-        // Upgrade
-        {
-          name: 'Upgrade',
-          path: 'upgrade',
-          component: () => import('@/views/dashboard/Upgrade'),
-        },
+
       ],
     },
     // Login
