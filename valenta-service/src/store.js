@@ -7,7 +7,27 @@ export default new Vuex.Store({
   state: {
     barColor: 'rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)',
     barImage: 'https://demos.creative-tim.com/material-dashboard/assets/img/sidebar-1.jpg',
+    snackbar: {
+      show: false,
+      text: '',
+      color: '',
+    },
     drawer: null,
+    access_token: null,
+    username: 'admin',
+    userPermistion: 'guest',
+    userProfile: null
+  },
+  getters: {
+    getSnackbar: (state) => {
+      return state.snackbar
+    },
+    getAccessToken: (state) => {
+      return state.access_token
+    },
+    getUsername: (state) => state.username,
+    getPermistion: (state) => state.userPermistion,
+    getUserProfile: (state) => state.userProfile
   },
   mutations: {
     SET_BAR_IMAGE (state, payload) {
@@ -16,8 +36,77 @@ export default new Vuex.Store({
     SET_DRAWER (state, payload) {
       state.drawer = payload
     },
+    SET_LOGIN(state, { access_token, expires_in }) {
+      state.access_token = access_token
+      state.expires_in = expires_in
+    },
+    SET_ACCESS_TOKEN(state, token) {
+      state.access_token = token
+    },
+    SET_USER_PERMISTION(state, permistion) {
+      state.userPermistion = permistion
+    },
+    SET_LOGIN_PROFILE(state, payload) {
+      state.username = payload.username
+      state.userProfile = payload
+    },
+    SHOW_SNACKBAR(state, { color, text }) {
+      state.snackbar.show = true
+      state.snackbar.color = color
+      state.snackbar.text = text
+    },
+    HIDE_SNACKBAR(state) {
+      state.snackbar.show = false
+    },
   },
   actions: {
-
+    demoLogin({ commit }, { username, password }) {
+      return new Promise((resolve, reject) => {
+        if (username === 'admin' && password === 'admin') {
+          commit('SET_LOGIN', { access_token: 'demo'})
+          return resolve({ message: 'success' })
+        } else {
+          return reject({ message: 'Tài khoản hoặc mật khẩu không chính xác' })
+        }
+      })
+    },
+    login({ commit, dispatch }, { username, password }) {
+      return request({
+        url: '/auth/login',
+        method: 'post',
+        data: {
+          username,
+          password,
+        },
+      }).then((resp) => {
+        commit('SET_LOGIN', resp)
+        dispatch('fetchProfile')
+      })
+    },
+    register({ commit, dispatch }, data) {
+      return request({
+        url: '/auth/register',
+        method: 'post',
+        data: data,
+      }).then((resp) => {
+        commit('SET_LOGIN', resp)
+        dispatch('fetchProfile')
+        return resp
+      })
+    },
+    logout({ commit, dispatch }) {
+      commit('SET_ACCESS_TOKEN', null)
+    },
+    // get current login user info
+  
+    fetchProfile({ commit, dispatch, rootState }) {
+      return request({
+        url: '/me',
+        method: 'get',
+      }).then((resp) => {
+        commit('SET_LOGIN_PROFILE', resp.data)
+        return resp
+      })
+    },
   },
 })

@@ -25,7 +25,7 @@
 
     <v-toolbar-title
       class="hidden-sm-and-down font-weight-light"
-      v-text="$route.name"
+      v-text=""
     />
 
     <v-spacer />

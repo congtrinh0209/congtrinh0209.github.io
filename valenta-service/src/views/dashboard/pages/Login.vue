@@ -1,5 +1,4 @@
 <template>
-<v-app>
   <div class="wrap-page-login">
     <v-container fluid class="page-login" fill-height>
       <v-row>
@@ -51,7 +50,6 @@
       </v-row>
     </v-container>
   </div>
-</v-app>
 </template>
 
 <script>
@@ -86,9 +84,9 @@ export default {
             this.loading = false
           })
           .catch(() => {
-            window._VMA.$emit('SHOW_SNACKBAR', {
+            this.$store.commit('SHOW_SNACKBAR', {
               show: true,
-              text: 'Auth Failed',
+              text: 'Tên đăng nhập hoặc mật khẩu không chính xác',
               color: 'error',
             })
             this.loading = false

@@ -92,9 +92,6 @@ export default {
 </script>
 
 <style lang="css">
-header {
-  display: none !important;
-}
 main {
   padding-top: 0px !important;
 }
@@ -111,16 +108,15 @@ main {
   color: #0c0078;
 }
 .wrap-page-login{
-  /* height: 100vh; */
-  background-image: url(http://hanoi.fds.vn:8077/documents/20126/519071/bg-baohanh.jpg);
+  /* background-image: url(http://hanoi.fds.vn:8077/documents/20126/519071/bg-baohanh.jpg);
   background-position: top;
-  background-size: auto
+  background-size: auto */
+  background-color: #1ae28a;
+  background: linear-gradient( -45deg, #209077 0%, #1ae28a 100%);
 }
 .wrap-page-login:before {
-  /* position: absolute; */
   z-index: 0;
   width: 100%;
-  /* height: 100%; */
   display: block;
   left: 0;
   top: 0;
