@@ -1123,7 +1123,7 @@
     <userConfig>{"order": 2}</userConfig>
 </DynamicReport>
 <DynamicReport>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <reportName>Hồ sơ đã trả kết quả</reportName>
     <reportCode>REPORT_03</reportCode>
     <filterConfig><![CDATA[{
@@ -1143,11 +1143,6 @@
        key: "serviceCode",
        label: "Thủ tục",
        display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
     }
   ], 
   filters: [
