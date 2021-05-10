@@ -32,7 +32,7 @@
   ], 
   filters: [
     {
-      label: "Từ ngày",
+      label: "Tiếp nhận từ ngày",
       key: "fromReceiveDate",
       value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
       type: "date" 
@@ -457,7 +457,6 @@
     <userConfig>{"order": 1}</userConfig>
 </DynamicReport>
 <DynamicReport>
-    
     <sharing>1</sharing>
     <reportName>Hồ sơ tiếp nhận trực tiếp</reportName>
     <reportCode>REPORT_01</reportCode>
@@ -478,16 +477,35 @@
        key: "serviceCode",
        label: "Thủ tục",
        display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
     }
   ], 
   filters: [
+	{
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
     {
-      label: "Từ ngày",
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Tiếp nhận từ ngày",
       key: "fromReceiveDate",
       value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
       type: "date", 
@@ -772,7 +790,6 @@
     <userConfig>{"order": 1}</userConfig>
 </DynamicReport>
 <DynamicReport>
-    
     <sharing>1</sharing>
     <reportName>Hồ sơ tiếp nhận trực tuyến</reportName>
     <reportCode>REPORT_02</reportCode>
@@ -793,14 +810,33 @@
        key: "serviceCode",
        label: "Thủ tục",
        display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
     }
   ], 
   filters: [
+	{
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
     {
       label: "Từ ngày",
       key: "fromReceiveDate",
@@ -1087,7 +1123,6 @@
     <userConfig>{"order": 2}</userConfig>
 </DynamicReport>
 <DynamicReport>
-    
     <sharing>1</sharing>
     <reportName>Hồ sơ đã trả kết quả</reportName>
     <reportCode>REPORT_03</reportCode>
@@ -1116,19 +1151,45 @@
     }
   ], 
   filters: [
+	{
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
     {
-      label: "Từ ngày",
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Ngày trả từ ngày",
       key: "fromFinishDate",
       value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
       type: "date", 
-      before: "toReceiveDate" 
+      before: "toFinishDate",
+	  class: "xs12 sm4 px-3 mb-3"
     },
     {
       label: "Đến ngày",
       key: "toFinishDate",
       value: new Date().toLocaleDateString('vi-VN'),
       type: "date", 
-      after: "fromFinishDate" 
+      after: "fromFinishDate" ,
+	  class: "xs12 sm4 px-3 mb-3"
     },   
     {
       label: "Hạn xử lý",
@@ -1382,7 +1443,6 @@
     <userConfig>{"order": 3}</userConfig>
 </DynamicReport>
 <DynamicReport>
-    
     <sharing>1</sharing>
     <reportName>Hồ sơ hoàn thành giải quyết</reportName>
     <reportCode>REPORT_04</reportCode>
@@ -1403,27 +1463,48 @@
        key: "serviceCode",
        label: "Thủ tục",
        display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
     }
   ], 
   filters: [
+  {
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
     {
-      label: "Từ ngày",
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Tiếp nhận từ ngày",
       key: "fromReceiveDate",
       value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
       type: "date", 
-      before: "toReceiveDate" 
+      before: "toReceiveDate",
+	  class: "xs12 sm4 px-3 mb-3"
     },
     {
       label: "Đến ngày",
       key: "toReceiveDate",
       value: new Date().toLocaleDateString('vi-VN'),
       type: "date", 
-      after: "fromReceiveDate" 
+      after: "fromReceiveDate" ,
+	  class: "xs12 sm4 px-3 mb-3"
     },   
     {
       label: "Hạn xử lý",
@@ -1698,27 +1779,48 @@
        key: "serviceCode",
        label: "Thủ tục",
        display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
     }
   ], 
   filters: [
+	{
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
     {
-      label: "Từ ngày",
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Ngày hoàn thành từ ngày",
       key: "fromReleaseDate",
       value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
       type: "date", 
-      before: "toReleaseDate" 
+      before: "toReleaseDate",
+	  class: "xs12 sm4 px-3 mb-3"
     },
     {
       label: "Đến ngày",
       key: "toReleaseDate",
       value: new Date().toLocaleDateString('vi-VN'),
       type: "date", 
-      after: "fromReleaseDate" 
+      after: "fromReleaseDate",
+	  class: "xs12 sm4 px-3 mb-3"
     } 
   ],
   reportConfig: [
@@ -1969,27 +2071,48 @@
        key: "serviceCode",
        label: "Thủ tục",
        display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
     }
   ], 
   filters: [
 	{
-      label: "Từ ngày",
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+	{
+      label: "Tiếp nhận từ ngày",
       key: "fromReceiveDate",
       value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
       type: "date", 
-      before: "toReceiveDate" 
+      before: "toReceiveDate",
+	  class: "xs12 sm4 px-3 mb-3"
     },
     {
       label: "Đến ngày",
       key: "toReceiveDate",
       value: new Date().toLocaleDateString('vi-VN'),
       type: "date", 
-      after: "fromReceiveDate" 
+      after: "fromReceiveDate",
+	  class: "xs12 sm4 px-3 mb-3"
     },
     {
       label: "Hạn xử lý",
@@ -2265,14 +2388,47 @@
        key: "serviceCode",
        label: "Thủ tục",
        display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
     }
   ], 
   filters: [
+	{
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Tiếp nhận từ ngày",
+      key: "fromReceiveDate",
+      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+      type: "date", 
+      before: "toReceiveDate" 
+    },
+    {
+      label: "Đến ngày",
+      key: "toReceiveDate",
+      value: new Date().toLocaleDateString('vi-VN'),
+      type: "date", 
+      after: "fromReceiveDate" 
+    }
   ],
   reportConfig: [
     {
@@ -2423,7 +2579,8 @@
         },
         {
           text: [
-            {text: 'BÁO CÁO HỒ SƠ TẠM DỪNG BỔ SUNG ĐIỀU KIỆN CỦA ĐƠN VỊ\n'}
+            {text: 'BÁO CÁO HỒ SƠ TẠM DỪNG BỔ SUNG ĐIỀU KIỆN CỦA ĐƠN VỊ\n'},
+			{text: "Tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]", fontSize: 11},
           ], 
           margin: [0, 20],
           style: 'headerTitle'
@@ -2524,14 +2681,47 @@
        key: "serviceCode",
        label: "Thủ tục",
        display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
     }
   ], 
   filters: [
+	{
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+	{
+	  label: "Ngày gửi từ ngày",
+	  key: "fromSubmitDate",
+	  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+	  type: "date",
+	  before: "toSubmitDate"
+	},
+	{
+	  label: "Đến ngày",
+	  key: "toSubmitDate",
+	  value: new Date().toLocaleDateString('vi-VN'),
+	  type: "date", 
+	  after: "fromSubmitDate" 
+	}
   ],
   reportConfig: [
     {
@@ -2683,7 +2873,8 @@
         },
         {
           text: [
-            {text: 'BÁO CÁO HỒ SƠ ĐANG CHỜ TIẾP NHẬN TRỰC TUYẾN CỦA ĐƠN VỊ\n'}
+            {text: 'BÁO CÁO HỒ SƠ ĐANG CHỜ TIẾP NHẬN TRỰC TUYẾN CỦA ĐƠN VỊ\n'},
+			{text: "Ngày gửi từ ngày [$fromSubmitDate$] đến ngày [$toSubmitDate$]\n", fontSize: 11},
           ], 
           margin: [0, 20],
           style: 'headerTitle'
@@ -2784,14 +2975,49 @@
        key: "serviceCode",
        label: "Thủ tục",
        display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
     }
   ], 
   filters: [
+	{
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+	{
+      label: "Tiếp nhận từ ngày",
+      key: "fromReceiveDate",
+      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+      type: "date", 
+      before: "toReceiveDate",
+	  class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Đến ngày",
+      key: "toReceiveDate",
+      value: new Date().toLocaleDateString('vi-VN'),
+      type: "date", 
+      after: "fromReceiveDate",
+	  class: "xs12 sm4 px-3 mb-3"
+    }
   ],
   reportConfig: [
     {
@@ -2939,7 +3165,8 @@
         },
         {
           text: [
-            {text: 'BÁO CÁO HỒ SƠ ĐANG CHỜ BÀN GIAO THỤ LÝ CỦA ĐƠN VỊ\n'}
+            {text: 'BÁO CÁO HỒ SƠ ĐANG CHỜ BÀN GIAO THỤ LÝ CỦA ĐƠN VỊ\n'},
+			{text: "Tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11},
           ], 
           margin: [0, 20],
           style: 'headerTitle'
@@ -3019,8 +3246,8 @@
     <userConfig>{"order": 9}</userConfig>
 </DynamicReport>
 <DynamicReport>
-    <sharing>1</sharing>
-    <reportName>Hồ sơ chờ thanh toán phí</reportName>
+    <sharing>9</sharing>
+    <reportName>Hồ sơ chờ thanh toán</reportName>
     <reportCode>REPORT_13</reportCode>
     <filterConfig><![CDATA[{
   api: "/o/rest/v2/dossiers?status=paying",
@@ -3048,33 +3275,19 @@
   ], 
   filters: [
     {
-      label: "Hạn xử lý",
-      key: "time",
-      value: "",
-      type: "select",
-      source: [
-        {
-          "value": "",
-          "name": "Tất cả"
-        },
-        {
-          "value": "undue",
-          "name": "Còn hạn"
-        },
-        {
-          "value": "coming",
-          "name": "Sắp đến hạn"
-        },
-        {
-          "value": "overtime",
-          "name": "Đã trễ hạn"
-        },
-        {
-          "value": "delay",
-          "name": "Xin gia hạn"
-        }
-      ]
-    }   
+      label: "Từ ngày",
+      key: "fromReceiveDate",
+      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+      type: "date",
+      before: "toReceiveDate"
+    },
+    {
+      label: "Đến ngày",
+      key: "toReceiveDate",
+      value: new Date().toLocaleDateString('vi-VN'),
+      type: "date", 
+      after: "fromReceiveDate" 
+    } 
   ],
   reportConfig: [
     {
@@ -3224,7 +3437,7 @@
         {
           text: [
             {text: 'BÁO CÁO HỒ SƠ CHỜ THANH TOÁN PHÍ CỦA ĐƠN VỊ\n'},
-            {text: "Hạn xử lý: [$time$]", fontSize: 11},
+            {text: "Tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11},
           ], 
           margin: [0, 20],
           style: 'headerTitle'
@@ -3305,10 +3518,232 @@
 </DynamicReport>
 <DynamicReport>
     <sharing>1</sharing>
-    <reportName>Hồ sơ chờ hoàn thành thanh toán</reportName>
+    <reportName>Hồ sơ chờ thanh toán</reportName>
+    <reportCode>REPORT_STATISTIC_13</reportCode>
+    <filterConfig><![CDATA[
+{
+  api: "/o/rest/v2/dossiers?status=paying",
+  exclusive: false,
+  customize: true,
+  groupIds: [
+  ],
+  groupBy: [
+    {
+       key: "domainCode",
+       label: "Lĩnh vực",
+       display: "domainName"
+    },
+    {
+       key: "serviceCode",
+       label: "Thủ tục",
+       display: "serviceName"
+    }
+  ],
+  sumKey: "domainCode",
+  filters: [
+    {
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Tiếp nhận từ ngày",
+      key: "fromReceiveDate",
+      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+      type: "date",
+      before: "toReceiveDate",
+	  class: "xs12 sm3 px-3 mb-3"
+    },
+    {
+      label: "Đến ngày",
+      key: "toReceiveDate",
+      value: new Date().toLocaleDateString('vi-VN'),
+      type: "date", 
+      after: "fromReceiveDate",
+	  class: "xs12 sm3 px-3 mb-3"
+    }
+  ],
+  reportConfig: [
+    {
+      "selected": true,
+      "value": "dossierNo",
+      "text": "Mã hồ sơ"
+    },
+    {
+      "selected": true,
+      "value": "applicantName",
+      "align": "left",
+      "text": "Chủ hồ sơ"
+    },
+    {
+      "selected": true,
+      "value": "address",
+      "text": "Địa chỉ",
+      "align": "left"
+    },
+    {
+      "selected": true,
+      "value": "receiveDate",
+      "text": "Ngày tiếp nhận"
+    },
+    {
+      "selected": true,
+      "value": "dueDate",
+      "text": "Ngày hẹn trả"
+    },
+    {
+      "selected": true,
+      "value": "totalAmount",
+      "text": "Tổng tiền",
+      "type": "currency"
+    }
+  ]
+}
+
+]]></filterConfig>
+    <tableConfig><![CDATA[
+
+{
+  docDefinition: {
+     pageOrientation: 'landscape',
+     content: [
+       {
+             columns: [
+                 {
+                     width: 300,
+                     style: "title",
+                     text: [
+                         {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+                         {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
+                      ]
+                 },
+                 {
+                     width: 100,
+                      style: "title",
+                     text: ''
+                   },
+                 {
+                     width: 300,
+                     style: "title",
+                     text: [
+                         {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                         {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                         {text: "----------------------------\n"},
+                         {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                     ]
+                 }
+             ]
+       },
+       {
+         text: [
+           {text: 'BÁO CÁO HỒ SƠ CHỜ THANH TOÁN\n'},
+           {text: "Ngày tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11}
+         ], 
+         margin: [0, 20],
+         style: 'headerTitle'
+       },
+       {
+         style: 'tableExample',
+         table: {
+           widths: "[$tableWidth$]",
+           body: ["[$report$]"]
+         },
+         margin: [0, 0, 0, 20]
+       },
+       {
+         columns: [
+           {
+             width: '*',
+             text: ''
+           },
+           {
+             width: 150,
+             style: 'title',
+             text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+           }
+         ]
+       },
+       {
+         columns: [
+           {
+             width: '*',
+             text: ''
+           },
+           {
+             width: 150,
+             style: 'titleSub',
+             text: '(Ký và ghi rõ họ tên)'
+           }
+         ]
+       }
+     ],
+     styles: {
+       ngayThangNam: {
+         fontSize: 10,
+         italics: true,
+         bold: false,
+         alignment: 'center'
+       },
+       headerTitle: {
+           alignment: 'center',
+           bold: true,
+           fontSize: 13
+       },
+       borderHeader: {
+           alignment: 'left'
+       },
+       title: {
+         bold: true,
+         alignment: 'center',
+         textTransform: 'uppercase'
+       },
+       titleSub: {
+           fontSize: 10,
+           italics: true,
+           alignment: 'center'
+       },
+       tdStyle: {
+         fontSize: 10
+       },
+       tableExample: {
+          width: "100%" 
+       }
+     },
+     defaultStyle: {
+       columnGap: 20,
+       fontSize: 11
+     }
+   } 
+}
+
+]]></tableConfig>
+    <userConfig>{"order": 10}</userConfig>
+</DynamicReport>
+<DynamicReport>
+    <sharing>9</sharing>
+    <reportName>Hồ sơ đã thanh toán</reportName>
     <reportCode>REPORT_11</reportCode>
     <filterConfig><![CDATA[{
-  api: "/o/rest/v2/dossiers?status=paying",
+  api: "/o/rest/v2/dossiers?paymentStatus=5",
   exclusive: false,
   customize: true,
   groupIds: [
@@ -3493,7 +3928,7 @@
         },
         {
           text: [
-            {text: 'BÁO CÁO HỒ SƠ CHỜ HOÀN THÀNH THANH TOÁN CỦA ĐƠN VỊ\n'},
+            {text: 'BÁO CÁO HỒ SƠ ĐÃ HOÀN THÀNH THANH TOÁN CỦA ĐƠN VỊ\n'},
 			{text: "Tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11},
           ], 
           margin: [0, 20],
@@ -3574,6 +4009,238 @@
     <userConfig>{"order": 10}</userConfig>
 </DynamicReport>
 <DynamicReport>
+    <sharing>1</sharing>
+    <reportName>Hồ sơ đã hoàn thành thanh toán</reportName>
+    <reportCode>REPORT_STATISTIC_11</reportCode>
+    <filterConfig><![CDATA[
+
+{
+  api: "/o/rest/statistics/feedetail?paymentStatus=5&type=service",
+  exclusive: false,
+  customize: true,
+  groupIds: [
+  ],
+  groupBy: [
+    {
+       key: "domainCode",
+       label: "Lĩnh vực",
+       display: "domainName"
+    },
+    {
+       key: "serviceCode",
+       label: "Thủ tục",
+       display: "serviceName"
+    }
+  ],
+  sumKey: "domainCode",
+  filters: [
+    {
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Hình thức thanh toán",
+      key: "paymentMethod",
+      value: "total",
+      type: "select",
+      source: [
+        {name: "Tất cả", value: "total"},
+        {name: "Trực tiếp", value: "online"},
+        {name: "Trực tuyến", value: "direct"}
+      ],
+	  class: "xs12 sm3 px-3 mb-3"
+    },
+    {
+      label: "Ngày thu từ ngày",
+      key: "fromApprovedDate",
+      value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
+      type: "date",
+      before: "toApprovedDate",
+	  class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Đến ngày",
+      key: "toApprovedDate",
+      value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
+      type: "date",
+      after: "fromApprovedDate",
+	  class: "xs12 sm4 px-3 mb-3"
+    }
+  ],
+  reportConfig: [
+    {
+      "selected": true,
+      "value": "dossierNo",
+      "text": "Mã hồ sơ"
+    },
+    {
+      "selected": true,
+      "value": "applicantName",
+      "align": "left",
+      "text": "Chủ hồ sơ",
+      "width": 150
+    },
+    {
+      "selected": true,
+      "value": "address",
+      "text": "Địa chỉ",
+      "align": "left",
+      "width": 250
+    },
+    {
+      "selected": true,
+      "value": "paymentDate",
+      "text": "Ngày thu"
+    },
+    {
+      "selected": true,
+      "value": "totalAmount",
+      "text": "Tổng tiền",
+      "type": "currency"
+    }
+  ]
+}
+
+]]></filterConfig>
+    <tableConfig><![CDATA[
+
+{
+  docDefinition: {
+     pageOrientation: 'landscape',
+     content: [
+       {
+             columns: [
+                 {
+                     width: 300,
+                     style: "title",
+                     text: [
+                         {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+                         {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
+                      ]
+                 },
+                 {
+                     width: 100,
+                      style: "title",
+                     text: ''
+                   },
+                 {
+                     width: 300,
+                     style: "title",
+                     text: [
+                         {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                         {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                         {text: "----------------------------\n"},
+                         {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                     ]
+                 }
+             ]
+       },
+       {
+         text: [
+           {text: 'BÁO CÁO HỒ SƠ ĐÃ HOÀN THÀNH THANH TOÁN\n'},
+           {text: "Ngày thu từ ngày [$fromApprovedDate$] đến ngày [$toApprovedDate$]\n", fontSize: 11}
+         ], 
+         margin: [0, 20],
+         style: 'headerTitle'
+       },
+       {
+         style: 'tableExample',
+         table: {
+           widths: "[$tableWidth$]",
+           body: ["[$report$]"]
+         },
+         margin: [0, 0, 0, 20]
+       },
+       {
+         columns: [
+           {
+             width: '*',
+             text: ''
+           },
+           {
+             width: 150,
+             style: 'title',
+             text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+           }
+         ]
+       },
+       {
+         columns: [
+           {
+             width: '*',
+             text: ''
+           },
+           {
+             width: 150,
+             style: 'titleSub',
+             text: '(Ký và ghi rõ họ tên)'
+           }
+         ]
+       }
+     ],
+     styles: {
+       ngayThangNam: {
+         fontSize: 10,
+         italics: true,
+         bold: false,
+         alignment: 'center'
+       },
+       headerTitle: {
+           alignment: 'center',
+           bold: true,
+           fontSize: 13
+       },
+       borderHeader: {
+           alignment: 'left'
+       },
+       title: {
+         bold: true,
+         alignment: 'center',
+         textTransform: 'uppercase'
+       },
+       titleSub: {
+           fontSize: 10,
+           italics: true,
+           alignment: 'center'
+       },
+       tdStyle: {
+         fontSize: 10
+       },
+       tableExample: {
+          width: "100%" 
+       }
+     },
+     defaultStyle: {
+       columnGap: 20,
+       fontSize: 11
+     }
+   } 
+}
+
+]]></tableConfig>
+    <userConfig>{"order": 10}</userConfig>
+</DynamicReport>
+<DynamicReport>
 	<sharing>1</sharing>
 	<reportName>Hồ sơ quá hạn xử lý</reportName>
 	<reportCode>REPORT_12</reportCode>
@@ -3586,43 +4253,56 @@ customize: true,
 groupIds: [
 ],
 groupBy: [
-{
-   key: "govAgencyCode",
-   label: "Cơ quan",
-   display: "govAgencyName"
-}
+	{
+       key: "domainCode",
+       label: "Lĩnh vực",
+       display: "domainName"
+    },
+    {
+       key: "serviceCode",
+       label: "Thủ tục",
+       display: "serviceName"
+    }
 ], 
 filters: [
-{
-  label: "Từ ngày",
-  key: "fromReceiveDate",
-  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-  type: "date",
-  before: "toReceiveDate"
-},
-{
-  label: "Đến ngày",
-  key: "toReceiveDate",
-  value: new Date().toLocaleDateString('vi-VN'),
-  type: "date", 
-  after: "fromReceiveDate" 
-},
-{
-  label: "Tình trạng",
-  key: "time",
-  value: "overdue",
-  type: "select",
-  source: [
 	{
-	  "value": "overtime",
-	  "name": "Đã hoàn thành"
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+	{
+	  label: "Tiếp nhận từ ngày",
+	  key: "fromReceiveDate",
+	  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+	  type: "date",
+	  before: "toReceiveDate"
 	},
 	{
-	  "value": "overdue",
-	  "name": "Đang xử lý"
-	}		
-  ]
-}           
+	  label: "Đến ngày",
+	  key: "toReceiveDate",
+	  value: new Date().toLocaleDateString('vi-VN'),
+	  type: "date", 
+	  after: "fromReceiveDate" 
+	}
 ],
 reportConfig: [
 {
@@ -3776,7 +4456,7 @@ docDefinition: {
 	{
 	  text: [
 		{text: 'BÁO CÁO CHI TIẾT HỒ SƠ QUÁ HẠN XỬ LÝ\n'},
-		{text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Tình trạng: [$time$]\n", fontSize: 11},
+		{text: "Tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11},
 	  ], 
 	  margin: [0, 20],
 	  style: 'headerTitle'
@@ -3881,16 +4561,35 @@ docDefinition: {
 		   key: "serviceCode",
 		   label: "Thủ tục",
 		   display: "serviceName"
-		},
-		{
-		   key: "govAgencyCode",
-		   label: "Cơ quan",
-		   display: "govAgencyName"
 		}
 	  ], 
 	  filters: [
 		{
-		  label: "Từ ngày",
+		  label: "Lĩnh vực",
+		  clearable: "true",
+		  source: "",
+		  key: "domainCode",
+		  valueMapping: "domainCode",
+		  nameMapping: "domainName",
+		  type: "select",
+		  api: "/o/rest/v2/serviceinfos/statistics/domains",
+		  proxyApi: "/serviceinfos/statistics/domains",
+		  class: "xs12 sm4 px-3 mb-3"
+		},
+		{
+		  label: "Thủ tục",
+		  clearable: "true",
+		  source: "",
+		  key: "serviceCode",
+		  valueMapping: "serviceCode",
+		  nameMapping: "serviceName",
+		  type: "select",
+		  api: "/o/rest/v2/serviceinfos",
+		  proxyApi: "/serviceinfos",
+		  class: "xs12 sm4 px-3 mb-3"
+		},
+		{
+		  label: "Tiếp nhận từ ngày",
 		  key: "fromReceiveDate",
 		  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
 		  type: "date", 
@@ -4202,27 +4901,46 @@ docDefinition: {
 		   key: "serviceCode",
 		   label: "Thủ tục",
 		   display: "serviceName"
-		},
-		{
-		   key: "govAgencyCode",
-		   label: "Cơ quan",
-		   display: "govAgencyName"
 		}
 	  ], 
 	  filters: [
 		{
-		  label: "Từ ngày",
-		  key: "fromReceiveDate",
+		  label: "Lĩnh vực",
+		  clearable: "true",
+		  source: "",
+		  key: "domainCode",
+		  valueMapping: "domainCode",
+		  nameMapping: "domainName",
+		  type: "select",
+		  api: "/o/rest/v2/serviceinfos/statistics/domains",
+		  proxyApi: "/serviceinfos/statistics/domains",
+		  class: "xs12 sm4 px-3 mb-3"
+		},
+		{
+		  label: "Thủ tục",
+		  clearable: "true",
+		  source: "",
+		  key: "serviceCode",
+		  valueMapping: "serviceCode",
+		  nameMapping: "serviceName",
+		  type: "select",
+		  api: "/o/rest/v2/serviceinfos",
+		  proxyApi: "/serviceinfos",
+		  class: "xs12 sm4 px-3 mb-3"
+		},
+		{
+		  label: "Ngày trả từ ngày",
+		  key: "fromReleaseDate",
 		  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
 		  type: "date", 
-		  before: "toReceiveDate" 
+		  before: "toReleaseDate" 
 		},
 		{
 		  label: "Đến ngày",
-		  key: "toReceiveDate",
+		  key: "toReleaseDate",
 		  value: new Date().toLocaleDateString('vi-VN'),
 		  type: "date", 
-		  after: "fromReceiveDate" 
+		  after: "fromReleaseDate" 
 		},
 		{
 		  label: "Trạng thái",
@@ -4420,7 +5138,7 @@ docDefinition: {
 			{
 			  text: [
 				{text: 'BÁO CÁO HỒ SƠ TRẢ KẾT QUẢ QUA DỊCH VỤ BCCI\n'},
-				{text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Trạng thái: [$status$]", fontSize: 11},
+				{text: "Ngày trả từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$] - Trạng thái: [$status$]", fontSize: 11},
 			  ], 
 			  margin: [0, 20],
 			  style: 'headerTitle'
