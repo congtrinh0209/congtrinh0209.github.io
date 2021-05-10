@@ -1443,7 +1443,7 @@
     <userConfig>{"order": 3}</userConfig>
 </DynamicReport>
 <DynamicReport>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <reportName>Hồ sơ hoàn thành giải quyết</reportName>
     <reportCode>REPORT_04</reportCode>
     <filterConfig><![CDATA[{
@@ -1625,8 +1625,14 @@
       "value": "dossierOverdue",
       "text": "Hạn xử lý"
     },
-    {
+	{
       "selected": true,
+      "value": "totalAmount",
+      "text": "Tổng tiền",
+      "type": "currency"
+    },
+    {
+      "selected": false,
       "value": "dossierNote",
       "align": "left",
       "text": "Ghi chú"
@@ -1678,7 +1684,251 @@
         {
           text: [
             {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
-            {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Hạn xử lý: [$time$]", fontSize: 11},
+            {text: "Tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Hạn xử lý: [$time$]", fontSize: 11},
+          ], 
+          margin: [0, 20],
+          style: 'headerTitle'
+        },
+        {
+          style: 'tableExample',
+          table: {
+            widths: "[$tableWidth$]",
+            body: ["[$report$]"]
+          },
+          margin: [0, 0, 0, 20]
+        },
+        {
+          columns: [
+            {
+              width: '*',
+              text: ''
+            },
+            {
+              width: 150,
+              style: 'title',
+              text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              width: '*',
+              text: ''
+            },
+            {
+              width: 150,
+              style: 'titleSub',
+              text: '(Ký và ghi rõ họ tên)'
+            }
+          ]
+        }
+      ],
+      styles: {
+        ngayThangNam: {
+          fontSize: 10,
+          italics: true,
+          bold: false,
+          alignment: 'center'
+        },
+        headerTitle: {
+            alignment: 'center',
+            bold: true,
+            fontSize: 13
+        },
+        borderHeader: {
+            alignment: 'left'
+        },
+        title: {
+          bold: true,
+          alignment: 'center'
+        },
+        titleSub: {
+            fontSize: 10,
+            italics: true,
+            alignment: 'center'
+        },
+        tdStyle: {
+          fontSize: 10
+        },
+        tableExample: {
+           width: "100%" 
+        }
+      },
+      defaultStyle: {
+        columnGap: 20,
+        fontSize: 11
+      }
+    } 
+}]]></tableConfig>
+    <userConfig>{"order": 4}</userConfig>
+</DynamicReport>
+<DynamicReport>
+    <sharing>1</sharing>
+    <reportName>Hồ sơ hoàn thành giải quyết</reportName>
+    <reportCode>REPORT_STATISTIC_04</reportCode>
+    <filterConfig><![CDATA[{
+  api: "/o/rest/v2/dossiers?status=releasing,posting,done",
+  exclusive: false,
+  customize: true,
+  groupIds: [
+  ],
+  sumKey: "",
+  groupBy: [
+    {
+       key: "domainCode",
+       label: "Lĩnh vực",
+       display: "domainName"
+    },
+    {
+       key: "serviceCode",
+       label: "Thủ tục",
+       display: "serviceName"
+    }
+  ], 
+  filters: [
+  {
+      label: "Lĩnh vực",
+      clearable: "true",
+      source: "",
+      key: "domainCode",
+      valueMapping: "domainCode",
+      nameMapping: "domainName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos/statistics/domains",
+      proxyApi: "/serviceinfos/statistics/domains",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Thủ tục",
+      clearable: "true",
+      source: "",
+      key: "serviceCode",
+      valueMapping: "serviceCode",
+      nameMapping: "serviceName",
+      type: "select",
+      api: "/o/rest/v2/serviceinfos",
+      proxyApi: "/serviceinfos",
+      class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Tiếp nhận từ ngày",
+      key: "fromReceiveDate",
+      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+      type: "date", 
+      before: "toReceiveDate",
+	  class: "xs12 sm4 px-3 mb-3"
+    },
+    {
+      label: "Đến ngày",
+      key: "toReceiveDate",
+      value: new Date().toLocaleDateString('vi-VN'),
+      type: "date", 
+      after: "fromReceiveDate" ,
+	  class: "xs12 sm4 px-3 mb-3"
+    },   
+    {
+      label: "Hạn xử lý",
+      key: "time",
+      value: "",
+      type: "select",
+      source: [
+        {
+          "value": "",
+          "name": "Tất cả"
+        },
+        {
+          "value": "betimes",
+          "name": "Sớm hạn"
+        },
+        {
+          "value": "ontime",
+          "name": "Đúng hạn"
+        },
+        {
+          "value": "overtime",
+          "name": "Trễ hạn"
+        }
+      ]
+    }   
+  ],
+  reportConfig: [
+    {
+      "selected": true,
+      "value": "dossierNo",
+      "text": "Mã hồ sơ"
+    },
+    {
+      "selected": true,
+      "value": "applicantName",
+      "align": "left",
+      "text": "Chủ hồ sơ"
+    },
+    {
+      "selected": true,
+      "value": "dossierName",
+      "text": "Nội dung",
+      "align": "left"
+    },
+    {
+      "selected": true,
+      "value": "receiveDate",
+      "text": "Ngày tiếp nhận"
+    },
+    {
+      "selected": true,
+      "value": "dueDate",
+      "text": "Ngày hẹn trả"
+    },
+	{
+      "selected": true,
+      "value": "releaseDate",
+      "text": "Ngày hoàn thành"
+    },
+    {
+      "selected": true,
+      "value": "totalAmount",
+      "text": "Tổng tiền",
+      "type": "currency"
+    }
+  ]
+}
+]]></filterConfig>
+    <tableConfig><![CDATA[{
+   docDefinition: {
+      pageOrientation: 'landscape',
+      content: [
+        {
+              columns: [
+                  {
+                      width: 300,
+                      style: "title",
+                      text: [
+                         {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+                         {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
+                      ]
+                  },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: ""
+                  },
+                  {
+                      width: 300,
+                      style: "title",
+                      text: [
+                          {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                          {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                          {text: "-------------------------------------------\n"},
+                          {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                      ]
+                  }
+              ]
+        },
+        {
+          text: [
+            {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
+            {text: "Tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Hạn xử lý: [$time$]", fontSize: 11},
           ], 
           margin: [0, 20],
           style: 'headerTitle'
@@ -4797,7 +5047,7 @@ docDefinition: {
 			{
 			  text: [
 				{text: 'BÁO CÁO HỒ SƠ NỘP QUA DỊCH VỤ BƯU CHÍNH CÔNG ÍCH\n'},
-				{text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Trạng thái: [$status$]", fontSize: 11},
+				{text: "Tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Trạng thái: [$status$]", fontSize: 11},
 			  ], 
 			  margin: [0, 20],
 			  style: 'headerTitle'
@@ -6178,6 +6428,11 @@ docDefinition: {
                          {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
                       ]
                   },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: ""
+                  },
                   {
                       width: 300,
                       style: "title",
@@ -6559,7 +6814,7 @@ docDefinition: {
               fontSize: 10,
               italics: true,
               bold: false,
-              alignment: "right"
+              alignment: "center"
           },
           headerTitle: {
               alignment: "center",
