@@ -34,7 +34,7 @@
         ], 
         filters: [
             {
-            label: "Từ ngày",
+            label: "Ngày tiếp nhận từ ngày",
             key: "fromDate",
             value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
             type: "date", 
@@ -224,7 +224,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ TIẾP NHẬN TRỰC TIẾP CỦA ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Trạng thái: [$status$]", fontSize: 11},
+                    {text: "Tiếp nhận từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -338,7 +338,7 @@
         ], 
         filters: [
 			{
-            label: "Từ ngày",
+            label: "Ngày tiếp nhận từ ngày",
             key: "fromDate",
             value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
             type: "date", 
@@ -529,7 +529,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ TIẾP NHẬN TRỰC TUYẾN TẠI ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$] - Trạng thái: [$status$]", fontSize: 11},
+                    {text: "Tiếp nhận từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -643,7 +643,7 @@
         ], 
         filters: [
             {
-            label: "Từ ngày",
+            label: "Ngày trả từ ngày",
             key: "fromDate",
             value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
             type: "date", 
@@ -834,7 +834,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ ĐÃ TRẢ KẾT QUẢ TẠI ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromFinishDate$] đến ngày [$toFinishDate$] - Hạn xử lý: [$time$]", fontSize: 11},
+                    {text: "Trả kết quả từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -1139,7 +1139,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$] - Hạn xử lý: [$time$]", fontSize: 11},
+                    {text: "Ngày hoàn thành từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -1444,7 +1444,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH SỚM HẠN CỦA ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                    {text: "Ngày hoàn thành từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -1749,7 +1749,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH ĐÚNG HẠN CỦA ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                    {text: "Ngày hoàn thành từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -2054,7 +2054,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH TRỄ HẠN CỦA ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                    {text: "Ngày hoàn thành từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -2360,7 +2360,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ TỪ CHỐI GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$]", fontSize: 11},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -2666,7 +2666,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ RÚT KHÔNG GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
-                    {text: "Từ ngày [$fromReleaseDate$] đến ngày [$toReleaseDate$]", fontSize: 11},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -2780,7 +2780,7 @@
 			  ], 
 			  filters: [
 				{
-				label: "Từ ngày",
+				label: "Ngày tiếp nhận từ ngày",
 				key: "fromDate",
 				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
 				type: "date", 
@@ -2972,7 +2972,7 @@
                 {
                 text: [
                     {text: 'BÁO CÁO HỒ SƠ ĐANG THỤ LÝ GIẢI QUYẾT CỦA ĐƠN VỊ\n'},
-                    {text: "Hạn xử lý: [$time$]", fontSize: 11},
+                    {text: "Tiếp nhận từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -3089,7 +3089,7 @@
 			  ], 
 			  filters: [
 				{
-				label: "Từ ngày",
+				label: "Ngày tiếp nhận từ ngày",
 				key: "fromDate",
 				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
 				type: "date", 
@@ -3278,7 +3278,7 @@
 					{
 					  text: [
 						{text: 'BÁO CÁO HỒ SƠ ĐANG GIẢI QUYẾT CÒN HẠN CỦA ĐƠN VỊ\n'},
-						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+						{text: "Tiếp nhận từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
 					  ], 
 					  margin: [0, 20],
 					  style: 'headerTitle'
@@ -3395,7 +3395,7 @@
 			  ], 
 			  filters: [
 				{
-				label: "Từ ngày",
+				label: "Ngày tiếp nhận từ ngày",
 				key: "fromDate",
 				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
 				type: "date", 
@@ -3584,7 +3584,7 @@
 					{
 					  text: [
 						{text: 'BÁO CÁO HỒ SƠ ĐANG GIẢI QUYẾT SẮP ĐẾN HẠN CỦA ĐƠN VỊ\n'},
-						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+						{text: "Tiếp nhận từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
 					  ], 
 					  margin: [0, 20],
 					  style: 'headerTitle'
@@ -3701,7 +3701,7 @@
 			  ], 
 			  filters: [
 				{
-				label: "Từ ngày",
+				label: "Ngày tiếp nhận từ ngày",
 				key: "fromDate",
 				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
 				type: "date", 
@@ -3890,7 +3890,7 @@
 					{
 					  text: [
 						{text: 'BÁO CÁO HỒ SƠ ĐANG GIẢI QUYẾT QUÁ HẠN CỦA ĐƠN VỊ\n'},
-						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+						{text: "Tiếp nhận từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
 					  ], 
 					  margin: [0, 20],
 					  style: 'headerTitle'
@@ -4004,7 +4004,7 @@
 			  ], 
 			  filters: [
 				{
-				label: "Từ ngày",
+				label: "Ngày tiếp nhận từ ngày",
 				key: "fromDate",
 				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
 				type: "date", 
@@ -4197,7 +4197,8 @@
                 },
                 {
                 text: [
-                    {text: 'BÁO CÁO HỒ SƠ TẠM DỪNG BỔ SUNG ĐIỀU KIỆN CỦA ĐƠN VỊ\n'}
+                    {text: 'BÁO CÁO HỒ SƠ TẠM DỪNG BỔ SUNG ĐIỀU KIỆN CỦA ĐƠN VỊ\n'},
+					{text: "Tiếp nhận từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
                 ], 
                 margin: [0, 20],
                 style: 'headerTitle'
@@ -6777,9 +6778,7 @@
 		<reportName>Hồ sơ cấp xã/phường theo lĩnh vực</reportName>
 		<reportCode>STATISTIC_100</reportCode>
 		<filterConfig>
-		<![CDATA[
-		
-		
+		<![CDATA[		
 		{
 			api: "/o/statistic/dossier/groupcount?type=20&groupBy=domainCode",
 			apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=domainCode",
