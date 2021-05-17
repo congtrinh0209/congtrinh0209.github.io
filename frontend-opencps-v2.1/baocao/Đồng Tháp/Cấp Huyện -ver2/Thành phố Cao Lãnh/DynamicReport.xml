@@ -6530,7 +6530,7 @@
 								"",
 								"",
 								{
-									text: "Tổng số chễ hạn",
+									text: "Tổng số trễ hạn",
 									rowSpan: 3,
 									alignment: "center",
 									bold: true,
@@ -6787,65 +6787,27 @@
 			groupIds: [
 				{
 					selected: true,
-					value: '41003',
+					value: '40511',
 					text: "Cấp xã thành phố Cao Lãnh"
 				  }
 			  ],
 			sumKey: "domainCode",
 			filters: [
 				{
-				  label: "Chọn đơn vị",
-				  key: "govAgencyCode",
-				  value: "",
-				  type: "select",
-				  clearable: true,
-				  source: [
-					{
-						"name": "Tổng hợp đơn vị cấp xã",
-						"value": ""
-					},
-					{
-						"name": "UBND Thị trấn Ngã Sáu",
-						"value": "XHCT_TTNGASAU"
-					},
-					{
-						"name": "UBND Thị trấn Mái Dầm",
-						"value": "XHCT_TTMAIDAM"
-					},
-					{
-						"name": "UBND Xã Đông Phước",
-						"value": "XHCT_XADONGPHUOC"
-					},
-					{
-						"name": "UBND Xã Đông Phước A",
-						"value": "XHCT_XADONGPHUOCA"
-					},
-					{
-						"name": "UBND Xã Phú Hữu",
-						"value": "XHCT_XAPHUHUU"
-					},
-					{
-						"name": "UBND Xã Phú Tân",
-						"value": "XHCT_XAPHUTAN"
-					},
-					{
-						"name": "UBND Xã Phú An",
-						"value": "XHCT_XAPHUAN"
-					},
-					{
-						"name": "UBND Xã Đông Phú",
-						"value": "XHCT_XADONGPHU"
-					},
-					{
-						"name": "UBND Xã Đông Thạnh",
-						"value": "XHCT_XADONGTHANH"
-					},
-				  ]
-				},
+					label: "Chọn đơn vị",
+					key: "govAgencyCode",
+					value: "",
+					type: "select",
+					source: "",
+					api: "/o/rest/v2/dictcollections/REPORT_GROUP/dictitems?parent=HTPCAOLANH",
+					valueMapping: "itemCode",
+					nameMapping: "itemName",
+					appendItem: [{"name": "", "value": ""}]
+				  },
 				{
 				label: "Lĩnh vực",
 				source: "",
-				key: "domain",
+				key: "domainCode",
 				valueMapping: "domainCode",
 				nameMapping: "domainName",
 				type: "select",
@@ -6970,7 +6932,8 @@
 							style: "title",
 							text: [
 							   {text: "UBND TỈNH ĐỒNG THÁP\n"},
-							   {text: "[$siteName$]\n"}
+							   {text: "[$siteName$]\n"},
+							   {text: "[$govAgencyCode$]\n"}
 							]
 						},
 						{
@@ -7283,61 +7246,23 @@
 			groupIds: [
 				{
 					selected: true,
-					value: '41003',
+					value: '40511',
 					text: "Cấp xã thành phố Cao Lãnh"
 				  }
 			  ],
 			sumKey: "serviceCode",
 			filters: [
 			{
-			  label: "Chọn đơn vị",
-			  key: "govAgencyCode",
-			  value: "",
-			  type: "select",
-			  clearable: true,
-			  source: [
-				{
-					"name": "Tổng hợp đơn vị cấp xã",
-					"value": ""
-				},
-				{
-					"name": "UBND Thị trấn Ngã Sáu",
-					"value": "XHCT_TTNGASAU"
-				},
-				{
-					"name": "UBND Thị trấn Mái Dầm",
-					"value": "XHCT_TTMAIDAM"
-				},
-				{
-					"name": "UBND Xã Đông Phước",
-					"value": "XHCT_XADONGPHUOC"
-				},
-				{
-					"name": "UBND Xã Đông Phước A",
-					"value": "XHCT_XADONGPHUOCA"
-				},
-				{
-					"name": "UBND Xã Phú Hữu",
-					"value": "XHCT_XAPHUHUU"
-				},
-				{
-					"name": "UBND Xã Phú Tân",
-					"value": "XHCT_XAPHUTAN"
-				},
-				{
-					"name": "UBND Xã Phú An",
-					"value": "XHCT_XAPHUAN"
-				},
-				{
-					"name": "UBND Xã Đông Phú",
-					"value": "XHCT_XADONGPHU"
-				},
-				{
-					"name": "UBND Xã Đông Thạnh",
-					"value": "XHCT_XADONGTHANH"
-				},
-			  ]
-			},
+                label: "Chọn đơn vị",
+                key: "govAgencyCode",
+                value: "",
+                type: "select",
+				source: "",
+                api: "/o/rest/v2/dictcollections/REPORT_GROUP/dictitems?parent=HTPCAOLANH",
+                valueMapping: "itemCode",
+			  	nameMapping: "itemName",
+                appendItem: [{"name": "", "value": ""}]
+              },
 			{
 				label: "Thủ tục",
 				source: "",
@@ -7466,7 +7391,8 @@
 								style: "title",
 								text: [
 								   {text: "UBND TỈNH ĐỒNG THÁP\n"},
-								   {text: "[$siteName$]\n"}
+								   {text: "[$siteName$]\n"},
+								   {text: "[$govAgencyCode$]\n"}
 								]
 							},
 							{
@@ -8014,7 +7940,7 @@
 								"",
 								"",
 								{
-									text: "Tổng số chễ hạn",
+									text: "Tổng số trễ hạn",
 									rowSpan: 3,
 									alignment: "center",
 									bold: true,
@@ -9489,7 +9415,7 @@
 				{
 				label: "Lĩnh vực",
 				source: "",
-				key: "domain",
+				key: "domainCode",
 				valueMapping: "domainCode",
 				nameMapping: "domainName",
 				type: "select",
@@ -10585,7 +10511,7 @@
 								"",
 								"",
 								{
-									text: "Tổng số chễ hạn",
+									text: "Tổng số trễ hạn",
 									rowSpan: 3,
 									alignment: "center",
 									bold: true,
