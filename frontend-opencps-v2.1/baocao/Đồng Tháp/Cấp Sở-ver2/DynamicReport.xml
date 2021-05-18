@@ -8385,7 +8385,238 @@
 		</tableConfig>
 		<userConfig>{"order": 16}</userConfig>
   </DynamicReport>
-
+  <DynamicReport>
+    <filterConfig><![CDATA[
+		
+        {
+			api: "/o/statistic/dossier/groupcount?type=21",
+			version: "2",
+        	numberPerPage: "500",
+        	apiLayDanhSach: "/o/statistic/dossier/list?type=21&isGetVotingData=true",
+			apiExportExcel: "/o/statistic/dossier/list/export?type=21",
+            exclusive: false,
+			customize: true,
+			groupIds: [],
+            sumKey: "domainCode",
+            groupBy: [
+                {
+                key: "domainCode",
+                label: "Lĩnh vực",
+                display: "domainName"
+                },
+                {
+                key: "serviceCode",
+                label: "Thủ tục",
+                display: "serviceName"
+                },
+                {
+                key: "govAgencyCode",
+                label: "Cơ quan",
+                display: "govAgencyName"
+                }
+            ],
+			filters: [
+			  {
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
+				type: "date",
+				before: "toDate"  
+			  },
+			  {
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
+				type: "date",
+				after: "fromDate"  
+			  }
+			],
+			reportConfig: [
+			  {
+				"selected": true,
+				"value": "dossierName",
+				"text": "Tên hồ sơ TTHC",
+				"align": "left"
+			  },
+			  {
+				"selected": true,
+				"value": "vote1",
+				"align": "center",
+				"text": "Chỉ số 1",
+				"width": 50
+			  },
+			  {
+				"selected": true,
+				"value": "vote2",
+				"align": "center",
+				"text": "Chỉ số 2",
+				"width": 50
+			  },
+			  {
+				"selected": true,
+				"value": "vote3",
+				"align": "center",
+				"text": "Chỉ số 3",
+				"width": 50
+			  },
+              {
+				"selected": true,
+				"value": "vote4",
+				"align": "center",
+				"text": "Chỉ số 4",
+				"width": 50
+			  },
+			  {
+				"selected": true,
+				"value": "vote5",
+				"align": "center",
+				"text": "Chỉ số 5",
+				"width": 50
+			  },
+			  {
+				"selected": true,
+				"value": "vote6",
+				"align": "center",
+				"text": "Chỉ số 6",
+				"width": 50
+			  },
+              {
+				"selected": true,
+				"value": "vote7",
+				"align": "center",
+				"text": "Chỉ số 7",
+				"width": 50
+			  },
+			  {
+				"selected": true,
+				"value": "vote8",
+				"align": "center",
+				"text": "Chỉ số 8",
+				"width": 50
+			  },
+			  {
+				"selected": true,
+				"value": "vote9",
+				"align": "center",
+				"text": "Chỉ số 9",
+				"width": 50
+			  }
+			]
+		  }
+		
+		]]></filterConfig>
+    <reportCode>REPORT_STATISTIC_013</reportCode>
+    <reportName>Tổng hợp kết quả đánh giá của đơn vị</reportName>
+    <sharing>1</sharing>
+    <tableConfig><![CDATA[
+		
+		{
+			docDefinition: {
+			   pageOrientation: 'landscape',
+			   content: [
+				 {
+					   columns: [
+						   {
+							   width: 300,
+							   style: "title",
+							   text: [
+								  {text: "[$siteName$]\n"},
+								 {text: "---------------------------\n"}
+							   ]
+						   },
+						   {
+							   width: 100,
+								style: "title",
+							   text: ''
+							 },
+						   {
+							   width: 300,
+							   style: "title",
+							   text: [
+								   {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+								   {text: "Độc lập - Tự do - Hạnh phúc\n"},
+								   {text: "----------------------------\n"},
+								   {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+							   ]
+						   }
+					   ]
+				 },
+				 {
+				   text: [
+					 {text: 'TỔNG HỢP KẾT QUẢ ĐÁNH GIÁ CỦA CƠ QUAN, ĐƠN VỊ \n'},
+					 {text: "ĐƠN VỊ: [$siteName$]\n", fontSize: 11},
+					 {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]\n", fontSize: 11}
+				   ], 
+				   margin: [0, 20],
+				   style: 'headerTitle'
+				 },
+				 {
+				   style: 'tableExample',
+				   table: {
+					 widths: "[$tableWidth$]",
+					 body: ["[$report$]"]
+				   },
+				   margin: [0, 0, 0, 20]
+				 },
+				 {
+				   columns: [
+					 {
+					   width: "*",
+					   style: 'noteFooter',
+					   text: [
+						{text: 'Tổng số điểm các chỉ số của cơ quan, đơn vị: [$totalScoreVoting$]\n'},
+						{text: 'Xếp loại cơ quan, đơn vị:'}
+					  ]
+					 }
+				   ]
+				 }
+			   ],
+			   styles: {
+				 ngayThangNam: {
+				   fontSize: 10,
+				   italics: true,
+				   bold: false,
+				   alignment: 'center'
+				 },
+				 headerTitle: {
+					 alignment: 'center',
+					 bold: true,
+					 fontSize: 13
+				 },
+				 borderHeader: {
+					 alignment: 'left'
+				 },
+				 title: {
+				   bold: true,
+				   alignment: 'center',
+				   textTransform: 'uppercase'
+				 },
+				 noteFooter: {
+				   bold: true,
+				   alignment: 'left'
+				 },
+				 titleSub: {
+					 fontSize: 10,
+					 italics: true,
+					 alignment: 'center'
+				 },
+				 tdStyle: {
+				   fontSize: 10
+				 },
+				 tableExample: {
+					width: "100%" 
+				 }
+			   },
+			   defaultStyle: {
+				 columnGap: 20,
+				 fontSize: 11
+			   }
+			 } 
+		  }
+		
+		]]></tableConfig>
+    <userConfig>{}</userConfig>
+  </DynamicReport>
   <DynamicReport>
     <filterConfig><![CDATA[
 		
