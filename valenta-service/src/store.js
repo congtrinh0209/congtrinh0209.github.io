@@ -47,7 +47,7 @@ export default new Vuex.Store({
       state.userPermistion = permistion
     },
     SET_LOGIN_PROFILE(state, payload) {
-      state.username = payload.username
+      state.username = payload.displayName
       state.userProfile = payload
     },
     SHOW_SNACKBAR(state, { color, text }) {
@@ -60,27 +60,27 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    demoLogin({ commit }, { username, password }) {
+    loginApp({ commit }, { username, password }) {
       return new Promise((resolve, reject) => {
-        if (username === 'admin' && password === 'admin') {
-          commit('SET_LOGIN', { access_token: 'demo'})
+        firebase.auth().signInWithEmailAndPassword(username, password)
+        .then((userCredential) => {
+          // Signed in 
+          var user = userCredential.user;
+          console.log('userLogin', user)
+          if (typeof(Storage) !== "undefined") {
+            localStorage.setItem(user, user.displayName)
+          } else {
+          }
+          commit('SET_LOGIN', { access_token: user.za})
           return resolve({ message: 'success' })
-        } else {
-          return reject({ message: 'Tài khoản hoặc mật khẩu không chính xác' })
-        }
-      })
-    },
-    login({ commit, dispatch }, { username, password }) {
-      return request({
-        url: '/auth/login',
-        method: 'post',
-        data: {
-          username,
-          password,
-        },
-      }).then((resp) => {
-        commit('SET_LOGIN', resp)
-        dispatch('fetchProfile')
+          // ...
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          return reject({ message: 'Email hoặc mật khẩu không chính xác' })
+          // ..
+        });
       })
     },
     register({ commit, dispatch }, data) {
@@ -95,7 +95,24 @@ export default new Vuex.Store({
       })
     },
     logout({ commit, dispatch }) {
-      commit('SET_ACCESS_TOKEN', null)
+      return new Promise((resolve, reject) => {
+        firebase.auth().signOut().then(() => {
+          // Sign-out successful.
+          if (typeof(Storage) !== "undefined") {
+            localStorage.removeItem('user')
+          } else {
+          }
+          commit('SET_LOGIN', { access_token: null})
+          commit('SET_ACCESS_TOKEN', null)
+          commit('SET_LOGIN_PROFILE', null)
+          resolve('succsess')
+        }).catch((error) => {
+          // An error happened.
+          reject('error')
+        })
+        
+      })
+      
     },
     // get current login user info
   

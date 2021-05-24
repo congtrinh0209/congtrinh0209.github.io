@@ -5,7 +5,7 @@
     :dark="barColor !== 'rgba(228, 226, 226, 1), rgba(255, 255, 255, 0.7)'"
     :expand-on-hover="expandOnHover"
     :right="$vuetify.rtl"
-    src="http://hanoi.fds.vn:8077/documents/20126/519071/bg-draw-2.jpg"
+    src="/images/bg-draw-2.jpg"
     mobile-break-point="960"
     app
     width="260"
@@ -26,7 +26,7 @@
     >
       <v-list-item class="px-0">
         <v-img
-          src="http://hanoi.fds.vn:8077/documents/20126/519071/logo-valenta.png"
+          src="/images/logo-valenta.png"
         />
       </v-list-item>
     </v-list>

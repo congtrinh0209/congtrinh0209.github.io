@@ -95,7 +95,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item
-          to="/login"
+          @click="logout"
           rel="noopener"
         >
           <v-list-item-action class="mr-3">
@@ -171,6 +171,22 @@
       ...mapMutations({
         setDrawer: 'SET_DRAWER',
       }),
+      logout () {
+        this.$store
+          .dispatch('logout')
+          .then(() => {
+            const redirect = this.$route.query.redirect
+            const route = redirect ? { path: redirect } : { path: '/' }
+            this.$router.push(route)
+          })
+          .catch(() => {
+            this.$store.commit('SHOW_SNACKBAR', {
+              show: true,
+              text: 'Lỗi đăng xuất hệ thống',
+              color: 'error',
+            })
+          })
+      }
     },
   }
 </script>

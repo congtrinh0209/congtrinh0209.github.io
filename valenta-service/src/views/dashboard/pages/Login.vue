@@ -6,7 +6,7 @@
           <v-card class="pa-3 page-login__card" tile>
             <v-card-title class="mx-3 py-0">
               <div class="image-title-login text-center my-2">
-                <img src="http://hanoi.fds.vn:8077/documents/20126/519071/logo.png?t=1619886615424" alt="" height="80" contain />
+                <img src="/images/logo.png?t=1619886615424" alt="" height="80" contain />
               </div>
               <div class="text-title-login white--text text-center">SƠN ĐẸP CHO MỌI NHÀ</div>
             </v-card-title>
@@ -61,8 +61,8 @@ export default {
       loading: false,
       formValid: false,
       formModel: {
-        username: 'admin',
-        password: 'admin',
+        username: '',
+        password: '',
       },
       formRule: {
         username: [(v) => !!v || this.$t('Thông tin bắt buộc', ['username'])],
@@ -76,7 +76,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.loading = true
         this.$store
-          .dispatch('demoLogin', this.formModel)
+          .dispatch('loginApp', this.formModel)
           .then(() => {
             const redirect = this.$route.query.redirect
             const route = redirect ? { path: redirect } : { path: '/' }
@@ -110,7 +110,7 @@ export default {
 <style lang="css" scoped>
 .wrap-page-login{
   height: 100vh;
-  background-image: url(http://hanoi.fds.vn:8077/documents/20126/519071/bg-login.jpg);
+  background-image: url(/images/bg-login.jpg);
   background-position: top;
   background-size: auto
 }

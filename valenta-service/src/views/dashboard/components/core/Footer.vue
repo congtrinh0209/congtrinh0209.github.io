@@ -8,11 +8,11 @@
         no-gutters
       >
         <v-col
-          class=" mb-sm-0 font-weight-bold"
+          class=" mb-sm-0"
           cols="auto"
         >
           <div>
-            <p class="mb-2 text-bold">CÔNG TY CP SẢN XUẤT SƠN HÀ NỘI</p>
+            <p class="mb-2 font-weight-bold">CÔNG TY CP SẢN XUẤT SƠN HÀ NỘI</p>
             <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> CCN Đắc Sở, Hoài Đức, Hà Nội</p>
             <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> ACM Building, 96 Cao Thắng P.4, Q.3, Tp.HCM</p>
             <p><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> A3-30 - Khu đô thị Minh Khang - TP.Vinh, Nghệ An</p>
@@ -25,7 +25,7 @@
           cols="12"
           md="auto"
         >
-          <div class="text-body-1 font-weight-bold pt-md-0">
+          <div class="text-body-1 pt-md-0">
             <div>
               <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-home-city-outline</v-icon> Địa chỉ: CCN Đắc Sở, Hoài Đức, Hà Nội</p>
               <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-phone-in-talk</v-icon> Điện thoại: 0369648868</p>

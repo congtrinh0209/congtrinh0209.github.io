@@ -6,7 +6,7 @@
           <v-card class="pa-2 page-login__card" tile>
             <v-card-title class="mx-3 py-0">
               <div class="image-title-login text-center my-2">
-                <img src="http://hanoi.fds.vn:8077/documents/20126/519071/logo.png?t=1619886615424" alt="" height="80" contain />
+                <img src="/images/logo.png?t=1619886615424" alt="" height="80" contain />
               </div>
               <div class="text-title-login white--text text-center">BẢO HÀNH ĐIỆN TỬ</div>
             </v-card-title>
@@ -108,11 +108,10 @@ main {
   color: #0c0078;
 }
 .wrap-page-login{
-  /* background-image: url(http://hanoi.fds.vn:8077/documents/20126/519071/bg-baohanh.jpg);
-  background-position: top;
-  background-size: auto */
-  background-color: #1ae28a;
-  background: linear-gradient( -45deg, #209077 0%, #1ae28a 100%);
+  background-image: url(/images/bg_active.jpg);
+  background-position: center;
+  /* background-color: #1ae28a;
+  background: linear-gradient( -45deg, #209077 0%, #1ae28a 100%); */
 }
 .wrap-page-login:before {
   z-index: 0;
