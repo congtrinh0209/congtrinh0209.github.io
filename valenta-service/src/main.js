@@ -53,7 +53,8 @@ axios.interceptors.request.use(async (config) => {
 
 firebase.auth().onAuthStateChanged(async (user) => {
   if (!user) {
-    this.$router.push({ path: '/' })
+    window.location.href = window.location.origin + '/#/'
+    return
   }
   let tokenFirebase = await user.getIdToken()
   console.log('userLogin', user)
@@ -61,7 +62,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
   store.dispatch("SET_LOGIN", (tokenFirebase, ''))
   store.dispatch("SET_USER_PERMISTION", user)
   store.dispatch("SET_LOGIN_PROFILE", user)
-  this.$router.push({ path: '/tables/regular-tables' })
+  window.location.href = window.location.origin + '/#/tables/regular-tables'
 });
 new Vue({
   router,

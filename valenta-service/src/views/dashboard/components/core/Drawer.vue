@@ -85,8 +85,8 @@
         },
         {
           icon: 'mdi-account',
-          title: 'user',
-          to: '/pages/user',
+          title: 'Danh sách thành viên',
+          to: '/pages/users',
         },
         {
           title: 'rtables',

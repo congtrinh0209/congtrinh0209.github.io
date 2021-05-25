@@ -18,6 +18,11 @@ export default new Router({
           component: () => import('@/views/dashboard/pages/BaoHanh'),
         },
         {
+          name: 'Users',
+          path: 'pages/users',
+          component: () => import('@/views/dashboard/pages/Users'),
+        },
+        {
           name: 'Dashboard',
           path: 'pages/dashboard',
           component: () => import('@/views/dashboard/Dashboard'),

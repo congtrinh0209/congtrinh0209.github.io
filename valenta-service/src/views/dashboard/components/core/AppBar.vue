@@ -175,9 +175,7 @@
         this.$store
           .dispatch('logout')
           .then(() => {
-            const redirect = this.$route.query.redirect
-            const route = redirect ? { path: redirect } : { path: '/' }
-            this.$router.push(route)
+            this.$router.push({ path: '/' })
           })
           .catch(() => {
             this.$store.commit('SHOW_SNACKBAR', {

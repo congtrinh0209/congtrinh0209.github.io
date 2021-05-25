@@ -47,8 +47,13 @@ export default new Vuex.Store({
       state.userPermistion = permistion
     },
     SET_LOGIN_PROFILE(state, payload) {
-      state.username = payload.displayName
-      state.userProfile = payload
+      if (payload) {
+        state.username = payload.displayName
+        state.userProfile = payload
+      } else {
+        state.username = ''
+        state.userProfile = {}
+      }
     },
     SHOW_SNACKBAR(state, { color, text }) {
       state.snackbar.show = true
@@ -68,7 +73,7 @@ export default new Vuex.Store({
           var user = userCredential.user;
           console.log('userLogin', user)
           if (typeof(Storage) !== "undefined") {
-            localStorage.setItem(user, user.displayName)
+            localStorage.setItem('user', user.displayName)
           } else {
           }
           commit('SET_LOGIN', { access_token: user.za})
@@ -97,6 +102,7 @@ export default new Vuex.Store({
     logout({ commit, dispatch }) {
       return new Promise((resolve, reject) => {
         firebase.auth().signOut().then(() => {
+          console.log('succsess3123 succsess logout')
           // Sign-out successful.
           if (typeof(Storage) !== "undefined") {
             localStorage.removeItem('user')
@@ -105,6 +111,7 @@ export default new Vuex.Store({
           commit('SET_LOGIN', { access_token: null})
           commit('SET_ACCESS_TOKEN', null)
           commit('SET_LOGIN_PROFILE', null)
+          console.log('succsess succsess logout')
           resolve('succsess')
         }).catch((error) => {
           // An error happened.
