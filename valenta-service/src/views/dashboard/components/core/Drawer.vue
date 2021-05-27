@@ -79,9 +79,19 @@
     data: () => ({
       items: [
         {
-          icon: 'mdi-view-dashboard',
-          title: 'Bảo hành điện tử',
+          icon: 'mdi-credit-card-search-outline',
+          title: 'Tra cứu bảo hành',
           to: '/',
+        },
+        {
+          icon: 'mdi-format-list-bulleted',
+          title: 'Quản lý phiếu bảo hành',
+          to: '/pages/quan-ly-bao-hanh',
+        },
+        {
+          icon: 'mdi-shield-plus-outline',
+          title: 'Tạo phiếu bảo hành',
+          to: '/pages/quan-ly-bao-hanh/0',
         },
         {
           icon: 'mdi-account',
@@ -93,26 +103,26 @@
           icon: 'mdi-clipboard-outline',
           to: '/tables/regular-tables',
         },
-        {
-          title: 'typography',
-          icon: 'mdi-format-font',
-          to: '/components/typography',
-        },
-        {
-          title: 'icons',
-          icon: 'mdi-chart-bubble',
-          to: '/components/icons',
-        },
-        {
-          title: 'google',
-          icon: 'mdi-map-marker',
-          to: '/maps/google-maps',
-        },
-        {
-          title: 'notifications',
-          icon: 'mdi-bell',
-          to: '/components/notifications',
-        },
+        // {
+        //   title: 'typography',
+        //   icon: 'mdi-format-font',
+        //   to: '/components/typography',
+        // },
+        // {
+        //   title: 'icons',
+        //   icon: 'mdi-chart-bubble',
+        //   to: '/components/icons',
+        // },
+        // {
+        //   title: 'google',
+        //   icon: 'mdi-map-marker',
+        //   to: '/maps/google-maps',
+        // },
+        // {
+        //   title: 'notifications',
+        //   icon: 'mdi-bell',
+        //   to: '/components/notifications',
+        // },
       ],
     }),
 

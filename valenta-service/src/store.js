@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     barColor: 'rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)',
-    barImage: 'https://demos.creative-tim.com/material-dashboard/assets/img/sidebar-1.jpg',
+    barImage: '',
     snackbar: {
       show: false,
       text: '',
@@ -67,7 +67,9 @@ export default new Vuex.Store({
   actions: {
     loginApp({ commit }, { username, password }) {
       return new Promise((resolve, reject) => {
-        firebase.auth().signInWithEmailAndPassword(username, password)
+        let name = String(username).trim() + '@gmail.com'
+        let pass = String(password).trim()
+        firebase.auth().signInWithEmailAndPassword(name, pass)
         .then((userCredential) => {
           // Signed in 
           var user = userCredential.user;

@@ -62,7 +62,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
   store.dispatch("SET_LOGIN", (tokenFirebase, ''))
   store.dispatch("SET_USER_PERMISTION", user)
   store.dispatch("SET_LOGIN_PROFILE", user)
-  window.location.href = window.location.origin + '/#/tables/regular-tables'
+  // window.location.href = window.location.origin + '/#/tables/regular-tables'
 });
 new Vue({
   router,
