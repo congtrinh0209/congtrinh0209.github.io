@@ -1,5 +1,5 @@
 <template>
-<v-app>
+<v-app v-resize="onResize">
   <router-view />
   <!-- global snackbar -->
   <v-snackbar v-model="snackbar.show" :timeout="3000" app top centered :color="snackbar.color">
@@ -33,5 +33,11 @@
         },
       },
     },
+    methods: {
+      onResize: function () {
+        this.breakpointName = this.$vuetify.breakpoint.name
+        console.log("breakpoint name: " + this.breakpointName)
+      }
+    }
   }
 </script>

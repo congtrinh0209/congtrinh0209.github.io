@@ -19,7 +19,7 @@
               <span class="mr-auto pt-2" v-else>
                 Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> thành viên
               </span>
-              <v-btn color="success" class="mx-0" @click.stop="addMember('add')">
+              <v-btn small color="success" class="mx-0" @click.stop="addMember('add')">
                 <v-icon left size="22">
                   mdi-plus
                 </v-icon>
@@ -460,7 +460,7 @@
     display: none !important;
   }
   main {
-    padding-top: 75px !important;
+    padding-top: 0px !important;
   }
 </style>
 

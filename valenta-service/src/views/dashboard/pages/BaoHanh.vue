@@ -91,16 +91,16 @@ export default {
 }
 </script>
 
-<style lang="css">
-main {
-  padding-top: 0px !important;
-}
-</style>
 <style lang="sass" scoped>
 .page-login
   &__card
   max-width: 500px
   margin: 0 auto
+</style>
+<style lang="css">
+  main {
+    padding-top: 0px !important;
+  }
 </style>
 <style lang="css" scoped>
 .label-bh {

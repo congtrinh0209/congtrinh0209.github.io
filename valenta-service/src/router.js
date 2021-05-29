@@ -23,7 +23,7 @@ export default new Router({
           component: () => import('@/views/dashboard/pages/QuanLyPhieuBaoHanh'),
         },
         {
-          path: '/pages/tao-phieu-bao-hanh/:uid',
+          path: '/pages/kich-hoat-bao-hanh/:uid',
           name: 'TaoPhieuBaoHanh',
           component: () => import('@/views/dashboard/pages/TaoPhieuBaoHanh'),
         },

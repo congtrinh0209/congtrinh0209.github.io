@@ -8432,6 +8432,13 @@
 			  }
 			],
 			reportConfig: [
+				{
+				"selected": true,
+				"value": "dossierNo",
+				"text": "Mã hồ sơ",
+				"align": "left",
+				"width": 70
+			  },
 			  {
 				"selected": true,
 				"value": "dossierName",
@@ -8549,6 +8556,18 @@
 				   ], 
 				   margin: [0, 20],
 				   style: 'headerTitle'
+				 },
+				 {
+				   columns: [
+					 {
+					   width: "*",
+					   style: 'noteFooter',
+					   text: [
+						{text: 'Tổng số điểm các chỉ số của cơ quan, đơn vị: [$totalScoreVoting$]\n'}
+					  ],
+					  margin: [0, 10]
+					 }
+				   ]
 				 },
 				 {
 				   style: 'tableExample',

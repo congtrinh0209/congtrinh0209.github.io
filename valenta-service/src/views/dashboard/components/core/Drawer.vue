@@ -91,7 +91,7 @@
         {
           icon: 'mdi-shield-plus-outline',
           title: 'Tạo phiếu bảo hành',
-          to: '/pages/quan-ly-bao-hanh/0',
+          to: '/pages/tao-phieu-bao-hanh/0',
         },
         {
           icon: 'mdi-account',
