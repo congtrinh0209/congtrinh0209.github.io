@@ -28,6 +28,16 @@ export default new Router({
           component: () => import('@/views/dashboard/pages/TaoPhieuBaoHanh'),
         },
         {
+          path: '/pages/danh-muc-san-pham',
+          name: 'DanhMucSanPham',
+          component: () => import('@/views/dashboard/pages/DanhMucSanPham'),
+        },
+        {
+          path: '/pages/danh-sach-khach-hang',
+          name: 'DanhSachKhachHang',
+          component: () => import('@/views/dashboard/pages/DanhSachKhachHang'),
+        },
+        {
           name: 'Users',
           path: 'pages/users',
           component: () => import('@/views/dashboard/pages/Users'),

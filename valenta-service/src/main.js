@@ -57,13 +57,18 @@ firebase.auth().onAuthStateChanged(async (user) => {
     return
   }
   let tokenFirebase = await user.getIdToken()
-  console.log('userLogin', user)
-  console.log('userLoginToken', tokenFirebase)
   store.dispatch("SET_LOGIN", (tokenFirebase, ''))
   store.dispatch("SET_USER_PERMISTION", user)
   store.dispatch("SET_LOGIN_PROFILE", user)
   // window.location.href = window.location.origin + '/#/tables/regular-tables'
 });
+Vue.mixin({
+  data: () => ({
+    breakpointName: ''
+  }),
+  methods: {
+  }
+})
 new Vue({
   router,
   store,

@@ -1668,7 +1668,7 @@
 		]]></tableConfig>
     <userConfig>{"order": 4}</userConfig>
   </DynamicReport>
-  <DynamicReport label="REPORT_041">
+  <DynamicReport >
 		<sharing>1</sharing>
 		<reportName>Hồ sơ hoàn thành sớm hạn</reportName>
 		<reportCode>REPORT_041</reportCode>
@@ -1973,7 +1973,7 @@
 		</tableConfig>
 		<userConfig>{"order": 5}</userConfig>
     </DynamicReport>
-	<DynamicReport label="REPORT_042">
+	<DynamicReport >
 		<sharing>1</sharing>
 		<reportName>Hồ sơ hoàn thành đúng hạn</reportName>
 		<reportCode>REPORT_042</reportCode>
@@ -2278,7 +2278,7 @@
 		</tableConfig>
 		<userConfig>{"order": 6}</userConfig>
     </DynamicReport>
-	<DynamicReport label="REPORT_043">
+	<DynamicReport >
 		<sharing>1</sharing>
 		<reportName>Hồ sơ hoàn thành trễ hạn</reportName>
 		<reportCode>REPORT_043</reportCode>
@@ -3195,7 +3195,7 @@
 		]]></tableConfig>
     <userConfig>{"order": 10}</userConfig>
   </DynamicReport>
-  <DynamicReport label="REPORT_071">
+  <DynamicReport >
 		<sharing>1</sharing>
 		<reportName>Hồ sơ đang giải quyết còn hạn</reportName>
 		<reportCode>REPORT_071</reportCode>
@@ -3501,7 +3501,7 @@
 		</tableConfig>
 		<userConfig>{"order": 11}</userConfig>
     </DynamicReport>
-	<DynamicReport label="REPORT_072">
+	<DynamicReport >
 		<sharing>1</sharing>
 		<reportName>Hồ sơ đang giải quyết sắp đến hạn</reportName>
 		<reportCode>REPORT_072</reportCode>
@@ -3807,7 +3807,7 @@
 		</tableConfig>
 		<userConfig>{"order": 12}</userConfig>
     </DynamicReport>
-	<DynamicReport label="REPORT_073">
+	<DynamicReport >
 		<sharing>1</sharing>
 		<reportName>Hồ sơ đang giải quyết quá hạn</reportName>
 		<reportCode>REPORT_073</reportCode>
@@ -7977,6 +7977,7 @@
    }
 }]]></tableConfig>
     <userConfig>{"order": 17}</userConfig>
+	
   </DynamicReport>
   <DynamicReport>
     <filterConfig>

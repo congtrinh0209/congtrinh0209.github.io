@@ -8,22 +8,22 @@
       <base-material-card
         :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
         icon="mdi-clipboard-text"
-        title="Danh sách nhân viên, đại lý bán hàng"
+        title="Danh sách thành viên"
         class="px-5 py-3"
       >
           <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : ''">
             <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'">
               <div class="mr-auto pt-2 mb-3" v-if="breakpointName === 'xs'">
-                Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> nhân viên, đại lý bán hàng
+                Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> thành viên
               </div>
               <span class="mr-auto pt-2" v-else>
-                Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> nhân viên, đại lý bán hàng
+                Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> thành viên
               </span>
               <v-btn color="success" class="mx-0" @click.stop="addMember('add')">
                 <v-icon left size="22">
                   mdi-plus
                 </v-icon>
-                Thêm nhân viên, đại lý
+                Thêm thành viên
               </v-btn>
             </div>
             <v-data-table
@@ -34,7 +34,7 @@
               hide-default-footer
               class="elevation-1"
               @page-count="pageCount = $event"
-              no-data-text="Không có nhân viên, đại lý bán hàng nào"
+              no-data-text="Không có thành viên nào"
               :loading="loadingData"
               loading-text="Đang tải... "
             >
@@ -43,7 +43,7 @@
             </template>
             <template v-slot:item.role="{ item }">
               <span style="color: red" v-if="item.hasOwnProperty('role') && item.role === 'Admin'">Quản trị</span>
-              <span style="color: blue" v-else>nhân viên, đại lý bán hàng</span>
+              <span style="color: blue" v-else>Thành viên</span>
             </template>
             <template v-slot:item.action="{ item }">
               <v-tooltip top>
@@ -76,7 +76,7 @@
                     <v-icon size="22">mdi-delete</v-icon>
                   </v-btn>
                 </template>
-                <span>Xóa nhân viên, đại lý bán hàng</span>
+                <span>Xóa thành viên</span>
               </v-tooltip> -->
             </template>
             
@@ -98,7 +98,7 @@
             dark
             color="primary"
           >
-            <v-toolbar-title v-if="typeAction === 'add'">Thêm nhân viên, đại lý bán hàng</v-toolbar-title>
+            <v-toolbar-title v-if="typeAction === 'add'">Thêm thành viên hệ thống</v-toolbar-title>
             <v-toolbar-title v-else>Cập nhật thông tin</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
@@ -148,7 +148,7 @@
                 required
                 outlined
                 :counter="100"
-                label="Tên nhân viên, đại lý bán hàng"
+                label="Tên thành viên"
                 prepend-inner-icon="mdi-card-account-details-outline"
                 dense
                 clearable
@@ -219,7 +219,7 @@
         validFormAdd: true,
         userName: '',
         nameRules: [
-          v => !!v || 'Tên nhân viên, đại lý bán hàng là bắt buộc',
+          v => !!v || 'Tên thành viên là bắt buộc',
           v => (v && v.length <= 100) || 'Tên không quá 100 ký tự',
         ],
         account: '',
@@ -374,7 +374,7 @@
               vm.loading = false
               vm.$store.commit('SHOW_SNACKBAR', {
                 show: true,
-                text: 'Thêm nhân viên, đại lý bán hàng thành công',
+                text: 'Thêm thành viên thành công',
                 color: 'success',
               })
               // Signed in

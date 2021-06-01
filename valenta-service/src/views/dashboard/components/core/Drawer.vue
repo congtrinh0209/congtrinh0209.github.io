@@ -53,6 +53,7 @@
           v-else
           :key="`item-${i}`"
           :item="item"
+          :class="item['class']"
         />
       </template>
       <div />
@@ -79,14 +80,14 @@
     data: () => ({
       items: [
         {
+          icon: 'mdi-home-circle-outline',
+          title: 'Trang chủ',
+          class: 'home-tab'
+        },
+        {
           icon: 'mdi-credit-card-search-outline',
           title: 'Tra cứu bảo hành',
           to: '/',
-        },
-        {
-          icon: 'mdi-format-list-bulleted',
-          title: 'Quản lý phiếu bảo hành',
-          to: '/pages/quan-ly-bao-hanh',
         },
         {
           icon: 'mdi-shield-plus-outline',
@@ -94,15 +95,30 @@
           to: '/pages/tao-phieu-bao-hanh/0',
         },
         {
-          icon: 'mdi-account',
-          title: 'Danh sách thành viên',
-          to: '/pages/users',
+          icon: 'mdi-format-list-bulleted',
+          title: 'Quản lý phiếu bảo hành',
+          to: '/pages/quan-ly-bao-hanh',
         },
         {
-          title: 'rtables',
-          icon: 'mdi-clipboard-outline',
-          to: '/tables/regular-tables',
+          icon: 'mdi-inbox-multiple-outline',
+          title: 'Danh mục sản phẩm',
+          to: '/pages/danh-muc-san-pham',
         },
+        {
+          icon: 'mdi-account-supervisor-circle',
+          title: 'Danh sách khách hàng',
+          to: '/pages/danh-sach-khach-hang',
+        },
+        {
+          icon: 'mdi-account',
+          title: 'Danh sách nhân viên, đại lý',
+          to: '/pages/users',
+        },
+        // {
+        //   title: 'rtables',
+        //   icon: 'mdi-clipboard-outline',
+        //   to: '/tables/regular-tables',
+        // },
         // {
         //   title: 'typography',
         //   icon: 'mdi-format-font',
