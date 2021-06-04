@@ -10296,7 +10296,7 @@
 			groupIds: [
 				{
 					text: "Cấp xã",
-					value: "41003"
+					value: "41126"
 				}
 			],
 			sumKey: "govAgencyCode",
@@ -10418,7 +10418,7 @@
 		]]></filterConfig>
     <reportCode>STATISTIC_04</reportCode>
     <reportName>Tổng hợp hồ sơ cấp xã theo cơ quan</reportName>
-    <sharing>9</sharing>
+    <sharing>1</sharing>
     <tableConfig><![CDATA[
 		
 		{
@@ -10434,6 +10434,11 @@
 							   {text: "UBND TỈNH ĐỒNG THÁP\n"},
 							   {text: "[$siteName$]\n"}
 							]
+						},
+						{
+							width: 100,
+							style: "title",
+							text: ""
 						},
 						{
 							width: 300,

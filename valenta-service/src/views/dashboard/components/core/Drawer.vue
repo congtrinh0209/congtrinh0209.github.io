@@ -92,7 +92,7 @@
         {
           icon: 'mdi-shield-plus-outline',
           title: 'Tạo phiếu bảo hành',
-          to: '/pages/tao-phieu-bao-hanh/0',
+          to: '/pages/kich-hoat-bao-hanh/0',
         },
         {
           icon: 'mdi-format-list-bulleted',

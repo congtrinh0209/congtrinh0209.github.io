@@ -1,24 +1,221 @@
 <template>
-  <div>
-    <v-container
-      id="createWarranty"
-      fluid
-      tag="section"
-    >
-      <base-material-card
-        style="margin-top: 90px"
-        icon="mdi-clipboard-text"
-        :title="uid == '0' ? 'Tạo phiếu bảo hành sản phẩm' : 'Cập nhật thông tin bảo hành sản phẩm'"
-        class="px-5 py-3"
+  <v-container
+    id="createEWarranty"
+    fluid
+    tag="section"
+  >
+    <v-row justify="center">
+      <v-col
+        cols="12"
       >
-        <v-card-text>
+        <base-material-card>
+          <template v-slot:heading>
+            <div class="text-h3 font-weight-light">
+              KÍCH HOẠT BẢO HÀNH SẢN PHẨM
+            </div>
 
-        </v-card-text>
-      </base-material-card>
-    </v-container>
-    
-  </div>
-  
+            <!-- <div class="text-subtitle-1 font-weight-light">
+            </div> -->
+          </template>
+
+          <v-form
+            ref="formAddWarranty"
+            v-model="validFormAdd"
+            lazy-validation
+          >
+            <v-container class="py-0">
+
+              <v-alert
+                color="info"
+                border="left"
+                elevation="2"
+                colored-border
+                icon="mdi-card-account-details-outline"
+                type="info"
+              >
+                <span style="color: #2196f3">THÔNG TIN KHÁCH HÀNG</span>
+              </v-alert>
+              <v-row>
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <div>Tên khách hàng <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-if="typeAction === 'add'"
+                    v-model="account"
+                    :rules="accountRules"
+                    :counter="75"
+                    required
+                    outlined
+                    placeholder="Tên đăng nhập"
+                    prepend-inner-icon="mdi-account-check-outline"
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <div>Số điện thoại <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-if="typeAction === 'add'"
+                    v-model="passWord"
+                    :rules="passwordRules"
+                    required
+                    outlined
+                    placeholder="Mật khẩu đăng nhập"
+                    prepend-inner-icon="mdi-lock-check-outline"
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                >
+                  <div>Địa chỉ công trình <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-model="address"
+                    :rules="addressRules"
+                    :counter="200"
+                    outlined
+                    placeholder="Địa chỉ"
+                    prepend-inner-icon="mdi-map-marker"
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              
+              <v-alert
+                color="cyan"
+                border="left"
+                elevation="2"
+                colored-border
+                icon="mdi-format-list-checkbox"
+              >
+                <span style="color: #00bcd4">THÔNG TIN SẢN PHẨM</span>
+              </v-alert>
+              <v-row>
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <div>Tên khách hàng <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-if="typeAction === 'add'"
+                    v-model="account"
+                    :rules="accountRules"
+                    :counter="75"
+                    required
+                    outlined
+                    placeholder="Tên đăng nhập"
+                    prepend-inner-icon="mdi-account-check-outline"
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <div>Số điện thoại <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-if="typeAction === 'add'"
+                    v-model="passWord"
+                    :rules="passwordRules"
+                    required
+                    outlined
+                    placeholder="Mật khẩu đăng nhập"
+                    prepend-inner-icon="mdi-lock-check-outline"
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                >
+                  <div>Địa chỉ công trình <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-model="address"
+                    :rules="addressRules"
+                    :counter="200"
+                    outlined
+                    placeholder="Địa chỉ"
+                    prepend-inner-icon="mdi-map-marker"
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              <v-alert
+                color="orange"
+                border="left"
+                elevation="2"
+                colored-border
+                icon="mdi-archive-clock-outline"
+              >
+                <span style="color: #ff9800">THỜI GIAN BẢO HÀNH</span>
+              </v-alert>
+              <v-row>
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <div>Tên khách hàng <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-if="typeAction === 'add'"
+                    v-model="account"
+                    :rules="accountRules"
+                    :counter="75"
+                    required
+                    outlined
+                    placeholder="Tên đăng nhập"
+                    prepend-inner-icon="mdi-account-check-outline"
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="6"
+                >
+                  <div>Số điện thoại <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-if="typeAction === 'add'"
+                    v-model="passWord"
+                    :rules="passwordRules"
+                    required
+                    outlined
+                    placeholder="Mật khẩu đăng nhập"
+                    prepend-inner-icon="mdi-lock-check-outline"
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                >
+                  <div>Địa chỉ công trình <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-model="address"
+                    :rules="addressRules"
+                    :counter="200"
+                    outlined
+                    placeholder="Địa chỉ"
+                    prepend-inner-icon="mdi-map-marker"
+                    dense
+                    clearable
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-form>
+        </base-material-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -138,3 +335,11 @@
   }
 </script>
 
+<style lang="css" scoped>
+  .v-data-table-header-mobile {
+    display: none !important;
+  }
+  main {
+    padding-top: 75px !important;
+  }
+</style>

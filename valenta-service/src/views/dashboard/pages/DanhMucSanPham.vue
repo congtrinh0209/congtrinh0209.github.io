@@ -5,28 +5,27 @@
     tag="section"
   >
     <v-row>
-      <!-- Sơn nội thất -->
+      <!-- Sơn phủ -->
       <v-col
         cols="12"
-        md="6"
       >
         <base-material-card
           :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
           icon="mdi-dresser-outline"
-          title="SƠN NỘI THẤT"
+          title="SƠN PHỦ"
           class="px-5 py-3"
           color="warning"
-          :value="totalItemNoiThat"
+          :value="totalItemSonPhu"
         >
             <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : ''">
               <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'">
                 <div class="mr-auto pt-2 mb-3" v-if="breakpointName === 'xs'">
-                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemNoiThat}}</span> sản phẩm
+                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemSonPhu}}</span> sản phẩm
                 </div>
                 <span class="mr-auto pt-2" v-else>
-                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemNoiThat}}</span> sản phẩm
+                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemSonPhu}}</span> sản phẩm
                 </span>
-                <v-btn color="success" class="mx-0" @click.stop="addProduct('add', 'noithatProduct')">
+                <v-btn color="success" class="mx-0" @click.stop="addProduct('add', 'sonphuProduct', '')">
                   <v-icon left size="22">
                     mdi-plus
                   </v-icon>
@@ -35,23 +34,36 @@
               </div>
               <v-data-table
                 :headers="headers"
-                :items="listNoiThat"
-                :page.sync="pageNoiThat"
+                :items="listSonPhu"
+                :page.sync="pageSonPhu"
                 :items-per-page="itemsPerPage"
                 hide-default-footer
                 class="elevation-1"
-                @page-count="pageCountNoiThat = $event"
+                @page-count="pageCountSonPhu = $event"
                 no-data-text="Không có sản phẩm nào"
-                :loading="loadingDataNoiThat"
+                :loading="loadingDataSonPhu"
                 loading-text="Đang tải... "
               >
                 <template v-slot:item.index="{ item, index }">
                   <span>{{ index + 1 }}</span>
                 </template>
+                <template v-slot:item.quycach="{ item }">
+                  <template v-for="(subItem, i) in item['quycach']">
+                    <v-chip
+                      color="orange"
+                      dark
+                      :key="i"
+                      class="mr-2"
+                      label
+                    >
+                      {{ subItem }}
+                    </v-chip>
+                  </template>
+                </template>
                 <template v-slot:item.action="{ item }">
                   <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
-                      <v-btn @click="addProduct('update', 'noithatProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
+                      <v-btn @click="addProduct('update', 'sonphuProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
                         <v-icon size="22">mdi-pencil</v-icon>
                       </v-btn>
                     </template>
@@ -59,7 +71,7 @@
                   </v-tooltip>
                   <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
-                      <v-btn @click="deleteProduct('noithatProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
+                      <v-btn @click="deleteProduct('sonphuProduct', item)" color="red" text icon class="" v-bind="attrs" v-on="on">
                         <v-icon size="22">mdi-delete</v-icon>
                       </v-btn>
                     </template>
@@ -70,35 +82,34 @@
               </v-data-table>
               <div class="text-center mt-4">
                 <v-pagination
-                  v-model="pageNoiThat"
-                  :length="pageCountNoiThat"
+                  v-model="pageSonPhu"
+                  :length="pageCountSonPhu"
                 ></v-pagination>
               </div>
             </v-card-text>
         </base-material-card>
       </v-col>
-      <!-- Sơn ngoại thất -->
+      <!-- Sơn lót -->
       <v-col
         cols="12"
-        md="6"
       >
         <base-material-card
           :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
           icon="mdi-dresser-outline"
-          title="SƠN NGOẠITHẤT"
+          title="SƠN LÓT"
           class="px-5 py-3"
           color="success"
-          :value="totalItemNgoaiThat"
+          :value="totalItemSonLot"
         >
             <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : ''">
               <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'">
                 <div class="mr-auto pt-2 mb-3" v-if="breakpointName === 'xs'">
-                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemNgoaiThat}}</span> sản phẩm
+                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemSonLot}}</span> sản phẩm
                 </div>
                 <span class="mr-auto pt-2" v-else>
-                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemNgoaiThat}}</span> sản phẩm
+                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemSonLot}}</span> sản phẩm
                 </span>
-                <v-btn color="success" class="mx-0" @click.stop="addProduct('add', 'ngoaithatProduct')">
+                <v-btn color="success" class="mx-0" @click.stop="addProduct('add', 'sonlotProduct', '')">
                   <v-icon left size="22">
                     mdi-plus
                   </v-icon>
@@ -107,23 +118,36 @@
               </div>
               <v-data-table
                 :headers="headers"
-                :items="listNgoaiThat"
-                :page.sync="pageNgoaiThat"
+                :items="listSonLot"
+                :page.sync="pageSonLot"
                 :items-per-page="itemsPerPage"
                 hide-default-footer
                 class="elevation-1"
-                @page-count="pageCountNgoaiThat = $event"
+                @page-count="pageCountSonLot = $event"
                 no-data-text="Không có sản phẩm nào"
-                :loading="loadingDataNgoaiThat"
+                :loading="loadingDataSonLot"
                 loading-text="Đang tải... "
               >
                 <template v-slot:item.index="{ item, index }">
                   <span>{{ index + 1 }}</span>
                 </template>
+                <template v-slot:item.quycach="{ item }">
+                  <template v-for="(subItem, i) in item['quycach']">
+                    <v-chip
+                      color="orange"
+                      dark
+                      :key="i"
+                      class="mr-2"
+                      label
+                    >
+                      {{ subItem }}
+                    </v-chip>
+                  </template>
+                </template>
                 <template v-slot:item.action="{ item }">
                   <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
-                      <v-btn @click="addProduct('update', 'ngoaithatProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
+                      <v-btn @click="addProduct('update', 'sonlotProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
                         <v-icon size="22">mdi-pencil</v-icon>
                       </v-btn>
                     </template>
@@ -131,7 +155,7 @@
                   </v-tooltip>
                   <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
-                      <v-btn @click="deleteProduct('ngoaithatProduct', item)" color="red" text icon class="" v-bind="attrs" v-on="on">
+                      <v-btn @click="deleteProduct('sonlotProduct', item)" color="red" text icon class="" v-bind="attrs" v-on="on">
                         <v-icon size="22">mdi-delete</v-icon>
                       </v-btn>
                     </template>
@@ -142,43 +166,227 @@
               </v-data-table>
               <div class="text-center mt-4">
                 <v-pagination
-                  v-model="pageNgoaiThat"
-                  :length="pageCountNgoaiThat"
+                  v-model="pageSonLot"
+                  :length="pageCountSonLot"
                 ></v-pagination>
               </div>
             </v-card-text>
         </base-material-card>
       </v-col>
-
+      <!-- Bột trét -->
+      <v-col
+        cols="12"
+      >
+        <base-material-card
+          :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
+          icon="mdi-dresser-outline"
+          title="BỘT TRÉT"
+          class="px-5 py-3"
+          color="info"
+          :value="totalItemBotTret"
+        >
+            <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : ''">
+              <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'">
+                <div class="mr-auto pt-2 mb-3" v-if="breakpointName === 'xs'">
+                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemBotTret}}</span> sản phẩm
+                </div>
+                <span class="mr-auto pt-2" v-else>
+                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemBotTret}}</span> sản phẩm
+                </span>
+                <v-btn color="success" class="mx-0" @click.stop="addProduct('add', 'bottretProduct', '')">
+                  <v-icon left size="22">
+                    mdi-plus
+                  </v-icon>
+                  Thêm sản phẩm
+                </v-btn>
+              </div>
+              <v-data-table
+                :headers="headers"
+                :items="listBotTret"
+                :page.sync="pageBotTret"
+                :items-per-page="itemsPerPage"
+                hide-default-footer
+                class="elevation-1"
+                @page-count="pageCountBotTret = $event"
+                no-data-text="Không có sản phẩm nào"
+                :loading="loadingDataBotTret"
+                loading-text="Đang tải... "
+              >
+                <template v-slot:item.index="{ item, index }">
+                  <span>{{ index + 1 }}</span>
+                </template>
+                <template v-slot:item.quycach="{ item }">
+                  <template v-for="(subItem, i) in item['quycach']">
+                    <v-chip
+                      color="orange"
+                      dark
+                      :key="i"
+                      class="mr-2"
+                      label
+                    >
+                      {{ subItem }}
+                    </v-chip>
+                  </template>
+                </template>
+                <template v-slot:item.action="{ item }">
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn @click="addProduct('update', 'bottretProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
+                        <v-icon size="22">mdi-pencil</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Sửa</span>
+                  </v-tooltip>
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn @click="deleteProduct('bottretProduct', item)" color="red" text icon class="" v-bind="attrs" v-on="on">
+                        <v-icon size="22">mdi-delete</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Xóa</span>
+                  </v-tooltip>
+                </template>
+              
+              </v-data-table>
+              <div class="text-center mt-4">
+                <v-pagination
+                  v-model="pageBotTret"
+                  :length="pageCountBotTret"
+                ></v-pagination>
+              </div>
+            </v-card-text>
+        </base-material-card>
+      </v-col>
       
     </v-row>
+    <v-dialog
+        max-width="600"
+        v-model="dialogAddProduct"
+      >
+        <v-card>
+          <v-toolbar
+            dark
+            color="primary"
+          >
+            <v-toolbar-title v-if="typeAction === 'add'">Thêm sản phẩm</v-toolbar-title>
+            <v-toolbar-title v-else>Cập nhật sản phẩm</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <v-btn
+                icon
+                dark
+                @click="dialogAddProduct = false"
+              >
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text class="mt-5">
+            <v-form
+              ref="formAddProduct"
+              v-model="validFormAdd"
+              lazy-validation
+            >
+              
+              <v-textarea
+                v-model="productName"
+                :rules="nameRules"
+                required
+                outlined
+                :counter="500"
+                label="Tên sản phẩm"
+                prepend-inner-icon="mdi-tag-multiple-outline"
+                dense
+                clearable
+              ></v-textarea>
+              
+              <v-text-field
+                v-model="labelProduct"
+                placeholder="Nhập quy cách sản phẩm: Lon 5 lít, thùng 20 lít, bao 40kg, ..."
+                label="Quy cách sản phẩm"
+                @keydown.enter.native="addLabelProduct"
+                outlined
+                dense
+              >
+                <template v-slot:append>
+                  <v-fade-transition>
+                    <v-icon
+                      v-if="labelProduct"
+                      @click.native="addLabelProduct"
+                    >
+                      mdi-plus-circle
+                    </v-icon>
+                  </v-fade-transition>
+                </template>
+              </v-text-field>
+              <div>
+                <v-chip
+                  class="mr-2"
+                  color="orange"
+                  dark
+                  close
+                  label
+                  outlined
+                  v-for="(item, i) in listLabelAdd"
+                  :key="i"
+                  @click:close="removeLabel(i)"
+                >
+                  {{ item }}
+                </v-chip>
+              </div>
+              
+
+            </v-form>
+          </v-card-text>
+          <v-card-actions class="justify-end">
+            
+            <v-btn color="red" class="white--text mr-2" :loading="loading" :disabled="loading" @click="cancelAddProduct">
+              <v-icon left>
+                mdi-close
+              </v-icon>
+              Thoát
+            </v-btn>
+            <v-btn class="mr-2" color="primary" :loading="loading" :disabled="loading" @click="submitAddProduct">
+              <v-icon left>
+                mdi-content-save
+              </v-icon>
+              <span v-if="typeAction === 'add'">Thêm mới</span>
+              <span v-else>Cập nhật</span>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
   </v-container>
 </template>
 
 <script>
   export default {
-    name: 'Users',
+    name: 'Products',
 
     data () {
       return {
         loading: false,
-        loadingDataNoiThat: false,
-        loadingDataNgoaiThat: false,
+        loadingDataSonPhu: false,
+        loadingDataSonLot: false,
+        loadingDataBotTret: false,
         dialogAddProduct: false,
-        totalItemNoiThat: 0,
-        pageNoiThat: 1,
-        pageCountNoiThat: 0,
-        listNoiThat: [],
+        labelProduct: '',
+        listLabelAdd: [],
 
-        totalItemNgoaiThat: 0,
-        pageNgoaiThat: 1,
-        pageCountNgoaiThat: 0,
-        listNgoaiThat: [],
+        totalItemSonPhu: 0,
+        pageSonPhu: 1,
+        pageCountSonPhu: 0,
+        listSonPhu: [],
 
-        totalItemLotKhangKiem: 0,
-        pageLotKhangKiem: 1,
-        pageCountLotKhangKiem: 0,
-        listLotKhangKiem: [],
+        totalItemSonLot: 0,
+        pageSonLot: 1,
+        pageCountSonLot: 0,
+        listSonLot: [],
+
+        totalItemBotTret: 0,
+        pageBotTret: 1,
+        pageCountBotTret: 0,
+        listBotTret: [],
 
         totalItemChongTham: 0,
         pageChongTham: 1,
@@ -188,32 +396,13 @@
         itemsPerPage: 5,
         typeAction: '',
         productUpdate: '',
+        collectionName: '',
         
         validFormAdd: true,
         productName: '',
         nameRules: [
           v => !!v || 'Tên sản phẩm là bắt buộc',
-          v => (v && v.length <= 100) || 'Tên không quá 100 ký tự',
-        ],
-        account: '',
-        accountRules: [
-          v => !!v || 'Tên đăng nhập là bắt buộc',
-          v => /^[a-zA-Z0-9]+$/.test(v) || 'Tên đăng nhập gồm chữ hoặc số',
-          v => (v && v.length <= 75) || 'Tên đăng nhập không quá 75 ký tự',
-        ],
-        passWord: '',
-        passwordRules: [
-          v => !!v || 'Mật khẩu đăng nhập là bắt buộc',
-          v => (v && v.length >= 6 && v.length <= 20) || 'Mật khẩu ít nhất 6 ký tự',
-        ],
-        telNo: '',
-        telNoRules: [
-          v => !!v || 'Số điện thoại là bắt buộc',
-          v => /^0([1-9]{1}\d{8})$/.test(v) || 'Số điện thoại gồm 10 chữ số',
-        ],
-        address: '',
-        addressRules: [
-          v => (v && v.length <= 200) || 'Địa chỉ không quá 200 ký tự',
+          v => (v && v.length <= 500) || 'Tên không quá 500 ký tự',
         ],
         headers: [
           {
@@ -225,8 +414,14 @@
           {
             sortable: false,
             text: 'Tên sản phẩm',
-            align: 'center',
+            align: 'left',
             value: 'productName'
+          },
+          {
+            sortable: false,
+            text: 'Quy cách sản phẩm',
+            align: 'left',
+            value: 'quycach'
           },
           {
             sortable: false,
@@ -239,130 +434,228 @@
     },
     created () {
       let vm = this
-      vm.getListNoiThat()
-      vm.getListNgoaiThat()
+      vm.getListSonPhu()
+      vm.getListSonLot()
+      vm.getListBotTret()
     },
     methods: {
-      getListNoiThat () {
+      getListSonPhu () {
         let vm = this
-        vm.loadingDataNoiThat = true
-        db.collection("noithatProduct").get().then(function(querySnapshot) {
-          vm.loadingDataNoiThat = false
-          let noithatProduct = []
+        vm.loadingDataSonPhu = true
+        db.collection("sonphuProduct").get().then(function(querySnapshot) {
+          vm.loadingDataSonPhu = false
+          let sonphuProduct = []
           if (querySnapshot.size) {
             querySnapshot.docs.forEach(function(item) {
-              noithatProduct.push(item.data())
+              sonphuProduct.push(item.data())
             })
-            vm.listNoiThat = noithatProduct
-            vm.totalItemNoiThat = querySnapshot.size
-            vm.pageCountNoiThat = Math.ceil(querySnapshot.size / vm.itemsPerPage)
+            sonphuProduct.forEach(function(item) {
+              item['quycach'] = vm.formatQuyCach(item['quycach'])
+            })
+            vm.listSonPhu = sonphuProduct
+            console.log('vm.listSonPhu', vm.listSonPhu)
+            vm.totalItemSonPhu = querySnapshot.size
+            vm.pageCountSonPhu = Math.ceil(querySnapshot.size / vm.itemsPerPage)
           } else {
-            vm.listNoiThat = []
+            vm.listSonPhu = []
           }
         }).catch(function () {
-          vm.loadingDataNoiThat = false
+          vm.loadingDataSonPhu = false
         })
       },
-      getListNgoaiThat () {
+      getListSonLot () {
         let vm = this
-        vm.loadingDataNgoaiThat = true
-        db.collection("ngoaithatProduct").get().then(function(querySnapshot) {
-          vm.loadingDataNgoaiThat = false
-          let ngoaithatProduct = []
+        vm.loadingDataSonLot = true
+        db.collection("sonlotProduct").get().then(function(querySnapshot) {
+          vm.loadingDataSonLot = false
+          let sonlotProduct = []
           if (querySnapshot.size) {
             querySnapshot.docs.forEach(function(item) {
-              ngoaithatProduct.push(item.data())
+              sonlotProduct.push(item.data())
             })
-            vm.listNgoaiThat = ngoaithatProduct
-            vm.totalItemNgoaiThat = querySnapshot.size
-            vm.pageCountNgoaiThat = Math.ceil(querySnapshot.size / vm.itemsPerPage)
+            sonlotProduct.forEach(function(item) {
+              item['quycach'] = vm.formatQuyCach(item['quycach'])
+            })
+            vm.listSonLot = sonlotProduct
+            vm.totalItemSonLot = querySnapshot.size
+            vm.pageCountSonLot = Math.ceil(querySnapshot.size / vm.itemsPerPage)
           } else {
-            vm.listNgoaiThat = []
+            vm.listSonLot = []
           }
         }).catch(function () {
-          vm.loadingDataNgoaiThat = false
+          vm.loadingDataSonLot = false
         })
       },
-      addProduct (typeAction, productType, item) {
+      getListBotTret () {
+        let vm = this
+        vm.loadingDataBotTret = true
+        db.collection("bottretProduct").get().then(function(querySnapshot) {
+          vm.loadingDataBotTret = false
+          let bottretProduct = []
+          if (querySnapshot.size) {
+            querySnapshot.docs.forEach(function(item) {
+              bottretProduct.push(item.data())
+            })
+            bottretProduct.forEach(function(item) {
+              item['quycach'] = vm.formatQuyCach(item['quycach'])
+            })
+            vm.listBotTret = bottretProduct
+            vm.totalItemBotTret = querySnapshot.size
+            vm.pageCountBotTret = Math.ceil(querySnapshot.size / vm.itemsPerPage)
+          } else {
+            vm.listBotTret = []
+          }
+        }).catch(function () {
+          vm.loadingDataBotTret = false
+        })
+      },
+      addProduct (type, collectionName, item) {
         let vm = this
         vm.typeAction = type
-        vm.productUpdate = user
+        vm.collectionName = collectionName
+        vm.productUpdate = item
         vm.dialogAddProduct = true
         if (type === 'add') {
           setTimeout(function () {
-            vm.account = ''
-            vm.passWord = ''
             vm.productName = ''
-            vm.telNo = ''
-            vm.address = ''
-            vm.$refs.formAddMember.resetValidation()
+            vm.labelProduct = ''
+            vm.listLabelAdd = []
+            vm.$refs.formAddProduct.resetValidation()
           }, 200)
         } else {
           setTimeout(function () {
-            vm.account = user.account
-            vm.productName = user.productName
-            vm.telNo = user.telNo
-            vm.address = user.address
-            vm.$refs.formAddMember.resetValidation()
+            vm.productName = item.productName
+            vm.labelProduct = ''
+            if (item.quycach) {
+              vm.listLabelAdd = String(item.quycach).split(',')
+            }
+            vm.$refs.formAddProduct.resetValidation()
           }, 200)
         }
         
       },
-      updateStatusUser (type, user) {
+      deleteProduct (collectionName, item) {
         let vm = this
-        vm.productUpdate = user
-      },
-      deleteProduct (productType, item) {
-        let vm = this
-      },
-      submitAddMember () {
-        let vm = this
-        if (vm.$refs.formAddMember.validate()) {
-          if (vm.typeAction === 'add') {
-            let dataUserAuthen = {
-              account: String(vm.account).trim() + '@gmail.com',
-              passWord: String(vm.passWord).trim(),
-              productName: String(vm.productName).trim(),
-              telNo: String(vm.telNo).trim(),
-              address: String(vm.address).trim()
-            }
-            vm.loading = true
-            db.collection("users").doc(user.uid).set({
-              account: String(vm.account).trim(),
-              productName: dataUserAuthen.productName,
-              telNo: dataUserAuthen.telNo,
-              address: dataUserAuthen.address,
-              role: "Member",
-              status: "",
-              uid: user.uid
+        let x = confirm('Bạn có chắc chắn xóa sản phẩm này?')
+        if (x) {
+          vm.loading = true
+          db.collection(collectionName).doc(item.uid).delete().then(() => {
+            vm.loading = false
+            vm.$store.commit('SHOW_SNACKBAR', {
+              show: true,
+              text: 'Xóa thành công',
+              color: 'success',
             })
-            .then(() => {
-              vm.loading = false
-              vm.$store.commit('SHOW_SNACKBAR', {
-                show: true,
-                text: 'Thêm sản phẩm thành công',
-                color: 'success',
-              })
-              vm.getMembers()
+            vm.activeReloadList(collectionName)
+          }).catch((error) => {
+            vm.loading = false
+            vm.$store.commit('SHOW_SNACKBAR', {
+              show: true,
+              text: 'Xóa thất bại',
+              color: 'error',
             })
-            .catch((error) => {
-            })
-            
-          }
-          
+          })
         }
       },
-      cancelAddMember () {
+      submitAddProduct () {
+        let vm = this
+        if (vm.$refs.formAddProduct.validate()) {
+          vm.loading = true
+          if (vm.typeAction === 'add') {
+            if (vm.collectionName) {
+              db.collection(vm.collectionName).add(
+                {
+                  productName: String(vm.productName).trim(),
+                  quycach: vm.listLabelAdd.length > 0 ? vm.listLabelAdd.toString() : '',
+                  uid: ''
+                }
+              ).then((docRef) => {
+                vm.loading = false
+                db.collection(vm.collectionName).doc(docRef.id).set({
+                  productName: String(vm.productName).trim(),
+                  quycach: vm.listLabelAdd.length > 0 ? vm.listLabelAdd.toString() : '',
+                  uid: docRef.id
+                })
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Thêm sản phẩm thành công',
+                  color: 'success',
+                })
+                vm.activeReloadList(vm.collectionName)
+                vm.dialogAddProduct = false
+              }).catch((error) => {
+                vm.loading = false
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Thêm sản phẩm thất bại',
+                  color: 'error',
+                })
+              })
+            }
+          } else {
+            if (vm.productUpdate) {
+              db.collection(vm.collectionName).doc(vm.productUpdate.uid).set({
+                productName: String(vm.productName).trim(),
+                quycach: vm.listLabelAdd.length > 0 ? vm.listLabelAdd.toString() : '',
+                uid: vm.productUpdate.uid
+              }).then(function () {
+                vm.loading = false
+                vm.dialogAddProduct = false
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Cập nhật thành công',
+                  color: 'success',
+                })
+                vm.activeReloadList(vm.collectionName)
+              }).catch((error) => {
+                vm.loading = false
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Cập nhật thất bại',
+                  color: 'error',
+                })
+              })
+            }
+          }
+        }
+      },
+      addLabelProduct () {
+        let vm = this
+        if (vm.labelProduct) {
+          vm.listLabelAdd.push(vm.labelProduct)
+          setTimeout(function() {
+            vm.labelProduct = ''
+          }, 100)
+        }
+      },
+      removeLabel (index) {
+        let vm = this
+        vm.listLabelAdd.splice(index, 1)
+      },
+      cancelAddProduct () {
         let vm = this
         vm.dialogAddProduct = false
       },
+      activeReloadList (collectionName) {
+        let vm = this
+        if (collectionName === 'sonphuProduct') {
+          vm.getListSonPhu()
+        } else if (collectionName === 'sonlotProduct') {
+          vm.getListSonLot()
+        } else if (collectionName === 'bottretProduct') {
+          vm.getListBotTret()
+        }
+      },
+      formatQuyCach (item) {
+        if (item) {
+          return String(item).split(',')
+        }
+      }
     },
   }
 </script>
 <style lang="css" scoped>
-  .v-data-table-header-mobile {
-    display: none !important;
-  }
+  
   main {
     padding-top: 75px !important;
   }
