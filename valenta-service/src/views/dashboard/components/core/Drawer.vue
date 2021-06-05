@@ -91,7 +91,7 @@
         },
         {
           icon: 'mdi-shield-plus-outline',
-          title: 'Tạo phiếu bảo hành',
+          title: 'Kích hoạt bảo hành',
           to: '/pages/kich-hoat-bao-hanh/0',
         },
         {
