@@ -14,7 +14,7 @@
               <v-form ref="form" v-model="formValid" class="form-kichhoat mt-10 mb-5 pt-4" lazy-validation>
                 <div class="label-bh mb-2">MÃ THẺ BẢO HÀNH:</div>
                 <v-text-field
-                  v-model="formModel.eCode"
+                  v-model="eCode"
                   autocomplete="off"
                   name="login"
                   type="text"
@@ -23,7 +23,7 @@
                 />
                 <div class="label-bh mb-2">MÃ BẢO MẬT:</div>
                 <v-text-field
-                  v-model="formModel.captcha"
+                  v-model="captcha"
                   autocomplete="off"
                   name="captcha"
                   solo
@@ -32,13 +32,13 @@
               </v-form>
             </v-card-text>
             <v-card-actions class="mx-2 pt-0">
-              <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="handleLogin">
+              <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="createEWarranty">
                 <v-icon size="20" color="#fff" class="mr-2">mdi-login-variant</v-icon> 
                 <span>KÍCH HOẠT BẢO HÀNH</span>
               </v-btn>
             </v-card-actions>
             <v-card-actions class="mx-2 pt-0">
-              <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="handleLogin">
+              <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="">
                 <v-icon size="20" color="#fff" class="mr-2">mdi-credit-card-search-outline</v-icon> 
                 <span>THÔNG TIN BẢO HÀNH</span>
               </v-btn>
@@ -58,10 +58,8 @@ export default {
     return {
       loading: false,
       formValid: false,
-      formModel: {
-        eCode: '',
-        captcha: '',
-      },
+      eCode: '',
+      captcha: '',
       formRule: {
         eCode: [(v) => !!v || this.$t('Thông tin bắt buộc', ['eCode'])],
         captcha: [(v) => !!v || this.$t('Thông tin bắt buộc', ['captcha'])],
@@ -70,18 +68,13 @@ export default {
   },
   computed: {},
   methods: {
-    handleLogin() {
-      if (this.$refs.form.validate()) {
-        this.loading = true
-        this.$store
-          .dispatch('demoLogin', this.formModel)
-          .then(() => {
-
-          })
-          .catch(() => {
-
-          })
-      }
+    createEWarranty () {
+      let vm = this
+      vm.$router.push(
+        {
+          path: '/pages/kich-hoat-bao-hanh/0?activeCode=' + vm.eCode
+        }
+      )
     },
     handleRegister() {
       console.log(this)

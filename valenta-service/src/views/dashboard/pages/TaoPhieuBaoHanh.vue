@@ -26,6 +26,28 @@
             <v-container class="py-0">
               <div class="my-3 font-weight-bold">
                 <v-icon color="info" class="mr-3" >
+                  mdi-credit-card-check-outline
+                </v-icon>
+                <span style="color: #00bcd4">MÃ THẺ BẢO HÀNH</span>
+              </div>
+              <v-row>
+                <v-col
+                  cols="12"
+                >
+                  <v-text-field
+                    v-model="activeCode"
+                    :rules="customNameRules"
+                    required
+                    outlined
+                    placeholder=""
+                    dense
+                    clearable
+                    hide-details="auto"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              <div class="my-3 font-weight-bold">
+                <v-icon color="info" class="mr-3" >
                   mdi-card-account-details-outline
                 </v-icon>
                 <span style="color: #00bcd4">THÔNG TIN KHÁCH HÀNG</span>
@@ -744,73 +766,14 @@
               </div>
               <div>
                 <div class="mb-3">
-                  <v-icon color="orange" class="mr-3" >
-                    mdi-calendar-range
-                  </v-icon>
-                  <span>Nội thất: Từ ngày</span>
-                  <v-autocomplete
-                    class="d-inline-block mx-2"
-                    style="width: 70px;"
-                    v-model="noiThatFromDueDateDay"
-                    :items="days"
-                    outlined
-                    dense
-                    hide-details
-                  ></v-autocomplete> tháng 
-                  <v-autocomplete
-                    class="d-inline-block mx-2"
-                    style="width: 70px;"
-                    v-model="noiThatFromDueDateMonth"
-                    :items="months"
-                    outlined
-                    dense
-                    hide-details
-                  ></v-autocomplete> năm
-                  <v-autocomplete
-                    class="d-inline-block mx-2"
-                    style="width: 100px;"
-                    v-model="noiThatFromDueDateYear"
-                    :items="years"
-                    outlined
-                    dense
-                    hide-details
-                  ></v-autocomplete>
-                  <span class="mx-2">-</span>
-                  <span>Đến ngày</span>
-                  <v-autocomplete
-                    class="d-inline-block mx-2"
-                    style="width: 70px;"
-                    v-model="noiThatToDueDateDay"
-                    :items="days"
-                    outlined
-                    dense
-                    hide-details
-                  ></v-autocomplete> tháng 
-                  <v-autocomplete
-                    class="d-inline-block mx-2"
-                    style="width: 70px;"
-                    v-model="noiThatToDueDateMonth"
-                    :items="months"
-                    outlined
-                    dense
-                    hide-details
-                  ></v-autocomplete> năm
-                  <v-autocomplete
-                    class="d-inline-block mx-2"
-                    style="width: 100px;"
-                    v-model="noiThatToDueDateYear"
-                    :items="years"
-                    outlined
-                    dense
-                    hide-details
-                  ></v-autocomplete>
-                </div>
-                <!--  -->
-                <div class="mb-2">
-                  <v-icon color="blue" class="mr-3" >
-                    mdi-calendar-range
-                  </v-icon>
-                  <span>Ngoại thất: Từ ngày</span>
+                  <div class="d-inline-block" style="width: 130px">
+                    <v-icon color="blue" class="mr-3" >
+                      mdi-calendar-range
+                    </v-icon>
+                    Ngoại thất:
+                  </div>
+                  
+                  <span>Từ ngày</span>
                   <v-autocomplete
                     class="d-inline-block mx-2"
                     style="width: 70px;"
@@ -868,6 +831,72 @@
                     hide-details
                   ></v-autocomplete>
                 </div>
+                <!--  -->
+                <div class="mb-2">
+                  <div class="d-inline-block" style="width: 130px">
+                    <v-icon color="orange" class="mr-3" >
+                      mdi-calendar-range
+                    </v-icon>
+                    Nội thất: 
+                  </div>
+                  <span>Từ ngày</span>
+                  <v-autocomplete
+                    class="d-inline-block mx-2"
+                    style="width: 70px;"
+                    v-model="noiThatFromDueDateDay"
+                    :items="days"
+                    outlined
+                    dense
+                    hide-details
+                  ></v-autocomplete> tháng 
+                  <v-autocomplete
+                    class="d-inline-block mx-2"
+                    style="width: 70px;"
+                    v-model="noiThatFromDueDateMonth"
+                    :items="months"
+                    outlined
+                    dense
+                    hide-details
+                  ></v-autocomplete> năm
+                  <v-autocomplete
+                    class="d-inline-block mx-2"
+                    style="width: 100px;"
+                    v-model="noiThatFromDueDateYear"
+                    :items="years"
+                    outlined
+                    dense
+                    hide-details
+                  ></v-autocomplete>
+                  <span class="mx-2">-</span>
+                  <span>Đến ngày</span>
+                  <v-autocomplete
+                    class="d-inline-block mx-2"
+                    style="width: 70px;"
+                    v-model="noiThatToDueDateDay"
+                    :items="days"
+                    outlined
+                    dense
+                    hide-details
+                  ></v-autocomplete> tháng 
+                  <v-autocomplete
+                    class="d-inline-block mx-2"
+                    style="width: 70px;"
+                    v-model="noiThatToDueDateMonth"
+                    :items="months"
+                    outlined
+                    dense
+                    hide-details
+                  ></v-autocomplete> năm
+                  <v-autocomplete
+                    class="d-inline-block mx-2"
+                    style="width: 100px;"
+                    v-model="noiThatToDueDateYear"
+                    :items="years"
+                    outlined
+                    dense
+                    hide-details
+                  ></v-autocomplete>
+                </div>
               </div>
             </v-container>
           </v-form>
@@ -886,6 +915,9 @@
         loading: false,
         validFormAdd: true,
         tab: null,
+
+        activeCode: '',
+
         listSonPhu: [],
         listSonLot: [],
         listBotTret: [],
@@ -997,6 +1029,10 @@
     },
     created () {
       let vm = this
+      let current = vm.$router.history.current.query
+      if (current.hasOwnProperty('activeCode') && current['activeCode']) {
+        vm.activeCode = current.activeCode
+      }
       vm.getListSonPhu()
       vm.getListSonLot()
       vm.getListBotTret()
