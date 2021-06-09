@@ -3,6 +3,7 @@
     id="products"
     fluid
     tag="section"
+    :style="breakpointName === 'lg' ? 'padding-top: 75px' : ''"
   >
     <v-row>
       <!-- Sơn phủ -->
@@ -168,6 +169,90 @@
                 <v-pagination
                   v-model="pageSonLot"
                   :length="pageCountSonLot"
+                ></v-pagination>
+              </div>
+            </v-card-text>
+        </base-material-card>
+      </v-col>
+      <!-- Sơn chống thấm -->
+      <v-col
+        cols="12"
+      >
+        <base-material-card
+          :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
+          icon="mdi-dresser-outline"
+          title="SƠN CHỐNG THẤM"
+          class="px-5 py-3"
+          color="blue"
+          :value="totalItemSonChongTham"
+        >
+            <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : ''">
+              <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'">
+                <div class="mr-auto pt-2 mb-3" v-if="breakpointName === 'xs'">
+                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemSonChongTham}}</span> sản phẩm
+                </div>
+                <span class="mr-auto pt-2" v-else>
+                  Tổng số: <span style="font-weight: bold; color: green">{{totalItemSonChongTham}}</span> sản phẩm
+                </span>
+                <v-btn color="success" class="mx-0" @click.stop="addProduct('add', 'sonchongthamProduct', '')">
+                  <v-icon left size="22">
+                    mdi-plus
+                  </v-icon>
+                  Thêm sản phẩm
+                </v-btn>
+              </div>
+              <v-data-table
+                :headers="headers"
+                :items="listSonChongTham"
+                :page.sync="pageSonChongTham"
+                :items-per-page="itemsPerPage"
+                hide-default-footer
+                class="elevation-1"
+                @page-count="pageCountSonChongTham = $event"
+                no-data-text="Không có sản phẩm nào"
+                :loading="loadingDataSonChongTham"
+                loading-text="Đang tải... "
+              >
+                <template v-slot:item.index="{ item, index }">
+                  <span>{{ index + 1 }}</span>
+                </template>
+                <template v-slot:item.quycach="{ item }">
+                  <template v-for="(subItem, i) in item['quycach']">
+                    <v-chip
+                      color="orange"
+                      dark
+                      :key="i"
+                      class="mr-2"
+                      label
+                    >
+                      {{ subItem }}
+                    </v-chip>
+                  </template>
+                </template>
+                <template v-slot:item.action="{ item }">
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn @click="addProduct('update', 'sonchongthamProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
+                        <v-icon size="22">mdi-pencil</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Sửa</span>
+                  </v-tooltip>
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn @click="deleteProduct('sonchongthamProduct', item)" color="red" text icon class="" v-bind="attrs" v-on="on">
+                        <v-icon size="22">mdi-delete</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Xóa</span>
+                  </v-tooltip>
+                </template>
+              
+              </v-data-table>
+              <div class="text-center mt-4">
+                <v-pagination
+                  v-model="pageSonChongTham"
+                  :length="pageCountSonChongTham"
                 ></v-pagination>
               </div>
             </v-card-text>
@@ -368,6 +453,7 @@
         loading: false,
         loadingDataSonPhu: false,
         loadingDataSonLot: false,
+        loadingDataSonChongTham: false,
         loadingDataBotTret: false,
         dialogAddProduct: false,
         labelProduct: '',
@@ -382,6 +468,11 @@
         pageSonLot: 1,
         pageCountSonLot: 0,
         listSonLot: [],
+
+        totalItemSonChongTham: 0,
+        pageSonChongTham: 1,
+        pageCountSonChongTham: 0,
+        listSonChongTham: [],
 
         totalItemBotTret: 0,
         pageBotTret: 1,
@@ -436,6 +527,7 @@
       let vm = this
       vm.getListSonPhu()
       vm.getListSonLot()
+      vm.getListSonChongTham()
       vm.getListBotTret()
     },
     methods: {
@@ -484,6 +576,29 @@
           }
         }).catch(function () {
           vm.loadingDataSonLot = false
+        })
+      },
+      getListSonLot () {
+        let vm = this
+        vm.loadingDataSonChongTham = true
+        db.collection("sonchongthamProduct").get().then(function(querySnapshot) {
+          vm.loadingDataSonChongTham = false
+          let sonchongthamProduct = []
+          if (querySnapshot.size) {
+            querySnapshot.docs.forEach(function(item) {
+              sonchongthamProduct.push(item.data())
+            })
+            sonchongthamProduct.forEach(function(item) {
+              item['quycach'] = vm.formatQuyCach(item['quycach'])
+            })
+            vm.listSonChongTham = sonchongthamProduct
+            vm.totalItemSonChongTham = querySnapshot.size
+            vm.pageCountSonChongTham = Math.ceil(querySnapshot.size / vm.itemsPerPage)
+          } else {
+            vm.listSonChongTham = []
+          }
+        }).catch(function () {
+          vm.loadingDataSonChongTham = false
         })
       },
       getListBotTret () {

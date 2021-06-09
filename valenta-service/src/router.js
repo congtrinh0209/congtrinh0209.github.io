@@ -26,6 +26,7 @@ export default new Router({
           path: '/pages/kich-hoat-bao-hanh/:uid',
           name: 'TaoPhieuBaoHanh',
           component: () => import('@/views/dashboard/pages/TaoPhieuBaoHanh'),
+          props: true,
         },
         {
           path: '/pages/danh-muc-san-pham',

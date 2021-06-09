@@ -3,6 +3,7 @@
     id="createEWarranty"
     fluid
     tag="section"
+    :style="breakpointName === 'lg' ? 'padding-top: 75px' : ''"
   >
     <v-row justify="center">
       <v-col
@@ -10,12 +11,13 @@
       >
         <base-material-card>
           <template v-slot:heading>
-            <div class="text-h4 font-weight-light">
+            <div v-if="String(uid) === '0'" class="text-h4 font-weight-light">
               KÍCH HOẠT BẢO HÀNH SẢN PHẨM
             </div>
+            <div v-if="String(uid) !== '0'" class="text-h4 font-weight-light">
+              CẬP NHẬT THÔNG TIN BẢO HÀNH SẢN PHẨM
+            </div>
 
-            <!-- <div class="text-subtitle-1 font-weight-light">
-            </div> -->
           </template>
 
           <v-form
@@ -119,7 +121,7 @@
                     background-color="#4caf50"
                     dark
                   >
-                    <v-tabs-slider color="yellow"></v-tabs-slider>
+                    <v-tabs-slider color="blue"></v-tabs-slider>
                     <v-tab  href="#tab-1"
                     >
                       I. THI CÔNG NỘI THẤT
@@ -328,6 +330,109 @@
                             </v-col>
                             <v-col cols="12" sm="6" md="2" class="py-0">
                               <v-btn class="" color="red" @click="deleteSonLotNoiThat(i)">
+                                <v-icon left>
+                                  mdi-delete
+                                </v-icon>
+                                <span>Xóa</span>
+                              </v-btn>
+                            </v-col>
+                          </v-row>
+                        </div>
+                        <v-divider></v-divider>
+                        <!--  -->
+                        <div class="px-3">
+                          <div class="my-2 font-weight-bold">
+                            <v-icon color="info darken-2" class="mr-4" >
+                              mdi-flash-outline
+                            </v-icon>SƠN CHỐNG THẤM
+                          </div>
+                          <v-row class="my-2">
+                            <v-col cols="12" sm="6" md="6">
+                              <v-autocomplete
+                                v-model="sonChongThamSelected"
+                                :items="listSonChongTham"
+                                outlined
+                                dense
+                                label="Sản phẩm"
+                                return-object
+                                item-text="productName"
+                                item-value="uid"
+                                hide-details
+                              ></v-autocomplete>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2">
+                              <v-autocomplete
+                                v-model="quycachSonChongThamSelected"
+                                :items="sonChongThamSelected ? sonChongThamSelected['quycach'] : []"
+                                outlined
+                                dense
+                                label="Quy cách"
+                                hide-details
+                              ></v-autocomplete>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2">
+                              <v-text-field
+                                class="counter-up-down"
+                                style="width: 125px"
+                                v-model="counterSonChongTham"
+                                append-icon="mdi-plus"
+                                prepend-inner-icon="mdi-minus"
+                                type="number"
+                                label="Số lượng"
+                                outlined
+                                @click:append="increaseCounter('counterSonChongTham')"
+                                @click:prepend-inner="decreaseCounter('counterSonChongTham')"
+                                dense
+                                hide-details
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2">
+                              <v-btn class="" color="primary" @click="addNoiThatSonChongTham">
+                                <v-icon left>
+                                  mdi-plus
+                                </v-icon>
+                                <span>Thêm</span>
+                              </v-btn>
+                            </v-col>
+
+                          </v-row>
+                          <v-row class="my-2" v-for="(item, i) in noiThatSonChongTham" :key="i">
+                            <v-col cols="12" sm="6" md="6" class="d-flex align-center py-0">
+                              <span class="font-weight-bold mr-2">{{i + 1}}.</span>
+                              <v-text-field
+                                v-model="item['productName']"
+                                label="Sản phẩm"
+                                outlined
+                                dense
+                                hide-details
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2" class="py-0">
+                              <v-text-field
+                                v-model="item['quycach']"
+                                label="Quy cách"
+                                outlined
+                                dense
+                                hide-details
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2" class="py-0">
+                              <v-text-field
+                                class="counter-up-down"
+                                style="width: 125px"
+                                v-model="item['soluong']"
+                                type="number"
+                                label="Số lượng"
+                                outlined
+                                dense
+                                hide-details
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2" class="py-0">
+                              <v-btn class="" color="red" @click="deleteSonChongThamNoiThat(i)">
                                 <v-icon left>
                                   mdi-delete
                                 </v-icon>
@@ -654,6 +759,109 @@
                           <div class="my-2 font-weight-bold">
                             <v-icon color="info darken-2" class="mr-4" >
                               mdi-flash-outline
+                            </v-icon>SƠN CHỐNG THẤM
+                          </div>
+                          <v-row class="my-2">
+                            <v-col cols="12" sm="6" md="6">
+                              <v-autocomplete
+                                v-model="sonChongThamSelected"
+                                :items="listSonChongTham"
+                                outlined
+                                dense
+                                label="Sản phẩm"
+                                return-object
+                                item-text="productName"
+                                item-value="uid"
+                                hide-details
+                              ></v-autocomplete>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2">
+                              <v-autocomplete
+                                v-model="quycachSonChongThamSelected"
+                                :items="sonChongThamSelected ? sonChongThamSelected['quycach'] : []"
+                                outlined
+                                dense
+                                label="Quy cách"
+                                hide-details
+                              ></v-autocomplete>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2">
+                              <v-text-field
+                                class="counter-up-down"
+                                style="width: 125px"
+                                v-model="counterSonChongTham"
+                                append-icon="mdi-plus"
+                                prepend-inner-icon="mdi-minus"
+                                type="number"
+                                label="Số lượng"
+                                outlined
+                                @click:append="increaseCounter('counterSonChongTham')"
+                                @click:prepend-inner="decreaseCounter('counterSonChongTham')"
+                                dense
+                                hide-details
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2">
+                              <v-btn class="" color="primary" @click="addNgoaiThatSonChongTham">
+                                <v-icon left>
+                                  mdi-plus
+                                </v-icon>
+                                <span>Thêm</span>
+                              </v-btn>
+                            </v-col>
+
+                          </v-row>
+                          <v-row class="my-2" v-for="(item, i) in ngoaiThatSonChongTham" :key="i">
+                            <v-col cols="12" sm="6" md="6" class="d-flex align-center py-0">
+                              <span class="font-weight-bold mr-2">{{i + 1}}.</span>
+                              <v-text-field
+                                v-model="item['productName']"
+                                label="Sản phẩm"
+                                outlined
+                                dense
+                                hide-details
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2" class="py-0">
+                              <v-text-field
+                                v-model="item['quycach']"
+                                label="Quy cách"
+                                outlined
+                                dense
+                                hide-details
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2" class="py-0">
+                              <v-text-field
+                                class="counter-up-down"
+                                style="width: 125px"
+                                v-model="item['soluong']"
+                                type="number"
+                                label="Số lượng"
+                                outlined
+                                dense
+                                hide-details
+                                readonly
+                              ></v-text-field>
+                            </v-col>
+                            <v-col cols="12" sm="6" md="2" class="py-0">
+                              <v-btn class="" color="red" @click="deleteSonChongThamNgoaiThat(i)">
+                                <v-icon left>
+                                  mdi-delete
+                                </v-icon>
+                                <span>Xóa</span>
+                              </v-btn>
+                            </v-col>
+                          </v-row>
+                        </div>
+                        <v-divider></v-divider>
+                        <!--  -->
+                        <div class="px-3">
+                          <div class="my-2 font-weight-bold">
+                            <v-icon color="info darken-2" class="mr-4" >
+                              mdi-flash-outline
                             </v-icon>BỘT TRÉT
                           </div>
                           <v-row class="my-2">
@@ -765,7 +973,7 @@
                 <span style="color: #00bcd4">THỜI GIAN BẢO HÀNH</span>
               </div>
               <div>
-                <div class="mb-3">
+                <div class="mb-5">
                   <div class="d-inline-block" style="width: 130px">
                     <v-icon color="blue" class="mr-3" >
                       mdi-calendar-range
@@ -900,6 +1108,32 @@
               </div>
             </v-container>
           </v-form>
+          <v-row class="mt-5">
+            <v-col
+              cols="12"
+              class="text-center"
+            >
+              <v-btn v-if="String(uid) === '0'" class="mr-3" color="primary" @click="activeEWarranty">
+                <v-icon left>
+                  mdi-content-save-outline
+                </v-icon>
+                <span>KÍCH HOẠT</span>
+              </v-btn>
+              <v-btn v-if="String(uid) !== '0'" class="mr-3" color="primary" @click="updateEWarranty">
+                <v-icon left>
+                  mdi-content-save-outline
+                </v-icon>
+                <span>CẬP NHẬT</span>
+              </v-btn>
+              <v-btn class="mr-0" color="red" @click="cancelAction">
+                <v-icon left>
+                  mdi-close
+                </v-icon>
+                <span>THOÁT</span>
+              </v-btn>
+            </v-col>
+          </v-row>
+          
         </base-material-card>
       </v-col>
     </v-row>
@@ -920,6 +1154,7 @@
 
         listSonPhu: [],
         listSonLot: [],
+        listSonChongTham: [],
         listBotTret: [],
 
         noiThatSonPhu: [],
@@ -932,25 +1167,20 @@
         counterSonLot: 0,
         quycachSonLotSelected: '',
 
+        noiThatSonChongTham: [],
+        sonChongThamSelected: '',
+        counterSonChongTham: 0,
+        quycachSonChongThamSelected: '',
+
         noiThatBotTret: [],
         botTretSelected: '',
         counterBotTret: 0,
         quycachBotTretSelected: '',
 
         ngoaiThatSonPhu: [],
-        counterSonPhu: 0,
-        sonPhuSelected: '',
-        quycachSelected: '',
-
         ngoaiThatSonLot: [],
-        sonLotSelected: '',
-        counterSonLot: 0,
-        quycachSonLotSelected: '',
-
+        ngoaiThatSonChongTham: [],
         ngoaiThatBotTret: [],
-        botTretSelected: '',
-        counterBotTret: 0,
-        quycachBotTretSelected: '',
 
         noiThatFromDueDateDay: '',
         noiThatFromDueDateMonth: '',
@@ -1035,6 +1265,7 @@
       }
       vm.getListSonPhu()
       vm.getListSonLot()
+      vm.getListChongTham()
       vm.getListBotTret()
       vm.days = []
       for (let i = 1; i<=31; i++) {
@@ -1056,21 +1287,9 @@
       vm.noiThatToDueDateYear = dateNoiThat.getFullYear()
     },
     methods: {
-      addMember () {
+      activeEWarranty () {
         let vm = this
-        vm.dialogAddMember = true
-        setTimeout(function () {
-          vm.account = ''
-          vm.passWord = ''
-          vm.userName = ''
-          vm.telNo = ''
-          vm.address = ''
-          vm.$refs.formAddMember.resetValidation()
-        }, 200)
-      },
-      submitAddMember () {
-        let vm = this
-        if (vm.$refs.formAddMember.validate()) {
+        if (vm.$refs.formAddWarranty.validate()) {
           let dataUserAuthen = {
             account: String(vm.account).trim() + '@gmail.com',
             passWord: String(vm.passWord).trim(),
@@ -1125,9 +1344,12 @@
           });
         }
       },
-      cancelAddMember () {
+      updateEWarranty () {
         let vm = this
-        vm.dialogAddMember = false
+      },
+      cancelAction () {
+        let vm = this
+
       },
       getListSonPhu () {
         let vm = this
@@ -1162,6 +1384,24 @@
             vm.listSonLot = sonlotProduct
           } else {
             vm.listSonLot = []
+          }
+        }).catch(function () {
+        })
+      },
+      getListChongTham () {
+        let vm = this
+        db.collection("sonchongthamProduct").get().then(function(querySnapshot) {
+          let sonchongthamProduct = []
+          if (querySnapshot.size) {
+            querySnapshot.docs.forEach(function(item) {
+              sonchongthamProduct.push(item.data())
+            })
+            sonchongthamProduct.forEach(function(item) {
+              item['quycach'] = vm.formatQuyCach(item['quycach'])
+            })
+            vm.listSonChongTham = sonchongthamProduct
+          } else {
+            vm.listSonChongTham = []
           }
         }).catch(function () {
         })
@@ -1225,6 +1465,24 @@
         let vm = this
         vm.noiThatSonLot.splice(index, 1)
       },
+      addNoiThatSonChongTham () {
+        let vm = this
+        if (vm.sonChongThamSelected && vm.quycachSonChongThamSelected && vm.counterSonChongTham) {
+          let item = {
+            productName: vm.sonChongThamSelected['productName'],
+            quycach: vm.quycachSonChongThamSelected,
+            soluong: vm.counterSonChongTham
+          }
+          vm.noiThatSonChongTham.push(item)
+          vm.sonChongThamSelected = ''
+          vm.quycachSonChongThamSelected = ''
+          vm.counterSonChongTham = 0
+        }
+      },
+      deleteSonChongThamNoiThat (index) {
+        let vm = this
+        vm.noiThatSonChongTham.splice(index, 1)
+      },
       addNoiThatBotTret () {
         let vm = this
         if (vm.botTretSelected && vm.quycachBotTretSelected && vm.counterBotTret) {
@@ -1262,6 +1520,7 @@
         let vm = this
         vm.ngoaiThatSonPhu.splice(index, 1)
       },
+      // 
       addNgoaiThatSonLot () {
         let vm = this
         if (vm.sonLotSelected && vm.quycachSonLotSelected && vm.counterSonLot) {
@@ -1280,6 +1539,26 @@
         let vm = this
         vm.ngoaiThatSonLot.splice(index, 1)
       },
+      // 
+      addNgoaiThatSonChongTham () {
+        let vm = this
+        if (vm.sonChongThamSelected && vm.quycachSonChongThamSelected && vm.counterSonChongTham) {
+          let item = {
+            productName: vm.sonChongThamSelected['productName'],
+            quycach: vm.quycachSonChongThamSelected,
+            soluong: vm.counterSonChongTham
+          }
+          vm.ngoaiThatSonChongTham.push(item)
+          vm.sonChongThamSelected = ''
+          vm.quycachSonChongThamSelected = ''
+          vm.counterSonChongTham = 0
+        }
+      },
+      deleteSonChongThamNgoaiThat (index) {
+        let vm = this
+        vm.ngoaiThatSonChongTham.splice(index, 1)
+      },
+      // 
       addNgoaiThatBotTret () {
         let vm = this
         if (vm.botTretSelected && vm.quycachBotTretSelected && vm.counterBotTret) {

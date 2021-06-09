@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap-page-login">
+  <div class="baohanh wrap-page-login" style="min-height: calc(100vh - 92px) !important">
     <v-container fluid class="page-login" fill-height>
       <v-row>
         <v-col :cols="12">
@@ -31,16 +31,16 @@
                 />
               </v-form>
             </v-card-text>
-            <v-card-actions class="mx-2 pt-0">
+            <v-card-actions class="mx-2 pt-0 mb-3">
               <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="createEWarranty">
                 <v-icon size="20" color="#fff" class="mr-2">mdi-login-variant</v-icon> 
                 <span>KÍCH HOẠT BẢO HÀNH</span>
               </v-btn>
             </v-card-actions>
             <v-card-actions class="mx-2 pt-0">
-              <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="">
+              <v-btn class="btn-submit-login" tile color="orange" :loading="loading" @click="searchBaoHanh">
                 <v-icon size="20" color="#fff" class="mr-2">mdi-credit-card-search-outline</v-icon> 
-                <span>THÔNG TIN BẢO HÀNH</span>
+                <span>TRA CỨU THÔNG TIN BẢO HÀNH</span>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -76,10 +76,12 @@ export default {
         }
       )
     },
-    handleRegister() {
-      console.log(this)
-    },
-    handleSocialLogin() {},
+    searchBaoHanh () {
+      let vm = this
+      if (vm.eCode) {
+
+      }
+    }
   },
 }
 </script>
@@ -96,6 +98,7 @@ export default {
   }
 </style>
 <style lang="css" scoped>
+  
 .label-bh {
   font-weight: bold;
   color: #0c0078;

@@ -78,70 +78,87 @@
     },
 
     data: () => ({
-      items: [
-        {
-          icon: 'mdi-home-circle-outline',
-          title: 'Trang chủ',
-          class: 'home-tab'
-        },
-        {
-          icon: 'mdi-credit-card-search-outline',
-          title: 'Tra cứu bảo hành',
-          to: '/',
-        },
-        {
-          icon: 'mdi-shield-plus-outline',
-          title: 'Kích hoạt bảo hành',
-          to: '/pages/kich-hoat-bao-hanh/0',
-        },
-        {
-          icon: 'mdi-format-list-bulleted',
-          title: 'Quản lý phiếu bảo hành',
-          to: '/pages/quan-ly-bao-hanh',
-        },
-        {
-          icon: 'mdi-inbox-multiple-outline',
-          title: 'Danh mục sản phẩm',
-          to: '/pages/danh-muc-san-pham',
-        },
-        {
-          icon: 'mdi-account-supervisor-circle',
-          title: 'Danh sách khách hàng',
-          to: '/pages/danh-sach-khach-hang',
-        },
-        {
-          icon: 'mdi-account',
-          title: 'Danh sách nhân viên, đại lý',
-          to: '/pages/users',
-        },
-        // {
-        //   title: 'rtables',
-        //   icon: 'mdi-clipboard-outline',
-        //   to: '/tables/regular-tables',
-        // },
-        // {
-        //   title: 'typography',
-        //   icon: 'mdi-format-font',
-        //   to: '/components/typography',
-        // },
-        // {
-        //   title: 'icons',
-        //   icon: 'mdi-chart-bubble',
-        //   to: '/components/icons',
-        // },
-        // {
-        //   title: 'google',
-        //   icon: 'mdi-map-marker',
-        //   to: '/maps/google-maps',
-        // },
-        // {
-        //   title: 'notifications',
-        //   icon: 'mdi-bell',
-        //   to: '/components/notifications',
-        // },
-      ],
+      items: []
     }),
-
+    created () {
+      let vm = this
+      console.log('userLogin', vm.userLogin)
+      if (vm.userLogin && vm.userLogin['role'] && vm.userLogin['role'] === 'Admin') {
+        vm.items = [
+          {
+            icon: 'mdi-home',
+            title: 'Trang chủ',
+            class: 'home-tab'
+          },
+          {
+            icon: 'mdi-credit-card-search-outline',
+            title: 'Tra cứu bảo hành',
+            to: '/',
+          },
+          {
+            icon: 'mdi-shield-plus-outline',
+            title: 'Kích hoạt bảo hành',
+            to: '/pages/kich-hoat-bao-hanh/0',
+          },
+          {
+            icon: 'mdi-format-list-bulleted',
+            title: 'Quản lý phiếu bảo hành',
+            to: '/pages/quan-ly-bao-hanh',
+          },
+          {
+            icon: 'mdi-inbox-multiple-outline',
+            title: 'Danh mục sản phẩm',
+            to: '/pages/danh-muc-san-pham',
+          },
+          {
+            icon: 'mdi-account-supervisor-circle',
+            title: 'Danh sách khách hàng',
+            to: '/pages/danh-sach-khach-hang',
+          },
+          {
+            icon: 'mdi-account',
+            title: 'Danh sách nhân viên, đại lý',
+            to: '/pages/users',
+          }
+        ]
+      } else if (vm.userLogin && vm.userLogin['role'] && vm.userLogin['role'] === 'Member') {
+        vm.items = [
+          {
+            icon: 'mdi-home',
+            title: 'Trang chủ',
+            class: 'home-tab'
+          },
+          {
+            icon: 'mdi-credit-card-search-outline',
+            title: 'Tra cứu bảo hành',
+            to: '/',
+          },
+          {
+            icon: 'mdi-shield-plus-outline',
+            title: 'Kích hoạt bảo hành',
+            to: '/pages/kich-hoat-bao-hanh/0',
+          },
+          {
+            icon: 'mdi-format-list-bulleted',
+            title: 'Quản lý phiếu bảo hành',
+            to: '/pages/quan-ly-bao-hanh',
+          }
+        ]
+      } else {
+        vm.items = [
+          {
+            icon: 'mdi-home',
+            title: 'Trang chủ',
+            class: 'home-tab'
+          },
+          {
+            icon: 'mdi-credit-card-search-outline',
+            title: 'Tra cứu bảo hành',
+            to: '/',
+          }
+        ]
+      }
+    },
     computed: {
       ...mapState(['barColor', 'barImage']),
       drawer: {
@@ -161,8 +178,96 @@
           title: this.$t('avatar'),
         }
       },
+      userLogin () {
+        console.log('1231241241231', this.$store.getters.getPermistion)
+        return this.$store.getters.getPermistion
+      }
     },
-
+    watch: {
+      userLogin (val) {
+        let vm = this
+        if (val && val['role'] && val['role'] === 'Admin') {
+          vm.items = [
+            {
+              icon: 'mdi-home',
+              title: 'Trang chủ',
+              class: 'home-tab'
+            },
+            {
+              icon: 'mdi-credit-card-search-outline',
+              title: 'Tra cứu bảo hành',
+              to: '/',
+            },
+            {
+              icon: 'mdi-shield-plus-outline',
+              title: 'Kích hoạt bảo hành',
+              to: '/pages/kich-hoat-bao-hanh/0',
+            },
+            {
+              icon: 'mdi-format-list-bulleted',
+              title: 'Quản lý phiếu bảo hành',
+              to: '/pages/quan-ly-bao-hanh',
+            },
+            {
+              icon: 'mdi-inbox-multiple-outline',
+              title: 'Danh mục sản phẩm',
+              to: '/pages/danh-muc-san-pham',
+            },
+            {
+              icon: 'mdi-account-supervisor-circle',
+              title: 'Danh sách khách hàng',
+              to: '/pages/danh-sach-khach-hang',
+            },
+            {
+              icon: 'mdi-account',
+              title: 'Danh sách nhân viên, đại lý',
+              to: '/pages/users',
+            }
+          ]
+        } else if (val && val['role'] && val['role'] === 'Member') {
+          vm.items = [
+            {
+              icon: 'mdi-home',
+              title: 'Trang chủ',
+              class: 'home-tab'
+            },
+            {
+              icon: 'mdi-credit-card-search-outline',
+              title: 'Tra cứu bảo hành',
+              to: '/',
+            },
+            {
+              icon: 'mdi-shield-plus-outline',
+              title: 'Kích hoạt bảo hành',
+              to: '/pages/kich-hoat-bao-hanh/0',
+            },
+            {
+              icon: 'mdi-format-list-bulleted',
+              title: 'Quản lý phiếu bảo hành',
+              to: '/pages/quan-ly-bao-hanh',
+            }
+          ]
+        } else {
+          vm.items = [
+            {
+              icon: 'mdi-home',
+              title: 'Trang chủ',
+              class: 'home-tab'
+            },
+            {
+              icon: 'mdi-credit-card-search-outline',
+              title: 'Tra cứu bảo hành',
+              to: '/',
+            },
+            {
+              icon: 'mdi-login-variant',
+              title: 'Đăng nhập',
+              to: '/login',
+            }
+          ]
+        }
+      }
+    },
     methods: {
       mapItem (item) {
         return {

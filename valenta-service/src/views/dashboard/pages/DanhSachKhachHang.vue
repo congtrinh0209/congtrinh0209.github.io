@@ -4,6 +4,7 @@
       id="users"
       fluid
       tag="section"
+      :style="breakpointName === 'lg' ? 'padding-top: 75px' : ''"
     >
       <base-material-card
         :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"

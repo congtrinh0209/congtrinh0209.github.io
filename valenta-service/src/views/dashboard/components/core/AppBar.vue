@@ -33,13 +33,14 @@
     <div class="mx-3" />
     
     <v-menu
+      v-if="userLogin"
       bottom
       left
       offset-y
       origin="top right"
       transition="scale-transition"
     >
-      <template v-slot:activator="{ attrs, on }">
+      <!-- <template v-slot:activator="{ attrs, on }">
         <v-btn
           class="ml-2"
           min-width="0"
@@ -59,7 +60,7 @@
             <v-icon>mdi-bell</v-icon>
           </v-badge>
         </v-btn>
-      </template>
+      </template> -->
 
       <v-list
         :tile="false"
@@ -76,7 +77,7 @@
       </v-list>
     </v-menu>
 
-    <v-menu offset-y origin="center center" transition="scale-transition">
+    <v-menu v-if="userLogin" offset-y origin="center center" transition="scale-transition">
       <template #activator="{ on }">
         <v-btn slot="activator" class="ml-2" min-width="0" text v-on="on">
           <v-icon>mdi-account</v-icon>
@@ -165,6 +166,9 @@
 
     computed: {
       ...mapState(['drawer']),
+      userLogin () {
+        return this.$store.getters.getPermistion
+      }
     },
 
     methods: {
@@ -175,7 +179,7 @@
         this.$store
           .dispatch('logout')
           .then(() => {
-            this.$router.push({ path: '/' })
+            window.location.href = window.location.origin
           })
           .catch(() => {
             this.$store.commit('SHOW_SNACKBAR', {

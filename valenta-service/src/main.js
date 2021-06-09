@@ -56,10 +56,24 @@ firebase.auth().onAuthStateChanged(async (user) => {
     window.location.href = window.location.origin + '/#/'
     return
   }
-  let tokenFirebase = await user.getIdToken()
-  store.dispatch("SET_LOGIN", (tokenFirebase, ''))
-  store.dispatch("SET_USER_PERMISTION", user)
-  store.dispatch("SET_LOGIN_PROFILE", user)
+  var tokenFirebase = await user.getIdToken()
+  var userLoginInfo = null
+  db.collection("users").where("uid", "==", user.uid).get().then(function(querySnapshot) {
+    var usersList = []
+    if (querySnapshot.size) {
+      querySnapshot.docs.forEach(function(item) {
+        usersList.push(item.data())
+      })
+      if (usersList.length === 1) {
+        userLoginInfo = usersList[0]
+      }
+    } else {
+    }
+    store.commit("SET_USER_PERMISTION", userLoginInfo)
+    store.commit("SET_LOGIN_PROFILE", userLoginInfo)
+  }).catch(function () {
+  })
+  store.commit("SET_LOGIN", (tokenFirebase, ''))
   // window.location.href = window.location.origin + '/#/tables/regular-tables'
 });
 Vue.mixin({
@@ -74,5 +88,8 @@ new Vue({
   store,
   vuetify,
   i18n,
+  beforeCreate () {
+    
+  },
   render: h => h(App),
 }).$mount('#app')
