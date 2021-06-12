@@ -4,10 +4,10 @@
       id="users"
       fluid
       tag="section"
-      :style="breakpointName === 'lg' ? 'padding-top: 75px' : ''"
+      style="padding-top: 75px"
     >
       <base-material-card
-        :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
+        style="margin-top: 20px"
         icon="mdi-clipboard-text"
         title="Danh sách nhân viên, đại lý bán hàng"
         class="px-5 py-3"
@@ -292,6 +292,11 @@
       let vm = this
       vm.getMembers()
     },
+    computed: {
+      breakpointName () {
+        return this.$store.getters.getBreakpointName
+      }
+    },
     methods: {
       getMembers () {
         let vm = this
@@ -459,9 +464,6 @@
 <style lang="css" scoped>
   .v-data-table-header-mobile {
     display: none !important;
-  }
-  main {
-    padding-top: 75px !important;
   }
 </style>
 

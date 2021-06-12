@@ -23,7 +23,6 @@
                   required
                   outlined
                   :rules="formRule.username"
-                  autofocus
                 />
                 <v-text-field
                   v-model="formModel.password"

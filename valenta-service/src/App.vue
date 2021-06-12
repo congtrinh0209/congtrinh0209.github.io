@@ -35,8 +35,8 @@
     },
     methods: {
       onResize: function () {
-        this.breakpointName = this.$vuetify.breakpoint.name
-        console.log("breakpoint name: " + this.breakpointName)
+        let breakpointName = this.$vuetify.breakpoint.name
+        this.$store.commit('SET_BREAKPOINTNAME', breakpointName)
       }
     }
   }

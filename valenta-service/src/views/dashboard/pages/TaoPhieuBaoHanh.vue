@@ -3,7 +3,7 @@
     id="createEWarranty"
     fluid
     tag="section"
-    :style="breakpointName === 'lg' ? 'padding-top: 75px' : ''"
+    style="padding-top: 75px"
   >
     <v-row justify="center">
       <v-col
@@ -38,7 +38,7 @@
                 >
                   <v-text-field
                     v-model="activeCode"
-                    :rules="customNameRules"
+                    :rules="[required, maxLength75]"
                     required
                     outlined
                     placeholder=""
@@ -62,8 +62,8 @@
                 >
                   <div class="mb-2">Tên khách hàng <span style="color:red">(*)</span></div>
                   <v-text-field
-                    v-model="customName"
-                    :rules="customNameRules"
+                    v-model="customerName"
+                    :rules="[required]"
                     required
                     outlined
                     placeholder=""
@@ -80,8 +80,8 @@
                 >
                   <div class="mb-2">Số điện thoại <span style="color:red">(*)</span></div>
                   <v-text-field
-                    v-model="customTelNo"
-                    :rules="customTelNoRules"
+                    v-model="customerTelNo"
+                    :rules="[required]"
                     required
                     outlined
                     placeholder=""
@@ -96,8 +96,8 @@
                 >
                   <div class="mb-2">Địa chỉ công trình <span style="color:red">(*)</span></div>
                   <v-text-field
-                    v-model="customAddress"
-                    :rules="customAddressRules"
+                    v-model="customerAddress"
+                    :rules="[required]"
                     outlined
                     placeholder="Địa chỉ"
                     prepend-inner-icon="mdi-map-marker"
@@ -394,7 +394,6 @@
                                 <span>Thêm</span>
                               </v-btn>
                             </v-col>
-
                           </v-row>
                           <v-row class="my-2" v-for="(item, i) in noiThatSonChongTham" :key="i">
                             <v-col cols="12" sm="6" md="6" class="d-flex align-center py-0">
@@ -596,7 +595,7 @@
                               ></v-text-field>
                             </v-col>
                             <v-col cols="12" sm="6" md="2">
-                              <v-btn class="" color="primary" @click="addNoiThatSonPhu">
+                              <v-btn class="" color="primary" @click="addNgoaiThatSonPhu">
                                 <v-icon left>
                                   mdi-plus
                                 </v-icon>
@@ -1119,7 +1118,7 @@
                 </v-icon>
                 <span>KÍCH HOẠT</span>
               </v-btn>
-              <v-btn v-if="String(uid) !== '0'" class="mr-3" color="primary" @click="updateEWarranty">
+              <v-btn v-if="String(uid) !== '0'" class="mr-3" color="primary" @click="activeEWarranty">
                 <v-icon left>
                   mdi-content-save-outline
                 </v-icon>
@@ -1149,8 +1148,12 @@
         loading: false,
         validFormAdd: true,
         tab: null,
+        typeAction: 'add',
 
         activeCode: '',
+        customerName: '',
+        customerTelNo: '',
+        customerAddress: '',
 
         listSonPhu: [],
         listSonLot: [],
@@ -1199,9 +1202,11 @@
         ngoaiThatToDueDateYear: '',
 
         userName: '',
-        nameRules: [
-          v => !!v || 'Tên thành viên là bắt buộc',
-          v => (v && v.length <= 100) || 'Tên không quá 100 ký tự',
+        required: [
+          v => !!v || 'Thông tin bắt buộc'
+        ],
+        maxLength75: [
+          v => (v && v.length <= 75) || 'Độ dài Không quá 75 ký tự',
         ],
         account: '',
         accountRules: [
@@ -1257,8 +1262,21 @@
         ],
       }
     },
+    computed: {
+      breakpointName () {
+        return this.$store.getters.getBreakpointName
+      },
+      userLogin () {
+        return this.$store.getters.getPermistion
+      }
+    },
     created () {
       let vm = this
+      if (String(vm.uid) === '0') {
+        vm.typeAction = 'add'
+      } else {
+        vm.typeAction = 'update'
+      }
       let current = vm.$router.history.current.query
       if (current.hasOwnProperty('activeCode') && current['activeCode']) {
         vm.activeCode = current.activeCode
@@ -1290,66 +1308,137 @@
       activeEWarranty () {
         let vm = this
         if (vm.$refs.formAddWarranty.validate()) {
-          let dataUserAuthen = {
-            account: String(vm.account).trim() + '@gmail.com',
-            passWord: String(vm.passWord).trim(),
-            userName: String(vm.userName).trim(),
-            telNo: String(vm.telNo).trim(),
-            address: String(vm.address).trim()
-          }
-          vm.loading = true
-          firebase.auth().createUserWithEmailAndPassword(dataUserAuthen.account, dataUserAuthen.passWord)
-          .then(userCredential => {
-            vm.loading = false
-            vm.$store.commit('SHOW_SNACKBAR', {
-              show: true,
-              text: 'Thêm thành viên thành công',
-              color: 'success',
-            })
-            // Signed in 
-            let user = userCredential.user;
-            db.collection("users").doc(user.uid).set({
-              account: String(vm.account).trim(),
-              userName: dataUserAuthen.userName,
-              telNo: dataUserAuthen.telNo,
-              address: dataUserAuthen.address,
-              role: "Member"
-            })
-            .then(() => {
-            })
-            .catch((error) => {
-            });
-            // ...
-          })
-          .catch((error) => {
-            vm.loading = false
-            let errorCode = error.code;
-            let errorMessage = error.message;
-            let mess = ''
-            if (errorCode == 'auth/email-already-in-use') {
-              mess = 'Tên đăng nhập đã được sử dụng. Vui lòng sử dụng tên đăng nhập khác.'
-            } else if (errorCode == 'auth/weak-password') {
-              mess = 'Mật khẩu quá yếu'
-            } else if (errorCode == 'auth/invalid-email') {
-              mess = 'Tên đăng nhập không hợp lệ'
-            } else {
-              mess = errorMessage
+          let doAction = function () {
+            let noithatList = [...vm.noiThatSonPhu, ...vm.noiThatSonLot, ...vm.noiThatSonChongTham, ...vm.noiThatBotTret]
+            let ngoaithatList = [...vm.ngoaiThatSonPhu, ...vm.ngoaiThatSonLot, ...vm.ngoaiThatSonChongTham, ...vm.ngoaiThatBotTret]
+
+            let dateFromA = String(vm.noiThatFromDueDateDay).padStart(2, '0') + '/' + String(vm.noiThatFromDueDateMonth).padStart(2, '0') + '/' + vm.noiThatFromDueDateYear
+            let dateFromB = String(vm.noiThatToDueDateDay).padStart(2, '0') + '/' + String(vm.noiThatToDueDateMonth).padStart(2, '0') + '/' + vm.noiThatToDueDateYear
+            let dateFrom1 = vm.noiThatFromDueDateYear + '-' + String(vm.noiThatFromDueDateMonth).padStart(2, '0') + '-' + String(vm.noiThatFromDueDateDay).padStart(2, '0')
+            let dateFrom2 = vm.noiThatToDueDateYear + '-' + String(vm.noiThatToDueDateMonth).padStart(2, '0') + '-' + String(vm.noiThatToDueDateDay).padStart(2, '0')
+            let dateNoiThatFromTimeStamp = (new Date(dateFrom1)).getTime()
+            let dateNoiThatToTimeStamp = (new Date(dateFrom2)).getTime()
+
+            let currentDateTimeStamp = (new Date()).getTime()
+            let currentDateLocal = String((new Date()).getDate()).padStart(2, '0') + '/' + String(((new Date()).getMonth() + 1)).padStart(2, '0') + '/' + (new Date()).getFullYear()
+            let dateFromC = String(vm.ngoaiThatFromDueDateDay).padStart(2, '0') + '/' + String(vm.ngoaiThatFromDueDateMonth).padStart(2, '0') + '/' + vm.ngoaiThatFromDueDateYear
+            let dateFromD = String(vm.ngoaiThatToDueDateDay).padStart(2, '0') + '/' + String(vm.ngoaiThatToDueDateMonth).padStart(2, '0') + '/' + vm.ngoaiThatToDueDateYear
+            let dateFrom3 = vm.ngoaiThatFromDueDateYear + '-' + String(vm.ngoaiThatFromDueDateMonth).padStart(2, '0') + '-' + String(vm.ngoaiThatFromDueDateDay).padStart(2, '0')
+            let dateFrom4 = vm.ngoaiThatToDueDateYear + '-' + String(vm.ngoaiThatToDueDateMonth).padStart(2, '0') + '-' + String(vm.ngoaiThatToDueDateDay).padStart(2, '0')
+            let dateNgoaiThatFromTimeStamp = (new Date(dateFrom3)).getTime()
+            let dateNgoaiThatToTimeStamp = (new Date(dateFrom4)).getTime()
+            // console.log('noithatList', noithatList)
+            // console.log('ngoaithatList', ngoaithatList)
+            // console.log('dateNoiThat', dateFromA, dateFromB)
+            // console.log('dateNoiThatTimeStamp', dateNoiThatFromTimeStamp, dateNoiThatToTimeStamp)
+            // console.log('dateNgoaiThat', dateFromC, dateFromD)
+            // console.log('dateNgoaiThatTimeStamp', dateNgoaiThatFromTimeStamp, dateNgoaiThatToTimeStamp)
+            let dataInput = {
+              codeNumber: vm.activeCode,
+              customerName: vm.customerName,
+              customerTelNo: vm.customerTelNo,
+              customerAddress: vm.customerAddress,
+              branchName: vm.userLogin ? vm.userLogin['userName'] : '',
+              branchTelNo: vm.userLogin ? vm.userLogin['telNo'] : '',
+              branchAddress: vm.userLogin ? vm.userLogin['address'] : '',
+              noithatProducts: noithatList,
+              ngoaithatProducts: ngoaithatList,
+              createDate: currentDateTimeStamp,
+              createDateLocal: currentDateLocal,
+              modifyDate: currentDateTimeStamp,
+              modifyDateLocal: currentDateLocal,
+              noiThatMfgDate: dateNoiThatFromTimeStamp,
+              noiThatExpDate: dateNoiThatToTimeStamp,
+              noiThatMfgDateLocal: dateFromA,
+              noiThatExpDateLocal: dateFromB,
+              ngoaiThatMfgDate: dateNgoaiThatFromTimeStamp,
+              ngoaiThatExpDate: dateNgoaiThatToTimeStamp,
+              ngoaiThatMfgDateLocal: dateFromC,
+              ngoaiThatExpDateLocal: dateFromD,
+              confirm: false,
+              uid: ''
             }
-            vm.$store.commit('SHOW_SNACKBAR', {
-              show: true,
-              text: mess,
-              color: 'error',
+            vm.loading = true
+            if (vm.typeAction === 'add') {
+              db.collection('warranty').add(dataInput).then((docRef) => {
+                vm.counterWarranty('inc')
+                vm.loading = false
+                dataInput.uid = docRef.id
+                db.collection('warranty').doc(docRef.id).set(dataInput)
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Kích hoạt bảo hành thành công',
+                  color: 'success',
+                })
+                let dataCustomer = {
+                  customerName: vm.customerName,
+                  customerTelNo: vm.customerTelNo,
+                  customerAddress: vm.customerAddress,
+                  dealDate: currentDateTimeStamp,
+                  dealDateLocal: currentDateLocal,
+                  eWarrantyCode: vm.activeCode
+                }
+                vm.createCustomer(dataCustomer)
+                vm.$router.push(
+                  {
+                    path: '/pages/quan-ly-bao-hanh'
+                  }
+                )
+              }).catch((error) => {
+                vm.loading = false
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Kích hoạt bảo hành thất bại',
+                  color: 'error',
+                })
+              })
+              
+            }
+          }
+          if (vm.typeAction === 'add') {
+            db.collection("warranty").where("codeNumber", "==", String(vm.activeCode)).get().then(function(querySnapshot) {
+              if (querySnapshot.size) {
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: "Mã thẻ " + vm.activeCode + " đã được kích hoạt trước đó. Vui lòng kiểm tra lại.",
+                  color: 'error',
+                })
+              } else {
+                doAction()
+              }
+            }).catch(function() {
+              doAction()
             })
-            // ..
-          });
+          }
+          
         }
       },
-      updateEWarranty () {
+      counterWarranty (type) {
+        let ref = db.collection('counters').doc('counterWarranty')
+        if (type === 'inc') {
+          incrementCounter(db, ref, 10).then(function() {
+            getCount(ref)
+          })
+        } else {
+        }
+      },
+      counterCustomer (type) {
+        let ref = db.collection('counters').doc('counterCustomer')
+        if (type === 'inc') {
+          incrementCounter(db, ref, 10).then(function() {
+            getCount(ref)
+          })
+        } else {
+        }
+      },
+      createCustomer (data) {
         let vm = this
+        db.collection('customers').add(data).then(() => {
+          vm.counterCustomer('inc')
+        })
       },
       cancelAction () {
         let vm = this
-
       },
       getListSonPhu () {
         let vm = this
@@ -1596,8 +1685,5 @@
 <style lang="css" scoped>
   .v-data-table-header-mobile {
     display: none !important;
-  }
-  main {
-    padding-top: 75px !important;
   }
 </style>

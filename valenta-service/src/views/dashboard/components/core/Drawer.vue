@@ -82,7 +82,6 @@
     }),
     created () {
       let vm = this
-      console.log('userLogin', vm.userLogin)
       if (vm.userLogin && vm.userLogin['role'] && vm.userLogin['role'] === 'Admin') {
         vm.items = [
           {
@@ -155,6 +154,11 @@
             icon: 'mdi-credit-card-search-outline',
             title: 'Tra cứu bảo hành',
             to: '/',
+          },
+          {
+            icon: 'mdi-login-variant',
+            title: 'Đăng nhập',
+            to: '/login',
           }
         ]
       }
@@ -179,7 +183,6 @@
         }
       },
       userLogin () {
-        console.log('1231241241231', this.$store.getters.getPermistion)
         return this.$store.getters.getPermistion
       }
     },

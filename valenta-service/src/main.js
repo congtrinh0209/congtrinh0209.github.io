@@ -74,11 +74,9 @@ firebase.auth().onAuthStateChanged(async (user) => {
   }).catch(function () {
   })
   store.commit("SET_LOGIN", (tokenFirebase, ''))
-  // window.location.href = window.location.origin + '/#/tables/regular-tables'
 });
 Vue.mixin({
   data: () => ({
-    breakpointName: ''
   }),
   methods: {
   }

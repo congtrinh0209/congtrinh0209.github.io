@@ -4,10 +4,10 @@
       id="users"
       fluid
       tag="section"
-      :style="breakpointName === 'lg' ? 'padding-top: 75px' : ''"
+      style="padding-top: 75px"
     >
       <base-material-card
-        :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
+        style="margin-top: 20px"
         icon="mdi-clipboard-text"
         title="Danh sách khách hàng"
         class="px-5 py-3"
@@ -33,7 +33,9 @@
               :loading="loadingData"
               loading-text="Đang tải... "
             >
-                        
+              <template v-slot:item.index="{ item, index }">
+                <span>{{ index + 1 }}</span>
+              </template> 
             </v-data-table>
             <div class="text-center mt-4">
               <v-pagination
@@ -107,32 +109,32 @@
           {
             sortable: false,
             text: 'Tên khách hàng',
-            align: 'center',
+            align: 'left',
             value: 'customerName'
           },
           {
             sortable: false,
             text: 'Số điện thoại',
-            align: 'center',
-            value: 'telNo'
+            align: 'left',
+            value: 'customerTelNo'
           },
           {
             sortable: false,
             text: 'Địa chỉ',
-            align: 'center',
-            value: 'address'
+            align: 'left',
+            value: 'customerAddress'
           },
           {
             sortable: false,
             text: 'Ngày mua hàng',
             align: 'center',
-            value: 'createDate'
+            value: 'dealDateLocal'
           },
           {
             sortable: false,
             text: 'Mã thẻ bảo hành',
             align: 'center',
-            value: 'warranryCode'
+            value: 'eWarrantyCode'
           }
         ],
       }
@@ -140,6 +142,11 @@
     created () {
       let vm = this
       vm.getCustomer()
+    },
+    computed: {
+      breakpointName () {
+        return this.$store.getters.getBreakpointName
+      }
     },
     methods: {
       getCustomer () {
@@ -168,9 +175,6 @@
 <style lang="css" scoped>
   .v-data-table-header-mobile {
     display: none !important;
-  }
-  main {
-    padding-top: 75px !important;
   }
 </style>
 

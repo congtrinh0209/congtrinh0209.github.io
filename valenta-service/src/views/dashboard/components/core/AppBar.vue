@@ -32,15 +32,15 @@
 
     <div class="mx-3" />
     
-    <v-menu
-      v-if="userLogin"
+    <!-- <v-menu
+      v-if="userLogin && userLogin !== 'guest'"
       bottom
       left
       offset-y
       origin="top right"
       transition="scale-transition"
     >
-      <!-- <template v-slot:activator="{ attrs, on }">
+      <template v-slot:activator="{ attrs, on }">
         <v-btn
           class="ml-2"
           min-width="0"
@@ -60,7 +60,7 @@
             <v-icon>mdi-bell</v-icon>
           </v-badge>
         </v-btn>
-      </template> -->
+      </template>
 
       <v-list
         :tile="false"
@@ -75,9 +75,9 @@
           </app-bar-item>
         </div>
       </v-list>
-    </v-menu>
+    </v-menu> -->
 
-    <v-menu v-if="userLogin" offset-y origin="center center" transition="scale-transition">
+    <v-menu v-if="userLogin && userLogin !== 'guest'" offset-y origin="center center" transition="scale-transition">
       <template #activator="{ on }">
         <v-btn slot="activator" class="ml-2" min-width="0" text v-on="on">
           <v-icon>mdi-account</v-icon>

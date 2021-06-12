@@ -16,7 +16,8 @@ export default new Vuex.Store({
     access_token: null,
     username: '',
     userPermistion: 'guest',
-    userProfile: null
+    userProfile: null,
+    breakpointName: 'lg'
   },
   getters: {
     getSnackbar: (state) => {
@@ -27,7 +28,8 @@ export default new Vuex.Store({
     },
     getUsername: (state) => state.username,
     getPermistion: (state) => state.userPermistion,
-    getUserProfile: (state) => state.userProfile
+    getUserProfile: (state) => state.userProfile,
+    getBreakpointName: (state) => state.breakpointName
   },
   mutations: {
     SET_BAR_IMAGE (state, payload) {
@@ -63,6 +65,9 @@ export default new Vuex.Store({
     HIDE_SNACKBAR(state) {
       state.snackbar.show = false
     },
+    SET_BREAKPOINTNAME(state, breakpointName) {
+      state.breakpointName = breakpointName
+    }
   },
   actions: {
     loginApp({ commit }, { username, password }) {

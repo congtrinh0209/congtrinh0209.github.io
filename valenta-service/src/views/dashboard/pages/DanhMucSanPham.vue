@@ -3,7 +3,7 @@
     id="products"
     fluid
     tag="section"
-    :style="breakpointName === 'lg' ? 'padding-top: 75px' : ''"
+    style="padding-top: 75px"
   >
     <v-row>
       <!-- Sơn phủ -->
@@ -11,7 +11,6 @@
         cols="12"
       >
         <base-material-card
-          :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
           icon="mdi-dresser-outline"
           title="SƠN PHỦ"
           class="px-5 py-3"
@@ -95,7 +94,7 @@
         cols="12"
       >
         <base-material-card
-          :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
+          style="margin-top: 20px"
           icon="mdi-dresser-outline"
           title="SƠN LÓT"
           class="px-5 py-3"
@@ -179,7 +178,7 @@
         cols="12"
       >
         <base-material-card
-          :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
+          style="margin-top: 20px"
           icon="mdi-dresser-outline"
           title="SƠN CHỐNG THẤM"
           class="px-5 py-3"
@@ -263,7 +262,7 @@
         cols="12"
       >
         <base-material-card
-          :style="breakpointName === 'lg' ? 'margin-top: 90px' : 'margin-top: 20px'"
+          style="margin-top: 20px"
           icon="mdi-dresser-outline"
           title="BỘT TRÉT"
           class="px-5 py-3"
@@ -530,6 +529,11 @@
       vm.getListSonChongTham()
       vm.getListBotTret()
     },
+    computed: {
+      breakpointName () {
+        return this.$store.getters.getBreakpointName
+      }
+    },
     methods: {
       getListSonPhu () {
         let vm = this
@@ -578,7 +582,7 @@
           vm.loadingDataSonLot = false
         })
       },
-      getListSonLot () {
+      getListSonChongTham () {
         let vm = this
         vm.loadingDataSonChongTham = true
         db.collection("sonchongthamProduct").get().then(function(querySnapshot) {
@@ -759,6 +763,8 @@
           vm.getListSonLot()
         } else if (collectionName === 'bottretProduct') {
           vm.getListBotTret()
+        } else if (collectionName === 'sonchongthamProduct') {
+          vm.getListSonChongTham()
         }
       },
       formatQuyCach (item) {
@@ -771,7 +777,4 @@
 </script>
 <style lang="css" scoped>
   
-  main {
-    padding-top: 75px !important;
-  }
 </style>
