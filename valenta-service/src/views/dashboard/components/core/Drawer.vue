@@ -54,6 +54,7 @@
           :key="`item-${i}`"
           :item="item"
           :class="item['class']"
+          :id="item['id']"
         />
       </template>
       <div />
@@ -87,7 +88,8 @@
           {
             icon: 'mdi-home',
             title: 'Trang chủ',
-            class: 'home-tab'
+            class: 'home-tab',
+            id: 'home-valenta'
           },
           {
             icon: 'mdi-credit-card-search-outline',
@@ -125,7 +127,8 @@
           {
             icon: 'mdi-home',
             title: 'Trang chủ',
-            class: 'home-tab'
+            class: 'home-tab',
+            id: 'home-valenta'
           },
           {
             icon: 'mdi-credit-card-search-outline',
@@ -148,12 +151,25 @@
           {
             icon: 'mdi-home',
             title: 'Trang chủ',
-            class: 'home-tab'
+            class: 'home-tab',
+            id: 'home-valenta'
           },
           {
             icon: 'mdi-credit-card-search-outline',
             title: 'Tra cứu bảo hành',
             to: '/',
+          },
+          {
+            icon: 'mdi-ballot-outline',
+            title: 'Sản phẩm',
+            class: '',
+            id: 'product-valenta'
+          },
+          {
+            icon: 'mdi-card-account-phone-outline',
+            title: 'Liên hệ',
+            class: '',
+            id: 'contact-valenta'
           },
           {
             icon: 'mdi-login-variant',
@@ -162,6 +178,13 @@
           }
         ]
       }
+    },
+    mounted () {
+      let vm = this
+      console.log('mounted')
+      setTimeout(function () {
+
+      }, 300)
     },
     computed: {
       ...mapState(['barColor', 'barImage']),

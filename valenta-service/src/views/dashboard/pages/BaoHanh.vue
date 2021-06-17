@@ -16,16 +16,13 @@
                 <v-text-field
                   v-model="eCode"
                   autocomplete="off"
-                  name="login"
-                  type="text"
                   solo
                   class="font-weight-bold"
                 />
-                <!-- <div class="label-bh mb-2">MÃ BẢO MẬT:</div>
+                <!-- <div class="label-bh mb-2">SỐ ĐIỆN THOẠI KHÁCH HÀNG:</div>
                 <v-text-field
-                  v-model="captcha"
+                  v-model="talNo"
                   autocomplete="off"
-                  name="captcha"
                   solo
                   class="font-weight-bold"
                 /> -->
@@ -242,7 +239,7 @@ export default {
       dialogWarrantyInfo: false,
       warrantySearch: '',
       eCode: '',
-      captcha: '',
+      talNo: '',
       formRule: {
         eCode: [(v) => !!v || this.$t('Thông tin bắt buộc', ['eCode'])],
         captcha: [(v) => !!v || this.$t('Thông tin bắt buộc', ['captcha'])],

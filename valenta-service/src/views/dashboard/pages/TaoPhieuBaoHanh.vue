@@ -1319,7 +1319,8 @@
             let dateNoiThatFromTimeStamp = (new Date(dateFrom1)).getTime()
             let dateNoiThatToTimeStamp = (new Date(dateFrom2)).getTime()
 
-            let currentDateTimeStamp = (new Date()).getTime()
+            let dateFormat = (new Date()).getFullYear() + '-' + String(((new Date()).getMonth() + 1)).padStart(2, '0') + '-' + String((new Date()).getDate()).padStart(2, '0')
+            let currentDateTimeStamp = (new Date(dateFormat)).getTime()
             let currentDateLocal = String((new Date()).getDate()).padStart(2, '0') + '/' + String(((new Date()).getMonth() + 1)).padStart(2, '0') + '/' + (new Date()).getFullYear()
             let dateFromC = String(vm.ngoaiThatFromDueDateDay).padStart(2, '0') + '/' + String(vm.ngoaiThatFromDueDateMonth).padStart(2, '0') + '/' + vm.ngoaiThatFromDueDateYear
             let dateFromD = String(vm.ngoaiThatToDueDateDay).padStart(2, '0') + '/' + String(vm.ngoaiThatToDueDateMonth).padStart(2, '0') + '/' + vm.ngoaiThatToDueDateYear
@@ -1338,6 +1339,7 @@
               customerName: vm.customerName,
               customerTelNo: vm.customerTelNo,
               customerAddress: vm.customerAddress,
+              branchUid: vm.userLogin ? vm.userLogin['uid'] : '',
               branchName: vm.userLogin ? vm.userLogin['userName'] : '',
               branchTelNo: vm.userLogin ? vm.userLogin['telNo'] : '',
               branchAddress: vm.userLogin ? vm.userLogin['address'] : '',
@@ -1376,8 +1378,12 @@
                   customerAddress: vm.customerAddress,
                   dealDate: currentDateTimeStamp,
                   dealDateLocal: currentDateLocal,
-                  eWarrantyCode: vm.activeCode
+                  eWarrantyCode: vm.activeCode,
+                  createDate: currentDateTimeStamp,
+                  createDateLocal: currentDateLocal,
+                  branchUid: vm.userLogin ? vm.userLogin['uid'] : ''
                 }
+                // Sửa => check để update/create
                 vm.createCustomer(dataCustomer)
                 vm.$router.push(
                   {
