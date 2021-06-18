@@ -64,14 +64,14 @@
                 hide-details
               >
                 <template v-slot:selection="data">
-                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}})</span>
+                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}}</span>
                 </template>
                 <template v-slot:item="data">
-                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}})</span>
+                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}}</span>
                 </template>
               </v-autocomplete>
             </v-col>
-            <v-col
+            <!-- <v-col
               cols="12"
               md="6"
               class="pb-0"
@@ -101,7 +101,7 @@
                 hide-details="auto"
               ></v-text-field>
             </v-col>
-          </v-row>
+          </v-row> -->
           <v-row class="justify-end">
             <v-btn color="success" class="mt-3 mx-3" @click.stop="searchWarranty">
               <v-icon left size="22">
@@ -124,11 +124,8 @@
           <v-data-table
             :headers="headers"
             :items="items"
-            :page.sync="page"
-            :items-per-page="itemsPerPage"
             hide-default-footer
             class="elevation-1"
-            @page-count="pageCount = $event"
             no-data-text="Không có phiếu bảo hành nào"
             :loading="loadingData"
             loading-text="Đang tải... "
@@ -164,11 +161,35 @@
                   </p>
               </template>
           </v-data-table>
-          <div class="text-center mt-4">
-            <v-pagination
+          <div class="text-center mt-4" v-if="pageCount">
+            <!-- <v-pagination
               v-model="page"
               :length="pageCount"
-            ></v-pagination>
+              :total-visible="1"
+              @next="nextPage"
+              @previous="prevPage"
+            ></v-pagination> -->
+            <nav role="navigation" aria-label="Pagination Navigation">
+              <ul class="v-pagination theme--light">
+                <li>
+                  <button @click="prevPage"  type="button" aria-label="Previous page" 
+                    :class="page == 1 ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--light"></i>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" aria-current="true" class="v-pagination__item v-pagination__item--active primary">
+                    {{page}}
+                  </button>
+                </li>
+                <li>
+                  <button @click="nextPage" type="button" aria-label="Next page" 
+                    :class="page == pageCount ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"></i>
+                  </button>
+                </li>
+              </ul>
+            </nav>
           </div>
         </v-card-text>
       </base-material-card>
@@ -190,7 +211,7 @@
         totalItem: 0,
         page: 1,
         pageCount: 0,
-        itemsPerPage: 5,
+        itemsPerPage: 1,
         typeAction: '',
         userUpdate: '',
         items: [],
@@ -259,11 +280,14 @@
         },
         listDaiLy: [],
         dailySelected: '',
-        showAdvanceSearch: false
+        showAdvanceSearch: false,
+        lastVisible: '',
+        firstVisible: '',
       }
     },
     created () {
       let vm = this
+      vm.getCounter()
       vm.getWarranty()
     },
     computed: {
@@ -275,19 +299,75 @@
       }
     },
     methods: {
+      getCounter () {
+        let vm = this
+        let refs = db.collection('counters').doc('counterWarranty')
+        refs.collection('shards').get().then((snapshot) => {
+          let total = 0
+          let pageCount = 0
+          snapshot.forEach((doc) => {
+            total += doc.data().count
+          })
+          if (total && vm.itemsPerPage) {
+            pageCount = Math.ceil(total / vm.itemsPerPage)
+          }
+          vm.totalItem = total
+          vm.pageCount = pageCount
+          console.log('pagination', total, pageCount)
+        })
+      },
       getWarranty () {
         let vm = this
         vm.loadingData = true
-        db.collection("warranty").get().then(function(querySnapshot) {
+        db.collection("warranty").orderBy('createDate').limit(vm.itemsPerPage).get().then(function(querySnapshot) {
           vm.loadingData = false
+          vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
           let warranty = []
           if (querySnapshot.size) {
             querySnapshot.docs.forEach(function(item) {
               warranty.push(item.data())
             })
             vm.items = warranty
-            vm.totalItem = querySnapshot.size
-            vm.pageCount = Math.ceil(querySnapshot.size / vm.itemsPerPage)
+          } else {
+            vm.items = []
+          }
+        }).catch(function () {
+          vm.loadingData = false
+        })
+      },
+      prevPage () {
+        let vm = this
+        vm.loadingData = true
+        vm.page -= 1
+        db.collection("warranty").orderBy("createDate").endBefore(vm.firstVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+          vm.loadingData = false
+          vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+          let warranty = []
+          if (querySnapshot.size) {
+            querySnapshot.docs.forEach(function(item) {
+              warranty.push(item.data())
+            })
+            vm.items = warranty
+          } else {
+            vm.items = []
+          }
+        }).catch(function () {
+          vm.loadingData = false
+        })
+      },
+      nextPage () {
+        let vm = this
+        vm.loadingData = true
+        vm.page += 1
+        db.collection("warranty").orderBy("createDate").startAfter(vm.lastVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+          vm.loadingData = false
+          vm.firstVisible = querySnapshot.docs[0]
+          let warranty = []
+          if (querySnapshot.size) {
+            querySnapshot.docs.forEach(function(item) {
+              warranty.push(item.data())
+            })
+            vm.items = warranty
           } else {
             vm.items = []
           }

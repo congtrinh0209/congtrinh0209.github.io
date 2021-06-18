@@ -522,6 +522,11 @@
                          {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
                       ]
                   },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: ""
+                  },
                   {
                       width: 300,
                       style: "title",
@@ -582,7 +587,7 @@
           fontSize: 10,
           italics: true,
           bold: false,
-          alignment: 'right'
+          alignment: 'center'
         },
         headerTitle: {
             alignment: 'center',
@@ -818,6 +823,11 @@
                          {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
                       ]
                   },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: ""
+                  },
                   {
                       width: 300,
                       style: "title",
@@ -878,7 +888,7 @@
           fontSize: 10,
           italics: true,
           bold: false,
-          alignment: 'right'
+          alignment: 'center'
         },
         headerTitle: {
             alignment: 'center',
@@ -1730,6 +1740,11 @@
                          {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
                       ]
                   },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: ""
+                  },
                   {
                       width: 300,
                       style: "title",
@@ -1790,7 +1805,7 @@
           fontSize: 10,
           italics: true,
           bold: false,
-          alignment: 'right'
+          alignment: 'center'
         },
         headerTitle: {
             alignment: 'center',
@@ -2942,6 +2957,11 @@
                          {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
                       ]
                   },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: ""
+                  },
                   {
                       width: 300,
                       style: "title",
@@ -3002,7 +3022,7 @@
           fontSize: 10,
           italics: true,
           bold: false,
-          alignment: 'right'
+          alignment: 'center'
         },
         headerTitle: {
             alignment: 'center',
@@ -3238,6 +3258,11 @@
                          {text: "BỘ XÂY DỰNG\n"},
                          {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
                       ]
+                  },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: "center"
                   },
                   {
                       width: 300,
@@ -4456,6 +4481,11 @@
                          {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
                       ]
                   },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: ""
+                  },
                   {
                       width: 300,
                       style: "title",
@@ -4515,7 +4545,7 @@
           fontSize: 10,
           italics: true,
           bold: false,
-          alignment: 'right'
+          alignment: 'center'
         },
         headerTitle: {
             alignment: 'center',
@@ -5486,6 +5516,11 @@
                         {text: "--------------------------\n"}
                       ]
                   },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: ""
+                  },
                   {
                       width: 300,
                       style: "title",
@@ -5806,6 +5841,11 @@
                          {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
                       ]
                   },
+				  {
+                      width: 100,
+                      style: "title",
+                      text: ""
+                  },
                   {
                       width: 300,
                       style: "title",
@@ -5866,7 +5906,7 @@
           fontSize: 10,
           italics: true,
           bold: false,
-          alignment: 'right'
+          alignment: 'center'
         },
         headerTitle: {
             alignment: 'center',

@@ -68,16 +68,24 @@
       // [END increment_counter]
 
       // [START get_count]
-      function getCount(ref) {
+      function getCount(ref, pagesize) {
           // Sum the count of each shard in the subcollection
           return ref.collection('shards').get().then((snapshot) => {
-              let total_count = 0;
-              snapshot.forEach((doc) => {
-                  total_count += doc.data().count;
-              });
-              console.log('total_count', total_count)
-              return total_count;
-              
+            let total = 0
+            let pagination = {
+              total_count: 0,
+              pageCount: 0
+            }
+            
+            snapshot.forEach((doc) => {
+              total += doc.data().count
+            })
+            pagination.total_count = total
+            if (total && pagesize) {
+              pagination.pageCount = Math.ceil(total / pagesize)
+            }
+            console.log('pagination', pagination)
+            return pagination
           });
       }
       // [END get_count]

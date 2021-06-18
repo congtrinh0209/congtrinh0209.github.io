@@ -64,10 +64,10 @@
                 hide-details
               >
                 <template v-slot:selection="data">
-                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}})</span>
+                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}}</span>
                 </template>
                 <template v-slot:item="data">
-                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}})</span>
+                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}}</span>
                 </template>
               </v-autocomplete>
             </v-col>
@@ -164,6 +164,8 @@
         listDaiLy: [],
         dailySelected: '',
         dialog: false,
+        lastVisible: '',
+        firstVisible: '',
         totalItem: 0,
         page: 1,
         pageCount: 0,
@@ -217,7 +219,7 @@
     },
     created () {
       let vm = this
-      vm.getCustomer()
+      vm.searchCustomer()
     },
     computed: {
       breakpointName () {
