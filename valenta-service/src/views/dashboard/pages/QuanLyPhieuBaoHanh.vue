@@ -49,7 +49,7 @@
                 hide-details="auto"
               ></v-text-field>
             </v-col>
-            <v-col
+            <!-- <v-col
               cols="12" class="pb-0"
             >
               <v-autocomplete
@@ -70,7 +70,7 @@
                   <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}}</span>
                 </template>
               </v-autocomplete>
-            </v-col>
+            </v-col> -->
             <!-- <v-col
               cols="12"
               md="6"
@@ -102,14 +102,14 @@
               ></v-text-field>
             </v-col>
           </v-row> -->
-          <v-row class="justify-end">
+          <div class="">
             <v-btn color="success" class="mt-3 mx-3" @click.stop="searchWarranty">
               <v-icon left size="22">
                 mdi-magnify
               </v-icon>
               Tìm kiếm
             </v-btn>
-          </v-row>
+          </div>
         </v-card-text>
         <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : ''">
           <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'">
@@ -131,7 +131,7 @@
             loading-text="Đang tải... "
           >
               <template v-slot:item.index="{ item, index }">
-                  <span>{{ index + 1 }}</span>
+                  <span>{{ page * itemsPerPage - itemsPerPage + index + 1 }}</span>
               </template>
               <template v-slot:item.customerName="{ item, index }">
                   <p class="mb-2">{{ item.customerName}}</p>
@@ -144,31 +144,24 @@
               </template>
               <template v-slot:item.noithatProducts="{ item, index }">
                   <div v-for="(subItem, i) in item['noithatProducts']" :key="i">
-                      <p class="mb-2">{{i+ 1}}. {{ subItem.productName}} - {{subItem.quycach}} (sl. <span style="font-weight: bold;color: blue">{{subItem.soluong}}</span>)</p> 
+                      <p class="mb-2"><span class="font-weight-bold">{{i+ 1}}</span>. {{ subItem.productName}} - {{subItem.quycach}} (sl. <span style="font-weight: bold;color: blue">{{subItem.soluong}}</span>)</p> 
                   </div>
                   <p class="mb-2" v-if="item['noithatProducts'] && item['noithatProducts'].length > 0">
-                      <span class="font-weight-bold">Thời gian bảo hành:</span><span> Từ ngày </span> <span style="color: blue">{{item['noiThatMfgDateLocal']}}</span>
-                      đến ngày <span style="color: blue"> {{item['noiThatExpDateLocal']}}</span>
+                      <span class="font-weight-bold">Thời gian bảo hành:</span><span> Từ ngày </span> <span style="color: blue;font-weight:bold">{{item['noiThatMfgDateLocal']}}</span>
+                      đến ngày <span style="color: blue;font-weight:bold"> {{item['noiThatExpDateLocal']}}</span>
                   </p>
               </template>
               <template v-slot:item.ngoaithatProducts="{ item, index }">
                   <div v-for="(subItem, i) in item['ngoaithatProducts']" :key="i">
-                      <p class="mb-2">{{i+ 1}}. {{ subItem.productName}} - {{subItem.quycach}} (sl. <span style="font-weight: bold;color: blue">{{subItem.soluong}}</span>)</p> 
+                      <p class="mb-2"><span class="font-weight-bold">{{i+ 1}}</span>. {{ subItem.productName}} - {{subItem.quycach}} (sl. <span style="font-weight: bold;color: blue">{{subItem.soluong}}</span>)</p> 
                   </div>
                   <p class="mb-2" v-if="item['ngoaithatProducts'] && item['ngoaithatProducts'].length > 0">
-                      <span class="font-weight-bold">Thời gian bảo hành:</span><span> Từ ngày </span> <span style="color: blue">{{item['ngoaiThatMfgDateLocal']}}</span>
-                      đến ngày <span style="color: blue"> {{item['ngoaiThatExpDateLocal']}}</span>
+                      <span class="font-weight-bold">Thời gian bảo hành:</span><span> Từ ngày </span> <span style="color: blue;font-weight:bold">{{item['ngoaiThatMfgDateLocal']}}</span>
+                      đến ngày <span style="color: blue;font-weight:bold"> {{item['ngoaiThatExpDateLocal']}}</span>
                   </p>
               </template>
           </v-data-table>
           <div class="text-center mt-4" v-if="pageCount">
-            <!-- <v-pagination
-              v-model="page"
-              :length="pageCount"
-              :total-visible="1"
-              @next="nextPage"
-              @previous="prevPage"
-            ></v-pagination> -->
             <nav role="navigation" aria-label="Pagination Navigation">
               <ul class="v-pagination theme--light">
                 <li>
@@ -211,7 +204,7 @@
         totalItem: 0,
         page: 1,
         pageCount: 0,
-        itemsPerPage: 1,
+        itemsPerPage: 10,
         typeAction: '',
         userUpdate: '',
         items: [],

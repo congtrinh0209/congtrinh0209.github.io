@@ -140,11 +140,11 @@
             title: 'Kích hoạt bảo hành',
             to: '/pages/kich-hoat-bao-hanh/0',
           },
-          {
-            icon: 'mdi-format-list-bulleted',
-            title: 'Quản lý phiếu bảo hành',
-            to: '/pages/quan-ly-bao-hanh',
-          }
+          // {
+          //   icon: 'mdi-format-list-bulleted',
+          //   title: 'Quản lý phiếu bảo hành',
+          //   to: '/pages/quan-ly-bao-hanh',
+          // }
         ]
       } else {
         vm.items = [
@@ -183,7 +183,9 @@
       let vm = this
       console.log('mounted')
       setTimeout(function () {
-
+        document.getElementById('home-valenta').href = 'http://valenta.vn'
+        document.getElementById('product-valenta').href = 'http://valenta.vn/product.html'
+        document.getElementById('contact-valenta').href = 'http://valenta.vn/contact.html'
       }, 300)
     },
     computed: {
@@ -267,11 +269,11 @@
               title: 'Kích hoạt bảo hành',
               to: '/pages/kich-hoat-bao-hanh/0',
             },
-            {
-              icon: 'mdi-format-list-bulleted',
-              title: 'Quản lý phiếu bảo hành',
-              to: '/pages/quan-ly-bao-hanh',
-            }
+            // {
+            //   icon: 'mdi-format-list-bulleted',
+            //   title: 'Quản lý phiếu bảo hành',
+            //   to: '/pages/quan-ly-bao-hanh',
+            // }
           ]
         } else {
           vm.items = [

@@ -49,7 +49,7 @@
                 hide-details="auto"
               ></v-text-field>
             </v-col>
-            <v-col
+            <!-- <v-col
               cols="12" class="pb-0"
             >
               <v-autocomplete
@@ -70,7 +70,7 @@
                   <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}}</span>
                 </template>
               </v-autocomplete>
-            </v-col>
+            </v-col> -->
           </v-row>
           <v-row class="justify-end">
             <v-btn color="success" class="mt-3 mx-3" @click.stop="searchCustomer">
@@ -93,24 +93,38 @@
           <v-data-table
             :headers="headers"
             :items="items"
-            :page.sync="page"
-            :items-per-page="itemsPerPage"
             hide-default-footer
             class="elevation-1"
-            @page-count="pageCount = $event"
             no-data-text="Không có khách hàng nào"
             :loading="loadingData"
             loading-text="Đang tải... "
           >
             <template v-slot:item.index="{ item, index }">
-              <span>{{ index + 1 }}</span>
+              <span>{{ page * itemsPerPage - itemsPerPage + index + 1 }}</span>
             </template> 
           </v-data-table>
-          <div class="text-center mt-4">
-            <v-pagination
-              v-model="page"
-              :length="pageCount"
-            ></v-pagination>
+          <div class="text-center mt-4" v-if="pageCount">
+            <nav role="navigation" aria-label="Pagination Navigation">
+              <ul class="v-pagination theme--light">
+                <li>
+                  <button @click="prevPage"  type="button" aria-label="Previous page" 
+                    :class="page == 1 ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--light"></i>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" aria-current="true" class="v-pagination__item v-pagination__item--active primary">
+                    {{page}}
+                  </button>
+                </li>
+                <li>
+                  <button @click="nextPage" type="button" aria-label="Next page" 
+                    :class="page == pageCount ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"></i>
+                  </button>
+                </li>
+              </ul>
+            </nav>
           </div>
         </v-card-text>
       </base-material-card>
@@ -155,7 +169,7 @@
 
 <script>
   export default {
-    name: 'Users',
+    name: 'Customers',
 
     data () {
       return {
@@ -169,7 +183,7 @@
         totalItem: 0,
         page: 1,
         pageCount: 0,
-        itemsPerPage: 1,
+        itemsPerPage: 10,
         items: [],
         advanceSearchData: {
           codeNumber: '',
@@ -219,7 +233,8 @@
     },
     created () {
       let vm = this
-      vm.searchCustomer()
+      vm.getCounter()
+      vm.getCustomer()
     },
     computed: {
       breakpointName () {
@@ -250,6 +265,23 @@
             vm.listDaiLy = []
           }
         }).catch(function () {
+        })
+      },
+      getCounter () {
+        let vm = this
+        let refs = db.collection('counters').doc('counterCustomer')
+        refs.collection('shards').get().then((snapshot) => {
+          let total = 0
+          let pageCount = 0
+          snapshot.forEach((doc) => {
+            total += doc.data().count
+          })
+          if (total && vm.itemsPerPage) {
+            pageCount = Math.ceil(total / vm.itemsPerPage)
+          }
+          vm.totalItem = total
+          vm.pageCount = pageCount
+          console.log('pagination', total, pageCount)
         })
       },
       searchCustomer () {
@@ -300,16 +332,55 @@
       getCustomer () {
         let vm = this
         vm.loadingData = true
-        db.collection("customers").get().then(function(querySnapshot) {
+        db.collection("customers").orderBy('dealDate').limit(vm.itemsPerPage).get().then(function(querySnapshot) {
           vm.loadingData = false
+          vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
           let customers = []
           if (querySnapshot.size) {
             querySnapshot.docs.forEach(function(item) {
               customers.push(item.data())
             })
             vm.items = customers
-            vm.totalItem = querySnapshot.size
-            vm.pageCount = Math.ceil(querySnapshot.size / vm.itemsPerPage)
+          } else {
+            vm.items = []
+          }
+        }).catch(function () {
+          vm.loadingData = false
+        })
+      },
+      prevPage () {
+        let vm = this
+        vm.loadingData = true
+        vm.page -= 1
+        db.collection("customers").orderBy("dealDate").endBefore(vm.firstVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+          vm.loadingData = false
+          vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+          let customers = []
+          if (querySnapshot.size) {
+            querySnapshot.docs.forEach(function(item) {
+              customers.push(item.data())
+            })
+            vm.items = customers
+          } else {
+            vm.items = []
+          }
+        }).catch(function () {
+          vm.loadingData = false
+        })
+      },
+      nextPage () {
+        let vm = this
+        vm.loadingData = true
+        vm.page += 1
+        db.collection("customers").orderBy("dealDate").startAfter(vm.lastVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+          vm.loadingData = false
+          vm.firstVisible = querySnapshot.docs[0]
+          let customers = []
+          if (querySnapshot.size) {
+            querySnapshot.docs.forEach(function(item) {
+              customers.push(item.data())
+            })
+            vm.items = customers
           } else {
             vm.items = []
           }

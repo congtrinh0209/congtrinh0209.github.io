@@ -18,7 +18,6 @@
                   autocomplete="off"
                   name="login"
                   label="Tên đăng nhập"
-                  placeholder="Email/ số điện thoại"
                   type="text"
                   required
                   outlined
@@ -30,7 +29,6 @@
                   autocomplete="off"
                   name="password"
                   label="Mật khẩu"
-                  placeholder="Mật khẩu"
                   type="password"
                   :rules="formRule.password"
                   required
@@ -39,10 +37,14 @@
                 />
               </v-form>
             </v-card-text>
-            <v-card-actions class="mx-2 pt-0">
+            <v-card-actions class="mx-2 pt-0 row">
               <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="handleLogin">
                 <v-icon size="20" color="#fff" class="mr-2">mdi-login-variant</v-icon> 
                 <span>ĐĂNG NHẬP</span>
+              </v-btn>
+              <v-btn class="btn-submit-login my-3 mx-0" tile color="primary" @click="goBack">
+                <v-icon size="20" color="#fff" class="mr-2">mdi-reply-all</v-icon> 
+                <span>QUAY LẠI</span>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -92,6 +94,9 @@ export default {
             this.loading = false
           })
       }
+    },
+    goBack () {
+      this.$router.push({ path: '/' })
     },
     handleRegister() {
       console.log(this)
