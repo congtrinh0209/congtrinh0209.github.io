@@ -160,7 +160,7 @@
                       đến ngày <span style="color: blue;font-weight:bold"> {{item['ngoaiThatExpDateLocal']}}</span>
                   </p>
               </template>
-              <template v-slot:item.action="{ item }">
+              <template v-slot:item.action="{ item }" v-if="userLogin && userLogin['role'] && userLogin['role'] === 'Admin'">
                   <!-- <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
                       <v-btn @click="addProduct('update', 'sonchongthamProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
@@ -179,7 +179,7 @@
                   </v-tooltip>
                 </template>
           </v-data-table>
-          <div class="text-center mt-4" v-if="pageCount">
+          <div class="text-center mt-4" v-if="pageCount && userLogin['role'] === 'Admin'">
             <nav role="navigation" aria-label="Pagination Navigation">
               <ul class="v-pagination theme--light">
                 <li>
@@ -196,6 +196,29 @@
                 <li>
                   <button @click="nextPage" type="button" aria-label="Next page" 
                     :class="page == pageCount ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"></i>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="text-center mt-4" v-if="userLogin['role'] === 'Member'">
+            <nav role="navigation" aria-label="Pagination Navigation">
+              <ul class="v-pagination theme--light">
+                <li>
+                  <button @click="prevPage"  type="button" aria-label="Previous page" 
+                    :class="page == 1 ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--light"></i>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" aria-current="true" class="v-pagination__item v-pagination__item--active primary">
+                    {{page}}
+                  </button>
+                </li>
+                <li>
+                  <button @click="nextPage" type="button" aria-label="Next page" 
+                    :class="disableNextPage ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
                     <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"></i>
                   </button>
                 </li>
@@ -294,6 +317,7 @@
         showAdvanceSearch: false,
         lastVisible: '',
         firstVisible: '',
+        disableNextPage: false
       }
     },
     created () {
@@ -399,6 +423,7 @@
                 warranty.push(item.data())
               })
               vm.items = warranty
+              vm.disableNextPage = false
             } else {
               vm.items = []
             }
@@ -410,8 +435,8 @@
       nextPage () {
         let vm = this
         vm.loadingData = true
-        vm.page += 1
         if (vm.userLogin['role'] === 'Admin') {
+          vm.page += 1
           db.collection("warranty").orderBy("createDate").startAfter(vm.lastVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
             vm.loadingData = false
             vm.firstVisible = querySnapshot.docs[0]
@@ -431,18 +456,28 @@
         if (vm.userLogin['role'] === 'Member') {
           db.collection("warranty").where('branchUid', "==", vm.userLogin['uid']).orderBy("createDate").startAfter(vm.lastVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
             vm.loadingData = false
-            vm.firstVisible = querySnapshot.docs[0]
-            let warranty = []
-            if (querySnapshot.size) {
-              querySnapshot.docs.forEach(function(item) {
-                warranty.push(item.data())
-              })
-              vm.items = warranty
+            if (querySnapshot) {
+              if (querySnapshot.size) {
+                vm.page += 1
+                vm.firstVisible = querySnapshot.docs[0]
+              } else {
+                vm.disableNextPage = true
+              }
+              let warranty = []
+              if (querySnapshot.size) {
+                querySnapshot.docs.forEach(function(item) {
+                  warranty.push(item.data())
+                })
+                vm.items = warranty
+              } else {
+                // vm.items = []
+              }
             } else {
-              vm.items = []
+              vm.disableNextPage = true
             }
           }).catch(function () {
             vm.loadingData = false
+            vm.disableNextPage = true
           })
         }
       },

@@ -1117,7 +1117,7 @@
                 <v-icon left>
                   mdi-content-save-outline
                 </v-icon>
-                <span>KÍCH HOẠT</span>
+                <span>KÍCH HOẠT BẢO HÀNH</span>
               </v-btn>
               <v-btn v-if="String(uid) !== '0'" class="mr-3" color="primary" @click="activeEWarranty">
                 <v-icon left>
@@ -1125,12 +1125,12 @@
                 </v-icon>
                 <span>CẬP NHẬT</span>
               </v-btn>
-              <v-btn class="mr-0" color="red" @click="cancelAction">
+              <!-- <v-btn class="mr-0" color="red" @click="cancelAction">
                 <v-icon left>
                   mdi-close
                 </v-icon>
                 <span>THOÁT</span>
-              </v-btn>
+              </v-btn> -->
             </v-col>
           </v-row>
           

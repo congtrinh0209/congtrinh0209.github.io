@@ -289,7 +289,7 @@ export default {
       let vm = this
       if (vm.eCode) {
         vm.loading = true
-        db.collection("warranty").where("codeNumber", "==", String(vm.eCode)).get().then(function(querySnapshot) {
+        db.collection("warranty").where("codeNumber", "==", String(vm.eCode).trim()).get().then(function(querySnapshot) {
           vm.loading = false
           let warrantyList = []
           if (querySnapshot.size) {

@@ -193,12 +193,11 @@
     },
     mounted () {
       let vm = this
-      console.log('mounted')
       setTimeout(function () {
         document.getElementById('home-valenta').href = 'http://valenta.vn'
         document.getElementById('product-valenta').href = 'http://valenta.vn/product.html'
         document.getElementById('contact-valenta').href = 'http://valenta.vn/contact.html'
-      }, 300)
+      }, 2000)
     },
     computed: {
       ...mapState(['barColor', 'barImage']),
