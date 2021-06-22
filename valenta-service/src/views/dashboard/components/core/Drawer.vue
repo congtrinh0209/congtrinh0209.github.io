@@ -230,7 +230,8 @@
             {
               icon: 'mdi-home',
               title: 'Trang chủ',
-              class: 'home-tab'
+              class: 'home-tab',
+              id: 'home-valenta'
             },
             {
               icon: 'mdi-credit-card-search-outline',
@@ -268,7 +269,8 @@
             {
               icon: 'mdi-home',
               title: 'Trang chủ',
-              class: 'home-tab'
+              class: 'home-tab',
+              id: 'home-valenta'
             },
             {
               icon: 'mdi-credit-card-search-outline',
@@ -303,12 +305,25 @@
             {
               icon: 'mdi-home',
               title: 'Trang chủ',
-              class: 'home-tab'
+              class: 'home-tab',
+              id: 'home-valenta'
             },
             {
               icon: 'mdi-credit-card-search-outline',
               title: 'Tra cứu bảo hành',
               to: '/',
+            },
+            {
+              icon: 'mdi-ballot-outline',
+              title: 'Sản phẩm',
+              class: '',
+              id: 'product-valenta'
+            },
+            {
+              icon: 'mdi-card-account-phone-outline',
+              title: 'Liên hệ',
+              class: '',
+              id: 'contact-valenta'
             },
             {
               icon: 'mdi-login-variant',
@@ -317,6 +332,11 @@
             }
           ]
         }
+        setTimeout(function () {
+          document.getElementById('home-valenta').href = 'http://valenta.vn'
+          document.getElementById('product-valenta').href = 'http://valenta.vn/product.html'
+          document.getElementById('contact-valenta').href = 'http://valenta.vn/contact.html'
+        }, 2000)
       }
     },
     methods: {
