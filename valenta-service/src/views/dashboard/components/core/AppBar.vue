@@ -84,7 +84,7 @@
         </v-btn>
       </template>
       <v-list class="pa-0">
-        <!-- <v-list-item
+        <v-list-item
           to="/pages/user"
           rel="noopener"
         >
@@ -94,7 +94,7 @@
           <v-list-item-content>
             <v-list-item-title>Thông tin tài khoản</v-list-item-title>
           </v-list-item-content>
-        </v-list-item> -->
+        </v-list-item>
         <v-list-item
           @click="logout"
           rel="noopener"

@@ -232,7 +232,7 @@
         passWord: '',
         passwordRules: [
           v => !!v || 'Mật khẩu đăng nhập là bắt buộc',
-          v => (v && v.length >= 6 && v.length <= 20) || 'Mật khẩu ít nhất 6 ký tự',
+          v => (v && v.length >= 6 && v.length <= 75) || 'Mật khẩu ít nhất 6 ký tự',
         ],
         telNo: '',
         telNoRules: [
@@ -395,6 +395,7 @@
                   address: dataUserAuthen.address,
                   role: "Member",
                   status: "",
+                  pid: window.btoa(dataUserAuthen.passWord),
                   uid: user.uid
                 })
                 .then(() => {
