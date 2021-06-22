@@ -140,11 +140,23 @@
             title: 'Kích hoạt bảo hành',
             to: '/pages/kich-hoat-bao-hanh/0',
           },
-          // {
-          //   icon: 'mdi-format-list-bulleted',
-          //   title: 'Quản lý phiếu bảo hành',
-          //   to: '/pages/quan-ly-bao-hanh',
-          // }
+          {
+            icon: 'mdi-format-list-bulleted',
+            title: 'Quản lý phiếu bảo hành',
+            to: '/pages/quan-ly-bao-hanh',
+          },
+          {
+            icon: 'mdi-ballot-outline',
+            title: 'Sản phẩm',
+            class: '',
+            id: 'product-valenta'
+          },
+          {
+            icon: 'mdi-card-account-phone-outline',
+            title: 'Liên hệ',
+            class: '',
+            id: 'contact-valenta'
+          }
         ]
       } else {
         vm.items = [
@@ -269,11 +281,23 @@
               title: 'Kích hoạt bảo hành',
               to: '/pages/kich-hoat-bao-hanh/0',
             },
-            // {
-            //   icon: 'mdi-format-list-bulleted',
-            //   title: 'Quản lý phiếu bảo hành',
-            //   to: '/pages/quan-ly-bao-hanh',
-            // }
+            {
+              icon: 'mdi-format-list-bulleted',
+              title: 'Quản lý phiếu bảo hành',
+              to: '/pages/quan-ly-bao-hanh',
+            },
+            {
+              icon: 'mdi-ballot-outline',
+              title: 'Sản phẩm',
+              class: '',
+              id: 'product-valenta'
+            },
+            {
+              icon: 'mdi-card-account-phone-outline',
+              title: 'Liên hệ',
+              class: '',
+              id: 'contact-valenta'
+            }
           ]
         } else {
           vm.items = [

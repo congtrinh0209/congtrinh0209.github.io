@@ -38,7 +38,7 @@
                 >
                   <v-text-field
                     v-model="activeCode"
-                    :rules="[required, maxLength75]"
+                    :rules="activeCodeRules"
                     required
                     outlined
                     placeholder=""
@@ -63,7 +63,7 @@
                   <div class="mb-2">Tên khách hàng <span style="color:red">(*)</span></div>
                   <v-text-field
                     v-model="customerName"
-                    :rules="[required]"
+                    :rules="customerNameRules"
                     required
                     outlined
                     placeholder=""
@@ -81,7 +81,7 @@
                   <div class="mb-2">Số điện thoại <span style="color:red">(*)</span></div>
                   <v-text-field
                     v-model="customerTelNo"
-                    :rules="[required]"
+                    :rules="telNoRules"
                     required
                     outlined
                     placeholder=""
@@ -97,7 +97,8 @@
                   <div class="mb-2">Địa chỉ công trình <span style="color:red">(*)</span></div>
                   <v-text-field
                     v-model="customerAddress"
-                    :rules="[required]"
+                    :rules="addressRules"
+                    required
                     outlined
                     placeholder="Địa chỉ"
                     prepend-inner-icon="mdi-map-marker"
@@ -1206,7 +1207,14 @@
           v => !!v || 'Thông tin bắt buộc'
         ],
         maxLength75: [
-          v => (v && v.length <= 75) || 'Độ dài Không quá 75 ký tự',
+          v => (v && v.length <= 75) || 'Độ dài không quá 75 ký tự',
+        ],
+        activeCodeRules: [
+          v => !!v || 'Mã bảo hành là bắt buộc',
+          v => (v && v.length <= 75) || 'Mã bảo hành không quá 75 ký tự',
+        ],
+        customerNameRules: [
+          v => !!v || 'Tên khách hàng là bắt buộc'
         ],
         account: '',
         accountRules: [
@@ -1226,7 +1234,8 @@
         ],
         address: '',
         addressRules: [
-          v => (v && v.length <= 200) || 'Địa chỉ không quá 200 ký tự',
+          v => !!v || 'Địa chỉ là bắt buộc',
+          v => (v && v.length <= 500) || 'Địa chỉ không quá 500 ký tự',
         ],
         headers: [
           {
@@ -1417,6 +1426,12 @@
             })
           }
           
+        } else {
+          vm.$store.commit('SHOW_SNACKBAR', {
+            show: true,
+            text: 'Vui lòng nhập đầy đủ thông tin khách hàng',
+            color: 'error',
+          })
         }
       },
       counterWarranty (type) {

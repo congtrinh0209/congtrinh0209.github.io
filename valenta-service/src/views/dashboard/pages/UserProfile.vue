@@ -17,7 +17,7 @@
           </template>
 
           <v-form>
-            <v-container class="py-0">
+            <v-container class="py-0 mt-5">
               <v-row v-if="userInfo">
                 <v-col
                   cols="12"
@@ -189,21 +189,21 @@
     computed: {},
     methods: {
       getUserInfo () {
-        let curr = firebase.auth().currentUser
-        let uidad = curr['uid']
-        let infoad = db.collection("users").doc(uidad)
-      
-        infoad.get().then((querySnapshot) => {
-          let users = []
-          if (querySnapshot.size) {
-            querySnapshot.docs.forEach(function(item) {
-              users.push(item.data())
-            })
-            vm.userInfo = users[0]
-          } else {
-          }
-        }).catch((error) => {
-        })
+        let vm = this
+        async function getUid() {
+          let curr = await firebase.auth().currentUser
+          console.log('curr', curr)
+          let uidad = curr.uid
+          let infoad = db.collection("users").doc(uidad)
+          infoad.get().then((querySnapshot) => {
+            if (querySnapshot.exists) {
+              vm.userInfo = querySnapshot.data()
+              console.log('userInfo',vm.userInfo)
+            }
+          }).catch((error) => {
+          })
+        }
+        getUid()
       },
       showChangePass () {
         let vm = this
@@ -211,55 +211,59 @@
         setTimeout(function () {
           vm.currentPassWord = ''
           vm.newPassWord = ''
-          vm.$refs.validFormChangePass.resetValidation()
+          vm.$refs.formChangePass.resetValidation()
         }, 100)
       },
       submitChangePass () {
         let vm = this
         if (vm.$refs.formChangePass.validate()) {
-          var user = firebase.auth().currentUser;
-          var credentials = firebase.auth.EmailAuthProvider.credential(
-            user.email,
-            String(vm.currentPassWord).trim()
-          )
-          vm.loading = true
-          user.reauthenticateWithCredential(credentials).then(() => {
-            let newPassword = String(vm.newPassWord).trim()
-            user.updatePassword(newPassword).then(() => {
-              // Update successful.
-              vm.userInfo['pid'] = window.btoa(newPassword)
-              db.collection("users").doc(vm.userInfo.uid).set(vm.userInfo).then(() => {
-                setTimeout(function () {
-                  vm.logout()
-                }, 300)
-              }).catch(() => {
-                setTimeout(function () {
-                  vm.logout()
-                }, 300)
+          async function changePass() {
+            var user = await firebase.auth().currentUser
+            var email = await user.email
+            var credentials = firebase.auth.EmailAuthProvider.credential(
+              email,
+              String(vm.currentPassWord).trim()
+            )
+            vm.loading = true
+            user.reauthenticateWithCredential(credentials).then(() => {
+              let newPassword = String(vm.newPassWord).trim()
+              user.updatePassword(newPassword).then(() => {
+                // Update successful.
+                vm.userInfo['pid'] = window.btoa(newPassword)
+                db.collection("users").doc(vm.userInfo.uid).set(vm.userInfo).then(() => {
+                  setTimeout(function () {
+                    vm.logout()
+                  }, 300)
+                }).catch(() => {
+                  setTimeout(function () {
+                    vm.logout()
+                  }, 300)
+                })
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Đổi mật khẩu thành công. Vui lòng đăng nhập lại với mật khẩu mới',
+                  color: 'success',
+                })
+                vm.dialogChangePass = false
+                vm.loading = false
+              }).catch((error) => {
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Đổi mật khẩu thất bại',
+                  color: 'error',
+                })
+                vm.loading = false
               })
-              vm.$store.commit('SHOW_SNACKBAR', {
-                show: true,
-                text: 'Đổi mật khẩu thành công. Vui lòng đăng nhập lại với mật khẩu mới',
-                color: 'success',
-              })
-              vm.dialogChangePass = false
-              vm.loading = false
             }).catch((error) => {
               vm.$store.commit('SHOW_SNACKBAR', {
                 show: true,
-                text: 'Đổi mật khẩu thất bại',
+                text: 'Mật khẩu hiện tại không chính xác. Vui lòng kiểm tra lại',
                 color: 'error',
               })
               vm.loading = false
             })
-          }).catch((error) => {
-            vm.$store.commit('SHOW_SNACKBAR', {
-              show: true,
-              text: 'Mật khẩu hiện tại không chính xác. Vui lòng kiểm tra lại',
-              color: 'error',
-            })
-            vm.loading = false
-          })
+          }
+          changePass()
         }
       },
       logout () {

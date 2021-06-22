@@ -112,7 +112,7 @@
           </div>
         </v-card-text>
         <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : ''">
-          <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'">
+          <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'" v-if="userLogin && userLogin['role'] && userLogin['role'] === 'Admin'">
             <div class="mr-auto pt-2 mb-3" v-if="breakpointName === 'xs'">
               Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> phiếu bảo hành
             </div>
@@ -160,6 +160,24 @@
                       đến ngày <span style="color: blue;font-weight:bold"> {{item['ngoaiThatExpDateLocal']}}</span>
                   </p>
               </template>
+              <template v-slot:item.action="{ item }">
+                  <!-- <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn @click="addProduct('update', 'sonchongthamProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
+                        <v-icon size="22">mdi-pencil</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Sửa</span>
+                  </v-tooltip> -->
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn @click="deleteWarranty(item)" color="red" text icon class="" v-bind="attrs" v-on="on">
+                        <v-icon size="22">mdi-delete</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Xóa</span>
+                  </v-tooltip>
+                </template>
           </v-data-table>
           <div class="text-center mt-4" v-if="pageCount">
             <nav role="navigation" aria-label="Pagination Navigation">
@@ -257,12 +275,12 @@
             align: 'left',
             value: 'ngoaithatProducts'
           },
-        //   {
-        //     sortable: false,
-        //     text: 'Thao tác',
-        //     align: 'center',
-        //     value: 'action'
-        //   },
+          {
+            sortable: false,
+            text: 'Thao tác',
+            align: 'center',
+            value: 'action'
+          },
         ],
         advanceSearchData: {
           codeNumber: '',
@@ -280,7 +298,9 @@
     },
     created () {
       let vm = this
-      vm.getCounter()
+      if (vm.userLogin['role'] === 'Admin') {
+        vm.getCounter()
+      }
       vm.getWarranty()
     },
     computed: {
@@ -312,87 +332,121 @@
       getWarranty () {
         let vm = this
         vm.loadingData = true
-        db.collection("warranty").orderBy('createDate').limit(vm.itemsPerPage).get().then(function(querySnapshot) {
-          vm.loadingData = false
-          vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
-          let warranty = []
-          if (querySnapshot.size) {
-            querySnapshot.docs.forEach(function(item) {
-              warranty.push(item.data())
-            })
-            vm.items = warranty
-          } else {
-            vm.items = []
-          }
-        }).catch(function () {
-          vm.loadingData = false
-        })
+        if (vm.userLogin['role'] === 'Admin') {
+          db.collection("warranty").orderBy('createDate').limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
+        if (vm.userLogin['role'] === 'Member') {
+          db.collection("warranty").where('branchUid', "==", vm.userLogin['uid']).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
+        
       },
       prevPage () {
         let vm = this
         vm.loadingData = true
         vm.page -= 1
-        db.collection("warranty").orderBy("createDate").endBefore(vm.firstVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
-          vm.loadingData = false
-          vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
-          let warranty = []
-          if (querySnapshot.size) {
-            querySnapshot.docs.forEach(function(item) {
-              warranty.push(item.data())
-            })
-            vm.items = warranty
-          } else {
-            vm.items = []
-          }
-        }).catch(function () {
-          vm.loadingData = false
-        })
+        if (vm.userLogin['role'] === 'Admin') {
+          db.collection("warranty").orderBy("createDate").endBefore(vm.firstVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
+        if (vm.userLogin['role'] === 'Member') {
+          db.collection("warranty").where('branchUid', "==", vm.userLogin['uid']).endBefore(vm.firstVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
       },
       nextPage () {
         let vm = this
         vm.loadingData = true
         vm.page += 1
-        db.collection("warranty").orderBy("createDate").startAfter(vm.lastVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
-          vm.loadingData = false
-          vm.firstVisible = querySnapshot.docs[0]
-          let warranty = []
-          if (querySnapshot.size) {
-            querySnapshot.docs.forEach(function(item) {
-              warranty.push(item.data())
-            })
-            vm.items = warranty
-          } else {
-            vm.items = []
-          }
-        }).catch(function () {
-          vm.loadingData = false
-        })
-      },
-      addMember (type, user) {
-        let vm = this
-        vm.typeAction = type
-        vm.userUpdate = user
-        vm.dialogAddMember = true
-        if (type === 'add') {
-          setTimeout(function () {
-            vm.account = ''
-            vm.passWord = ''
-            vm.userName = ''
-            vm.telNo = ''
-            vm.address = ''
-            vm.$refs.formAddMember.resetValidation()
-          }, 200)
-        } else {
-          setTimeout(function () {
-            vm.account = user.account
-            vm.userName = user.userName
-            vm.telNo = user.telNo
-            vm.address = user.address
-            vm.$refs.formAddMember.resetValidation()
-          }, 200)
+        if (vm.userLogin['role'] === 'Admin') {
+          db.collection("warranty").orderBy("createDate").startAfter(vm.lastVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.firstVisible = querySnapshot.docs[0]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
         }
-        
+        if (vm.userLogin['role'] === 'Member') {
+          db.collection("warranty").where('branchUid', "==", vm.userLogin['uid']).orderBy("createDate").startAfter(vm.lastVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.firstVisible = querySnapshot.docs[0]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
       },
+
       getBranchs () {
         let vm = this
         db.collection("users").get().then(function(querySnapshot) {
@@ -480,6 +534,26 @@
           vm.items = []
           vm.totalItem = 0
         })
+      },
+      deleteWarranty (item) {
+        let vm = this
+        let x = confirm('Bạn có chắc chắn muốn xóa phiếu bảo hành này!')
+        if (x) {
+          db.collection("warranty").doc(item['uid']).delete().then(() => {
+            let ref = db.collection('counters').doc('counterWarranty')
+            decrementCounter(db, ref, 10).then(function() {
+              vm.getCounter()
+              vm.getWarranty()
+            })
+            vm.$store.commit('SHOW_SNACKBAR', {
+              show: true,
+              text: 'Xóa phiếu bảo hành thành công',
+              color: 'success',
+            })
+          }).catch((error) => {
+              
+          })
+        }
       }
     },
   }
