@@ -3,7 +3,7 @@
     id="products"
     fluid
     tag="section"
-    style="padding-top: 75px"
+    :style="breakpointName === 'xs' || breakpointName === 'sm' ? 'padding-top: 75px' : ''"
   >
     <v-row>
       <!-- Sơn phủ -->

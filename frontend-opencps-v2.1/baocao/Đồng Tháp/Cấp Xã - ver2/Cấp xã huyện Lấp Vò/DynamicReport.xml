@@ -7621,6 +7621,12 @@
 			  },
 			  {
 				"selected": true,
+				"value": "waitingCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
 				"value": "overtimeCount",
 				"text": "",
 				"align": "center"
@@ -7686,7 +7692,7 @@
 				{
 					style: "tableExample",
 					table: {
-						widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+						widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
 						headerRows: 3,
 						body: [
 							[
@@ -7727,7 +7733,7 @@
 								},
 								{
 									text: "Kết quả giải quyết",
-									colSpan: 7,
+									colSpan: 8,
 									alignment: "center",
 									bold: true,
 									style: "tdStyle"
@@ -7738,6 +7744,7 @@
 								"",
 								"",
 								"",
+                                "",
 								{
 									text: "Tổng số trễ hạn",
 									rowSpan: 3,
@@ -7769,6 +7776,12 @@
 								},
 								"",
 								"",
+                                {
+									text: "Hồ sơ chờ bổ sung",
+									alignment: "center",
+                                    rowSpan: 2,
+									style: "tdStyle"
+								},
 								""
 							],
 							[
@@ -7812,7 +7825,8 @@
 									alignment: "center",
 									style: "tdStyle"
 								},
-								""
+								"",
+                                ""
 							],
 							[
 								{
@@ -7877,6 +7891,11 @@
 								},
 								{
 									text: "(13)",
+									alignment: "center",
+									fontSize: 8
+								},
+                                {
+									text: "(14)",
 									alignment: "center",
 									fontSize: 8
 								}
@@ -8074,6 +8093,12 @@
 			  },
 			  {
 				"selected": true,
+				"value": "waitingCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
 				"value": "overtimeCount",
 				"text": "",
 				"align": "center"
@@ -8141,204 +8166,217 @@
 					{
 						style: "tableExample",
 						table: {
-							widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-							headerRows: 3,
-							body: [
-								[
-									{
-										text: "\n\n\nSTT",
-										rowSpan: 3,
-										alignment: "center",
-										bold: true,
-										style: "tdStyle"
-									},
-									{
-										text: "\n\n\nThủ tục",
-										rowSpan: 3,
-										alignment: "center",
-										bold: true,
-										style: "tdStyle"
-									},
-									{
-										text: "Số đầu kỳ",
-										rowSpan: 3,
-										alignment: "center",
-										bold: true,
-										style: "tdStyle"
-									},
-									{
-										text: "Kỳ trước chuyển qua",
-										rowSpan: 3,
-										alignment: "center",
-										bold: true,
-										style: "tdStyle"
-									},
-									{
-										text: "Tiếp nhận trong kỳ",
-										rowSpan: 3,
-										alignment: "center",
-										bold: true,
-										style: "tdStyle"
-									},
-									{
-										text: "Kết quả giải quyết",
-										colSpan: 7,
-										alignment: "center",
-										bold: true,
-										style: "tdStyle"
-									},
-									"",
-									"",
-									"",
-									"",
-									"",
-									"",
-									{
-										text: "Tổng số trễ hạn",
-										rowSpan: 3,
-										alignment: "center",
-										bold: true,
-										style: "tdStyle"
-									}
-								],
-								[
-									"",
-									"",
-									"",
-									"",
-									"",
-									{
-										text: "Hồ sơ đã giải quyết xong",
-										colSpan: 4,           
-										alignment: "center",
-										style: "tdStyle"
-									},
-									"",
-									"",
-									"",
-									{
-										text: "Hồ sơ đang giải quyết",
-										colSpan: 3,           
-										alignment: "center",
-										style: "tdStyle"
-									},
-									"",
-									"",
-									""
-								],
-								[
-									"",
-									"",
-									"",
-									"",
-									"",
-									{
-										text: "Tổng số",
-										alignment: "center",
-										style: "tdStyle"
-									},
-									{
-										text: "Sớm hạn",
-										alignment: "center",
-										style: "tdStyle"
-									},
-									{
-										text: "Đúng hạn",
-										alignment: "center",
-										style: "tdStyle"
-									},
-									{
-										text: "Trễ hạn",
-										alignment: "center",
-										style: "tdStyle"
-									},
-									{
-										text: "Tổng số",
-										alignment: "center",
-										style: "tdStyle"
-									},
-									{
-										text: "Chưa đến hạn",
-										alignment: "center",
-										style: "tdStyle"
-									},
-									{
-										text: "Quá hạn",
-										alignment: "center",
-										style: "tdStyle"
-									},
-									""
-								],
-								[
-									{
-										text: "(1)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(2)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(3=4+5)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(4)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(5)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(6=7+8+9)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(7)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(8)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(9)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(10=11+12)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(11)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(12)",
-										alignment: "center",
-										fontSize: 8
-									},
-									{
-										text: "(13)",
-										alignment: "center",
-										fontSize: 8
-									}
-								],
-								"[$report$]"
-							]
-						},
+                            widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+                            headerRows: 3,
+                            body: [
+                                [
+                                    {
+                                        text: "\n\n\nSTT",
+                                        rowSpan: 3,
+                                        alignment: "center",
+                                        bold: true,
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "\n\n\nThủ tục",
+                                        rowSpan: 3,
+                                        alignment: "center",
+                                        bold: true,
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Số đầu kỳ",
+                                        rowSpan: 3,
+                                        alignment: "center",
+                                        bold: true,
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Kỳ trước chuyển qua",
+                                        rowSpan: 3,
+                                        alignment: "center",
+                                        bold: true,
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Tiếp nhận trong kỳ",
+                                        rowSpan: 3,
+                                        alignment: "center",
+                                        bold: true,
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Kết quả giải quyết",
+                                        colSpan: 8,
+                                        alignment: "center",
+                                        bold: true,
+                                        style: "tdStyle"
+                                    },
+                                    "",
+                                    "",
+                                    "",
+                                    "",
+                                    "",
+                                    "",
+                                    "",
+                                    {
+                                        text: "Tổng số trễ hạn",
+                                        rowSpan: 3,
+                                        alignment: "center",
+                                        bold: true,
+                                        style: "tdStyle"
+                                    }
+                                ],
+                                [
+                                    "",
+                                    "",
+                                    "",
+                                    "",
+                                    "",
+                                    {
+                                        text: "Hồ sơ đã giải quyết xong",
+                                        colSpan: 4,           
+                                        alignment: "center",
+                                        style: "tdStyle"
+                                    },
+                                    "",
+                                    "",
+                                    "",
+                                    {
+                                        text: "Hồ sơ đang giải quyết",
+                                        colSpan: 3,           
+                                        alignment: "center",
+                                        style: "tdStyle"
+                                    },
+                                    "",
+                                    "",
+                                    {
+                                        text: "Hồ sơ chờ bổ sung",
+                                        alignment: "center",
+                                        rowSpan: 2,
+                                        style: "tdStyle"
+                                    },
+                                    ""
+                                ],
+                                [
+                                    "",
+                                    "",
+                                    "",
+                                    "",
+                                    "",
+                                    {
+                                        text: "Tổng số",
+                                        alignment: "center",
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Sớm hạn",
+                                        alignment: "center",
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Đúng hạn",
+                                        alignment: "center",
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Trễ hạn",
+                                        alignment: "center",
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Tổng số",
+                                        alignment: "center",
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Chưa đến hạn",
+                                        alignment: "center",
+                                        style: "tdStyle"
+                                    },
+                                    {
+                                        text: "Quá hạn",
+                                        alignment: "center",
+                                        style: "tdStyle"
+                                    },
+                                    "",
+                                    ""
+                                ],
+                                [
+                                    {
+                                        text: "(1)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(2)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(3=4+5)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(4)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(5)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(6=7+8+9)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(7)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(8)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(9)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(10=11+12)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(11)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(12)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(13)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    },
+                                    {
+                                        text: "(14)",
+                                        alignment: "center",
+                                        fontSize: 8
+                                    }
+                                ],
+                                "[$report$]"
+                            ]
+                        },
 						margin: [0, 0, 0, 5]
 					},            
 					{

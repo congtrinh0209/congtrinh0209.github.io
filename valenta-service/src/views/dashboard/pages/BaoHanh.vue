@@ -28,7 +28,7 @@
                 /> -->
               </v-form>
             </v-card-text>
-            <v-card-actions class="mx-2 pt-0 mb-3">
+            <v-card-actions v-if="userLogin && userLogin['role'] && (userLogin['role'] === 'Admin' || userLogin['role'] === 'Member')" class="mx-2 pt-0 mb-3">
               <v-btn class="btn-submit-login" tile color="primary" :loading="loading" :disabled="loading" @click="createEWarranty">
                 <v-icon size="20" color="#fff" class="mr-2">mdi-login-variant</v-icon> 
                 <span>KÍCH HOẠT BẢO HÀNH</span>
@@ -275,7 +275,11 @@ export default {
       ]
     }
   },
-  computed: {},
+  computed: {
+    userLogin () {
+      return this.$store.getters.getPermistion
+    },
+  },
   methods: {
     createEWarranty () {
       let vm = this

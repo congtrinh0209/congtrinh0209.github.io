@@ -4,7 +4,7 @@
       id="manage_warranty"
       fluid
       tag="section"
-      style="padding-top: 75px"
+      :style="breakpointName === 'xs' || breakpointName === 'sm' ? 'padding-top: 75px' : ''"
     >
       <base-material-card
         style="margin-top: 20px"
@@ -12,7 +12,8 @@
         title="Danh sách phiếu bảo hành"
         class="px-5 py-3"
       >
-        <v-btn v-if="userLogin && userLogin['role'] && userLogin['role'] === 'Admin'" class="mx-0" fab dark small color="primary" @click.stop="showTimKiem" style="position: absolute; right: 40px; top: 15px;">
+        <v-btn v-if="userLogin && userLogin['role'] && userLogin['role'] === 'Admin'" style="position: absolute; right: 40px; top: 15px;"
+          class="mx-0" fab dark small color="primary" @click.stop="showTimKiem" >
           <v-icon dark>
             mdi-magnify
           </v-icon>
@@ -163,7 +164,7 @@
               <template v-slot:item.action="{ item }" v-if="userLogin && userLogin['role'] && userLogin['role'] === 'Admin'">
                   <!-- <v-tooltip top>
                     <template v-slot:activator="{ on, attrs }">
-                      <v-btn @click="addProduct('update', 'sonchongthamProduct', item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
+                      <v-btn @click="updateWarranty(item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
                         <v-icon size="22">mdi-pencil</v-icon>
                       </v-btn>
                     </template>
@@ -569,6 +570,14 @@
           vm.items = []
           vm.totalItem = 0
         })
+      },
+      updateWarranty (item) {
+        let vm = this
+        vm.$router.push(
+          {
+            path: '/pages/kich-hoat-bao-hanh/' + item.codeNumber
+          }
+        )
       },
       deleteWarranty (item) {
         let vm = this

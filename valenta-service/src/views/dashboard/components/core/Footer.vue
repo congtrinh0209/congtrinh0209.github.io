@@ -43,24 +43,7 @@
     name: 'DashboardCoreFooter',
 
     data: () => ({
-      links: [
-        {
-          href: '#',
-          text: 'Creative Tim',
-        },
-        {
-          href: '#',
-          text: 'About Us',
-        },
-        {
-          href: '#',
-          text: 'Blog',
-        },
-        {
-          href: '#',
-          text: 'Licenses',
-        },
-      ],
+      links: [],
     }),
   }
 </script>
@@ -75,7 +58,10 @@
 </style>
 <style lang="css" scoped>
   #dashboard-core-footer{
-    background-color: #1f9c7a;
+    background-color: #df4e00!important;
     color: #fff;
+  }
+  #dashboard-core-footer .container {
+    padding-bottom: 0px !important;
   }
 </style>

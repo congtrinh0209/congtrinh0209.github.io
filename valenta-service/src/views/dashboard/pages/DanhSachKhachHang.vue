@@ -4,7 +4,7 @@
       id="users"
       fluid
       tag="section"
-      style="padding-top: 75px"
+      :style="breakpointName === 'xs' || breakpointName === 'sm' ? 'padding-top: 75px' : ''"
     >
       <base-material-card
         style="margin-top: 20px"

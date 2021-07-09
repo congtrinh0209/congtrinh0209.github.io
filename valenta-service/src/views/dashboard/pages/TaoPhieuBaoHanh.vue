@@ -3,7 +3,7 @@
     id="createEWarranty"
     fluid
     tag="section"
-    style="padding-top: 75px"
+    :style="breakpointName === 'xs' || breakpointName === 'sm' ? 'padding-top: 75px' : ''"
   >
     <v-row justify="center">
       <v-col
@@ -1344,7 +1344,7 @@
             // console.log('dateNgoaiThat', dateFromC, dateFromD)
             // console.log('dateNgoaiThatTimeStamp', dateNgoaiThatFromTimeStamp, dateNgoaiThatToTimeStamp)
             let dataInput = {
-              codeNumber: vm.activeCode,
+              codeNumber: String(vm.activeCode).replace(/ /g, ''),
               customerName: vm.customerName,
               customerTelNo: vm.customerTelNo,
               customerAddress: vm.customerAddress,
@@ -1387,7 +1387,7 @@
                   customerAddress: vm.customerAddress,
                   dealDate: currentDateTimeStamp,
                   dealDateLocal: currentDateLocal,
-                  eWarrantyCode: vm.activeCode,
+                  eWarrantyCode: String(vm.activeCode).replace(/ /g, ''),
                   createDate: currentDateTimeStamp,
                   createDateLocal: currentDateLocal,
                   branchUid: vm.userLogin ? vm.userLogin['uid'] : ''
@@ -1411,11 +1411,11 @@
             }
           }
           if (vm.typeAction === 'add') {
-            db.collection("warranty").where("codeNumber", "==", String(vm.activeCode)).get().then(function(querySnapshot) {
+            db.collection("warranty").where("codeNumber", "==", String(vm.activeCode).replace(/ /g, '')).get().then(function(querySnapshot) {
               if (querySnapshot.size) {
                 vm.$store.commit('SHOW_SNACKBAR', {
                   show: true,
-                  text: "Mã thẻ " + vm.activeCode + " đã được kích hoạt trước đó. Vui lòng kiểm tra lại.",
+                  text: "Mã thẻ " + String(vm.activeCode).replace(/ /g, '') + " đã được kích hoạt trước đó. Vui lòng kiểm tra lại.",
                   color: 'error',
                 })
               } else {

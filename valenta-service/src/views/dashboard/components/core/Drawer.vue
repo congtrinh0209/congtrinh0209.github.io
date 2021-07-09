@@ -8,7 +8,7 @@
     src="/images/bg-draw-2.jpg"
     mobile-break-point="960"
     app
-    width="260"
+    :width="breakpointName === 'xs' || breakpointName === 'sm' ? 260 : 0"
     v-bind="$attrs"
   >
     <template v-slot:img="props">
@@ -152,6 +152,12 @@
             id: 'product-valenta'
           },
           {
+            icon: 'mdi-ballot-outline',
+            title: 'Công cụ hỗ trợ',
+            class: '',
+            id: 'tool-valenta'
+          },
+          {
             icon: 'mdi-card-account-phone-outline',
             title: 'Liên hệ',
             class: '',
@@ -178,6 +184,12 @@
             id: 'product-valenta'
           },
           {
+            icon: 'mdi-ballot-outline',
+            title: 'Công cụ hỗ trợ',
+            class: '',
+            id: 'tool-valenta'
+          },
+          {
             icon: 'mdi-card-account-phone-outline',
             title: 'Liên hệ',
             class: '',
@@ -197,6 +209,7 @@
         document.getElementById('home-valenta').href = 'http://valenta.vn'
         document.getElementById('product-valenta').href = 'http://valenta.vn/product.html'
         document.getElementById('contact-valenta').href = 'http://valenta.vn/contact.html'
+        document.getElementById('tool-valenta').href = 'http://valenta.vn/tinge.html'
       }, 2000)
     },
     computed: {
@@ -220,6 +233,9 @@
       },
       userLogin () {
         return this.$store.getters.getPermistion
+      },
+      breakpointName () {
+        return this.$store.getters.getBreakpointName
       }
     },
     watch: {
@@ -294,6 +310,12 @@
               id: 'product-valenta'
             },
             {
+              icon: 'mdi-ballot-outline',
+              title: 'Công cụ hỗ trợ',
+              class: '',
+              id: 'tool-valenta'
+            },
+            {
               icon: 'mdi-card-account-phone-outline',
               title: 'Liên hệ',
               class: '',
@@ -320,6 +342,12 @@
               id: 'product-valenta'
             },
             {
+              icon: 'mdi-ballot-outline',
+              title: 'Công cụ hỗ trợ',
+              class: '',
+              id: 'tool-valenta'
+            },
+            {
               icon: 'mdi-card-account-phone-outline',
               title: 'Liên hệ',
               class: '',
@@ -336,6 +364,7 @@
           document.getElementById('home-valenta').href = 'http://valenta.vn'
           document.getElementById('product-valenta').href = 'http://valenta.vn/product.html'
           document.getElementById('contact-valenta').href = 'http://valenta.vn/contact.html'
+          document.getElementById('tool-valenta').href = 'http://valenta.vn/tinge.html'
         }, 2000)
       }
     },
