@@ -10233,14 +10233,14 @@
 						width: "*",
 						style: "titleFooterLeft",
 						text: [
-						  {text: "Lâm Quý Thơ", bold: true }
+						  {text: "", bold: true }
 						]
 					  },
 					  {
 						width: "*",
 						style: "titleFooterRight",
 						text: [
-						  {text: "Hồ Tấn Hoàng", bold: true }
+						  {text: "", bold: true }
 						]
 					  },
 					  {

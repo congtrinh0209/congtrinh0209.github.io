@@ -118,7 +118,7 @@
           },
           {
             icon: 'mdi-account',
-            title: 'Danh sách nhân viên, đại lý',
+            title: 'Nhân viên, đại lý',
             to: '/pages/users',
           }
         ]
@@ -276,7 +276,7 @@
             },
             {
               icon: 'mdi-account',
-              title: 'Danh sách nhân viên, đại lý',
+              title: 'Nhân viên, đại lý',
               to: '/pages/users',
             }
           ]

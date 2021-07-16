@@ -549,7 +549,7 @@
               item['quycach'] = vm.formatQuyCach(item['quycach'])
             })
             vm.listSonPhu = sonphuProduct
-            console.log('vm.listSonPhu', vm.listSonPhu)
+            // console.log('vm.listSonPhu', vm.listSonPhu)
             vm.totalItemSonPhu = querySnapshot.size
             vm.pageCountSonPhu = Math.ceil(querySnapshot.size / vm.itemsPerPage)
           } else {

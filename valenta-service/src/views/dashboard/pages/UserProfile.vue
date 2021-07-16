@@ -192,13 +192,13 @@
         let vm = this
         async function getUid() {
           let curr = await firebase.auth().currentUser
-          console.log('curr', curr)
+          // console.log('curr', curr)
           let uidad = curr.uid
           let infoad = db.collection("users").doc(uidad)
           infoad.get().then((querySnapshot) => {
             if (querySnapshot.exists) {
               vm.userInfo = querySnapshot.data()
-              console.log('userInfo',vm.userInfo)
+              // console.log('userInfo',vm.userInfo)
             }
           }).catch((error) => {
           })

@@ -1472,7 +1472,7 @@
             sonphuProduct.forEach(function(item) {
               item['quycach'] = vm.formatQuyCach(item['quycach'])
             })
-            console.log('sonphuProduct', sonphuProduct)
+            // console.log('sonphuProduct', sonphuProduct)
             vm.listSonPhu = sonphuProduct
           } else {
             vm.listSonPhu = []

@@ -69,8 +69,13 @@
   </v-app-bar>
   <div v-else id="header-desktop">
     <header id="banner">
-        <div class="container"> 
-          <a href="" class="mLogo"> <img src="/images/logo-valenta.png"> </a>
+        <div class="container layout wrap" style="padding-top: 15px;padding-bottom: 15px;padding-left: 10px;"> 
+          <a href="" class="mLogo col-sm-4 py-0"> <img src="/images/logo-valenta.png"> </a>
+          <div class="col-sm-8 text-right" style="margin-top:20px; color:#ff6a00;">
+            Hotline: <a style="color:#ff6a00;text-decoration: none;" href="tel:0369648868">0369648868</a>
+            | Email: <a style="color:#ff6a00;text-decoration: none;" href="mailto:valenta@hanoipaint.com.vn">valenta@hanoipaint.com.vn</a>
+            <a id="register-btn" class="btn btn-default" href="http://valenta.vn/contact.html" role="button">ĐĂNG KÝ ĐẠI LÝ</a>
+          </div>
         </div>
         <v-menu v-if="userLogin && userLogin !== 'guest' &&  (breakpointName === 'xs' || breakpointName === 'sm')" offset-y origin="center center" transition="scale-transition">
           <template #activator="{ on }">
@@ -106,7 +111,7 @@
         <v-menu v-if="userLogin && userLogin !== 'guest' && breakpointName !== 'xs' && breakpointName !== 'sm'" offset-y origin="center center" transition="scale-transition">
           <template v-slot:activator="{ on, attrs }">
             <v-chip
-              style="height: 36px;position: absolute;top:25px;right:30px"
+              style="height: 36px;position: absolute;top:100px;right:5px;z-index: 2"
               v-bind="attrs"
               v-on="on"
               class="ma-2"
@@ -117,8 +122,8 @@
                 mdi-account-circle-outline
               </v-icon>
               {{userLogin['userName']}}
-              <v-icon class="ml-2" v-if="!showMenu" size="20" color="white" >expand_more</v-icon>
-              <v-icon class="ml-2" v-else size="20" color="white">expand_less</v-icon>
+              <v-icon class="ml-2" v-if="!showMenu" size="20" color="white" >mdi-chevron-up</v-icon>
+              <v-icon class="ml-2" v-else size="20" color="white">mdi-chevron-down</v-icon>
             </v-chip>
           </template>
           <v-list class="pa-0">
@@ -213,7 +218,6 @@
     data: () => ({
       showMenu: fasle,
       items: [],
-      indexTab: '',
       notifications: [
         'Mike John Responded to your email',
         'You have 5 new tasks',
@@ -245,7 +249,7 @@
           },
           {
             icon: 'mdi-format-list-bulleted',
-            title: 'Quản lý phiếu bảo hành',
+            title: 'Quản lý bảo hành',
             to: '/pages/quan-ly-bao-hanh',
           },
           {
@@ -255,12 +259,12 @@
           },
           {
             icon: 'mdi-account-supervisor-circle',
-            title: 'Danh sách khách hàng',
+            title: 'Khách hàng',
             to: '/pages/danh-sach-khach-hang',
           },
           {
             icon: 'mdi-account',
-            title: 'Danh sách nhân viên, đại lý',
+            title: 'Nhân viên, đại lý',
             to: '/pages/users',
           }
         ]
@@ -279,13 +283,19 @@
             id: 'search'
           },
           {
+            icon: '',
+            title: 'Giới thiệu',
+            class: '',
+            id: 'about-valenta'
+          },
+          {
             icon: 'mdi-shield-plus-outline',
             title: 'Kích hoạt bảo hành',
             to: '/pages/kich-hoat-bao-hanh/0',
           },
           {
             icon: 'mdi-format-list-bulleted',
-            title: 'Quản lý phiếu bảo hành',
+            title: 'Quản lý bảo hành',
             to: '/pages/quan-ly-bao-hanh',
           },
           {
@@ -322,6 +332,12 @@
             id: 'search'
           },
           {
+            icon: '',
+            title: 'Giới thiệu',
+            class: '',
+            id: 'about-valenta'
+          },
+          {
             icon: 'mdi-ballot-outline',
             title: 'Sản phẩm',
             class: '',
@@ -334,22 +350,34 @@
             id: 'tool-valenta'
           },
           {
+            icon: '',
+            title: 'Blog',
+            class: '',
+            id: 'blog-valenta'
+          },
+          {
+            icon: '',
+            title: 'Đại lý',
+            class: '',
+            id: 'branch-valenta'
+          },
+          {
             icon: 'mdi-card-account-phone-outline',
             title: 'Liên hệ',
             class: '',
             id: 'contact-valenta'
           },
-          {
-            icon: 'mdi-login-variant',
-            title: 'Đăng nhập',
-            to: '/login',
-          }
+          // {
+          //   icon: 'mdi-login-variant',
+          //   title: 'Đăng nhập',
+          //   to: '/login',
+          // }
         ]
       }
-      let index = vm.items.findIndex(function (item) {
-        return item.id === 'search'
-      })
-      vm.indexTab = index
+      // let index = vm.items.findIndex(function (item) {
+      //   return item.id === 'search'
+      // })
+      // vm.indexTab = index
     },
     mounted () {
       let vm = this
@@ -358,6 +386,9 @@
         document.getElementById('product-valenta').href = 'http://valenta.vn/product.html'
         document.getElementById('contact-valenta').href = 'http://valenta.vn/contact.html'
         document.getElementById('tool-valenta').href = 'http://valenta.vn/tinge.html'
+        document.getElementById('branch-valenta').href = 'http://valenta.vn/19-Dai-Ly.html'
+        document.getElementById('blog-valenta').href = 'http://valenta.vn/1-Blog.html'
+        document.getElementById('about-valenta').href = 'http://valenta.vn/about.html'
       }, 2000)
     },
     computed: {
@@ -367,6 +398,9 @@
       },
       breakpointName () {
         return this.$store.getters.getBreakpointName
+      },
+      indexTab () {
+        return this.$store.getters.getIndexTab
       }
     },
     watch: {
@@ -379,7 +413,7 @@
               title: 'Trang chủ',
               class: 'home-tab',
               id: 'home-valenta'
-            },
+            },            
             {
               icon: 'mdi-credit-card-search-outline',
               title: 'Tra cứu bảo hành',
@@ -393,7 +427,7 @@
             },
             {
               icon: 'mdi-format-list-bulleted',
-              title: 'Quản lý phiếu bảo hành',
+              title: 'Quản lý bảo hành',
               to: '/pages/quan-ly-bao-hanh',
             },
             {
@@ -403,12 +437,12 @@
             },
             {
               icon: 'mdi-account-supervisor-circle',
-              title: 'Danh sách khách hàng',
+              title: 'Khách hàng',
               to: '/pages/danh-sach-khach-hang',
             },
             {
               icon: 'mdi-account',
-              title: 'Danh sách nhân viên, đại lý',
+              title: 'Nhân viên, đại lý',
               to: '/pages/users',
             }
           ]
@@ -427,13 +461,19 @@
               id: 'search'
             },
             {
+              icon: '',
+              title: 'Giới thiệu',
+              class: '',
+              id: 'about-valenta'
+            },
+            {
               icon: 'mdi-shield-plus-outline',
               title: 'Kích hoạt bảo hành',
               to: '/pages/kich-hoat-bao-hanh/0',
             },
             {
               icon: 'mdi-format-list-bulleted',
-              title: 'Quản lý phiếu bảo hành',
+              title: 'Quản lý bảo hành',
               to: '/pages/quan-ly-bao-hanh',
             },
             {
@@ -470,6 +510,12 @@
               id: 'search'
             },
             {
+              icon: '',
+              title: 'Giới thiệu',
+              class: '',
+              id: 'about-valenta'
+            },
+            {
               icon: 'mdi-ballot-outline',
               title: 'Sản phẩm',
               class: '',
@@ -482,16 +528,28 @@
               id: 'tool-valenta'
             },
             {
+              icon: '',
+              title: 'Blog',
+              class: '',
+              id: 'blog-valenta'
+            },
+            {
+              icon: '',
+              title: 'Đại lý',
+              class: '',
+              id: 'branch-valenta'
+            },
+            {
               icon: 'mdi-card-account-phone-outline',
               title: 'Liên hệ',
               class: '',
               id: 'contact-valenta'
             },
-            {
-              icon: 'mdi-login-variant',
-              title: 'Đăng nhập',
-              to: '/login',
-            }
+            // {
+            //   icon: 'mdi-login-variant',
+            //   title: 'Đăng nhập',
+            //   to: '/login',
+            // }
           ]
         }
         setTimeout(function () {
@@ -499,12 +557,14 @@
           document.getElementById('product-valenta').href = 'http://valenta.vn/product.html'
           document.getElementById('contact-valenta').href = 'http://valenta.vn/contact.html'
           document.getElementById('tool-valenta').href = 'http://valenta.vn/tinge.html'
-          
+          document.getElementById('branch-valenta').href = 'http://valenta.vn/19-Dai-Ly.html'
+          document.getElementById('blog-valenta').href = 'http://valenta.vn/1-Blog.html'
+          document.getElementById('about-valenta').href = 'http://valenta.vn/about.html'
         }, 2000)
-        let index = vm.items.findIndex(function (item) {
-          return item.id === 'search'
-        })
-        vm.indexTab = index
+        // let index = vm.items.findIndex(function (item) {
+        //   return item.id === 'search'
+        // })
+        // vm.indexTab = index
       }
     },
     methods: {
@@ -526,7 +586,7 @@
           })
       },
       redirectTo (item, index) {
-        this.indexTab = index
+        this.$store.commit('SET_INDEXTAB', index)
         this.$router.push({ path: item.to })
       },
       goToLogin () {
@@ -537,8 +597,8 @@
 </script>
 <style lang="css">
   #header-desktop #banner {
-      background: url(https://motcua.haugiang.gov.vn/o/hau-giang-theme/images/bg-header-1920.png) left center no-repeat;
-      background-size: auto 100%;
+      /* background: url(/images/header-background.png) right center no-repeat; */
+      /* background-size: cover; */
       padding: 0;
   }
   #header-desktop #navigation {
@@ -548,8 +608,8 @@
   #header-desktop #banner .container, #header-desktop #navigation .container {
       padding-left: 0;
       padding-right: 0;
-      max-width: 1300px;
-      margin: auto;
+      /* max-width: 1300px; */
+      margin: 0 auto;
   }
   #header-desktop #navigation ul {
       display: flex;
@@ -558,6 +618,7 @@
       overflow: hidden;
       margin: auto;
       padding: 0;
+      justify-content: center;
   }
   #header-desktop #navigation ul {
       display: flex;
@@ -568,18 +629,19 @@
       padding: 0;
   }
   #header-desktop #navigation li.selected a {
-      font-weight: bold;
+      /* font-weight: bold; */
   }
   #header-desktop #navigation li:hover a, #header-desktop #navigation li.selected a {
       color: #fff;
   }
   #header-desktop #navigation li a {
-      padding: 10px 15px;
+      padding: 18px 15px;
       display: block;
       position: relative;
       text-transform: uppercase;
       text-decoration: none;
       color: #fff;
+      font-size: 16px;
   }
   #header-desktop #navigation li:hover a:before, #header-desktop #navigation li.selected a:before {
       content: "";
@@ -592,22 +654,39 @@
   }
   #header-desktop #banner .btns {
     position: absolute;
-    top: 10px;
-    right: 30px;
+    right: 15px;
+    top: 105px;
+    z-index: 2;
   }
   #header-desktop #banner .btns a.login {
-    background-image: url(/images/icon-login-blue.png);
+    background-image: url(/images/icon-login-white.png);
   }
   #header-desktop #banner .btns a {
     display: inline-block;
-    background-color: white;
+    /* background-color: white; */
+    background-color: transparent;
     padding: 6px 50px 6px 20px;
-    color: #0072bc;
-    border: 2px solid #0072bc;
+    /* color: #0072bc; */
+    /* border: 2px solid #0072bc; */
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
     border-radius: 50px;
     background-repeat: no-repeat;
     background-position: right -2px top -2px;
     background-size: auto 35px;
+  }
+  #register-btn {
+    padding-left: 30px;
+    padding-right: 30px;
+    background: #fd6c1d;
+    color: #FFF;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    border: none;
+    line-height: 1.42857143;
+    text-decoration: none;
+    margin-left: 30px;
   }
 </style>
 

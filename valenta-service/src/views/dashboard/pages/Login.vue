@@ -99,7 +99,7 @@ export default {
       this.$router.push({ path: '/' })
     },
     handleRegister() {
-      console.log(this)
+      // console.log(this)
     },
     handleSocialLogin() {},
   },

@@ -351,7 +351,7 @@
           }
           vm.totalItem = total
           vm.pageCount = pageCount
-          console.log('pagination', total, pageCount)
+          // console.log('pagination', total, pageCount)
         })
       },
       getWarranty () {
@@ -547,20 +547,20 @@
           let toDate = (new Date(date2[2] + '-' + date2[1] + '-' + date2[0])).getTime()
           refsCollection = db.collection("warranty").where(keySearch, "==", valueSearch).where('toCreateDate', "<=", toDate)
         }
-        console.log('keySearch', keySearch, valueSearch)
+        // console.log('keySearch', keySearch, valueSearch)
         refsCollection.get().then(function(querySnapshot) {
           vm.loadingData = false
-          console.log('itemSearchXXXX', querySnapshot.size)
+          // console.log('itemSearchXXXX', querySnapshot.size)
           let warranty = []
           if (querySnapshot.size) {
-            console.log('itemSearch123', querySnapshot.size)
+            // console.log('itemSearch123', querySnapshot.size)
             querySnapshot.docs.forEach(function(item) {
               warranty.push(item.data())
             })
             vm.items = warranty
             vm.totalItem = querySnapshot.size
             vm.pageCount = Math.ceil(querySnapshot.size / vm.itemsPerPage)
-            console.log('itemSearch', vm.items, vm.totalItem)
+            // console.log('itemSearch', vm.items, vm.totalItem)
           } else {
             vm.items = []
             vm.totalItem = 0

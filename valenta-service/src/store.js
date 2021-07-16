@@ -17,7 +17,8 @@ export default new Vuex.Store({
     username: '',
     userPermistion: 'guest',
     userProfile: null,
-    breakpointName: 'lg'
+    breakpointName: 'lg',
+    indexTab: 1
   },
   getters: {
     getSnackbar: (state) => {
@@ -29,7 +30,8 @@ export default new Vuex.Store({
     getUsername: (state) => state.username,
     getPermistion: (state) => state.userPermistion,
     getUserProfile: (state) => state.userProfile,
-    getBreakpointName: (state) => state.breakpointName
+    getBreakpointName: (state) => state.breakpointName,
+    getIndexTab: (state) => state.indexTab
   },
   mutations: {
     SET_BAR_IMAGE (state, payload) {
@@ -67,6 +69,10 @@ export default new Vuex.Store({
     },
     SET_BREAKPOINTNAME(state, breakpointName) {
       state.breakpointName = breakpointName
+    },
+    SET_INDEXTAB(state, indexTab) {
+      state.indexTab = indexTab
+      console.log('SET_INDEXTAB', state.indexTab)
     }
   },
   actions: {
