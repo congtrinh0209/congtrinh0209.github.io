@@ -6832,87 +6832,129 @@
               }
 			],
 			reportConfig: [
-			  {
-				"selected": true,
-				"value": "domainName",
-				"text": "",
-				"align": "left"
-			  },
-			  {
-				"selected": true,
-				"value": "processCount",
-				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "remainingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "receivedCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "betimesCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "processingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "undueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overdueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "waitingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  }
-			],
+				{
+				  "selected": true,
+				  "value": "domainName",
+				  "text": "",
+				  "align": "left"
+				},
+				{
+				  "selected": true,
+				  "value": "processCount",
+				  "calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "remainingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "receivedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onegateCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onlineCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releaseCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "betimesCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "ontimeCount",
+				  "calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overtimeCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "unresolvedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "doneCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releasingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "processingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "undueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overdueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "viaPostalCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "saturdayCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "waitingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "cancelledCount",
+				  "text": "",
+				  "align": "center"
+				}
+			  ],
 			selection: [
 			  {
 				  "key": "govAgencyCode",
@@ -6968,221 +7010,338 @@
 					style: "headerTitle"
 				},
 				{
-					style: "tableExample",
-					table: {
-						widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-						headerRows: 3,
-						body: [
+				  style: "tableExample",
+				  table: {
+					  widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 30],
+					  headerRows: 3,
+					  body: [
+						  [
+							  {
+								  text: "\n\n\nSTT",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\n\n\nLĩnh vực",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Nhận giải quyết",
+								  colSpan: 5,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Kết quả giải quyết",
+								  colSpan: 7,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Đang giải quyết",
+								  colSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Hồ sơ sử dụng dịch vụ bưu chính công ích",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Hồ sơ đã tiếp nhận và trả kết quả ngày thứ 7",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tạm dừng bổ sung điều kiện",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nRút không giải quyết",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  }
+						  ],
+						  [
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTồn trước",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trong kỳ",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tình hình thực hiện",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Từ chối giải quyết",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trả kết quả",
+								  colSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+								  {
+								  text: "\nTổng số",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nCòn hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nQuá hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+						  [
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "\nTổng",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tiếp",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tuyến",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Trước hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Đúng hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trễ hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Đã trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Chưa trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTổng số",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Còn hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Quá hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
 							[
-								{
-									text: "\n\n\nSTT",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "\n\n\nLĩnh vực",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Số đầu kỳ",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Kỳ trước chuyển qua",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Tiếp nhận trong kỳ",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Kết quả giải quyết",
-									colSpan: 8,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								"",
-								"",
-								"",
-								"",
-								"",
-								"",
-                                "",
-								{
-									text: "Tổng số trễ hạn",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								}
-							],
-							[
-								"",
-								"",
-								"",
-								"",
-								"",
-								{
-									text: "Hồ sơ đã giải quyết xong",
-									colSpan: 4,           
-									alignment: "center",
-									style: "tdStyle"
-								},
-								"",
-								"",
-								"",
-								{
-									text: "Hồ sơ đang giải quyết",
-									colSpan: 3,           
-									alignment: "center",
-									style: "tdStyle"
-								},
-								"",
-								"",
-                                {
-									text: "Hồ sơ chờ bổ sung",
-									alignment: "center",
-                                    rowSpan: 2,
-									style: "tdStyle"
-								},
-								""
-							],
-							[
-								"",
-								"",
-								"",
-								"",
-								"",
-								{
-									text: "Tổng số",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Sớm hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Đúng hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Trễ hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Tổng số",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Chưa đến hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Quá hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								"",
-                                ""
-							],
-							[
-								{
-									text: "(1)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(2)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(3=4+5)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(4)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(5)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(6=7+8+9)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(7)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(8)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(9)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(10=11+12)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(11)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(12)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(13)",
-									alignment: "center",
-									fontSize: 8
-								},
-                                {
-									text: "(14)",
-									alignment: "center",
-									fontSize: 8
-								}
-							],
-							"[$report$]"
-						]
-					},
-					margin: [0, 0, 0, 5]
-				},            
+							  {
+								  text: "(1)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(2)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(3)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(4)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(5)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(6)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(7)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(8)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(9)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(10)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(11)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(12)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(13)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(14)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(15)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(16)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(17)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(18)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(19)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(20)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(21)",
+								  alignment: "center",
+								  fontSize: 8
+							  }
+						  ],
+						  "[$report$]"
+					  ]
+				  },
+				  margin: [0, 0, 0, 5]
+			  },            
 				{
 					columns: [
 						{
@@ -7308,87 +7467,129 @@
 			  }
 			],
 			reportConfig: [
-			  {
-				"selected": true,
-				"value": "serviceName",
-				"text": "",
-				"align": "left"
-			  },
-			  {
-				"selected": true,
-				"value": "processCount",
-				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "remainingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "receivedCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "betimesCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "processingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "undueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overdueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "waitingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  }
-			],
+				{
+				  "selected": true,
+				  "value": "serviceName",
+				  "text": "",
+				  "align": "left"
+				},
+				{
+				  "selected": true,
+				  "value": "processCount",
+				  "calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "remainingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "receivedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onegateCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onlineCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releaseCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "betimesCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "ontimeCount",
+				  "calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overtimeCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "unresolvedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "doneCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releasingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "processingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "undueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overdueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "viaPostalCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "saturdayCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "waitingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "cancelledCount",
+				  "text": "",
+				  "align": "center"
+				}
+			  ],
 			selection: [
 			  {
 				  "key": "govAgencyCode",
@@ -7446,221 +7647,343 @@
 						style: "headerTitle"
 					},
 					{
-						style: "tableExample",
-						table: {
-                            widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-                            headerRows: 3,
-                            body: [
-                                [
-                                    {
-                                        text: "\n\n\nSTT",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "\n\n\nThủ tục",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Số đầu kỳ",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Kỳ trước chuyển qua",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Tiếp nhận trong kỳ",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Kết quả giải quyết",
-                                        colSpan: 8,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    {
-                                        text: "Tổng số trễ hạn",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    }
-                                ],
-                                [
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    {
-                                        text: "Hồ sơ đã giải quyết xong",
-                                        colSpan: 4,           
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    "",
-                                    "",
-                                    "",
-                                    {
-                                        text: "Hồ sơ đang giải quyết",
-                                        colSpan: 3,           
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    "",
-                                    "",
-                                    {
-                                        text: "Hồ sơ chờ bổ sung",
-                                        alignment: "center",
-                                        rowSpan: 2,
-                                        style: "tdStyle"
-                                    },
-                                    ""
-                                ],
-                                [
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    {
-                                        text: "Tổng số",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Sớm hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Đúng hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Trễ hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Tổng số",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Chưa đến hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Quá hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    "",
-                                    ""
-                                ],
-                                [
-                                    {
-                                        text: "(1)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(2)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(3=4+5)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(4)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(5)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(6=7+8+9)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(7)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(8)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(9)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(10=11+12)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(11)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(12)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(13)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(14)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    }
-                                ],
-                                "[$report$]"
-                            ]
-                        },
-						margin: [0, 0, 0, 5]
-					},            
+				  style: "tableExample",
+				  table: {
+					  widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 30, 25],
+					  headerRows: 3,
+					  body: [
+						  [
+							  {
+								  text: "\n\n\nSTT",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\n\n\nThủ tục",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Nhận giải quyết",
+								  colSpan: 5,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Kết quả giải quyết",
+								  colSpan: 7,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Đang giải quyết",
+								  colSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Hồ sơ sử dụng dịch vụ bưu chính công ích",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Hồ sơ đã tiếp nhận và trả kết quả ngày thứ 7",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tạm dừng bổ sung điều kiện",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nRút không giải quyết",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  }
+						  ],
+						  [
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTồn trước",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trong kỳ",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tình hình thực hiện",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Từ chối giải quyết",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trả kết quả",
+								  colSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+								  {
+								  text: "\nTổng số",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nCòn hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nQuá hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+						  [
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "\nTổng",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tiếp",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tuyến",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Trước hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Đúng hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trễ hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Đã trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Chưa trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTổng số",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Còn hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Quá hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+							[
+							  {
+								  text: "(1)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(2)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(3)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(4)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(5)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(6)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(7)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(8)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(9)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(10)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(11)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(12)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(13)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(14)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(15)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(16)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(17)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(18)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(19)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(20)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(21)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(22)",
+								  alignment: "center",
+								  fontSize: 8
+							  }
+						  ],
+						  "[$report$]"
+					  ]
+				  },
+				  margin: [0, 0, 0, 5]
+			  },            
 					{
 						columns: [
 							{
@@ -9479,87 +9802,129 @@
               }
 			],
 			reportConfig: [
-			  {
-				"selected": true,
-				"value": "domainName",
-				"text": "",
-				"align": "left"
-			  },
-			  {
-				"selected": true,
-				"value": "processCount",
-				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "remainingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "receivedCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "betimesCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "processingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "undueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overdueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "waitingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  }
-			],
+				{
+				  "selected": true,
+				  "value": "domainName",
+				  "text": "",
+				  "align": "left"
+				},
+				{
+				  "selected": true,
+				  "value": "processCount",
+				  "calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "remainingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "receivedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onegateCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onlineCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releaseCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "betimesCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "ontimeCount",
+				  "calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overtimeCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "unresolvedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "doneCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releasingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "processingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "undueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overdueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "viaPostalCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "saturdayCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "waitingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "cancelledCount",
+				  "text": "",
+				  "align": "center"
+				}
+			  ],
 			selection: [
 			  {
 				  "key": "govAgencyCode",
@@ -9617,221 +9982,338 @@
 					style: "headerTitle"
 				},
 				{
-					style: "tableExample",
-					table: {
-						widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-						headerRows: 3,
-						body: [
+				  style: "tableExample",
+				  table: {
+					  widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 30],
+					  headerRows: 3,
+					  body: [
+						  [
+							  {
+								  text: "\n\n\nSTT",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\n\n\nLĩnh vực",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Nhận giải quyết",
+								  colSpan: 5,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Kết quả giải quyết",
+								  colSpan: 7,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Đang giải quyết",
+								  colSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Hồ sơ sử dụng dịch vụ bưu chính công ích",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Hồ sơ đã tiếp nhận và trả kết quả ngày thứ 7",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tạm dừng bổ sung điều kiện",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nRút không giải quyết",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  }
+						  ],
+						  [
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTồn trước",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trong kỳ",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tình hình thực hiện",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Từ chối giải quyết",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trả kết quả",
+								  colSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+								  {
+								  text: "\nTổng số",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nCòn hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nQuá hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+						  [
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "\nTổng",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tiếp",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tuyến",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Trước hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Đúng hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trễ hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Đã trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Chưa trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTổng số",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Còn hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Quá hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
 							[
-								{
-									text: "\n\n\nSTT",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "\n\n\nLĩnh vực",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Số đầu kỳ",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Kỳ trước chuyển qua",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Tiếp nhận trong kỳ",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Kết quả giải quyết",
-									colSpan: 8,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								"",
-								"",
-								"",
-								"",
-								"",
-								"",
-                                "",
-								{
-									text: "Tổng số trễ hạn",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								}
-							],
-							[
-								"",
-								"",
-								"",
-								"",
-								"",
-								{
-									text: "Hồ sơ đã giải quyết xong",
-									colSpan: 4,           
-									alignment: "center",
-									style: "tdStyle"
-								},
-								"",
-								"",
-								"",
-								{
-									text: "Hồ sơ đang giải quyết",
-									colSpan: 3,           
-									alignment: "center",
-									style: "tdStyle"
-								},
-								"",
-								"",
-                                {
-									text: "Hồ sơ chờ bổ sung",
-									alignment: "center",
-                                    rowSpan: 2,
-									style: "tdStyle"
-								},
-								""
-							],
-							[
-								"",
-								"",
-								"",
-								"",
-								"",
-								{
-									text: "Tổng số",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Sớm hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Đúng hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Trễ hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Tổng số",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Chưa đến hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Quá hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								"",
-                                ""
-							],
-							[
-								{
-									text: "(1)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(2)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(3=4+5)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(4)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(5)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(6=7+8+9)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(7)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(8)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(9)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(10=11+12)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(11)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(12)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(13)",
-									alignment: "center",
-									fontSize: 8
-								},
-                                {
-									text: "(14)",
-									alignment: "center",
-									fontSize: 8
-								}
-							],
-							"[$report$]"
-						]
-					},
-					margin: [0, 0, 0, 5]
-				},            
+							  {
+								  text: "(1)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(2)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(3)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(4)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(5)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(6)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(7)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(8)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(9)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(10)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(11)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(12)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(13)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(14)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(15)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(16)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(17)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(18)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(19)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(20)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(21)",
+								  alignment: "center",
+								  fontSize: 8
+							  }
+						  ],
+						  "[$report$]"
+					  ]
+				  },
+				  margin: [0, 0, 0, 5]
+			  },            
 				{
 					columns: [
 						{
@@ -9939,87 +10421,129 @@
 			  }
 			],
 			reportConfig: [
-			  {
-				"selected": true,
-				"value": "serviceName",
-				"text": "",
-				"align": "left"
-			  },
-			  {
-				"selected": true,
-				"value": "processCount",
-				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "remainingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "receivedCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "betimesCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "ontimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "processingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "undueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overdueCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "waitingCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-			  }
-			],
+				{
+				  "selected": true,
+				  "value": "serviceName",
+				  "text": "",
+				  "align": "left"
+				},
+				{
+				  "selected": true,
+				  "value": "processCount",
+				  "calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "remainingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "receivedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onegateCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onlineCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releaseCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "betimesCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "ontimeCount",
+				  "calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overtimeCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "unresolvedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "doneCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releasingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "processingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "undueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overdueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "viaPostalCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "saturdayCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "waitingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "cancelledCount",
+				  "text": "",
+				  "align": "center"
+				}
+			  ],
 			selection: [
 			  {
 				  "key": "govAgencyCode",
@@ -10079,221 +10603,343 @@
 						style: "headerTitle"
 					},
 					{
-						style: "tableExample",
-						table: {
-                            widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-                            headerRows: 3,
-                            body: [
-                                [
-                                    {
-                                        text: "\n\n\nSTT",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "\n\n\nThủ tục",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Số đầu kỳ",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Kỳ trước chuyển qua",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Tiếp nhận trong kỳ",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Kết quả giải quyết",
-                                        colSpan: 8,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    },
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    {
-                                        text: "Tổng số trễ hạn",
-                                        rowSpan: 3,
-                                        alignment: "center",
-                                        bold: true,
-                                        style: "tdStyle"
-                                    }
-                                ],
-                                [
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    {
-                                        text: "Hồ sơ đã giải quyết xong",
-                                        colSpan: 4,           
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    "",
-                                    "",
-                                    "",
-                                    {
-                                        text: "Hồ sơ đang giải quyết",
-                                        colSpan: 3,           
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    "",
-                                    "",
-                                    {
-                                        text: "Hồ sơ chờ bổ sung",
-                                        alignment: "center",
-                                        rowSpan: 2,
-                                        style: "tdStyle"
-                                    },
-                                    ""
-                                ],
-                                [
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    "",
-                                    {
-                                        text: "Tổng số",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Sớm hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Đúng hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Trễ hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Tổng số",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Chưa đến hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    {
-                                        text: "Quá hạn",
-                                        alignment: "center",
-                                        style: "tdStyle"
-                                    },
-                                    "",
-                                    ""
-                                ],
-                                [
-                                    {
-                                        text: "(1)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(2)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(3=4+5)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(4)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(5)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(6=7+8+9)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(7)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(8)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(9)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(10=11+12)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(11)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(12)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(13)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    },
-                                    {
-                                        text: "(14)",
-                                        alignment: "center",
-                                        fontSize: 8
-                                    }
-                                ],
-                                "[$report$]"
-                            ]
-                        },
-						margin: [0, 0, 0, 5]
-					},            
+				  style: "tableExample",
+				  table: {
+					  widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 30, 25],
+					  headerRows: 3,
+					  body: [
+						  [
+							  {
+								  text: "\n\n\nSTT",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\n\n\nThủ tục",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Nhận giải quyết",
+								  colSpan: 5,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Kết quả giải quyết",
+								  colSpan: 7,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Đang giải quyết",
+								  colSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Hồ sơ sử dụng dịch vụ bưu chính công ích",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Hồ sơ đã tiếp nhận và trả kết quả ngày thứ 7",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tạm dừng bổ sung điều kiện",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nRút không giải quyết",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  }
+						  ],
+						  [
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTồn trước",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trong kỳ",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tình hình thực hiện",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Từ chối giải quyết",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trả kết quả",
+								  colSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+								  {
+								  text: "\nTổng số",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nCòn hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nQuá hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+						  [
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "\nTổng",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tiếp",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tuyến",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Trước hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Đúng hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trễ hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Đã trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Chưa trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTổng số",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Còn hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Quá hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+							[
+							  {
+								  text: "(1)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(2)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(3)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(4)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(5)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(6)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(7)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(8)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(9)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(10)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(11)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(12)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(13)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(14)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(15)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(16)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(17)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(18)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(19)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(20)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(21)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(22)",
+								  alignment: "center",
+								  fontSize: 8
+							  }
+						  ],
+						  "[$report$]"
+					  ]
+				  },
+				  margin: [0, 0, 0, 5]
+			  },            
 					{
 						columns: [
 							{
