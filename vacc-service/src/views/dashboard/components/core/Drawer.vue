@@ -90,7 +90,7 @@
             title: 'Trang chủ',
             to: '/',
             class: 'home-tab',
-            id: 'home-valenta'
+            id: 'home-vacc'
           },
           {
             icon: 'mdi-shield-plus-outline',
@@ -100,13 +100,13 @@
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Đăng ký mới',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/dang-ky-tiem-moi/0',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Đăng ký chính thức',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/danh-sach-dang-ky-chinh-thuc',
                 id: 'search',
               }
             ]
@@ -114,31 +114,30 @@
           {
             icon: 'mdi-shield-plus-outline',
             title: 'Kế hoạch tiêm chủng',
-            to: '/pages/kich-hoat-bao-hanh/0',
             id: 'search',
             childItems: [
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch tiêm chủng',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-tiem-chung',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch hẹn chờ xác nhận',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-hen-cho-xac-nhan',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch hẹn đã xác nhận',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-hen-da-xac-nhan',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Danh sách tiêm chủng',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/danh-sach-tiem-chung',
                 id: 'search',
               },
             ]
@@ -151,7 +150,7 @@
             title: 'Trang chủ',
             to: '/',
             class: 'home-tab',
-            id: 'home-valenta'
+            id: 'home-vacc'
           },
           {
             icon: 'mdi-shield-plus-outline',
@@ -161,13 +160,13 @@
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Đăng ký mới',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/dang-ky-tiem-moi/0',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Đăng ký chính thức',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/danh-sach-dang-ky-chinh-thuc',
                 id: 'search',
               }
             ]
@@ -175,51 +174,40 @@
           {
             icon: 'mdi-shield-plus-outline',
             title: 'Kế hoạch tiêm chủng',
-            to: '/pages/kich-hoat-bao-hanh/0',
             id: 'search',
             childItems: [
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch tiêm chủng',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-tiem-chung',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch hẹn chờ xác nhận',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-hen-cho-xac-nhan',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch hẹn đã xác nhận',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-hen-da-xac-nhan',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Danh sách tiêm chủng',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/danh-sach-tiem-chung',
                 id: 'search',
               },
             ]
           },
-          {
-            icon: 'mdi-login-variant',
-            title: 'Đăng nhập',
-            to: '/login',
-          }
         ]
       }
     },
     mounted () {
       let vm = this
-      setTimeout(function () {
-        document.getElementById('home-valenta').href = 'http://valenta.vn'
-        document.getElementById('product-valenta').href = 'http://valenta.vn/product.html'
-        document.getElementById('contact-valenta').href = 'http://valenta.vn/contact.html'
-        document.getElementById('tool-valenta').href = 'http://valenta.vn/tinge.html'
-      }, 2000)
+
     },
     computed: {
       ...mapState(['barColor', 'barImage']),
@@ -251,130 +239,10 @@
       userLogin (val) {
         let vm = this
         if (val && val['role'] && val['role'] === 'Admin') {
-          vm.items = [
-            {
-              icon: 'mdi-home',
-              title: 'Trang chủ',
-              class: 'home-tab',
-              id: 'home-valenta'
-            },
-            {
-              icon: 'mdi-credit-card-search-outline',
-              title: 'Tra cứu bảo hành',
-              to: '/',
-            },
-            {
-              icon: 'mdi-shield-plus-outline',
-              title: 'Kích hoạt bảo hành',
-              to: '/pages/kich-hoat-bao-hanh/0',
-            },
-            {
-              icon: 'mdi-format-list-bulleted',
-              title: 'Quản lý phiếu bảo hành',
-              to: '/pages/quan-ly-bao-hanh',
-            },
-            {
-              icon: 'mdi-inbox-multiple-outline',
-              title: 'Danh mục sản phẩm',
-              to: '/pages/danh-muc-san-pham',
-            },
-            {
-              icon: 'mdi-account-supervisor-circle',
-              title: 'Danh sách khách hàng',
-              to: '/pages/danh-sach-khach-hang',
-            },
-            {
-              icon: 'mdi-account',
-              title: 'Nhân viên, đại lý',
-              to: '/pages/users',
-            }
-          ]
-        } else if (val && val['role'] && val['role'] === 'Member') {
-          vm.items = [
-            {
-              icon: 'mdi-home',
-              title: 'Trang chủ',
-              class: 'home-tab',
-              id: 'home-valenta'
-            },
-            {
-              icon: 'mdi-credit-card-search-outline',
-              title: 'Tra cứu bảo hành',
-              to: '/',
-            },
-            {
-              icon: 'mdi-shield-plus-outline',
-              title: 'Kích hoạt bảo hành',
-              to: '/pages/kich-hoat-bao-hanh/0',
-            },
-            {
-              icon: 'mdi-format-list-bulleted',
-              title: 'Quản lý phiếu bảo hành',
-              to: '/pages/quan-ly-bao-hanh',
-            },
-            {
-              icon: 'mdi-ballot-outline',
-              title: 'Sản phẩm',
-              class: '',
-              id: 'product-valenta'
-            },
-            {
-              icon: 'mdi-ballot-outline',
-              title: 'Công cụ hỗ trợ',
-              class: '',
-              id: 'tool-valenta'
-            },
-            {
-              icon: 'mdi-card-account-phone-outline',
-              title: 'Liên hệ',
-              class: '',
-              id: 'contact-valenta'
-            }
-          ]
+          
         } else {
-          vm.items = [
-            {
-              icon: 'mdi-home',
-              title: 'Trang chủ',
-              class: 'home-tab',
-              id: 'home-valenta'
-            },
-            {
-              icon: 'mdi-credit-card-search-outline',
-              title: 'Tra cứu bảo hành',
-              to: '/',
-            },
-            {
-              icon: 'mdi-ballot-outline',
-              title: 'Sản phẩm',
-              class: '',
-              id: 'product-valenta'
-            },
-            {
-              icon: 'mdi-ballot-outline',
-              title: 'Công cụ hỗ trợ',
-              class: '',
-              id: 'tool-valenta'
-            },
-            {
-              icon: 'mdi-card-account-phone-outline',
-              title: 'Liên hệ',
-              class: '',
-              id: 'contact-valenta'
-            },
-            {
-              icon: 'mdi-login-variant',
-              title: 'Đăng nhập',
-              to: '/login',
-            }
-          ]
-        }
-        setTimeout(function () {
-          document.getElementById('home-valenta').href = 'http://valenta.vn'
-          document.getElementById('product-valenta').href = 'http://valenta.vn/product.html'
-          document.getElementById('contact-valenta').href = 'http://valenta.vn/contact.html'
-          document.getElementById('tool-valenta').href = 'http://valenta.vn/tinge.html'
-        }, 2000)
+          
+        } 
       }
     },
     methods: {

@@ -12,11 +12,11 @@
           cols="auto"
         >
           <div>
-            <p class="mb-2 font-weight-bold">CÔNG TY CP SẢN XUẤT SƠN HÀ NỘI</p>
-            <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-home-city-outline</v-icon> Địa chỉ: CCN Đắc Sở, Hoài Đức, Hà Nội</p>
-            <!-- <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> CCN Đắc Sở, Hoài Đức, Hà Nội</p>
-            <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> ACM Building, 96 Cao Thắng P.4, Q.3, Tp.HCM</p>
-            <p><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> A3-30 - Khu đô thị Minh Khang - TP.Vinh, Nghệ An</p> -->
+            <p class="mb-2 font-weight-bold" style="text-transform: uppercase;">Phần mềm hỗ trợ quản lý và tổ chức Điểm tiêm chủng Vaccine</p>
+            <!-- <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-home-city-outline</v-icon> </p> -->
+            <!-- <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> </p>
+            <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> </p>
+            <p><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> </p> -->
           </div>
         </v-col>
 
@@ -28,8 +28,8 @@
         >
           <div class="text-body-1 pt-md-0">
             <div>
-              <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-phone-in-talk</v-icon> Điện thoại: 0369.64.8868</p>
-              <p><v-icon color="#fff" class="mr-1">mdi-email</v-icon> Email: valenta@hanoipaint.com.vn</p>
+              <!-- <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-phone-in-talk</v-icon> Điện thoại: </p>
+              <p><v-icon color="#fff" class="mr-1">mdi-email</v-icon> Email: </p> -->
             </div>
           </div>
         </v-col>

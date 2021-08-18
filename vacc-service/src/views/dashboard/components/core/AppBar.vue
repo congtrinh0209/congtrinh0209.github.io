@@ -69,7 +69,7 @@
   </v-app-bar>
   <div v-else id="header-desktop">
     <header id="banner">
-        <div class="container layout wrap" style="padding-top: 15px;padding-bottom: 15px;padding-left: 10px;"> 
+        <div class="container layout wrap" style="padding-top: 10px;padding-bottom: 5px;padding-left: 10px;"> 
           <a href="" class="mLogo col-sm-4 py-0" style="text-decoration: none;display: flex"> 
             <img style="width: 52px;height: 52px;border-radius: 10px;" src="/images/logo.png">
             <div>
@@ -256,7 +256,7 @@
     },
 
     data: () => ({
-      showMenu: fasle,
+      showMenu: false,
       items: [],
       notifications: [
         'Mike John Responded to your email',
@@ -275,7 +275,7 @@
             title: 'Trang chủ',
             to: '/',
             class: 'home-tab',
-            id: 'home-valenta'
+            id: 'home-vacc'
           },
           {
             icon: 'mdi-shield-plus-outline',
@@ -285,13 +285,13 @@
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Đăng ký mới',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/dang-ky-tiem-moi/0',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Đăng ký chính thức',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/danh-sach-dang-ky-chinh-thuc',
                 id: 'search',
               }
             ]
@@ -299,31 +299,30 @@
           {
             icon: 'mdi-shield-plus-outline',
             title: 'Kế hoạch tiêm chủng',
-            to: '/pages/kich-hoat-bao-hanh/0',
             id: 'search',
             childItems: [
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch tiêm chủng',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-tiem-chung',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch hẹn chờ xác nhận',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-hen-cho-xac-nhan',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch hẹn đã xác nhận',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-hen-da-xac-nhan',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Danh sách tiêm chủng',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/danh-sach-tiem-chung',
                 id: 'search',
               },
             ]
@@ -336,7 +335,7 @@
             title: 'Trang chủ',
             to: '/',
             class: 'home-tab',
-            id: 'home-valenta'
+            id: 'home-vacc'
           },
           {
             icon: 'mdi-shield-plus-outline',
@@ -346,13 +345,13 @@
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Đăng ký mới',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/dang-ky-tiem-moi/0',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Đăng ký chính thức',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/danh-sach-dang-ky-chinh-thuc',
                 id: 'search',
               }
             ]
@@ -360,31 +359,30 @@
           {
             icon: 'mdi-shield-plus-outline',
             title: 'Kế hoạch tiêm chủng',
-            to: '/pages/kich-hoat-bao-hanh/0',
             id: 'search',
             childItems: [
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch tiêm chủng',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-tiem-chung',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch hẹn chờ xác nhận',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-hen-cho-xac-nhan',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Lịch hẹn đã xác nhận',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/lich-hen-da-xac-nhan',
                 id: 'search',
               },
               {
                 icon: 'mdi-shield-plus-outline',
                 title: 'Danh sách tiêm chủng',
-                to: '/pages/kich-hoat-bao-hanh/0',
+                to: '/pages/danh-sach-tiem-chung',
                 id: 'search',
               },
             ]

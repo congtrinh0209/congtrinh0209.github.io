@@ -14,29 +14,26 @@ export default new Router({
         // Dashboard
         {
           path: '',
-          name: 'BaoHanh',
-          component: () => import('@/views/dashboard/pages/BaoHanh'),
+          name: 'TrangChu',
+          component: () => import('@/views/dashboard/pages/TrangChu'),
         },
         {
-          path: '/pages/quan-ly-bao-hanh',
-          name: 'QuanLyPhieuBaoHanh',
-          component: () => import('@/views/dashboard/pages/QuanLyPhieuBaoHanh'),
-        },
-        {
-          path: '/pages/kich-hoat-bao-hanh/:uid',
-          name: 'TaoPhieuBaoHanh',
-          component: () => import('@/views/dashboard/pages/TaoPhieuBaoHanh'),
+          path: '/pages/dang-ky-tiem-moi/:uid',
+          name: 'DangKyTiemMoi',
+          component: () => import('@/views/dashboard/pages/DangKyTiemMoi'),
           props: true,
         },
         {
-          path: '/pages/danh-muc-san-pham',
-          name: 'DanhMucSanPham',
-          component: () => import('@/views/dashboard/pages/DanhMucSanPham'),
+          path: '/pages/danh-sach-dang-ky-tiem-moi',
+          name: 'DanhSachDangKyTiemMoi',
+          component: () => import('@/views/dashboard/pages/DanhSachDangKyTiemMoi'),
+          props: true,
         },
         {
-          path: '/pages/danh-sach-khach-hang',
-          name: 'DanhSachKhachHang',
-          component: () => import('@/views/dashboard/pages/DanhSachKhachHang'),
+          path: '/pages/danh-sach-dang-ky-chinh-thuc',
+          name: 'DanhSachDangKyChinhThuc',
+          component: () => import('@/views/dashboard/pages/DanhSachDangKyChinhThuc'),
+          props: true,
         },
         {
           name: 'Users',
