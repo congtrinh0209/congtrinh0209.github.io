@@ -1,0 +1,559 @@
+<template>
+  <div>
+    <v-container
+      id="manage_warranty"
+      fluid
+      tag="section"
+      :style="breakpointName === 'xs' || breakpointName === 'sm' ? 'padding-top: 75px' : ''"
+    >
+      <base-material-card
+        style="margin-top: 20px"
+        icon="mdi-clipboard-text"
+        title="Danh sách phiếu bảo hành"
+        class="px-5 py-3"
+      >
+        <v-btn v-if="userLogin && userLogin['role'] && userLogin['role'] === 'Admin'" style="position: absolute; right: 40px; top: 15px;"
+          class="mx-0" fab dark small color="primary" @click.stop="showTimKiem" >
+          <v-icon dark>
+            mdi-magnify
+          </v-icon>
+        </v-btn>
+        <v-card-text v-if="showAdvanceSearch">
+          <v-row>
+            <v-col
+              cols="12"
+              md="6"
+              class="pb-0"
+            >
+              <v-text-field
+                label="Mã thẻ bảo hành"
+                v-model="advanceSearchData.codeNumber"
+                outlined
+                placeholder=""
+                dense
+                clearable
+                hide-details="auto"
+              ></v-text-field>
+            </v-col>
+            <v-col
+              cols="12"
+              md="6"
+              class="pb-0"
+            >
+              <v-text-field
+                label="Số điện thoại khách hàng"
+                v-model="advanceSearchData.customerTelNo"
+                outlined
+                placeholder=""
+                dense
+                clearable
+                hide-details="auto"
+              ></v-text-field>
+            </v-col>
+            
+          </v-row>
+          <div class="">
+            <v-btn color="success" class="mt-3 mx-3" @click.stop="searchWarranty">
+              <v-icon left size="22">
+                mdi-magnify
+              </v-icon>
+              Tìm kiếm
+            </v-btn>
+          </div>
+        </v-card-text>
+        <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : ''">
+          <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'" v-if="userLogin && userLogin['role'] && userLogin['role'] === 'Admin'">
+            <div class="mr-auto pt-2 mb-3" v-if="breakpointName === 'xs'">
+              Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> phiếu bảo hành
+            </div>
+            <span class="mr-auto pt-2" v-else>
+              Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> phiếu bảo hành
+            </span>
+          </div>
+          
+          <v-data-table
+            :headers="headers"
+            :items="items"
+            hide-default-footer
+            class="elevation-1"
+            no-data-text="Không có phiếu bảo hành nào"
+            :loading="loadingData"
+            loading-text="Đang tải... "
+          >
+              <template v-slot:item.index="{ item, index }">
+                  <span>{{ page * itemsPerPage - itemsPerPage + index + 1 }}</span>
+              </template>
+              <template v-slot:item.customerName="{ item, index }">
+                  <p class="mb-2">{{ item.customerName}}</p>
+                  <p class="mb-2" style="color: blue">{{ item.customerTelNo}}</p>
+              </template>
+              <template v-slot:item.branchName="{ item, index }">
+                  <p class="mb-2">{{ item.branchName}}</p>
+                  <p class="mb-2" style="color: blue">{{ item.branchTelNo}}</p>
+                  <p class="mb-2" style="color: blue">{{ item.branchAddress}}</p>
+              </template>
+              <template v-slot:item.noithatProducts="{ item, index }">
+                  <div v-for="(subItem, i) in item['noithatProducts']" :key="i">
+                      <p class="mb-2"><span class="font-weight-bold">{{i+ 1}}</span>. {{ subItem.productName}} - {{subItem.quycach}} (sl. <span style="font-weight: bold;color: blue">{{subItem.soluong}}</span>)</p> 
+                  </div>
+                  <p class="mb-2" v-if="item['noithatProducts'] && item['noithatProducts'].length > 0">
+                      <span class="font-weight-bold">Thời gian bảo hành:</span><span> Từ ngày </span> <span style="color: blue;font-weight:bold">{{item['noiThatMfgDateLocal']}}</span>
+                      đến ngày <span style="color: blue;font-weight:bold"> {{item['noiThatExpDateLocal']}}</span>
+                  </p>
+              </template>
+              <template v-slot:item.ngoaithatProducts="{ item, index }">
+                  <div v-for="(subItem, i) in item['ngoaithatProducts']" :key="i">
+                      <p class="mb-2"><span class="font-weight-bold">{{i+ 1}}</span>. {{ subItem.productName}} - {{subItem.quycach}} (sl. <span style="font-weight: bold;color: blue">{{subItem.soluong}}</span>)</p> 
+                  </div>
+                  <p class="mb-2" v-if="item['ngoaithatProducts'] && item['ngoaithatProducts'].length > 0">
+                      <span class="font-weight-bold">Thời gian bảo hành:</span><span> Từ ngày </span> <span style="color: blue;font-weight:bold">{{item['ngoaiThatMfgDateLocal']}}</span>
+                      đến ngày <span style="color: blue;font-weight:bold"> {{item['ngoaiThatExpDateLocal']}}</span>
+                  </p>
+              </template>
+              <template v-slot:item.action="{ item }" v-if="userLogin && userLogin['role'] && userLogin['role'] === 'Admin'">
+                  <!-- <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn @click="updateWarranty(item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
+                        <v-icon size="22">mdi-pencil</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Sửa</span>
+                  </v-tooltip> -->
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn @click="deleteWarranty(item)" color="red" text icon class="" v-bind="attrs" v-on="on">
+                        <v-icon size="22">mdi-delete</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Xóa</span>
+                  </v-tooltip>
+                </template>
+          </v-data-table>
+          <div class="text-center mt-4" v-if="pageCount && userLogin['role'] === 'Admin'">
+            <nav role="navigation" aria-label="Pagination Navigation">
+              <ul class="v-pagination theme--light">
+                <li>
+                  <button @click="prevPage"  type="button" aria-label="Previous page" 
+                    :class="page == 1 ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--light"></i>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" aria-current="true" class="v-pagination__item v-pagination__item--active primary">
+                    {{page}}
+                  </button>
+                </li>
+                <li>
+                  <button @click="nextPage" type="button" aria-label="Next page" 
+                    :class="page == pageCount ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"></i>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="text-center mt-4" v-if="userLogin['role'] === 'Member'">
+            <nav role="navigation" aria-label="Pagination Navigation">
+              <ul class="v-pagination theme--light">
+                <li>
+                  <button @click="prevPage"  type="button" aria-label="Previous page" 
+                    :class="page == 1 ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-left theme--light"></i>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" aria-current="true" class="v-pagination__item v-pagination__item--active primary">
+                    {{page}}
+                  </button>
+                </li>
+                <li>
+                  <button @click="nextPage" type="button" aria-label="Next page" 
+                    :class="disableNextPage ? 'v-pagination__navigation v-pagination__navigation--disabled' : 'v-pagination__navigation'">
+                    <i aria-hidden="true" class="v-icon notranslate mdi mdi-chevron-right theme--light"></i>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </v-card-text>
+      </base-material-card>
+    </v-container>
+    
+  </div>
+  
+</template>
+
+<script>
+  export default {
+    name: 'Warranty',
+
+    data () {
+      return {
+        loading: false,
+        loadingData: false,
+        dialogAddMember: false,
+        totalItem: 0,
+        page: 1,
+        pageCount: 0,
+        itemsPerPage: 10,
+        typeAction: '',
+        userUpdate: '',
+        items: [],
+        headers: [
+          {
+            sortable: false,
+            text: 'STT',
+            align: 'center',
+            value: 'index'
+          },
+          {
+            sortable: false,
+            text: 'Mã thẻ bảo hành',
+            align: 'left',
+            value: 'codeNumber'
+          },
+          {
+            sortable: false,
+            text: 'Tên khách hàng',
+            align: 'left',
+            value: 'customerName'
+          },
+          {
+            sortable: false,
+            text: 'Địa chỉ công trình',
+            align: 'left',
+            value: 'customerAddress'
+          },
+          {
+            sortable: false,
+            text: 'Đại lý bán hàng',
+            align: 'left',
+            value: 'branchName'
+          },
+          {
+            sortable: false,
+            text: 'Ngày kích hoạt',
+            align: 'left',
+            value: 'createDateLocal'
+          },
+          {
+            sortable: false,
+            text: 'Nội thất',
+            align: 'left',
+            value: 'noithatProducts'
+          },
+          {
+            sortable: false,
+            text: 'Ngoại thất',
+            align: 'left',
+            value: 'ngoaithatProducts'
+          },
+          {
+            sortable: false,
+            text: 'Thao tác',
+            align: 'center',
+            value: 'action'
+          },
+        ],
+        advanceSearchData: {
+          codeNumber: '',
+          customerTelNo: '',
+          branchUid: '',
+          fromCreateDate: '',
+          toCreateDate: ''
+        },
+        listDaiLy: [],
+        dailySelected: '',
+        showAdvanceSearch: false,
+        lastVisible: '',
+        firstVisible: '',
+        disableNextPage: false
+      }
+    },
+    created () {
+      let vm = this
+      if (vm.userLogin['role'] === 'Admin') {
+        vm.getCounter()
+      }
+      vm.getWarranty()
+    },
+    computed: {
+      breakpointName () {
+        return this.$store.getters.getBreakpointName
+      },
+      userLogin () {
+        return this.$store.getters.getPermistion
+      }
+    },
+    methods: {
+      getCounter () {
+        let vm = this
+        let refs = db.collection('counters').doc('counterWarranty')
+        refs.collection('shards').get().then((snapshot) => {
+          let total = 0
+          let pageCount = 0
+          snapshot.forEach((doc) => {
+            total += doc.data().count
+          })
+          if (total && vm.itemsPerPage) {
+            pageCount = Math.ceil(total / vm.itemsPerPage)
+          }
+          vm.totalItem = total
+          vm.pageCount = pageCount
+          // console.log('pagination', total, pageCount)
+        })
+      },
+      getWarranty () {
+        let vm = this
+        vm.loadingData = true
+        if (vm.userLogin['role'] === 'Admin') {
+          db.collection("warranty").orderBy('createDate').limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
+        if (vm.userLogin['role'] === 'Member') {
+          db.collection("warranty").where('branchUid', "==", vm.userLogin['uid']).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
+        
+      },
+      prevPage () {
+        let vm = this
+        vm.loadingData = true
+        vm.page -= 1
+        if (vm.userLogin['role'] === 'Admin') {
+          db.collection("warranty").orderBy("createDate").endBefore(vm.firstVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
+        if (vm.userLogin['role'] === 'Member') {
+          db.collection("warranty").where('branchUid', "==", vm.userLogin['uid']).endBefore(vm.firstVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.lastVisible = querySnapshot.docs[querySnapshot.docs.length-1]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+              vm.disableNextPage = false
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
+      },
+      nextPage () {
+        let vm = this
+        vm.loadingData = true
+        if (vm.userLogin['role'] === 'Admin') {
+          vm.page += 1
+          db.collection("warranty").orderBy("createDate").startAfter(vm.lastVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            vm.firstVisible = querySnapshot.docs[0]
+            let warranty = []
+            if (querySnapshot.size) {
+              querySnapshot.docs.forEach(function(item) {
+                warranty.push(item.data())
+              })
+              vm.items = warranty
+            } else {
+              vm.items = []
+            }
+          }).catch(function () {
+            vm.loadingData = false
+          })
+        }
+        if (vm.userLogin['role'] === 'Member') {
+          db.collection("warranty").where('branchUid', "==", vm.userLogin['uid']).orderBy("createDate").startAfter(vm.lastVisible).limit(vm.itemsPerPage).get().then(function(querySnapshot) {
+            vm.loadingData = false
+            if (querySnapshot) {
+              if (querySnapshot.size) {
+                vm.page += 1
+                vm.firstVisible = querySnapshot.docs[0]
+              } else {
+                vm.disableNextPage = true
+              }
+              let warranty = []
+              if (querySnapshot.size) {
+                querySnapshot.docs.forEach(function(item) {
+                  warranty.push(item.data())
+                })
+                vm.items = warranty
+              } else {
+                // vm.items = []
+              }
+            } else {
+              vm.disableNextPage = true
+            }
+          }).catch(function () {
+            vm.loadingData = false
+            vm.disableNextPage = true
+          })
+        }
+      },
+
+      getBranchs () {
+        let vm = this
+        db.collection("users").get().then(function(querySnapshot) {
+          let users = []
+          if (querySnapshot.size) {
+            querySnapshot.docs.forEach(function(item) {
+              users.push(item.data())
+            })
+            vm.listDaiLy = users
+          } else {
+            vm.listDaiLy = []
+          }
+        }).catch(function () {
+        })
+      },
+      updateStatusUser (type, user) {
+        let vm = this
+        vm.userUpdate = user
+      },
+      showTimKiem () {
+        let vm = this
+        vm.showAdvanceSearch = !vm.showAdvanceSearch
+        if (!vm.listDaiLy || vm.listDaiLy.length === 0) {
+          vm.getBranchs()
+        }
+      },
+      searchWarranty () {
+        let vm = this
+        vm.loadingData = true
+        let keySearch = ''
+        let valueSearch = ''
+        if (vm.advanceSearchData['codeNumber']) {
+          keySearch = 'codeNumber'
+          valueSearch = vm.advanceSearchData['codeNumber']
+        }
+        if (vm.advanceSearchData['customerTelNo'] && !vm.advanceSearchData['codeNumber']) {
+          keySearch = 'customerTelNo'
+          valueSearch = vm.advanceSearchData['customerTelNo']
+        }
+        if (vm.dailySelected && !vm.advanceSearchData['codeNumber'] && !vm.advanceSearchData['customerTelNo']) {
+          keySearch = 'branchUid'
+          valueSearch = vm.dailySelected['uid']
+        }
+        let refsCollection = db.collection("warranty").where(keySearch, "==", valueSearch)
+        if (!valueSearch) {
+          refsCollection = db.collection("warranty")
+        } else {
+          valueSearch = String(valueSearch)
+        }
+        if (vm.advanceSearchData['fromCreateDate'] && vm.advanceSearchData['toCreateDate']) {
+          let date1 = vm.advanceSearchData['fromCreateDate'].split('/')
+          let date2 = vm.advanceSearchData['toCreateDate'].split('/')
+          let fromDate = (new Date(date1[2] + '-' + date1[1] + '-' + date1[0])).getTime()
+          let toDate = (new Date(date2[2] + '-' + date2[1] + '-' + date2[0])).getTime()
+          refsCollection = db.collection("warranty").where(keySearch, "==", valueSearch).where('fromCreateDate', ">=", fromDate).where('toCreateDate', "<=", toDate)
+        } else if (vm.advanceSearchData['fromCreateDate'] && !vm.advanceSearchData['toCreateDate']) {
+          let date1 = vm.advanceSearchData['fromCreateDate'].split('/')
+          let fromDate = (new Date(date1[2] + '-' + date1[1] + '-' + date1[0])).getTime()
+          refsCollection = db.collection("warranty").where(keySearch, "==", valueSearch).where('fromCreateDate', ">=", fromDate)
+        } else if (!vm.advanceSearchData['fromCreateDate'] && vm.advanceSearchData['toCreateDate']) {
+          let date2 = vm.advanceSearchData['toCreateDate'].split('/')
+          let toDate = (new Date(date2[2] + '-' + date2[1] + '-' + date2[0])).getTime()
+          refsCollection = db.collection("warranty").where(keySearch, "==", valueSearch).where('toCreateDate', "<=", toDate)
+        }
+        // console.log('keySearch', keySearch, valueSearch)
+        refsCollection.get().then(function(querySnapshot) {
+          vm.loadingData = false
+          // console.log('itemSearchXXXX', querySnapshot.size)
+          let warranty = []
+          if (querySnapshot.size) {
+            // console.log('itemSearch123', querySnapshot.size)
+            querySnapshot.docs.forEach(function(item) {
+              warranty.push(item.data())
+            })
+            vm.items = warranty
+            vm.totalItem = querySnapshot.size
+            vm.pageCount = Math.ceil(querySnapshot.size / vm.itemsPerPage)
+            // console.log('itemSearch', vm.items, vm.totalItem)
+          } else {
+            vm.items = []
+            vm.totalItem = 0
+          }
+        }).catch(function () {
+          vm.loadingData = false
+          vm.items = []
+          vm.totalItem = 0
+        })
+      },
+      updateWarranty (item) {
+        let vm = this
+        vm.$router.push(
+          {
+            path: '/pages/kich-hoat-bao-hanh/' + item.codeNumber
+          }
+        )
+      },
+      deleteWarranty (item) {
+        let vm = this
+        let x = confirm('Bạn có chắc chắn muốn xóa phiếu bảo hành này!')
+        if (x) {
+          db.collection("warranty").doc(item['uid']).delete().then(() => {
+            let ref = db.collection('counters').doc('counterWarranty')
+            decrementCounter(db, ref, 10).then(function() {
+              vm.getCounter()
+              vm.getWarranty()
+            })
+            vm.$store.commit('SHOW_SNACKBAR', {
+              show: true,
+              text: 'Xóa phiếu bảo hành thành công',
+              color: 'success',
+            })
+          }).catch((error) => {
+              
+          })
+        }
+      }
+    },
+  }
+</script>
+<style lang="css" scoped>
+  .v-data-table-header-mobile {
+    display: none !important;
+  }
+</style>
+

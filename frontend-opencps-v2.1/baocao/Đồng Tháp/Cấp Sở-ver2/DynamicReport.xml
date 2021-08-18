@@ -7592,7 +7592,6 @@
 				{
 				  "selected": true,
 				  "value": "ontimeCount",
-				  "calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
 				  "text": "",
 				  "align": "center"
 				},
@@ -8211,7 +8210,6 @@
 				{
 				  "selected": true,
 				  "value": "ontimeCount",
-				  "calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
 				  "text": "",
 				  "align": "center"
 				},
