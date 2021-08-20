@@ -13,8 +13,18 @@ import axios from 'axios'
 Vue.use(VueCookies)
 Vue.directive('mask', VueMaskDirective);
 
+const baseURL = 'http://119.17.200.69:8630'
+if (typeof baseURL !== 'undefined') {
+  axios.defaults.baseURL = baseURL
+}
 if (Vue.$cookies.get('Token')) {
   store.commit('SET_ISSIGNED', true)
+  axios.interceptors.request.use(async (config) => {
+    if (token) {
+      config.headers.Authorization = 'Bearer ' + Vue.$cookies.get('Token');
+    }
+    return config;
+  });
 } else {
   store.commit('SET_ISSIGNED', false)
   localStorage.setItem('user', null)

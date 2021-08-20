@@ -71,9 +71,9 @@
     <header id="banner">
         <div class="container layout wrap" style="padding-top: 10px;padding-bottom: 5px;padding-left: 10px;"> 
           <a href="" class="mLogo col-sm-4 py-0" style="text-decoration: none;display: flex"> 
-            <img style="width: 52px;height: 52px;border-radius: 10px;" src="/images/logo.png">
+            <img style="width: 52px;height: 52px;border-radius: 10px;" src="/vac/images/logo.png">
             <div>
-              <span class="ml-3" style="font-size: 22px; color: #fff;line-height: 60px;">TIÊM CHỦNG COVID-19</span>
+              <span class="ml-3" style="font-size: 18px; color: #fff;line-height: 60px;">HỆ THỐNG QUẢN LÝ TIÊM CHỦNG</span>
             </div>
             
           </a>
@@ -108,7 +108,7 @@
                               @click="redirectTo(item2, i)"
                             >
                               <v-list-item-title>
-                                <span class="font-weight-bold"> {{item2.title}}</span>
+                                <span class="" style="font-weight: 500;"> {{item2.title}}</span>
                               </v-list-item-title>
                             </v-list-item>
                             <v-divider
@@ -555,7 +555,7 @@
     z-index: 2;
   }
   #header-desktop #banner .btns a.login {
-    background-image: url(/images/icon-login-white.png);
+    background-image: url(/vac/images/icon-login-white.png);
   }
   #header-desktop #banner .btns a {
     display: inline-block;

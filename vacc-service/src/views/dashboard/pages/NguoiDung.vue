@@ -260,15 +260,16 @@
         loadingData: false,
         dialogAddMember: false,
         userInfo: {
-            TenDangNhap: '',
-            HoVaTen: '',
-            ChucDanh: '',
-            SoDienThoai: '',
-            Email: '',
-            MatKhau: '',
-            DiaBanCoSo_ID: '',
-            CoSoYTe_ID: '',
-            QuanTriHeThong: false
+          TenDangNhap: '',
+          HoVaTen: '',
+          ChucDanh: '',
+          SoDienThoai: '',
+          Email: '',
+          MatKhau: '',
+          DiaBanCoSo_ID: '',
+          CoSoYTe_ID: '',
+          QuanTriHeThong: false,
+          KhoaTaiKhoan: false
         },
         totalItem: 0,
         page: 1,
@@ -360,7 +361,7 @@
       }
     },
     methods: {
-        getDiaBanCoSo () {
+      getDiaBanCoSo () {
         let vm = this
         let filter = {
         }
@@ -398,19 +399,12 @@
         vm.dialogAddMember = true
         if (type === 'add') {
           setTimeout(function () {
-            vm.account = ''
-            vm.passWord = ''
-            vm.userName = ''
-            vm.telNo = ''
-            vm.address = ''
+            vm.$refs.formAddMember.reset()
             vm.$refs.formAddMember.resetValidation()
           }, 200)
         } else {
           setTimeout(function () {
-            vm.account = user.account
-            vm.userName = user.userName
-            vm.telNo = user.telNo
-            vm.address = user.address
+            vm.userInfo = user
             vm.$refs.formAddMember.resetValidation()
           }, 200)
         }
@@ -427,56 +421,16 @@
         let vm = this
         if (vm.$refs.formAddMember.validate()) {
           if (vm.typeAction === 'add') {
-            let dataUserAuthen = {
-              account: String(vm.account).trim() + '@gmail.com',
-              passWord: String(vm.passWord).trim(),
-              userName: String(vm.userName).trim(),
-              telNo: String(vm.telNo).trim(),
-              address: String(vm.address).trim()
-            }
+            let filter = vm.userInfo
             vm.loading = true
-            let curr = firebase.auth().currentUser
-            let uidad = curr['uid']
-            let infoad = db.collection("users").doc(uidad)
-            let uss = curr['email']
-            let ssap = ''
-            infoad.get().then((doc) => {
-              if (doc.exists) {
-                ssap = window.atob(doc.data()['pid'])
-              } else {
-              }
-            }).catch((error) => {
-            })
-            firebase.auth().createUserWithEmailAndPassword(dataUserAuthen.account, dataUserAuthen.passWord)
-            .then(userCredential => {
+            vm.$store.dispatch('createNguoiDung', filter).then(userCredential => {
               vm.loading = false
               vm.$store.commit('SHOW_SNACKBAR', {
                 show: true,
                 text: 'Thêm người dùng thành công',
                 color: 'success',
               })
-              // Signed in
-              vm.dialogAddMember = false
-              firebase.auth().signInWithEmailAndPassword(uss, ssap)
-              .then(() => {
-                let user = userCredential.user;
-                db.collection("users").doc(user.uid).set({
-                  account: String(vm.account).trim(),
-                  userName: dataUserAuthen.userName,
-                  telNo: dataUserAuthen.telNo,
-                  address: dataUserAuthen.address,
-                  role: "Member",
-                  status: "",
-                  pid: window.btoa(dataUserAuthen.passWord),
-                  uid: user.uid
-                })
-                .then(() => {
-                  vm.getMembers()
-                })
-                .catch((error) => {
-                })
-              })
-              // ...
+              vm.getMembers()
             })
             .catch((error) => {
               vm.loading = false
@@ -500,14 +454,12 @@
               // ..
             });
           } else {
+            let filter = {
+              id: '',
+              data: vm.userInfo
+            }
             vm.loading = true
-            db.collection('users').doc(vm.userUpdate['uid']).update(
-              {
-                userName: vm.userName,
-                telNo: vm.telNo,
-                address: vm.address
-              }
-            ).then(function () {
+            vm.$store.dispatch('updateNguoiDung', filter).then(function () {
               vm.loading = false
               vm.$store.commit('SHOW_SNACKBAR', {
                 show: true,

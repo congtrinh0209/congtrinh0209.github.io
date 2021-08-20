@@ -43,7 +43,6 @@
                     outlined
                     placeholder="Họ và tên"
                     dense
-                    clearable
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -53,7 +52,7 @@
                   class="pb-0"
                 >
                   <div class="mb-2">Ngày sinh <span style="color:red">(*)</span></div>
-                  <v-menu
+                  <!-- <v-menu
                     ref="menuApplicantIdDate"
                     :close-on-content-click="false"
                     v-model="menuApplicantIdDate"
@@ -70,10 +69,9 @@
                         :rules="requiredBirthDate"
                         v-model="applicantDateFormatted"
                         placeholder="dd/mm/yyyy"
-                        v-mask="'##/##/####'"
                         @blur="bithDate = parseDate(applicantDateFormatted)"
                         dense
-                        clearable
+                        
                         hide-details="auto"
                         outlined
                         v-bind="attrs"
@@ -82,7 +80,16 @@
                     </template>
                     <v-date-picker min="1900-01-01" :max="getMaxdate()" ref="picker"
                     :first-day-of-week="1" locale="vi" v-model="birthDate" no-title @input="menuApplicantIdDate = false"></v-date-picker>
-                  </v-menu>
+                  </v-menu> -->
+                  <v-text-field
+                    :rules="requiredBirthDate"
+                    v-model="applicantDateFormatted"
+                    placeholder="dd/mm/yyyy"
+                    @blur="formatBirthDate"
+                    dense
+                    hide-details="auto"
+                    outlined
+                  ></v-text-field>
                 </v-col>
                 <v-col
                   cols="12"
@@ -115,7 +122,7 @@
                     outlined
                     placeholder="Số CMND/CCCD"
                     dense
-                    clearable
+                    
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -127,15 +134,13 @@
                   md="6"
                   class="pb-0"
                 >
-                  <div class="mb-2">Nghề nghiệp <span style="color:red">(*)</span></div>
+                  <div class="mb-2">Nghề nghiệp</div>
                   <v-text-field
                     v-model="applicantInfo['NgheNghiep']"
-                    :rules="required"
-                    required
                     outlined
                     placeholder="Nghề nghiệp"
                     dense
-                    clearable
+                    
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -150,7 +155,7 @@
                     outlined
                     placeholder="Đơn vị công tác"
                     dense
-                    clearable
+                    
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -190,7 +195,7 @@
                     outlined
                     placeholder="Số điện thoại"
                     dense
-                    clearable
+                    
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -205,7 +210,7 @@
                     outlined
                     placeholder="Email"
                     dense
-                    clearable
+                    
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -214,15 +219,13 @@
                   md="3"
                   class="pb-0"
                 >
-                  <div class="mb-2">Mã số BHXH <span style="color:red">(*)</span></div>
+                  <div class="mb-2">Mã số BHXH</div>
                   <v-text-field
                     v-model="applicantInfo['MaSoBHXH']"
-                    :rules="required"
-                    required
                     outlined
                     placeholder="Mã số bảo hiểm xã hội"
                     dense
-                    clearable
+                    
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -237,7 +240,7 @@
                     outlined
                     placeholder="Số thẻ bảo hiểm y tế"
                     dense
-                    clearable
+                    
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -257,7 +260,7 @@
                     outlined
                     placeholder="Địa chỉ nơi ở"
                     dense
-                    clearable
+                    
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -271,9 +274,9 @@
                       hide-no-data
                       :items="listTinhThanh"
                       v-model="tinhThanh"
-                      item-text="itemName"
-                      item-value="itemCode"
-                      clearable
+                      item-text="tinhThanhTen"
+                      item-value="tinhThanhMa"
+                      
                       :rules="required"
                       required
                       outlined
@@ -292,9 +295,9 @@
                     hide-no-data
                     :items="listQuanHuyen"
                     v-model="quanHuyen"
-                    item-text="itemName"
-                    item-value="itemCode"
-                    clearable
+                    item-text="quanHuyenTen"
+                    item-value="quanHuyenMa"
+                    
                     :rules="required"
                     required
                     outlined
@@ -313,9 +316,9 @@
                       hide-no-data
                       :items="listXaPhuong"
                       v-model="xaPhuong"
-                      item-text="itemName"
-                      item-value="itemCode"
-                      clearable
+                      item-text="phuongXaTen"
+                      item-value="phuongXaMa"
+                      
                       :rules="required"
                       required
                       outlined
@@ -339,7 +342,7 @@
                       v-model="applicantInfo['DiaBanCoSo_ID']"
                       item-text="itemName"
                       item-value="itemCode"
-                      clearable
+                      
                       :rules="required"
                       required
                       outlined
@@ -360,7 +363,7 @@
                       v-model="coSoYTe"
                       item-text="itemName"
                       item-value="itemCode"
-                      clearable
+                      
                       :rules="required"
                       required
                       outlined
@@ -379,9 +382,9 @@
                       hide-no-data
                       :items="listDanToc"
                       v-model="applicantInfo['DanToc_Ma']"
-                      item-text="itemName"
-                      item-value="itemCode"
-                      clearable
+                      item-text="danTocTen"
+                      item-value="danTocMa"
+                      
                       outlined
                       placeholder="Dân tộc"
                       dense
@@ -398,11 +401,8 @@
                       hide-no-data
                       :items="listQuocTich"
                       v-model="applicantInfo['QuocTich_Ma']"
-                      item-text="itemName"
-                      item-value="itemCode"
-                      clearable
-                      :rules="required"
-                      required
+                      item-text="quocGiaTen"
+                      item-value="quocGiaMa"
                       outlined
                       placeholder="Quốc tịch"
                       dense
@@ -423,7 +423,7 @@
                     outlined
                     placeholder=""
                     dense
-                    clearable
+                    
                     hide-details="auto"
                     rows="3"
                   ></v-textarea>
@@ -439,7 +439,7 @@
                     outlined
                     placeholder=""
                     dense
-                    clearable
+                    
                     hide-details="auto"
                     rows="3"
                   ></v-textarea>
@@ -455,7 +455,7 @@
                     outlined
                     placeholder=""
                     dense
-                    clearable
+                    
                     hide-details="auto"
                     rows="3"
                   ></v-textarea>
@@ -470,7 +470,7 @@
                   class="pb-0"
                 >
                   <div class="mb-2">Ngày đăng ký tiêm</div>
-                  <v-menu
+                  <!-- <v-menu
                     ref="menuDate"
                     :close-on-content-click="false"
                     v-model="menuDate"
@@ -488,9 +488,9 @@
                         v-model="ngayDuKienFormatted"
                         placeholder="dd/mm/yyyy"
                         v-mask="'##/##/####'"
-                        @blur="bithDate = parseDate(ngayDuKienFormatted)"
+                        @blur=""
                         dense
-                        clearable
+                        
                         hide-details="auto"
                         outlined
                         v-bind="attrs"
@@ -499,7 +499,16 @@
                     </template>
                     <v-date-picker :min="getMindate()" ref="picker"
                     :first-day-of-week="1" locale="vi" v-model="ngayDuKien" no-title @input="menuDate = false"></v-date-picker>
-                  </v-menu>
+                  </v-menu> -->
+                  <v-text-field
+                    :rules="requiredBirthDate"
+                    v-model="ngayDuKienFormatted"
+                    placeholder="dd/mm/yyyy"
+                    @blur="formatNgayTiem"
+                    dense
+                    hide-details="auto"
+                    outlined
+                  ></v-text-field>
                 </v-col>
                 <v-col
                   cols="12"
@@ -512,7 +521,7 @@
                     outlined
                     placeholder=""
                     dense
-                    clearable
+                    
                     hide-details="auto"
                   ></v-text-field>
                 </v-col>
@@ -524,7 +533,7 @@
               cols="12"
               class="text-center"
             >
-              <v-btn v-if="String(uid) === '0'" class="mr-3" color="#0072bc" @click="submitForm">
+              <v-btn v-if="String(uid) === '0'" class="mr-3" color="#0072bc" @click="submitForm" :loading="processingAction" :disabled="processingAction">
                 <v-icon left>
                   mdi-content-save-outline
                 </v-icon>
@@ -536,12 +545,12 @@
                 </v-icon>
                 <span>CẬP NHẬT THÔNG TIN</span>
               </v-btn>
-              <!-- <v-btn class="mr-0" color="red" @click="cancelAction">
+              <v-btn class="mr-0" v-if="String(uid) !== '0'" color="red" @click="huyDangKy">
                 <v-icon left>
                   mdi-close
                 </v-icon>
-                <span>THOÁT</span>
-              </v-btn> -->
+                <span>HỦY</span>
+              </v-btn>
             </v-col>
           </v-row>
           
@@ -561,7 +570,7 @@
         validFormAdd: true,
         tab: null,
         typeAction: 'add',
-
+        processingAction: false,
         applicantInfo: {
           HoVaTen: '',
           NgaySinh: '',
@@ -629,7 +638,13 @@
         ngayDuKien: null,
 
         required: [
-          v => !!v || 'Thông tin bắt buộc'
+          (value) => {
+            if(String(value).trim()){
+                return true
+              } else {
+                return 'Thông tin bắt buộc'
+              } 
+          }
         ],
         requiredSex: [
           (value) => {
@@ -641,7 +656,7 @@
           }
         ],
         require: (value) => {
-          if(value){
+          if(String(value).trim()){
               return true
             } else {
               return 'Thông tin bắt buộc'
@@ -655,11 +670,11 @@
     watch: {
       tinhThanh (val) {
         this.applicantInfo.TinhThanh_Ma = val
-        this.getQuanHuyen()
+        this.getQuanHuyen(val)
       },
       quanHuyen (val) {
         this.applicantInfo.QuanHuyen_Ma = val
-        this.getXaPhuong()
+        this.getXaPhuong(val)
       },
       xaPhuong (val) {
         this.applicantInfo.PhuongXa_Ma = val 
@@ -705,8 +720,117 @@
     methods: {
       submitForm () {
         let vm = this
+        if (vm.processingAction) {
+          return
+        }
+        vm.processingAction = true
+        let validateTuoi = vm.checkTuoi()
         if (vm.$refs.formDangKy.validate()) {
+          if (validateTuoi) {
+            vm.formatDataInput()
+            let filter = {
+              data: vm.applicantInfo
+            }
+            // thực hiện thêm mới
+            if (vm.typeAction === 'add') {
+              vm.$store.dispatch('createRegistration', filter).then(function (result) {
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Đăng ký thành công',
+                  color: 'success',
+                })
+                vm.processingAction = false
+                vm.$refs.formDangKy.reset()
+                vm.$refs.formDangKy.resetValidation()
+              }).catch(function () {
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Đăng ký không thành công',
+                  color: 'error',
+                })
+                vm.processingAction = false
+              })
+            } else {
+              // thực hiện cập nhật
 
+            }
+          } else {
+            vm.$store.commit('SHOW_SNACKBAR', {
+              show: true,
+              text: 'Thời điểm tiêm người đăng ký chưa đủ 18 tuổi',
+              color: 'error',
+            })
+            vm.processingAction = false
+          }
+        } else {
+          vm.processingAction = false
+        }
+      },
+      huyDangKy () {
+        let vm = this
+        vm.$refs.formDangKy.reset()
+        vm.$refs.formDangKy.resetValidation()
+      },
+      formatDataInput () {
+        let vm = this
+        try {
+          if (vm.tinhThanh) {
+            let obj = vm.listTinhThanh.find(function (item) {
+              return item.tinhThanhMa == vm.tinhThanh
+            })
+            vm.applicantInfo.TinhThanh_Ma = vm.tinhThanh
+            vm.applicantInfo.TinhThanh_Ten = obj ? obj['tinhThanhTen'] : ''
+          }
+          if (vm.quanHuyen) {
+            let obj = vm.listQuanHuyen.find(function (item) {
+              return item.quanHuyenMa == vm.quanHuyen
+            })
+            vm.applicantInfo.QuanHuyen_Ma = vm.quanHuyen
+            vm.applicantInfo.QuanHuyen_Ten = obj ? obj['quanHuyenTen'] : ''
+          }
+          if (vm.xaPhuong) {
+            let obj = vm.listXaPhuong.find(function (item) {
+              return item.phuongXaMa == vm.xaPhuong
+            })
+            vm.applicantInfo.PhuongXa_Ma = vm.xaPhuong
+            vm.applicantInfo.PhuongXa_Ten = obj ? obj['phuongXaTen'] : ''
+          }
+          if (vm.coSoYTe) {
+            let obj = vm.listCoSoYTe.find(function (item) {
+              return item.itemCode == vm.coSoYTe
+            })
+            vm.applicantInfo.CoSoYTe_Ma = vm.coSoYTe
+            vm.applicantInfo.CoSoYTe_Ten = obj ? obj['itemName'] : ''
+          }
+          let lengthDate = String(vm.applicantDateFormatted).trim().length
+          let splitDate = String(vm.applicantDateFormatted).split('/')
+          if (lengthDate && lengthDate == 4) {
+            vm.applicantInfo.NgaySinh = vm.applicantDateFormatted + '0000'
+          } else if (lengthDate && lengthDate > 4 && splitDate.length === 3) {
+            vm.applicantInfo.NgaySinh = splitDate[2] + splitDate[1] + splitDate[0]
+          }
+          console.log('applicantInfo', vm.applicantInfo)
+        } catch (error) {
+          vm.processingAction = false
+        }
+      },
+      checkTuoi () {
+        let vm = this
+        let tuoi = ''
+        let year = ''
+        let lengthDate = String(vm.applicantDateFormatted).trim().length
+        let splitDate = String(vm.applicantDateFormatted).split('/')
+        let namTiem = String(vm.ngayDuKienFormatted).split('/')[2]
+        if (lengthDate && lengthDate == 4) {
+          year = Number(vm.applicantDateFormatted)
+        } else if (lengthDate && lengthDate > 4 && splitDate.length === 3) {
+          year = Number(splitDate[2])
+        }
+        tuoi = Number(namTiem) - year
+        if (tuoi > 18) {
+          return true
+        } else {
+          return false
         }
       },
       getDiaBanCoSo () {
@@ -746,7 +870,7 @@
         let filter = {
         }
         vm.$store.dispatch('getDanToc', filter).then(function (result) {
-          vm.listDanToc = result.hasOwnProperty('data') ? result.data : []
+          vm.listDanToc = result ? result : []
         })
       },
       getTinhThanh () {
@@ -754,18 +878,62 @@
         let filter = {
         }
         vm.$store.dispatch('getDanhMucTinhThanh', filter).then(function (result) {
-          vm.listTinhThanh = result.hasOwnProperty('data') ? result.data : []
+          vm.listTinhThanh = result ? result : []
         })
       },
-      getQuanHuyen () {
+      getQuanHuyen (code) {
         let vm = this
+        let obj = vm.listTinhThanh.find(function (item) {
+          return item.tinhThanhMa == code
+        })
+        let filter = {
+          idParent: obj['id']
+        }
+        vm.$store.dispatch('getDanhMucQuanHuyen', filter).then(function (result) {
+          vm.listQuanHuyen = result ? result : []
+        })
       },
-      getXaPhuong () {
+      getXaPhuong (code) {
         let vm = this
+        let obj = vm.listQuanHuyen.find(function (item) {
+          return item.quanHuyenMa == code
+        })
+        let filter = {
+          idParent: obj['id']
+        }
+        vm.$store.dispatch('getDanhMucXaPhuong', filter).then(function (result) {
+          vm.listXaPhuong = result ? result : []
+        })
       },
       showDanhSach () {
         let vm = this
         vm.$router.push({ path: '/pages/danh-sach-dang-ky-tiem-moi' })
+      },
+      formatBirthDate () {
+        let vm = this
+        let lengthDate = String(vm.applicantDateFormatted).trim().length
+        let splitDate = String(vm.applicantDateFormatted).split('/')
+        if (lengthDate && lengthDate == 4) {
+        } else if (lengthDate && lengthDate > 4 && splitDate.length === 3 && splitDate[2]) {
+          vm.applicantDateFormatted = vm.translateDate(vm.applicantDateFormatted)
+        } else {
+          vm.applicantDateFormatted = ''
+        }
+      },
+      formatNgayTiem () {
+        let vm = this
+        let lengthDate = String(vm.ngayDuKienFormatted).trim().length
+        let splitDate = String(vm.ngayDuKienFormatted).split('/')
+        if (lengthDate && lengthDate > 4 && splitDate.length === 3 && splitDate[2]) {
+          vm.ngayDuKienFormatted = vm.translateDate(vm.ngayDuKienFormatted)
+        } else {
+          vm.ngayDuKienFormatted = ''
+        }
+      },
+      translateDate (date) {
+        if (!date) return null
+        const [day, month, year] = date.split('/')
+        return `${day.padStart(2, '0')}/${month.padStart(2, '0')}/${year}`
       },
       formatDate (date) {
         if (!date) return null

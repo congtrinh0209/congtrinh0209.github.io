@@ -1,4 +1,4 @@
 apply plugin: 'war'
 war {
-    archiveName = 'vacc.war'
+    archiveName = 'vac.war'
 }

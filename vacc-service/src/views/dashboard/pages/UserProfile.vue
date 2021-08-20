@@ -63,7 +63,7 @@
                   md="6"
                 >
                   <v-text-field
-                    :value="userInfo['role'] == 'Admin' ? 'Quản trị' : 'Nhân viên/ đại lý'"
+                    :value="userInfo['role'] == 'Admin' ? 'Quản trị' : 'Cán bộ cơ sở'"
                     outlined
                     label="Loại tài khoản"
                     readonly

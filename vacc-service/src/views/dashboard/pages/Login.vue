@@ -6,9 +6,9 @@
           <v-card class="pa-3 page-login__card" tile>
             <v-card-title class="mx-3 py-0">
               <div class="image-title-login text-center my-2">
-                <img src="/images/logo.png?t=1619886615424" alt="" height="80" contain />
+                <img src="/vac/images/logo.png?t=1619886615424" alt="" height="80" contain />
               </div>
-              <div class="text-title-login white--text text-center">TIÊM CHỦNG COVID-19</div>
+              <div class="text-title-login white--text text-center">HỆ THỐNG QUẢN LÝ TIÊM CHỦNG</div>
             </v-card-title>
             <v-card-text class="pb-0">
               <v-form ref="form" v-model="formValid" class="mt-10 mb-5" lazy-validation>
@@ -56,6 +56,7 @@
 
 <script>
 const name = 'page-login'
+import axios from 'axios'
 export default {
   name: name,
   data() {
@@ -75,29 +76,37 @@ export default {
   computed: {},
   methods: {
     handleLogin() {
-      // login success
-      this.$cookies.set("Token","86868686",60 + 30)
-      this.$store.commit('SET_ISSIGNED', true)
-      localStorage.setItem('user', JSON.stringify({name: 'Trịnh Công Trình', role: 'Admin'}))
-      // 
-      if (this.$refs.form.validate()) {
-        this.loading = true
-        this.$store
-          .dispatch('loginApp', this.formModel)
-          .then(() => {
-            const redirect = this.$route.query.redirect
-            const route = redirect ? { path: redirect } : { path: '/' }
-            this.$router.push(route)
-            this.loading = false
+      let vm = this
+      if (vm.$refs.form.validate()) {
+        vm.loading = true
+        vm.$store.dispatch('loginApp', vm.formModel).then(function(result) {
+          // login success
+          console.log('result', result)
+          vm.$cookies.set('Token',result.access_token,60 * 60 * 1)
+          vm.$store.commit('SET_ISSIGNED', true)
+          localStorage.setItem('user', JSON.stringify(result))
+          if (vm.$cookies.get('Token')) {
+            vm.$store.commit('SET_ISSIGNED', true)
+            axios.interceptors.request.use(async (config) => {
+              if (token) {
+                config.headers.Authorization = 'Bearer ' + vm.$cookies.get('Token');
+              }
+              return config;
+            });
+          }
+          // 
+          let redirect = vm.$route.query.redirect
+          let route = redirect ? { path: redirect } : { path: '/pages/dang-ky-tiem-moi/0' }
+          vm.$router.push(route)
+          vm.loading = false
+        }).catch(() => {
+          vm.$store.commit('SHOW_SNACKBAR', {
+            show: true,
+            text: 'Tên đăng nhập hoặc mật khẩu không chính xác',
+            color: 'error',
           })
-          .catch(() => {
-            this.$store.commit('SHOW_SNACKBAR', {
-              show: true,
-              text: 'Tên đăng nhập hoặc mật khẩu không chính xác',
-              color: 'error',
-            })
-            this.loading = false
-          })
+          vm.loading = false
+        })
       }
     },
     goBack () {
@@ -120,7 +129,7 @@ export default {
 <style lang="css" scoped>
 .wrap-page-login{
   height: 100vh;
-  background-image: url(/images/bg_active.jpg);
+  background-image: url(/vac/images/bg_active.jpg);
   background-position: top;
   background-size: auto
 }

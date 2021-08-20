@@ -87,17 +87,17 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let name = String(username).trim()
         let pass = String(password).trim()
-        firebase.auth().signInWithEmailAndPassword(name, pass)
-        .then((userCredential) => {
-          // Signed in 
-
-          return resolve({ message: 'success' })
-          // ...
+        let configs = {
+          headers: {
+            'Authorization': 'Basic ' + window.btoa(name + ":" + pass)
+          },
+        }
+        let dataPostApplicant = new URLSearchParams()
+        axios.post('/rest/v1/security/login', dataPostApplicant, configs).then(function (response) {
+          resolve(response.data)
+        }).catch(function (error) {
+          reject(error)
         })
-        .catch((error) => {
-          return reject({ message: 'Email hoặc mật khẩu không chính xác' })
-          // ..
-        });
       })
     },
     register({ commit, dispatch }, data) {
@@ -115,13 +115,11 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         firebase.auth().signOut().then(() => {
           // Sign-out successful.
-          if (typeof(Storage) !== "undefined") {
-            localStorage.removeItem('user')
-          } else {
-          }
-          commit('SET_LOGIN', { access_token: null})
-          commit('SET_ACCESS_TOKEN', null)
-          commit('SET_LOGIN_PROFILE', null)
+          commit('SET_ISSIGNED', false)
+          localStorage.setItem('user', null)
+          // commit('SET_LOGIN', { access_token: null})
+          // commit('SET_ACCESS_TOKEN', null)
+          // commit('SET_LOGIN_PROFILE', null)
           resolve('succsess')
         }).catch((error) => {
           // An error happened.
@@ -183,13 +181,27 @@ export default new Vuex.Store({
         })
       })
     },
+    getQuocGia ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('/rest/v1/app/get/quocgia', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
     getDanToc ({commit, state}, filter) {
       return new Promise((resolve, reject) => {
         let param = {
           headers: {
           }
         }
-        axios.get('', param).then(function (response) {
+        axios.get('/rest/v1/app/get/dantoc', param).then(function (response) {
           let serializable = response.data
           resolve(serializable)
         }).catch(function (error) {
@@ -203,7 +215,49 @@ export default new Vuex.Store({
           headers: {
           }
         }
-        axios.get('', param).then(function (response) {
+        axios.get('/rest/v1/app/get/tinhthanh', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
+    getDanhMucQuanHuyen ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('/rest/v1/app/get/quanhuyen/' + filter.idParent, param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
+    getDanhMucQuanHuyen ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('/rest/v1/app/get/quanhuyen/' + filter.idParent, param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
+    getDanhMucXaPhuong ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('/rest/v1/app/get/phuongxa/' + filter.idParent, param).then(function (response) {
           let serializable = response.data
           resolve(serializable)
         }).catch(function (error) {
@@ -222,6 +276,51 @@ export default new Vuex.Store({
           resolve(serializable)
         }).catch(function (error) {
           reject([])
+        })
+      })
+    },
+    createRegistration ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        let dataPost = filter.data
+        axios.post('/rest/v1/app/add/nguoitiemchung', dataPost, param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject(error)
+        })
+      })
+    },
+    createNguoiDung ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        let dataPost = filter
+        axios.post('/rest/v1/app/add/nguoidung', dataPost, param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject(error)
+        })
+      })
+    },
+    updateNguoiDung ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        let dataPost = filter.data
+        axios.put('/rest/v1/app/update/nguoidung/' + filter.id, dataPost, param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject(error)
         })
       })
     },

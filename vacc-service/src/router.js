@@ -51,6 +51,11 @@ export default new Router({
           component: () => import('@/views/dashboard/pages/CoSoYTe'),
         },
         {
+          name: 'LichTiemChung',
+          path: '/pages/lich-tiem-chung',
+          component: () => import('@/views/dashboard/pages/DanhSachLichTiem'),
+        },
+        {
           name: 'Dashboard',
           path: 'pages/dashboard',
           component: () => import('@/views/dashboard/Dashboard'),
