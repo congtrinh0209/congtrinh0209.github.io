@@ -465,7 +465,7 @@
                   md="6"
                   class="pb-0"
                 >
-                  <div class="mb-2">Ngày đăng ký tiêm</div>
+                  <div class="mb-2">Ngày đăng ký tiêm <span style="color:red">(*)</span></div>
                   <!-- <v-menu
                     ref="menuDate"
                     :close-on-content-click="false"
@@ -603,15 +603,15 @@
         listDoiTuong: [
           {
             "id" : 1,
-            "value" : "N1",
+            "value" : 1,
             "name" : "1. Người làm việc trong các cơ sở y tế, ngành y tế (công lập và tư nhân)",
           }, {
             "id" : 2,
-            "value" : "N2",
+            "value" : 2,
             "name" : "2. Người tham gia phòng chống dịch (Thành viên Ban chỉ đạo phòng, chống dịch các cấp, người làm việc ở các khu cách ly, làm nhiệm vụ truy vết, điều tra dịch tễ, tổ Covid dựa vào cộng đồng, tình nguyện viên, phóng viên...)",
           }, {
             "id" : 3,
-            "value" : "N3",
+            "value" : 3,
             "name" : "3. Lực lượng Quân đội",
           },
         ],
@@ -823,7 +823,8 @@
             vm.applicantInfo.CoSoYTe_Ma = vm.coSoYTe
             vm.applicantInfo.CoSoYTe_Ten = obj ? obj['TenCoSo'] : ''
           }
-          vm.applicantInfo.NgayDangKi = vm.ngayDuKienFormatted
+          let splitNgayDangKy = String(vm.ngayDuKienFormatted).split('/')
+          vm.applicantInfo.NgayDangKi = splitNgayDangKy[2] + splitNgayDangKy[1] + splitNgayDangKy[0]
           let lengthDate = String(vm.applicantDateFormatted).trim().length
           let splitDate = String(vm.applicantDateFormatted).split('/')
           if (lengthDate && lengthDate == 4) {
