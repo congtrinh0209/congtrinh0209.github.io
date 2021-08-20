@@ -12,7 +12,7 @@
           cols="auto"
         >
           <div>
-            <p class="mb-2 font-weight-bold" style="text-transform: uppercase;">Phần mềm hỗ trợ quản lý và tổ chức Điểm tiêm chủng Vaccine</p>
+            <p class="mb-2" style="text-transform: uppercase;">Phần mềm hỗ trợ quản lý và tổ chức Điểm tiêm chủng Vaccine</p>
             <!-- <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-home-city-outline</v-icon> </p> -->
             <!-- <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> </p>
             <p class="mb-2"><v-icon color="#fff" class="mr-1">mdi-map-marker-star</v-icon> </p>

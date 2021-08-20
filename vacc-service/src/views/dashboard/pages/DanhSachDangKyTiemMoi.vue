@@ -9,85 +9,24 @@
       <base-material-card
         style="margin-top: 20px"
         icon="mdi-clipboard-text"
-        title="Danh sách khách hàng"
+        title="DANH SÁCH ĐĂNG KÝ TIÊM MỚI"
         class="px-5 py-3"
       >
-        <v-btn v-if="userLogin && userLogin['role'] && userLogin['role'] === 'Admin'" class="mx-0" fab dark small color="primary" @click.stop="showTimKiem" style="position: absolute; right: 40px; top: 15px;">
+        <v-btn class="mx-0" fab dark small color="#0072bc" @click.stop="showTimKiem" style="position: absolute; right: 40px; top: 15px;">
           <v-icon dark>
             mdi-magnify
           </v-icon>
         </v-btn>
         <v-card-text v-if="showAdvanceSearch">
-          <v-row>
-            <v-col
-              cols="12"
-              md="6"
-              class="pb-0"
-            >
-              <v-text-field
-                label="Mã thẻ bảo hành"
-                v-model="advanceSearchData.codeNumber"
-                outlined
-                placeholder=""
-                dense
-                clearable
-                hide-details="auto"
-              ></v-text-field>
-            </v-col>
-            <v-col
-              cols="12"
-              md="6"
-              class="pb-0"
-            >
-              <v-text-field
-                label="Số điện thoại khách hàng"
-                v-model="advanceSearchData.customerTelNo"
-                outlined
-                placeholder=""
-                dense
-                clearable
-                hide-details="auto"
-              ></v-text-field>
-            </v-col>
-            <!-- <v-col
-              cols="12" class="pb-0"
-            >
-              <v-autocomplete
-                v-model="dailySelected"
-                :items="listDaiLy"
-                outlined
-                dense
-                label="Đại lý bán hàng"
-                return-object
-                item-text="userName"
-                item-value="uid"
-                hide-details
-              >
-                <template v-slot:selection="data">
-                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}}</span>
-                </template>
-                <template v-slot:item="data">
-                  <span>{{ data.item.userName}}&nbsp;-&nbsp;{{data.item.address}}</span>
-                </template>
-              </v-autocomplete>
-            </v-col> -->
-          </v-row>
-          <v-row class="justify-end">
-            <v-btn color="success" class="mt-3 mx-3" @click.stop="searchCustomer">
-              <v-icon left size="22">
-                mdi-magnify
-              </v-icon>
-              Tìm kiếm
-            </v-btn>
-          </v-row>
+          <tim-kiem ref="timkiem" v-on:trigger-search="searchDangKyTiem"></tim-kiem>
         </v-card-text>
-        <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : ''">
+        <v-card-text :class="breakpointName !== 'lg' ? 'px-0' : 'pt-0'">
           <div :class="breakpointName === 'xs' ? 'mb-3' : 'd-flex mb-3'">
             <div class="mr-auto pt-2 mb-3" v-if="breakpointName === 'xs'">
-              Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> khách hàng
+              Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> người
             </div>
             <span class="mr-auto pt-2" v-else>
-              Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> khách hàng
+              Tổng số: <span style="font-weight: bold; color: green">{{totalItem}}</span> người
             </span>
           </div>
           <v-data-table
@@ -95,13 +34,20 @@
             :items="items"
             hide-default-footer
             class="elevation-1"
-            no-data-text="Không có khách hàng nào"
+            no-data-text="Không có"
             :loading="loadingData"
             loading-text="Đang tải... "
           >
             <template v-slot:item.index="{ item, index }">
               <span>{{ page * itemsPerPage - itemsPerPage + index + 1 }}</span>
-            </template> 
+            </template>
+            <template v-slot:item.HoVaTen="{ item, index }">
+                <p class="mb-2">{{ item.HoVaTen}}</p>
+                <p class="mb-2" style="color: blue">Ngày sinh: {{ item.NgaySinh}}</p>
+            </template>
+            <template v-slot:item.DiaChiNoiO="{ item, index }">
+                <p class="mb-2">{{ item.DiaChiNoiO}} - {{item.PhuongXa_Ten}} - {{item.QuanHuyen_Ten}} - {{item.TinhThanh_Ten}}</p>
+            </template>
           </v-data-table>
           <div class="text-center mt-4" v-if="pageCount">
             <nav role="navigation" aria-label="Pagination Navigation">
@@ -137,7 +83,7 @@
             dark
             color="primary"
           >
-            <v-toolbar-title>Thông tin bảo hành</v-toolbar-title>
+            <v-toolbar-title>Thông tin chi tiết</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items>
               <v-btn
@@ -169,9 +115,12 @@
 </template>
 
 <script>
+  import Search from './FormTimKiem.vue'
   export default {
     name: 'Customers',
-
+    components: {
+    'tim-kiem': Search
+    },
     data () {
       return {
         loading: false,
@@ -201,33 +150,39 @@
           },
           {
             sortable: false,
-            text: 'Tên khách hàng',
+            text: 'Họ tên',
             align: 'left',
-            value: 'customerName'
+            value: 'HoVaTen'
+          },
+          {
+            sortable: false,
+            text: 'Số CMND/ CCCD',
+            align: 'left',
+            value: 'CMTCCCD'
+          },
+          {
+            sortable: false,
+            text: 'Đối tượng',
+            align: 'left',
+            value: 'NhomDoiTuong'
           },
           {
             sortable: false,
             text: 'Số điện thoại',
             align: 'left',
-            value: 'customerTelNo'
+            value: 'CMTCCCD'
           },
           {
             sortable: false,
             text: 'Địa chỉ',
             align: 'left',
-            value: 'customerAddress'
+            value: 'DiaChiNoiO'
           },
           {
             sortable: false,
-            text: 'Ngày mua hàng',
+            text: 'Ngày đăng ký tiêm',
             align: 'center',
-            value: 'dealDateLocal'
-          },
-          {
-            sortable: false,
-            text: 'Mã thẻ bảo hành',
-            align: 'center',
-            value: 'eWarrantyCode'
+            value: 'NgayDangKi'
           }
         ],
       }
@@ -246,12 +201,13 @@
       }
     },
     methods: {
+      searchDangKyTiem (data) {
+        let vm = this
+        console.log('dataSearch', data)
+      },
       showTimKiem () {
         let vm = this
         vm.showAdvanceSearch = !vm.showAdvanceSearch
-        if (!vm.listDaiLy || vm.listDaiLy.length === 0) {
-          vm.getBranchs()
-        }
       },
       getBranchs () {
         let vm = this

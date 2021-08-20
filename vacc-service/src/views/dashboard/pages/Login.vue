@@ -38,11 +38,11 @@
               </v-form>
             </v-card-text>
             <v-card-actions class="mx-2 pt-0 row">
-              <v-btn class="btn-submit-login" tile color="primary" :loading="loading" @click="handleLogin">
+              <v-btn class="btn-submit-login" tile color="#0072bc" :loading="loading" @click="handleLogin">
                 <v-icon size="20" color="#fff" class="mr-2">mdi-login-variant</v-icon> 
                 <span>ĐĂNG NHẬP</span>
               </v-btn>
-              <v-btn class="btn-submit-login my-3 mx-0" tile color="primary" @click="goBack">
+              <v-btn class="btn-submit-login my-3 mx-0" tile color="#0072bc" @click="goBack">
                 <v-icon size="20" color="#fff" class="mr-2">mdi-reply-all</v-icon> 
                 <span>QUAY LẠI</span>
               </v-btn>
@@ -75,6 +75,11 @@ export default {
   computed: {},
   methods: {
     handleLogin() {
+      // login success
+      this.$cookies.set("Token","86868686",60 + 30)
+      this.$store.commit('SET_ISSIGNED', true)
+      localStorage.setItem('user', JSON.stringify({name: 'Trịnh Công Trình', role: 'Admin'}))
+      // 
       if (this.$refs.form.validate()) {
         this.loading = true
         this.$store
@@ -155,7 +160,7 @@ export default {
   font-weight: bold;
   width: 100%;
   height: 42px !important;
-  background: linear-gradient(65deg,#49c217,#ff5200);
+  /* background: linear-gradient(65deg,#49c217,#ff5200); */
   border-radius: 4px;
 }
 </style>

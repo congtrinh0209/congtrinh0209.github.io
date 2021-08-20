@@ -25,6 +25,7 @@
         elevation="6"
         class="text-start v-card--material__heading mb-n6"
         dark
+        style="width: auto; padding: 22px !important;"
       >
         <slot
           v-if="$slots.heading"
@@ -68,7 +69,8 @@
       >
         <div
 
-          class="card-title font-weight-light"
+          class="card-title"
+          style="color: #0054a6"
           v-text="title"
         />
       </div>

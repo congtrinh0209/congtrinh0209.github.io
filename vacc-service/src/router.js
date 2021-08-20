@@ -37,8 +37,18 @@ export default new Router({
         },
         {
           name: 'Users',
-          path: 'pages/users',
-          component: () => import('@/views/dashboard/pages/Users'),
+          path: '/pages/nguoi-dung',
+          component: () => import('@/views/dashboard/pages/NguoiDung'),
+        },
+        {
+          name: 'DiaBanCoSo',
+          path: '/pages/dia-ban-co-so',
+          component: () => import('@/views/dashboard/pages/DiaBanCoSo'),
+        },
+        {
+          name: 'CoSoYTe',
+          path: '/pages/co-so-y-te',
+          component: () => import('@/views/dashboard/pages/CoSoYTe'),
         },
         {
           name: 'Dashboard',

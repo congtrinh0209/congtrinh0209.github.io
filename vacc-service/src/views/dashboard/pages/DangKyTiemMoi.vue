@@ -3,25 +3,27 @@
     id="createEWarranty"
     fluid
     tag="section"
+    class="mt-3"
     :style="breakpointName === 'xs' || breakpointName === 'sm' ? 'padding-top: 75px' : ''"
   >
     <v-row justify="center">
       <v-col
         cols="12" class="px-0 py-0"
       >
-        <base-material-card>
-          <template v-slot:heading>
-            <div v-if="String(uid) === '0'" class="text-h4 font-weight-light">
-              ĐĂNG KÝ TIÊM MỚI
-            </div>
-            <div v-if="String(uid) !== '0'" class="text-h4 font-weight-light">
-              CẬP NHẬT THÔNG TIN NGƯỜI ĐĂNG KÝ
-            </div>
-
-          </template>
-
+        <base-material-card
+          style="margin-top: 20px"
+          icon="mdi-clipboard-text"
+          :title="String(uid) === '0' ? 'ĐĂNG KÝ TIÊM MỚI' : 'CẬP NHẬT THÔNG TIN NGƯỜI ĐĂNG KÝ'"
+          class="px-5 py-3"
+        >
+          <v-btn class="mx-0" dark color="#0072bc" @click.stop="showDanhSach" style="position: absolute; right: 20px; top: 15px;">
+            <v-icon dark class="mr-2">
+              mdi-format-list-bulleted
+            </v-icon>
+            Danh sách đăng ký
+          </v-btn>
           <v-form
-            ref="formAddWarranty"
+            ref="formDangKy"
             v-model="validFormAdd"
             lazy-validation
           >
@@ -87,7 +89,7 @@
                   md="3"
                   class="pb-0"
                 >
-                  <div class="mb-2">Giới tính <span style="color:red">(*)</span></div>
+                  <div class="mb-2">Giới tính </div>
                   <v-autocomplete
                       :items="listGioiTinh"
                       placeholder="Giới tính"
@@ -95,8 +97,6 @@
                       item-text="name"
                       item-value="value"
                       hide-no-data
-                      :rules="requiredSex"
-                      required
                       outlined
                       dense
                       hide-details="auto"               
@@ -534,7 +534,7 @@
                 <v-icon left>
                   mdi-content-save-outline
                 </v-icon>
-                <span>CẬP NHẬT</span>
+                <span>CẬP NHẬT THÔNG TIN</span>
               </v-btn>
               <!-- <v-btn class="mr-0" color="red" @click="cancelAction">
                 <v-icon left>
@@ -593,7 +593,7 @@
           NgayDangKi: '',
           TinhTrangDangKi: 0
         },
-        listGioiTinh: [{name: 'Nam', value: 'M'},{name: 'Nữ', value: 'F'},{name: 'Không xác định', value: 'O'}],
+        listGioiTinh: [{name: 'Nam', value: 0},{name: 'Nữ', value: 1},{name: 'Không xác định', value: 2}],
         listDoiTuong: [
           {
             "id" : 1,
@@ -688,6 +688,13 @@
     created () {
       let vm = this
       console.log('uid', vm.uid)
+      console.log('isSigned', this.$store.getters.getIsSigned)
+      vm.getCoSoYTe()
+      vm.getDiaBanCoSo()
+      vm.getQuocGia()
+      vm.getNhomDoiTuong()
+      vm.getDanToc()
+      vm.getTinhThanh()
       if (String(vm.uid) === '0') {
         vm.typeAction = 'add'
       } else {
@@ -698,25 +705,67 @@
     methods: {
       submitForm () {
         let vm = this
-        console.log('submitForm', vm.applicantDateFormatted)
+        if (vm.$refs.formDangKy.validate()) {
+
+        }
+      },
+      getDiaBanCoSo () {
+        let vm = this
+        let filter = {
+        }
+        vm.$store.dispatch('getDiaBanCoSo', filter).then(function (result) {
+          vm.listDiaBan = result.hasOwnProperty('data') ? result.data : []
+        })
+      },
+      getCoSoYTe () {
+        let vm = this
+        let filter = {
+        }
+        vm.$store.dispatch('getCoSoYTe', filter).then(function (result) {
+          vm.listCoSoYTe = result.hasOwnProperty('data') ? result.data : []
+        })
       },
       getNhomDoiTuong () {
         let vm = this
+        let filter = {
+        }
+        vm.$store.dispatch('getNhomDoiTuong', filter).then(function (result) {
+          vm.listDoiTuong = result.hasOwnProperty('data') ? result.data : []
+        })
       },
       getQuocGia () {
         let vm = this
+        let filter = {
+        }
+        vm.$store.dispatch('getQuocGia', filter).then(function (result) {
+          vm.listQuocTich = result.hasOwnProperty('data') ? result.data : []
+        })
       },
       getDanToc () {
         let vm = this
+        let filter = {
+        }
+        vm.$store.dispatch('getDanToc', filter).then(function (result) {
+          vm.listDanToc = result.hasOwnProperty('data') ? result.data : []
+        })
       },
       getTinhThanh () {
         let vm = this
+        let filter = {
+        }
+        vm.$store.dispatch('getDanhMucTinhThanh', filter).then(function (result) {
+          vm.listTinhThanh = result.hasOwnProperty('data') ? result.data : []
+        })
       },
       getQuanHuyen () {
         let vm = this
       },
       getXaPhuong () {
         let vm = this
+      },
+      showDanhSach () {
+        let vm = this
+        vm.$router.push({ path: '/pages/danh-sach-dang-ky-tiem-moi' })
       },
       formatDate (date) {
         if (!date) return null

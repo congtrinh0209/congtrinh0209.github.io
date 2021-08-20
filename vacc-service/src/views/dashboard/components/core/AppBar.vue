@@ -279,7 +279,7 @@
           },
           {
             icon: 'mdi-shield-plus-outline',
-            title: 'Đăng ký tiêm chủng',
+            title: 'Đăng ký tiêm',
             id: 'search',
             childItems: [
               {
@@ -298,7 +298,7 @@
           },
           {
             icon: 'mdi-shield-plus-outline',
-            title: 'Kế hoạch tiêm chủng',
+            title: 'Kế hoạch tiêm',
             id: 'search',
             childItems: [
               {
@@ -325,6 +325,31 @@
                 to: '/pages/danh-sach-tiem-chung',
                 id: 'search',
               },
+            ]
+          },
+          {
+            icon: 'mdi-shield-plus-outline',
+            title: 'Quản trị hệ thống',
+            id: 'search',
+            childItems: [
+              {
+                icon: 'mdi-shield-plus-outline',
+                title: 'Cơ sở y tế',
+                to: '/pages/co-so-y-te',
+                id: 'search',
+              },
+              {
+                icon: 'mdi-shield-plus-outline',
+                title: 'Địa bàn cơ sở',
+                to: '/pages/dia-ban-co-so',
+                id: 'search',
+              },
+              {
+                icon: 'mdi-shield-plus-outline',
+                title: 'Người dùng',
+                to: '/pages/nguoi-dung',
+                id: 'search',
+              }
             ]
           },
         ]
@@ -339,7 +364,7 @@
           },
           {
             icon: 'mdi-shield-plus-outline',
-            title: 'Đăng ký tiêm chủng',
+            title: 'Đăng ký tiêm',
             id: 'search',
             childItems: [
               {
@@ -358,7 +383,7 @@
           },
           {
             icon: 'mdi-shield-plus-outline',
-            title: 'Kế hoạch tiêm chủng',
+            title: 'Kế hoạch tiêm',
             id: 'search',
             childItems: [
               {
@@ -385,6 +410,31 @@
                 to: '/pages/danh-sach-tiem-chung',
                 id: 'search',
               },
+            ]
+          },
+          {
+            icon: 'mdi-shield-plus-outline',
+            title: 'Quản trị',
+            id: 'search',
+            childItems: [
+              {
+                icon: 'mdi-shield-plus-outline',
+                title: 'Cơ sở y tế',
+                to: '/pages/co-so-y-te',
+                id: 'search',
+              },
+              {
+                icon: 'mdi-shield-plus-outline',
+                title: 'Địa bàn cơ sở',
+                to: '/pages/dia-ban-co-so',
+                id: 'search',
+              },
+              {
+                icon: 'mdi-shield-plus-outline',
+                title: 'Người dùng',
+                to: '/pages/nguoi-dung',
+                id: 'search',
+              }
             ]
           },
         ]
@@ -501,7 +551,7 @@
   #header-desktop #banner .btns {
     position: absolute;
     right: 15px;
-    top: 24px;
+    top: 20px;
     z-index: 2;
   }
   #header-desktop #banner .btns a.login {

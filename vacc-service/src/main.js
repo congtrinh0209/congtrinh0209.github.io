@@ -7,11 +7,18 @@ import './plugins/chartist'
 import './plugins/vee-validate'
 import vuetify from './plugins/vuetify'
 import i18n from './i18n'
-import axios from 'axios'
 import { VueMaskDirective } from 'v-mask'
+import VueCookies from 'vue-cookies'
+import axios from 'axios'
+Vue.use(VueCookies)
 Vue.directive('mask', VueMaskDirective);
 
-
+if (Vue.$cookies.get('Token')) {
+  store.commit('SET_ISSIGNED', true)
+} else {
+  store.commit('SET_ISSIGNED', false)
+  localStorage.setItem('user', null)
+}
 // const getFirebaseToken = async () => {
 //   const currentUser = firebase.auth().currentUser;
 //   if (currentUser) return currentUser.getIdToken();

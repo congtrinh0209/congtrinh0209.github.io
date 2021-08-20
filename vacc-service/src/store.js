@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import axios from 'axios'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -18,9 +18,13 @@ export default new Vuex.Store({
     userPermistion: 'guest',
     userProfile: null,
     breakpointName: 'lg',
-    indexTab: 0
+    indexTab: 0,
+    isSigned:  false
   },
   getters: {
+    getIsSigned: (state) => {
+      return state.isSigned
+    },
     getSnackbar: (state) => {
       return state.snackbar
     },
@@ -34,6 +38,9 @@ export default new Vuex.Store({
     getIndexTab: (state) => state.indexTab
   },
   mutations: {
+    SET_ISSIGNED (state, payload) {
+      state.isSigned = payload
+    },
     SET_BAR_IMAGE (state, payload) {
       state.barImage = payload
     },
@@ -78,23 +85,16 @@ export default new Vuex.Store({
   actions: {
     loginApp({ commit }, { username, password }) {
       return new Promise((resolve, reject) => {
-        let name = String(username).trim() + '@gmail.com'
+        let name = String(username).trim()
         let pass = String(password).trim()
         firebase.auth().signInWithEmailAndPassword(name, pass)
         .then((userCredential) => {
           // Signed in 
-          var user = userCredential.user;
-          if (typeof(Storage) !== "undefined") {
-            localStorage.setItem('user', user.displayName)
-          } else {
-          }
-          commit('SET_LOGIN', { access_token: user.za})
+
           return resolve({ message: 'success' })
           // ...
         })
         .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
           return reject({ message: 'Email hoặc mật khẩu không chính xác' })
           // ..
         });
@@ -132,7 +132,6 @@ export default new Vuex.Store({
       
     },
     // get current login user info
-  
     fetchProfile({ commit, dispatch, rootState }) {
       return request({
         url: '/me',
@@ -140,6 +139,90 @@ export default new Vuex.Store({
       }).then((resp) => {
         commit('SET_LOGIN_PROFILE', resp.data)
         return resp
+      })
+    },
+    getDiaBanCoSo ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
+    getCoSoYTe ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
+    getNhomDoiTuong ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
+    getDanToc ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
+    getDanhMucTinhThanh ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
+    getNguoiDung ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
       })
     },
   },
