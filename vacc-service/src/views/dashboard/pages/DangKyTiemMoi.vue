@@ -16,7 +16,7 @@
           :title="String(uid) === '0' ? 'ĐĂNG KÝ TIÊM MỚI' : 'CẬP NHẬT THÔNG TIN NGƯỜI ĐĂNG KÝ'"
           class="px-5 py-3"
         >
-          <v-btn class="mx-0" dark color="#0072bc" @click.stop="showDanhSach" style="position: absolute; right: 20px; top: 15px;">
+          <v-btn id="xemdanhsach" class="mx-0" dark color="#0072bc" @click.stop="showDanhSach" style="position: absolute; right: 20px; top: 15px;">
             <v-icon dark class="mr-2">
               mdi-format-list-bulleted
             </v-icon>
@@ -250,22 +250,6 @@
               <v-row>
                 <v-col
                   cols="12"
-                  class="pb-0"
-                >
-                  <div class="mb-2">Địa chỉ nơi ở <span style="color:red">(*)</span></div>
-                  <v-text-field
-                    v-model="applicantInfo['DiaChiNoiO']"
-                    :rules="required"
-                    required
-                    outlined
-                    placeholder="Địa chỉ nơi ở"
-                    dense
-                    
-                    hide-details="auto"
-                  ></v-text-field>
-                </v-col>
-                <v-col
-                  cols="12"
                   md="3"
                   class="pb-0"
                 >
@@ -327,6 +311,22 @@
                       hide-details="auto"
                   ></v-autocomplete>
                 </v-col>
+                <v-col
+                  cols="12"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Địa chỉ nơi ở <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-model="applicantInfo['DiaChiNoiO']"
+                    :rules="required"
+                    required
+                    outlined
+                    placeholder="Số nhà, đường, tổ dân phố, khóm ấp, thôn bản…"
+                    dense
+                    
+                    hide-details="auto"
+                  ></v-text-field>
+                </v-col>
               </v-row>
               <!-- row 5 -->
               <v-row>
@@ -340,13 +340,12 @@
                       hide-no-data
                       :items="listDiaBan"
                       v-model="applicantInfo['DiaBanCoSo_ID']"
-                      item-text="itemName"
-                      item-value="itemCode"
-                      
+                      item-text="TenDiaBan"
+                      item-value="ID"
                       :rules="required"
                       required
                       outlined
-                      placeholder="Địa bàn cơ sở"
+                      placeholder="Tổ dân phố, khóm ấp, thôn bản…"
                       dense
                       hide-details="auto"
                   ></v-autocomplete>
@@ -356,16 +355,13 @@
                   md="6"
                   class="pb-0"
                 >
-                  <div class="mb-2">Cơ sở y tế <span style="color:red">(*)</span></div>
+                  <div class="mb-2">Cơ sở y tế</div>
                   <v-autocomplete
                       hide-no-data
                       :items="listCoSoYTe"
                       v-model="coSoYTe"
                       item-text="itemName"
                       item-value="itemCode"
-                      
-                      :rules="required"
-                      required
                       outlined
                       placeholder="Cơ sở y tế"
                       dense
@@ -561,6 +557,7 @@
 </template>
 
 <script>
+  import $ from 'jquery'
   export default {
     name: 'CreateEWarranty',
     props: ['uid'],
@@ -624,9 +621,12 @@
         quanHuyen: '',
         listXaPhuong: [],
         xaPhuong: '',
-        listDiaBan: [],
+        listDiaBan: [
+          {ID: '198341', TenDiaBan: 'Tổ dân phố số 6'},
+          {ID: '198342', TenDiaBan: 'Tổ dân phố số 7'}
+        ],
         listCoSoYTe: [],
-        coSoYTe: [],
+        coSoYTe: '',
         listQuocTich: [],
         listDanToc: [],
         menuApplicantIdDate: false,
@@ -668,6 +668,21 @@
       }
     },
     watch: {
+      '$route': function (newRoute, oldRoute) {
+        let vm = this
+        let currentQuery = newRoute.query
+        vm.getCoSoYTe()
+        vm.getDiaBanCoSo()
+        vm.getQuocGia()
+        vm.getNhomDoiTuong()
+        vm.getDanToc()
+        vm.getTinhThanh()
+        if (String(vm.uid) === '0') {
+          vm.typeAction = 'add'
+        } else {
+          vm.typeAction = 'update'
+        }
+      },
       tinhThanh (val) {
         this.applicantInfo.TinhThanh_Ma = val
         this.getQuanHuyen(val)
@@ -695,15 +710,15 @@
     computed: {
       breakpointName () {
         return this.$store.getters.getBreakpointName
-      },
-      userLogin () {
-        return this.$store.getters.getPermistion
       }
     },
     created () {
       let vm = this
-      console.log('uid', vm.uid)
-      console.log('isSigned', this.$store.getters.getIsSigned)
+      let isSigned = this.$store.getters.getIsSigned
+      if (!isSigned) {
+        vm.$router.push({ path: '/login' })
+        return
+      }
       vm.getCoSoYTe()
       vm.getDiaBanCoSo()
       vm.getQuocGia()
@@ -742,6 +757,12 @@
                 vm.processingAction = false
                 vm.$refs.formDangKy.reset()
                 vm.$refs.formDangKy.resetValidation()
+                $('html, body').animate({
+                    scrollTop: $('#xemdanhsach').offset().top,
+                  },
+                  500,
+                  'linear'
+                )
               }).catch(function () {
                 vm.$store.commit('SHOW_SNACKBAR', {
                   show: true,
@@ -800,8 +821,9 @@
               return item.itemCode == vm.coSoYTe
             })
             vm.applicantInfo.CoSoYTe_Ma = vm.coSoYTe
-            vm.applicantInfo.CoSoYTe_Ten = obj ? obj['itemName'] : ''
+            vm.applicantInfo.CoSoYTe_Ten = obj ? obj['TenCoSo'] : ''
           }
+          vm.applicantInfo.NgayDangKi = vm.ngayDuKienFormatted
           let lengthDate = String(vm.applicantDateFormatted).trim().length
           let splitDate = String(vm.applicantDateFormatted).split('/')
           if (lengthDate && lengthDate == 4) {
@@ -838,7 +860,7 @@
         let filter = {
         }
         vm.$store.dispatch('getDiaBanCoSo', filter).then(function (result) {
-          vm.listDiaBan = result.hasOwnProperty('data') ? result.data : []
+          vm.listDiaBan = result ? result : []
         })
       },
       getCoSoYTe () {
@@ -846,7 +868,7 @@
         let filter = {
         }
         vm.$store.dispatch('getCoSoYTe', filter).then(function (result) {
-          vm.listCoSoYTe = result.hasOwnProperty('data') ? result.data : []
+          vm.listCoSoYTe = result ? result : []
         })
       },
       getNhomDoiTuong () {
@@ -854,7 +876,7 @@
         let filter = {
         }
         vm.$store.dispatch('getNhomDoiTuong', filter).then(function (result) {
-          vm.listDoiTuong = result.hasOwnProperty('data') ? result.data : []
+          vm.listDoiTuong = result ? result : []
         })
       },
       getQuocGia () {
@@ -862,7 +884,7 @@
         let filter = {
         }
         vm.$store.dispatch('getQuocGia', filter).then(function (result) {
-          vm.listQuocTich = result.hasOwnProperty('data') ? result.data : []
+          vm.listQuocTich = result ? result : []
         })
       },
       getDanToc () {
@@ -883,6 +905,9 @@
       },
       getQuanHuyen (code) {
         let vm = this
+        if (!code) {
+          return
+        }
         let obj = vm.listTinhThanh.find(function (item) {
           return item.tinhThanhMa == code
         })
@@ -895,6 +920,9 @@
       },
       getXaPhuong (code) {
         let vm = this
+        if (!code) {
+          return
+        }
         let obj = vm.listQuanHuyen.find(function (item) {
           return item.quanHuyenMa == code
         })

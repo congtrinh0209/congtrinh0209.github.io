@@ -114,8 +114,8 @@
                         hide-no-data
                         :items="listTinhThanh"
                         v-model="tinhThanh"
-                        item-text="itemName"
-                        item-value="itemCode"
+                        item-text="tinhThanhTen"
+                        item-value="tinhThanhMa"
                         clearable
                         :rules="required"
                         required
@@ -128,8 +128,8 @@
                         hide-no-data
                         :items="listQuanHuyen"
                         v-model="quanHuyen"
-                        item-text="itemName"
-                        item-value="itemCode"
+                        item-text="quanHuyenTen"
+                        item-value="quanHuyenMa"
                         clearable
                         :rules="required"
                         required
@@ -143,8 +143,8 @@
                         hide-no-data
                         :items="listXaPhuong"
                         v-model="xaPhuong"
-                        item-text="itemName"
-                        item-value="itemCode"
+                        item-text="phuongXaTen"
+                        item-value="phuongXaMa"
                         clearable
                         :rules="required"
                         required
@@ -304,7 +304,7 @@
         let filter = {
         }
         vm.$store.dispatch('getDiaBanCoSo', filter).then(function (result) {
-          vm.listDiaBan = result.hasOwnProperty('data') ? result.data : []
+          vm.listDiaBan = result ? result : []
         })
       },
       getTinhThanh () {
@@ -312,14 +312,32 @@
         let filter = {
         }
         vm.$store.dispatch('getDanhMucTinhThanh', filter).then(function (result) {
-          vm.listTinhThanh = result.hasOwnProperty('data') ? result.data : []
+          vm.listTinhThanh = result ? result : []
         })
       },
-      getQuanHuyen () {
+      getQuanHuyen (code) {
         let vm = this
+        let obj = vm.listTinhThanh.find(function (item) {
+          return item.tinhThanhMa == code
+        })
+        let filter = {
+          idParent: obj['id']
+        }
+        vm.$store.dispatch('getDanhMucQuanHuyen', filter).then(function (result) {
+          vm.listQuanHuyen = result ? result : []
+        })
       },
-      getXaPhuong () {
+      getXaPhuong (code) {
         let vm = this
+        let obj = vm.listQuanHuyen.find(function (item) {
+          return item.quanHuyenMa == code
+        })
+        let filter = {
+          idParent: obj['id']
+        }
+        vm.$store.dispatch('getDanhMucXaPhuong', filter).then(function (result) {
+          vm.listXaPhuong = result ? result : []
+        })
       },
       addMember (type, user) {
         let vm = this
@@ -355,107 +373,106 @@
       },
       submitAddMember () {
         let vm = this
-        if (vm.$refs.formAddMember.validate()) {
-          if (vm.typeAction === 'add') {
-            let dataUserAuthen = {
-              account: String(vm.account).trim() + '@gmail.com',
-              passWord: String(vm.passWord).trim(),
-              userName: String(vm.userName).trim(),
-              telNo: String(vm.telNo).trim(),
-              address: String(vm.address).trim()
-            }
-            vm.loading = true
-            let curr = firebase.auth().currentUser
-            let uidad = curr['uid']
-            let infoad = db.collection("users").doc(uidad)
-            let uss = curr['email']
-            let ssap = ''
-            infoad.get().then((doc) => {
-              if (doc.exists) {
-                ssap = window.atob(doc.data()['pid'])
-              } else {
-              }
-            }).catch((error) => {
-            })
-            firebase.auth().createUserWithEmailAndPassword(dataUserAuthen.account, dataUserAuthen.passWord)
-            .then(userCredential => {
-              vm.loading = false
-              vm.$store.commit('SHOW_SNACKBAR', {
-                show: true,
-                text: 'Thêm người dùng thành công',
-                color: 'success',
-              })
-              // Signed in
-              vm.dialogAddMember = false
-              firebase.auth().signInWithEmailAndPassword(uss, ssap)
-              .then(() => {
-                let user = userCredential.user;
-                db.collection("users").doc(user.uid).set({
-                  account: String(vm.account).trim(),
-                  userName: dataUserAuthen.userName,
-                  telNo: dataUserAuthen.telNo,
-                  address: dataUserAuthen.address,
-                  role: "Member",
-                  status: "",
-                  pid: window.btoa(dataUserAuthen.passWord),
-                  uid: user.uid
-                })
-                .then(() => {
-                  vm.getMembers()
-                })
-                .catch((error) => {
-                })
-              })
-              // ...
-            })
-            .catch((error) => {
-              vm.loading = false
-              let errorCode = error.code;
-              let errorMessage = error.message;
-              let mess = ''
-              if (errorCode == 'auth/email-already-in-use') {
-                mess = 'Tên đăng nhập đã được sử dụng. Vui lòng sử dụng tên đăng nhập khác.'
-              } else if (errorCode == 'auth/weak-password') {
-                mess = 'Mật khẩu quá yếu'
-              } else if (errorCode == 'auth/invalid-email') {
-                mess = 'Tên đăng nhập không hợp lệ'
-              } else {
-                mess = errorMessage
-              }
-              vm.$store.commit('SHOW_SNACKBAR', {
-                show: true,
-                text: mess,
-                color: 'error',
-              })
-              // ..
-            });
-          } else {
-            vm.loading = true
-            db.collection('users').doc(vm.userUpdate['uid']).update(
-              {
-                userName: vm.userName,
-                telNo: vm.telNo,
-                address: vm.address
-              }
-            ).then(function () {
-              vm.loading = false
-              vm.$store.commit('SHOW_SNACKBAR', {
-                show: true,
-                text: 'Cập nhật thành công',
-                color: 'success',
-              })
-              vm.dialogAddMember = false
-              vm.getMembers()
-            }).catch(function () {
-              vm.$store.commit('SHOW_SNACKBAR', {
-                show: true,
-                text: 'Cập nhật thất bại',
-                color: 'error',
-              })
-            })
-          }
-          
-        }
+        // if (vm.$refs.formAddMember.validate()) {
+        //   if (vm.typeAction === 'add') {
+        //     let dataUserAuthen = {
+        //       account: String(vm.account).trim() + '@gmail.com',
+        //       passWord: String(vm.passWord).trim(),
+        //       userName: String(vm.userName).trim(),
+        //       telNo: String(vm.telNo).trim(),
+        //       address: String(vm.address).trim()
+        //     }
+        //     vm.loading = true
+        //     let curr = firebase.auth().currentUser
+        //     let uidad = curr['uid']
+        //     let infoad = db.collection("users").doc(uidad)
+        //     let uss = curr['email']
+        //     let ssap = ''
+        //     infoad.get().then((doc) => {
+        //       if (doc.exists) {
+        //         ssap = window.atob(doc.data()['pid'])
+        //       } else {
+        //       }
+        //     }).catch((error) => {
+        //     })
+        //     firebase.auth().createUserWithEmailAndPassword(dataUserAuthen.account, dataUserAuthen.passWord)
+        //     .then(userCredential => {
+        //       vm.loading = false
+        //       vm.$store.commit('SHOW_SNACKBAR', {
+        //         show: true,
+        //         text: 'Thêm người dùng thành công',
+        //         color: 'success',
+        //       })
+        //       // Signed in
+        //       vm.dialogAddMember = false
+        //       firebase.auth().signInWithEmailAndPassword(uss, ssap)
+        //       .then(() => {
+        //         let user = userCredential.user;
+        //         db.collection("users").doc(user.uid).set({
+        //           account: String(vm.account).trim(),
+        //           userName: dataUserAuthen.userName,
+        //           telNo: dataUserAuthen.telNo,
+        //           address: dataUserAuthen.address,
+        //           role: "Member",
+        //           status: "",
+        //           pid: window.btoa(dataUserAuthen.passWord),
+        //           uid: user.uid
+        //         })
+        //         .then(() => {
+        //           vm.getMembers()
+        //         })
+        //         .catch((error) => {
+        //         })
+        //       })
+        //       // ...
+        //     })
+        //     .catch((error) => {
+        //       vm.loading = false
+        //       let errorCode = error.code;
+        //       let errorMessage = error.message;
+        //       let mess = ''
+        //       if (errorCode == 'auth/email-already-in-use') {
+        //         mess = 'Tên đăng nhập đã được sử dụng. Vui lòng sử dụng tên đăng nhập khác.'
+        //       } else if (errorCode == 'auth/weak-password') {
+        //         mess = 'Mật khẩu quá yếu'
+        //       } else if (errorCode == 'auth/invalid-email') {
+        //         mess = 'Tên đăng nhập không hợp lệ'
+        //       } else {
+        //         mess = errorMessage
+        //       }
+        //       vm.$store.commit('SHOW_SNACKBAR', {
+        //         show: true,
+        //         text: mess,
+        //         color: 'error',
+        //       })
+        //       // ..
+        //     });
+        //   } else {
+        //     vm.loading = true
+        //     db.collection('users').doc(vm.userUpdate['uid']).update(
+        //       {
+        //         userName: vm.userName,
+        //         telNo: vm.telNo,
+        //         address: vm.address
+        //       }
+        //     ).then(function () {
+        //       vm.loading = false
+        //       vm.$store.commit('SHOW_SNACKBAR', {
+        //         show: true,
+        //         text: 'Cập nhật thành công',
+        //         color: 'success',
+        //       })
+        //       vm.dialogAddMember = false
+        //       vm.getMembers()
+        //     }).catch(function () {
+        //       vm.$store.commit('SHOW_SNACKBAR', {
+        //         show: true,
+        //         text: 'Cập nhật thất bại',
+        //         color: 'error',
+        //       })
+        //     })
+        //   }
+        // }
       },
       cancelAddMember () {
         let vm = this

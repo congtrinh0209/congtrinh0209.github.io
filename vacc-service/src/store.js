@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import $ from 'jquery'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -87,16 +88,30 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let name = String(username).trim()
         let pass = String(password).trim()
-        let configs = {
+        // let configs = {
+        //   headers: {
+        //     'Authorization': 'Basic ' + window.btoa(name + ":" + pass)
+        //   },
+        // }
+        // let dataPostApplicant = new URLSearchParams()
+        // axios.post('/rest/v1/security/login', dataPostApplicant, configs).then(function (response) {
+        //   resolve(response.data)
+        // }).catch(function (error) {
+        //   reject(error)
+        // })
+        $.ajax({
+          url: 'http://119.17.200.69:8630/rest/v1/security/login',
+          type: 'POST',
           headers: {
             'Authorization': 'Basic ' + window.btoa(name + ":" + pass)
           },
-        }
-        let dataPostApplicant = new URLSearchParams()
-        axios.post('/rest/v1/security/login', dataPostApplicant, configs).then(function (response) {
-          resolve(response.data)
-        }).catch(function (error) {
-          reject(error)
+          success: function (result) {
+            let serializable = result
+            resolve(serializable)
+          },
+          error: function (xhr) {
+            reject(xhr)
+          }
         })
       })
     },
@@ -114,15 +129,8 @@ export default new Vuex.Store({
     logout({ commit, dispatch }) {
       return new Promise((resolve, reject) => {
         firebase.auth().signOut().then(() => {
-          // Sign-out successful.
-          commit('SET_ISSIGNED', false)
-          localStorage.setItem('user', null)
-          // commit('SET_LOGIN', { access_token: null})
-          // commit('SET_ACCESS_TOKEN', null)
-          // commit('SET_LOGIN_PROFILE', null)
           resolve('succsess')
         }).catch((error) => {
-          // An error happened.
           reject('error')
         })
         
@@ -265,20 +273,6 @@ export default new Vuex.Store({
         })
       })
     },
-    getNguoiDung ({commit, state}, filter) {
-      return new Promise((resolve, reject) => {
-        let param = {
-          headers: {
-          }
-        }
-        axios.get('', param).then(function (response) {
-          let serializable = response.data
-          resolve(serializable)
-        }).catch(function (error) {
-          reject([])
-        })
-      })
-    },
     createRegistration ({commit, state}, filter) {
       return new Promise((resolve, reject) => {
         let param = {
@@ -294,6 +288,24 @@ export default new Vuex.Store({
         })
       })
     },
+    getNguoiTiemChung ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          },
+          params: {
+            page: 0,
+            size: 30
+          }
+        }
+        axios.get('/rest/v1/app/get/nguoitiemchung', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
+        })
+      })
+    },
     createNguoiDung ({commit, state}, filter) {
       return new Promise((resolve, reject) => {
         let param = {
@@ -306,6 +318,20 @@ export default new Vuex.Store({
           resolve(serializable)
         }).catch(function (error) {
           reject(error)
+        })
+      })
+    },
+    getNguoiDung ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        axios.get('/rest/v1/app/get/nguoidung', param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject([])
         })
       })
     },

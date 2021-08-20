@@ -383,9 +383,9 @@
         let filter = {}
         vm.$store.dispatch('getNguoiDung', filter).then(function (result) {
           vm.loadingData = false
-          if (result.data) {
-            vm.items = result.data
-            vm.totalItem = result.total
+          if (result) {
+            vm.items = result
+            vm.totalItem = result.length
             vm.pageCount = Math.ceil(querySnapshot.size / vm.itemsPerPage)
           } else {
             vm.items = []
@@ -425,6 +425,7 @@
             vm.loading = true
             vm.$store.dispatch('createNguoiDung', filter).then(userCredential => {
               vm.loading = false
+              vm.dialogAddMember = false
               vm.$store.commit('SHOW_SNACKBAR', {
                 show: true,
                 text: 'Thêm người dùng thành công',

@@ -83,7 +83,7 @@
     }),
     created () {
       let vm = this
-      if (vm.userLogin && vm.userLogin['role'] && vm.userLogin['role'] === 'Admin') {
+      if (vm.userLogin && vm.userLogin['role_name'] && vm.userLogin['role_name'] === 'admin') {
         vm.items = [
           {
             icon: 'mdi-home',
@@ -228,9 +228,6 @@
           title: this.$t('avatar'),
         }
       },
-      userLogin () {
-        return this.$store.getters.getPermistion
-      },
       breakpointName () {
         return this.$store.getters.getBreakpointName
       }
@@ -238,7 +235,7 @@
     watch: {
       userLogin (val) {
         let vm = this
-        if (val && val['role'] && val['role'] === 'Admin') {
+        if (val && val['role_name'] && val['role_name'] === 'admin') {
           
         } else {
           

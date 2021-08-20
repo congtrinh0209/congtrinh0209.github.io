@@ -35,7 +35,7 @@
     <div class="mx-3" />
     
 
-    <v-menu v-if="userLogin && userLogin !== 'guest'" offset-y origin="center center" transition="scale-transition">
+    <v-menu v-if="isSigned" offset-y origin="center center" transition="scale-transition">
       <template #activator="{ on }">
         <v-btn slot="activator" class="ml-2" min-width="0" text v-on="on">
           <v-icon>mdi-account</v-icon>
@@ -129,41 +129,11 @@
             </nav>
           </div>
         </div>
-        <v-menu v-if="userLogin && userLogin !== 'guest' &&  (breakpointName === 'xs' || breakpointName === 'sm')" offset-y origin="center center" transition="scale-transition">
-          <template #activator="{ on }">
-            <v-btn style="position: absolute;top:25px;right:30px" slot="activator" class="ml-2" min-width="0" text v-on="on">
-              <v-icon>mdi-account</v-icon>
-            </v-btn>
-          </template>
-          <v-list class="pa-0">
-            <v-list-item
-              to="/pages/user"
-              rel="noopener"
-            >
-              <v-list-item-action class="mr-3">
-                <v-icon color="#3f51b5">mdi-account</v-icon>
-              </v-list-item-action>
-              <v-list-item-content>
-                <v-list-item-title>Thông tin tài khoản</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-            <v-list-item
-              @click="logout"
-              rel="noopener"
-            >
-              <v-list-item-action class="mr-3">
-                <v-icon color="red">mdi-power</v-icon>
-              </v-list-item-action>
-              <v-list-item-content>
-                <v-list-item-title>Đăng xuất</v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list>
-        </v-menu>
-        <v-menu v-if="userLogin && userLogin !== 'guest' && breakpointName !== 'xs' && breakpointName !== 'sm'" offset-y origin="center center" transition="scale-transition">
+
+        <v-menu v-if="isSigned && breakpointName !== 'xs' && breakpointName !== 'sm'" offset-y origin="center center" transition="scale-transition">
           <template v-slot:activator="{ on, attrs }">
             <v-chip
-              style="height: 36px;position: absolute;top:100px;right:5px;z-index: 2"
+              style="height: 36px;position: absolute;top: 15px;right:5px;z-index: 2"
               v-bind="attrs"
               v-on="on"
               class="ma-2"
@@ -173,7 +143,7 @@
               <v-icon left size="24" class="mx-2">
                 mdi-account-circle-outline
               </v-icon>
-              {{userLogin['userName']}}
+              {{userLogin['role_name']}}
               <v-icon class="ml-2" v-if="!showMenu" size="20" color="white" >mdi-chevron-up</v-icon>
               <v-icon class="ml-2" v-else size="20" color="white">mdi-chevron-down</v-icon>
             </v-chip>
@@ -203,7 +173,7 @@
             </v-list-item>
           </v-list>
         </v-menu>
-        <div class="btns" v-if="!userLogin || userLogin == 'guest'"> 
+        <div class="btns" v-if="!isSigned"> 
           <a @click="goToLogin" href="javascript:;" class="login">Đăng nhập</a> 
         </div>
     </header>
@@ -268,7 +238,7 @@
     }),
     created () {
       let vm = this
-      if (vm.userLogin && vm.userLogin['role'] && vm.userLogin['role'] === 'Admin') {
+      if (vm.userLogin && vm.userLogin['role_name'] && vm.userLogin['role_name'] === 'admin') {
         vm.items = [
           {
             icon: 'mdi-home',
@@ -412,31 +382,31 @@
               },
             ]
           },
-          {
-            icon: 'mdi-shield-plus-outline',
-            title: 'Quản trị',
-            id: 'search',
-            childItems: [
-              {
-                icon: 'mdi-shield-plus-outline',
-                title: 'Cơ sở y tế',
-                to: '/pages/co-so-y-te',
-                id: 'search',
-              },
-              {
-                icon: 'mdi-shield-plus-outline',
-                title: 'Địa bàn cơ sở',
-                to: '/pages/dia-ban-co-so',
-                id: 'search',
-              },
-              {
-                icon: 'mdi-shield-plus-outline',
-                title: 'Người dùng',
-                to: '/pages/nguoi-dung',
-                id: 'search',
-              }
-            ]
-          },
+          // {
+          //   icon: 'mdi-shield-plus-outline',
+          //   title: 'Quản trị',
+          //   id: 'search',
+          //   childItems: [
+          //     {
+          //       icon: 'mdi-shield-plus-outline',
+          //       title: 'Cơ sở y tế',
+          //       to: '/pages/co-so-y-te',
+          //       id: 'search',
+          //     },
+          //     {
+          //       icon: 'mdi-shield-plus-outline',
+          //       title: 'Địa bàn cơ sở',
+          //       to: '/pages/dia-ban-co-so',
+          //       id: 'search',
+          //     },
+          //     {
+          //       icon: 'mdi-shield-plus-outline',
+          //       title: 'Người dùng',
+          //       to: '/pages/nguoi-dung',
+          //       id: 'search',
+          //     }
+          //   ]
+          // },
         ]
       }
       // let index = vm.items.findIndex(function (item) {
@@ -449,9 +419,6 @@
     },
     computed: {
       ...mapState(['drawer']),
-      userLogin () {
-        return this.$store.getters.getPermistion
-      },
       breakpointName () {
         return this.$store.getters.getBreakpointName
       },
@@ -469,18 +436,22 @@
         setDrawer: 'SET_DRAWER',
       }),
       logout () {
-        this.$store
-          .dispatch('logout')
-          .then(() => {
-            window.location.href = window.location.origin
-          })
-          .catch(() => {
-            this.$store.commit('SHOW_SNACKBAR', {
-              show: true,
-              text: 'Lỗi đăng xuất hệ thống',
-              color: 'error',
-            })
-          })
+        let vm = this
+        // vm.$store.dispatch('logout').then(() => {
+        //   console.log('logoutSuccess')
+          vm.$store.commit('SET_ISSIGNED', false)
+          if (localStorage.getItem('user')) {
+            localStorage.setItem('user', null)
+          }
+          vm.$cookies.set('Token','')
+          vm.$router.push({ path: '/login' })
+        // }).catch(() => {
+        //   vm.$store.commit('SHOW_SNACKBAR', {
+        //     show: true,
+        //     text: 'Lỗi đăng xuất hệ thống',
+        //     color: 'error',
+        //   })
+        // })
       },
       redirectTo (item, index) {
         this.$store.commit('SET_INDEXTAB', index)

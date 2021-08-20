@@ -190,20 +190,20 @@
     methods: {
       getUserInfo () {
         let vm = this
-        async function getUid() {
-          let curr = await firebase.auth().currentUser
-          // console.log('curr', curr)
-          let uidad = curr.uid
-          let infoad = db.collection("users").doc(uidad)
-          infoad.get().then((querySnapshot) => {
-            if (querySnapshot.exists) {
-              vm.userInfo = querySnapshot.data()
-              // console.log('userInfo',vm.userInfo)
-            }
-          }).catch((error) => {
-          })
-        }
-        getUid()
+        // async function getUid() {
+        //   let curr = await firebase.auth().currentUser
+        //   // console.log('curr', curr)
+        //   let uidad = curr.uid
+        //   let infoad = db.collection("users").doc(uidad)
+        //   infoad.get().then((querySnapshot) => {
+        //     if (querySnapshot.exists) {
+        //       vm.userInfo = querySnapshot.data()
+        //       // console.log('userInfo',vm.userInfo)
+        //     }
+        //   }).catch((error) => {
+        //   })
+        // }
+        // getUid()
       },
       showChangePass () {
         let vm = this
@@ -267,22 +267,19 @@
         }
       },
       logout () {
-        this.$store
-          .dispatch('logout')
-          .then(() => {
-            this.$router.push(
-              {
-                path: '/login'
-              }
-            )
+        this.$store.dispatch('logout').then(() => {
+          this.$router.push(
+            {
+              path: '/login'
+            }
+          )
+        }).catch(() => {
+          this.$store.commit('SHOW_SNACKBAR', {
+            show: true,
+            text: 'Lỗi đăng xuất hệ thống',
+            color: 'error',
           })
-          .catch(() => {
-            this.$store.commit('SHOW_SNACKBAR', {
-              show: true,
-              text: 'Lỗi đăng xuất hệ thống',
-              color: 'error',
-            })
-          })
+        })
       },
       goBack () {
         this.$router.push({ path: '/' })

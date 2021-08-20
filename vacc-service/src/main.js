@@ -19,11 +19,12 @@ if (typeof baseURL !== 'undefined') {
 }
 if (Vue.$cookies.get('Token')) {
   store.commit('SET_ISSIGNED', true)
+  let token = Vue.$cookies.get('Token')
   axios.interceptors.request.use(async (config) => {
     if (token) {
-      config.headers.Authorization = 'Bearer ' + Vue.$cookies.get('Token');
+      config.headers.Authorization = 'Bearer ' + token
     }
-    return config;
+    return config
   });
 } else {
   store.commit('SET_ISSIGNED', false)
@@ -98,6 +99,19 @@ Vue.mixin({
   data: () => ({
   }),
   methods: {
+  },
+  computed: {
+    isSigned () {
+      return this.$store.getters.getIsSigned
+    },
+    userLogin () {
+      let userInfo = ''
+      try {
+        userInfo = JSON.parse(localStorage.getItem('user'))
+      } catch (error) {
+      }
+      return userInfo
+    }
   }
 })
 new Vue({
