@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="userLogin['role_name'] === 'admin'">
     <v-container
       id="users"
       fluid
@@ -338,6 +338,7 @@
     },
     created () {
       let vm = this
+      vm.$store.commit('SET_INDEXTAB', 3)
       vm.getDiaBanCoSo()
       vm.getTinhThanh()
     },

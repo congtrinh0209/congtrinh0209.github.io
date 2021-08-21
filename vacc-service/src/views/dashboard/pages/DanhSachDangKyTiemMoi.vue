@@ -42,7 +42,7 @@
               <span>{{ page * itemsPerPage - itemsPerPage + index + 1 }}</span>
             </template>
             <template v-slot:item.hoVaTen="{ item, index }">
-                <p class="mb-2">{{ item.hoVaTen}}</p>
+                <p class="mb-0" style="font-weight: 500;">{{ item.hoVaTen}}</p>
                 <p class="mb-2" style="color: blue">Ngày sinh: {{ parseDate(item.ngaySinh)}}</p>
             </template>
             <template v-slot:item.diaChiNoiO="{ item, index }">
@@ -50,6 +50,16 @@
             </template>
             <template v-slot:item.ngayDangKi="{ item, index }">
                 <p class="mb-2">{{ parseDate(item.ngayDangKi)}}</p>
+            </template>
+            <template v-slot:item.action="{ item }">
+              <v-tooltip top>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn @click="editRegistration(item)" color="blue" text icon class="" v-bind="attrs" v-on="on">
+                    <v-icon size="22">mdi-pencil</v-icon>
+                  </v-btn>
+                </template>
+                <span>Sửa thông tin</span>
+              </v-tooltip>
             </template>
           </v-data-table>
           <div class="text-center mt-4" v-if="pageCount">
@@ -186,12 +196,24 @@
             text: 'Ngày đăng ký tiêm',
             align: 'center',
             value: 'ngayDangKi'
-          }
+          },
+          {
+            sortable: false,
+            text: 'Thao tác',
+            align: 'center',
+            value: 'action'
+          },
         ],
       }
     },
     created () {
       let vm = this
+      vm.$store.commit('SET_INDEXTAB', 1)
+      let isSigned = this.$store.getters.getIsSigned
+      if (!isSigned) {
+        vm.$router.push({ path: '/login?redirect=/pages/danh-sach-dang-ky-tiem-moi' })
+        return
+      }
       vm.getCustomer()
     },
     computed: {
@@ -229,6 +251,11 @@
         }).catch(function () {
           vm.loadingData = false
         })
+      },
+      editRegistration (item) {
+        let vm = this
+        vm.$store.commit('SET_RegistrationUpdate', item)
+        vm.$router.push('/pages/dang-ky-tiem-moi/' + item.id)
       },
       parseDate (date) {
         if (!date) {

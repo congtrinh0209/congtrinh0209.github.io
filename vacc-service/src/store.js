@@ -20,7 +20,8 @@ export default new Vuex.Store({
     userProfile: null,
     breakpointName: 'lg',
     indexTab: 0,
-    isSigned:  false
+    isSigned:  false,
+    registrationUpdate: ''
   },
   getters: {
     getIsSigned: (state) => {
@@ -36,7 +37,8 @@ export default new Vuex.Store({
     getPermistion: (state) => state.userPermistion,
     getUserProfile: (state) => state.userProfile,
     getBreakpointName: (state) => state.breakpointName,
-    getIndexTab: (state) => state.indexTab
+    getIndexTab: (state) => state.indexTab,
+    getRegistrationUpdate: (state) => state.registrationUpdate
   },
   mutations: {
     SET_ISSIGNED (state, payload) {
@@ -81,6 +83,9 @@ export default new Vuex.Store({
     SET_INDEXTAB(state, indexTab) {
       state.indexTab = indexTab
       console.log('SET_INDEXTAB', state.indexTab)
+    },
+    SET_RegistrationUpdate(state, data) {
+      state.registrationUpdate = data
     }
   },
   actions: {
@@ -281,6 +286,21 @@ export default new Vuex.Store({
         }
         let dataPost = filter.data
         axios.post('/rest/v1/app/add/nguoitiemchung', dataPost, param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject(error)
+        })
+      })
+    },
+    updateRegistration ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          }
+        }
+        let dataPost = filter.data
+        axios.put('/rest/v1/app/update/nguoitiemchung/' + filter.id, dataPost, param).then(function (response) {
           let serializable = response.data
           resolve(serializable)
         }).catch(function (error) {

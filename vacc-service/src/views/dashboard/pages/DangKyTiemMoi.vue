@@ -26,16 +26,25 @@
             ref="formDangKy"
             v-model="validFormAdd"
             lazy-validation
+            id="formDangKy"
           >
             <v-container class="py-0 mt-3">
               <!-- row 1 -->
+              <v-row v-if="dataHistory && typeAction === 'add'">
+                <v-btn class="mx-3 mt-3" dark small color="#0072bc" @click.stop="copyContent">
+                  <v-icon dark class="mr-2">
+                    mdi-content-copy
+                  </v-icon>
+                  Sử dụng thông tin trước
+                </v-btn>
+              </v-row>
               <v-row>
                 <v-col
                   cols="12"
                   md="3"
                   class="pb-0"
                 >
-                  <div class="mb-2">Họ tên <span style="color:red">(*)</span></div>
+                  <div class="mb-2">Họ và tên <span style="color:red">(*)</span></div>
                   <v-text-field
                     v-model="applicantInfo['HoVaTen']"
                     :rules="required"
@@ -44,7 +53,30 @@
                     placeholder="Họ và tên"
                     dense
                     hide-details="auto"
+                    @blur="formatHoTen"
+                    id="hoten"
+                    @keyup.enter="nextFocus('gioitinh')"
                   ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="3"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Giới tính </div>
+                  <v-autocomplete
+                      :items="listGioiTinh"
+                      placeholder="Giới tính"
+                      v-model="applicantInfo['GioiTinh']"
+                      item-text="name"
+                      item-value="value"
+                      hide-no-data
+                      outlined
+                      dense
+                      hide-details="auto"
+                      id="gioitinh"
+                      @keyup.enter="nextFocus('ngaysinh')"
+                  ></v-autocomplete>
                 </v-col>
                 <v-col
                   cols="12"
@@ -84,31 +116,16 @@
                   <v-text-field
                     :rules="requiredBirthDate"
                     v-model="applicantDateFormatted"
-                    placeholder="dd/mm/yyyy"
+                    placeholder="dd/mm/yyyy, ddmmyyyy"
                     @blur="formatBirthDate"
                     dense
                     hide-details="auto"
                     outlined
+                    id="ngaysinh"
+                    @keyup.enter="nextFocus('cccd')"
                   ></v-text-field>
                 </v-col>
-                <v-col
-                  cols="12"
-                  md="3"
-                  class="pb-0"
-                >
-                  <div class="mb-2">Giới tính </div>
-                  <v-autocomplete
-                      :items="listGioiTinh"
-                      placeholder="Giới tính"
-                      v-model="applicantInfo['GioiTinh']"
-                      item-text="name"
-                      item-value="value"
-                      hide-no-data
-                      outlined
-                      dense
-                      hide-details="auto"               
-                  ></v-autocomplete>
-                </v-col>
+                
                 <v-col
                   cols="12"
                   md="3"
@@ -117,17 +134,190 @@
                   <div class="mb-2">Số CMND/CCCD <span style="color:red">(*)</span></div>
                   <v-text-field
                     v-model="applicantInfo['CMTCCCD']"
-                    :rules="required"
+                    :rules="requiredCredit"
                     required
                     outlined
                     placeholder="Số CMND/CCCD"
                     dense
-                    
+                    id="cccd"
                     hide-details="auto"
+                    @keyup.enter="nextFocus('bhyt')"
                   ></v-text-field>
                 </v-col>
               </v-row>
               <!-- row 2 -->
+              <v-row>
+                <v-col
+                  cols="12"
+                  md="3"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Số thẻ BHYT</div>
+                  <v-text-field
+                    v-model="applicantInfo['SoTheBHYT']"
+                    outlined
+                    placeholder="Số thẻ bảo hiểm y tế"
+                    dense
+                    hide-details="auto"
+                    id="bhyt"
+                    @keyup.enter="nextFocus('sdt')"
+                  ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="3"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Số điện thoại <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-model="applicantInfo['SoDienThoai']"
+                    :rules="requiredTelNo"
+                    required
+                    outlined
+                    placeholder="Số điện thoại"
+                    dense
+                    hide-details="auto"
+                    id="sdt"
+                    @keyup.enter="nextFocus('sdtzalo')"
+                  ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="3"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Số điện thoại sử dụng Zalo</div>
+                  <v-text-field
+                    v-model="applicantInfo['SoDienThoaiZaLo']"
+                    :rules="[telNo]"
+                    outlined
+                    placeholder="Số điện thoại sử dụng Zalo"
+                    dense
+                    hide-details="auto"
+                    id="sdtzalo"
+                    @keyup.enter="nextFocus('email')"
+                  ></v-text-field>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="3"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Email</div>
+                  <v-text-field
+                    v-model="applicantInfo['Email']"
+                    outlined
+                    placeholder="Email"
+                    dense
+                    id="email"
+                    hide-details="auto"
+                    @keyup.enter="nextFocus('tinhthanh')"
+                  ></v-text-field>
+                </v-col>
+                <!-- <v-col
+                  cols="12"
+                  md="3"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Mã số BHXH</div>
+                  <v-text-field
+                    v-model="applicantInfo['MaSoBHXH']"
+                    outlined
+                    placeholder="Mã số bảo hiểm xã hội"
+                    dense
+                    
+                    hide-details="auto"
+                  ></v-text-field>
+                </v-col> -->
+                
+              </v-row>
+              <!-- row 3 -->
+              <v-row>
+                <v-col
+                  cols="12"
+                  md="3"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Tỉnh/ Thành phố <span style="color:red">(*)</span></div>
+                  <v-autocomplete
+                      hide-no-data
+                      :items="listTinhThanh"
+                      v-model="tinhThanh"
+                      item-text="tinhThanhTen"
+                      item-value="tinhThanhMa"
+                      id="tinhthanh"
+                      :rules="required"
+                      required
+                      outlined
+                      placeholder="Tỉnh/ Thành phố"
+                      dense
+                      hide-details="auto"
+                      @keyup.enter="nextFocus('quanhuyen')"
+                  ></v-autocomplete>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="3"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Quận/ Huyện <span style="color:red">(*)</span></div>
+                  <v-autocomplete
+                    hide-no-data
+                    :items="listQuanHuyen"
+                    v-model="quanHuyen"
+                    item-text="quanHuyenTen"
+                    item-value="quanHuyenMa"
+                    id="quanhuyen"
+                    :rules="required"
+                    required
+                    outlined
+                    placeholder="Quận/ Huyện"
+                    dense
+                    hide-details="auto"
+                    @keyup.enter="nextFocus('xaphuong')"
+                ></v-autocomplete>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="6"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Phường/ Xã <span style="color:red">(*)</span></div>
+                  <v-autocomplete
+                      hide-no-data
+                      :items="listXaPhuong"
+                      v-model="xaPhuong"
+                      item-text="phuongXaTen"
+                      item-value="phuongXaMa"
+                      id="xaphuong"
+                      :rules="required"
+                      required
+                      outlined
+                      placeholder="Phường/ Xã"
+                      dense
+                      hide-details="auto"
+                      @keyup.enter="nextFocus('noio')"
+                  ></v-autocomplete>
+                </v-col>
+                <v-col
+                  cols="12"
+                  class="pb-0"
+                >
+                  <div class="mb-2">Địa chỉ nơi ở <span style="color:red">(*)</span></div>
+                  <v-text-field
+                    v-model="applicantInfo['DiaChiNoiO']"
+                    :rules="required"
+                    required
+                    outlined
+                    placeholder="Số nhà, đường, tổ dân phố, khóm ấp, thôn bản…"
+                    dense
+                    id="noio"
+                    hide-details="auto"
+                    @keyup.enter="nextFocus('nghenghiep')"
+                  ></v-text-field>
+                </v-col>
+              </v-row>
+              <!-- row 4 -->
               <v-row>
                 <v-col
                   cols="12"
@@ -140,8 +330,9 @@
                     outlined
                     placeholder="Nghề nghiệp"
                     dense
-                    
+                    id="nghenghiep"
                     hide-details="auto"
+                    @keyup.enter="nextFocus('donvicongtac')"
                   ></v-text-field>
                 </v-col>
                 <v-col
@@ -155,8 +346,9 @@
                     outlined
                     placeholder="Đơn vị công tác"
                     dense
-                    
+                    id="donvicongtac"
                     hide-details="auto"
+                    @keyup.enter="nextFocus('nhomdoituong')"
                   ></v-text-field>
                 </v-col>
                 <v-col
@@ -176,157 +368,25 @@
                       required
                       outlined
                       dense
-                      hide-details="auto"               
+                      hide-details="auto"    
+                      id="nhomdoituong"
+                      @keyup.enter="nextFocus('diabancoso')"          
                   ></v-autocomplete>
                 </v-col>
-              </v-row>
-              <!-- row 3 -->
-              <v-row>
-                <v-col
-                  cols="12"
-                  md="3"
-                  class="pb-0"
-                >
-                  <div class="mb-2">Số điện thoại <span style="color:red">(*)</span></div>
-                  <v-text-field
-                    v-model="applicantInfo['SoDienThoai']"
-                    :rules="required"
-                    required
-                    outlined
-                    placeholder="Số điện thoại"
-                    dense
-                    
-                    hide-details="auto"
-                  ></v-text-field>
-                </v-col>
-                <v-col
-                  cols="12"
-                  md="3"
-                  class="pb-0"
-                >
-                  <div class="mb-2">Email</div>
-                  <v-text-field
-                    v-model="applicantInfo['Email']"
-                    outlined
-                    placeholder="Email"
-                    dense
-                    
-                    hide-details="auto"
-                  ></v-text-field>
-                </v-col>
-                <v-col
-                  cols="12"
-                  md="3"
-                  class="pb-0"
-                >
-                  <div class="mb-2">Mã số BHXH</div>
-                  <v-text-field
-                    v-model="applicantInfo['MaSoBHXH']"
-                    outlined
-                    placeholder="Mã số bảo hiểm xã hội"
-                    dense
-                    
-                    hide-details="auto"
-                  ></v-text-field>
-                </v-col>
-                <v-col
-                  cols="12"
-                  md="3"
-                  class="pb-0"
-                >
-                  <div class="mb-2">Số thẻ BHYT</div>
-                  <v-text-field
-                    v-model="applicantInfo['SoTheBHYT']"
-                    outlined
-                    placeholder="Số thẻ bảo hiểm y tế"
-                    dense
-                    
-                    hide-details="auto"
-                  ></v-text-field>
-                </v-col>
-                
-              </v-row>
-              <!-- row 4 -->
-              <v-row>
-                <v-col
-                  cols="12"
-                  md="3"
-                  class="pb-0"
-                >
-                  <div class="mb-2">Tỉnh/ Thành phố <span style="color:red">(*)</span></div>
-                  <v-autocomplete
-                      hide-no-data
-                      :items="listTinhThanh"
-                      v-model="tinhThanh"
-                      item-text="tinhThanhTen"
-                      item-value="tinhThanhMa"
-                      
-                      :rules="required"
-                      required
-                      outlined
-                      placeholder="Tỉnh/ Thành phố"
-                      dense
-                      hide-details="auto"
-                  ></v-autocomplete>
-                </v-col>
-                <v-col
-                  cols="12"
-                  md="3"
-                  class="pb-0"
-                >
-                  <div class="mb-2">Quận/ Huyện <span style="color:red">(*)</span></div>
-                  <v-autocomplete
-                    hide-no-data
-                    :items="listQuanHuyen"
-                    v-model="quanHuyen"
-                    item-text="quanHuyenTen"
-                    item-value="quanHuyenMa"
-                    
-                    :rules="required"
-                    required
-                    outlined
-                    placeholder="Quận/ Huyện"
-                    dense
-                    hide-details="auto"
-                ></v-autocomplete>
-                </v-col>
-                <v-col
+                <!-- <v-col
                   cols="12"
                   md="6"
                   class="pb-0"
                 >
-                  <div class="mb-2">Phường/ Xã <span style="color:red">(*)</span></div>
-                  <v-autocomplete
-                      hide-no-data
-                      :items="listXaPhuong"
-                      v-model="xaPhuong"
-                      item-text="phuongXaTen"
-                      item-value="phuongXaMa"
-                      
-                      :rules="required"
-                      required
-                      outlined
-                      placeholder="Phường/ Xã"
-                      dense
-                      hide-details="auto"
-                  ></v-autocomplete>
-                </v-col>
-                <v-col
-                  cols="12"
-                  class="pb-0"
-                >
-                  <div class="mb-2">Địa chỉ nơi ở <span style="color:red">(*)</span></div>
+                  <div class="mb-2">Ghi chú đối tượng</div>
                   <v-text-field
-                    v-model="applicantInfo['DiaChiNoiO']"
-                    :rules="required"
-                    required
+                    v-model="applicantInfo['GhiChuNhomDoiTuong']"
                     outlined
-                    placeholder="Số nhà, đường, tổ dân phố, khóm ấp, thôn bản…"
+                    placeholder="Bổ sung thông tin đối tượng tiêm"
                     dense
-                    
                     hide-details="auto"
                   ></v-text-field>
-                </v-col>
+                </v-col> -->
               </v-row>
               <!-- row 5 -->
               <v-row>
@@ -348,6 +408,8 @@
                       placeholder="Tổ dân phố, khóm ấp, thôn bản…"
                       dense
                       hide-details="auto"
+                      id="diabancoso"
+                      @keyup.enter="nextFocus('cosoyte')"
                   ></v-autocomplete>
                 </v-col>
                 <v-col
@@ -366,6 +428,8 @@
                       placeholder="Cơ sở y tế"
                       dense
                       hide-details="auto"
+                      id="cosoyte"
+                      @keyup.enter="nextFocus('dantoc')"
                   ></v-autocomplete>
                 </v-col>
                 <v-col
@@ -385,6 +449,8 @@
                       placeholder="Dân tộc"
                       dense
                       hide-details="auto"
+                      id="dantoc"
+                      @keyup.enter="nextFocus('quoctich')"
                   ></v-autocomplete>
                 </v-col>
                 <v-col
@@ -403,6 +469,8 @@
                       placeholder="Quốc tịch"
                       dense
                       hide-details="auto"
+                      id="quoctich"
+                      @keyup.enter="nextFocus('tsdiung')"
                   ></v-autocomplete>
                 </v-col>
               </v-row>
@@ -419,9 +487,10 @@
                     outlined
                     placeholder=""
                     dense
-                    
+                    id="tsdiung"
                     hide-details="auto"
                     rows="3"
+                    @keyup.enter="nextFocus('benhdangmac')"
                   ></v-textarea>
                 </v-col>
                 <v-col
@@ -435,9 +504,10 @@
                     outlined
                     placeholder=""
                     dense
-                    
+                    id="benhdangmac"
                     hide-details="auto"
                     rows="3"
+                    @keyup.enter="nextFocus('thuocdangdung')"
                   ></v-textarea>
                 </v-col>
                 <v-col
@@ -451,9 +521,10 @@
                     outlined
                     placeholder=""
                     dense
-                    
+                    id="thuocdangdung"
                     hide-details="auto"
                     rows="3"
+                    @keyup.enter="nextFocus('ngaydangky')"
                   ></v-textarea>
                 </v-col>
                 
@@ -465,7 +536,7 @@
                   md="6"
                   class="pb-0"
                 >
-                  <div class="mb-2">Ngày đăng ký tiêm <span style="color:red">(*)</span></div>
+                  <div class="mb-2">Ngày đăng ký tiêm</div>
                   <!-- <v-menu
                     ref="menuDate"
                     :close-on-content-click="false"
@@ -497,13 +568,14 @@
                     :first-day-of-week="1" locale="vi" v-model="ngayDuKien" no-title @input="menuDate = false"></v-date-picker>
                   </v-menu> -->
                   <v-text-field
-                    :rules="requiredBirthDate"
                     v-model="ngayDuKienFormatted"
-                    placeholder="dd/mm/yyyy"
+                    placeholder="dd/mm/yyyy, ddmmyyyy"
                     @blur="formatNgayTiem"
                     dense
                     hide-details="auto"
                     outlined
+                    id="ngaydangky"
+                    @keyup.enter="nextFocus('luuy')"
                   ></v-text-field>
                 </v-col>
                 <v-col
@@ -519,6 +591,7 @@
                     dense
                     
                     hide-details="auto"
+                    id="luuy"
                   ></v-text-field>
                 </v-col>
               </v-row>
@@ -535,13 +608,13 @@
                 </v-icon>
                 <span>ĐĂNG KÝ TIÊM</span>
               </v-btn>
-              <v-btn v-if="String(uid) !== '0'" class="mr-3" color="#0072bc" @click="">
+              <v-btn v-if="String(uid) !== '0'" class="mr-3" color="#0072bc" @click="submitForm">
                 <v-icon left>
                   mdi-content-save-outline
                 </v-icon>
                 <span>CẬP NHẬT THÔNG TIN</span>
               </v-btn>
-              <v-btn class="mr-0" v-if="String(uid) !== '0'" color="red" @click="huyDangKy">
+              <v-btn class="mr-0" v-if="String(uid) === '0'" color="red" @click="huyDangKy">
                 <v-icon left>
                   mdi-close
                 </v-icon>
@@ -577,6 +650,7 @@
           NhomDoiTuong: '',
           DonViCongTac: '',
           SoDienThoai: '',
+          SoDienThoaiZalo: '',
           Email: '',
           MaSoBHXH: '',
           SoTheBHYT: '',
@@ -590,8 +664,8 @@
           DiaBanCoSo_ID: '',
           CoSoYTe_Ma: '',
           CoSoYTe_Ten: '',
-          DanToc_Ma: '',
-          QuocTich_Ma: '',
+          DanToc_Ma: '01',
+          QuocTich_Ma: 'VN',
           TienSuDiUng: '',
           CacBenhLyDangMac: '',
           CacThuocDangDung: '',
@@ -622,8 +696,8 @@
         listXaPhuong: [],
         xaPhuong: '',
         listDiaBan: [
-          {ID: '198341', TenDiaBan: 'Tổ dân phố số 6'},
-          {ID: '198342', TenDiaBan: 'Tổ dân phố số 7'}
+          {ID: 1, TenDiaBan: 'Tổ dân phố số 6'},
+          {ID: 2, TenDiaBan: 'Tổ dân phố số 7'}
         ],
         listCoSoYTe: [],
         coSoYTe: '',
@@ -636,6 +710,7 @@
         birthDate: null,
         ngayDuKienFormatted: null,
         ngayDuKien: null,
+        dataHistory: '',
 
         required: [
           (value) => {
@@ -655,6 +730,49 @@
             }  
           }
         ],
+        requiredCredit: [
+          (value) => {
+            if (value.length === 9) {
+              const pattern = /^(([0-9]{9,9}))$/
+              return pattern.test(value) || 'Số CMND gồm 9 hoặc 12 ký tự 0-9'
+            } else {
+              const pattern = /^(([0-9]{12,12}))$/
+              return pattern.test(value) || 'Số CMND gồm 9 hoặc 12 ký tự 0-9'
+            }
+          },
+          (value) => {
+            if(value || value == 0){
+              return true
+            } else {
+              return 'Thông tin bắt buộc'
+            }  
+          }
+        ],
+        requiredTelNo: [
+          (value) => {
+            const pattern = /^0([1-9]{1}\d{8})$/
+            if (value) {
+              return pattern.test(value) || 'Số điện thoại gồm 10 số'
+            } else {
+              return []
+            }
+          },
+          (value) => {
+            if(String(value).trim()){
+              return true
+            } else {
+              return 'Thông tin bắt buộc'
+            } 
+          }
+        ],
+        telNo: (value) => {
+          const pattern = /^0([1-9]{1}\d{8})$/
+          if (value) {
+            return pattern.test(value) || 'Số điện thoại gồm 10 số'
+          } else {
+            return []
+          }
+        },
         require: (value) => {
           if(String(value).trim()){
               return true
@@ -681,6 +799,7 @@
           vm.typeAction = 'add'
         } else {
           vm.typeAction = 'update'
+          vm.bindDataUpdate()
         }
       },
       tinhThanh (val) {
@@ -710,14 +829,23 @@
     computed: {
       breakpointName () {
         return this.$store.getters.getBreakpointName
+      },
+      registrationUpdate () {
+        return this.$store.getters.getRegistrationUpdate
       }
     },
     created () {
       let vm = this
+      vm.$store.commit('SET_INDEXTAB', 1)
       let isSigned = this.$store.getters.getIsSigned
       if (!isSigned) {
         vm.$router.push({ path: '/login' })
         return
+      }
+      try {
+        let data = localStorage.getItem('dataHistory')
+        vm.dataHistory = data ? JSON.parse(data) : ''
+      } catch (error) {
       }
       vm.getCoSoYTe()
       vm.getDiaBanCoSo()
@@ -729,6 +857,7 @@
         vm.typeAction = 'add'
       } else {
         vm.typeAction = 'update'
+        vm.bindDataUpdate()
       }
       let current = vm.$router.history.current.query
     },
@@ -739,8 +868,15 @@
           return
         }
         vm.processingAction = true
-        let validateTuoi = vm.checkTuoi()
+        let validateTuoi = vm.ngayDuKienFormatted ? vm.checkTuoi() : true
         if (vm.$refs.formDangKy.validate()) {
+          if (vm.typeAction === 'add') {
+            try {
+              localStorage.setItem('dataHistory', JSON.stringify(vm.applicantInfo))
+              vm.dataHistory = vm.applicantInfo ? vm.applicantInfo : ''
+            } catch (error) {
+            }
+          }
           if (validateTuoi) {
             vm.formatDataInput()
             let filter = {
@@ -757,6 +893,8 @@
                 vm.processingAction = false
                 vm.$refs.formDangKy.reset()
                 vm.$refs.formDangKy.resetValidation()
+                vm.applicantInfo['DanToc_Ma'] = '01'
+                vm.applicantInfo['QuocTich_Ma'] = 'VN'
                 $('html, body').animate({
                     scrollTop: $('#xemdanhsach').offset().top,
                   },
@@ -773,7 +911,23 @@
               })
             } else {
               // thực hiện cập nhật
-
+              filter['id'] = vm.uid
+              vm.$store.dispatch('updateRegistration', filter).then(function (result) {
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Cập nhật thành công',
+                  color: 'success',
+                })
+                vm.processingAction = false
+                vm.$router.push('/pages/danh-sach-dang-ky-tiem-moi')
+              }).catch(function () {
+                vm.$store.commit('SHOW_SNACKBAR', {
+                  show: true,
+                  text: 'Cập nhật không thành công',
+                  color: 'error',
+                })
+                vm.processingAction = false
+              })
             }
           } else {
             vm.$store.commit('SHOW_SNACKBAR', {
@@ -787,10 +941,52 @@
           vm.processingAction = false
         }
       },
+      copyContent () {
+        let vm = this
+        vm.applicantInfo['NhomDoiTuong'] = vm.dataHistory['NhomDoiTuong']
+        vm.applicantInfo['DiaChiNoiO'] = vm.dataHistory['DiaChiNoiO']
+        vm.tinhThanh = vm.dataHistory['TinhThanh_Ma']
+        vm.quanHuyen = vm.dataHistory['QuanHuyen_Ma']
+        vm.xaPhuong = vm.dataHistory['PhuongXa_Ma']
+        vm.applicantInfo['DiaBanCoSo_ID'] = vm.dataHistory['DiaBanCoSo_ID']
+        vm.applicantInfo['CoSoYTe_Ma'] = vm.dataHistory['CoSoYTe_Ma']
+        vm.applicantInfo['DanToc_Ma'] = vm.dataHistory['DanToc_Ma']
+        vm.applicantInfo['QuocTich_Ma'] = vm.dataHistory['QuocTich_Ma']
+      },
       huyDangKy () {
         let vm = this
         vm.$refs.formDangKy.reset()
         vm.$refs.formDangKy.resetValidation()
+        vm.applicantInfo['DanToc_Ma'] = '01'
+        vm.applicantInfo['QuocTich_Ma'] = 'VN'
+      },
+      bindDataUpdate () {
+        let vm = this
+        vm.applicantInfo.CacBenhLyDangMac = vm.registrationUpdate.cacBenhLyDangMac
+        vm.applicantInfo.CacThuocDangDung = vm.registrationUpdate.cacThuocDangDung
+        vm.applicantInfo['CMTCCCD'] = vm.registrationUpdate.cmtcccd
+        vm.applicantInfo.coSoYTe = vm.registrationUpdate.coSoYTeMa
+        vm.applicantInfo.DanToc_Ma = vm.registrationUpdate.danTocMa
+        vm.applicantInfo.DiaBanCoSo_ID = vm.registrationUpdate.diaBanCoSoID
+        vm.applicantInfo.DiaChiNoiO = vm.registrationUpdate.diaChiNoiO
+        vm.applicantInfo.DonViCongTac = vm.registrationUpdate.donViCongTac
+        vm.applicantInfo.Email = vm.registrationUpdate.email
+        vm.applicantInfo.GhiChu = vm.registrationUpdate.ghiChu
+        vm.applicantInfo.GioiTinh = vm.registrationUpdate.gioiTinh
+        vm.applicantInfo.HoVaTen = vm.registrationUpdate.hoVaTen
+        vm.applicantInfo.MaSoBHXH = vm.registrationUpdate.maSoBHXH
+        vm.ngayDuKienFormatted = vm.convertDate(vm.registrationUpdate.ngayDangKi)
+        vm.applicantDateFormatted = vm.convertDate(vm.registrationUpdate.ngaySinh)
+        vm.applicantInfo.NgheNghiep = vm.registrationUpdate.ngheNghiep
+        vm.applicantInfo.NhomDoiTuong = vm.registrationUpdate.nhomDoiTuong
+        vm.tinhThanh = vm.registrationUpdate.tinhThanhMa
+        vm.quanHuyen = vm.registrationUpdate.quanHuyenMa
+        vm.xaPhuong = vm.registrationUpdate.phuongXaMa
+        vm.applicantInfo.QuocTich_Ma = vm.registrationUpdate.quocTichMa
+        vm.applicantInfo.SoDienThoai = vm.registrationUpdate.soDienThoai
+        vm.applicantInfo.SoTheBHYT = vm.registrationUpdate.soTheBHYT
+        vm.applicantInfo.TienSuDiUng = vm.registrationUpdate.tienSuDiUng
+        vm.applicantInfo.TinhTrangDangKi = vm.registrationUpdate.tinhTrangDangKi
       },
       formatDataInput () {
         let vm = this
@@ -902,6 +1098,9 @@
         }
         vm.$store.dispatch('getDanhMucTinhThanh', filter).then(function (result) {
           vm.listTinhThanh = result ? result : []
+          if (vm.tinhThanh) {
+            vm.getQuanHuyen(vm.tinhThanh)
+          }
         })
       },
       getQuanHuyen (code) {
@@ -917,6 +1116,9 @@
         }
         vm.$store.dispatch('getDanhMucQuanHuyen', filter).then(function (result) {
           vm.listQuanHuyen = result ? result : []
+          if (vm.quanHuyen) {
+            vm.getXaPhuong(vm.quanHuyen)
+          }
         })
       },
       getXaPhuong (code) {
@@ -927,6 +1129,9 @@
         let obj = vm.listQuanHuyen.find(function (item) {
           return item.quanHuyenMa == code
         })
+        if (!obj) {
+          return
+        }
         let filter = {
           idParent: obj['id']
         }
@@ -938,6 +1143,33 @@
         let vm = this
         vm.$router.push({ path: '/pages/danh-sach-dang-ky-tiem-moi' })
       },
+      nextFocus(id) {
+        $("#"+id).focus()
+      },
+      formatHoTen () {
+        let vm = this
+        if (vm.applicantInfo.HoVaTen) {
+          let str = String(vm.applicantInfo.HoVaTen).toLocaleLowerCase()
+          let arr = str.split(" ");
+          for (var i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1)
+          }
+          let str2 = arr.join(" ")
+          vm.applicantInfo.HoVaTen = str2
+        }
+      },
+      convertDate (dateInput) {
+        if (dateInput) {
+          let date = ''
+          try {
+            date = dateInput.slice(6,8) + '/' + dateInput.slice(4,6) + '/' + dateInput.slice(0,4)
+          } catch (error) {
+          }
+          return date
+        } else {
+          return ''
+        }
+      },
       formatBirthDate () {
         let vm = this
         let lengthDate = String(vm.applicantDateFormatted).trim().length
@@ -945,6 +1177,9 @@
         if (lengthDate && lengthDate == 4) {
         } else if (lengthDate && lengthDate > 4 && splitDate.length === 3 && splitDate[2]) {
           vm.applicantDateFormatted = vm.translateDate(vm.applicantDateFormatted)
+        } else if (lengthDate && lengthDate === 8) {
+          let date = String(vm.applicantDateFormatted)
+          vm.applicantDateFormatted = date.slice(0,2) + '/' + date.slice(2,4) + '/' + date.slice(4,8)
         } else {
           vm.applicantDateFormatted = ''
         }
@@ -955,6 +1190,9 @@
         let splitDate = String(vm.ngayDuKienFormatted).split('/')
         if (lengthDate && lengthDate > 4 && splitDate.length === 3 && splitDate[2]) {
           vm.ngayDuKienFormatted = vm.translateDate(vm.ngayDuKienFormatted)
+        } else if (lengthDate && lengthDate === 8) {
+          let date = String(vm.ngayDuKienFormatted)
+          vm.ngayDuKienFormatted = date.slice(0,2) + '/' + date.slice(2,4) + '/' + date.slice(4,8)
         } else {
           vm.ngayDuKienFormatted = ''
         }

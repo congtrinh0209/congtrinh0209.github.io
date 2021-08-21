@@ -189,6 +189,12 @@
     },
     created () {
       let vm = this
+      vm.$store.commit('SET_INDEXTAB', 1)
+      let isSigned = this.$store.getters.getIsSigned
+      if (!isSigned) {
+        vm.$router.push({ path: '/login?redirect=/pages/danh-sach-dang-ky-chinh-thuc' })
+        return
+      }
       vm.getCounter()
       vm.getCustomer()
     },

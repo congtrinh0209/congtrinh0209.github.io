@@ -185,6 +185,12 @@
     },
     created () {
       let vm = this
+      vm.$store.commit('SET_INDEXTAB', 2)
+      let isSigned = this.$store.getters.getIsSigned
+      if (!isSigned) {
+        vm.$router.push({ path: '/login?redirect=/pages/lich-tiem-chung' })
+        return
+      }
       vm.getCounter()
       vm.getCustomer()
     },
