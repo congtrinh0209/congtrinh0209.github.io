@@ -1055,6 +1055,8 @@
       getDiaBanCoSo () {
         let vm = this
         let filter = {
+          page: 1,
+          size: 30
         }
         vm.$store.dispatch('getDiaBanCoSo', filter).then(function (result) {
           vm.listDiaBan = result ? result : []
@@ -1063,6 +1065,8 @@
       getCoSoYTe () {
         let vm = this
         let filter = {
+          page: 1,
+          size: 30
         }
         vm.$store.dispatch('getCoSoYTe', filter).then(function (result) {
           vm.listCoSoYTe = result ? result : []

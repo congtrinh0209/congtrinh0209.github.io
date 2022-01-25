@@ -156,9 +156,13 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let param = {
           headers: {
+          },
+          params: {
+            page: filter.page,
+            size: filter.size
           }
         }
-        axios.get('', param).then(function (response) {
+        axios.get('/rest/v1/app/get/diabancoso', param).then(function (response) {
           let serializable = response.data
           resolve(serializable)
         }).catch(function (error) {
@@ -166,13 +170,34 @@ export default new Vuex.Store({
         })
       })
     },
+    addCoSoYTe ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let param = {
+          headers: {
+          },
+          params: {
+          }
+        }
+        let dataPost = filter.data
+        axios.post('/rest/v1/app/add/cosoyte', dataPost, param).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject(error)
+        })
+      })
+    },
     getCoSoYTe ({commit, state}, filter) {
       return new Promise((resolve, reject) => {
         let param = {
           headers: {
+          },
+          params: {
+            page: filter.page,
+            size: filter.size
           }
         }
-        axios.get('', param).then(function (response) {
+        axios.get('/rest/v1/app/get/cosoyte', param).then(function (response) {
           let serializable = response.data
           resolve(serializable)
         }).catch(function (error) {
@@ -345,6 +370,10 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let param = {
           headers: {
+          },
+          params: {
+            page: filter.page,
+            size: filter.size
           }
         }
         axios.get('/rest/v1/app/get/nguoidung', param).then(function (response) {

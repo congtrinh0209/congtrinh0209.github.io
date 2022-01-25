@@ -71,7 +71,7 @@
           </v-card-text>
       </base-material-card>
       <v-dialog
-        max-width="700"
+        max-width="900"
         v-model="dialogAddMember"
       >
         <v-card>
@@ -103,6 +103,8 @@
                         class="flex xs12 md12"
                         v-model="thongTinDiaBan.TenDiaBan"
                         outlined
+                        :rules="required"
+                        required
                         label="Tên địa bàn"
                         prepend-inner-icon="mdi-account-check-outline"
                         dense
@@ -153,6 +155,21 @@
                         dense
                         hide-details="auto"
                     ></v-autocomplete>
+                    <v-autocomplete
+                        class="flex xs12 md12 pl-2"
+                        hide-no-data
+                        :items="listCoSoYTe"
+                        v-model="thongTinDiaBan['CoSoYTe_ID']"
+                        item-text="TenCoSo"
+                        item-value="id"
+                        clearable
+                        :rules="required"
+                        required
+                        outlined
+                        label="Cơ sở y tế"
+                        dense
+                        hide-details="auto"
+                    ></v-autocomplete>
                 </v-layout>
             </v-form>
           </v-card-text>
@@ -196,7 +213,8 @@
             QuanHuyen_Ma: '',
             QuanHuyen_Ten: '',
             PhuongXa_Ma: '',
-            PhuongXa_Ten: ''
+            PhuongXa_Ten: '',
+            CoSoYTe_ID: ''
         },
         listTinhThanh: [],
         tinhThanh: '',
@@ -284,11 +302,11 @@
     watch: {
       tinhThanh (val) {
         this.thongTinDiaBan.TinhThanh_Ma = val
-        this.getQuanHuyen()
+        this.getQuanHuyen(val)
       },
       quanHuyen (val) {
         this.thongTinDiaBan.QuanHuyen_Ma = val
-        this.getXaPhuong()
+        this.getXaPhuong(val)
       },
       xaPhuong (val) {
         this.thongTinDiaBan.PhuongXa_Ma = val 

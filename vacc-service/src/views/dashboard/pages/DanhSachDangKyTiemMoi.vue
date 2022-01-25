@@ -239,11 +239,11 @@
         let filter = {
 
         }
-        vm.$store.dispatch('getNguoiTiemChung', filter).then(function(data) {
+        vm.$store.dispatch('getNguoiTiemChung', filter).then(function(result) {
           vm.loadingData = false
-          if (data) {
-            vm.items = data
-            vm.totalItem = vm.items.length
+          if (result) {
+            vm.items = result.hasOwnProperty('data') ? result.data : []
+            vm.totalItem = result.hasOwnProperty('total') ? result.total : 0
           } else {
             vm.items = []
             vm.totalItem = 0

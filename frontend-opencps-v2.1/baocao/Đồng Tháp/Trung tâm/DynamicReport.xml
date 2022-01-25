@@ -538,7 +538,7 @@
 		</filterConfig>
     <reportCode>REPORT_01</reportCode>
     <reportName>Hồ sơ tiếp nhận trực tiếp</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		
@@ -1198,7 +1198,7 @@
 		</filterConfig>
     <reportCode>REPORT_02</reportCode>
     <reportName>Hồ sơ tiếp nhận trực tuyến</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		
@@ -1857,7 +1857,7 @@
 		</filterConfig>
     <reportCode>REPORT_03</reportCode>
     <reportName>Hồ sơ đã trả kết quả</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		
@@ -2516,7 +2516,7 @@
 		</filterConfig>
     <reportCode>REPORT_04</reportCode>
     <reportName>Hồ sơ hoàn thành giải quyết</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		{
@@ -2636,7 +2636,7 @@
     <userConfig>{"order": 4}</userConfig>
   </DynamicReport>
   <DynamicReport label="REPORT_041">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Hồ sơ hoàn thành sớm hạn</reportName>
 		<reportCode>REPORT_041</reportCode>
 		<filterConfig>
@@ -3294,7 +3294,7 @@
 		<userConfig>{"order": 5}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_042">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Hồ sơ hoàn thành đúng hạn</reportName>
 		<reportCode>REPORT_042</reportCode>
 		<filterConfig>
@@ -3952,7 +3952,7 @@
 		<userConfig>{"order": 6}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_043">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Hồ sơ hoàn thành trễ hạn</reportName>
 		<reportCode>REPORT_043</reportCode>
 		<filterConfig>
@@ -4610,7 +4610,7 @@
 		<userConfig>{"order": 7}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_05">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportCode>REPORT_05</reportCode>
 		<reportName>Hồ sơ từ chối giải quyết</reportName>
 		<filterConfig>
@@ -5811,7 +5811,7 @@
 		</filterConfig>
     <reportCode>REPORT_06</reportCode>
     <reportName>Hồ sơ rút không giải quyết</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		{
@@ -6472,7 +6472,7 @@
 		</filterConfig>
     <reportCode>REPORT_07</reportCode>
     <reportName>Hồ sơ đang thụ lý giải quyết</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		{
@@ -6592,7 +6592,7 @@
     <userConfig>{"order": 11}</userConfig>
   </DynamicReport>
   <DynamicReport label="REPORT_071">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Hồ sơ đang giải quyết còn hạn</reportName>
 		<reportCode>REPORT_071</reportCode>
 		<filterConfig>
@@ -7251,7 +7251,7 @@
 		<userConfig>{"order": 11}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_072">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Hồ sơ đang giải quyết sắp đến hạn</reportName>
 		<reportCode>REPORT_072</reportCode>
 		<filterConfig>
@@ -7910,7 +7910,7 @@
 		<userConfig>{"order": 12}</userConfig>
     </DynamicReport>
 	<DynamicReport label="REPORT_073">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Hồ sơ đang giải quyết quá hạn</reportName>
 		<reportCode>REPORT_073</reportCode>
 		<filterConfig>
@@ -9113,7 +9113,7 @@
 		</filterConfig>
     <reportCode>REPORT_08</reportCode>
     <reportName>Hồ sơ tạm dừng bổ sung điều kiện</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		{
@@ -9243,11 +9243,6 @@
 		  customize: true,
 		  
 		  groupIds: [
-        {
-            selected: true,
-            value: '0',
-            text: "Tất cả đơn vị"
-        },
         {
             value: 35934,
             text: "Sở Tài nguyên và Môi trường"
@@ -9909,11 +9904,6 @@
 		  customize: true,
 		  groupIds: [
         {
-            selected: true,
-            value: '0',
-            text: "Tất cả đơn vị"
-        },
-        {
             value: 35934,
             text: "Sở Tài nguyên và Môi trường"
         },
@@ -10304,11 +10294,6 @@
 		  exclusive: false,
 		  customize: true,
 		  groupIds: [
-        {
-            selected: true,
-            value: '0',
-            text: "Tất cả đơn vị"
-        },
         {
             value: 35934,
             text: "Sở Tài nguyên và Môi trường"
@@ -12015,11 +12000,6 @@
 		  customize: true,
 		  groupIds: [
                     {
-                        selected: true,
-                        value: '0',
-                        text: "Tất cả đơn vị"
-                    },
-                    {
                         value: 35934,
                         text: "Sở Tài nguyên và Môi trường"
                     },
@@ -12612,11 +12592,6 @@
 			customize: true,
 			groupIds: [
         {
-            selected: true,
-            value: '0',
-            text: "Tất cả đơn vị"
-        },
-        {
             value: 35934,
             text: "Sở Tài nguyên và Môi trường"
         },
@@ -13171,6 +13146,599 @@
 		]]></tableConfig>
     <userConfig>{}</userConfig>
   </DynamicReport>
+	<DynamicReport>
+		<filterConfig>
+			<![CDATA[
+			{
+				api: "/o/statistic/dossier/voting/employee/list?isGetVotingData=true&type=30&groupBy=domainCode&start=0&end=5000",
+				exclusive: false,
+				customize: true,
+                typeDate: "timestamp",
+				groupIds: [
+					{
+						value: 35934,
+						text: "Sở Tài nguyên và Môi trường"
+					},
+					{
+						value: 36237,
+						text: "Sở Xây dựng"
+					}, 
+					{
+						value: 36461,
+						text: "Sở Công thương"
+					}, 
+					{
+						value: 36585,
+						text: "Sở Giáo dục và Đào tạo"
+					}, 
+					{
+						value: 36709,
+						text: "Sở Giao thông Vận tải"
+					}, 
+					{
+						value: 36832,
+						text: "Sở Kế hoạch và Đầu tư"
+					}, 
+					{
+						value: 36956,
+						text: "Sở Khoa học và Công nghệ"
+					}, 
+					{
+						value: 37079,
+						text: "Sở Lao động thương binh và Xã hội"
+					},
+					{
+						value: 37202,
+						text: "Sở Ngoại vụ"
+					},
+					{
+						value: 37327,
+						text: "Sở Nội vụ"
+					}, 
+					{
+						value: 37669,
+						text: "Sở Nông nghiệp và Phát triển nông thôn"
+					}, 
+					{
+						value: 37792,
+						text: "Sở Tài chính"
+					}, 
+					{
+						value: 37915,
+						text: "Sở Thông tin và Truyền thông"
+					}, 
+					{
+						value: 38038,
+						text: "Sở Tư pháp"
+					}, 
+					{
+						value: 38161,
+						text: "Sở Văn hoá Thể thao và Du lịch"
+					}, 
+					{
+						value: 38284,
+						text: "Sở Y tế"
+					},
+					{
+						value: 38407,
+						text: "Ban Dân tộc"
+					},
+					{
+						value: 38530,
+						text: "Ban Quản lý khu kinh tế"
+					}, 
+					{
+						value: 38653,
+						text: "Ban Quản lý khu công nghiệp"
+					},
+					{
+						value: 38776,
+						text: "Văn phòng UBND tỉnh"
+					},
+					{
+						value: 38899,
+						text: "UBND Thành phố Cao Lãnh"
+					},
+					{
+						value: 39022,
+						text: "UBND Thành phố Sa Đéc"
+					},
+					{
+						value: 39145,
+						text: "UBND Thành phố Hồng Ngự"
+					},
+					{
+						value: 39342,
+						text: "UBND huyện Cao Lãnh"
+					},
+					{
+						value: 39465,
+						text: "UBND huyện Châu Thành"
+					},
+					{
+						value: 39588,
+						text: "UBND huyện Hồng Ngự"
+					},
+					{
+						value: 39711,
+						text: "UBND huyện Lai Vung"
+					},
+					{
+						value: 39834,
+						text: "UBND huyện Lấp Vò"
+					},
+					{
+						value: 39957,
+						text: "UBND huyện Tam Nông"
+					},
+					{
+						value: 40080,
+						text: "UBND huyện Tân Hồng"
+					},
+					{
+						value: 40265,
+						text: "UBND huyện Thanh Bình"
+					},
+					{
+						value: 40388,
+						text: "UBND huyện Tháp Mười"
+					},
+					{
+						value: 40511,
+						text: "Cấp xã thành phố Cao Lãnh"
+					},
+					{
+						value: 40634,
+						text: "Cấp xã thành phố SADEC"
+					},
+					{
+						value: 40757,
+						text: "Cấp xã thành phố Hồng Ngự"
+					},
+					{
+						value: 40880,
+						text: "Cấp xã huyện Cao Lãnh"
+					},
+					{
+						value: 41003,
+						text: "Cấp xã huyện Châu Thành"
+					},
+					{
+						value: 41126,
+						text: "Cấp xã huyện Hồng Ngự"
+					},
+					{
+						value: 41249,
+						text: "Cấp xã huyện Lai Vung"
+					},
+					{
+						value: 41372,
+						text: "Cấp xã huyện Lấp Vò"
+					},
+					{
+						value: 41497,
+						text: "Cấp xã huyện Tam Nông"
+					},
+					{
+						value: 41620,
+						text: "Cấp xã huyện Tân Hồng"
+					},
+					{
+						value: 42060,
+						text: "Cấp xã huyện Thanh Bình"
+					},
+					{
+						value: 41866,
+						text: "Cấp xã huyện Tháp Mười"
+					}
+				],
+				groupIdList: [
+					{
+						group: 1,
+						label: "Chọn cấp Sở",
+						key: 'SBN',
+						value: [
+							{
+								selected: true,
+								value: '0',
+								text: "Tất cả đơn vị cấp sở"
+							},
+							{
+								value: 35934,
+								text: "Sở Tài nguyên và Môi trường"
+							},
+							{
+								value: 36237,
+								text: "Sở Xây dựng"
+							}, 
+							{
+								value: 36461,
+								text: "Sở Công thương"
+							}, 
+							{
+								value: 36585,
+								text: "Sở Giáo dục và Đào tạo"
+							}, 
+							{
+								value: 36709,
+								text: "Sở Giao thông Vận tải"
+							}, 
+							{
+								value: 36832,
+								text: "Sở Kế hoạch và Đầu tư"
+							}, 
+							{
+								value: 36956,
+								text: "Sở Khoa học và Công nghệ"
+							}, 
+							{
+								value: 37079,
+								text: "Sở Lao động thương binh và Xã hội"
+							},
+							{
+								value: 37202,
+								text: "Sở Ngoại vụ"
+							},
+							{
+								value: 37327,
+								text: "Sở Nội vụ"
+							}, 
+							{
+								value: 37669,
+								text: "Sở Nông nghiệp và Phát triển nông thôn"
+							}, 
+							{
+								value: 37792,
+								text: "Sở Tài chính"
+							}, 
+							{
+								value: 37915,
+								text: "Sở Thông tin và Truyền thông"
+							}, 
+							{
+								value: 38038,
+								text: "Sở Tư pháp"
+							}, 
+							{
+								value: 38161,
+								text: "Sở Văn hoá Thể thao và Du lịch"
+							}, 
+							{
+								value: 38284,
+								text: "Sở Y tế"
+							},
+							{
+								value: 38407,
+								text: "Ban Dân tộc"
+							},
+							{
+								value: 38530,
+								text: "Ban Quản lý khu kinh tế"
+							}, 
+							{
+								value: 38653,
+								text: "Ban Quản lý khu công nghiệp"
+							},
+							{
+								value: 38776,
+								text: "Văn phòng UBND tỉnh"
+							}
+						]
+					},
+					{
+						group: 2,
+						label: "Chọn cấp Huyện",
+						key: 'QUAN_HUYEN',
+						value: [
+							{
+								selected: true,
+								value: '0',
+								text: "Tất cả đơn vị cấp huyện"
+							},
+							{
+								value: 38899,
+								text: "UBND Thành phố Cao Lãnh"
+							},
+							{
+								value: 39022,
+								text: "UBND Thành phố Sa Đéc"
+							},
+							{
+								value: 39145,
+								text: "UBND Thành phố Hồng Ngự"
+							},
+							{
+								value: 39342,
+								text: "UBND huyện Cao Lãnh"
+							},
+							{
+								value: 39465,
+								text: "UBND huyện Châu Thành"
+							},
+							{
+								value: 39588,
+								text: "UBND huyện Hồng Ngự"
+							},
+							{
+								value: 39711,
+								text: "UBND huyện Lai Vung"
+							},
+							{
+								value: 39834,
+								text: "UBND huyện Lấp Vò"
+							},
+							{
+								value: 39957,
+								text: "UBND huyện Tam Nông"
+							},
+							{
+								value: 40080,
+								text: "UBND huyện Tân Hồng"
+							},
+							{
+								value: 40265,
+								text: "UBND huyện Thanh Bình"
+							},
+							{
+								value: 40388,
+								text: "UBND huyện Tháp Mười"
+							}
+						]
+					},
+					{
+						group: 3,
+						label: "Chọn cấp Xã",
+						key: 'XA_PHUONG',
+						value: [
+							{
+								selected: true,
+								value: '0',
+								text: "Tất cả đơn vị cấp xã"
+							},
+							{
+							value: 40511,
+							text: "Cấp xã thành phố Cao Lãnh"
+						},
+						{
+							value: 40634,
+							text: "Cấp xã thành phố SADEC"
+						},
+						{
+							value: 40757,
+							text: "Cấp xã thị xã Hồng Ngự"
+						},
+						{
+							value: 40880,
+							text: "Cấp xã huyện Cao Lãnh"
+						},
+						{
+							value: 41003,
+							text: "Cấp xã huyện Châu Thành"
+						},
+						{
+							value: 41126,
+							text: "Cấp xã huyện Hồng Ngự"
+						},
+						{
+							value: 41249,
+							text: "Cấp xã huyện Lai Vung"
+						},
+						{
+							value: 41372,
+							text: "Cấp xã huyện Lấp Vò"
+						},
+						{
+							value: 41497,
+							text: "Cấp xã huyện Tam Nông"
+						},
+						{
+							value: 41620,
+							text: "Cấp xã huyện Tân Hồng"
+						},
+						{
+							value: 42060,
+							text: "Cấp xã huyện Thanh Bình"
+						},
+						{
+							value: 41866,
+							text: "Cấp xã huyện Tháp Mười"
+						}
+						]
+					}
+				],
+				sumKey: "dossierId",
+				filters: [
+                  {
+                      label: "Cán bộ",
+                      source: "",
+                      key: "mappingUserId",
+                      valueMapping: "mappingUser",
+                      nameMapping: "fullName",
+                      valueMappingChild: "userId",
+                      type: "select",
+                      api: "/o/rest/v2/employees",
+                      proxyApi: "/employees",
+                      class: "xs12 md6 px-3 mb-3"
+                  },
+				  {
+					label: "Từ ngày",
+					key: "fromDate",
+					value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
+					type: "date",
+					before: "toDate",
+					class: "xs12 md3 px-3 mb-3"  
+				  },
+				  {
+					label: "Đến ngày",
+					key: "toDate",
+					value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
+					type: "date",
+					after: "fromDate",
+					class: "xs12 md3 px-3 mb-3"  
+				  }
+				],
+				reportConfig: [
+				  {
+					"selected": true,
+					"value": "dossierName",
+					"text": "Tên hồ sơ",
+					"align": "left"
+				  },
+				  {
+					"selected": true,
+					"value": "criteria1",
+					"align": "center",
+					"text": "Chỉ số 1",
+					"width": 70
+				  },
+				  {
+					"selected": true,
+					"value": "criteria2",
+					"align": "center",
+					"text": "Chỉ số 2",
+					"width": 70
+				  },
+				  {
+					"selected": true,
+					"value": "criteria3",
+					"align": "center",
+					"text": "Chỉ số 3",
+					"width": 70
+				  },
+				  {
+					"selected": true,
+					"value": "criteria4",
+					"align": "center",
+					"text": "Chỉ số 4",
+					"width": 70
+				  },
+				  {
+					"selected": true,
+					"value": "criteria7",
+					"align": "center",
+					"text": "Chỉ số 7",
+					"width": 70
+				  }
+				]
+			  }
+			
+			]]>
+		</filterConfig>
+		<reportCode>REPORT_STATISTIC_014</reportCode>
+		<reportName>Tổng hợp kết quả đánh giá của cán bộ</reportName>
+		<sharing>0</sharing>
+		<tableConfig><![CDATA[
+			
+			
+			{
+				docDefinition: {
+				   pageOrientation: 'landscape',
+				   content: [
+					 {
+						   columns: [
+							   {
+								   width: 300,
+								   style: "title",
+								   text: [
+									  {text: "[$siteName$]\n"},
+									 {text: "---------------------------\n"}
+								   ]
+							   },
+							   {
+								   width: 100,
+									style: "title",
+								   text: ''
+								 },
+							   {
+								   width: 300,
+								   style: "title",
+								   text: [
+									   {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									   {text: "Độc lập - Tự do - Hạnh phúc\n"},
+									   {text: "----------------------------\n"},
+									   {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								   ]
+							   }
+						   ]
+					 },
+					 {
+					   text: [
+						 {text: 'TỔNG HỢP KẾT QUẢ ĐÁNH GIÁ GIẢI QUYẾT TTHC \n'},
+						 {text: "CỦA TỪNG CÔNG CHỨC, VIÊN CHỨC, NHÂN VIÊN \n", fontSize: 11},
+						 {text: "(dùng cho Bộ phận một cửa các cấp) \n", fontSize: 11},
+						 {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]\n", fontSize: 11}
+					   ], 
+					   margin: [0, 20],
+					   style: 'headerTitle'
+					 },
+					 {
+					   style: 'tableExample',
+					   table: {
+						 widths: "[$tableWidth$]",
+						 body: ["[$report$]"]
+					   },
+					   margin: [0, 0, 0, 20]
+					 },
+					 {
+					   columns: [
+						 {
+						   width: "*",
+						   style: 'noteFooter',
+						   text: [
+							{text: 'Tổng số điểm các chỉ số: [$totalScoreVoting$]\n'},
+							{text: 'Xếp loại công chức, viên chức và nhân viên:'}
+						  ]
+						 }
+					   ]
+					 }
+				   ],
+				   styles: {
+					 ngayThangNam: {
+					   fontSize: 10,
+					   italics: true,
+					   bold: false,
+					   alignment: 'center'
+					 },
+					 headerTitle: {
+						 alignment: 'center',
+						 bold: true,
+						 fontSize: 13
+					 },
+					 borderHeader: {
+						 alignment: 'left'
+					 },
+					 title: {
+					   bold: true,
+					   alignment: 'center',
+					   textTransform: 'uppercase'
+					 },
+					 noteFooter: {
+					   bold: true,
+					   alignment: 'left'
+					 },
+					 titleSub: {
+						 fontSize: 10,
+						 italics: true,
+						 alignment: 'center'
+					 },
+					 tdStyle: {
+					   fontSize: 10
+					 },
+					 tableExample: {
+						width: "100%" 
+					 }
+				   },
+				   defaultStyle: {
+					 columnGap: 20,
+					 fontSize: 11
+				   }
+				 } 
+			  }
+			  
+			
+			]]></tableConfig>
+		<userConfig>{}</userConfig>
+	</DynamicReport>
   <DynamicReport>
     <filterConfig>
 		<![CDATA[
@@ -13180,11 +13748,6 @@
 			  exclusive: false,
 			  customize: false,
 			  groupIds: [
-				{
-				  selected: true,
-				  value: "all",
-				  text: "Tất cả"
-				},
 				{
             value: 35934,
             text: "Sở Tài nguyên và Môi trường"
@@ -13445,7 +14008,7 @@
 		]]>
 		</filterConfig>
     <reportCode>REPORT_STATISTIC_03</reportCode>
-    <reportName>Tổng hợp hồ sơ  sử dụng dịch vụ bưu chính công ích</reportName>
+    <reportName>Tổng hợp hồ sơ sử dụng bưu chính công ích</reportName>
     <sharing>1</sharing>
     <tableConfig><![CDATA[
 		
@@ -16153,6 +16716,7 @@
 			{
 			  "selected": true,
 			  "value": "releaseCount",
+              "calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
 			  "text": "",
 			  "align": "center"
 			},
@@ -16250,7 +16814,7 @@
 		</filterConfig>
     <reportCode>STATISTIC_03</reportCode>
     <reportName>Tổng hợp hồ sơ của đơn vị theo lĩnh vực</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		{
@@ -16696,6 +17260,883 @@
   <DynamicReport>
     <filterConfig>
 		<![CDATA[
+		
+		{
+            api: "/o/statistic/dossier/groupcount?type=20&groupBy=domainCode",
+            apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=domainCode",
+            exclusive: false,
+            customize: false,
+            groupIds: [
+                {
+                    value: 35934,
+                    text: "Sở Tài nguyên và Môi trường"
+                },
+                {
+                    value: 36237,
+                    text: "Sở Xây dựng"
+                }, 
+                {
+                    value: 36461,
+                    text: "Sở Công thương"
+                }, 
+                {
+                    value: 36585,
+                    text: "Sở Giáo dục và Đào tạo"
+                }, 
+                {
+                    value: 36709,
+                    text: "Sở Giao thông Vận tải"
+                }, 
+                {
+                    value: 36832,
+                    text: "Sở Kế hoạch và Đầu tư"
+                }, 
+                {
+                    value: 36956,
+                    text: "Sở Khoa học và Công nghệ"
+                }, 
+                {
+                    value: 37079,
+                    text: "Sở Lao động thương binh và Xã hội"
+                },
+                {
+                    value: 37202,
+                    text: "Sở Ngoại vụ"
+                },
+                {
+                    value: 37327,
+                    text: "Sở Nội vụ"
+                }, 
+                {
+                    value: 37669,
+                    text: "Sở Nông nghiệp và Phát triển nông thôn"
+                }, 
+                {
+                    value: 37792,
+                    text: "Sở Tài chính"
+                }, 
+                {
+                    value: 37915,
+                    text: "Sở Thông tin và Truyền thông"
+                }, 
+                {
+                    value: 38038,
+                    text: "Sở Tư pháp"
+                }, 
+                {
+                    value: 38161,
+                    text: "Sở Văn hoá Thể thao và Du lịch"
+                }, 
+                {
+                    value: 38284,
+                    text: "Sở Y tế"
+                },
+                {
+                    value: 38407,
+                    text: "Ban Dân tộc"
+                },
+                {
+                    value: 38530,
+                    text: "Ban Quản lý khu kinh tế"
+                }, 
+                {
+                    value: 38653,
+                    text: "Ban Quản lý khu công nghiệp"
+                },
+                {
+                    value: 38776,
+                    text: "Văn phòng UBND tỉnh"
+                },
+                {
+                    value: 38899,
+                    text: "UBND Thành phố Cao Lãnh"
+                },
+                {
+                    value: 39022,
+                    text: "UBND Thành phố Sa Đéc"
+                },
+                {
+                    value: 39145,
+                    text: "UBND Thị xã Hồng Ngự"
+                },
+                {
+                    value: 39342,
+                    text: "UBND huyện Cao Lãnh"
+                },
+                {
+                    value: 39465,
+                    text: "UBND huyện Châu Thành"
+                },
+                {
+                    value: 39588,
+                    text: "UBND thị xã Hồng Ngự"
+                },
+                {
+                    value: 39711,
+                    text: "UBND huyện Lai Vung"
+                },
+                {
+                    value: 39834,
+                    text: "UBND huyện Lấp Vò"
+                },
+                {
+                    value: 39957,
+                    text: "UBND huyện Tam Nông"
+                },
+                {
+                    value: 40080,
+                    text: "UBND huyện Tân Hồng"
+                },
+                {
+                    value: 40265,
+                    text: "UBND huyện Thanh Bình"
+                },
+                {
+                    value: 40388,
+                    text: "UBND huyện Tháp Mười"
+                },
+                {
+                    value: 40511,
+                    text: "Cấp xã thành phố Cao Lãnh"
+                },
+                {
+                    value: 40634,
+                    text: "Cấp xã thành phố SADEC"
+                },
+                {
+                    value: 40757,
+                    text: "Cấp xã thị xã Hồng Ngự"
+                },
+                {
+                    value: 40880,
+                    text: "Cấp xã huyện Cao Lãnh"
+                },
+                {
+                    value: 41003,
+                    text: "Cấp xã huyện Châu Thành"
+                },
+                {
+                    value: 41126,
+                    text: "Cấp xã huyện Hồng Ngự"
+                },
+                {
+                    value: 41249,
+                    text: "Cấp xã huyện Lai Vung"
+                },
+                {
+                    value: 41372,
+                    text: "Cấp xã huyện Lấp Vò"
+                },
+                {
+                    value: 41497,
+                    text: "Cấp xã huyện Tam Nông"
+                },
+                {
+                    value: 41620,
+                    text: "Cấp xã huyện Tân Hồng"
+                },
+                {
+                    value: 42060,
+                    text: "Cấp xã huyện Thanh Bình"
+                },
+                {
+                    value: 41866,
+                    text: "Cấp xã huyện Tháp Mười"
+                }
+            ],
+            groupIdList: [
+                {
+                    group: 1,
+                    label: "Chọn cấp Sở",
+                    key: 'SBN',
+                    value: [
+
+                        {
+                            value: 35934,
+                            text: "Sở Tài nguyên và Môi trường"
+                        },
+                        {
+                            value: 36237,
+                            text: "Sở Xây dựng"
+                        }, 
+                        {
+                            value: 36461,
+                            text: "Sở Công thương"
+                        }, 
+                        {
+                            value: 36585,
+                            text: "Sở Giáo dục và Đào tạo"
+                        }, 
+                        {
+                            value: 36709,
+                            text: "Sở Giao thông Vận tải"
+                        }, 
+                        {
+                            value: 36832,
+                            text: "Sở Kế hoạch và Đầu tư"
+                        }, 
+                        {
+                            value: 36956,
+                            text: "Sở Khoa học và Công nghệ"
+                        }, 
+                        {
+                            value: 37079,
+                            text: "Sở Lao động thương binh và Xã hội"
+                        },
+                        {
+                            value: 37202,
+                            text: "Sở Ngoại vụ"
+                        },
+                        {
+                            value: 37327,
+                            text: "Sở Nội vụ"
+                        }, 
+                        {
+                            value: 37669,
+                            text: "Sở Nông nghiệp và Phát triển nông thôn"
+                        }, 
+                        {
+                            value: 37792,
+                            text: "Sở Tài chính"
+                        }, 
+                        {
+                            value: 37915,
+                            text: "Sở Thông tin và Truyền thông"
+                        }, 
+                        {
+                            value: 38038,
+                            text: "Sở Tư pháp"
+                        }, 
+                        {
+                            value: 38161,
+                            text: "Sở Văn hoá Thể thao và Du lịch"
+                        }, 
+                        {
+                            value: 38284,
+                            text: "Sở Y tế"
+                        },
+                        {
+                            value: 38407,
+                            text: "Ban Dân tộc"
+                        },
+                        {
+                            value: 38530,
+                            text: "Ban Quản lý khu kinh tế"
+                        }, 
+                        {
+                            value: 38653,
+                            text: "Ban Quản lý khu công nghiệp"
+                        },
+                        {
+                            value: 38776,
+                            text: "Văn phòng UBND tỉnh"
+                        }
+                    ]
+                },
+                {
+                    group: 2,
+                    label: "Chọn cấp Huyện",
+                    key: 'QUAN_HUYEN',
+                    value: [
+
+                        {
+                            value: 38899,
+                            text: "UBND Thành phố Cao Lãnh"
+                        },
+                        {
+                            value: 39022,
+                            text: "UBND Thành phố Sa Đéc"
+                        },
+                        {
+                            value: 39145,
+                            text: "UBND Thị xã Hồng Ngự"
+                        },
+                        {
+                            value: 39342,
+                            text: "UBND huyện Cao Lãnh"
+                        },
+                        {
+                            value: 39465,
+                            text: "UBND huyện Châu Thành"
+                        },
+                        {
+                            value: 39588,
+                            text: "UBND thị xã Hồng Ngự"
+                        },
+                        {
+                            value: 39711,
+                            text: "UBND huyện Lai Vung"
+                        },
+                        {
+                            value: 39834,
+                            text: "UBND huyện Lấp Vò"
+                        },
+                        {
+                            value: 39957,
+                            text: "UBND huyện Tam Nông"
+                        },
+                        {
+                            value: 40080,
+                            text: "UBND huyện Tân Hồng"
+                        },
+                        {
+                            value: 40265,
+                            text: "UBND huyện Thanh Bình"
+                        },
+                        {
+                            value: 40388,
+                            text: "UBND huyện Tháp Mười"
+                        }
+                    ]
+                },
+                {
+                    group: 3,
+                    label: "Chọn cấp Xã",
+                    key: 'XA_PHUONG',
+                    value: [
+
+                        {
+                        value: 40511,
+                        text: "Cấp xã thành phố Cao Lãnh"
+                    },
+                    {
+                        value: 40634,
+                        text: "Cấp xã thành phố SADEC"
+                    },
+                    {
+                        value: 40757,
+                        text: "Cấp xã thị xã Hồng Ngự"
+                    },
+                    {
+                        value: 40880,
+                        text: "Cấp xã huyện Cao Lãnh"
+                    },
+                    {
+                        value: 41003,
+                        text: "Cấp xã huyện Châu Thành"
+                    },
+                    {
+                        value: 41126,
+                        text: "Cấp xã huyện Hồng Ngự"
+                    },
+                    {
+                        value: 41249,
+                        text: "Cấp xã huyện Lai Vung"
+                    },
+                    {
+                        value: 41372,
+                        text: "Cấp xã huyện Lấp Vò"
+                    },
+                    {
+                        value: 41497,
+                        text: "Cấp xã huyện Tam Nông"
+                    },
+                    {
+                        value: 41620,
+                        text: "Cấp xã huyện Tân Hồng"
+                    },
+                    {
+                        value: 42060,
+                        text: "Cấp xã huyện Thanh Bình"
+                    },
+                    {
+                        value: 41866,
+                        text: "Cấp xã huyện Tháp Mười"
+                    }
+                    ]
+                }
+            ],
+            sumKey: "domainCode",
+            filters: [
+                {
+                    label: "Mức độ",
+                    key: "listServiceLevel",
+                    value: "null",
+                    type: "select",
+                    source: [
+                        {name: "Tất cả", value: "null"},
+                        {name: "Mức độ 2", value: "2"},
+                        {name: "Mức độ 3", value: "3"},
+                        {name: "Mức độ 4", value: "4"}
+                    ]
+                },
+                {
+                    label: "Hình thức nộp hồ sơ",
+                    key: "listTypeSendDossier",
+                    value: "null",
+                    type: "select",
+                    source: [
+                        {name: "TRỰC TIẾP, TRỰC TUYẾN, QUA BƯU ĐIỆN", value: "null"},
+                        {name: "TRỰC TUYẾN", value: "1"},
+                        {name: "TRỰC TIẾP", value: "2"},
+                        {name: "QUA BƯU ĐIỆN", value: "3"}
+                    ],
+                    clearable: true
+                },
+                {
+                    label: "Hồ sơ liên thông",
+                    key: "isHSLT",
+                    value: "",
+                    type: "select",
+                    source: [
+						{name: "LIÊN THÔNG", value: "true"}
+                    ],
+					clearable: true
+                },
+                {
+                    label: "Loại thủ tục hành chính",
+                    key: "tagCode",
+                    value: "",
+                    type: "select",
+                    source: [
+                        {name: "4 TẠI CHỖ", value: "4_TAI_CHO"},
+                        {name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
+                    ],
+					clearable: true
+                },
+                {
+                label: "Từ ngày",
+                key: "fromDate",
+                value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+                type: "date", 
+                before: "toDate" 
+                },
+                {
+                label: "Đến ngày",
+                key: "toDate",
+                value: new Date().toLocaleDateString('vi-VN'),
+                type: "date", 
+                after: "fromDate" 
+                }
+            ],
+            reportConfig: [
+			  {
+				"selected": true,
+				"value": "domainName",
+				"text": "",
+				"align": "left"
+			  },
+			  {
+				"selected": true,
+				"value": "processCount",
+				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "remainingCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "receivedCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "ontimeCount",
+				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "betimesCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "ontimeCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "overtimeCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "processingCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "undueCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "overdueCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "overtimeCountNotFinish",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "overtimePercentage",
+				"text": "",
+				"align": "center"
+			  }
+			],
+            selection: [
+                {
+                    "key": "govAgencyCode",
+                    "value": ""
+                }
+            ],
+            merge: ["domainCode","govAgencyCode"],
+            sort: "domainName",
+            statistics: true
+        }
+    
+    ]]>
+    </filterConfig>
+    <reportCode>STATISTIC_03_VER_3</reportCode>
+    <reportName>Tổng hợp hồ sơ theo lĩnh vực</reportName>
+    <sharing>1</sharing>
+    <tableConfig><![CDATA[
+		
+		{
+            docDefinition: {
+                pageOrientation: "landscape",
+                content: [
+                    {
+                        columns: [
+                            {
+                                width: 300,
+                                style: "title",
+                                text: [
+                                    {text: "UBND TỈNH ĐỒNG THÁP\n"},
+                                    {text: "[$groupIds$]\n"}
+                                ]
+                            },
+                            {
+                                width: 100,
+                                style: "title",
+                                text: ''
+                            },
+                            {
+                                width: 300,
+                                style: "title",
+                                text: [
+                                    {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                    {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                    {text: "------------------------------------\n"},
+                                    {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        text: [
+                            {text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ [$isHSLT$] [$tagCode$]\n"},
+							{text: "([$listTypeSendDossier$]) \n"},
+                            {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+                        ], 
+                        margin: [0, 20],
+                        style: "headerTitle"
+                    },
+                    {
+                        style: "tableExample",
+                        table: {
+							widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+							headerRows: 3,
+							body: [
+								[
+									{
+										text: "\n\n\nSTT",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "\n\n\nLĩnh vực",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số tiếp nhận",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kỳ trước chuyển qua",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tiếp nhận trong kỳ",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kết quả giải quyết",
+										colSpan: 7,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Tổng số trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tỷ lệ hồ sơ trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									}
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đã giải quyết xong",
+										colSpan: 4,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đang giải quyết",
+										colSpan: 3,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									""
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Sớm hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Đúng hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Trễ hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Chưa đến hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Quá hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									""
+								],
+								[
+									{
+										text: "(1)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(2)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(3=4+5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(4)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(6=7+8+9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(7)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(8)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(10=11+12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(11)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(13)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(14)",
+										alignment: "center",
+										fontSize: 8
+									}
+								],
+								"[$report$]"
+							]
+						},
+                        margin: [0, 0, 0, 5]
+                    },             
+                    {
+                        columns: [
+                            {
+                                width: "*",
+                                text: [
+                                    {text: "Nơi nhận:", bold: true }
+                                ]
+                            },
+                            {
+                                width: 150,
+                                style: "title",
+                                text: "THỦ TRƯỞNG ĐƠN VỊ"
+                            }
+                        ]
+                    },
+                    {
+                        columns: [
+                            {
+                                width: "*",
+                                text: ""
+                            },
+                            {
+                                width: 150,
+                                style: "titleSub",
+                                text: "(Ký và ghi rõ họ tên)"
+                            }
+                        ]
+                    }
+                ],
+                styles: {
+                    ngayThangNam: {
+                        fontSize: 10,
+                        italics: true,
+                        bold: false,
+                        alignment: "center"
+                    },
+                    headerTitle: {
+                        alignment: "center",
+                        bold: true,
+                        fontSize: 13
+                    },
+                    borderHeader: {
+                        alignment: "left"
+                    },
+                    title: {
+                        bold: true,
+                        alignment: "center"
+                    },
+                    titleSub: {
+                        fontSize: 10,
+                        italics: true,
+                        alignment: "center"
+                    },
+                    tdStyle: {
+                        fontSize: 10,
+                        margin: [0, 2]
+                    }
+                },
+                defaultStyle: {
+                    columnGap: 20,
+                    fontSize: 11
+                }
+            }
+        }
+		
+		]]></tableConfig>
+    <userConfig>{"order": 16}</userConfig>
+  </DynamicReport>
+  <DynamicReport>
+    <filterConfig>
+		<![CDATA[
 		{
 			api: "/o/statistic/dossier/groupcount?type=20&groupBy=serviceCode",
 			apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=serviceCode",
@@ -16703,6 +18144,683 @@
 			customize: false,
 			groupIds: [
 
+        {
+            value: 35934,
+            text: "Sở Tài nguyên và Môi trường"
+        }
+      ],
+			
+			filters: [
+			  {
+				label: "Chọn chi nhánh VPĐK",
+				key: "govAgencyCode",
+				value: "",
+				type: "select",
+				source: [
+					{
+						value: "VPDK_HCAOLANH", 
+						name:	"Chi nhánh VPĐKĐĐ huyện Cao Lãnh"
+					},
+					{
+						value: "VPDK_HCHAUTHANH", 
+						name:	"Chi nhánh VPĐKĐĐ huyện Châu Thành"
+					},
+					{
+						value: "VPDK_HHONGNGU", 
+						name:	"Chi nhánh VPĐKĐĐ huyện Hồng Ngự"
+					},
+					{
+						value: "VPDK_HLAIVUNG", 
+						name:	"Chi nhánh VPĐKĐĐ huyện Lai Vung"
+					},
+					{
+						value: "VPDK_HLAPVO", 
+						name:	"Chi nhánh VPĐKĐĐ huyện Lấp Vò"
+					},
+					{
+						value: "VPDK_HTAMNONG", 
+						name:	"Chi nhánh VPĐKĐĐ huyện Tam Nông"
+					},
+					{
+						value: "VPDK_HTANHONG", 
+						name:	"Chi nhánh VPĐKĐĐ huyện Tân Hồng"
+					},
+					{
+						value: "VPDK_HTPCAOLANH", 
+						name:	"Chi nhánh VPĐKĐĐ Thành phố Cao Lãnh"
+					},
+					{
+						value: "VPDK_HTPSADEC", 
+						name:	"Chi nhánh VPĐKĐĐ Thành phố Sa Đéc"
+					},
+					{
+						value: "VPDK_HTXHONGNGU", 
+						name:	"Chi nhánh VPĐKĐĐ thành phố Hồng Ngự"
+					},
+					{
+						value: "VPDK_HTHANHBINH", 
+						name:	"Chi nhánh VPĐKĐĐ huyện Thanh Bình"
+					},
+					{
+						value: "VPDK_HTHAPMUOI", 
+						name:	"Chi nhánh VPĐKĐĐ huyện Tháp Mười"
+					}
+				]
+			  },
+			  {
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date" 
+			  },
+			  {
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date" 
+			  }
+			],
+			reportConfig: [
+				{
+				  "selected": true,
+				  "value": "serviceName",
+				  "text": "",
+				  "align": "left"
+				},
+				{
+				  "selected": true,
+				  "value": "processCount",
+				  "calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "remainingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "receivedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onegateCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "onlineCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releaseCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "betimesCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "ontimeCount",
+				  "calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overtimeCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "unresolvedCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "doneCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "releasingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "processingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "undueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "overdueCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "viaPostalCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "saturdayCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "waitingCount",
+				  "text": "",
+				  "align": "center"
+				},
+				{
+				  "selected": true,
+				  "value": "cancelledCount",
+				  "text": "",
+				  "align": "center"
+				}
+			  ],
+			sumKey: "serviceCode",
+			selection: [
+			  {
+				  "key": "govAgencyCode",
+				  "value": ""
+			  }
+			],
+			merge: ["serviceCode", "govAgencyCode"],
+			sort: "serviceName",
+			statistics: true
+		}
+		
+		
+		]]>
+	</filterConfig>
+    <reportCode>STATISTIC_0312</reportCode>
+    <reportName>Tổng hợp hồ sơ CNVPĐK theo thủ tục</reportName>
+    <sharing>1</sharing>
+    <tableConfig><![CDATA[
+		
+		{
+		  docDefinition: {
+		  pageOrientation: "landscape",
+		  content: [
+			  {
+				  columns: [
+					  {
+						  width: 300,
+						  style: "title",
+						  text: [
+							 {text: "UBND TỈNH ĐỒNG THÁP\n"},
+							 {text: "[$siteName$]\n"}
+						  ]
+					  },
+					{
+						 width: 100,
+						  style: "title",
+						 text: ''
+					   },
+					  {
+						  width: 300,
+						  style: "title",
+						  text: [
+							  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+							  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+							  {text: "------------------------------------\n"},
+							  {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+						  ]
+					  }
+				  ]
+			  },
+			  {
+				  text: [
+					  {text: "BÁO CÁO TỔNG HỢP TÌNH HÌNH GIẢI QUYẾT THỦ TỤC HÀNH CHÍNH CỦA ĐƠN VỊ\n"},
+					  {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+				  ], 
+				  margin: [0, 20],
+				  style: "headerTitle"
+			  },
+			  {
+				  style: "tableExample",
+				  table: {
+					  widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 30, 25],
+					  headerRows: 3,
+					  body: [
+						  [
+							  {
+								  text: "\n\n\nSTT",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\n\n\nThủ tục",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Nhận giải quyết",
+								  colSpan: 5,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Kết quả giải quyết",
+								  colSpan: 7,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Đang giải quyết",
+								  colSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Hồ sơ sử dụng dịch vụ bưu chính công ích",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Hồ sơ đã tiếp nhận và trả kết quả ngày thứ 7",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tạm dừng bổ sung điều kiện",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nRút không giải quyết",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  }
+						  ],
+						  [
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTồn trước",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trong kỳ",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tình hình thực hiện",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Từ chối giải quyết",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trả kết quả",
+								  colSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+								  {
+								  text: "\nTổng số",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nCòn hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nQuá hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+						  [
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "\nTổng",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tiếp",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tuyến",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Trước hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Đúng hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trễ hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Đã trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Chưa trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTổng số",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Còn hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Quá hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+							[
+							  {
+								  text: "(1)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(2)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(3)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(4)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(5)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(6)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(7)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(8)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(9)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(10)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(11)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(12)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(13)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(14)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(15)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(16)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(17)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(18)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(19)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(20)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(21)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(22)",
+								  alignment: "center",
+								  fontSize: 8
+							  }
+						  ],
+						  "[$report$]"
+					  ]
+				  },
+				  margin: [0, 0, 0, 5]
+			  },             
+			  {
+				  columns: [
+					  {
+						  width: "*",
+						  text: [
+							{text: "Nơi nhận:", bold: true }
+						  ]
+					  },
+					  {
+						  width: 150,
+						  style: "title",
+						  text: "THỦ TRƯỞNG ĐƠN VỊ"
+					  }
+				  ]
+			  },
+			  {
+				  columns: [
+					  {
+						  width: "*",
+						  text: ""
+					  },
+					  {
+						  width: 150,
+						  style: "titleSub",
+						  text: "(Ký và ghi rõ họ tên)"
+					  }
+				  ]
+			  }
+		  ],
+		  styles: {
+			  ngayThangNam: {
+				  fontSize: 10,
+				  italics: true,
+				  bold: false,
+				  alignment: "center"
+			  },
+			  headerTitle: {
+				  alignment: "center",
+				  bold: true,
+				  fontSize: 13
+			  },
+			  borderHeader: {
+				  alignment: "left"
+			  },
+			  title: {
+				  bold: true,
+				  alignment: "center"
+			  },
+			  titleSub: {
+				  fontSize: 10,
+				  italics: true,
+				  alignment: "center"
+			  },
+			  tdStyle: {
+				  fontSize: 10,
+				  margin: [0, 2]
+			  }
+		  },
+		  defaultStyle: {
+			  columnGap: 20,
+			  fontSize: 11
+		  }
+	   }
+	}
+		
+		]]></tableConfig>
+	<userConfig>{"order": 19}</userConfig>
+  </DynamicReport>
+  <DynamicReport>
+    <filterConfig>
+		<![CDATA[
+		
+		
+		
+		{
+		  api: "/o/statistic/dossier/groupcount?type=20&groupBy=domainCode",
+			apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=domainCode",
+		  exclusive: false,
+		  customize: false,
+		  groupIds: [
         {
             value: 35934,
             text: "Sở Tài nguyên và Môi trường"
@@ -17082,162 +19200,162 @@
               ]
           }
       ],
-			
-			filters: [
-			  {
+		  sumKey: "domainCode",
+		  filters: [
+			{
 				label: "Từ ngày",
-				key: "fromDate",
-				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-				type: "date" 
-			  },
-			  {
-				label: "Đến ngày",
-				key: "toDate",
-				value: new Date().toLocaleDateString('vi-VN'),
-				type: "date" 
-			  }
-			],
-			reportConfig: [
-				{
-				  "selected": true,
-				  "value": "serviceName",
-				  "text": "",
-				  "align": "left"
-				},
-				{
-				  "selected": true,
-				  "value": "processCount",
-				  "calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "remainingCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "receivedCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "onegateCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "onlineCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "releaseCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "betimesCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "ontimeCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "overtimeCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "unresolvedCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "doneCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "releasingCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "processingCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "undueCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "overdueCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "viaPostalCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "saturdayCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "waitingCount",
-				  "text": "",
-				  "align": "center"
-				},
-				{
-				  "selected": true,
-				  "value": "cancelledCount",
-				  "text": "",
-				  "align": "center"
-				}
-			  ],
-			sumKey: "serviceCode",
-			selection: [
+              key: "fromDate",
+              value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+              type: "date", 
+              before: "toDate" 
+              },
+              {
+              label: "Đến ngày",
+              key: "toDate",
+              value: new Date().toLocaleDateString('vi-VN'),
+              type: "date", 
+              after: "fromDate" 
+              }
+		  ],
+		  reportConfig: [
+			{
+			  "selected": true,
+			  "value": "domainName",
+			  "text": "",
+			  "align": "left"
+			},
+			{
+			  "selected": true,
+			  "value": "processCount",
+			  "calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "remainingCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "receivedCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "onegateCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "onlineCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "releaseCount",
+              "calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "betimesCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "ontimeCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "overtimeCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "unresolvedCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "doneCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "releasingCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "processingCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "undueCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "overdueCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "viaPostalCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "saturdayCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "waitingCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "cancelledCount",
+			  "text": "",
+			  "align": "center"
+			}
+		  ],
+		  selection: [
 			  {
 				  "key": "govAgencyCode",
 				  "value": ""
 			  }
 			],
-			merge: ["serviceCode", "govAgencyCode"],
-			sort: "serviceName",
+			merge: ["domainCode","govAgencyCode"],
+			sort: "domainName",
 			statistics: true
 		}
-		
-		
 		]]>
 	</filterConfig>
     <reportCode>STATISTIC_031</reportCode>
     <reportName>Tổng hợp hồ sơ của đơn vị theo thủ tục</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		{
@@ -17686,10 +19804,890 @@
 	<userConfig>{"order": 16}</userConfig>
   </DynamicReport>
   <DynamicReport>
+    <filterConfig>
+		<![CDATA[
+		
+		{
+            api: "/o/statistic/dossier/groupcount?type=20&groupBy=serviceCode",
+            apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=serviceCode",
+            exclusive: false,
+            customize: false,
+            groupIds: [
+                {
+                    value: 35934,
+                    text: "Sở Tài nguyên và Môi trường"
+                },
+                {
+                    value: 36237,
+                    text: "Sở Xây dựng"
+                }, 
+                {
+                    value: 36461,
+                    text: "Sở Công thương"
+                }, 
+                {
+                    value: 36585,
+                    text: "Sở Giáo dục và Đào tạo"
+                }, 
+                {
+                    value: 36709,
+                    text: "Sở Giao thông Vận tải"
+                }, 
+                {
+                    value: 36832,
+                    text: "Sở Kế hoạch và Đầu tư"
+                }, 
+                {
+                    value: 36956,
+                    text: "Sở Khoa học và Công nghệ"
+                }, 
+                {
+                    value: 37079,
+                    text: "Sở Lao động thương binh và Xã hội"
+                },
+                {
+                    value: 37202,
+                    text: "Sở Ngoại vụ"
+                },
+                {
+                    value: 37327,
+                    text: "Sở Nội vụ"
+                }, 
+                {
+                    value: 37669,
+                    text: "Sở Nông nghiệp và Phát triển nông thôn"
+                }, 
+                {
+                    value: 37792,
+                    text: "Sở Tài chính"
+                }, 
+                {
+                    value: 37915,
+                    text: "Sở Thông tin và Truyền thông"
+                }, 
+                {
+                    value: 38038,
+                    text: "Sở Tư pháp"
+                }, 
+                {
+                    value: 38161,
+                    text: "Sở Văn hoá Thể thao và Du lịch"
+                }, 
+                {
+                    value: 38284,
+                    text: "Sở Y tế"
+                },
+                {
+                    value: 38407,
+                    text: "Ban Dân tộc"
+                },
+                {
+                    value: 38530,
+                    text: "Ban Quản lý khu kinh tế"
+                }, 
+                {
+                    value: 38653,
+                    text: "Ban Quản lý khu công nghiệp"
+                },
+                {
+                    value: 38776,
+                    text: "Văn phòng UBND tỉnh"
+                },
+                {
+                    value: 38899,
+                    text: "UBND Thành phố Cao Lãnh"
+                },
+                {
+                    value: 39022,
+                    text: "UBND Thành phố Sa Đéc"
+                },
+                {
+                    value: 39145,
+                    text: "UBND Thị xã Hồng Ngự"
+                },
+                {
+                    value: 39342,
+                    text: "UBND huyện Cao Lãnh"
+                },
+                {
+                    value: 39465,
+                    text: "UBND huyện Châu Thành"
+                },
+                {
+                    value: 39588,
+                    text: "UBND thị xã Hồng Ngự"
+                },
+                {
+                    value: 39711,
+                    text: "UBND huyện Lai Vung"
+                },
+                {
+                    value: 39834,
+                    text: "UBND huyện Lấp Vò"
+                },
+                {
+                    value: 39957,
+                    text: "UBND huyện Tam Nông"
+                },
+                {
+                    value: 40080,
+                    text: "UBND huyện Tân Hồng"
+                },
+                {
+                    value: 40265,
+                    text: "UBND huyện Thanh Bình"
+                },
+                {
+                    value: 40388,
+                    text: "UBND huyện Tháp Mười"
+                },
+                {
+                    value: 40511,
+                    text: "Cấp xã thành phố Cao Lãnh"
+                },
+                {
+                    value: 40634,
+                    text: "Cấp xã thành phố SADEC"
+                },
+                {
+                    value: 40757,
+                    text: "Cấp xã thị xã Hồng Ngự"
+                },
+                {
+                    value: 40880,
+                    text: "Cấp xã huyện Cao Lãnh"
+                },
+                {
+                    value: 41003,
+                    text: "Cấp xã huyện Châu Thành"
+                },
+                {
+                    value: 41126,
+                    text: "Cấp xã huyện Hồng Ngự"
+                },
+                {
+                    value: 41249,
+                    text: "Cấp xã huyện Lai Vung"
+                },
+                {
+                    value: 41372,
+                    text: "Cấp xã huyện Lấp Vò"
+                },
+                {
+                    value: 41497,
+                    text: "Cấp xã huyện Tam Nông"
+                },
+                {
+                    value: 41620,
+                    text: "Cấp xã huyện Tân Hồng"
+                },
+                {
+                    value: 42060,
+                    text: "Cấp xã huyện Thanh Bình"
+                },
+                {
+                    value: 41866,
+                    text: "Cấp xã huyện Tháp Mười"
+                }
+            ],
+            groupIdList: [
+                {
+                    group: 1,
+                    label: "Chọn cấp Sở",
+                    key: 'SBN',
+                    value: [
+
+                        {
+                            value: 35934,
+                            text: "Sở Tài nguyên và Môi trường"
+                        },
+                        {
+                            value: 36237,
+                            text: "Sở Xây dựng"
+                        }, 
+                        {
+                            value: 36461,
+                            text: "Sở Công thương"
+                        }, 
+                        {
+                            value: 36585,
+                            text: "Sở Giáo dục và Đào tạo"
+                        }, 
+                        {
+                            value: 36709,
+                            text: "Sở Giao thông Vận tải"
+                        }, 
+                        {
+                            value: 36832,
+                            text: "Sở Kế hoạch và Đầu tư"
+                        }, 
+                        {
+                            value: 36956,
+                            text: "Sở Khoa học và Công nghệ"
+                        }, 
+                        {
+                            value: 37079,
+                            text: "Sở Lao động thương binh và Xã hội"
+                        },
+                        {
+                            value: 37202,
+                            text: "Sở Ngoại vụ"
+                        },
+                        {
+                            value: 37327,
+                            text: "Sở Nội vụ"
+                        }, 
+                        {
+                            value: 37669,
+                            text: "Sở Nông nghiệp và Phát triển nông thôn"
+                        }, 
+                        {
+                            value: 37792,
+                            text: "Sở Tài chính"
+                        }, 
+                        {
+                            value: 37915,
+                            text: "Sở Thông tin và Truyền thông"
+                        }, 
+                        {
+                            value: 38038,
+                            text: "Sở Tư pháp"
+                        }, 
+                        {
+                            value: 38161,
+                            text: "Sở Văn hoá Thể thao và Du lịch"
+                        }, 
+                        {
+                            value: 38284,
+                            text: "Sở Y tế"
+                        },
+                        {
+                            value: 38407,
+                            text: "Ban Dân tộc"
+                        },
+                        {
+                            value: 38530,
+                            text: "Ban Quản lý khu kinh tế"
+                        }, 
+                        {
+                            value: 38653,
+                            text: "Ban Quản lý khu công nghiệp"
+                        },
+                        {
+                            value: 38776,
+                            text: "Văn phòng UBND tỉnh"
+                        }
+                    ]
+                },
+                {
+                    group: 2,
+                    label: "Chọn cấp Huyện",
+                    key: 'QUAN_HUYEN',
+                    value: [
+
+                        {
+                            value: 38899,
+                            text: "UBND Thành phố Cao Lãnh"
+                        },
+                        {
+                            value: 39022,
+                            text: "UBND Thành phố Sa Đéc"
+                        },
+                        {
+                            value: 39145,
+                            text: "UBND Thị xã Hồng Ngự"
+                        },
+                        {
+                            value: 39342,
+                            text: "UBND huyện Cao Lãnh"
+                        },
+                        {
+                            value: 39465,
+                            text: "UBND huyện Châu Thành"
+                        },
+                        {
+                            value: 39588,
+                            text: "UBND thị xã Hồng Ngự"
+                        },
+                        {
+                            value: 39711,
+                            text: "UBND huyện Lai Vung"
+                        },
+                        {
+                            value: 39834,
+                            text: "UBND huyện Lấp Vò"
+                        },
+                        {
+                            value: 39957,
+                            text: "UBND huyện Tam Nông"
+                        },
+                        {
+                            value: 40080,
+                            text: "UBND huyện Tân Hồng"
+                        },
+                        {
+                            value: 40265,
+                            text: "UBND huyện Thanh Bình"
+                        },
+                        {
+                            value: 40388,
+                            text: "UBND huyện Tháp Mười"
+                        }
+                    ]
+                },
+                {
+                    group: 3,
+                    label: "Chọn cấp Xã",
+                    key: 'XA_PHUONG',
+                    value: [
+
+                        {
+                        value: 40511,
+                        text: "Cấp xã thành phố Cao Lãnh"
+                    },
+                    {
+                        value: 40634,
+                        text: "Cấp xã thành phố SADEC"
+                    },
+                    {
+                        value: 40757,
+                        text: "Cấp xã thị xã Hồng Ngự"
+                    },
+                    {
+                        value: 40880,
+                        text: "Cấp xã huyện Cao Lãnh"
+                    },
+                    {
+                        value: 41003,
+                        text: "Cấp xã huyện Châu Thành"
+                    },
+                    {
+                        value: 41126,
+                        text: "Cấp xã huyện Hồng Ngự"
+                    },
+                    {
+                        value: 41249,
+                        text: "Cấp xã huyện Lai Vung"
+                    },
+                    {
+                        value: 41372,
+                        text: "Cấp xã huyện Lấp Vò"
+                    },
+                    {
+                        value: 41497,
+                        text: "Cấp xã huyện Tam Nông"
+                    },
+                    {
+                        value: 41620,
+                        text: "Cấp xã huyện Tân Hồng"
+                    },
+                    {
+                        value: 42060,
+                        text: "Cấp xã huyện Thanh Bình"
+                    },
+                    {
+                        value: 41866,
+                        text: "Cấp xã huyện Tháp Mười"
+                    }
+                    ]
+                }
+            ],
+            sumKey: "serviceCode",
+            filters: [
+                {
+                    label: "Mức độ",
+                    key: "listServiceLevel",
+                    value: "null",
+                    type: "select",
+                    source: [
+                        {name: "Tất cả", value: "null"},
+                        {name: "Mức độ 2", value: "2"},
+                        {name: "Mức độ 3", value: "3"},
+                        {name: "Mức độ 4", value: "4"}
+                    ]
+                },
+                {
+                    label: "Hình thức nộp hồ sơ",
+                    key: "listTypeSendDossier",
+                    value: "null",
+                    type: "select",
+                    source: [
+                        {name: "TRỰC TIẾP, TRỰC TUYẾN, QUA BƯU ĐIỆN", value: "null"},
+                        {name: "TRỰC TUYẾN", value: "1"},
+                        {name: "TRỰC TIẾP", value: "2"},
+                        {name: "QUA BƯU ĐIỆN", value: "3"}
+                    ],
+                    clearable: true
+                },
+                {
+                    label: "Hồ sơ liên thông",
+                    key: "isHSLT",
+                    value: "",
+                    type: "select",
+                    source: [
+						{name: "LIÊN THÔNG", value: "true"}
+                    ],
+					clearable: true
+                },
+                {
+                    label: "Loại thủ tục hành chính",
+                    key: "tagCode",
+                    value: "",
+                    type: "select",
+                    source: [
+                        {name: "4 TẠI CHỖ", value: "4_TAI_CHO"},
+                        {name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
+                    ],
+					clearable: true
+                },
+                {
+                label: "Từ ngày",
+                key: "fromDate",
+                value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+                type: "date", 
+                before: "toDate" 
+                },
+                {
+                label: "Đến ngày",
+                key: "toDate",
+                value: new Date().toLocaleDateString('vi-VN'),
+                type: "date", 
+                after: "fromDate" 
+                }
+            ],
+            reportConfig: [
+			  {
+				"selected": true,
+				"value": "serviceName",
+				"text": "",
+				"align": "left"
+			  },
+			  {
+				"selected": true,
+				"value": "processCount",
+				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "remainingCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "receivedCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "ontimeCount",
+				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "betimesCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "ontimeCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "overtimeCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "processingCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "undueCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "overdueCount",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "overtimeCountNotFinish",
+				"text": "",
+				"align": "center"
+			  },
+			  {
+				"selected": true,
+				"value": "overtimePercentage",
+				"text": "",
+				"align": "center"
+			  }
+			],
+            selection: [
+                {
+                    "key": "govAgencyCode",
+                    "value": ""
+                }
+            ],
+            merge: ["serviceCode","govAgencyCode"],
+            sort: "serviceName",
+            statistics: true
+        }
+    
+    ]]>
+    </filterConfig>
+    <reportCode>STATISTIC_031_VER_3</reportCode>
+    <reportName>Tổng hợp hồ sơ theo thủ tục</reportName>
+    <sharing>1</sharing>
+    <tableConfig><![CDATA[
+		
+		{
+            docDefinition: {
+                pageOrientation: "landscape",
+                content: [
+                    {
+                        columns: [
+                            {
+                                width: 300,
+                                style: "title",
+                                text: [
+                                    {text: "UBND TỈNH ĐỒNG THÁP\n"},
+                                    {text: "[$groupIds$]\n"}
+                                ]
+                            },
+                            {
+                                width: 100,
+                                style: "title",
+                                text: ''
+                            },
+                            {
+                                width: 300,
+                                style: "title",
+                                text: [
+                                    {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                    {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                    {text: "------------------------------------\n"},
+                                    {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        text: [
+                            {text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ [$isHSLT$] [$tagCode$]\n"},
+							{text: "([$listTypeSendDossier$]) \n"},
+                            {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+                        ], 
+                        margin: [0, 20],
+                        style: "headerTitle"
+                    },
+                    {
+                        style: "tableExample",
+                        table: {
+							widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+							headerRows: 3,
+							body: [
+								[
+									{
+										text: "\n\n\nSTT",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "\n\n\nThủ tục",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số tiếp nhận",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kỳ trước chuyển qua",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tiếp nhận trong kỳ",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kết quả giải quyết",
+										colSpan: 7,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Tổng số trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tỷ lệ hồ sơ trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									}
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đã giải quyết xong",
+										colSpan: 4,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đang giải quyết",
+										colSpan: 3,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									""
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Sớm hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Đúng hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Trễ hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Chưa đến hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Quá hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									""
+								],
+								[
+									{
+										text: "(1)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(2)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(3=4+5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(4)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(6=7+8+9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(7)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(8)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(10=11+12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(11)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(13)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(14)",
+										alignment: "center",
+										fontSize: 8
+									}
+								],
+								"[$report$]"
+							]
+						},
+                        margin: [0, 0, 0, 5]
+                    },             
+                    {
+                        columns: [
+                            {
+                                width: "*",
+                                text: [
+                                    {text: "Nơi nhận:", bold: true }
+                                ]
+                            },
+                            {
+                                width: 150,
+                                style: "title",
+                                text: "THỦ TRƯỞNG ĐƠN VỊ"
+                            }
+                        ]
+                    },
+                    {
+                        columns: [
+                            {
+                                width: "*",
+                                text: ""
+                            },
+                            {
+                                width: 150,
+                                style: "titleSub",
+                                text: "(Ký và ghi rõ họ tên)"
+                            }
+                        ]
+                    }
+                ],
+                styles: {
+                    ngayThangNam: {
+                        fontSize: 10,
+                        italics: true,
+                        bold: false,
+                        alignment: "center"
+                    },
+                    headerTitle: {
+                        alignment: "center",
+                        bold: true,
+                        fontSize: 13
+                    },
+                    borderHeader: {
+                        alignment: "left"
+                    },
+                    title: {
+                        bold: true,
+                        alignment: "center"
+                    },
+                    titleSub: {
+                        fontSize: 10,
+                        italics: true,
+                        alignment: "center"
+                    },
+                    tdStyle: {
+                        fontSize: 10,
+                        margin: [0, 2]
+                    }
+                },
+                defaultStyle: {
+                    columnGap: 20,
+                    fontSize: 11
+                }
+            }
+        }
+		
+		]]></tableConfig>
+    <userConfig>{"order": 17}</userConfig>
+  </DynamicReport>
+  <DynamicReport>
     <filterConfig><![CDATA[
 		
+        
+		
         {
-			api: "/o/rest/statistics?total=agency",
+            api: "/o/statistic/dossier/groupcount?type=20&groupBy=govAgencyCode",
+			apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=govAgencyCode",
 			exclusive: false,
 			customize: false,
 			groupIds: [
@@ -18088,18 +21086,1059 @@
 			filters: [
 			  {
 				label: "Từ ngày",
-				key: "fromStatisticDate",
+				key: "fromDate",
 				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
 				type: "date" 
 			  },
 			  {
 				label: "Đến ngày",
-				key: "toStatisticDate",
+				key: "toDate",
 				value: new Date().toLocaleDateString('vi-VN'),
 				type: "date" 
 			  }
 			],
 			reportConfig: [
+			{
+			  "selected": true,
+			  "value": "govAgencyName",
+			  "text": "",
+			  "align": "left"
+			},
+			{
+			  "selected": true,
+			  "value": "processCount",
+			  "calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "remainingCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "receivedCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "onegateCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "onlineCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "releaseCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "betimesCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "ontimeCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "overtimeCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "unresolvedCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "doneCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "releasingCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "processingCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "undueCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "overdueCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "viaPostalCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "saturdayCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "waitingCount",
+			  "text": "",
+			  "align": "center"
+			},
+			{
+			  "selected": true,
+			  "value": "cancelledCount",
+			  "text": "",
+			  "align": "center"
+			}
+		  ],
+			selection: [
+			  {
+				"key": "domainCode",
+				"value": "",
+				"compare": "="
+			  }
+			],
+			merge: ["govAgencyCode","domainCode"],
+			sort: "govAgencyName",
+			statistics: true,
+			mappingData: []
+		}
+		
+		
+		
+		]]></filterConfig>
+    <reportCode>STATISTIC_07</reportCode>
+    <reportName>Tổng hợp hồ sơ theo đơn vị</reportName>
+    <sharing>9</sharing>
+    <tableConfig><![CDATA[
+		
+		{
+		  docDefinition: {
+		  pageOrientation: "landscape",
+		  content: [
+			  {
+				  columns: [
+					  {
+						  width: 300,
+						  style: "title",
+						  text: [
+							 {text: "UBND TỈNH ĐỒNG THÁP\n"},
+							 {text: "[$siteName$]\n"}
+						  ]
+					  },
+					{
+						 width: 100,
+						  style: "title",
+						 text: ''
+					   },
+					  {
+						  width: 300,
+						  style: "title",
+						  text: [
+							  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+							  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+							  {text: "------------------------------------\n"},
+							  {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+						  ]
+					  }
+				  ]
+			  },
+			  {
+				  text: [
+					  {text: "BÁO CÁO TỔNG HỢP HỒ SƠ THEO ĐƠN VỊ\n"},
+					  {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+				  ], 
+				  margin: [0, 20],
+				  style: "headerTitle"
+			  },
+			  {
+				  style: "tableExample",
+				  table: {
+					  widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 30, 25],
+					  headerRows: 3,
+					  body: [
+						  [
+							  {
+								  text: "\n\n\nSTT",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\n\n\nĐơn vị",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Nhận giải quyết",
+								  colSpan: 5,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Kết quả giải quyết",
+								  colSpan: 7,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "Đang giải quyết",
+								  colSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Hồ sơ sử dụng dịch vụ bưu chính công ích",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Hồ sơ đã tiếp nhận và trả kết quả ngày thứ 7",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tạm dừng bổ sung điều kiện",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nRút không giải quyết",
+								  rowSpan: 3,
+								  alignment: "center",
+								  bold: true,
+								  style: "tdStyle"
+							  }
+						  ],
+						  [
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTồn trước",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trong kỳ",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "\nTổng số",
+								  rowSpan: 2,           
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Tình hình thực hiện",
+								  colSpan: 3,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  {
+								  text: "Từ chối giải quyết",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trả kết quả",
+								  colSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+								  {
+								  text: "\nTổng số",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nCòn hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nQuá hạn",
+								  rowSpan: 2,
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+						  [
+							  "",
+							  "",
+							  "",
+							  "",
+							  {
+								  text: "\nTổng",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tiếp",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trực tuyến",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Trước hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Đúng hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Trễ hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  {
+								  text: "Đã trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Chưa trả",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "\nTổng số",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Còn hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  {
+								  text: "Quá hạn",
+								  alignment: "center",
+								  style: "tdStyle"
+							  },
+							  "",
+							  "",
+							  ""
+						  ],
+							[
+							  {
+								  text: "(1)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(2)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(3)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(4)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(5)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(6)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(7)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(8)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(9)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(10)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(11)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(12)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(13)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(14)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(15)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(16)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(17)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(18)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(19)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(20)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(21)",
+								  alignment: "center",
+								  fontSize: 8
+							  },
+							  {
+								  text: "(22)",
+								  alignment: "center",
+								  fontSize: 8
+							  }
+						  ],
+						  "[$report$]"
+					  ]
+				  },
+				  margin: [0, 0, 0, 5]
+			  },             
+			  {
+				  columns: [
+					  {
+						  width: "*",
+						  text: [
+							{text: "Nơi nhận:", bold: true }
+						  ]
+					  },
+					  {
+						  width: 150,
+						  style: "title",
+						  text: "THỦ TRƯỞNG ĐƠN VỊ"
+					  }
+				  ]
+			  },
+			  {
+				  columns: [
+					  {
+						  width: "*",
+						  text: ""
+					  },
+					  {
+						  width: 150,
+						  style: "titleSub",
+						  text: "(Ký và ghi rõ họ tên)"
+					  }
+				  ]
+			  }
+		  ],
+		  styles: {
+			  ngayThangNam: {
+				  fontSize: 10,
+				  italics: true,
+				  bold: false,
+				  alignment: "center"
+			  },
+			  headerTitle: {
+				  alignment: "center",
+				  bold: true,
+				  fontSize: 13
+			  },
+			  borderHeader: {
+				  alignment: "left"
+			  },
+			  title: {
+				  bold: true,
+				  alignment: "center"
+			  },
+			  titleSub: {
+				  fontSize: 10,
+				  italics: true,
+				  alignment: "center"
+			  },
+			  tdStyle: {
+				  fontSize: 10,
+				  margin: [0, 2]
+			  }
+		  },
+		  defaultStyle: {
+			  columnGap: 20,
+			  fontSize: 11
+		  }
+	   }
+	}
+		
+		]]></tableConfig>
+    <userConfig>{"order": 19}</userConfig>
+  </DynamicReport>
+  <DynamicReport>
+    <filterConfig>
+		<![CDATA[
+		
+		{
+            api: "/o/statistic/dossier/groupcount?type=20&groupBy=govAgencyCode",
+            apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=govAgencyCode",
+            exclusive: false,
+            customize: false,
+            groupIds: [
+                {
+                    value: 35934,
+                    text: "Sở Tài nguyên và Môi trường"
+                },
+                {
+                    value: 36237,
+                    text: "Sở Xây dựng"
+                }, 
+                {
+                    value: 36461,
+                    text: "Sở Công thương"
+                }, 
+                {
+                    value: 36585,
+                    text: "Sở Giáo dục và Đào tạo"
+                }, 
+                {
+                    value: 36709,
+                    text: "Sở Giao thông Vận tải"
+                }, 
+                {
+                    value: 36832,
+                    text: "Sở Kế hoạch và Đầu tư"
+                }, 
+                {
+                    value: 36956,
+                    text: "Sở Khoa học và Công nghệ"
+                }, 
+                {
+                    value: 37079,
+                    text: "Sở Lao động thương binh và Xã hội"
+                },
+                {
+                    value: 37202,
+                    text: "Sở Ngoại vụ"
+                },
+                {
+                    value: 37327,
+                    text: "Sở Nội vụ"
+                }, 
+                {
+                    value: 37669,
+                    text: "Sở Nông nghiệp và Phát triển nông thôn"
+                }, 
+                {
+                    value: 37792,
+                    text: "Sở Tài chính"
+                }, 
+                {
+                    value: 37915,
+                    text: "Sở Thông tin và Truyền thông"
+                }, 
+                {
+                    value: 38038,
+                    text: "Sở Tư pháp"
+                }, 
+                {
+                    value: 38161,
+                    text: "Sở Văn hoá Thể thao và Du lịch"
+                }, 
+                {
+                    value: 38284,
+                    text: "Sở Y tế"
+                },
+                {
+                    value: 38407,
+                    text: "Ban Dân tộc"
+                },
+                {
+                    value: 38530,
+                    text: "Ban Quản lý khu kinh tế"
+                }, 
+                {
+                    value: 38653,
+                    text: "Ban Quản lý khu công nghiệp"
+                },
+                {
+                    value: 38776,
+                    text: "Văn phòng UBND tỉnh"
+                },
+                {
+                    value: 38899,
+                    text: "UBND Thành phố Cao Lãnh"
+                },
+                {
+                    value: 39022,
+                    text: "UBND Thành phố Sa Đéc"
+                },
+                {
+                    value: 39145,
+                    text: "UBND Thị xã Hồng Ngự"
+                },
+                {
+                    value: 39342,
+                    text: "UBND huyện Cao Lãnh"
+                },
+                {
+                    value: 39465,
+                    text: "UBND huyện Châu Thành"
+                },
+                {
+                    value: 39588,
+                    text: "UBND thị xã Hồng Ngự"
+                },
+                {
+                    value: 39711,
+                    text: "UBND huyện Lai Vung"
+                },
+                {
+                    value: 39834,
+                    text: "UBND huyện Lấp Vò"
+                },
+                {
+                    value: 39957,
+                    text: "UBND huyện Tam Nông"
+                },
+                {
+                    value: 40080,
+                    text: "UBND huyện Tân Hồng"
+                },
+                {
+                    value: 40265,
+                    text: "UBND huyện Thanh Bình"
+                },
+                {
+                    value: 40388,
+                    text: "UBND huyện Tháp Mười"
+                },
+                {
+                    value: 40511,
+                    text: "Cấp xã thành phố Cao Lãnh"
+                },
+                {
+                    value: 40634,
+                    text: "Cấp xã thành phố SADEC"
+                },
+                {
+                    value: 40757,
+                    text: "Cấp xã thị xã Hồng Ngự"
+                },
+                {
+                    value: 40880,
+                    text: "Cấp xã huyện Cao Lãnh"
+                },
+                {
+                    value: 41003,
+                    text: "Cấp xã huyện Châu Thành"
+                },
+                {
+                    value: 41126,
+                    text: "Cấp xã huyện Hồng Ngự"
+                },
+                {
+                    value: 41249,
+                    text: "Cấp xã huyện Lai Vung"
+                },
+                {
+                    value: 41372,
+                    text: "Cấp xã huyện Lấp Vò"
+                },
+                {
+                    value: 41497,
+                    text: "Cấp xã huyện Tam Nông"
+                },
+                {
+                    value: 41620,
+                    text: "Cấp xã huyện Tân Hồng"
+                },
+                {
+                    value: 42060,
+                    text: "Cấp xã huyện Thanh Bình"
+                },
+                {
+                    value: 41866,
+                    text: "Cấp xã huyện Tháp Mười"
+                }
+            ],
+            groupIdList: [
+                {
+                    group: 1,
+                    label: "Chọn cấp Sở",
+                    key: 'SBN',
+                    value: [
+
+                        {
+                            value: 35934,
+                            text: "Sở Tài nguyên và Môi trường"
+                        },
+                        {
+                            value: 36237,
+                            text: "Sở Xây dựng"
+                        }, 
+                        {
+                            value: 36461,
+                            text: "Sở Công thương"
+                        }, 
+                        {
+                            value: 36585,
+                            text: "Sở Giáo dục và Đào tạo"
+                        }, 
+                        {
+                            value: 36709,
+                            text: "Sở Giao thông Vận tải"
+                        }, 
+                        {
+                            value: 36832,
+                            text: "Sở Kế hoạch và Đầu tư"
+                        }, 
+                        {
+                            value: 36956,
+                            text: "Sở Khoa học và Công nghệ"
+                        }, 
+                        {
+                            value: 37079,
+                            text: "Sở Lao động thương binh và Xã hội"
+                        },
+                        {
+                            value: 37202,
+                            text: "Sở Ngoại vụ"
+                        },
+                        {
+                            value: 37327,
+                            text: "Sở Nội vụ"
+                        }, 
+                        {
+                            value: 37669,
+                            text: "Sở Nông nghiệp và Phát triển nông thôn"
+                        }, 
+                        {
+                            value: 37792,
+                            text: "Sở Tài chính"
+                        }, 
+                        {
+                            value: 37915,
+                            text: "Sở Thông tin và Truyền thông"
+                        }, 
+                        {
+                            value: 38038,
+                            text: "Sở Tư pháp"
+                        }, 
+                        {
+                            value: 38161,
+                            text: "Sở Văn hoá Thể thao và Du lịch"
+                        }, 
+                        {
+                            value: 38284,
+                            text: "Sở Y tế"
+                        },
+                        {
+                            value: 38407,
+                            text: "Ban Dân tộc"
+                        },
+                        {
+                            value: 38530,
+                            text: "Ban Quản lý khu kinh tế"
+                        }, 
+                        {
+                            value: 38653,
+                            text: "Ban Quản lý khu công nghiệp"
+                        },
+                        {
+                            value: 38776,
+                            text: "Văn phòng UBND tỉnh"
+                        }
+                    ]
+                },
+                {
+                    group: 2,
+                    label: "Chọn cấp Huyện",
+                    key: 'QUAN_HUYEN',
+                    value: [
+
+                        {
+                            value: 38899,
+                            text: "UBND Thành phố Cao Lãnh"
+                        },
+                        {
+                            value: 39022,
+                            text: "UBND Thành phố Sa Đéc"
+                        },
+                        {
+                            value: 39145,
+                            text: "UBND Thị xã Hồng Ngự"
+                        },
+                        {
+                            value: 39342,
+                            text: "UBND huyện Cao Lãnh"
+                        },
+                        {
+                            value: 39465,
+                            text: "UBND huyện Châu Thành"
+                        },
+                        {
+                            value: 39588,
+                            text: "UBND thị xã Hồng Ngự"
+                        },
+                        {
+                            value: 39711,
+                            text: "UBND huyện Lai Vung"
+                        },
+                        {
+                            value: 39834,
+                            text: "UBND huyện Lấp Vò"
+                        },
+                        {
+                            value: 39957,
+                            text: "UBND huyện Tam Nông"
+                        },
+                        {
+                            value: 40080,
+                            text: "UBND huyện Tân Hồng"
+                        },
+                        {
+                            value: 40265,
+                            text: "UBND huyện Thanh Bình"
+                        },
+                        {
+                            value: 40388,
+                            text: "UBND huyện Tháp Mười"
+                        }
+                    ]
+                },
+                {
+                    group: 3,
+                    label: "Chọn cấp Xã",
+                    key: 'XA_PHUONG',
+                    value: [
+
+                        {
+                        value: 40511,
+                        text: "Cấp xã thành phố Cao Lãnh"
+                    },
+                    {
+                        value: 40634,
+                        text: "Cấp xã thành phố SADEC"
+                    },
+                    {
+                        value: 40757,
+                        text: "Cấp xã thị xã Hồng Ngự"
+                    },
+                    {
+                        value: 40880,
+                        text: "Cấp xã huyện Cao Lãnh"
+                    },
+                    {
+                        value: 41003,
+                        text: "Cấp xã huyện Châu Thành"
+                    },
+                    {
+                        value: 41126,
+                        text: "Cấp xã huyện Hồng Ngự"
+                    },
+                    {
+                        value: 41249,
+                        text: "Cấp xã huyện Lai Vung"
+                    },
+                    {
+                        value: 41372,
+                        text: "Cấp xã huyện Lấp Vò"
+                    },
+                    {
+                        value: 41497,
+                        text: "Cấp xã huyện Tam Nông"
+                    },
+                    {
+                        value: 41620,
+                        text: "Cấp xã huyện Tân Hồng"
+                    },
+                    {
+                        value: 42060,
+                        text: "Cấp xã huyện Thanh Bình"
+                    },
+                    {
+                        value: 41866,
+                        text: "Cấp xã huyện Tháp Mười"
+                    }
+                    ]
+                }
+            ],
+            sumKey: "govAgencyCode",
+            filters: [
+                {
+                    label: "Mức độ",
+                    key: "listServiceLevel",
+                    value: "null",
+                    type: "select",
+                    source: [
+                        {name: "Tất cả", value: "null"},
+                        {name: "Mức độ 2", value: "2"},
+                        {name: "Mức độ 3", value: "3"},
+                        {name: "Mức độ 4", value: "4"}
+                    ]
+                },
+                {
+                    label: "Hình thức nộp hồ sơ",
+                    key: "listTypeSendDossier",
+                    value: "null",
+                    type: "select",
+                    source: [
+                        {name: "TRỰC TIẾP, TRỰC TUYẾN, QUA BƯU ĐIỆN", value: "null"},
+                        {name: "TRỰC TUYẾN", value: "1"},
+                        {name: "TRỰC TIẾP", value: "2"},
+                        {name: "QUA BƯU ĐIỆN", value: "3"}
+                    ],
+                    clearable: true
+                },
+                {
+                    label: "Hồ sơ liên thông",
+                    key: "isHSLT",
+                    value: "",
+                    type: "select",
+                    source: [
+						{name: "LIÊN THÔNG", value: "true"}
+                    ],
+					clearable: true
+                },
+                {
+                    label: "Loại thủ tục hành chính",
+                    key: "tagCode",
+                    value: "",
+                    type: "select",
+                    source: [
+                        {name: "4 TẠI CHỖ", value: "4_TAI_CHO"},
+                        {name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
+                    ],
+					clearable: true
+                },
+                {
+                label: "Từ ngày",
+                key: "fromDate",
+                value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+                type: "date", 
+                before: "toDate" 
+                },
+                {
+                label: "Đến ngày",
+                key: "toDate",
+                value: new Date().toLocaleDateString('vi-VN'),
+                type: "date", 
+                after: "fromDate" 
+                }
+            ],
+            reportConfig: [
 			  {
 				"selected": true,
 				"value": "govAgencyName",
@@ -18128,6 +22167,7 @@
 			  {
 				"selected": true,
 				"value": "ontimeCount",
+				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
 				"text": "",
 				"align": "center"
 			  },
@@ -18169,379 +22209,359 @@
 			  },
 			  {
 				"selected": true,
-				"value": "overtimeCount",
+				"value": "overtimeCountNotFinish",
 				"text": "",
 				"align": "center"
 			  },
 			  {
 				"selected": true,
-				"value": "deniedCount",
-				"text": "",
-				"align": "center"
-			  },
-			  {
-				"selected": true,
-				"value": "cancelledCount",
+				"value": "overtimePercentage",
 				"text": "",
 				"align": "center"
 			  }
 			],
-			selection: [
-			  {
-				"key": "domainCode",
-				"value": "",
-				"compare": "="
-			  }
-			],
-			merge: ["govAgencyCode","domainCode"],
-			sort: "govAgencyName",
-			statistics: true,
-			mappingData: []
-		}
-		
-		]]></filterConfig>
-    <reportCode>STATISTIC_07</reportCode>
-    <reportName>Tổng hợp hồ sơ theo cơ quan</reportName>
+            selection: [
+                {
+                    "key": "domainCode",
+                    "value": ""
+                }
+            ],
+            merge: ["govAgencyCode","domainCode"],
+            sort: "govAgencyName",
+            statistics: true
+        }
+    
+    ]]>
+    </filterConfig>
+    <reportCode>STATISTIC_07_VER_3</reportCode>
+    <reportName>Tổng hợp hồ sơ theo đơn vị</reportName>
     <sharing>1</sharing>
     <tableConfig><![CDATA[
 		
 		{
-			docDefinition: {
-			pageOrientation: "landscape",
-			content: [
-				{
-					columns: [
-						{
-							width: 300,
-							style: "title",
-							text: [
-							   {text: "UBND TỈNH ĐỒNG THÁP\n"},
-							   {text: "[$siteName$]\n"}
+            docDefinition: {
+                pageOrientation: "landscape",
+                content: [
+                    {
+                        columns: [
+                            {
+                                width: 300,
+                                style: "title",
+                                text: [
+                                    {text: "UBND TỈNH ĐỒNG THÁP\n"},
+                                    {text: "[$groupIds$]\n"}
+                                ]
+                            },
+                            {
+                                width: 100,
+                                style: "title",
+                                text: ''
+                            },
+                            {
+                                width: 300,
+                                style: "title",
+                                text: [
+                                    {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                    {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                    {text: "------------------------------------\n"},
+                                    {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        text: [
+                            {text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ [$isHSLT$] [$tagCode$]\n"},
+							{text: "([$listTypeSendDossier$]) \n"},
+                            {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+                        ], 
+                        margin: [0, 20],
+                        style: "headerTitle"
+                    },
+                    {
+                        style: "tableExample",
+                        table: {
+							widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+							headerRows: 3,
+							body: [
+								[
+									{
+										text: "\n\n\nSTT",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "\n\n\nĐơn vị",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số tiếp nhận",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kỳ trước chuyển qua",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tiếp nhận trong kỳ",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kết quả giải quyết",
+										colSpan: 7,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Tổng số trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tỷ lệ hồ sơ trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									}
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đã giải quyết xong",
+										colSpan: 4,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đang giải quyết",
+										colSpan: 3,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									""
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Sớm hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Đúng hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Trễ hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Chưa đến hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Quá hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									""
+								],
+								[
+									{
+										text: "(1)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(2)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(3=4+5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(4)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(6=7+8+9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(7)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(8)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(10=11+12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(11)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(13)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(14)",
+										alignment: "center",
+										fontSize: 8
+									}
+								],
+								"[$report$]"
 							]
 						},
-						{
-							width: 100,
-							style: "title",
-							text: ""
-						},
-						{
-							width: 300,
-							style: "title",
-							text: [
-								{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-								{text: "Độc lập - Tự do - Hạnh phúc\n"},
-								{text: "------------------------------------\n"},
-								{text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-							]
-						}
-					]
-				},
-				{
-					text: [
-						{text: "BÁO CÁO TỔNG HỢP THEO CƠ QUAN\n"},
-						{text: "Từ ngày [$fromStatisticDate$] đến ngày [$toStatisticDate$]" + "\n", fontSize: 11}
-					], 
-					margin: [0, 20],
-					style: "headerTitle"
-				},
-				{
-					style: "tableExample",
-					table: {
-						widths: [20, "*", 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-						headerRows: 3,
-						body: [
-							[
-								{
-									text: "\n\n\nSTT",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "\n\n\nĐơn vị",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Số đầu kỳ",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Kỳ trước chuyển qua",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Tiếp nhận trong kỳ",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Kết quả giải quyết",
-									colSpan: 7,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								"",
-								"",
-								"",
-								"",
-								"",
-								"",
-								{
-									text: "Tổng số trễ hạn",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Hồ sơ trả lại",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								},
-								{
-									text: "Hồ sơ rút",
-									rowSpan: 3,
-									alignment: "center",
-									bold: true,
-									style: "tdStyle"
-								}
-							],
-							[
-								"",
-								"",
-								"",
-								"",
-								"",
-								{
-									text: "Hồ sơ đã giải quyết xong",
-									colSpan: 4,           
-									alignment: "center",
-									style: "tdStyle"
-								},
-								"",
-								"",
-								"",
-								{
-									text: "Hồ sơ đang giải quyết",
-									colSpan: 3,           
-									alignment: "center",
-									style: "tdStyle"
-								},
-								"",
-								"",
-								"",
-								"",
-								""
-							],
-							[
-								"",
-								"",
-								"",
-								"",
-								"",
-								{
-									text: "Tổng số",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Sớm hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Đúng hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Trễ hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Tổng số",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Chưa đến hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								{
-									text: "Quá hạn",
-									alignment: "center",
-									style: "tdStyle"
-								},
-								"",
-								"",
-								""
-							],
-							[
-								{
-									text: "(1)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(2)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(3=4+5)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(4)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(5)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(6=7+8+9)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(7)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(8)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(9)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(10=11+12)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(11)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(12)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(13)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(14)",
-									alignment: "center",
-									fontSize: 8
-								},
-								{
-									text: "(15)",
-									alignment: "center",
-									fontSize: 8
-								}
-							],
-							"[$report$]"
-						]
-					},
-					margin: [0, 0, 0, 5]
-				},            
-				{
-					columns: [
-						{
-							width: "*",
-							text: [
-							  {text: "Nơi nhận:", bold: true }
-							]
-						},
-						{
-							width: 150,
-							style: "title",
-							text: "THỦ TRƯỞNG ĐƠN VỊ"
-						}
-					]
-				},
-				{
-					columns: [
-						{
-							width: "*",
-							text: ""
-						},
-						{
-							width: 150,
-							style: "titleSub",
-							text: "(Ký và ghi rõ họ tên)"
-						}
-					]
-				}
-			],
-			styles: {
-				ngayThangNam: {
-					fontSize: 10,
-					italics: true,
-					bold: false,
-					alignment: "center"
-				},
-				headerTitle: {
-					alignment: "center",
-					bold: true,
-					fontSize: 13
-				},
-				borderHeader: {
-					alignment: "left"
-				},
-				title: {
-					bold: true,
-					alignment: "center"
-				},
-				titleSub: {
-					fontSize: 10,
-					italics: true,
-					alignment: "center"
-				},
-				tdStyle: {
-					fontSize: 10,
-					margin: [0, 2]
-				}
-			},
-			defaultStyle: {
-				columnGap: 20,
-				fontSize: 11
-			}
-		 }
-		}
+                        margin: [0, 0, 0, 5]
+                    },             
+                    {
+                        columns: [
+                            {
+                                width: "*",
+                                text: [
+                                    {text: "Nơi nhận:", bold: true }
+                                ]
+                            },
+                            {
+                                width: 150,
+                                style: "title",
+                                text: "THỦ TRƯỞNG ĐƠN VỊ"
+                            }
+                        ]
+                    },
+                    {
+                        columns: [
+                            {
+                                width: "*",
+                                text: ""
+                            },
+                            {
+                                width: 150,
+                                style: "titleSub",
+                                text: "(Ký và ghi rõ họ tên)"
+                            }
+                        ]
+                    }
+                ],
+                styles: {
+                    ngayThangNam: {
+                        fontSize: 10,
+                        italics: true,
+                        bold: false,
+                        alignment: "center"
+                    },
+                    headerTitle: {
+                        alignment: "center",
+                        bold: true,
+                        fontSize: 13
+                    },
+                    borderHeader: {
+                        alignment: "left"
+                    },
+                    title: {
+                        bold: true,
+                        alignment: "center"
+                    },
+                    titleSub: {
+                        fontSize: 10,
+                        italics: true,
+                        alignment: "center"
+                    },
+                    tdStyle: {
+                        fontSize: 10,
+                        margin: [0, 2]
+                    }
+                },
+                defaultStyle: {
+                    columnGap: 20,
+                    fontSize: 11
+                }
+            }
+        }
 		
 		]]></tableConfig>
-    <userConfig>{"order": 19}</userConfig>
+    <userConfig>{"order": 18}</userConfig>
   </DynamicReport>
   <DynamicReport>
     <filterConfig>
@@ -18943,7 +22963,7 @@
 		</filterConfig>
     <reportCode>STATISTIC_04</reportCode>
     <reportName>Tổng hợp hồ sơ cả năm tại Trung tâm HCC</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		{
@@ -19902,7 +23922,7 @@
 		</filterConfig>
     <reportCode>STATISTIC_06</reportCode>
     <reportName>Tổng hợp tiếp nhận hồ sơ</reportName>
-    <sharing>1</sharing>
+    <sharing>9</sharing>
     <tableConfig><![CDATA[
 		
 		{
@@ -20279,14 +24299,14 @@
 						width: "*",
 						style: "titleFooterLeft",
 						text: [
-						  {text: "Lâm Quý Thơ", bold: true }
+						  {text: "", bold: true }
 						]
 					  },
 					  {
 						width: "*",
 						style: "titleFooterRight",
 						text: [
-						  {text: "Hồ Tấn Hoàng", bold: true }
+						  {text: "", bold: true }
 						]
 					  },
 					  {
@@ -20343,5 +24363,750 @@
 		
 		]]></tableConfig>
     <userConfig>{}</userConfig>
+  </DynamicReport>
+  <DynamicReport>
+    <filterConfig>
+    <![CDATA[
+        {
+            version: "2",
+            numberPerPage: "500",
+            api: "/o/statistic/dossier/groupcount?type=20",
+            apiLayDanhSach: "/o/statistic/dossier/list?type=20",
+            apiExportExcel: "/o/statistic/dossier/list/export?type=20",
+            exclusive: false,
+            customize: true,
+            
+            groupIds: [
+                {
+                    value: 35934,
+                    text: "Sở Tài nguyên và Môi trường"
+                },
+                {
+                    value: 36237,
+                    text: "Sở Xây dựng"
+                }, 
+                {
+                    value: 36461,
+                    text: "Sở Công thương"
+                }, 
+                {
+                    value: 36585,
+                    text: "Sở Giáo dục và Đào tạo"
+                }, 
+                {
+                    value: 36709,
+                    text: "Sở Giao thông Vận tải"
+                }, 
+                {
+                    value: 36832,
+                    text: "Sở Kế hoạch và Đầu tư"
+                }, 
+                {
+                    value: 36956,
+                    text: "Sở Khoa học và Công nghệ"
+                }, 
+                {
+                    value: 37079,
+                    text: "Sở Lao động thương binh và Xã hội"
+                },
+                {
+                    value: 37202,
+                    text: "Sở Ngoại vụ"
+                },
+                {
+                    value: 37327,
+                    text: "Sở Nội vụ"
+                }, 
+                {
+                    value: 37669,
+                    text: "Sở Nông nghiệp và Phát triển nông thôn"
+                }, 
+                {
+                    value: 37792,
+                    text: "Sở Tài chính"
+                }, 
+                {
+                    value: 37915,
+                    text: "Sở Thông tin và Truyền thông"
+                }, 
+                {
+                    value: 38038,
+                    text: "Sở Tư pháp"
+                }, 
+                {
+                    value: 38161,
+                    text: "Sở Văn hoá Thể thao và Du lịch"
+                }, 
+                {
+                    value: 38284,
+                    text: "Sở Y tế"
+                },
+                {
+                    value: 38407,
+                    text: "Ban Dân tộc"
+                },
+                {
+                    value: 38530,
+                    text: "Ban Quản lý khu kinh tế"
+                }, 
+                {
+                    value: 38653,
+                    text: "Ban Quản lý khu công nghiệp"
+                },
+                {
+                    value: 38776,
+                    text: "Văn phòng UBND tỉnh"
+                },
+                {
+                    value: 38899,
+                    text: "UBND Thành phố Cao Lãnh"
+                },
+                {
+                    value: 39022,
+                    text: "UBND Thành phố Sa Đéc"
+                },
+                {
+                    value: 39145,
+                    text: "UBND Thị xã Hồng Ngự"
+                },
+                {
+                    value: 39342,
+                    text: "UBND huyện Cao Lãnh"
+                },
+                {
+                    value: 39465,
+                    text: "UBND huyện Châu Thành"
+                },
+                {
+                    value: 39588,
+                    text: "UBND thị xã Hồng Ngự"
+                },
+                {
+                    value: 39711,
+                    text: "UBND huyện Lai Vung"
+                },
+                {
+                    value: 39834,
+                    text: "UBND huyện Lấp Vò"
+                },
+                {
+                    value: 39957,
+                    text: "UBND huyện Tam Nông"
+                },
+                {
+                    value: 40080,
+                    text: "UBND huyện Tân Hồng"
+                },
+                {
+                    value: 40265,
+                    text: "UBND huyện Thanh Bình"
+                },
+                {
+                    value: 40388,
+                    text: "UBND huyện Tháp Mười"
+                },
+                {
+                    value: 40511,
+                    text: "Cấp xã thành phố Cao Lãnh"
+                },
+                {
+                    value: 40634,
+                    text: "Cấp xã thành phố SADEC"
+                },
+                {
+                    value: 40757,
+                    text: "Cấp xã thị xã Hồng Ngự"
+                },
+                {
+                    value: 40880,
+                    text: "Cấp xã huyện Cao Lãnh"
+                },
+                {
+                    value: 41003,
+                    text: "Cấp xã huyện Châu Thành"
+                },
+                {
+                    value: 41126,
+                    text: "Cấp xã huyện Hồng Ngự"
+                },
+                {
+                    value: 41249,
+                    text: "Cấp xã huyện Lai Vung"
+                },
+                {
+                    value: 41372,
+                    text: "Cấp xã huyện Lấp Vò"
+                },
+                {
+                    value: 41497,
+                    text: "Cấp xã huyện Tam Nông"
+                },
+                {
+                    value: 41620,
+                    text: "Cấp xã huyện Tân Hồng"
+                },
+                {
+                    value: 42060,
+                    text: "Cấp xã huyện Thanh Bình"
+                },
+                {
+                    value: 41866,
+                    text: "Cấp xã huyện Tháp Mười"
+                }
+            ],
+            groupIdList: [
+                {
+                    group: 1,
+                    label: "Chọn cấp Sở",
+                    key: 'SBN',
+                    value: [
+                        {
+                            value: 35934,
+                            text: "Sở Tài nguyên và Môi trường"
+                        },
+                        {
+                            value: 36237,
+                            text: "Sở Xây dựng"
+                        }, 
+                        {
+                            value: 36461,
+                            text: "Sở Công thương"
+                        }, 
+                        {
+                            value: 36585,
+                            text: "Sở Giáo dục và Đào tạo"
+                        }, 
+                        {
+                            value: 36709,
+                            text: "Sở Giao thông Vận tải"
+                        }, 
+                        {
+                            value: 36832,
+                            text: "Sở Kế hoạch và Đầu tư"
+                        }, 
+                        {
+                            value: 36956,
+                            text: "Sở Khoa học và Công nghệ"
+                        }, 
+                        {
+                            value: 37079,
+                            text: "Sở Lao động thương binh và Xã hội"
+                        },
+                        {
+                            value: 37202,
+                            text: "Sở Ngoại vụ"
+                        },
+                        {
+                            value: 37327,
+                            text: "Sở Nội vụ"
+                        }, 
+                        {
+                            value: 37669,
+                            text: "Sở Nông nghiệp và Phát triển nông thôn"
+                        }, 
+                        {
+                            value: 37792,
+                            text: "Sở Tài chính"
+                        }, 
+                        {
+                            value: 37915,
+                            text: "Sở Thông tin và Truyền thông"
+                        }, 
+                        {
+                            value: 38038,
+                            text: "Sở Tư pháp"
+                        }, 
+                        {
+                            value: 38161,
+                            text: "Sở Văn hoá Thể thao và Du lịch"
+                        }, 
+                        {
+                            value: 38284,
+                            text: "Sở Y tế"
+                        },
+                        {
+                            value: 38407,
+                            text: "Ban Dân tộc"
+                        },
+                        {
+                            value: 38530,
+                            text: "Ban Quản lý khu kinh tế"
+                        }, 
+                        {
+                            value: 38653,
+                            text: "Ban Quản lý khu công nghiệp"
+                        },
+                        {
+                            value: 38776,
+                            text: "Văn phòng UBND tỉnh"
+                        }
+                    ]
+                },
+                {
+                    group: 2,
+                    label: "Chọn cấp Huyện",
+                    key: 'QUAN_HUYEN',
+                    value: [
+                        {
+                            value: 38899,
+                            text: "UBND Thành phố Cao Lãnh"
+                        },
+                        {
+                            value: 39022,
+                            text: "UBND Thành phố Sa Đéc"
+                        },
+                        {
+                            value: 39145,
+                            text: "UBND Thị xã Hồng Ngự"
+                        },
+                        {
+                            value: 39342,
+                            text: "UBND huyện Cao Lãnh"
+                        },
+                        {
+                            value: 39465,
+                            text: "UBND huyện Châu Thành"
+                        },
+                        {
+                            value: 39588,
+                            text: "UBND thị xã Hồng Ngự"
+                        },
+                        {
+                            value: 39711,
+                            text: "UBND huyện Lai Vung"
+                        },
+                        {
+                            value: 39834,
+                            text: "UBND huyện Lấp Vò"
+                        },
+                        {
+                            value: 39957,
+                            text: "UBND huyện Tam Nông"
+                        },
+                        {
+                            value: 40080,
+                            text: "UBND huyện Tân Hồng"
+                        },
+                        {
+                            value: 40265,
+                            text: "UBND huyện Thanh Bình"
+                        },
+                        {
+                            value: 40388,
+                            text: "UBND huyện Tháp Mười"
+                        }
+                    ]
+                },
+                {
+                    group: 3,
+                    label: "Chọn cấp Xã",
+                    key: 'XA_PHUONG',
+                    value: [
+                    {
+                        value: 40511,
+                        text: "Cấp xã thành phố Cao Lãnh"
+                    },
+                    {
+                        value: 40634,
+                        text: "Cấp xã thành phố SADEC"
+                    },
+                    {
+                        value: 40757,
+                        text: "Cấp xã thị xã Hồng Ngự"
+                    },
+                    {
+                        value: 40880,
+                        text: "Cấp xã huyện Cao Lãnh"
+                    },
+                    {
+                        value: 41003,
+                        text: "Cấp xã huyện Châu Thành"
+                    },
+                    {
+                        value: 41126,
+                        text: "Cấp xã huyện Hồng Ngự"
+                    },
+                    {
+                        value: 41249,
+                        text: "Cấp xã huyện Lai Vung"
+                    },
+                    {
+                        value: 41372,
+                        text: "Cấp xã huyện Lấp Vò"
+                    },
+                    {
+                        value: 41497,
+                        text: "Cấp xã huyện Tam Nông"
+                    },
+                    {
+                        value: 41620,
+                        text: "Cấp xã huyện Tân Hồng"
+                    },
+                    {
+                        value: 42060,
+                        text: "Cấp xã huyện Thanh Bình"
+                    },
+                    {
+                        value: 41866,
+                        text: "Cấp xã huyện Tháp Mười"
+                    }
+                    ]
+                }
+            ],
+            groupBy: [
+                {
+                key: "domainCode",
+                label: "Lĩnh vực",
+                display: "domainName"
+                },
+                {
+                key: "serviceCode",
+                label: "Thủ tục",
+                display: "serviceName"
+                },
+                {
+                key: "govAgencyCode",
+                label: "Cơ quan",
+                display: "govAgencyName"
+                }
+            ],
+            filters: [
+				{
+                    label: "Lĩnh vực",
+                    clearable: "true",
+                    source: "",
+                    key: "domainCode",
+                    value: "",
+                    valueMapping: "domainCode",
+                    nameMapping: "domainName",
+                    type: "select",
+                    multiple: "true",
+                    api: "/o/rest/v2/serviceinfos/statistics/domains",
+                    proxyApi: "/serviceinfos/statistics/domains",
+                    class: "xs6 px-3 mb-3"
+                },
+                {
+                    label: "Thủ tục",
+                    source: "",
+                    key: "serviceCode",
+                    value: "",
+                    valueMapping: "serviceCode",
+                    nameMapping: "serviceName",
+                    type: "select",
+                    multiple: "true",
+                    api: "/o/rest/v2/serviceinfos",
+                    class: "xs6 px-3 mb-3"
+                },
+                {
+                    label: "Mức độ",
+                    key: "listServiceLevel",
+                    value: "null",
+                    type: "select",
+                    source: [
+                        {name: "Tất cả", value: "null"},
+						{name: "Mức độ 2", value: "2"},
+                        {name: "Mức độ 3", value: "3"},
+                        {name: "Mức độ 4", value: "4"}
+                    ]
+                },
+                {
+                    label: "Hình thức nộp hồ sơ",
+                    key: "listTypeSendDossier",
+                    value: "null",
+                    type: "select",
+                    source: [
+                        {name: "TRỰC TIẾP, TRỰC TUYẾN, QUA BƯU ĐIỆN", value: "null"},
+                        {name: "TRỰC TUYẾN", value: "1"},
+                        {name: "TRỰC TIẾP", value: "2"},
+                        {name: "QUA BƯU ĐIỆN", value: "3"}
+                    ],
+                    clearable: true
+                },
+				{
+                    label: "Hồ sơ liên thông",
+                    key: "isHSLT",
+                    value: "",
+                    type: "select",
+                    source: [
+						{name: "LIÊN THÔNG", value: "true"}
+                    ],
+					clearable: true
+                },
+				{
+                    label: "Loại thủ tục hành chính",
+                    key: "tagCode",
+                    value: "",
+                    type: "select",
+                    source: [
+                        {name: "4 TẠI CHỖ", value: "4_TAI_CHO"},
+                        {name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
+                    ],
+					clearable: true
+                },
+                {
+                    label: "Trạng thái",
+                    key: "subList",
+                    value: "total",
+                    type: "select",
+                    source: [
+                        {name: "Kỳ trước", value: "remaining"},
+                        {name: "Trong kỳ", value: "receive"},
+                        {name: "Đã giải quyết", value: "release"},
+                        {name: "Đã giải quyết sớm hạn", value: "betime"},
+                        {name: "Đã giải quyết đúng hạn", value: "ontime"},
+                        {name: "Đã giải quyết trễ hạn", value: "overtime"},
+						{name: "Đang giải quyết", value: "processing"},
+						{name: "Đang giải quyết chưa đến hạn", value: "undue"},
+						{name: "Đang giải quyết quá hạn", value: "overdue"},
+						{name: "Hồ sơ đã hủy", value: "cancelled"}
+                    ],
+					clearable: true
+                },
+                {
+                    label: "Ngày tiếp nhận từ ngày",
+                    key: "fromDate",
+                    value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+                    type: "date", 
+                    before: "toDate" 
+                },
+                {
+                    label: "Đến ngày",
+                    key: "toDate",
+                    value: new Date().toLocaleDateString('vi-VN'),
+                    type: "date", 
+                    after: "fromDate" 
+                }
+            
+            ],
+            reportConfig: [
+            {
+            "selected": true,
+            "value": "dossierNo",
+            "text": "Mã hồ sơ"
+            },
+            {
+            "value": "serviceCode",
+            "text": "Mã thủ tục"
+            },
+            {
+            "selected": true,
+            "value": "dossierName",
+            "align": "left",
+            "text": "Nội dung"
+            },
+            {
+            "value": "govAgencyName",
+            "text": "Cơ quan thụ lý"
+            },
+            {
+            "value": "registerBookName",
+            "text": "Sổ theo dõi"
+            },
+            {
+            "selected": true,
+            "value": "applicantName",
+            "align": "left",
+            "text": "Chủ hồ sơ"
+            },
+            {
+            "value": "address",
+            "text": "Địa chỉ",
+            "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+            },
+            {
+            "value": "contactTelNo",
+            "text": "Số điện thoại"
+            },
+            {
+            "value": "contactEmail",
+            "text": "Thư điện tử"
+            },
+            {
+            "value": "delegateName",
+            "text": "Người nộp hồ sơ"
+            },
+            {
+            "value": "delegateTelNo",
+            "text": "Điện thoại liên lạc"
+            },
+            {
+            "value": "submitDate",
+            "text": "Ngày gửi"
+            },
+            {
+            "selected": true,
+            "value": "receiveDate",
+            "text": "Ngày tiếp nhận"
+            },
+            {
+            "selected": true,
+            "value": "dueDate",
+            "text": "Ngày hẹn trả"
+            },
+            {
+            "value": "extendDate",
+            "text": "Ngày gia hạn"
+            },
+            {
+            "value": "releaseDate",
+            "text": "Ngày hoàn thành"
+            },
+            {
+            "value": "finishDate",
+            "text": "Ngày trả"
+            },
+            {
+            "selected": true,
+            "value": "dossierStatusText",
+            "text": "Trạng thái"
+            },
+            {
+            "value": "online",
+            "text": "Trực tuyến"
+            },
+            {
+            "value": "originDossierNo",
+            "text": "Mã hồ sơ gốc"
+            },   
+            {
+            "value": "dossierNote",
+            "align": "left",
+            "text": "Ghi chú xử lý"
+            },
+            {
+            "value": "applicantNote",
+            "align": "left",
+            "text": "Ghi chú nộp."
+            },
+            {
+            "value": "briefNote",
+            "align": "left",
+            "text": "Chi tiết nội dung"
+            }
+            ]
+        }
+
+    
+    ]]>
+    </filterConfig>
+    <reportCode>REPORT_113</reportCode>
+    <reportName>Báo cáo thống kê chi tiết</reportName>
+    <sharing>1</sharing>
+    <tableConfig><![CDATA[
+    {
+        docDefinition: {
+            pageOrientation: 'landscape',
+            content: [
+            {
+                    columns: [
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "VĂN PHÒNG UBND TỈNH ĐỒNG THÁP\n"},
+                                {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
+                                {text: "-------------------------------------------\n"}
+                            ]
+                        },
+						{
+                            width: 100,
+                            style: "title",
+                            text: ''
+                        },
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                {text: "-------------------------------------------\n"},
+                                {text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                            ]
+                        }
+                    ]
+            },
+            {
+                text: [
+                {text: 'BÁO CÁO TIẾP NHẬN HỒ SƠ CỦA ĐƠN VỊ\n'},
+                {text: "Tiếp nhận từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                ], 
+                margin: [0, 20],
+                style: 'headerTitle'
+            },
+            {
+                style: 'tableExample',
+                table: {
+                widths: "[$tableWidth$]",
+                body: ["[$report$]"]
+                },
+                margin: [0, 0, 0, 20]
+            },
+            {
+                columns: [
+                {
+                    width: '*',
+                    text: ''
+                },
+                {
+                    width: 150,
+                    style: 'title',
+                    text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+                }
+                ]
+            },
+            {
+                columns: [
+                {
+                    width: '*',
+                    text: ''
+                },
+                {
+                    width: 150,
+                    style: 'titleSub',
+                    text: '(Ký và ghi rõ họ tên)'
+                }
+                ]
+            }
+            ],
+            styles: {
+            ngayThangNam: {
+                fontSize: 10,
+                italics: true,
+                bold: false,
+                alignment: 'center'
+            },
+            headerTitle: {
+                alignment: 'center',
+                bold: true,
+                fontSize: 13
+            },
+            borderHeader: {
+                alignment: 'left'
+            },
+            title: {
+                bold: true,
+                alignment: 'center'
+            },
+            titleSub: {
+                fontSize: 10,
+                italics: true,
+                alignment: 'center'
+            },
+            tdStyle: {
+                fontSize: 10
+            },
+            tableExample: {
+                width: "100%" 
+            }
+            },
+            defaultStyle: {
+            columnGap: 20,
+            fontSize: 11
+            }
+        } 
+    }
+    ]]>
+    </tableConfig>
+    <userConfig>{"order": 15}</userConfig>
   </DynamicReport>
 </DynamicReportList>

@@ -71,7 +71,7 @@
           </v-card-text>
       </base-material-card>
       <v-dialog
-        max-width="700"
+        max-width="900"
         v-model="dialogAddMember"
       >
         <v-card>
@@ -131,8 +131,8 @@
                         hide-no-data
                         :items="listTinhThanh"
                         v-model="tinhThanh"
-                        item-text="itemName"
-                        item-value="itemCode"
+                        item-text="tinhThanhTen"
+                        item-value="tinhThanhMa"
                         clearable
                         :rules="required"
                         required
@@ -145,8 +145,8 @@
                         hide-no-data
                         :items="listQuanHuyen"
                         v-model="quanHuyen"
-                        item-text="itemName"
-                        item-value="itemCode"
+                        item-text="quanHuyenTen"
+                        item-value="quanHuyenMa"
                         clearable
                         :rules="required"
                         required
@@ -159,8 +159,8 @@
                         hide-no-data
                         :items="listXaPhuong"
                         v-model="xaPhuong"
-                        item-text="itemName"
-                        item-value="itemCode"
+                        item-text="phuongXaTen"
+                        item-value="phuongXaMa"
                         clearable
                         :rules="required"
                         required
@@ -223,17 +223,17 @@
         loadingData: false,
         dialogAddMember: false,
         thongTinCoSo: {
-            MaCoSo: '',
-            TenCoSo: '',
-            TinhThanh_Ma: '',
-            TinhThanh_Ten: '',
-            QuanHuyen_Ma: '',
-            QuanHuyen_Ten: '',
-            PhuongXa_Ma: '',
-            PhuongXa_Ten: '',
-            DiaChiCoSo: '',
-            NguoiDaiDien: '',
-            SoDienThoai: ''
+          MaCoSo: '',
+          TenCoSo: '',
+          TinhThanh_Ma: '',
+          TinhThanh_Ten: '',
+          QuanHuyen_Ma: '',
+          QuanHuyen_Ten: '',
+          PhuongXa_Ma: '',
+          PhuongXa_Ten: '',
+          DiaChiCoSo: '',
+          NguoiDaiDien: '',
+          SoDienThoai: ''
         },
         listTinhThanh: [],
         tinhThanh: '',
@@ -249,29 +249,14 @@
         userUpdate: '',
         items: [],
         validFormAdd: true,
-        userName: '',
-        nameRules: [
-          v => !!v || 'Tên địa bàn là bắt buộc'
-        ],
-        account: '',
-        accountRules: [
-          v => !!v || 'Tên đăng nhập là bắt buộc',
-          v => /^[a-zA-Z0-9]+$/.test(v) || 'Tên đăng nhập gồm chữ hoặc số',
-          v => (v && v.length <= 75) || 'Tên đăng nhập không quá 75 ký tự',
-        ],
-        passWord: '',
-        passwordRules: [
-          v => !!v || 'Mật khẩu đăng nhập là bắt buộc',
-          v => (v && v.length >= 6 && v.length <= 75) || 'Mật khẩu ít nhất 6 ký tự',
-        ],
-        telNo: '',
-        telNoRules: [
-          v => !!v || 'Số điện thoại là bắt buộc',
-          v => /^0([1-9]{1}\d{8})$/.test(v) || 'Số điện thoại gồm 10 chữ số',
-        ],
-        address: '',
-        addressRules: [
-          v => (v && v.length <= 200) || 'Địa chỉ không quá 200 ký tự',
+        required: [
+          (value) => {
+            if(String(value).trim()){
+                return true
+              } else {
+                return 'Thông tin bắt buộc'
+              } 
+          }
         ],
         headers: [
           {
@@ -284,48 +269,48 @@
             sortable: false,
             text: 'Mã cơ sơ',
             align: 'center',
-            value: 'MaCoSo'
+            value: 'maCoSo'
           },
           {
             sortable: false,
             text: 'Tên cơ sở',
             align: 'center',
-            value: 'TenCoSo'
+            value: 'tenCoSo'
           },
           {
             sortable: false,
             text: 'Địa chỉ cơ sở',
             align: 'center',
-            value: 'DiaChiCoSo'
+            value: 'diaChiCoSo'
           },
           {
             sortable: false,
             text: 'Tỉnh/ thành phố',
-            value: 'TinhThanh_Ten'
+            value: 'tinhThanhTen'
           },
           {
             sortable: false,
             text: 'Quận/ huyện',
             align: 'center',
-            value: 'QuanHuyen_Ten'
+            value: 'quanHuyenTen'
           },
           {
             sortable: false,
             text: 'Phường/ xã',
             align: 'center',
-            value: 'PhuongXa_Ten'
+            value: 'phuongXaTen'
           },
           {
             sortable: false,
             text: 'Người đại diện',
             align: 'center',
-            value: 'NguoiDaiDien'
+            value: 'nguoiDaiDien'
           },
           {
             sortable: false,
             text: 'Số điện thoại',
             align: 'center',
-            value: 'Số điện thoại'
+            value: 'soDienThoai'
           },
           {
             sortable: false,
@@ -339,17 +324,17 @@
     created () {
       let vm = this
       vm.$store.commit('SET_INDEXTAB', 3)
-      vm.getDiaBanCoSo()
+      vm.getCoSoYTe()
       vm.getTinhThanh()
     },
     watch: {
       tinhThanh (val) {
         this.thongTinCoSo.TinhThanh_Ma = val
-        this.getQuanHuyen()
+        this.getQuanHuyen(val)
       },
       quanHuyen (val) {
         this.thongTinCoSo.QuanHuyen_Ma = val
-        this.getXaPhuong()
+        this.getXaPhuong(val)
       },
       xaPhuong (val) {
         this.thongTinCoSo.PhuongXa_Ma = val 
@@ -361,12 +346,15 @@
       }
     },
     methods: {
-       getDiaBanCoSo () {
+       getCoSoYTe () {
         let vm = this
         let filter = {
+          page: 1,
+          size: 30
         }
-        vm.$store.dispatch('getDiaBanCoSo', filter).then(function (result) {
-          vm.listDiaBan = result.hasOwnProperty('data') ? result.data : []
+        vm.$store.dispatch('getCoSoYTe', filter).then(function (result) {
+          vm.items = result ? result : []
+          vm.totalItem = result.length
         })
       },
       getTinhThanh () {
@@ -374,14 +362,47 @@
         let filter = {
         }
         vm.$store.dispatch('getDanhMucTinhThanh', filter).then(function (result) {
-          vm.listTinhThanh = result.hasOwnProperty('data') ? result.data : []
+          vm.listTinhThanh = result ? result : []
+          if (vm.tinhThanh) {
+            vm.getQuanHuyen(vm.tinhThanh)
+          }
         })
       },
-      getQuanHuyen () {
+      getQuanHuyen (code) {
         let vm = this
+        if (!code) {
+          return
+        }
+        let obj = vm.listTinhThanh.find(function (item) {
+          return item.tinhThanhMa == code
+        })
+        let filter = {
+          idParent: obj['id']
+        }
+        vm.$store.dispatch('getDanhMucQuanHuyen', filter).then(function (result) {
+          vm.listQuanHuyen = result ? result : []
+          if (vm.quanHuyen) {
+            vm.getXaPhuong(vm.quanHuyen)
+          }
+        })
       },
-      getXaPhuong () {
+      getXaPhuong (code) {
         let vm = this
+        if (!code) {
+          return
+        }
+        let obj = vm.listQuanHuyen.find(function (item) {
+          return item.quanHuyenMa == code
+        })
+        if (!obj) {
+          return
+        }
+        let filter = {
+          idParent: obj['id']
+        }
+        vm.$store.dispatch('getDanhMucXaPhuong', filter).then(function (result) {
+          vm.listXaPhuong = result ? result : []
+        })
       },
       addMember (type, user) {
         let vm = this
@@ -390,23 +411,57 @@
         vm.dialogAddMember = true
         if (type === 'add') {
           setTimeout(function () {
-            vm.account = ''
-            vm.passWord = ''
-            vm.userName = ''
-            vm.telNo = ''
-            vm.address = ''
+            vm.$refs.formAddMember.reset()
             vm.$refs.formAddMember.resetValidation()
           }, 200)
         } else {
           setTimeout(function () {
-            vm.account = user.account
-            vm.userName = user.userName
-            vm.telNo = user.telNo
-            vm.address = user.address
+            // diaChiCoSo: "203 Bồ Đề"
+            // id: 2
+            // maCoSo: "001"
+            // nguoiDaiDien: "Nguyễn Văn Nam"
+            // phuongXaMa: "00139"
+            // phuongXaTen: "Phường Bồ Đề"
+            // quanHuyenMa: "004"
+            // quanHuyenTen: "Quận Long Biên"
+            // soDienThoai: "0897893123"
+            // tenCoSo: "Trung tâm y tế phường Bồ Đề"
+            // tinhThanhMa: "01"
+            // tinhThanhTen: "Thành phố Hà Nội"
+            // vm.thongTinCoSo = 
             vm.$refs.formAddMember.resetValidation()
           }, 200)
         }
         
+      },
+      formatDataInput () {
+        let vm = this
+        try {
+          if (vm.tinhThanh) {
+            let obj = vm.listTinhThanh.find(function (item) {
+              return item.tinhThanhMa == vm.tinhThanh
+            })
+            vm.thongTinCoSo.TinhThanh_Ma = vm.tinhThanh
+            vm.thongTinCoSo.TinhThanh_Ten = obj ? obj['tinhThanhTen'] : ''
+          }
+          if (vm.quanHuyen) {
+            let obj = vm.listQuanHuyen.find(function (item) {
+              return item.quanHuyenMa == vm.quanHuyen
+            })
+            vm.thongTinCoSo.QuanHuyen_Ma = vm.quanHuyen
+            vm.thongTinCoSo.QuanHuyen_Ten = obj ? obj['quanHuyenTen'] : ''
+          }
+          if (vm.xaPhuong) {
+            let obj = vm.listXaPhuong.find(function (item) {
+              return item.phuongXaMa == vm.xaPhuong
+            })
+            vm.thongTinCoSo.PhuongXa_Ma = vm.xaPhuong
+            vm.thongTinCoSo.PhuongXa_Ten = obj ? obj['phuongXaTen'] : ''
+          }
+          console.log('thongTinCoSo', vm.thongTinCoSo)
+        } catch (error) {
+          vm.processingAction = false
+        }
       },
       updateStatusUser (type, user) {
         let vm = this
@@ -418,88 +473,38 @@
       submitAddMember () {
         let vm = this
         if (vm.$refs.formAddMember.validate()) {
+          vm.formatDataInput()
           if (vm.typeAction === 'add') {
-            let dataUserAuthen = {
-              account: String(vm.account).trim() + '@gmail.com',
-              passWord: String(vm.passWord).trim(),
-              userName: String(vm.userName).trim(),
-              telNo: String(vm.telNo).trim(),
-              address: String(vm.address).trim()
+            let filter = {
+              data: vm.thongTinCoSo
             }
             vm.loading = true
-            let curr = firebase.auth().currentUser
-            let uidad = curr['uid']
-            let infoad = db.collection("users").doc(uidad)
-            let uss = curr['email']
-            let ssap = ''
-            infoad.get().then((doc) => {
-              if (doc.exists) {
-                ssap = window.atob(doc.data()['pid'])
-              } else {
-              }
-            }).catch((error) => {
-            })
-            firebase.auth().createUserWithEmailAndPassword(dataUserAuthen.account, dataUserAuthen.passWord)
-            .then(userCredential => {
+            vm.$store.dispatch('addCoSoYTe', filter).then(userCredential => {
               vm.loading = false
+              vm.dialogAddMember = false
               vm.$store.commit('SHOW_SNACKBAR', {
                 show: true,
-                text: 'Thêm người dùng thành công',
+                text: 'Thêm cơ sở thành công',
                 color: 'success',
               })
-              // Signed in
-              vm.dialogAddMember = false
-              firebase.auth().signInWithEmailAndPassword(uss, ssap)
-              .then(() => {
-                let user = userCredential.user;
-                db.collection("users").doc(user.uid).set({
-                  account: String(vm.account).trim(),
-                  userName: dataUserAuthen.userName,
-                  telNo: dataUserAuthen.telNo,
-                  address: dataUserAuthen.address,
-                  role: "Member",
-                  status: "",
-                  pid: window.btoa(dataUserAuthen.passWord),
-                  uid: user.uid
-                })
-                .then(() => {
-                  vm.getMembers()
-                })
-                .catch((error) => {
-                })
-              })
-              // ...
+              vm.getMembers()
             })
             .catch((error) => {
               vm.loading = false
-              let errorCode = error.code;
-              let errorMessage = error.message;
-              let mess = ''
-              if (errorCode == 'auth/email-already-in-use') {
-                mess = 'Tên đăng nhập đã được sử dụng. Vui lòng sử dụng tên đăng nhập khác.'
-              } else if (errorCode == 'auth/weak-password') {
-                mess = 'Mật khẩu quá yếu'
-              } else if (errorCode == 'auth/invalid-email') {
-                mess = 'Tên đăng nhập không hợp lệ'
-              } else {
-                mess = errorMessage
-              }
               vm.$store.commit('SHOW_SNACKBAR', {
                 show: true,
-                text: mess,
+                text: 'Thêm cơ sở y tế không thành công',
                 color: 'error',
               })
               // ..
             });
           } else {
+            let filter = {
+              id: '',
+              data: vm.thongTinCoSo
+            }
             vm.loading = true
-            db.collection('users').doc(vm.userUpdate['uid']).update(
-              {
-                userName: vm.userName,
-                telNo: vm.telNo,
-                address: vm.address
-              }
-            ).then(function () {
+            vm.$store.dispatch('updateCoSoYTe', filter).then(function () {
               vm.loading = false
               vm.$store.commit('SHOW_SNACKBAR', {
                 show: true,

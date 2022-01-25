@@ -2411,6 +2411,1818 @@
 		</tableConfig>
 		<userConfig>{"order": 4}</userConfig>
 	</DynamicReport>
+	<DynamicReport label="REPORT_041">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ hoàn thành sớm hạn</reportName>
+		<reportCode>REPORT_041</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+        version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=10",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=10",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=10",
+        exclusive: false,
+        customize: true,
+        groupIds: [
+			{
+			  value: 45022,
+			  text: "Sở Tài nguyên và Môi trường"
+			},
+			{
+			  value: 45027,
+			  text: "Sở Xây dựng"
+			}, 
+			{
+			  value: 45032,
+			  text: "Sở Công thương"
+			}, 
+			{
+			  value: 45037,
+			  text: "Sở Giáo dục và Đào tạo"
+			}, 
+			{
+			  value: 45042,
+			  text: "Sở Giao thông Vận tải"
+			}, 
+			{
+			  value: 35730,
+			  text: "Sở Kế hoạch và Đầu tư"
+			}, 
+			{
+			  value: 45047,
+			  text: "Sở Khoa học và Công nghệ"
+			}, 
+			{
+			  value: 45052,
+			  text: "Sở Lao động thương binh và Xã hội"
+			},
+			{
+			  value: 45087,
+			  text: "Sở Nội vụ"
+			}, 
+			{
+			  value: 45082,
+			  text: "Sở Nông nghiệp và Phát triển nông thôn"
+			}, 
+			{
+			  value: 45057,
+			  text: "Sở Tài chính"
+			}, 
+			{
+			  value: 45062,
+			  text: "Sở Thông tin và Truyền thông"
+			}, 
+			{
+			  value: 45067,
+			  text: "Sở Tư pháp"
+			}, 
+			{
+			  value: 45072,
+			  text: "Sở Văn hoá Thể thao và Du lịch"
+			}, 
+			{
+			  value: 45077,
+			  text: "Sở Y tế"
+			},
+			{
+			  value: 887328,
+			  text: "Công An Tỉnh"
+			},				
+			{
+			  value: 47439,
+			  text: "Ban Quản lý khu công nghiệp"
+			}, 
+			{
+			  value: 44898,
+			  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+			},
+			{
+			  value: 96351,
+			  text: "UBND thành phố Vị Thanh"
+			},
+			{
+				  value: 96701,
+				  text: "UBND Thành phố Ngã Bảy"
+			},
+			{
+				  value: 96980,
+				  text: "UBND Thị xã Long Mỹ"
+			},
+			{
+				  value: 97260,
+				  text: "UBND huyện Vị Thủy"
+			},
+			{
+				  value: 97565,
+				  text: "UBND huyện Long Mỹ"
+			},
+			{
+				  value: 100349,
+				  text: "UBND huyện Phụng Hiệp "
+			},
+			{
+				  value: 100907,
+				  text: "UBND huyện Châu Thành "
+			},
+			{
+				  value: 101465,
+				  text: "UBND huyện Châu Thành A "
+			},
+			{
+			  value: 97901,
+			  text: "Cấp xã thành phố Vị Thanh"
+			},
+			{
+				  value: 98180,
+				  text: "Cấp xã thành phố Ngã Bảy"
+			},
+			{
+				  value: 98501,
+				  text: "Cấp xã thị xã Long Mỹ"
+			},
+			{
+				  value: 98801,
+				  text: "Cấp xã huyện Vị Thủy"
+			},
+			{
+				  value: 99203,
+				  text: "Cấp xã huyện Long Mỹ"
+			},
+			{
+				  value: 100628,
+				  text: "Cấp xã huyện Phụng Hiệp"
+			},
+			{
+				  value: 101186,
+				  text: "Cấp xã huyện Châu Thành"
+			},
+			{
+				  value: 101744,
+				  text: "Cấp xã huyện Châu Thành A "
+			} 
+		  ],
+		  groupIdList: [
+			{
+				group: 1,
+				label: "Chọn cấp Sở",
+				key: 'SBN',
+				value: [
+					{
+					  value: 45022,
+					  text: "Sở Tài nguyên và Môi trường"
+					},
+					{
+					  value: 45027,
+					  text: "Sở Xây dựng"
+					}, 
+					{
+					  value: 45032,
+					  text: "Sở Công thương"
+					}, 
+					{
+					  value: 45037,
+					  text: "Sở Giáo dục và Đào tạo"
+					}, 
+					{
+					  value: 45042,
+					  text: "Sở Giao thông Vận tải"
+					}, 
+					{
+					  value: 35730,
+					  text: "Sở Kế hoạch và Đầu tư"
+					}, 
+					{
+					  value: 45047,
+					  text: "Sở Khoa học và Công nghệ"
+					}, 
+					{
+					  value: 45052,
+					  text: "Sở Lao động thương binh và Xã hội"
+					},
+					{
+					  value: 45087,
+					  text: "Sở Nội vụ"
+					}, 
+					{
+					  value: 45082,
+					  text: "Sở Nông nghiệp và Phát triển nông thôn"
+					}, 
+					{
+					  value: 45057,
+					  text: "Sở Tài chính"
+					}, 
+					{
+					  value: 45062,
+					  text: "Sở Thông tin và Truyền thông"
+					}, 
+					{
+					  value: 45067,
+					  text: "Sở Tư pháp"
+					}, 
+					{
+					  value: 45072,
+					  text: "Sở Văn hoá Thể thao và Du lịch"
+					}, 
+					{
+					  value: 45077,
+					  text: "Sở Y tế"
+					},
+					{
+					  value: 887328,
+					  text: "Công An Tỉnh"
+					},						
+					{
+					  value: 47439,
+					  text: "Ban Quản lý khu công nghiệp"
+					}, 
+					{
+					  value: 44898,
+					  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+					},
+					{
+					  value: 887328,
+					  text: "Công An Tỉnh"
+					}
+				]
+			},
+			{
+				group: 2,
+				label: "Chọn cấp Huyện",
+				key: 'QUAN_HUYEN',
+				value: [
+					{
+					  value: 96351,
+					  text: "UBND thành phố Vị Thanh"
+					},
+					{
+						  value: 96701,
+						  text: "UBND Thành phố Ngã Bảy"
+					},
+					{
+						  value: 96980,
+						  text: "UBND Thị xã Long Mỹ"
+					},
+					{
+						  value: 97260,
+						  text: "UBND huyện Vị Thủy"
+					},
+					{
+						  value: 97565,
+						  text: "UBND huyện Long Mỹ"
+					},
+					{
+						  value: 100349,
+						  text: "UBND huyện Phụng Hiệp "
+					},
+					{
+						  value: 100907,
+						  text: "UBND huyện Châu Thành "
+					},
+					{
+						  value: 101465,
+						  text: "UBND huyện Châu Thành A "
+					}
+				]
+			},
+			{
+			  group: 3,
+			  label: "Chọn cấp Xã",
+			  key: 'XA_PHUONG',
+			  value: [
+				{
+				  value: 97901,
+				  text: "Cấp xã thành phố Vị Thanh"
+				},
+				{
+					  value: 98180,
+					  text: "Cấp xã thành phố Ngã Bảy"
+				},
+				{
+					  value: 98501,
+					  text: "Cấp xã thị xã Long Mỹ"
+				},
+				{
+					  value: 98801,
+					  text: "Cấp xã huyện Vị Thủy"
+				},
+				{
+					  value: 99203,
+					  text: "Cấp xã huyện Long Mỹ"
+				},
+				{
+					  value: 100628,
+					  text: "Cấp xã huyện Phụng Hiệp"
+				},
+				{
+					  value: 101186,
+					  text: "Cấp xã huyện Châu Thành"
+				},
+				{
+					  value: 101744,
+					  text: "Cấp xã huyện Châu Thành A "
+				}
+			  ]
+			}
+		  ],
+        sumKey: "",
+        groupBy: [
+            {
+            key: "domainCode",
+            label: "Lĩnh vực",
+            display: "domainName"
+            },
+            {
+            key: "serviceCode",
+            label: "Thủ tục",
+            display: "serviceName"
+            },
+            {
+            key: "govAgencyCode",
+            label: "Cơ quan",
+            display: "govAgencyName"
+            }
+        ], 
+        filters: [
+            {
+            label: "Từ ngày",
+            key: "fromDate",
+            value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+            type: "date", 
+            before: "toDate" 
+            },
+            {
+            label: "Đến ngày",
+            key: "toDate",
+            value: new Date().toLocaleDateString('vi-VN'),
+            type: "date", 
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+            
+        ],
+        reportConfig: [
+            {
+            "selected": true,
+            "value": "dossierNo",
+            "text": "Mã hồ sơ"
+            },
+            {
+            "value": "serviceCode",
+            "text": "Mã thủ tục"
+            },
+            {
+            "selected": true,
+            "value": "dossierName",
+            "align": "left",
+            "text": "Nội dung"
+            },
+            {
+            "value": "govAgencyName",
+            "text": "Cơ quan thụ lý"
+            },
+            {
+            "value": "registerBookName",
+            "text": "Sổ theo dõi"
+            },
+            {
+            "selected": true,
+            "value": "applicantName",
+            "align": "left",
+            "text": "Chủ hồ sơ"
+            },
+            {
+            "value": "address",
+            "text": "Địa chỉ",
+            "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+            },
+            {
+            "value": "contactTelNo",
+            "text": "Số điện thoại"
+            },
+            {
+            "value": "contactEmail",
+            "text": "Thư điện tử"
+            },
+            {
+            "value": "delegateName",
+            "text": "Người nộp hồ sơ"
+            },
+            {
+            "value": "delegateTelNo",
+            "text": "Điện thoại liên lạc"
+            },
+            {
+            "value": "submitDate",
+            "text": "Ngày gửi"
+            },
+            {
+            "value": "receiveDate",
+            "text": "Ngày tiếp nhận"
+            },
+            {
+            "selected": true,
+            "value": "dueDate",
+            "text": "Ngày hẹn trả"
+            },
+            {
+            "value": "extendDate",
+            "text": "Ngày gia hạn"
+            },
+            {
+            "selected": true,
+            "value": "releaseDate",
+            "text": "Ngày hoàn thành"
+            },
+            {
+            "selected": true,
+            "value": "finishDate",
+            "text": "Ngày trả kết quả"
+            },
+            {
+            "value": "dossierStatusText",
+            "text": "Trạng thái"
+            },
+            {
+            "value": "online",
+            "text": "Trực tuyến"
+            },
+            {
+            "value": "originDossierNo",
+            "text": "Mã hồ sơ gốc"
+            },   
+            {
+            "selected": true,
+            "value": "dossierNote",
+            "align": "left",
+            "text": "Ghi chú"
+            },
+            {
+            "value": "applicantNote",
+            "align": "left",
+            "text": "Ghi chú nộp."
+            },
+            {
+            "value": "briefNote",
+            "align": "left",
+            "text": "Chi tiết nội dung"
+            }
+        ]
+        }
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+        docDefinition: {
+            pageOrientation: 'landscape',
+            content: [
+                {
+                    columns: [
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "UBND TỈNH HẬU GIANG\n"},
+                                {text: "[$siteName$]\n"}
+                            ]
+                        },
+                        {
+                            width: 100,
+                            style: "title",
+                            text: ''
+                        },
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                {text: "-------------------------------------------\n"},
+                                {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                text: [
+                    {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH SỚM HẠN CỦA ĐƠN VỊ\n'},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                ], 
+                margin: [0, 20],
+                style: 'headerTitle'
+                },
+                {
+                style: 'tableExample',
+                table: {
+                    widths: "[$tableWidth$]",
+                    body: ["[$report$]"]
+                },
+                margin: [0, 0, 0, 20]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'title',
+                    text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+                    }
+                ]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'titleSub',
+                    text: '(Ký và ghi rõ họ tên)'
+                    }
+                ]
+                }
+            ],
+            styles: {
+                ngayThangNam: {
+                fontSize: 10,
+                italics: true,
+                bold: false,
+                alignment: 'center'
+                },
+                headerTitle: {
+                    alignment: 'center',
+                    bold: true,
+                    fontSize: 13
+                },
+                borderHeader: {
+                    alignment: 'left'
+                },
+                title: {
+                bold: true,
+                alignment: 'center'
+                },
+                titleSub: {
+                    fontSize: 10,
+                    italics: true,
+                    alignment: 'center'
+                },
+                tdStyle: {
+                fontSize: 10
+                },
+                tableExample: {
+                width: "100%" 
+                }
+            },
+            defaultStyle: {
+                columnGap: 20,
+                fontSize: 11
+            }
+            } 
+        }
+		]]>
+		</tableConfig>
+		<userConfig>{}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_042">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ hoàn thành đúng hạn</reportName>
+		<reportCode>REPORT_042</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+        version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=11",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=11",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=11",
+        exclusive: false,
+        customize: true,
+        groupIds: [
+			{
+			  value: 45022,
+			  text: "Sở Tài nguyên và Môi trường"
+			},
+			{
+			  value: 45027,
+			  text: "Sở Xây dựng"
+			}, 
+			{
+			  value: 45032,
+			  text: "Sở Công thương"
+			}, 
+			{
+			  value: 45037,
+			  text: "Sở Giáo dục và Đào tạo"
+			}, 
+			{
+			  value: 45042,
+			  text: "Sở Giao thông Vận tải"
+			}, 
+			{
+			  value: 35730,
+			  text: "Sở Kế hoạch và Đầu tư"
+			}, 
+			{
+			  value: 45047,
+			  text: "Sở Khoa học và Công nghệ"
+			}, 
+			{
+			  value: 45052,
+			  text: "Sở Lao động thương binh và Xã hội"
+			},
+			{
+			  value: 45087,
+			  text: "Sở Nội vụ"
+			}, 
+			{
+			  value: 45082,
+			  text: "Sở Nông nghiệp và Phát triển nông thôn"
+			}, 
+			{
+			  value: 45057,
+			  text: "Sở Tài chính"
+			}, 
+			{
+			  value: 45062,
+			  text: "Sở Thông tin và Truyền thông"
+			}, 
+			{
+			  value: 45067,
+			  text: "Sở Tư pháp"
+			}, 
+			{
+			  value: 45072,
+			  text: "Sở Văn hoá Thể thao và Du lịch"
+			}, 
+			{
+			  value: 45077,
+			  text: "Sở Y tế"
+			},
+			{
+			  value: 887328,
+			  text: "Công An Tỉnh"
+			},				
+			{
+			  value: 47439,
+			  text: "Ban Quản lý khu công nghiệp"
+			}, 
+			{
+			  value: 44898,
+			  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+			},
+			{
+			  value: 96351,
+			  text: "UBND thành phố Vị Thanh"
+			},
+			{
+				  value: 96701,
+				  text: "UBND Thành phố Ngã Bảy"
+			},
+			{
+				  value: 96980,
+				  text: "UBND Thị xã Long Mỹ"
+			},
+			{
+				  value: 97260,
+				  text: "UBND huyện Vị Thủy"
+			},
+			{
+				  value: 97565,
+				  text: "UBND huyện Long Mỹ"
+			},
+			{
+				  value: 100349,
+				  text: "UBND huyện Phụng Hiệp "
+			},
+			{
+				  value: 100907,
+				  text: "UBND huyện Châu Thành "
+			},
+			{
+				  value: 101465,
+				  text: "UBND huyện Châu Thành A "
+			},
+			{
+			  value: 97901,
+			  text: "Cấp xã thành phố Vị Thanh"
+			},
+			{
+				  value: 98180,
+				  text: "Cấp xã thành phố Ngã Bảy"
+			},
+			{
+				  value: 98501,
+				  text: "Cấp xã thị xã Long Mỹ"
+			},
+			{
+				  value: 98801,
+				  text: "Cấp xã huyện Vị Thủy"
+			},
+			{
+				  value: 99203,
+				  text: "Cấp xã huyện Long Mỹ"
+			},
+			{
+				  value: 100628,
+				  text: "Cấp xã huyện Phụng Hiệp"
+			},
+			{
+				  value: 101186,
+				  text: "Cấp xã huyện Châu Thành"
+			},
+			{
+				  value: 101744,
+				  text: "Cấp xã huyện Châu Thành A "
+			} 
+		  ],
+		  groupIdList: [
+			{
+				group: 1,
+				label: "Chọn cấp Sở",
+				key: 'SBN',
+				value: [
+					{
+					  value: 45022,
+					  text: "Sở Tài nguyên và Môi trường"
+					},
+					{
+					  value: 45027,
+					  text: "Sở Xây dựng"
+					}, 
+					{
+					  value: 45032,
+					  text: "Sở Công thương"
+					}, 
+					{
+					  value: 45037,
+					  text: "Sở Giáo dục và Đào tạo"
+					}, 
+					{
+					  value: 45042,
+					  text: "Sở Giao thông Vận tải"
+					}, 
+					{
+					  value: 35730,
+					  text: "Sở Kế hoạch và Đầu tư"
+					}, 
+					{
+					  value: 45047,
+					  text: "Sở Khoa học và Công nghệ"
+					}, 
+					{
+					  value: 45052,
+					  text: "Sở Lao động thương binh và Xã hội"
+					},
+					{
+					  value: 45087,
+					  text: "Sở Nội vụ"
+					}, 
+					{
+					  value: 45082,
+					  text: "Sở Nông nghiệp và Phát triển nông thôn"
+					}, 
+					{
+					  value: 45057,
+					  text: "Sở Tài chính"
+					}, 
+					{
+					  value: 45062,
+					  text: "Sở Thông tin và Truyền thông"
+					}, 
+					{
+					  value: 45067,
+					  text: "Sở Tư pháp"
+					}, 
+					{
+					  value: 45072,
+					  text: "Sở Văn hoá Thể thao và Du lịch"
+					}, 
+					{
+					  value: 45077,
+					  text: "Sở Y tế"
+					},
+					{
+					  value: 887328,
+					  text: "Công An Tỉnh"
+					},						
+					{
+					  value: 47439,
+					  text: "Ban Quản lý khu công nghiệp"
+					}, 
+					{
+					  value: 44898,
+					  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+					},
+					{
+					  value: 887328,
+					  text: "Công An Tỉnh"
+					}
+				]
+			},
+			{
+				group: 2,
+				label: "Chọn cấp Huyện",
+				key: 'QUAN_HUYEN',
+				value: [
+					{
+					  value: 96351,
+					  text: "UBND thành phố Vị Thanh"
+					},
+					{
+						  value: 96701,
+						  text: "UBND Thành phố Ngã Bảy"
+					},
+					{
+						  value: 96980,
+						  text: "UBND Thị xã Long Mỹ"
+					},
+					{
+						  value: 97260,
+						  text: "UBND huyện Vị Thủy"
+					},
+					{
+						  value: 97565,
+						  text: "UBND huyện Long Mỹ"
+					},
+					{
+						  value: 100349,
+						  text: "UBND huyện Phụng Hiệp "
+					},
+					{
+						  value: 100907,
+						  text: "UBND huyện Châu Thành "
+					},
+					{
+						  value: 101465,
+						  text: "UBND huyện Châu Thành A "
+					}
+				]
+			},
+			{
+			  group: 3,
+			  label: "Chọn cấp Xã",
+			  key: 'XA_PHUONG',
+			  value: [
+				{
+				  value: 97901,
+				  text: "Cấp xã thành phố Vị Thanh"
+				},
+				{
+					  value: 98180,
+					  text: "Cấp xã thành phố Ngã Bảy"
+				},
+				{
+					  value: 98501,
+					  text: "Cấp xã thị xã Long Mỹ"
+				},
+				{
+					  value: 98801,
+					  text: "Cấp xã huyện Vị Thủy"
+				},
+				{
+					  value: 99203,
+					  text: "Cấp xã huyện Long Mỹ"
+				},
+				{
+					  value: 100628,
+					  text: "Cấp xã huyện Phụng Hiệp"
+				},
+				{
+					  value: 101186,
+					  text: "Cấp xã huyện Châu Thành"
+				},
+				{
+					  value: 101744,
+					  text: "Cấp xã huyện Châu Thành A "
+				}
+			  ]
+			}
+		  ],
+        sumKey: "",
+        groupBy: [
+            {
+            key: "domainCode",
+            label: "Lĩnh vực",
+            display: "domainName"
+            },
+            {
+            key: "serviceCode",
+            label: "Thủ tục",
+            display: "serviceName"
+            },
+            {
+            key: "govAgencyCode",
+            label: "Cơ quan",
+            display: "govAgencyName"
+            }
+        ], 
+        filters: [
+            {
+            label: "Từ ngày",
+            key: "fromDate",
+            value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+            type: "date", 
+            before: "toDate" 
+            },
+            {
+            label: "Đến ngày",
+            key: "toDate",
+            value: new Date().toLocaleDateString('vi-VN'),
+            type: "date", 
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+            
+        ],
+        reportConfig: [
+            {
+            "selected": true,
+            "value": "dossierNo",
+            "text": "Mã hồ sơ"
+            },
+            {
+            "value": "serviceCode",
+            "text": "Mã thủ tục"
+            },
+            {
+            "selected": true,
+            "value": "dossierName",
+            "align": "left",
+            "text": "Nội dung"
+            },
+            {
+            "value": "govAgencyName",
+            "text": "Cơ quan thụ lý"
+            },
+            {
+            "value": "registerBookName",
+            "text": "Sổ theo dõi"
+            },
+            {
+            "selected": true,
+            "value": "applicantName",
+            "align": "left",
+            "text": "Chủ hồ sơ"
+            },
+            {
+            "value": "address",
+            "text": "Địa chỉ",
+            "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+            },
+            {
+            "value": "contactTelNo",
+            "text": "Số điện thoại"
+            },
+            {
+            "value": "contactEmail",
+            "text": "Thư điện tử"
+            },
+            {
+            "value": "delegateName",
+            "text": "Người nộp hồ sơ"
+            },
+            {
+            "value": "delegateTelNo",
+            "text": "Điện thoại liên lạc"
+            },
+            {
+            "value": "submitDate",
+            "text": "Ngày gửi"
+            },
+            {
+            "value": "receiveDate",
+            "text": "Ngày tiếp nhận"
+            },
+            {
+            "selected": true,
+            "value": "dueDate",
+            "text": "Ngày hẹn trả"
+            },
+            {
+            "value": "extendDate",
+            "text": "Ngày gia hạn"
+            },
+            {
+            "selected": true,
+            "value": "releaseDate",
+            "text": "Ngày hoàn thành"
+            },
+            {
+            "selected": true,
+            "value": "finishDate",
+            "text": "Ngày trả kết quả"
+            },
+            {
+            "value": "dossierStatusText",
+            "text": "Trạng thái"
+            },
+            {
+            "value": "online",
+            "text": "Trực tuyến"
+            },
+            {
+            "value": "originDossierNo",
+            "text": "Mã hồ sơ gốc"
+            },   
+            {
+            "selected": true,
+            "value": "dossierNote",
+            "align": "left",
+            "text": "Ghi chú"
+            },
+            {
+            "value": "applicantNote",
+            "align": "left",
+            "text": "Ghi chú nộp."
+            },
+            {
+            "value": "briefNote",
+            "align": "left",
+            "text": "Chi tiết nội dung"
+            }
+        ]
+        }
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+        docDefinition: {
+            pageOrientation: 'landscape',
+            content: [
+                {
+                    columns: [
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "UBND TỈNH HẬU GIANG\n"},
+                                {text: "[$siteName$]\n"}
+                            ]
+                        },
+                        {
+                            width: 100,
+                            style: "title",
+                            text: ''
+                        },
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                {text: "-------------------------------------------\n"},
+                                {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                text: [
+                    {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH ĐÚNG HẠN CỦA ĐƠN VỊ\n'},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                ], 
+                margin: [0, 20],
+                style: 'headerTitle'
+                },
+                {
+                style: 'tableExample',
+                table: {
+                    widths: "[$tableWidth$]",
+                    body: ["[$report$]"]
+                },
+                margin: [0, 0, 0, 20]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'title',
+                    text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+                    }
+                ]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'titleSub',
+                    text: '(Ký và ghi rõ họ tên)'
+                    }
+                ]
+                }
+            ],
+            styles: {
+                ngayThangNam: {
+                fontSize: 10,
+                italics: true,
+                bold: false,
+                alignment: 'center'
+                },
+                headerTitle: {
+                    alignment: 'center',
+                    bold: true,
+                    fontSize: 13
+                },
+                borderHeader: {
+                    alignment: 'left'
+                },
+                title: {
+                bold: true,
+                alignment: 'center'
+                },
+                titleSub: {
+                    fontSize: 10,
+                    italics: true,
+                    alignment: 'center'
+                },
+                tdStyle: {
+                fontSize: 10
+                },
+                tableExample: {
+                width: "100%" 
+                }
+            },
+            defaultStyle: {
+                columnGap: 20,
+                fontSize: 11
+            }
+            } 
+        }
+		]]>
+		</tableConfig>
+		<userConfig>{}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_043">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ hoàn thành trễ hạn</reportName>
+		<reportCode>REPORT_043</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+        version: "2",
+        numberPerPage: "500",
+        api: "/o/statistic/dossier/groupcount?type=12",
+        apiLayDanhSach: "/o/statistic/dossier/list?type=12",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=12",
+        exclusive: false,
+        customize: true,
+        groupIds: [
+			{
+			  value: 45022,
+			  text: "Sở Tài nguyên và Môi trường"
+			},
+			{
+			  value: 45027,
+			  text: "Sở Xây dựng"
+			}, 
+			{
+			  value: 45032,
+			  text: "Sở Công thương"
+			}, 
+			{
+			  value: 45037,
+			  text: "Sở Giáo dục và Đào tạo"
+			}, 
+			{
+			  value: 45042,
+			  text: "Sở Giao thông Vận tải"
+			}, 
+			{
+			  value: 35730,
+			  text: "Sở Kế hoạch và Đầu tư"
+			}, 
+			{
+			  value: 45047,
+			  text: "Sở Khoa học và Công nghệ"
+			}, 
+			{
+			  value: 45052,
+			  text: "Sở Lao động thương binh và Xã hội"
+			},
+			{
+			  value: 45087,
+			  text: "Sở Nội vụ"
+			}, 
+			{
+			  value: 45082,
+			  text: "Sở Nông nghiệp và Phát triển nông thôn"
+			}, 
+			{
+			  value: 45057,
+			  text: "Sở Tài chính"
+			}, 
+			{
+			  value: 45062,
+			  text: "Sở Thông tin và Truyền thông"
+			}, 
+			{
+			  value: 45067,
+			  text: "Sở Tư pháp"
+			}, 
+			{
+			  value: 45072,
+			  text: "Sở Văn hoá Thể thao và Du lịch"
+			}, 
+			{
+			  value: 45077,
+			  text: "Sở Y tế"
+			},
+			{
+			  value: 887328,
+			  text: "Công An Tỉnh"
+			},				
+			{
+			  value: 47439,
+			  text: "Ban Quản lý khu công nghiệp"
+			}, 
+			{
+			  value: 44898,
+			  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+			},
+			{
+			  value: 96351,
+			  text: "UBND thành phố Vị Thanh"
+			},
+			{
+				  value: 96701,
+				  text: "UBND Thành phố Ngã Bảy"
+			},
+			{
+				  value: 96980,
+				  text: "UBND Thị xã Long Mỹ"
+			},
+			{
+				  value: 97260,
+				  text: "UBND huyện Vị Thủy"
+			},
+			{
+				  value: 97565,
+				  text: "UBND huyện Long Mỹ"
+			},
+			{
+				  value: 100349,
+				  text: "UBND huyện Phụng Hiệp "
+			},
+			{
+				  value: 100907,
+				  text: "UBND huyện Châu Thành "
+			},
+			{
+				  value: 101465,
+				  text: "UBND huyện Châu Thành A "
+			},
+			{
+			  value: 97901,
+			  text: "Cấp xã thành phố Vị Thanh"
+			},
+			{
+				  value: 98180,
+				  text: "Cấp xã thành phố Ngã Bảy"
+			},
+			{
+				  value: 98501,
+				  text: "Cấp xã thị xã Long Mỹ"
+			},
+			{
+				  value: 98801,
+				  text: "Cấp xã huyện Vị Thủy"
+			},
+			{
+				  value: 99203,
+				  text: "Cấp xã huyện Long Mỹ"
+			},
+			{
+				  value: 100628,
+				  text: "Cấp xã huyện Phụng Hiệp"
+			},
+			{
+				  value: 101186,
+				  text: "Cấp xã huyện Châu Thành"
+			},
+			{
+				  value: 101744,
+				  text: "Cấp xã huyện Châu Thành A "
+			} 
+		  ],
+		  groupIdList: [
+			{
+				group: 1,
+				label: "Chọn cấp Sở",
+				key: 'SBN',
+				value: [
+					{
+					  value: 45022,
+					  text: "Sở Tài nguyên và Môi trường"
+					},
+					{
+					  value: 45027,
+					  text: "Sở Xây dựng"
+					}, 
+					{
+					  value: 45032,
+					  text: "Sở Công thương"
+					}, 
+					{
+					  value: 45037,
+					  text: "Sở Giáo dục và Đào tạo"
+					}, 
+					{
+					  value: 45042,
+					  text: "Sở Giao thông Vận tải"
+					}, 
+					{
+					  value: 35730,
+					  text: "Sở Kế hoạch và Đầu tư"
+					}, 
+					{
+					  value: 45047,
+					  text: "Sở Khoa học và Công nghệ"
+					}, 
+					{
+					  value: 45052,
+					  text: "Sở Lao động thương binh và Xã hội"
+					},
+					{
+					  value: 45087,
+					  text: "Sở Nội vụ"
+					}, 
+					{
+					  value: 45082,
+					  text: "Sở Nông nghiệp và Phát triển nông thôn"
+					}, 
+					{
+					  value: 45057,
+					  text: "Sở Tài chính"
+					}, 
+					{
+					  value: 45062,
+					  text: "Sở Thông tin và Truyền thông"
+					}, 
+					{
+					  value: 45067,
+					  text: "Sở Tư pháp"
+					}, 
+					{
+					  value: 45072,
+					  text: "Sở Văn hoá Thể thao và Du lịch"
+					}, 
+					{
+					  value: 45077,
+					  text: "Sở Y tế"
+					},
+					{
+					  value: 887328,
+					  text: "Công An Tỉnh"
+					},						
+					{
+					  value: 47439,
+					  text: "Ban Quản lý khu công nghiệp"
+					}, 
+					{
+					  value: 44898,
+					  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+					},
+					{
+					  value: 887328,
+					  text: "Công An Tỉnh"
+					}
+				]
+			},
+			{
+				group: 2,
+				label: "Chọn cấp Huyện",
+				key: 'QUAN_HUYEN',
+				value: [
+					{
+					  value: 96351,
+					  text: "UBND thành phố Vị Thanh"
+					},
+					{
+						  value: 96701,
+						  text: "UBND Thành phố Ngã Bảy"
+					},
+					{
+						  value: 96980,
+						  text: "UBND Thị xã Long Mỹ"
+					},
+					{
+						  value: 97260,
+						  text: "UBND huyện Vị Thủy"
+					},
+					{
+						  value: 97565,
+						  text: "UBND huyện Long Mỹ"
+					},
+					{
+						  value: 100349,
+						  text: "UBND huyện Phụng Hiệp "
+					},
+					{
+						  value: 100907,
+						  text: "UBND huyện Châu Thành "
+					},
+					{
+						  value: 101465,
+						  text: "UBND huyện Châu Thành A "
+					}
+				]
+			},
+			{
+			  group: 3,
+			  label: "Chọn cấp Xã",
+			  key: 'XA_PHUONG',
+			  value: [
+				{
+				  value: 97901,
+				  text: "Cấp xã thành phố Vị Thanh"
+				},
+				{
+					  value: 98180,
+					  text: "Cấp xã thành phố Ngã Bảy"
+				},
+				{
+					  value: 98501,
+					  text: "Cấp xã thị xã Long Mỹ"
+				},
+				{
+					  value: 98801,
+					  text: "Cấp xã huyện Vị Thủy"
+				},
+				{
+					  value: 99203,
+					  text: "Cấp xã huyện Long Mỹ"
+				},
+				{
+					  value: 100628,
+					  text: "Cấp xã huyện Phụng Hiệp"
+				},
+				{
+					  value: 101186,
+					  text: "Cấp xã huyện Châu Thành"
+				},
+				{
+					  value: 101744,
+					  text: "Cấp xã huyện Châu Thành A "
+				}
+			  ]
+			}
+		  ],
+        sumKey: "",
+        groupBy: [
+            {
+            key: "domainCode",
+            label: "Lĩnh vực",
+            display: "domainName"
+            },
+            {
+            key: "serviceCode",
+            label: "Thủ tục",
+            display: "serviceName"
+            },
+            {
+            key: "govAgencyCode",
+            label: "Cơ quan",
+            display: "govAgencyName"
+            }
+        ], 
+        filters: [
+            {
+            label: "Từ ngày",
+            key: "fromDate",
+            value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+            type: "date", 
+            before: "toDate" 
+            },
+            {
+            label: "Đến ngày",
+            key: "toDate",
+            value: new Date().toLocaleDateString('vi-VN'),
+            type: "date", 
+            after: "fromDate" 
+            },
+			{
+			  label: "Lĩnh vực",
+			  clearable: "true",
+			  source: "",
+			  key: "domainCode",
+			  value: "",
+			  valueMapping: "domainCode",
+			  nameMapping: "domainName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos/statistics/domains",
+			  proxyApi: "/serviceinfos/statistics/domains",
+			  class: "xs12 px-3 mb-3"
+			},
+			{
+			  label: "Thủ tục",
+			  source: "",
+			  key: "serviceCode",
+			  value: "",
+			  valueMapping: "serviceCode",
+			  nameMapping: "serviceName",
+			  type: "select",
+			  multiple: "true",
+			  api: "/o/rest/v2/serviceinfos",
+			  class: "xs12 px-3 mb-3"
+			}
+            
+        ],
+        reportConfig: [
+            {
+            "selected": true,
+            "value": "dossierNo",
+            "text": "Mã hồ sơ"
+            },
+            {
+            "value": "serviceCode",
+            "text": "Mã thủ tục"
+            },
+            {
+            "selected": true,
+            "value": "dossierName",
+            "align": "left",
+            "text": "Nội dung"
+            },
+            {
+            "value": "govAgencyName",
+            "text": "Cơ quan thụ lý"
+            },
+            {
+            "value": "registerBookName",
+            "text": "Sổ theo dõi"
+            },
+            {
+            "selected": true,
+            "value": "applicantName",
+            "align": "left",
+            "text": "Chủ hồ sơ"
+            },
+            {
+            "value": "address",
+            "text": "Địa chỉ",
+            "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+            },
+            {
+            "value": "contactTelNo",
+            "text": "Số điện thoại"
+            },
+            {
+            "value": "contactEmail",
+            "text": "Thư điện tử"
+            },
+            {
+            "value": "delegateName",
+            "text": "Người nộp hồ sơ"
+            },
+            {
+            "value": "delegateTelNo",
+            "text": "Điện thoại liên lạc"
+            },
+            {
+            "value": "submitDate",
+            "text": "Ngày gửi"
+            },
+            {
+            "value": "receiveDate",
+            "text": "Ngày tiếp nhận"
+            },
+            {
+            "selected": true,
+            "value": "dueDate",
+            "text": "Ngày hẹn trả"
+            },
+            {
+            "value": "extendDate",
+            "text": "Ngày gia hạn"
+            },
+            {
+            "selected": true,
+            "value": "releaseDate",
+            "text": "Ngày hoàn thành"
+            },
+            {
+            "selected": true,
+            "value": "finishDate",
+            "text": "Ngày trả kết quả"
+            },
+            {
+            "value": "dossierStatusText",
+            "text": "Trạng thái"
+            },
+            {
+            "value": "online",
+            "text": "Trực tuyến"
+            },
+            {
+            "value": "originDossierNo",
+            "text": "Mã hồ sơ gốc"
+            },   
+            {
+            "selected": true,
+            "value": "dossierNote",
+            "align": "left",
+            "text": "Ghi chú"
+            },
+            {
+            "value": "applicantNote",
+            "align": "left",
+            "text": "Ghi chú nộp."
+            },
+            {
+            "value": "briefNote",
+            "align": "left",
+            "text": "Chi tiết nội dung"
+            }
+        ]
+        }
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+        docDefinition: {
+            pageOrientation: 'landscape',
+            content: [
+                {
+                    columns: [
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "UBND TỈNH HẬU GIANG\n"},
+                                {text: "[$siteName$]\n"}
+                            ]
+                        },
+                        {
+                            width: 100,
+                            style: "title",
+                            text: ''
+                        },
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                {text: "-------------------------------------------\n"},
+                                {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                            ]
+                        }
+                    ]
+                },
+                {
+                text: [
+                    {text: 'BÁO CÁO HỒ SƠ HOÀN THÀNH TRỄ HẠN CỦA ĐƠN VỊ\n'},
+                    {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
+                ], 
+                margin: [0, 20],
+                style: 'headerTitle'
+                },
+                {
+                style: 'tableExample',
+                table: {
+                    widths: "[$tableWidth$]",
+                    body: ["[$report$]"]
+                },
+                margin: [0, 0, 0, 20]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'title',
+                    text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+                    }
+                ]
+                },
+                {
+                columns: [
+                    {
+                    width: '*',
+                    text: ''
+                    },
+                    {
+                    width: 150,
+                    style: 'titleSub',
+                    text: '(Ký và ghi rõ họ tên)'
+                    }
+                ]
+                }
+            ],
+            styles: {
+                ngayThangNam: {
+                fontSize: 10,
+                italics: true,
+                bold: false,
+                alignment: 'center'
+                },
+                headerTitle: {
+                    alignment: 'center',
+                    bold: true,
+                    fontSize: 13
+                },
+                borderHeader: {
+                    alignment: 'left'
+                },
+                title: {
+                bold: true,
+                alignment: 'center'
+                },
+                titleSub: {
+                    fontSize: 10,
+                    italics: true,
+                    alignment: 'center'
+                },
+                tdStyle: {
+                fontSize: 10
+                },
+                tableExample: {
+                width: "100%" 
+                }
+            },
+            defaultStyle: {
+                columnGap: 20,
+                fontSize: 11
+            }
+            } 
+        }
+		]]>
+		</tableConfig>
+		<userConfig>{}</userConfig>
+    </DynamicReport>
 	<DynamicReport label="REPORT_06">
 		<sharing>1</sharing>
 		<reportName>Chi tiết hồ sơ từ chối giải quyết</reportName>
@@ -3554,6 +5366,1821 @@
 		</tableConfig>
 		<userConfig>{"order": 6}</userConfig>
 	</DynamicReport>
+	<DynamicReport label="REPORT_071">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ đang giải quyết còn hạn</reportName>
+		<reportCode>REPORT_071</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+			version: "2",
+			numberPerPage: "500",
+			api: "/o/statistic/dossier/groupcount?type=14",
+			apiLayDanhSach: "/o/statistic/dossier/list?type=14",
+			apiExportExcel: "/o/statistic/dossier/list/export?type=14",
+			  exclusive: false,
+			  customize: true,
+			  groupIds: [
+				{
+				  value: 45022,
+				  text: "Sở Tài nguyên và Môi trường"
+				},
+				{
+				  value: 45027,
+				  text: "Sở Xây dựng"
+				}, 
+				{
+				  value: 45032,
+				  text: "Sở Công thương"
+				}, 
+				{
+				  value: 45037,
+				  text: "Sở Giáo dục và Đào tạo"
+				}, 
+				{
+				  value: 45042,
+				  text: "Sở Giao thông Vận tải"
+				}, 
+				{
+				  value: 35730,
+				  text: "Sở Kế hoạch và Đầu tư"
+				}, 
+				{
+				  value: 45047,
+				  text: "Sở Khoa học và Công nghệ"
+				}, 
+				{
+				  value: 45052,
+				  text: "Sở Lao động thương binh và Xã hội"
+				},
+				{
+				  value: 45087,
+				  text: "Sở Nội vụ"
+				}, 
+				{
+				  value: 45082,
+				  text: "Sở Nông nghiệp và Phát triển nông thôn"
+				}, 
+				{
+				  value: 45057,
+				  text: "Sở Tài chính"
+				}, 
+				{
+				  value: 45062,
+				  text: "Sở Thông tin và Truyền thông"
+				}, 
+				{
+				  value: 45067,
+				  text: "Sở Tư pháp"
+				}, 
+				{
+				  value: 45072,
+				  text: "Sở Văn hoá Thể thao và Du lịch"
+				}, 
+				{
+				  value: 45077,
+				  text: "Sở Y tế"
+				},
+				{
+				  value: 887328,
+				  text: "Công An Tỉnh"
+				},				
+				{
+				  value: 47439,
+				  text: "Ban Quản lý khu công nghiệp"
+				}, 
+				{
+				  value: 44898,
+				  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+				},
+				{
+				  value: 96351,
+				  text: "UBND thành phố Vị Thanh"
+				},
+				{
+					  value: 96701,
+					  text: "UBND Thành phố Ngã Bảy"
+				},
+				{
+					  value: 96980,
+					  text: "UBND Thị xã Long Mỹ"
+				},
+				{
+					  value: 97260,
+					  text: "UBND huyện Vị Thủy"
+				},
+				{
+					  value: 97565,
+					  text: "UBND huyện Long Mỹ"
+				},
+				{
+					  value: 100349,
+					  text: "UBND huyện Phụng Hiệp "
+				},
+				{
+					  value: 100907,
+					  text: "UBND huyện Châu Thành "
+				},
+				{
+					  value: 101465,
+					  text: "UBND huyện Châu Thành A "
+				},
+				{
+				  value: 97901,
+				  text: "Cấp xã thành phố Vị Thanh"
+				},
+				{
+					  value: 98180,
+					  text: "Cấp xã thành phố Ngã Bảy"
+				},
+				{
+					  value: 98501,
+					  text: "Cấp xã thị xã Long Mỹ"
+				},
+				{
+					  value: 98801,
+					  text: "Cấp xã huyện Vị Thủy"
+				},
+				{
+					  value: 99203,
+					  text: "Cấp xã huyện Long Mỹ"
+				},
+				{
+					  value: 100628,
+					  text: "Cấp xã huyện Phụng Hiệp"
+				},
+				{
+					  value: 101186,
+					  text: "Cấp xã huyện Châu Thành"
+				},
+				{
+					  value: 101744,
+					  text: "Cấp xã huyện Châu Thành A "
+				} 
+			  ],
+			  groupIdList: [
+				{
+					group: 1,
+					label: "Chọn cấp Sở",
+					key: 'SBN',
+					value: [
+						{
+						  value: 45022,
+						  text: "Sở Tài nguyên và Môi trường"
+						},
+						{
+						  value: 45027,
+						  text: "Sở Xây dựng"
+						}, 
+						{
+						  value: 45032,
+						  text: "Sở Công thương"
+						}, 
+						{
+						  value: 45037,
+						  text: "Sở Giáo dục và Đào tạo"
+						}, 
+						{
+						  value: 45042,
+						  text: "Sở Giao thông Vận tải"
+						}, 
+						{
+						  value: 35730,
+						  text: "Sở Kế hoạch và Đầu tư"
+						}, 
+						{
+						  value: 45047,
+						  text: "Sở Khoa học và Công nghệ"
+						}, 
+						{
+						  value: 45052,
+						  text: "Sở Lao động thương binh và Xã hội"
+						},
+						{
+						  value: 45087,
+						  text: "Sở Nội vụ"
+						}, 
+						{
+						  value: 45082,
+						  text: "Sở Nông nghiệp và Phát triển nông thôn"
+						}, 
+						{
+						  value: 45057,
+						  text: "Sở Tài chính"
+						}, 
+						{
+						  value: 45062,
+						  text: "Sở Thông tin và Truyền thông"
+						}, 
+						{
+						  value: 45067,
+						  text: "Sở Tư pháp"
+						}, 
+						{
+						  value: 45072,
+						  text: "Sở Văn hoá Thể thao và Du lịch"
+						}, 
+						{
+						  value: 45077,
+						  text: "Sở Y tế"
+						},
+						{
+						  value: 887328,
+						  text: "Công An Tỉnh"
+						},						
+						{
+						  value: 47439,
+						  text: "Ban Quản lý khu công nghiệp"
+						}, 
+						{
+						  value: 44898,
+						  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+						},
+						{
+						  value: 887328,
+						  text: "Công An Tỉnh"
+						}
+					]
+				},
+				{
+					group: 2,
+					label: "Chọn cấp Huyện",
+					key: 'QUAN_HUYEN',
+					value: [
+						{
+						  value: 96351,
+						  text: "UBND thành phố Vị Thanh"
+						},
+						{
+							  value: 96701,
+							  text: "UBND Thành phố Ngã Bảy"
+						},
+						{
+							  value: 96980,
+							  text: "UBND Thị xã Long Mỹ"
+						},
+						{
+							  value: 97260,
+							  text: "UBND huyện Vị Thủy"
+						},
+						{
+							  value: 97565,
+							  text: "UBND huyện Long Mỹ"
+						},
+						{
+							  value: 100349,
+							  text: "UBND huyện Phụng Hiệp "
+						},
+						{
+							  value: 100907,
+							  text: "UBND huyện Châu Thành "
+						},
+						{
+							  value: 101465,
+							  text: "UBND huyện Châu Thành A "
+						}
+					]
+				},
+				{
+				  group: 3,
+				  label: "Chọn cấp Xã",
+				  key: 'XA_PHUONG',
+				  value: [
+					{
+					  value: 97901,
+					  text: "Cấp xã thành phố Vị Thanh"
+					},
+					{
+						  value: 98180,
+						  text: "Cấp xã thành phố Ngã Bảy"
+					},
+					{
+						  value: 98501,
+						  text: "Cấp xã thị xã Long Mỹ"
+					},
+					{
+						  value: 98801,
+						  text: "Cấp xã huyện Vị Thủy"
+					},
+					{
+						  value: 99203,
+						  text: "Cấp xã huyện Long Mỹ"
+					},
+					{
+						  value: 100628,
+						  text: "Cấp xã huyện Phụng Hiệp"
+					},
+					{
+						  value: 101186,
+						  text: "Cấp xã huyện Châu Thành"
+					},
+					{
+						  value: 101744,
+						  text: "Cấp xã huyện Châu Thành A "
+					}
+				  ]
+				}
+			  ],
+			  sumKey: "",
+			  groupBy: [
+				{
+				   key: "domainCode",
+				   label: "Lĩnh vực",
+				   display: "domainName"
+				},
+				{
+				   key: "serviceCode",
+				   label: "Thủ tục",
+				   display: "serviceName"
+				},
+				{
+				   key: "govAgencyCode",
+				   label: "Cơ quan",
+				   display: "govAgencyName"
+				}
+			  ], 
+			  filters: [
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				},
+				{
+				  label: "Lĩnh vực",
+				  clearable: "true",
+				  source: "",
+				  key: "domainCode",
+				  value: "",
+				  valueMapping: "domainCode",
+				  nameMapping: "domainName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos/statistics/domains",
+				  proxyApi: "/serviceinfos/statistics/domains",
+				  class: "xs12 px-3 mb-3"
+				},
+				{
+				  label: "Thủ tục",
+				  source: "",
+				  key: "serviceCode",
+				  value: "",
+				  valueMapping: "serviceCode",
+				  nameMapping: "serviceName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos",
+				  class: "xs12 px-3 mb-3"
+				}
+				
+			  ],
+			  reportConfig: [
+				{
+				  "selected": true,
+				  "value": "dossierNo",
+				  "text": "Mã hồ sơ"
+				},
+				{
+				  "value": "serviceCode",
+				  "text": "Mã thủ tục"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierName",
+				  "align": "left",
+				  "text": "Nội dung"
+				},
+				{
+				  "value": "govAgencyName",
+				  "text": "Cơ quan thụ lý"
+				},
+				{
+				  "value": "registerBookName",
+				  "text": "Sổ theo dõi"
+				},
+				{
+				  "selected": true,
+				  "value": "applicantName",
+				  "align": "left",
+				  "text": "Chủ hồ sơ"
+				},
+				{
+				  "value": "address",
+				  "text": "Địa chỉ",
+				  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+				},
+				{
+				  "value": "contactTelNo",
+				  "text": "Số điện thoại"
+				},
+				{
+				  "value": "contactEmail",
+				  "text": "Thư điện tử"
+				},
+				{
+				  "value": "delegateName",
+				  "text": "Người nộp hồ sơ"
+				},
+				{
+				  "value": "delegateTelNo",
+				  "text": "Điện thoại liên lạc"
+				},
+				{
+				  "value": "submitDate",
+				  "text": "Ngày gửi"
+				},
+				{
+				  "selected": true,
+				  "value": "receiveDate",
+				  "text": "Ngày tiếp nhận"
+				},
+				{
+				  "selected": true,
+				  "value": "dueDate",
+				  "text": "Ngày hẹn trả"
+				},
+				{
+				  "selected": true,
+				  "value": "extendDate",
+				  "text": "Ngày hẹn lại"
+				},
+				{
+				  "value": "releaseDate",
+				  "text": "Ngày hoàn thành"
+				},
+				{
+				  "value": "finishDate",
+				  "text": "Ngày trả"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierStatusText",
+				  "text": "Trạng thái"
+				},
+				{
+				  "value": "online",
+				  "text": "Trực tuyến"
+				},
+				{
+				  "value": "originDossierNo",
+				  "text": "Mã hồ sơ gốc"
+				},   
+				{
+				  "selected": true,
+				  "value": "dossierNote",
+				  "align": "left",
+				  "text": "Ghi chú"
+				},
+				{
+				  "value": "applicantNote",
+				  "align": "left",
+				  "text": "Ghi chú nộp."
+				},
+				{
+				  "value": "briefNote",
+				  "align": "left",
+				  "text": "Chi tiết nội dung"
+				}
+			  ]
+			}
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+			   docDefinition: {
+				  pageOrientation: 'landscape',
+				  content: [
+					{
+						  columns: [
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									 {text: "UBND TỈNH HẬU GIANG\n"},
+									 {text: "[$siteName$]\n"}
+								  ]
+							  },
+							{
+								 width: 100,
+								  style: "title",
+								 text: ''
+							   },
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+									  {text: "-------------------------------------------\n"},
+									  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								  ]
+							  }
+						  ]
+					},
+					{
+					  text: [
+						{text: 'BÁO CÁO HỒ SƠ ĐANG GIẢI QUYẾT CÒN HẠN CỦA ĐƠN VỊ\n'},
+						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+					  ], 
+					  margin: [0, 20],
+					  style: 'headerTitle'
+					},
+					{
+					  style: 'tableExample',
+					  table: {
+						widths: "[$tableWidth$]",
+						body: ["[$report$]"]
+					  },
+					  margin: [0, 0, 0, 20]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'title',
+						  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+						}
+					  ]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'titleSub',
+						  text: '(Ký và ghi rõ họ tên)'
+						}
+					  ]
+					}
+				  ],
+				  styles: {
+					ngayThangNam: {
+					  fontSize: 10,
+					  italics: true,
+					  bold: false,
+					  alignment: 'center'
+					},
+					headerTitle: {
+						alignment: 'center',
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: 'left'
+					},
+					title: {
+					  bold: true,
+					  alignment: 'center'
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: 'center'
+					},
+					tdStyle: {
+					  fontSize: 10
+					},
+					tableExample: {
+					   width: "100%" 
+					}
+				  },
+				  defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				  }
+				} 
+			}
+		]]>
+		</tableConfig>
+		<userConfig>{}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_072">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ đang giải quyết sắp đến hạn</reportName>
+		<reportCode>REPORT_072</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+			version: "2",
+			numberPerPage: "500",
+			api: "/o/statistic/dossier/groupcount?type=15",
+			apiLayDanhSach: "/o/statistic/dossier/list?type=15",
+			apiExportExcel: "/o/statistic/dossier/list/export?type=15",
+			  exclusive: false,
+			  customize: true,
+			  groupIds: [
+				{
+				  value: 45022,
+				  text: "Sở Tài nguyên và Môi trường"
+				},
+				{
+				  value: 45027,
+				  text: "Sở Xây dựng"
+				}, 
+				{
+				  value: 45032,
+				  text: "Sở Công thương"
+				}, 
+				{
+				  value: 45037,
+				  text: "Sở Giáo dục và Đào tạo"
+				}, 
+				{
+				  value: 45042,
+				  text: "Sở Giao thông Vận tải"
+				}, 
+				{
+				  value: 35730,
+				  text: "Sở Kế hoạch và Đầu tư"
+				}, 
+				{
+				  value: 45047,
+				  text: "Sở Khoa học và Công nghệ"
+				}, 
+				{
+				  value: 45052,
+				  text: "Sở Lao động thương binh và Xã hội"
+				},
+				{
+				  value: 45087,
+				  text: "Sở Nội vụ"
+				}, 
+				{
+				  value: 45082,
+				  text: "Sở Nông nghiệp và Phát triển nông thôn"
+				}, 
+				{
+				  value: 45057,
+				  text: "Sở Tài chính"
+				}, 
+				{
+				  value: 45062,
+				  text: "Sở Thông tin và Truyền thông"
+				}, 
+				{
+				  value: 45067,
+				  text: "Sở Tư pháp"
+				}, 
+				{
+				  value: 45072,
+				  text: "Sở Văn hoá Thể thao và Du lịch"
+				}, 
+				{
+				  value: 45077,
+				  text: "Sở Y tế"
+				},
+				{
+				  value: 887328,
+				  text: "Công An Tỉnh"
+				},				
+				{
+				  value: 47439,
+				  text: "Ban Quản lý khu công nghiệp"
+				}, 
+				{
+				  value: 44898,
+				  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+				},
+				{
+				  value: 96351,
+				  text: "UBND thành phố Vị Thanh"
+				},
+				{
+					  value: 96701,
+					  text: "UBND Thành phố Ngã Bảy"
+				},
+				{
+					  value: 96980,
+					  text: "UBND Thị xã Long Mỹ"
+				},
+				{
+					  value: 97260,
+					  text: "UBND huyện Vị Thủy"
+				},
+				{
+					  value: 97565,
+					  text: "UBND huyện Long Mỹ"
+				},
+				{
+					  value: 100349,
+					  text: "UBND huyện Phụng Hiệp "
+				},
+				{
+					  value: 100907,
+					  text: "UBND huyện Châu Thành "
+				},
+				{
+					  value: 101465,
+					  text: "UBND huyện Châu Thành A "
+				},
+				{
+				  value: 97901,
+				  text: "Cấp xã thành phố Vị Thanh"
+				},
+				{
+					  value: 98180,
+					  text: "Cấp xã thành phố Ngã Bảy"
+				},
+				{
+					  value: 98501,
+					  text: "Cấp xã thị xã Long Mỹ"
+				},
+				{
+					  value: 98801,
+					  text: "Cấp xã huyện Vị Thủy"
+				},
+				{
+					  value: 99203,
+					  text: "Cấp xã huyện Long Mỹ"
+				},
+				{
+					  value: 100628,
+					  text: "Cấp xã huyện Phụng Hiệp"
+				},
+				{
+					  value: 101186,
+					  text: "Cấp xã huyện Châu Thành"
+				},
+				{
+					  value: 101744,
+					  text: "Cấp xã huyện Châu Thành A "
+				} 
+			  ],
+			  groupIdList: [
+				{
+					group: 1,
+					label: "Chọn cấp Sở",
+					key: 'SBN',
+					value: [
+						{
+						  value: 45022,
+						  text: "Sở Tài nguyên và Môi trường"
+						},
+						{
+						  value: 45027,
+						  text: "Sở Xây dựng"
+						}, 
+						{
+						  value: 45032,
+						  text: "Sở Công thương"
+						}, 
+						{
+						  value: 45037,
+						  text: "Sở Giáo dục và Đào tạo"
+						}, 
+						{
+						  value: 45042,
+						  text: "Sở Giao thông Vận tải"
+						}, 
+						{
+						  value: 35730,
+						  text: "Sở Kế hoạch và Đầu tư"
+						}, 
+						{
+						  value: 45047,
+						  text: "Sở Khoa học và Công nghệ"
+						}, 
+						{
+						  value: 45052,
+						  text: "Sở Lao động thương binh và Xã hội"
+						},
+						{
+						  value: 45087,
+						  text: "Sở Nội vụ"
+						}, 
+						{
+						  value: 45082,
+						  text: "Sở Nông nghiệp và Phát triển nông thôn"
+						}, 
+						{
+						  value: 45057,
+						  text: "Sở Tài chính"
+						}, 
+						{
+						  value: 45062,
+						  text: "Sở Thông tin và Truyền thông"
+						}, 
+						{
+						  value: 45067,
+						  text: "Sở Tư pháp"
+						}, 
+						{
+						  value: 45072,
+						  text: "Sở Văn hoá Thể thao và Du lịch"
+						}, 
+						{
+						  value: 45077,
+						  text: "Sở Y tế"
+						},
+						{
+						  value: 887328,
+						  text: "Công An Tỉnh"
+						},						
+						{
+						  value: 47439,
+						  text: "Ban Quản lý khu công nghiệp"
+						}, 
+						{
+						  value: 44898,
+						  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+						},
+						{
+						  value: 887328,
+						  text: "Công An Tỉnh"
+						}
+					]
+				},
+				{
+					group: 2,
+					label: "Chọn cấp Huyện",
+					key: 'QUAN_HUYEN',
+					value: [
+						{
+						  value: 96351,
+						  text: "UBND thành phố Vị Thanh"
+						},
+						{
+							  value: 96701,
+							  text: "UBND Thành phố Ngã Bảy"
+						},
+						{
+							  value: 96980,
+							  text: "UBND Thị xã Long Mỹ"
+						},
+						{
+							  value: 97260,
+							  text: "UBND huyện Vị Thủy"
+						},
+						{
+							  value: 97565,
+							  text: "UBND huyện Long Mỹ"
+						},
+						{
+							  value: 100349,
+							  text: "UBND huyện Phụng Hiệp "
+						},
+						{
+							  value: 100907,
+							  text: "UBND huyện Châu Thành "
+						},
+						{
+							  value: 101465,
+							  text: "UBND huyện Châu Thành A "
+						}
+					]
+				},
+				{
+				  group: 3,
+				  label: "Chọn cấp Xã",
+				  key: 'XA_PHUONG',
+				  value: [
+					{
+					  value: 97901,
+					  text: "Cấp xã thành phố Vị Thanh"
+					},
+					{
+						  value: 98180,
+						  text: "Cấp xã thành phố Ngã Bảy"
+					},
+					{
+						  value: 98501,
+						  text: "Cấp xã thị xã Long Mỹ"
+					},
+					{
+						  value: 98801,
+						  text: "Cấp xã huyện Vị Thủy"
+					},
+					{
+						  value: 99203,
+						  text: "Cấp xã huyện Long Mỹ"
+					},
+					{
+						  value: 100628,
+						  text: "Cấp xã huyện Phụng Hiệp"
+					},
+					{
+						  value: 101186,
+						  text: "Cấp xã huyện Châu Thành"
+					},
+					{
+						  value: 101744,
+						  text: "Cấp xã huyện Châu Thành A "
+					}
+				  ]
+				}
+			  ],
+			  sumKey: "",
+			  groupBy: [
+				{
+				   key: "domainCode",
+				   label: "Lĩnh vực",
+				   display: "domainName"
+				},
+				{
+				   key: "serviceCode",
+				   label: "Thủ tục",
+				   display: "serviceName"
+				},
+				{
+				   key: "govAgencyCode",
+				   label: "Cơ quan",
+				   display: "govAgencyName"
+				}
+			  ], 
+			  filters: [
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				},
+				{
+				  label: "Lĩnh vực",
+				  clearable: "true",
+				  source: "",
+				  key: "domainCode",
+				  value: "",
+				  valueMapping: "domainCode",
+				  nameMapping: "domainName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos/statistics/domains",
+				  proxyApi: "/serviceinfos/statistics/domains",
+				  class: "xs12 px-3 mb-3"
+				},
+				{
+				  label: "Thủ tục",
+				  source: "",
+				  key: "serviceCode",
+				  value: "",
+				  valueMapping: "serviceCode",
+				  nameMapping: "serviceName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos",
+				  class: "xs12 px-3 mb-3"
+				}
+				
+			  ],
+			  reportConfig: [
+				{
+				  "selected": true,
+				  "value": "dossierNo",
+				  "text": "Mã hồ sơ"
+				},
+				{
+				  "value": "serviceCode",
+				  "text": "Mã thủ tục"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierName",
+				  "align": "left",
+				  "text": "Nội dung"
+				},
+				{
+				  "value": "govAgencyName",
+				  "text": "Cơ quan thụ lý"
+				},
+				{
+				  "value": "registerBookName",
+				  "text": "Sổ theo dõi"
+				},
+				{
+				  "selected": true,
+				  "value": "applicantName",
+				  "align": "left",
+				  "text": "Chủ hồ sơ"
+				},
+				{
+				  "value": "address",
+				  "text": "Địa chỉ",
+				  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+				},
+				{
+				  "value": "contactTelNo",
+				  "text": "Số điện thoại"
+				},
+				{
+				  "value": "contactEmail",
+				  "text": "Thư điện tử"
+				},
+				{
+				  "value": "delegateName",
+				  "text": "Người nộp hồ sơ"
+				},
+				{
+				  "value": "delegateTelNo",
+				  "text": "Điện thoại liên lạc"
+				},
+				{
+				  "value": "submitDate",
+				  "text": "Ngày gửi"
+				},
+				{
+				  "selected": true,
+				  "value": "receiveDate",
+				  "text": "Ngày tiếp nhận"
+				},
+				{
+				  "selected": true,
+				  "value": "dueDate",
+				  "text": "Ngày hẹn trả"
+				},
+				{
+				  "selected": true,
+				  "value": "extendDate",
+				  "text": "Ngày hẹn lại"
+				},
+				{
+				  "value": "releaseDate",
+				  "text": "Ngày hoàn thành"
+				},
+				{
+				  "value": "finishDate",
+				  "text": "Ngày trả"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierStatusText",
+				  "text": "Trạng thái"
+				},
+				{
+				  "value": "online",
+				  "text": "Trực tuyến"
+				},
+				{
+				  "value": "originDossierNo",
+				  "text": "Mã hồ sơ gốc"
+				},   
+				{
+				  "selected": true,
+				  "value": "dossierNote",
+				  "align": "left",
+				  "text": "Ghi chú"
+				},
+				{
+				  "value": "applicantNote",
+				  "align": "left",
+				  "text": "Ghi chú nộp."
+				},
+				{
+				  "value": "briefNote",
+				  "align": "left",
+				  "text": "Chi tiết nội dung"
+				}
+			  ]
+			}
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+			   docDefinition: {
+				  pageOrientation: 'landscape',
+				  content: [
+					{
+						  columns: [
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									 {text: "UBND TỈNH HẬU GIANG\n"},
+									 {text: "[$siteName$]\n"}
+								  ]
+							  },
+							{
+								 width: 100,
+								  style: "title",
+								 text: ''
+							   },
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+									  {text: "-------------------------------------------\n"},
+									  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								  ]
+							  }
+						  ]
+					},
+					{
+					  text: [
+						{text: 'BÁO CÁO HỒ SƠ ĐANG GIẢI QUYẾT SẮP ĐẾN HẠN CỦA ĐƠN VỊ\n'},
+						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+					  ], 
+					  margin: [0, 20],
+					  style: 'headerTitle'
+					},
+					{
+					  style: 'tableExample',
+					  table: {
+						widths: "[$tableWidth$]",
+						body: ["[$report$]"]
+					  },
+					  margin: [0, 0, 0, 20]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'title',
+						  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+						}
+					  ]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'titleSub',
+						  text: '(Ký và ghi rõ họ tên)'
+						}
+					  ]
+					}
+				  ],
+				  styles: {
+					ngayThangNam: {
+					  fontSize: 10,
+					  italics: true,
+					  bold: false,
+					  alignment: 'center'
+					},
+					headerTitle: {
+						alignment: 'center',
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: 'left'
+					},
+					title: {
+					  bold: true,
+					  alignment: 'center'
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: 'center'
+					},
+					tdStyle: {
+					  fontSize: 10
+					},
+					tableExample: {
+					   width: "100%" 
+					}
+				  },
+				  defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				  }
+				} 
+			}
+		]]>
+		</tableConfig>
+		<userConfig>{}</userConfig>
+    </DynamicReport>
+	<DynamicReport label="REPORT_073">
+		<sharing>1</sharing>
+		<reportName>Hồ sơ đang giải quyết quá hạn</reportName>
+		<reportCode>REPORT_073</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+			version: "2",
+			numberPerPage: "500",
+			api: "/o/statistic/dossier/groupcount?type=16",
+			apiLayDanhSach: "/o/statistic/dossier/list?type=16",
+			apiExportExcel: "/o/statistic/dossier/list/export?type=16",
+			  exclusive: false,
+			  customize: true,
+			  groupIds: [
+				{
+				  value: 45022,
+				  text: "Sở Tài nguyên và Môi trường"
+				},
+				{
+				  value: 45027,
+				  text: "Sở Xây dựng"
+				}, 
+				{
+				  value: 45032,
+				  text: "Sở Công thương"
+				}, 
+				{
+				  value: 45037,
+				  text: "Sở Giáo dục và Đào tạo"
+				}, 
+				{
+				  value: 45042,
+				  text: "Sở Giao thông Vận tải"
+				}, 
+				{
+				  value: 35730,
+				  text: "Sở Kế hoạch và Đầu tư"
+				}, 
+				{
+				  value: 45047,
+				  text: "Sở Khoa học và Công nghệ"
+				}, 
+				{
+				  value: 45052,
+				  text: "Sở Lao động thương binh và Xã hội"
+				},
+				{
+				  value: 45087,
+				  text: "Sở Nội vụ"
+				}, 
+				{
+				  value: 45082,
+				  text: "Sở Nông nghiệp và Phát triển nông thôn"
+				}, 
+				{
+				  value: 45057,
+				  text: "Sở Tài chính"
+				}, 
+				{
+				  value: 45062,
+				  text: "Sở Thông tin và Truyền thông"
+				}, 
+				{
+				  value: 45067,
+				  text: "Sở Tư pháp"
+				}, 
+				{
+				  value: 45072,
+				  text: "Sở Văn hoá Thể thao và Du lịch"
+				}, 
+				{
+				  value: 45077,
+				  text: "Sở Y tế"
+				},
+				{
+				  value: 887328,
+				  text: "Công An Tỉnh"
+				},				
+				{
+				  value: 47439,
+				  text: "Ban Quản lý khu công nghiệp"
+				}, 
+				{
+				  value: 44898,
+				  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+				},
+				{
+				  value: 96351,
+				  text: "UBND thành phố Vị Thanh"
+				},
+				{
+					  value: 96701,
+					  text: "UBND Thành phố Ngã Bảy"
+				},
+				{
+					  value: 96980,
+					  text: "UBND Thị xã Long Mỹ"
+				},
+				{
+					  value: 97260,
+					  text: "UBND huyện Vị Thủy"
+				},
+				{
+					  value: 97565,
+					  text: "UBND huyện Long Mỹ"
+				},
+				{
+					  value: 100349,
+					  text: "UBND huyện Phụng Hiệp "
+				},
+				{
+					  value: 100907,
+					  text: "UBND huyện Châu Thành "
+				},
+				{
+					  value: 101465,
+					  text: "UBND huyện Châu Thành A "
+				},
+				{
+				  value: 97901,
+				  text: "Cấp xã thành phố Vị Thanh"
+				},
+				{
+					  value: 98180,
+					  text: "Cấp xã thành phố Ngã Bảy"
+				},
+				{
+					  value: 98501,
+					  text: "Cấp xã thị xã Long Mỹ"
+				},
+				{
+					  value: 98801,
+					  text: "Cấp xã huyện Vị Thủy"
+				},
+				{
+					  value: 99203,
+					  text: "Cấp xã huyện Long Mỹ"
+				},
+				{
+					  value: 100628,
+					  text: "Cấp xã huyện Phụng Hiệp"
+				},
+				{
+					  value: 101186,
+					  text: "Cấp xã huyện Châu Thành"
+				},
+				{
+					  value: 101744,
+					  text: "Cấp xã huyện Châu Thành A "
+				} 
+			  ],
+			  groupIdList: [
+				{
+					group: 1,
+					label: "Chọn cấp Sở",
+					key: 'SBN',
+					value: [
+						{
+						  value: 45022,
+						  text: "Sở Tài nguyên và Môi trường"
+						},
+						{
+						  value: 45027,
+						  text: "Sở Xây dựng"
+						}, 
+						{
+						  value: 45032,
+						  text: "Sở Công thương"
+						}, 
+						{
+						  value: 45037,
+						  text: "Sở Giáo dục và Đào tạo"
+						}, 
+						{
+						  value: 45042,
+						  text: "Sở Giao thông Vận tải"
+						}, 
+						{
+						  value: 35730,
+						  text: "Sở Kế hoạch và Đầu tư"
+						}, 
+						{
+						  value: 45047,
+						  text: "Sở Khoa học và Công nghệ"
+						}, 
+						{
+						  value: 45052,
+						  text: "Sở Lao động thương binh và Xã hội"
+						},
+						{
+						  value: 45087,
+						  text: "Sở Nội vụ"
+						}, 
+						{
+						  value: 45082,
+						  text: "Sở Nông nghiệp và Phát triển nông thôn"
+						}, 
+						{
+						  value: 45057,
+						  text: "Sở Tài chính"
+						}, 
+						{
+						  value: 45062,
+						  text: "Sở Thông tin và Truyền thông"
+						}, 
+						{
+						  value: 45067,
+						  text: "Sở Tư pháp"
+						}, 
+						{
+						  value: 45072,
+						  text: "Sở Văn hoá Thể thao và Du lịch"
+						}, 
+						{
+						  value: 45077,
+						  text: "Sở Y tế"
+						},
+						{
+						  value: 887328,
+						  text: "Công An Tỉnh"
+						},						
+						{
+						  value: 47439,
+						  text: "Ban Quản lý khu công nghiệp"
+						}, 
+						{
+						  value: 44898,
+						  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+						},
+						{
+						  value: 887328,
+						  text: "Công An Tỉnh"
+						}
+					]
+				},
+				{
+					group: 2,
+					label: "Chọn cấp Huyện",
+					key: 'QUAN_HUYEN',
+					value: [
+						{
+						  value: 96351,
+						  text: "UBND thành phố Vị Thanh"
+						},
+						{
+							  value: 96701,
+							  text: "UBND Thành phố Ngã Bảy"
+						},
+						{
+							  value: 96980,
+							  text: "UBND Thị xã Long Mỹ"
+						},
+						{
+							  value: 97260,
+							  text: "UBND huyện Vị Thủy"
+						},
+						{
+							  value: 97565,
+							  text: "UBND huyện Long Mỹ"
+						},
+						{
+							  value: 100349,
+							  text: "UBND huyện Phụng Hiệp "
+						},
+						{
+							  value: 100907,
+							  text: "UBND huyện Châu Thành "
+						},
+						{
+							  value: 101465,
+							  text: "UBND huyện Châu Thành A "
+						}
+					]
+				},
+				{
+				  group: 3,
+				  label: "Chọn cấp Xã",
+				  key: 'XA_PHUONG',
+				  value: [
+					{
+					  value: 97901,
+					  text: "Cấp xã thành phố Vị Thanh"
+					},
+					{
+						  value: 98180,
+						  text: "Cấp xã thành phố Ngã Bảy"
+					},
+					{
+						  value: 98501,
+						  text: "Cấp xã thị xã Long Mỹ"
+					},
+					{
+						  value: 98801,
+						  text: "Cấp xã huyện Vị Thủy"
+					},
+					{
+						  value: 99203,
+						  text: "Cấp xã huyện Long Mỹ"
+					},
+					{
+						  value: 100628,
+						  text: "Cấp xã huyện Phụng Hiệp"
+					},
+					{
+						  value: 101186,
+						  text: "Cấp xã huyện Châu Thành"
+					},
+					{
+						  value: 101744,
+						  text: "Cấp xã huyện Châu Thành A "
+					}
+				  ]
+				}
+			  ],
+			  sumKey: "",
+			  groupBy: [
+				{
+				   key: "domainCode",
+				   label: "Lĩnh vực",
+				   display: "domainName"
+				},
+				{
+				   key: "serviceCode",
+				   label: "Thủ tục",
+				   display: "serviceName"
+				},
+				{
+				   key: "govAgencyCode",
+				   label: "Cơ quan",
+				   display: "govAgencyName"
+				}
+			  ], 
+			  filters: [
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				},
+				{
+				  label: "Lĩnh vực",
+				  clearable: "true",
+				  source: "",
+				  key: "domainCode",
+				  value: "",
+				  valueMapping: "domainCode",
+				  nameMapping: "domainName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos/statistics/domains",
+				  proxyApi: "/serviceinfos/statistics/domains",
+				  class: "xs12 px-3 mb-3"
+				},
+				{
+				  label: "Thủ tục",
+				  source: "",
+				  key: "serviceCode",
+				  value: "",
+				  valueMapping: "serviceCode",
+				  nameMapping: "serviceName",
+				  type: "select",
+				  multiple: "true",
+				  api: "/o/rest/v2/serviceinfos",
+				  class: "xs12 px-3 mb-3"
+				}
+				
+			  ],
+			  reportConfig: [
+				{
+				  "selected": true,
+				  "value": "dossierNo",
+				  "text": "Mã hồ sơ"
+				},
+				{
+				  "value": "serviceCode",
+				  "text": "Mã thủ tục"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierName",
+				  "align": "left",
+				  "text": "Nội dung"
+				},
+				{
+				  "value": "govAgencyName",
+				  "text": "Cơ quan thụ lý"
+				},
+				{
+				  "value": "registerBookName",
+				  "text": "Sổ theo dõi"
+				},
+				{
+				  "selected": true,
+				  "value": "applicantName",
+				  "align": "left",
+				  "text": "Chủ hồ sơ"
+				},
+				{
+				  "value": "address",
+				  "text": "Địa chỉ",
+				  "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+				},
+				{
+				  "value": "contactTelNo",
+				  "text": "Số điện thoại"
+				},
+				{
+				  "value": "contactEmail",
+				  "text": "Thư điện tử"
+				},
+				{
+				  "value": "delegateName",
+				  "text": "Người nộp hồ sơ"
+				},
+				{
+				  "value": "delegateTelNo",
+				  "text": "Điện thoại liên lạc"
+				},
+				{
+				  "value": "submitDate",
+				  "text": "Ngày gửi"
+				},
+				{
+				  "selected": true,
+				  "value": "receiveDate",
+				  "text": "Ngày tiếp nhận"
+				},
+				{
+				  "selected": true,
+				  "value": "dueDate",
+				  "text": "Ngày hẹn trả"
+				},
+				{
+				  "selected": true,
+				  "value": "extendDate",
+				  "text": "Ngày hẹn lại"
+				},
+				{
+				  "value": "releaseDate",
+				  "text": "Ngày hoàn thành"
+				},
+				{
+				  "value": "finishDate",
+				  "text": "Ngày trả"
+				},
+				{
+				  "selected": true,
+				  "value": "dossierStatusText",
+				  "text": "Trạng thái"
+				},
+				{
+				  "value": "online",
+				  "text": "Trực tuyến"
+				},
+				{
+				  "value": "originDossierNo",
+				  "text": "Mã hồ sơ gốc"
+				},   
+				{
+				  "selected": true,
+				  "value": "dossierNote",
+				  "align": "left",
+				  "text": "Ghi chú"
+				},
+				{
+				  "value": "applicantNote",
+				  "align": "left",
+				  "text": "Ghi chú nộp."
+				},
+				{
+				  "value": "briefNote",
+				  "align": "left",
+				  "text": "Chi tiết nội dung"
+				}
+			  ]
+			}
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		{
+			   docDefinition: {
+				  pageOrientation: 'landscape',
+				  content: [
+					{
+						  columns: [
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									 {text: "UBND TỈNH HẬU GIANG\n"},
+									 {text: "[$siteName$]\n"}
+								  ]
+							  },
+							{
+								 width: 100,
+								  style: "title",
+								 text: ''
+							   },
+							  {
+								  width: 300,
+								  style: "title",
+								  text: [
+									  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									  {text: "Độc lập - Tự do - Hạnh phúc\n"},
+									  {text: "-------------------------------------------\n"},
+									  {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								  ]
+							  }
+						  ]
+					},
+					{
+					  text: [
+						{text: 'BÁO CÁO HỒ SƠ ĐANG GIẢI QUYẾT QUÁ HẠN CỦA ĐƠN VỊ\n'},
+						{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11}
+					  ], 
+					  margin: [0, 20],
+					  style: 'headerTitle'
+					},
+					{
+					  style: 'tableExample',
+					  table: {
+						widths: "[$tableWidth$]",
+						body: ["[$report$]"]
+					  },
+					  margin: [0, 0, 0, 20]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'title',
+						  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+						}
+					  ]
+					},
+					{
+					  columns: [
+						{
+						  width: '*',
+						  text: ''
+						},
+						{
+						  width: 150,
+						  style: 'titleSub',
+						  text: '(Ký và ghi rõ họ tên)'
+						}
+					  ]
+					}
+				  ],
+				  styles: {
+					ngayThangNam: {
+					  fontSize: 10,
+					  italics: true,
+					  bold: false,
+					  alignment: 'center'
+					},
+					headerTitle: {
+						alignment: 'center',
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: 'left'
+					},
+					title: {
+					  bold: true,
+					  alignment: 'center'
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: 'center'
+					},
+					tdStyle: {
+					  fontSize: 10
+					},
+					tableExample: {
+					   width: "100%" 
+					}
+				  },
+				  defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				  }
+				} 
+			}
+		]]>
+		</tableConfig>
+		<userConfig>{}</userConfig>
+    </DynamicReport>
 	<DynamicReport label="REPORT_08">
 		<sharing>1</sharing>
 		<reportName>Chi tiết hồ sơ đang thụ lý giải quyết</reportName>
@@ -4692,7 +8319,7 @@
 		<userConfig>{"order": 8}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="REPORT_098">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Báo cáo chi tiết phí, lệ phí</reportName>
 		<reportCode>REPORT_098</reportCode>
 		<filterConfig>
@@ -7931,7 +11558,7 @@
 		<userConfig>{}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="STATISTIC_03">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Tổng hợp hồ sơ của đơn vị theo lĩnh vực</reportName>
 		<reportCode>STATISTIC_03</reportCode>
 		<filterConfig>
@@ -8668,7 +12295,7 @@
 		<userConfig>{"order": 10}</userConfig>
 	</DynamicReport>
 	<DynamicReport label="STATISTIC_04">
-		<sharing>1</sharing>
+		<sharing>9</sharing>
 		<reportName>Tổng hợp hồ sơ của đơn vị theo thủ tục</reportName>
 		<reportCode>STATISTIC_04</reportCode>
 		<filterConfig>
@@ -9403,6 +13030,3137 @@
 		</tableConfig>
 		<userConfig>{"order": 11}</userConfig>
 	</DynamicReport>
+	<DynamicReport label="STATISTIC_03_VER3">
+		<sharing>1</sharing>
+		<reportName>Tổng hợp hồ sơ theo lĩnh vực - New</reportName>
+		<reportCode>STATISTIC_03_VER_3</reportCode>
+		<filterConfig>
+		<![CDATA[
+		{
+			api: "/o/statistic/dossier/groupcount?type=20&groupBy=domainCode",
+		apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=domainCode",
+			exclusive: false,
+			customize: false,
+			groupIds: [
+		{
+			value: 45022,
+			text: "Sở Tài nguyên và Môi trường"
+		},
+		{
+			value: 45027,
+			text: "Sở Xây dựng"
+		}, 
+		{
+			value: 45032,
+			text: "Sở Công thương"
+		}, 
+		{
+			value: 45037,
+			text: "Sở Giáo dục và Đào tạo"
+		}, 
+		{
+			value: 45042,
+			text: "Sở Giao thông Vận tải"
+		}, 
+		{
+			value: 35730,
+			text: "Sở Kế hoạch và Đầu tư"
+		}, 
+		{
+			value: 45047,
+			text: "Sở Khoa học và Công nghệ"
+		}, 
+		{
+			value: 45052,
+			text: "Sở Lao động thương binh và Xã hội"
+		},
+		{
+			value: 45087,
+			text: "Sở Nội vụ"
+		}, 
+		{
+			value: 45082,
+			text: "Sở Nông nghiệp và Phát triển nông thôn"
+		}, 
+		{
+			value: 45057,
+			text: "Sở Tài chính"
+		}, 
+		{
+			value: 45062,
+			text: "Sở Thông tin và Truyền thông"
+		}, 
+		{
+			value: 45067,
+			text: "Sở Tư pháp"
+		}, 
+		{
+			value: 45072,
+			text: "Sở Văn hoá Thể thao và Du lịch"
+		}, 
+		{
+			value: 45077,
+			text: "Sở Y tế"
+		}, 
+		{
+			value: 887328,
+			text: "Công An Tỉnh"
+		},
+		{
+			value: 47439,
+			text: "Ban Quản lý khu công nghiệp"
+		}, 
+		{
+			value: 44898,
+			text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+		},
+		{
+			value: 96351,
+			text: "UBND thành phố Vị Thanh"
+		},
+		{
+			value: 96701,
+			text: "UBND Thành phố Ngã Bảy"
+		},
+		{
+			value: 96980,
+			text: "UBND Thị xã Long Mỹ"
+		},
+		{
+			value: 97260,
+			text: "UBND huyện Vị Thủy"
+		},
+		{
+			value: 97565,
+			text: "UBND huyện Long Mỹ"
+		},
+		{
+			value: 100349,
+			text: "UBND huyện Phụng Hiệp "
+		},
+		{
+			value: 100907,
+			text: "UBND huyện Châu Thành "
+		},
+		{
+			value: 101465,
+			text: "UBND huyện Châu Thành A "
+		},
+		{
+			value: 97901,
+			text: "Cấp xã thành phố Vị Thanh"
+		},
+		{
+			value: 98180,
+			text: "Cấp xã thành phố Ngã Bảy"
+		},
+		{
+			value: 98501,
+			text: "Cấp xã thị xã Long Mỹ"
+		},
+		{
+			value: 98801,
+			text: "Cấp xã huyện Vị Thủy"
+		},
+		{
+			value: 99203,
+			text: "Cấp xã huyện Long Mỹ"
+		},
+		{
+			value: 100628,
+			text: "Cấp xã huyện Phụng Hiệp"
+		},
+		{
+			value: 101186,
+			text: "Cấp xã huyện Châu Thành"
+		},
+		{
+			value: 101744,
+			text: "Cấp xã huyện Châu Thành A "
+		} 
+			],
+			groupIdList: [
+		{
+			group: 1,
+			label: "Chọn cấp Sở",
+			key: 'SBN',
+			value: [
+			{
+				value: 45022,
+				text: "Sở Tài nguyên và Môi trường"
+			},
+			{
+				value: 45027,
+				text: "Sở Xây dựng"
+			}, 
+			{
+				value: 45032,
+				text: "Sở Công thương"
+			}, 
+			{
+				value: 45037,
+				text: "Sở Giáo dục và Đào tạo"
+			}, 
+			{
+				value: 45042,
+				text: "Sở Giao thông Vận tải"
+			}, 
+			{
+				value: 35730,
+				text: "Sở Kế hoạch và Đầu tư"
+			}, 
+			{
+				value: 45047,
+				text: "Sở Khoa học và Công nghệ"
+			}, 
+			{
+				value: 45052,
+				text: "Sở Lao động thương binh và Xã hội"
+			},
+			{
+				value: 45087,
+				text: "Sở Nội vụ"
+			}, 
+			{
+				value: 45082,
+				text: "Sở Nông nghiệp và Phát triển nông thôn"
+			}, 
+			{
+				value: 45057,
+				text: "Sở Tài chính"
+			}, 
+			{
+				value: 45062,
+				text: "Sở Thông tin và Truyền thông"
+			}, 
+			{
+				value: 45067,
+				text: "Sở Tư pháp"
+			}, 
+			{
+				value: 45072,
+				text: "Sở Văn hoá Thể thao và Du lịch"
+			}, 
+			{
+				value: 45077,
+				text: "Sở Y tế"
+			}, 
+			{
+				value: 887328,
+				text: "Công An Tỉnh"
+			},
+			{
+				value: 47439,
+				text: "Ban Quản lý khu công nghiệp"
+			}, 
+			{
+				value: 44898,
+				text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+			}
+			]
+		},
+		{
+			group: 2,
+			label: "Chọn cấp Huyện",
+			key: 'QUAN_HUYEN',
+			value: [
+			{
+				value: 96351,
+				text: "UBND thành phố Vị Thanh"
+			},
+			{
+				value: 96701,
+				text: "UBND Thành phố Ngã Bảy"
+			},
+			{
+				value: 96980,
+				text: "UBND Thị xã Long Mỹ"
+			},
+			{
+				value: 97260,
+				text: "UBND huyện Vị Thủy"
+			},
+			{
+				value: 97565,
+				text: "UBND huyện Long Mỹ"
+			},
+			{
+				value: 100349,
+				text: "UBND huyện Phụng Hiệp "
+			},
+			{
+				value: 100907,
+				text: "UBND huyện Châu Thành "
+			},
+			{
+				value: 101465,
+				text: "UBND huyện Châu Thành A "
+			}
+			]
+		},
+		{
+			group: 3,
+			label: "Chọn cấp Xã",
+			key: 'XA_PHUONG',
+			value: [
+			{
+			value: 97901,
+			text: "Cấp xã thành phố Vị Thanh"
+			},
+			{
+				value: 98180,
+				text: "Cấp xã thành phố Ngã Bảy"
+			},
+			{
+				value: 98501,
+				text: "Cấp xã thị xã Long Mỹ"
+			},
+			{
+				value: 98801,
+				text: "Cấp xã huyện Vị Thủy"
+			},
+			{
+				value: 99203,
+				text: "Cấp xã huyện Long Mỹ"
+			},
+			{
+				value: 100628,
+				text: "Cấp xã huyện Phụng Hiệp"
+			},
+			{
+				value: 101186,
+				text: "Cấp xã huyện Châu Thành"
+			},
+			{
+				value: 101744,
+				text: "Cấp xã huyện Châu Thành A "
+			}
+				]
+			}
+			],
+			sumKey: "domainCode",
+			filters: [
+				{
+				label: "Chọn xã phường",
+				key: "govAgencyCode",
+				value: "",
+				type: "select",
+				source: [
+					{
+					value: "",
+					name: "---"
+					},
+					{
+					value: "XTPVT_PHUONG1",
+					name: "TPVT - UBND Phường 1"
+					},
+					{
+					value: "XTPVT_PHUONG3",
+					name: "TPVT - UBND Phường 3"
+					},
+					{
+					value: "XTPVT_PHUONG4",
+					name: "TPVT - UBND Phường 4"
+					},
+					{
+					value: "XTPVT_PHUONG5",
+					name: "TPVT - UBND Phường 5"
+					},
+					{
+					value: "XTPVT_PHUONG7",
+					name: "TPVT - UBND Phường 7"
+					},
+					{
+					value: "XTPVT_XAVITAN",
+					name: "TPVT - UBND Vị Tân"
+					},
+					{
+					value: "XTPVT_XAHOALUU",
+					name: "TPVT - UBND Hoả Lựu"
+					},
+					{
+					value: "XTPVT_XATANTIEN",
+					name: "TPVT - UBND Tân Tiến"
+					},
+					{
+					value: "XTPVT_XAHOATIEN",
+					name: "TPVT - UBND Hoả Tiến"
+					},
+					{
+					value: "XTPNB_PHUONGNGABAY",
+					name: "TPNB - UBND Phường Ngã Bảy"
+					},
+					{
+					value: "XTPNB_PHUONGLAIHIEU",
+					name: "TPNB - UBND Phường Lái Hiếu"
+					},
+					{
+					value: "XTPNB_PHUONGHIEPTHANH",
+					name: "TPNB - UBND Phường Hiệp Thành"
+					},
+					{
+					value: "XTPNB_PHUONGHIEPLOI",
+					name: "TPNB - UBND Phường Hiệp Lợi"
+					},
+					{
+					value: "XTPNB_XADAITHANH",
+					name: "TPNB - UBND Xã Đại Thành"
+					},
+					{
+					value: "XTPNB_XATANTHANH",
+					name: "TPNB - UBND Xã Tân Thành"
+					},
+					{
+					value: "XTXLM_PHUONGTHUANAN",
+					name: "TXLM - UBND Phường Thuận An"
+					},
+					{
+					value: "XTXLM_PHUONGBINHTHANH",
+					name: "TXLM - UBND Phường Bình Thành"
+					},
+					{
+					value: "XTXLM_PHUONGVINHTUONG",
+					name: "TXLM - UBND Phường Vĩnh Tường"
+					},
+					{
+					value: "XTXLM_PHUONGTRALONG",
+					name: "TXLM - UBND Phường Trà Lồng"
+					},
+					{
+					value: "XTXLM_XALONGBINH",
+					name: "TXLM - UBND Xã Long Bình"
+					},
+					{
+					value: "XTXLM_XALONGTRI",
+					name: "TXLM - UBND Xã Long Trị"
+					},
+					{
+					value: "XTXLM_XALONGTRIA",
+					name: "TXLM - UBND Xã Long Trị A"
+					},
+					{
+					value: "XTXLM_XATANPHU",
+					name: "TXLM - UBND Xã Tân Phú"
+					},
+					{
+					value: "XTXLM_XALONGPHU",
+					name: "TXLM - UBND Xã Long Phú"
+					},
+					{
+					value: "XHVT_TTNANGMAU",
+					name: "HVT - UBND Thị trấn Nàng Mau"
+					},
+					{
+					value: "XHVT_XAVIBINH",
+					name: "HVT - UBND Xã Vị Bình"
+					},
+					{
+					value: "XHVT_XAVIDONG",
+					name: "HVT - UBND Xã Vị Đông"
+					},
+					{
+					value: "XHVT_XAVITHANH",
+					name: "HVT - UBND Xã Vị Thanh"
+					},
+					{
+					value: "XHVT_XAVITHANG",
+					name: "HVT - UBND Xã Vị Thắng"
+					},
+					{
+					value: "XHVT_XAVITHUY",
+					name: "HVT - UBND Xã Vị Thủy"
+					},
+					{
+					value: "XHVT_XAVITRUNG",
+					name: "HVT - UBND Xã Vị Trung"
+					},
+					{
+					value: "XHVT_XAVINHTHUANTAY",
+					name: "HVT - UBND Xã Vĩnh Thuận Tây"
+					},
+					{
+					value: "XHVT_XAVINHTRUNG",
+					name: "HVT - UBND Xã Vĩnh Trung"
+					},
+					{
+					value: "XHVT_XAVINHTUONG",
+					name: "HVT - UBND Xã Vĩnh Tường"
+					},
+					{
+					value: "XHLM_XATHUANHOA",
+					name: "HLM - UBND Xã Thuận Hòa"
+					},
+					{
+					value: "XHLM_XATHUANHUNG",
+					name: "HLM - UBND Xã Thuận Hưng"
+					},
+					{
+					value: "XHLM_XAVINHTHUANDONG",
+					name: "HLM - UBND Xã Vĩnh Thuận Đông"
+					},
+					{
+					value: "XHLM_XAVINHVIEN",
+					name: "HLM - UBND Xã Vĩnh Viễn"
+					},
+					{
+					value: "XHLM_XAVINHVIENA",
+					name: "HLM - UBND Xã Vĩnh Viễn A"
+					},
+					{
+					value: "XHLM_XAXAPHIEN",
+					name: "HLM - UBND Xã Xà Phiên"
+					},
+					{
+					value: "XHLM_XALUONGTAM",
+					name: "HLM - UBND Xã Lương Tâm"
+					},
+					{
+					value: "XHLM_XALUONGNGHIA",
+					name: "HLM - UBND Xã Lương Nghĩa"
+					},
+					{
+					value: "XHPH_TTCAYDUONG",
+					name: "HPH - UBND Thị trấn Cây Dương"
+					},
+					{
+					value: "XHPH_TTKINHCUNG",
+					name: "HPH - UBND Thị trấn Kinh Cùng"
+					},
+					{
+					value: "XHPH_TTBUNGTAU",
+					name: "HPH - UBND Thị trấn Búng Tàu"
+					},
+					{
+					value: "XHPH_XAPHUNGHIEP",
+					name: "HPH - UBND Xã Phụng Hiệp"
+					},
+					{
+					value: "XHPH_XATANPHUOCHUNG",
+					name: "HPH - UBND Xã Tân Phước Hưng"
+					},
+					{
+					value: "XHPH_XATANBINH",
+					name: "HPH - UBND Xã Tân Bình"
+					},
+					{
+					value: "XHPH_XAHOAAN",
+					name: "HPH - UBND Xã Hoà An"
+					},
+					{
+					value: "XHPH_XAPHUONGBINH",
+					name: "HPH - UBND Xã Phương Bình"
+					},
+					{
+					value: "XHPH_XAPHUONGPHU",
+					name: "HPH - UBND Xã Phương Phú"
+					},
+					{
+					value: "XHPH_XAHOAMY",
+					name: "HPH - UBND Xã Hoà Mỹ"
+					},
+					{
+					value: "XHPH_XAHIEPHUNG",
+					name: "HPH - UBND Xã Hiệp Hưng"
+					},
+					{
+					value: "XHPH_XATHANHHOA",
+					name: "HPH - UBND Xã Thạnh Hoà"
+					},
+					{
+					value: "XHPH_XABINHTHANH",
+					name: "HPH - UBND Xã Bình Thành"
+					},
+					{
+					value: "XHPH_XATANLONG",
+					name: "HPH - UBND Xã Tân Long"
+					},
+					{
+					value: "XHPH_XALONGTHANH",
+					name: "HPH - UBND Xã Long Thạnh"
+					},
+					{
+					value: "XHCT_TTNGASAU",
+					name: "HCT - UBND Thị trấn Ngã Sáu"
+					},
+					{
+					value: "XHCT_TTMAIDAM",
+					name: "HCT - UBND Thị trấn Mái Dầm"
+					},
+					{
+					value: "XHCT_XADONGPHUOC",
+					name: "HCT - UBND Xã Đông Phước"
+					},
+					{
+					value: "XHCT_XADONGPHUOCA",
+					name: "HCT - UBND Xã Đông Phước A"
+					},
+					{
+					value: "XHCT_XAPHUHUU",
+					name: "HCT - UBND Xã Phú Hữu"
+					},
+					{
+					value: "XHCT_XAPHUTAN",
+					name: "HCT - UBND Xã Phú Tân"
+					},
+					{
+					value: "XHCT_XAPHUAN",
+					name: "HCT - UBND Xã Phú An"
+					},
+					{
+					value: "XHCT_XADONGPHU",
+					name: "HCT - UBND Xã Đông Phú"
+					},
+					{
+					value: "XHCT_XADONGTHANH",
+					name: "HCT - UBND Xã Đông Thạnh"
+					},
+					{
+					value: "XHCTA_TTMOTNGAN",
+					name: "HCTA - UBND Thị trấn Một Ngàn"
+					},
+					{
+					value: "XHCTA_TTBAYNGAN",
+					name: "HCTA - UBND Thị trấn Bảy Ngàn"
+					},
+					{
+					value: "XHCTA_TTCAITAC",
+					name: "HCTA - UBND Thị trấn Cái Tắc"
+					},
+					{
+					value: "XHCTA_TTRACHGOI",
+					name: "HCTA - UBND Thị trấn Rạch Gồi"
+					},
+					{
+					value: "XHCTA_XATHANHXUAN",
+					name: "HCTA - UBND Xã Thạnh Xuân"
+					},
+					{
+					value: "XHCTA_XATANPHUTHANH",
+					name: "HCTA - UBND Xã Tân Phú Thạnh"
+					},
+					{
+					value: "XHCTA_XATANHOA",
+					name: "HCTA - UBND Xã Tân Hòa"
+					},
+					{
+					value: "XHCTA_XATRUONGLONGTAY",
+					name: "HCTA - UBND Xã Trường Long Tây"
+					},
+					{
+					value: "XHCTA_XATRUONGLONGA",
+					name: "HCTA - UBND Xã Trường Long A"
+					},
+					{
+					value: "XHCTA_XANHONNGHIAA",
+					name: "HCTA - UBND Xã Nhơn Nghĩa A"
+					}
+				]
+			  },
+			  {
+					label: "Mức độ",
+					key: "listServiceLevel",
+					value: "2,3,4",
+					type: "select",
+					source: [
+						{name: "Tất cả", value: "2,3,4"},
+						{name: "Mức độ 2", value: "2"},
+						{name: "Mức độ 3", value: "3"},
+						{name: "Mức độ 4", value: "4"}
+					]
+				},
+				{
+					label: "Hình thức nộp hồ sơ",
+					key: "listTypeSendDossier",
+					value: "1,2,3",
+					type: "select",
+					source: [
+						{name: "TRỰC TIẾP, TRỰC TUYẾN, QUA BƯU ĐIỆN", value: "1,2,3"},
+						{name: "TRỰC TUYẾN", value: "1"},
+						{name: "TRỰC TIẾP", value: "2"},
+						{name: "QUA BƯU ĐIỆN", value: "3"}
+					],
+					clearable: true
+				},
+				{
+					label: "Hồ sơ liên thông",
+					key: "isHSLT",
+					value: "",
+					type: "select",
+					source: [
+						{name: "LIÊN THÔNG", value: "true"}
+					],
+					clearable: true
+				},
+				{
+					label: "Loại thủ tục hành chính",
+					key: "tagCode",
+					value: "",
+					type: "select",
+					source: [
+						{name: "4 TẠI CHỖ", value: "4_TAI_CHO"},
+						{name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
+					],
+					clearable: true
+				},
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				}
+			],
+			reportConfig: [
+				{
+				"selected": true,
+				"value": "domainName",
+				"text": "",
+				"align": "left"
+				},
+				{
+				"selected": true,
+				"value": "processCount",
+				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "remainingCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "receivedCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "ontimeCount",
+				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "betimesCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "ontimeCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "overtimeCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "processingCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "undueCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "overdueCount",
+				"text": "",
+				"align": "center"
+				},
+                {
+				"selected": true,
+				"value": "cancelledCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "unresolvedCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "overtimeCountNotFinish",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "overtimePercentage",
+				"text": "",
+				"align": "center"
+				}
+			],
+		selection: [
+			{
+				"key": "govAgencyCode",
+				"value": ""
+			}
+		],
+		merge: ["domainCode","govAgencyCode"],
+		sort: "domainName",
+		statistics: true
+		}
+		]]>
+		</filterConfig>
+		<tableConfig>
+				<![CDATA[
+				{
+			docDefinition: {
+			pageOrientation: "landscape",
+			content: [
+				{
+					columns: [
+						{
+							width: 300,
+							style: "title",
+							text: [
+								{text: "UBND TỈNH HẬU GIANG\n"},
+								{text: "[$siteName$]\n"}
+							]
+						},
+						{
+							width: 100,
+							style: "title",
+							text: ""
+						},
+						{
+							width: 300,
+							style: "title",
+							text: [
+								{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+								{text: "Độc lập - Tự do - Hạnh phúc\n"},
+								{text: "------------------------------------\n"},
+								{text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+							]
+						}
+					]
+				},
+				{
+			text: [
+				{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ [$isHSLT$] [$tagCode$]\n"},
+				{text: "([$listTypeSendDossier$]) \n"},
+				{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+			], 
+			margin: [0, 20],
+			style: "headerTitle"
+		},
+				{
+					style: "tableExample",
+					table: {
+			widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+			headerRows: 3,
+			body: [
+				[
+                    {
+                        text: "\n\n\nSTT",
+                        rowSpan: 3,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "\n\n\nLĩnh vực",
+                        rowSpan: 3,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Tổng số tiếp nhận",
+                        rowSpan: 3,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Kỳ trước chuyển qua",
+                        rowSpan: 3,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Tiếp nhận trong kỳ",
+                        rowSpan: 3,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Kết quả giải quyết",
+                        colSpan: 7,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    },
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    {
+                        text: "Rút hồ sơ",
+                        rowSpan: 3,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Từ chối giải quyết",
+                        rowSpan: 3,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Tổng số trễ hạn",
+                        rowSpan: 3,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Tỷ lệ hồ sơ trễ hạn",
+                        rowSpan: 3,
+                        alignment: "center",
+                        bold: true,
+                        style: "tdStyle"
+                    }
+				],
+				[
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    {
+                        text: "Hồ sơ đã giải quyết xong",
+                        colSpan: 4,           
+                        alignment: "center",
+                        style: "tdStyle"
+                    },
+                    "",
+                    "",
+                    "",
+                    {
+                        text: "Hồ sơ đang giải quyết",
+                        colSpan: 3,           
+                        alignment: "center",
+                        style: "tdStyle"
+                    },
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+				],
+				[
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    {
+                        text: "Tổng số",
+                        alignment: "center",
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Sớm hạn",
+                        alignment: "center",
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Đúng hạn",
+                        alignment: "center",
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Trễ hạn",
+                        alignment: "center",
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Tổng số",
+                        alignment: "center",
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Chưa đến hạn",
+                        alignment: "center",
+                        style: "tdStyle"
+                    },
+                    {
+                        text: "Quá hạn",
+                        alignment: "center",
+                        style: "tdStyle"
+                    },
+                    "",
+                    "",
+                    "",
+                    ""
+				],
+				[
+                    {
+                        text: "(1)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(2)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(3=4+5)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(4)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(5)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(6=7+8+9)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(7)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(8)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(9)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(10=11+12)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(11)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(12)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(13)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(14)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(15)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+                    {
+                        text: "(16)",
+                        alignment: "center",
+                        fontSize: 8
+                    }
+				],
+				"[$report$]"
+			]
+			},
+					margin: [0, 0, 0, 5]
+				},            
+				{
+					columns: [
+						{
+							width: "*",
+							text: [
+								{text: "Nơi nhận:", bold: true }
+							]
+						},
+						{
+							width: 150,
+							style: "title",
+							text: "THỦ TRƯỞNG ĐƠN VỊ"
+						}
+					]
+				},
+				{
+					columns: [
+						{
+							width: "*",
+							text: ""
+						},
+						{
+							width: 150,
+							style: "titleSub",
+							text: "(Ký và ghi rõ họ tên)"
+						}
+					]
+				}
+			],
+			styles: {
+				ngayThangNam: {
+					fontSize: 10,
+					italics: true,
+					bold: false,
+					alignment: "center"
+				},
+				headerTitle: {
+					alignment: "center",
+					bold: true,
+					fontSize: 13
+				},
+				borderHeader: {
+					alignment: "left"
+				},
+				title: {
+					bold: true,
+					alignment: "center"
+				},
+				titleSub: {
+					fontSize: 10,
+					italics: true,
+					alignment: "center"
+				},
+				tdStyle: {
+					fontSize: 10,
+					margin: [0, 2]
+				}
+			},
+			defaultStyle: {
+				columnGap: 20,
+				fontSize: 11
+			}
+			}
+		}
+		]]>
+		</tableConfig>
+		<userConfig>{"order": 10}</userConfig>
+	</DynamicReport>
+	<DynamicReport label="STATISTIC_04_VER3">
+		<sharing>1</sharing>
+		<reportName>Tổng hợp hồ sơ theo thủ tục - New</reportName>
+		<reportCode>STATISTIC_04_VER_3</reportCode>
+		<filterConfig>
+		<![CDATA[
+			{
+				api: "/o/statistic/dossier/groupcount?type=20&groupBy=serviceCode",
+		apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=serviceCode",
+				exclusive: false,
+				customize: false,
+				sumKey: "serviceCode",
+				groupIds: [
+				{
+					value: 45022,
+					text: "Sở Tài nguyên và Môi trường"
+				},
+				{
+					value: 45027,
+					text: "Sở Xây dựng"
+				}, 
+				{
+					value: 45032,
+					text: "Sở Công thương"
+				}, 
+				{
+					value: 45037,
+					text: "Sở Giáo dục và Đào tạo"
+				}, 
+				{
+					value: 45042,
+					text: "Sở Giao thông Vận tải"
+				}, 
+				{
+					value: 35730,
+					text: "Sở Kế hoạch và Đầu tư"
+				}, 
+				{
+					value: 45047,
+					text: "Sở Khoa học và Công nghệ"
+				}, 
+				{
+					value: 45052,
+					text: "Sở Lao động thương binh và Xã hội"
+				},
+				{
+					value: 45087,
+					text: "Sở Nội vụ"
+				}, 
+				{
+					value: 45082,
+					text: "Sở Nông nghiệp và Phát triển nông thôn"
+				}, 
+				{
+					value: 45057,
+					text: "Sở Tài chính"
+				}, 
+				{
+					value: 45062,
+					text: "Sở Thông tin và Truyền thông"
+				}, 
+				{
+					value: 45067,
+					text: "Sở Tư pháp"
+				}, 
+				{
+					value: 45072,
+					text: "Sở Văn hoá Thể thao và Du lịch"
+				}, 
+				{
+					value: 45077,
+					text: "Sở Y tế"
+				}, 
+				{
+					value: 887328,
+					text: "Công An Tỉnh"
+				},
+				{
+					value: 47439,
+					text: "Ban Quản lý khu công nghiệp"
+				}, 
+				{
+					value: 44898,
+					text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+				},
+				{
+					value: 96351,
+					text: "UBND thành phố Vị Thanh"
+				},
+				{
+						value: 96701,
+						text: "UBND Thành phố Ngã Bảy"
+				},
+				{
+						value: 96980,
+						text: "UBND Thị xã Long Mỹ"
+				},
+				{
+						value: 97260,
+						text: "UBND huyện Vị Thủy"
+				},
+				{
+						value: 97565,
+						text: "UBND huyện Long Mỹ"
+				},
+				{
+						value: 100349,
+						text: "UBND huyện Phụng Hiệp "
+				},
+				{
+						value: 100907,
+						text: "UBND huyện Châu Thành "
+				},
+				{
+						value: 101465,
+						text: "UBND huyện Châu Thành A "
+				},
+				{
+					value: 97901,
+					text: "Cấp xã thành phố Vị Thanh"
+				},
+				{
+						value: 98180,
+						text: "Cấp xã thành phố Ngã Bảy"
+				},
+				{
+						value: 98501,
+						text: "Cấp xã thị xã Long Mỹ"
+				},
+				{
+						value: 98801,
+						text: "Cấp xã huyện Vị Thủy"
+				},
+				{
+						value: 99203,
+						text: "Cấp xã huyện Long Mỹ"
+				},
+				{
+						value: 100628,
+						text: "Cấp xã huyện Phụng Hiệp"
+				},
+				{
+						value: 101186,
+						text: "Cấp xã huyện Châu Thành"
+				},
+				{
+						value: 101744,
+						text: "Cấp xã huyện Châu Thành A "
+				} 
+				],
+				groupIdList: [
+				{
+					group: 1,
+					label: "Chọn cấp Sở",
+					key: 'SBN',
+					value: [
+						{
+							value: 45022,
+							text: "Sở Tài nguyên và Môi trường"
+						},
+						{
+							value: 45027,
+							text: "Sở Xây dựng"
+						}, 
+						{
+							value: 45032,
+							text: "Sở Công thương"
+						}, 
+						{
+							value: 45037,
+							text: "Sở Giáo dục và Đào tạo"
+						}, 
+						{
+							value: 45042,
+							text: "Sở Giao thông Vận tải"
+						}, 
+						{
+							value: 35730,
+							text: "Sở Kế hoạch và Đầu tư"
+						}, 
+						{
+							value: 45047,
+							text: "Sở Khoa học và Công nghệ"
+						}, 
+						{
+							value: 45052,
+							text: "Sở Lao động thương binh và Xã hội"
+						},
+						{
+							value: 45087,
+							text: "Sở Nội vụ"
+						}, 
+						{
+							value: 45082,
+							text: "Sở Nông nghiệp và Phát triển nông thôn"
+						}, 
+						{
+							value: 45057,
+							text: "Sở Tài chính"
+						}, 
+						{
+							value: 45062,
+							text: "Sở Thông tin và Truyền thông"
+						}, 
+						{
+							value: 45067,
+							text: "Sở Tư pháp"
+						}, 
+						{
+							value: 45072,
+							text: "Sở Văn hoá Thể thao và Du lịch"
+						}, 
+						{
+							value: 45077,
+							text: "Sở Y tế"
+						}, 
+						{
+							value: 887328,
+							text: "Công An Tỉnh"
+						},
+						{
+							value: 47439,
+							text: "Ban Quản lý khu công nghiệp"
+						}, 
+						{
+							value: 44898,
+							text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+						}
+					]
+				},
+				{
+					group: 2,
+					label: "Chọn cấp Huyện",
+					key: 'QUAN_HUYEN',
+					value: [
+						{
+							value: 96351,
+							text: "UBND thành phố Vị Thanh"
+						},
+						{
+								value: 96701,
+								text: "UBND Thành phố Ngã Bảy"
+						},
+						{
+								value: 96980,
+								text: "UBND Thị xã Long Mỹ"
+						},
+						{
+								value: 97260,
+								text: "UBND huyện Vị Thủy"
+						},
+						{
+								value: 97565,
+								text: "UBND huyện Long Mỹ"
+						},
+						{
+								value: 100349,
+								text: "UBND huyện Phụng Hiệp "
+						},
+						{
+								value: 100907,
+								text: "UBND huyện Châu Thành "
+						},
+						{
+								value: 101465,
+								text: "UBND huyện Châu Thành A "
+						}
+					]
+				},
+				{
+					group: 3,
+					label: "Chọn cấp Xã",
+					key: 'XA_PHUONG',
+					value: [
+					{
+						value: 97901,
+						text: "Cấp xã thành phố Vị Thanh"
+					},
+					{
+							value: 98180,
+							text: "Cấp xã thành phố Ngã Bảy"
+					},
+					{
+							value: 98501,
+							text: "Cấp xã thị xã Long Mỹ"
+					},
+					{
+							value: 98801,
+							text: "Cấp xã huyện Vị Thủy"
+					},
+					{
+							value: 99203,
+							text: "Cấp xã huyện Long Mỹ"
+					},
+					{
+							value: 100628,
+							text: "Cấp xã huyện Phụng Hiệp"
+					},
+					{
+							value: 101186,
+							text: "Cấp xã huyện Châu Thành"
+					},
+					{
+							value: 101744,
+							text: "Cấp xã huyện Châu Thành A "
+					}
+					]
+				}
+				],
+				filters: [
+				{
+				label: "Chọn xã phường",
+				key: "govAgencyCode",
+				value: "",
+				type: "select",
+				source: [
+					{
+					value: "",
+					name: "---"
+					},
+					{
+					value: "XTPVT_PHUONG1",
+					name: "TPVT - UBND Phường 1"
+					},
+					{
+					value: "XTPVT_PHUONG3",
+					name: "TPVT - UBND Phường 3"
+					},
+					{
+					value: "XTPVT_PHUONG4",
+					name: "TPVT - UBND Phường 4"
+					},
+					{
+					value: "XTPVT_PHUONG5",
+					name: "TPVT - UBND Phường 5"
+					},
+					{
+					value: "XTPVT_PHUONG7",
+					name: "TPVT - UBND Phường 7"
+					},
+					{
+					value: "XTPVT_XAVITAN",
+					name: "TPVT - UBND Vị Tân"
+					},
+					{
+					value: "XTPVT_XAHOALUU",
+					name: "TPVT - UBND Hoả Lựu"
+					},
+					{
+					value: "XTPVT_XATANTIEN",
+					name: "TPVT - UBND Tân Tiến"
+					},
+					{
+					value: "XTPVT_XAHOATIEN",
+					name: "TPVT - UBND Hoả Tiến"
+					},
+					{
+					value: "XTPNB_PHUONGNGABAY",
+					name: "TPNB - UBND Phường Ngã Bảy"
+					},
+					{
+					value: "XTPNB_PHUONGLAIHIEU",
+					name: "TPNB - UBND Phường Lái Hiếu"
+					},
+					{
+					value: "XTPNB_PHUONGHIEPTHANH",
+					name: "TPNB - UBND Phường Hiệp Thành"
+					},
+					{
+					value: "XTPNB_PHUONGHIEPLOI",
+					name: "TPNB - UBND Phường Hiệp Lợi"
+					},
+					{
+					value: "XTPNB_XADAITHANH",
+					name: "TPNB - UBND Xã Đại Thành"
+					},
+					{
+					value: "XTPNB_XATANTHANH",
+					name: "TPNB - UBND Xã Tân Thành"
+					},
+					{
+					value: "XTXLM_PHUONGTHUANAN",
+					name: "TXLM - UBND Phường Thuận An"
+					},
+					{
+					value: "XTXLM_PHUONGBINHTHANH",
+					name: "TXLM - UBND Phường Bình Thành"
+					},
+					{
+					value: "XTXLM_PHUONGVINHTUONG",
+					name: "TXLM - UBND Phường Vĩnh Tường"
+					},
+					{
+					value: "XTXLM_PHUONGTRALONG",
+					name: "TXLM - UBND Phường Trà Lồng"
+					},
+					{
+					value: "XTXLM_XALONGBINH",
+					name: "TXLM - UBND Xã Long Bình"
+					},
+					{
+					value: "XTXLM_XALONGTRI",
+					name: "TXLM - UBND Xã Long Trị"
+					},
+					{
+					value: "XTXLM_XALONGTRIA",
+					name: "TXLM - UBND Xã Long Trị A"
+					},
+					{
+					value: "XTXLM_XATANPHU",
+					name: "TXLM - UBND Xã Tân Phú"
+					},
+					{
+					value: "XTXLM_XALONGPHU",
+					name: "TXLM - UBND Xã Long Phú"
+					},
+					{
+					value: "XHVT_TTNANGMAU",
+					name: "HVT - UBND Thị trấn Nàng Mau"
+					},
+					{
+					value: "XHVT_XAVIBINH",
+					name: "HVT - UBND Xã Vị Bình"
+					},
+					{
+					value: "XHVT_XAVIDONG",
+					name: "HVT - UBND Xã Vị Đông"
+					},
+					{
+					value: "XHVT_XAVITHANH",
+					name: "HVT - UBND Xã Vị Thanh"
+					},
+					{
+					value: "XHVT_XAVITHANG",
+					name: "HVT - UBND Xã Vị Thắng"
+					},
+					{
+					value: "XHVT_XAVITHUY",
+					name: "HVT - UBND Xã Vị Thủy"
+					},
+					{
+					value: "XHVT_XAVITRUNG",
+					name: "HVT - UBND Xã Vị Trung"
+					},
+					{
+					value: "XHVT_XAVINHTHUANTAY",
+					name: "HVT - UBND Xã Vĩnh Thuận Tây"
+					},
+					{
+					value: "XHVT_XAVINHTRUNG",
+					name: "HVT - UBND Xã Vĩnh Trung"
+					},
+					{
+					value: "XHVT_XAVINHTUONG",
+					name: "HVT - UBND Xã Vĩnh Tường"
+					},
+					{
+					value: "XHLM_XATHUANHOA",
+					name: "HLM - UBND Xã Thuận Hòa"
+					},
+					{
+					value: "XHLM_XATHUANHUNG",
+					name: "HLM - UBND Xã Thuận Hưng"
+					},
+					{
+					value: "XHLM_XAVINHTHUANDONG",
+					name: "HLM - UBND Xã Vĩnh Thuận Đông"
+					},
+					{
+					value: "XHLM_XAVINHVIEN",
+					name: "HLM - UBND Xã Vĩnh Viễn"
+					},
+					{
+					value: "XHLM_XAVINHVIENA",
+					name: "HLM - UBND Xã Vĩnh Viễn A"
+					},
+					{
+					value: "XHLM_XAXAPHIEN",
+					name: "HLM - UBND Xã Xà Phiên"
+					},
+					{
+					value: "XHLM_XALUONGTAM",
+					name: "HLM - UBND Xã Lương Tâm"
+					},
+					{
+					value: "XHLM_XALUONGNGHIA",
+					name: "HLM - UBND Xã Lương Nghĩa"
+					},
+					{
+					value: "XHPH_TTCAYDUONG",
+					name: "HPH - UBND Thị trấn Cây Dương"
+					},
+					{
+					value: "XHPH_TTKINHCUNG",
+					name: "HPH - UBND Thị trấn Kinh Cùng"
+					},
+					{
+					value: "XHPH_TTBUNGTAU",
+					name: "HPH - UBND Thị trấn Búng Tàu"
+					},
+					{
+					value: "XHPH_XAPHUNGHIEP",
+					name: "HPH - UBND Xã Phụng Hiệp"
+					},
+					{
+					value: "XHPH_XATANPHUOCHUNG",
+					name: "HPH - UBND Xã Tân Phước Hưng"
+					},
+					{
+					value: "XHPH_XATANBINH",
+					name: "HPH - UBND Xã Tân Bình"
+					},
+					{
+					value: "XHPH_XAHOAAN",
+					name: "HPH - UBND Xã Hoà An"
+					},
+					{
+					value: "XHPH_XAPHUONGBINH",
+					name: "HPH - UBND Xã Phương Bình"
+					},
+					{
+					value: "XHPH_XAPHUONGPHU",
+					name: "HPH - UBND Xã Phương Phú"
+					},
+					{
+					value: "XHPH_XAHOAMY",
+					name: "HPH - UBND Xã Hoà Mỹ"
+					},
+					{
+					value: "XHPH_XAHIEPHUNG",
+					name: "HPH - UBND Xã Hiệp Hưng"
+					},
+					{
+					value: "XHPH_XATHANHHOA",
+					name: "HPH - UBND Xã Thạnh Hoà"
+					},
+					{
+					value: "XHPH_XABINHTHANH",
+					name: "HPH - UBND Xã Bình Thành"
+					},
+					{
+					value: "XHPH_XATANLONG",
+					name: "HPH - UBND Xã Tân Long"
+					},
+					{
+					value: "XHPH_XALONGTHANH",
+					name: "HPH - UBND Xã Long Thạnh"
+					},
+					{
+					value: "XHCT_TTNGASAU",
+					name: "HCT - UBND Thị trấn Ngã Sáu"
+					},
+					{
+					value: "XHCT_TTMAIDAM",
+					name: "HCT - UBND Thị trấn Mái Dầm"
+					},
+					{
+					value: "XHCT_XADONGPHUOC",
+					name: "HCT - UBND Xã Đông Phước"
+					},
+					{
+					value: "XHCT_XADONGPHUOCA",
+					name: "HCT - UBND Xã Đông Phước A"
+					},
+					{
+					value: "XHCT_XAPHUHUU",
+					name: "HCT - UBND Xã Phú Hữu"
+					},
+					{
+					value: "XHCT_XAPHUTAN",
+					name: "HCT - UBND Xã Phú Tân"
+					},
+					{
+					value: "XHCT_XAPHUAN",
+					name: "HCT - UBND Xã Phú An"
+					},
+					{
+					value: "XHCT_XADONGPHU",
+					name: "HCT - UBND Xã Đông Phú"
+					},
+					{
+					value: "XHCT_XADONGTHANH",
+					name: "HCT - UBND Xã Đông Thạnh"
+					},
+					{
+					value: "XHCTA_TTMOTNGAN",
+					name: "HCTA - UBND Thị trấn Một Ngàn"
+					},
+					{
+					value: "XHCTA_TTBAYNGAN",
+					name: "HCTA - UBND Thị trấn Bảy Ngàn"
+					},
+					{
+					value: "XHCTA_TTCAITAC",
+					name: "HCTA - UBND Thị trấn Cái Tắc"
+					},
+					{
+					value: "XHCTA_TTRACHGOI",
+					name: "HCTA - UBND Thị trấn Rạch Gồi"
+					},
+					{
+					value: "XHCTA_XATHANHXUAN",
+					name: "HCTA - UBND Xã Thạnh Xuân"
+					},
+					{
+					value: "XHCTA_XATANPHUTHANH",
+					name: "HCTA - UBND Xã Tân Phú Thạnh"
+					},
+					{
+					value: "XHCTA_XATANHOA",
+					name: "HCTA - UBND Xã Tân Hòa"
+					},
+					{
+					value: "XHCTA_XATRUONGLONGTAY",
+					name: "HCTA - UBND Xã Trường Long Tây"
+					},
+					{
+					value: "XHCTA_XATRUONGLONGA",
+					name: "HCTA - UBND Xã Trường Long A"
+					},
+					{
+					value: "XHCTA_XANHONNGHIAA",
+					name: "HCTA - UBND Xã Nhơn Nghĩa A"
+					}
+				]
+			  },
+			  {
+					label: "Mức độ",
+					key: "listServiceLevel",
+					value: "2,3,4",
+					type: "select",
+					source: [
+						{name: "Tất cả", value: "2,3,4"},
+						{name: "Mức độ 2", value: "2"},
+						{name: "Mức độ 3", value: "3"},
+						{name: "Mức độ 4", value: "4"}
+					]
+				},
+				{
+					label: "Hình thức nộp hồ sơ",
+					key: "listTypeSendDossier",
+					value: "1,2,3",
+					type: "select",
+					source: [
+						{name: "TRỰC TIẾP, TRỰC TUYẾN, QUA BƯU ĐIỆN", value: "1,2,3"},
+						{name: "TRỰC TUYẾN", value: "1"},
+						{name: "TRỰC TIẾP", value: "2"},
+						{name: "QUA BƯU ĐIỆN", value: "3"}
+					],
+					clearable: true
+				},
+				{
+					label: "Hồ sơ liên thông",
+					key: "isHSLT",
+					value: "",
+					type: "select",
+					source: [
+									{name: "LIÊN THÔNG", value: "true"}
+					],
+								clearable: true
+				},
+				{
+					label: "Loại thủ tục hành chính",
+					key: "tagCode",
+					value: "",
+					type: "select",
+					source: [
+						{name: "4 TẠI CHỖ", value: "4_TAI_CHO"},
+						{name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
+					],
+					clearable: true
+				},
+				{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date", 
+				before: "toDate" 
+				},
+				{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date", 
+				after: "fromDate" 
+				}
+			],
+			reportConfig: [
+				{
+				"selected": true,
+				"value": "serviceName",
+				"text": "",
+				"align": "left"
+				},
+				{
+				"selected": true,
+				"value": "processCount",
+				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "remainingCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "receivedCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "ontimeCount",
+				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "betimesCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "ontimeCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "overtimeCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "processingCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "undueCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "overdueCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "cancelledCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "unresolvedCount",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "overtimeCountNotFinish",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "overtimePercentage",
+				"text": "",
+				"align": "center"
+				}
+			],
+			selection: [
+				{
+					"key": "govAgencyCode",
+					"value": ""
+				}
+			],
+			merge: ["serviceCode","govAgencyCode"],
+			sort: "serviceName",
+			statistics: true
+			}
+
+		]]>
+		</filterConfig>
+		<tableConfig>
+				<![CDATA[
+				{
+				docDefinition: {
+				pageOrientation: "landscape",
+				content: [
+					{
+						columns: [
+							{
+								width: 300,
+								style: "title",
+								text: [
+									{text: "UBND TỈNH HẬU GIANG\n"},
+									{text: "[$siteName$]\n"}
+								]
+							},
+							{
+								width: 100,
+								style: "title",
+								text: ""
+							},
+							{
+								width: 300,
+								style: "title",
+								text: [
+									{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									{text: "Độc lập - Tự do - Hạnh phúc\n"},
+									{text: "------------------------------------\n"},
+									{text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								]
+							}
+						]
+					},
+					{
+						text: [
+							{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ [$isHSLT$] [$tagCode$]\n"},
+							{text: "([$listTypeSendDossier$]) \n"},
+							{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+						], 
+						margin: [0, 20],
+						style: "headerTitle"
+					},
+					{
+						style: "tableExample",
+						table: {
+							widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+							headerRows: 3,
+							body: [
+								[
+									{
+										text: "\n\n\nSTT",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "\n\n\nThủ tục",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số tiếp nhận",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kỳ trước chuyển qua",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tiếp nhận trong kỳ",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kết quả giải quyết",
+										colSpan: 7,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+                                    {
+										text: "Rút hồ sơ",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+                                    {
+										text: "Từ chối giải quyết",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tỷ lệ hồ sơ trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									}
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đã giải quyết xong",
+										colSpan: 4,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đang giải quyết",
+										colSpan: 3,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									"",
+                                    "",
+                                    ""
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Sớm hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Đúng hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Trễ hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Chưa đến hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Quá hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+                                    "",
+                                    ""
+								],
+								[
+									{
+										text: "(1)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(2)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(3=4+5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(4)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(6=7+8+9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(7)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(8)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(10=11+12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(11)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(13)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(14)",
+										alignment: "center",
+										fontSize: 8
+									},
+                                    {
+										text: "(15)",
+										alignment: "center",
+										fontSize: 8
+									},
+                                    {
+										text: "(16)",
+										alignment: "center",
+										fontSize: 8
+									}
+								],
+								"[$report$]"
+							]
+						},
+						margin: [0, 0, 0, 5]
+					},             
+					{
+						columns: [
+							{
+								width: "*",
+								text: [
+									{text: "Nơi nhận:", bold: true }
+								]
+							},
+							{
+								width: 150,
+								style: "title",
+								text: "THỦ TRƯỞNG ĐƠN VỊ"
+							}
+						]
+					},
+					{
+						columns: [
+							{
+								width: "*",
+								text: ""
+							},
+							{
+								width: 150,
+								style: "titleSub",
+								text: "(Ký và ghi rõ họ tên)"
+							}
+						]
+					}
+				],
+				styles: {
+					ngayThangNam: {
+						fontSize: 10,
+						italics: true,
+						bold: false,
+						alignment: "center"
+					},
+					headerTitle: {
+						alignment: "center",
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: "left"
+					},
+					title: {
+						bold: true,
+						alignment: "center"
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: "center"
+					},
+					tdStyle: {
+						fontSize: 10,
+						margin: [0, 2]
+					}
+				},
+				defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				}
+				}
+			}
+		]]>
+		</tableConfig>
+		<userConfig>{"order": 11}</userConfig>
+	</DynamicReport>
+	<DynamicReport>
+		<filterConfig>
+			<![CDATA[
+			
+			{
+				api: "/o/statistic/dossier/groupcount?type=20&groupBy=govAgencyCode",
+				apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=govAgencyCode",
+				exclusive: false,
+				customize: false,
+				groupIds: [
+				{
+					value: 45022,
+					text: "Sở Tài nguyên và Môi trường"
+				},
+				{
+					value: 45027,
+					text: "Sở Xây dựng"
+				}, 
+				{
+					value: 45032,
+					text: "Sở Công thương"
+				}, 
+				{
+					value: 45037,
+					text: "Sở Giáo dục và Đào tạo"
+				}, 
+				{
+					value: 45042,
+					text: "Sở Giao thông Vận tải"
+				}, 
+				{
+					value: 35730,
+					text: "Sở Kế hoạch và Đầu tư"
+				}, 
+				{
+					value: 45047,
+					text: "Sở Khoa học và Công nghệ"
+				}, 
+				{
+					value: 45052,
+					text: "Sở Lao động thương binh và Xã hội"
+				},
+				{
+					value: 45087,
+					text: "Sở Nội vụ"
+				}, 
+				{
+					value: 45082,
+					text: "Sở Nông nghiệp và Phát triển nông thôn"
+				}, 
+				{
+					value: 45057,
+					text: "Sở Tài chính"
+				}, 
+				{
+					value: 45062,
+					text: "Sở Thông tin và Truyền thông"
+				}, 
+				{
+					value: 45067,
+					text: "Sở Tư pháp"
+				}, 
+				{
+					value: 45072,
+					text: "Sở Văn hoá Thể thao và Du lịch"
+				}, 
+				{
+					value: 45077,
+					text: "Sở Y tế"
+				}, 
+				{
+					value: 887328,
+					text: "Công An Tỉnh"
+				},
+				{
+					value: 47439,
+					text: "Ban Quản lý khu công nghiệp"
+				}, 
+				{
+					value: 44898,
+					text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+				},
+				{
+					value: 96351,
+					text: "UBND thành phố Vị Thanh"
+				},
+				{
+					value: 96701,
+					text: "UBND Thành phố Ngã Bảy"
+				},
+				{
+					value: 96980,
+					text: "UBND Thị xã Long Mỹ"
+				},
+				{
+					value: 97260,
+					text: "UBND huyện Vị Thủy"
+				},
+				{
+					value: 97565,
+					text: "UBND huyện Long Mỹ"
+				},
+				{
+					value: 100349,
+					text: "UBND huyện Phụng Hiệp "
+				},
+				{
+					value: 100907,
+					text: "UBND huyện Châu Thành "
+				},
+				{
+					value: 101465,
+					text: "UBND huyện Châu Thành A "
+				},
+				{
+					value: 97901,
+					text: "Cấp xã thành phố Vị Thanh"
+				},
+				{
+					value: 98180,
+					text: "Cấp xã thành phố Ngã Bảy"
+				},
+				{
+					value: 98501,
+					text: "Cấp xã thị xã Long Mỹ"
+				},
+				{
+					value: 98801,
+					text: "Cấp xã huyện Vị Thủy"
+				},
+				{
+					value: 99203,
+					text: "Cấp xã huyện Long Mỹ"
+				},
+				{
+					value: 100628,
+					text: "Cấp xã huyện Phụng Hiệp"
+				},
+				{
+					value: 101186,
+					text: "Cấp xã huyện Châu Thành"
+				},
+				{
+					value: 101744,
+					text: "Cấp xã huyện Châu Thành A "
+				} 
+			],
+			groupIdList: [
+		{
+			group: 1,
+			label: "Chọn cấp Sở",
+			key: 'SBN',
+			value: [
+			{
+				value: 45022,
+				text: "Sở Tài nguyên và Môi trường"
+			},
+			{
+				value: 45027,
+				text: "Sở Xây dựng"
+			}, 
+			{
+				value: 45032,
+				text: "Sở Công thương"
+			}, 
+			{
+				value: 45037,
+				text: "Sở Giáo dục và Đào tạo"
+			}, 
+			{
+				value: 45042,
+				text: "Sở Giao thông Vận tải"
+			}, 
+			{
+				value: 35730,
+				text: "Sở Kế hoạch và Đầu tư"
+			}, 
+			{
+				value: 45047,
+				text: "Sở Khoa học và Công nghệ"
+			}, 
+			{
+				value: 45052,
+				text: "Sở Lao động thương binh và Xã hội"
+			},
+			{
+				value: 45087,
+				text: "Sở Nội vụ"
+			}, 
+			{
+				value: 45082,
+				text: "Sở Nông nghiệp và Phát triển nông thôn"
+			}, 
+			{
+				value: 45057,
+				text: "Sở Tài chính"
+			}, 
+			{
+				value: 45062,
+				text: "Sở Thông tin và Truyền thông"
+			}, 
+			{
+				value: 45067,
+				text: "Sở Tư pháp"
+			}, 
+			{
+				value: 45072,
+				text: "Sở Văn hoá Thể thao và Du lịch"
+			}, 
+			{
+				value: 45077,
+				text: "Sở Y tế"
+			}, 
+			{
+				value: 887328,
+				text: "Công An Tỉnh"
+			},
+			{
+				value: 47439,
+				text: "Ban Quản lý khu công nghiệp"
+			}, 
+			{
+				value: 44898,
+				text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+			}
+			]
+		},
+		{
+			group: 2,
+			label: "Chọn cấp Huyện",
+			key: 'QUAN_HUYEN',
+			value: [
+			{
+				value: 96351,
+				text: "UBND thành phố Vị Thanh"
+			},
+			{
+				value: 96701,
+				text: "UBND Thành phố Ngã Bảy"
+			},
+			{
+				value: 96980,
+				text: "UBND Thị xã Long Mỹ"
+			},
+			{
+				value: 97260,
+				text: "UBND huyện Vị Thủy"
+			},
+			{
+				value: 97565,
+				text: "UBND huyện Long Mỹ"
+			},
+			{
+				value: 100349,
+				text: "UBND huyện Phụng Hiệp "
+			},
+			{
+				value: 100907,
+				text: "UBND huyện Châu Thành "
+			},
+			{
+				value: 101465,
+				text: "UBND huyện Châu Thành A "
+			}
+			]
+		},
+		{
+			group: 3,
+			label: "Chọn cấp Xã",
+			key: 'XA_PHUONG',
+			value: [
+			{
+			value: 97901,
+			text: "Cấp xã thành phố Vị Thanh"
+			},
+			{
+				value: 98180,
+				text: "Cấp xã thành phố Ngã Bảy"
+			},
+			{
+				value: 98501,
+				text: "Cấp xã thị xã Long Mỹ"
+			},
+			{
+				value: 98801,
+				text: "Cấp xã huyện Vị Thủy"
+			},
+			{
+				value: 99203,
+				text: "Cấp xã huyện Long Mỹ"
+			},
+			{
+				value: 100628,
+				text: "Cấp xã huyện Phụng Hiệp"
+			},
+			{
+				value: 101186,
+				text: "Cấp xã huyện Châu Thành"
+			},
+			{
+				value: 101744,
+				text: "Cấp xã huyện Châu Thành A "
+			}
+				]
+			}
+		],
+				sumKey: "govAgencyCode",
+				filters: [
+					{
+						label: "Mức độ",
+						key: "listServiceLevel",
+						value: "null",
+						type: "select",
+						source: [
+							{name: "Tất cả", value: "null"},
+							{name: "Mức độ 2", value: "2"},
+							{name: "Mức độ 3", value: "3"},
+							{name: "Mức độ 4", value: "4"}
+						]
+					},
+					{
+						label: "Hình thức nộp hồ sơ",
+						key: "listTypeSendDossier",
+						value: "null",
+						type: "select",
+						source: [
+							{name: "TRỰC TIẾP, TRỰC TUYẾN, QUA BƯU ĐIỆN", value: "null"},
+							{name: "TRỰC TUYẾN", value: "1"},
+							{name: "TRỰC TIẾP", value: "2"},
+							{name: "QUA BƯU ĐIỆN", value: "3"}
+						],
+						clearable: true
+					},
+					{
+						label: "Hồ sơ liên thông",
+						key: "isHSLT",
+						value: "",
+						type: "select",
+						source: [
+							{name: "LIÊN THÔNG", value: "true"}
+						],
+						clearable: true
+					},
+					{
+						label: "Loại thủ tục hành chính",
+						key: "tagCode",
+						value: "",
+						type: "select",
+						source: [
+							{name: "4 TẠI CHỖ", value: "4_TAI_CHO"},
+							{name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
+						],
+						clearable: true
+					},
+					{
+					label: "Từ ngày",
+					key: "fromDate",
+					value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+					type: "date", 
+					before: "toDate" 
+					},
+					{
+					label: "Đến ngày",
+					key: "toDate",
+					value: new Date().toLocaleDateString('vi-VN'),
+					type: "date", 
+					after: "fromDate" 
+					}
+				],
+				reportConfig: [
+				  {
+					"selected": true,
+					"value": "govAgencyName",
+					"text": "",
+					"align": "left"
+				  },
+				  {
+					"selected": true,
+					"value": "processCount",
+					"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "remainingCount",
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "receivedCount",
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "ontimeCount",
+					"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "betimesCount",
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "ontimeCount",
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "overtimeCount",
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "processingCount",
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "undueCount",
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "overdueCount",
+					"text": "",
+					"align": "center"
+				  },
+                  {
+                    "selected": true,
+                    "value": "cancelledCount",
+                    "text": "",
+                    "align": "center"
+                    },
+                    {
+                    "selected": true,
+                    "value": "unresolvedCount",
+                    "text": "",
+                    "align": "center"
+                    },
+				  {
+					"selected": true,
+					"value": "overtimeCountNotFinish",
+					"text": "",
+					"align": "center"
+				  },
+				  {
+					"selected": true,
+					"value": "overtimePercentage",
+					"text": "",
+					"align": "center"
+				  }
+				],
+				selection: [
+					{
+						"key": "domainCode",
+						"value": ""
+					}
+				],
+				merge: ["govAgencyCode","domainCode"],
+				sort: "govAgencyName",
+				statistics: true
+			}
+		
+		]]>
+		</filterConfig>
+		<reportCode>STATISTIC_07_VER_3</reportCode>
+		<reportName>Tổng hợp hồ sơ theo đơn vị - New</reportName>
+		<sharing>1</sharing>
+		<tableConfig><![CDATA[
+			
+			{
+				docDefinition: {
+					pageOrientation: "landscape",
+					content: [
+						{
+							columns: [
+								{
+									width: 300,
+									style: "title",
+									text: [
+										{text: "UBND TỈNH HẬU GIANG\n"},
+										{text: "[$siteName$]\n"}
+									]
+								},
+								{
+									width: 100,
+									style: "title",
+									text: ''
+								},
+								{
+									width: 300,
+									style: "title",
+									text: [
+										{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+										{text: "Độc lập - Tự do - Hạnh phúc\n"},
+										{text: "------------------------------------\n"},
+										{text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+									]
+								}
+							]
+						},
+						{
+							text: [
+								{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ [$isHSLT$] [$tagCode$]\n"},
+								{text: "([$listTypeSendDossier$]) \n"},
+								{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+							], 
+							margin: [0, 20],
+							style: "headerTitle"
+						},
+						{
+							style: "tableExample",
+							table: {
+								widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+								headerRows: 3,
+								body: [
+									[
+										{
+											text: "\n\n\nSTT",
+											rowSpan: 3,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "\n\n\nĐơn vị",
+											rowSpan: 3,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "Tổng số tiếp nhận",
+											rowSpan: 3,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "Kỳ trước chuyển qua",
+											rowSpan: 3,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "Tiếp nhận trong kỳ",
+											rowSpan: 3,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "Kết quả giải quyết",
+											colSpan: 7,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										"",
+										"",
+										"",
+										"",
+										"",
+										"",
+                                        {
+                                            text: "Rút hồ sơ",
+                                            rowSpan: 3,
+                                            alignment: "center",
+                                            bold: true,
+                                            style: "tdStyle"
+                                        },
+                                        {
+                                            text: "Từ chối giải quyết",
+                                            rowSpan: 3,
+                                            alignment: "center",
+                                            bold: true,
+                                            style: "tdStyle"
+                                        },
+										{
+											text: "Tổng số trễ hạn",
+											rowSpan: 3,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "Tỷ lệ hồ sơ trễ hạn",
+											rowSpan: 3,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										}
+									],
+									[
+										"",
+										"",
+										"",
+										"",
+										"",
+										{
+											text: "Hồ sơ đã giải quyết xong",
+											colSpan: 4,           
+											alignment: "center",
+											style: "tdStyle"
+										},
+										"",
+										"",
+										"",
+										{
+											text: "Hồ sơ đang giải quyết",
+											colSpan: 3,           
+											alignment: "center",
+											style: "tdStyle"
+										},
+										"",
+										"",
+										"",
+										"",
+                                        "",
+                                        ""
+									],
+									[
+										"",
+										"",
+										"",
+										"",
+										"",
+										{
+											text: "Tổng số",
+											alignment: "center",
+											style: "tdStyle"
+										},
+										{
+											text: "Sớm hạn",
+											alignment: "center",
+											style: "tdStyle"
+										},
+										{
+											text: "Đúng hạn",
+											alignment: "center",
+											style: "tdStyle"
+										},
+										{
+											text: "Trễ hạn",
+											alignment: "center",
+											style: "tdStyle"
+										},
+										{
+											text: "Tổng số",
+											alignment: "center",
+											style: "tdStyle"
+										},
+										{
+											text: "Chưa đến hạn",
+											alignment: "center",
+											style: "tdStyle"
+										},
+										{
+											text: "Quá hạn",
+											alignment: "center",
+											style: "tdStyle"
+										},
+										"",
+										"",
+                                        "",
+                                        ""
+									],
+									[
+										{
+											text: "(1)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(2)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(3=4+5)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(4)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(5)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(6=7+8+9)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(7)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(8)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(9)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(10=11+12)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(11)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(12)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(13)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(14)",
+											alignment: "center",
+											fontSize: 8
+										},
+                                        {
+											text: "(15)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(16)",
+											alignment: "center",
+											fontSize: 8
+										}
+									],
+									"[$report$]"
+								]
+							},
+							margin: [0, 0, 0, 5]
+						},             
+						{
+							columns: [
+								{
+									width: "*",
+									text: [
+										{text: "Nơi nhận:", bold: true }
+									]
+								},
+								{
+									width: 150,
+									style: "title",
+									text: "THỦ TRƯỞNG ĐƠN VỊ"
+								}
+							]
+						},
+						{
+							columns: [
+								{
+									width: "*",
+									text: ""
+								},
+								{
+									width: 150,
+									style: "titleSub",
+									text: "(Ký và ghi rõ họ tên)"
+								}
+							]
+						}
+					],
+					styles: {
+						ngayThangNam: {
+							fontSize: 10,
+							italics: true,
+							bold: false,
+							alignment: "center"
+						},
+						headerTitle: {
+							alignment: "center",
+							bold: true,
+							fontSize: 13
+						},
+						borderHeader: {
+							alignment: "left"
+						},
+						title: {
+							bold: true,
+							alignment: "center"
+						},
+						titleSub: {
+							fontSize: 10,
+							italics: true,
+							alignment: "center"
+						},
+						tdStyle: {
+							fontSize: 10,
+							margin: [0, 2]
+						}
+					},
+					defaultStyle: {
+						columnGap: 20,
+						fontSize: 11
+					}
+				}
+			}
+			
+			]]></tableConfig>
+		<userConfig>{"order": 11}</userConfig>
+	</DynamicReport>
 	<DynamicReport label="STATISTIC_06">
 		<sharing>1</sharing>
 		<reportName>Tổng hợp tiếp nhận hồ sơ</reportName>
@@ -9415,11 +16173,6 @@
 		  exclusive: false,
 		  customize: false,
 		  groupIds: [
-			{
-			  selected: true,
-			  value: '0',
-			  text: "Tất cả đơn vị"
-			},
 			{
 			  value: 45022,
 			  text: "Sở Tài nguyên và Môi trường"
@@ -10313,11 +17066,6 @@
 		  customize: false,
 		  groupIds: [
 			{
-			  selected: true,
-			  value: '0',
-			  text: "Tất cả đơn vị"
-			},
-			{
 			  value: 45022,
 			  text: "Sở Tài nguyên và Môi trường"
 			},
@@ -10902,10 +17650,1075 @@
 		</tableConfig>
 		<userConfig>{}</userConfig>
 	</DynamicReport>
+	<DynamicReport label="REPORT_STATISTIC_010">
+		<sharing>1</sharing>
+		<reportName>Báo cáo chi tiết phí, lệ phí</reportName>
+		<reportCode>REPORT_STATISTIC_010</reportCode>
+		<filterConfig>
+		<![CDATA[
+		
+		{
+		  api: "/o/rest/statistics/feedetail?paymentStatus=5&type=service",
+		  exclusive: false,
+		  customize: true,
+		  groupIds: [
+			{
+			  value: 45022,
+			  text: "Sở Tài nguyên và Môi trường Hậu Giang"
+			},
+			{
+			  value: 45027,
+			  text: "Sở Xây dựng"
+			}, 
+			{
+			  value: 45032,
+			  text: "Sở Công thương"
+			}, 
+			{
+			  value: 45037,
+			  text: "Sở Giáo dục và Đào tạo"
+			}, 
+			{
+			  value: 45042,
+			  text: "Sở Giao thông Vận tải"
+			}, 
+			{
+			  value: 35730,
+			  text: "Sở Kế hoạch và Đầu tư"
+			}, 
+			{
+			  value: 45047,
+			  text: "Sở Khoa học và Công nghệ"
+			}, 
+			{
+			  value: 45052,
+			  text: "Sở Lao động thương binh và Xã hội"
+			},
+			{
+			  value: 45087,
+			  text: "Sở Nội vụ"
+			}, 
+			{
+			  value: 45082,
+			  text: "Sở Nông nghiệp và Phát triển nông thôn"
+			}, 
+			{
+			  value: 45057,
+			  text: "Sở Tài chính"
+			}, 
+			{
+			  value: 45062,
+			  text: "Sở Thông tin và Truyền thông"
+			}, 
+			{
+			  value: 45067,
+			  text: "Sở Tư pháp"
+			}, 
+			{
+			  value: 45072,
+			  text: "Sở Văn hoá Thể thao và Du lịch"
+			}, 
+			{
+			  value: 45077,
+			  text: "Sở Y tế"
+			},
+			{
+			  value: 887328,
+			  text: "Công An Tỉnh"
+			},			
+			{
+			  value: 47439,
+			  text: "Ban Quản lý khu công nghiệp"
+			}, 
+			{
+			  value: 44898,
+			  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+			},
+			{
+			  value: 96351,
+			  text: "UBND thành phố Vị Thanh"
+			},
+			{
+				  value: 96701,
+				  text: "UBND Thành phố Ngã Bảy"
+			},
+			{
+				  value: 96980,
+				  text: "UBND Thị xã Long Mỹ"
+			},
+			{
+				  value: 97260,
+				  text: "UBND huyện Vị Thủy"
+			},
+			{
+				  value: 97565,
+				  text: "UBND huyện Long Mỹ"
+			},
+			{
+				  value: 100349,
+				  text: "UBND huyện Phụng Hiệp "
+			},
+			{
+				  value: 100907,
+				  text: "UBND huyện Châu Thành "
+			},
+			{
+				  value: 101465,
+				  text: "UBND huyện Châu Thành A "
+			},
+			{
+			  value: 97901,
+			  text: "Cấp xã thành phố Vị Thanh"
+			},
+			{
+				  value: 98180,
+				  text: "Cấp xã thành phố Ngã Bảy"
+			},
+			{
+				  value: 98501,
+				  text: "Cấp xã thị xã Long Mỹ"
+			},
+			{
+				  value: 98801,
+				  text: "Cấp xã huyện Vị Thủy"
+			},
+			{
+				  value: 99203,
+				  text: "Cấp xã huyện Long Mỹ"
+			},
+			{
+				  value: 100628,
+				  text: "Cấp xã huyện Phụng Hiệp"
+			},
+			{
+				  value: 101186,
+				  text: "Cấp xã huyện Châu Thành"
+			},
+			{
+				  value: 101744,
+				  text: "Cấp xã huyện Châu Thành A "
+			} 
+		  ],
+		  groupBy: [
+			{
+			   key: "domainCode",
+			   label: "Lĩnh vực",
+			   display: "domainName"
+			},
+			{
+			   key: "serviceCode",
+			   label: "Thủ tục",
+			   display: "serviceName"
+			}
+		  ], 
+		  filters: [
+			{
+			  label: "Hình thức thanh toán",
+			  key: "paymentMethod",
+			  value: "total",
+			  type: "select",
+			  source: [
+				{name: "Tất cả", value: "total"},
+				{name: "Trực tiếp", value: "direct"},
+				{name: "Trực tuyến", value: "online"}
+			  ]  
+			},
+            {
+			  label: "Biên lai",
+			  key: "isInvoice",
+			  value: "",
+			  type: "select",
+			  source: [
+				{name: "Tất cả", value: ""},
+				{name: "Biên lai điện tử", value: "true"},
+				{name: "Biên lai giấy", value: "false"}
+			  ]  
+			},
+            {
+			  label: "Từ ngày",
+			  key: "fromApprovedDate",
+			  value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
+			  type: "date",
+			  before: "toApprovedDate"  
+			},
+			{
+			  label: "Đến ngày",
+			  key: "toApprovedDate",
+			  value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
+			  type: "date",
+			  after: "fromApprovedDate"  
+			}
+		  ],
+		  reportConfig: [
+			{
+			  "selected": true,
+			  "value": "dossierNo",
+			  "text": "Mã hồ sơ"
+			},
+			{
+			  "selected": true,
+			  "value": "applicantName",
+			  "align": "left",
+			  "text": "Người đăng ký"
+			},
+            {
+			  "selected": true,
+			  "value": "address",
+			  "align": "left",
+			  "text": "Địa chỉ người nộp",
+              "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+			},
+			{
+			  "selected": true,
+			  "value": "paymentDate",
+			  "text": "Ngày thu"
+			},
+			{
+			  "selected": true,
+			  "value": "paymentFee",
+			  "text": "Tên phí"
+			},
+			{
+			  "selected": true,
+			  "value": "totalAmount",
+			  "text": "Tổng",
+			  "type": "currency"
+			},
+			{
+			  "selected": true,
+			  "value": "Fkey",
+			  "text": "Diễn giải",
+			  "notSum": true
+			}
+		  ]
+		}
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		
+		{
+		  docDefinition: {
+			 pageOrientation: 'landscape',
+			 content: [
+			   {
+					 columns: [
+						 {
+							 width: 300,
+							 style: "title",
+							 text: [
+								{text: "[$groupIdsHeader$]\n"},
+							   {text: "--------------------------------\n"}
+							 ]
+						 },
+						 {
+							 width: 100,
+							  style: "title",
+							 text: ''
+						   },
+						 {
+							 width: 300,
+							 style: "title",
+							 text: [
+								 {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+								 {text: "Độc lập - Tự do - Hạnh phúc\n"},
+								 {text: "----------------------------\n"},
+								 {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+							 ]
+						 }
+					 ]
+			   },
+			   {
+				 text: [
+				   {text: 'BÁO CÁO CHI TIẾT PHÍ, LỆ PHÍ\n'},
+				   {text: "Đơn vị: [$groupIds$]\n", fontSize: 11},
+				   {text: "Từ ngày [$fromApprovedDate$] đến ngày [$toApprovedDate$]\n", fontSize: 11}
+				 ], 
+				 margin: [0, 20],
+				 style: 'headerTitle'
+			   },
+			   {
+				 style: 'tableExample',
+				 table: {
+				   widths: "[$tableWidth$]",
+				   body: ["[$report$]"]
+				 },
+				 margin: [0, 0, 0, 20]
+			   },
+			   {
+				 columns: [
+				   {
+					 width: '*',
+					 text: ''
+				   },
+				   {
+					 width: 150,
+					 style: 'title',
+					 text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+				   }
+				 ]
+			   },
+			   {
+				 columns: [
+				   {
+					 width: '*',
+					 text: ''
+				   },
+				   {
+					 width: 150,
+					 style: 'titleSub',
+					 text: '(Ký và ghi rõ họ tên)'
+				   }
+				 ]
+			   }
+			 ],
+			 styles: {
+			   ngayThangNam: {
+				 fontSize: 10,
+				 italics: true,
+				 bold: false,
+				 alignment: 'center'
+			   },
+			   headerTitle: {
+				   alignment: 'center',
+				   bold: true,
+				   fontSize: 13
+			   },
+			   borderHeader: {
+				   alignment: 'left'
+			   },
+			   title: {
+				 bold: true,
+				 alignment: 'center',
+				 textTransform: 'uppercase'
+			   },
+			   titleSub: {
+				   fontSize: 10,
+				   italics: true,
+				   alignment: 'center'
+			   },
+			   tdStyle: {
+				 fontSize: 10
+			   },
+			   tableExample: {
+				  width: "100%" 
+			   }
+			 },
+			 defaultStyle: {
+			   columnGap: 20,
+			   fontSize: 11
+			 }
+		   } 
+		}
+
+		]]>
+		</tableConfig>
+		<userConfig>{}</userConfig>
+	</DynamicReport>
 	<DynamicReport label="REPORT_STATISTIC_011">
 		<sharing>1</sharing>
 		<reportName>Tổng hợp hồ sơ dịch vụ công mức 3, 4</reportName>
 		<reportCode>REPORT_STATISTIC_011</reportCode>
+		<filterConfig>
+		<![CDATA[
+		
+		{
+		  api: "/o/statistic/dossier/groupcount?type=25&groupBy=govAgencyCode",
+			apiExportExcel: "/o/statistic/dossier/groupcount/export?type=25&groupBy=govAgencyCode",
+			typeDate: "timestamp",
+		  exclusive: false,
+		  customize: true,
+		  groupIds: [
+			{
+			  selected: true,
+			  value: '0',
+			  text: "Tất cả đơn vị"
+			},
+			{
+			  value: 45022,
+			  text: "Sở Tài nguyên và Môi trường"
+			},
+			{
+			  value: 45027,
+			  text: "Sở Xây dựng"
+			}, 
+			{
+			  value: 45032,
+			  text: "Sở Công thương"
+			}, 
+			{
+			  value: 45037,
+			  text: "Sở Giáo dục và Đào tạo"
+			}, 
+			{
+			  value: 45042,
+			  text: "Sở Giao thông Vận tải"
+			}, 
+			{
+			  value: 35730,
+			  text: "Sở Kế hoạch và Đầu tư"
+			}, 
+			{
+			  value: 45047,
+			  text: "Sở Khoa học và Công nghệ"
+			}, 
+			{
+			  value: 45052,
+			  text: "Sở Lao động thương binh và Xã hội"
+			},
+			{
+			  value: 45087,
+			  text: "Sở Nội vụ"
+			}, 
+			{
+			  value: 45082,
+			  text: "Sở Nông nghiệp và Phát triển nông thôn"
+			}, 
+			{
+			  value: 45057,
+			  text: "Sở Tài chính"
+			}, 
+			{
+			  value: 45062,
+			  text: "Sở Thông tin và Truyền thông"
+			}, 
+			{
+			  value: 45067,
+			  text: "Sở Tư pháp"
+			}, 
+			{
+			  value: 45072,
+			  text: "Sở Văn hoá Thể thao và Du lịch"
+			}, 
+			{
+			  value: 45077,
+			  text: "Sở Y tế"
+			}, 
+			{
+			  value: 887328,
+			  text: "Công An Tỉnh"
+			},
+			{
+			  value: 47439,
+			  text: "Ban Quản lý khu công nghiệp"
+			}, 
+			{
+			  value: 44898,
+			  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+			},
+			{
+			  value: 96351,
+			  text: "UBND thành phố Vị Thanh"
+			},
+			{
+				  value: 96701,
+				  text: "UBND Thành phố Ngã Bảy"
+			},
+			{
+				  value: 96980,
+				  text: "UBND Thị xã Long Mỹ"
+			},
+			{
+				  value: 97260,
+				  text: "UBND huyện Vị Thủy"
+			},
+			{
+				  value: 97565,
+				  text: "UBND huyện Long Mỹ"
+			},
+			{
+				  value: 100349,
+				  text: "UBND huyện Phụng Hiệp "
+			},
+			{
+				  value: 100907,
+				  text: "UBND huyện Châu Thành "
+			},
+			{
+				  value: 101465,
+				  text: "UBND huyện Châu Thành A "
+			},
+			{
+			  value: 97901,
+			  text: "Cấp xã thành phố Vị Thanh"
+			},
+			{
+				  value: 98180,
+				  text: "Cấp xã thành phố Ngã Bảy"
+			},
+			{
+				  value: 98501,
+				  text: "Cấp xã thị xã Long Mỹ"
+			},
+			{
+				  value: 98801,
+				  text: "Cấp xã huyện Vị Thủy"
+			},
+			{
+				  value: 99203,
+				  text: "Cấp xã huyện Long Mỹ"
+			},
+			{
+				  value: 100628,
+				  text: "Cấp xã huyện Phụng Hiệp"
+			},
+			{
+				  value: 101186,
+				  text: "Cấp xã huyện Châu Thành"
+			},
+			{
+				  value: 101744,
+				  text: "Cấp xã huyện Châu Thành A "
+			} 
+		  ],
+		  groupIdList: [
+			{
+				group: 1,
+				label: "Chọn cấp Sở",
+				key: 'SBN',
+				value: [
+					{
+					  selected: true,
+					  value: '0',
+					  text: "Tất cả đơn vị cấp sở"
+					},
+					{
+					  value: 45022,
+					  text: "Sở Tài nguyên và Môi trường"
+					},
+					{
+					  value: 45027,
+					  text: "Sở Xây dựng"
+					}, 
+					{
+					  value: 45032,
+					  text: "Sở Công thương"
+					}, 
+					{
+					  value: 45037,
+					  text: "Sở Giáo dục và Đào tạo"
+					}, 
+					{
+					  value: 45042,
+					  text: "Sở Giao thông Vận tải"
+					}, 
+					{
+					  value: 35730,
+					  text: "Sở Kế hoạch và Đầu tư"
+					}, 
+					{
+					  value: 45047,
+					  text: "Sở Khoa học và Công nghệ"
+					}, 
+					{
+					  value: 45052,
+					  text: "Sở Lao động thương binh và Xã hội"
+					},
+					{
+					  value: 45087,
+					  text: "Sở Nội vụ"
+					}, 
+					{
+					  value: 45082,
+					  text: "Sở Nông nghiệp và Phát triển nông thôn"
+					}, 
+					{
+					  value: 45057,
+					  text: "Sở Tài chính"
+					}, 
+					{
+					  value: 45062,
+					  text: "Sở Thông tin và Truyền thông"
+					}, 
+					{
+					  value: 45067,
+					  text: "Sở Tư pháp"
+					}, 
+					{
+					  value: 45072,
+					  text: "Sở Văn hoá Thể thao và Du lịch"
+					}, 
+					{
+					  value: 45077,
+					  text: "Sở Y tế"
+					}, 
+					{
+					  value: 887328,
+					  text: "Công An Tỉnh"
+					},
+					{
+					  value: 47439,
+					  text: "Ban Quản lý khu công nghiệp"
+					}, 
+					{
+					  value: 44898,
+					  text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+					}
+				]
+			},
+			{
+				group: 2,
+				label: "Chọn cấp Huyện",
+				key: 'QUAN_HUYEN',
+				value: [
+					{
+						selected: true,
+						value: '0',
+						text: "Tất cả đơn vị cấp huyện"
+					},
+					{
+					  value: 96351,
+					  text: "UBND thành phố Vị Thanh"
+					},
+					{
+						  value: 96701,
+						  text: "UBND Thành phố Ngã Bảy"
+					},
+					{
+						  value: 96980,
+						  text: "UBND Thị xã Long Mỹ"
+					},
+					{
+						  value: 97260,
+						  text: "UBND huyện Vị Thủy"
+					},
+					{
+						  value: 97565,
+						  text: "UBND huyện Long Mỹ"
+					},
+					{
+						  value: 100349,
+						  text: "UBND huyện Phụng Hiệp "
+					},
+					{
+						  value: 100907,
+						  text: "UBND huyện Châu Thành "
+					},
+					{
+						  value: 101465,
+						  text: "UBND huyện Châu Thành A "
+					}
+				]
+			},
+			{
+			  group: 3,
+			  label: "Chọn cấp Xã",
+			  key: 'XA_PHUONG',
+			  value: [
+				{
+				  selected: true,
+				  value: '0',
+				  text: "Tất cả đơn vị cấp xã"
+				},
+				{
+				  value: 97901,
+				  text: "Cấp xã thành phố Vị Thanh"
+				},
+				{
+					  value: 98180,
+					  text: "Cấp xã thành phố Ngã Bảy"
+				},
+				{
+					  value: 98501,
+					  text: "Cấp xã thị xã Long Mỹ"
+				},
+				{
+					  value: 98801,
+					  text: "Cấp xã huyện Vị Thủy"
+				},
+				{
+					  value: 99203,
+					  text: "Cấp xã huyện Long Mỹ"
+				},
+				{
+					  value: 100628,
+					  text: "Cấp xã huyện Phụng Hiệp"
+				},
+				{
+					  value: 101186,
+					  text: "Cấp xã huyện Châu Thành"
+				},
+				{
+					  value: 101744,
+					  text: "Cấp xã huyện Châu Thành A "
+				}
+			  ]
+			}
+		  ],
+		  sumKey: "govAgencyCode",
+			filters: [
+			{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
+				type: "date",
+				before: "toDate"  
+			},
+			{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
+				type: "date",
+				after: "fromDate"  
+			}
+			],
+			reportConfig: [
+			{
+				"selected": true,
+				"value": "govAgencyName",
+				"align": "left",
+				"text": ""
+			},
+			{
+				"selected": true,
+				"value": "totalCount",
+				"align": "center",
+				"text": ""
+			},
+			{
+				"selected": true,
+				"value": "receivedCount",
+				"align": "center",
+				"text": ""
+			},
+			{
+				"selected": true,
+				"value": "remainingCount",
+				"align": "center",
+				"text": ""
+			},
+			{
+				"selected": true,
+				"value": "doneCount",
+				"align": "center",
+				"text": ""
+			},
+			{
+				"selected": true,
+				"value": "ontimeCount",
+				"align": "center",
+				"text": ""
+			},
+			{
+				"selected": true,
+				"value": "overtimeCount",
+				"align": "center",
+				"text": ""
+			},
+			{
+				"selected": true,
+				"value": "ontimePercentage",
+				"align": "center",
+				"text": ""
+			},
+			{
+				"selected": true,
+				"value": "processingCount",
+				"align": "center",
+				"text": ""
+			},
+			{
+				"selected": true,
+				"value": "note",
+				"align": "center",
+				"text": ""
+			}
+			],
+			selection: [
+			{
+				"key": "govAgencyCode",
+				"value": ""
+			}
+			],
+			merge: ["govAgencyCode"],
+			sort: "govAgencyName",
+			statistics: true,
+			autoHeader: false
+		}
+		]]>
+		</filterConfig>
+		<tableConfig>
+		<![CDATA[
+		
+		{
+		  docDefinition: {
+			 pageOrientation: 'landscape',
+			 content: [
+			   {
+					 columns: [
+						 {
+							 width: 300,
+							 style: "title",
+							 text: [
+								 {text: "VĂN PHÒNG UBND TỈNH HẬU GIANG\n"},
+								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
+								{text: "--------------------------\n"}
+							  ]
+						 },
+						 {
+							 width: 100,
+							  style: "title",
+							 text: ''
+						   },
+						 {
+							 width: 300,
+							 style: "title",
+							 text: [
+								 {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+								 {text: "Độc lập - Tự do - Hạnh phúc\n"},
+								 {text: "----------------------------\n"},
+								 {text: "Hậu Giang, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+							 ]
+						 }
+					 ]
+			   },
+			   {
+				 text: [
+				   {text: 'BÁO CÁO TỔNG HỢP HỒ SƠ DỊCH VỤ CÔNG\n'},
+				   {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]\n", fontSize: 11}
+				 ], 
+				 margin: [0, 20],
+				 style: 'headerTitle'
+			   },
+			   {
+                style: 'tableExample',
+                table: {
+                    widths: [20, "*", 35, 35, 35, 35, 35, 35, 35, 35, 35],
+                    headerRows: 2,
+                    body: [
+                        [
+                            {
+                                text: "\n\nSTT",
+                                rowSpan: 2,
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            {
+                                text: "\n\nĐơn vị",
+                                rowSpan: 2,
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            {
+                                text: "\nTiếp nhận\n",
+                                colSpan: 3,
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            "",
+                            "",
+                            {
+                                text: "\nHoàn thành\n",
+                                colSpan: 4,
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            "",
+                            "",
+                            "",
+                            {
+                                text: "\nĐang giải quyết",
+                                rowSpan: 2,
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            {
+                                text: "\n\nGhi chú",
+                                rowSpan: 2,
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            }
+                        ],
+                        [
+                            "",
+                            "",
+                            {
+                                text: "Tổng số",         
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            {
+                                text: "Trong kỳ",        
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            {
+                                text: "Kỳ trước",         
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            {
+                                text: "Tổng cộng",        
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            {
+                                text: "Đúng hạn",        
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            {
+                                text: "Trễ hạn",        
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            {
+                                text: "Tỷ lệ đúng hạn",        
+                                alignment: "center",
+                                bold: true,
+                                style: "tdStyle"
+                            },
+                            "",
+                            ""
+                        ],
+                        [
+                            {
+                                text: "(1)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(2)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(3)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(4)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(5)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(6)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(7)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(8)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(9)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(10)",
+                                alignment: "center",
+                                fontSize: 8
+                            },
+                            {
+                                text: "(11)",
+                                alignment: "center",
+                                fontSize: 8
+                            }
+                        ],
+                        "[$report$]"
+                    ]
+                },
+                margin: [0, 0, 0, 20]
+                },
+			   {
+				 columns: [
+				   {
+					 width: '*',
+					 text: ''
+				   },
+				   {
+					 width: 150,
+					 style: 'title',
+					 text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+				   }
+				 ]
+			   },
+			   {
+				 columns: [
+				   {
+					 width: '*',
+					 text: ''
+				   },
+				   {
+					 width: 150,
+					 style: 'titleSub',
+					 text: '(Ký và ghi rõ họ tên)'
+				   }
+				 ]
+			   }
+			 ],
+			 styles: {
+			   ngayThangNam: {
+				 fontSize: 10,
+				 italics: true,
+				 bold: false,
+				 alignment: 'center'
+			   },
+			   headerTitle: {
+				   alignment: 'center',
+				   bold: true,
+				   fontSize: 13
+			   },
+			   borderHeader: {
+				   alignment: 'left'
+			   },
+			   title: {
+				 bold: true,
+				 alignment: 'center',
+				 textTransform: 'uppercase'
+			   },
+			   titleSub: {
+				   fontSize: 10,
+				   italics: true,
+				   alignment: 'center'
+			   },
+			   tdStyle: {
+				 fontSize: 10
+			   },
+			   tableExample: {
+				  width: "100%" 
+			   }
+			 },
+			 defaultStyle: {
+			   columnGap: 20,
+			   fontSize: 11
+			 }
+		   } 
+		}
+
+		]]>
+		</tableConfig>
+		<userConfig>{}</userConfig>
+	</DynamicReport>
+	<DynamicReport label="REPORT_STATISTIC_0111">
+		<sharing>1</sharing>
+		<reportName>Tổng hợp hồ sơ dịch vụ công mức 3, 4 Mẫu 2</reportName>
+		<reportCode>REPORT_STATISTIC_0111</reportCode>
 		<filterConfig>
 		<![CDATA[
 		
@@ -11333,7 +19146,7 @@
 			   },
 			   {
 				 text: [
-				   {text: 'BÁO CÁO TỔNG HỢP HỒ SƠ DỊCH VU CÔNG\n'},
+				   {text: 'BÁO CÁO TỔNG HỢP HỒ SƠ DỊCH VỤ CÔNG\n'},
 				   {text: "Đơn vị: [$groupIds$]\n", fontSize: 11},
 				   {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11}
 				 ], 
@@ -12375,4 +20188,669 @@
 }]]></tableConfig>
     <userConfig>{}</userConfig>
   </DynamicReport>
+  <DynamicReport>
+    <filterConfig>
+    <![CDATA[
+        {
+            version: "2",
+            numberPerPage: "500",
+            api: "/o/statistic/dossier/groupcount?type=20",
+            apiLayDanhSach: "/o/statistic/dossier/list?type=20",
+            apiExportExcel: "/o/statistic/dossier/list/export?type=20",
+            exclusive: false,
+            customize: true,
+            
+            groupIds: [
+            {
+                value: 45022,
+                text: "Sở Tài nguyên và Môi trường"
+            },
+            {
+                value: 45027,
+                text: "Sở Xây dựng"
+            }, 
+            {
+                value: 45032,
+                text: "Sở Công thương"
+            }, 
+            {
+                value: 45037,
+                text: "Sở Giáo dục và Đào tạo"
+            }, 
+            {
+                value: 45042,
+                text: "Sở Giao thông Vận tải"
+            }, 
+            {
+                value: 35730,
+                text: "Sở Kế hoạch và Đầu tư"
+            }, 
+            {
+                value: 45047,
+                text: "Sở Khoa học và Công nghệ"
+            }, 
+            {
+                value: 45052,
+                text: "Sở Lao động thương binh và Xã hội"
+            },
+            {
+                value: 45087,
+                text: "Sở Nội vụ"
+            }, 
+            {
+                value: 45082,
+                text: "Sở Nông nghiệp và Phát triển nông thôn"
+            }, 
+            {
+                value: 45057,
+                text: "Sở Tài chính"
+            }, 
+            {
+                value: 45062,
+                text: "Sở Thông tin và Truyền thông"
+            }, 
+            {
+                value: 45067,
+                text: "Sở Tư pháp"
+            }, 
+            {
+                value: 45072,
+                text: "Sở Văn hoá Thể thao và Du lịch"
+            }, 
+            {
+                value: 45077,
+                text: "Sở Y tế"
+            }, 
+            {
+                value: 887328,
+                text: "Công An Tỉnh"
+            },
+            {
+                value: 47439,
+                text: "Ban Quản lý khu công nghiệp"
+            }, 
+            {
+                value: 44898,
+                text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+            },
+            {
+                value: 96351,
+                text: "UBND thành phố Vị Thanh"
+            },
+            {
+                value: 96701,
+                text: "UBND Thành phố Ngã Bảy"
+            },
+            {
+                value: 96980,
+                text: "UBND Thị xã Long Mỹ"
+            },
+            {
+                value: 97260,
+                text: "UBND huyện Vị Thủy"
+            },
+            {
+                value: 97565,
+                text: "UBND huyện Long Mỹ"
+            },
+            {
+                value: 100349,
+                text: "UBND huyện Phụng Hiệp "
+            },
+            {
+                value: 100907,
+                text: "UBND huyện Châu Thành "
+            },
+            {
+                value: 101465,
+                text: "UBND huyện Châu Thành A "
+            },
+            {
+                value: 97901,
+                text: "Cấp xã thành phố Vị Thanh"
+            },
+            {
+                value: 98180,
+                text: "Cấp xã thành phố Ngã Bảy"
+            },
+            {
+                value: 98501,
+                text: "Cấp xã thị xã Long Mỹ"
+            },
+            {
+                value: 98801,
+                text: "Cấp xã huyện Vị Thủy"
+            },
+            {
+                value: 99203,
+                text: "Cấp xã huyện Long Mỹ"
+            },
+            {
+                value: 100628,
+                text: "Cấp xã huyện Phụng Hiệp"
+            },
+            {
+                value: 101186,
+                text: "Cấp xã huyện Châu Thành"
+            },
+            {
+                value: 101744,
+                text: "Cấp xã huyện Châu Thành A "
+            } 
+        ],
+        groupIdList: [
+        {
+            group: 1,
+            label: "Chọn cấp Sở",
+            key: 'SBN',
+            value: [
+            {
+                value: 45022,
+                text: "Sở Tài nguyên và Môi trường"
+            },
+            {
+                value: 45027,
+                text: "Sở Xây dựng"
+            }, 
+            {
+                value: 45032,
+                text: "Sở Công thương"
+            }, 
+            {
+                value: 45037,
+                text: "Sở Giáo dục và Đào tạo"
+            }, 
+            {
+                value: 45042,
+                text: "Sở Giao thông Vận tải"
+            }, 
+            {
+                value: 35730,
+                text: "Sở Kế hoạch và Đầu tư"
+            }, 
+            {
+                value: 45047,
+                text: "Sở Khoa học và Công nghệ"
+            }, 
+            {
+                value: 45052,
+                text: "Sở Lao động thương binh và Xã hội"
+            },
+            {
+                value: 45087,
+                text: "Sở Nội vụ"
+            }, 
+            {
+                value: 45082,
+                text: "Sở Nông nghiệp và Phát triển nông thôn"
+            }, 
+            {
+                value: 45057,
+                text: "Sở Tài chính"
+            }, 
+            {
+                value: 45062,
+                text: "Sở Thông tin và Truyền thông"
+            }, 
+            {
+                value: 45067,
+                text: "Sở Tư pháp"
+            }, 
+            {
+                value: 45072,
+                text: "Sở Văn hoá Thể thao và Du lịch"
+            }, 
+            {
+                value: 45077,
+                text: "Sở Y tế"
+            }, 
+            {
+                value: 887328,
+                text: "Công An Tỉnh"
+            },
+            {
+                value: 47439,
+                text: "Ban Quản lý khu công nghiệp"
+            }, 
+            {
+                value: 44898,
+                text: "Ban Quản lý khu Nông nghiệp ứng dụng công nghệ cao"
+            }
+            ]
+        },
+        {
+            group: 2,
+            label: "Chọn cấp Huyện",
+            key: 'QUAN_HUYEN',
+            value: [
+            {
+                value: 96351,
+                text: "UBND thành phố Vị Thanh"
+            },
+            {
+                value: 96701,
+                text: "UBND Thành phố Ngã Bảy"
+            },
+            {
+                value: 96980,
+                text: "UBND Thị xã Long Mỹ"
+            },
+            {
+                value: 97260,
+                text: "UBND huyện Vị Thủy"
+            },
+            {
+                value: 97565,
+                text: "UBND huyện Long Mỹ"
+            },
+            {
+                value: 100349,
+                text: "UBND huyện Phụng Hiệp "
+            },
+            {
+                value: 100907,
+                text: "UBND huyện Châu Thành "
+            },
+            {
+                value: 101465,
+                text: "UBND huyện Châu Thành A "
+            }
+            ]
+        },
+        {
+            group: 3,
+            label: "Chọn cấp Xã",
+            key: 'XA_PHUONG',
+            value: [
+            {
+            value: 97901,
+            text: "Cấp xã thành phố Vị Thanh"
+            },
+            {
+                value: 98180,
+                text: "Cấp xã thành phố Ngã Bảy"
+            },
+            {
+                value: 98501,
+                text: "Cấp xã thị xã Long Mỹ"
+            },
+            {
+                value: 98801,
+                text: "Cấp xã huyện Vị Thủy"
+            },
+            {
+                value: 99203,
+                text: "Cấp xã huyện Long Mỹ"
+            },
+            {
+                value: 100628,
+                text: "Cấp xã huyện Phụng Hiệp"
+            },
+            {
+                value: 101186,
+                text: "Cấp xã huyện Châu Thành"
+            },
+            {
+                value: 101744,
+                text: "Cấp xã huyện Châu Thành A "
+            }
+                ]
+            }
+        ],
+            groupBy: [
+                {
+                key: "domainCode",
+                label: "Lĩnh vực",
+                display: "domainName"
+                },
+                {
+                key: "serviceCode",
+                label: "Thủ tục",
+                display: "serviceName"
+                },
+                {
+                key: "govAgencyCode",
+                label: "Cơ quan",
+                display: "govAgencyName"
+                }
+            ],
+            filters: [
+				{
+                    label: "Lĩnh vực",
+                    clearable: "true",
+                    source: "",
+                    key: "domainCode",
+                    value: "",
+                    valueMapping: "domainCode",
+                    nameMapping: "domainName",
+                    type: "select",
+                    multiple: "true",
+                    api: "/o/rest/v2/serviceinfos/statistics/domains",
+                    proxyApi: "/serviceinfos/statistics/domains",
+                    class: "xs6 px-3 mb-3"
+                },
+                {
+                    label: "Thủ tục",
+                    source: "",
+                    key: "serviceCode",
+                    value: "",
+                    valueMapping: "serviceCode",
+                    nameMapping: "serviceName",
+                    type: "select",
+                    multiple: "true",
+                    api: "/o/rest/v2/serviceinfos",
+                    class: "xs6 px-3 mb-3"
+                },
+                {
+                    label: "Mức độ",
+                    key: "listServiceLevel",
+                    value: "2,3,4",
+                    type: "select",
+                    source: [
+                        {name: "Tất cả", value: "2,3,4"},
+						{name: "Mức độ 2", value: "2"},
+                        {name: "Mức độ 3", value: "3"},
+                        {name: "Mức độ 4", value: "4"}
+                    ]
+                },
+                {
+                    label: "Hình thức nộp hồ sơ",
+                    key: "listTypeSendDossier",
+                    value: "1,2,3",
+                    type: "select",
+                    source: [
+                        {name: "TRỰC TIẾP, TRỰC TUYẾN, QUA BƯU ĐIỆN", value: "1,2,3"},
+                        {name: "TRỰC TUYẾN", value: "1"},
+                        {name: "TRỰC TIẾP", value: "2"},
+                        {name: "QUA BƯU ĐIỆN", value: "3"}
+                    ],
+                    clearable: true
+                },
+				{
+                    label: "Hồ sơ liên thông",
+                    key: "isHSLT",
+                    value: "",
+                    type: "select",
+                    source: [
+						{name: "LIÊN THÔNG", value: "true"}
+                    ],
+					clearable: true
+                },
+				{
+                    label: "Loại thủ tục hành chính",
+                    key: "tagCode",
+                    value: "",
+                    type: "select",
+                    source: [
+                        {name: "4 TẠI CHỖ", value: "4_TAI_CHO"},
+                        {name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
+                    ],
+					clearable: true
+                },
+                {
+                    label: "Trạng thái",
+                    key: "subList",
+                    value: "total",
+                    type: "select",
+                    source: [
+                        {name: "Kỳ trước", value: "remaining"},
+                        {name: "Trong kỳ", value: "receive"},
+                        {name: "Đã giải quyết", value: "release"},
+                        {name: "Đã giải quyết sớm hạn", value: "betime"},
+                        {name: "Đã giải quyết đúng hạn", value: "ontime"},
+                        {name: "Đã giải quyết trễ hạn", value: "overtime"},
+						{name: "Đang giải quyết", value: "processing"},
+						{name: "Đang giải quyết chưa đến hạn", value: "undue"},
+						{name: "Đang giải quyết quá hạn", value: "overdue"},
+						{name: "Hồ sơ đã hủy", value: "cancelled"}
+                    ],
+					clearable: true
+                },
+                {
+                    label: "Ngày tiếp nhận từ ngày",
+                    key: "fromDate",
+                    value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+                    type: "date", 
+                    before: "toDate" 
+                },
+                {
+                    label: "Đến ngày",
+                    key: "toDate",
+                    value: new Date().toLocaleDateString('vi-VN'),
+                    type: "date", 
+                    after: "fromDate" 
+                }
+            
+            ],
+            reportConfig: [
+            {
+            "selected": true,
+            "value": "dossierNo",
+            "text": "Mã hồ sơ"
+            },
+            {
+            "value": "serviceCode",
+            "text": "Mã thủ tục"
+            },
+            {
+            "selected": true,
+            "value": "dossierName",
+            "align": "left",
+            "text": "Nội dung"
+            },
+            {
+            "value": "govAgencyName",
+            "text": "Cơ quan thụ lý"
+            },
+            {
+            "value": "registerBookName",
+            "text": "Sổ theo dõi"
+            },
+            {
+            "selected": true,
+            "value": "applicantName",
+            "align": "left",
+            "text": "Chủ hồ sơ"
+            },
+            {
+            "value": "address",
+            "text": "Địa chỉ",
+            "calculator": ' dataInput["address"] +", "+ dataInput["wardName"] +", "+ dataInput["districtName"] +", "+ dataInput["cityName"]'
+            },
+            {
+            "value": "contactTelNo",
+            "text": "Số điện thoại"
+            },
+            {
+            "value": "contactEmail",
+            "text": "Thư điện tử"
+            },
+            {
+            "value": "delegateName",
+            "text": "Người nộp hồ sơ"
+            },
+            {
+            "value": "delegateTelNo",
+            "text": "Điện thoại liên lạc"
+            },
+            {
+            "value": "submitDate",
+            "text": "Ngày gửi"
+            },
+            {
+            "selected": true,
+            "value": "receiveDate",
+            "text": "Ngày tiếp nhận"
+            },
+            {
+            "selected": true,
+            "value": "dueDate",
+            "text": "Ngày hẹn trả"
+            },
+            {
+            "value": "extendDate",
+            "text": "Ngày gia hạn"
+            },
+            {
+            "value": "releaseDate",
+            "text": "Ngày hoàn thành"
+            },
+            {
+            "value": "finishDate",
+            "text": "Ngày trả"
+            },
+            {
+            "selected": true,
+            "value": "dossierStatusText",
+            "text": "Trạng thái"
+            },
+            {
+            "value": "online",
+            "text": "Trực tuyến"
+            },
+            {
+            "value": "originDossierNo",
+            "text": "Mã hồ sơ gốc"
+            },   
+            {
+            "value": "dossierNote",
+            "align": "left",
+            "text": "Ghi chú xử lý"
+            },
+            {
+            "value": "applicantNote",
+            "align": "left",
+            "text": "Ghi chú nộp."
+            },
+            {
+            "value": "briefNote",
+            "align": "left",
+            "text": "Chi tiết nội dung"
+            }
+            ]
+        }
+
+    
+    ]]>
+    </filterConfig>
+    <reportCode>REPORT_113</reportCode>
+    <reportName>Báo cáo thống kê chi tiết</reportName>
+    <sharing>1</sharing>
+    <tableConfig><![CDATA[
+    {
+        docDefinition: {
+            pageOrientation: 'landscape',
+            content: [
+            {
+                    columns: [
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "UBND TỈNH HẬU GIANG\n"},
+                                {text: "[$siteName$]\n"}
+                            ]
+                        },
+						{
+                            width: 100,
+                            style: "title",
+                            text: ''
+                        },
+                        {
+                            width: 300,
+                            style: "title",
+                            text: [
+                                {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                                {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                                {text: "-------------------------------------------\n"},
+                                {text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                            ]
+                        }
+                    ]
+            },
+            {
+                text: [
+					{text: "DANH SÁCH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ [$isHSLT$] [$tagCode$]\n"},
+					{text: "([$listTypeSendDossier$]) \n"},
+					{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+				], 
+                margin: [0, 20],
+                style: 'headerTitle'
+            },
+            {
+                style: 'tableExample',
+                table: {
+                widths: "[$tableWidth$]",
+                body: ["[$report$]"]
+                },
+                margin: [0, 0, 0, 20]
+            },
+            {
+                columns: [
+                {
+                    width: '*',
+                    text: ''
+                },
+                {
+                    width: 150,
+                    style: 'title',
+                    text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
+                }
+                ]
+            },
+            {
+                columns: [
+                {
+                    width: '*',
+                    text: ''
+                },
+                {
+                    width: 150,
+                    style: 'titleSub',
+                    text: '(Ký và ghi rõ họ tên)'
+                }
+                ]
+            }
+            ],
+            styles: {
+            ngayThangNam: {
+                fontSize: 10,
+                italics: true,
+                bold: false,
+                alignment: 'center'
+            },
+            headerTitle: {
+                alignment: 'center',
+                bold: true,
+                fontSize: 13
+            },
+            borderHeader: {
+                alignment: 'left'
+            },
+            title: {
+                bold: true,
+                alignment: 'center'
+            },
+            titleSub: {
+                fontSize: 10,
+                italics: true,
+                alignment: 'center'
+            },
+            tdStyle: {
+                fontSize: 10
+            },
+            tableExample: {
+                width: "100%" 
+            }
+            },
+            defaultStyle: {
+            columnGap: 20,
+            fontSize: 11
+            }
+        } 
+    }
+    ]]>
+    </tableConfig>
+    <userConfig>{"order": 15}</userConfig>
+</DynamicReport>
 </DynamicReportList>

@@ -1,0 +1,453 @@
+<DynamicReport>
+    <filterConfig><![CDATA[{
+  api: "/o/rest/v2/dossiers?start=0&end=2000&register=REGISTER_01",
+  autoHeader: false,
+  exclusive: false,
+  customize: true,
+  groupIds: [
+  ],
+  sumKey: "govAgencyCode",
+  groupBy: [
+    {
+       key: "domainCode",
+       label: "Lĩnh vực",
+       display: "domainName"
+    },
+    {
+       key: "serviceCode",
+       label: "Thủ tục",
+       display: "serviceName"
+    },
+    {
+       key: "govAgencyCode",
+       label: "Cơ quan",
+       display: "govAgencyName"
+    }
+  ], 
+  filters: [
+    {
+      label: "Từ ngày",
+      key: "fromReceiveDate",
+      value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+      type: "date" 
+    },
+    {
+      label: "Đến ngày",
+      key: "toReceiveDate",
+      value: new Date().toLocaleDateString('vi-VN'),
+      type: "date" 
+    },
+	{
+      label: "Loại hồ sơ",
+      key: "online",
+      value: "",
+      type: "select",
+      source: [
+        {name: "Hồ sơ trực tuyến và hồ sơ tại một cửa", value: ""},
+        {name: "Hồ sơ trực tuyến", value: true},
+        {name: "Hồ sơ tại một cửa", value: false}
+      ]  
+    }
+  ],
+  reportConfig: [
+    {
+      "selected": true,
+      "value": "dossierNo",
+      "text": ""
+    },
+    {
+      "selected": true,
+      "value": "dossierName",
+	  "align": "left",
+      "text": ""
+    },
+    {
+      "selected": true,
+      "value": "applicantName",
+      "align": "left",
+      "text": ""
+    },
+    {
+      "selected": true,
+      "value": "address",
+      "align": "left",
+      "text": "",
+	  "display": "address \n contactTelNo"
+    },
+    {
+      "selected": true,
+      "value": "govAgencyName",
+	  "align": "left",
+      "text": ""
+    },
+    {
+      "value": "registerBookName",
+      "text": "Sổ theo dõi"
+    },
+    {
+      "selected": true,
+      "value": "receiveDate",
+      "text": ""
+    },
+    {
+      "selected": true,
+      "value": "dueDate",
+      "text": ""
+    },
+    {
+      "selected": true,
+      "value": "releaseDate",
+      "text": ""
+    },
+    {
+      "value": "extendDate",
+      "text": "Ngày gia hạn"
+    },
+    {
+      "selected": true,
+      "value": "finishDate",
+      "text": ""
+    },
+    {
+      "selected": true,
+      "value": "viapostal",
+      "text": "",
+	  "display": "viapostal <= 1 ? 'Nhận trực tiếp' : 'Nhận qua bưu chính'"
+    },
+    {
+      "selected": true,
+      "value": "ff",
+      "text": ""
+    },
+    {
+      "selected": true,
+      "value": "fff",
+      "text": ""
+    },
+    {
+      "value": "dossierStatusText",
+      "text": "Trạng thái"
+    },
+    {
+      "value": "online",
+      "text": "Trực tuyến"
+    },
+    {
+      "value": "originDossierNo",
+      "text": "Mã hồ sơ gốc"
+    },   
+    {
+      "value": "dossierNote",
+      "align": "left",
+      "text": "Ghi chú xử lý"
+    },
+    {
+      "value": "applicantNote",
+      "align": "left",
+      "text": "Ghi chú nộp."
+    },
+    {
+      "value": "briefNote",
+      "align": "left",
+      "text": "Chi tiết nội dung"
+    },
+    {
+      "value": "dossierOverdue",
+      "text": "Hạn xử lý"
+    }
+  ]
+}
+]]></filterConfig>
+    <reportCode>REGISTER_01</reportCode>
+    <reportName>Sổ theo dõi</reportName>
+    <sharing>1</sharing>
+    <tableConfig><![CDATA[{
+   docDefinition: {
+      pageOrientation: 'landscape',
+      content: [
+        {
+              columns: [
+                  {
+                      width: 300,
+                      style: "title1",
+                      text: [
+                         {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+                         {style: "title",text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"},
+                         {style: "title",text: "------------------------\n"},
+						 {text: "Số:...... / BPTNTKQ\n"}
+                      ]
+                  },
+				  {
+                      width: 100,
+                      style: "title",
+					  text: ""
+				},
+                  {
+                      width: 300,
+                      style: "title",
+                      text: [
+                          {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+                          {text: "Độc lập - Tự do - Hạnh phúc\n"},
+                          {text: "-------------------------------\n"},
+                          {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+                      ]
+                  }
+              ]
+        },
+        {
+          text: [
+            {text: 'SỔ THEO DÕI HỒ SƠ\n'},
+            {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]", fontSize: 11},
+          ], 
+          margin: [0, 20],
+          style: 'headerTitle'
+        },
+        {
+              style: "tableExample",
+              table: {
+                  widths: [15, 60, 120, 60, 60, 60, 50, 50, 50, 50, 50, 40, "*"],
+                  headerRows: 2,
+                  body: [
+                      [
+                          {
+                              text: "\n\n\nTT",
+                              rowSpan: 2,
+                              alignment: "center",
+                              bold: true,
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "\n\n\nMã hồ sơ",
+                              rowSpan: 2,
+                              alignment: "center",
+                              bold: true,
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "\n\n\nTên TTHC",
+                              rowSpan: 2,
+                              alignment: "center",
+                              bold: true,
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "\n\n\nTên cá nhân, tổ chức",
+                              rowSpan: 2,
+                              alignment: "center",
+                              bold: true,
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "\n\n\nĐịa chi, số điện thoại",
+                              rowSpan: 2,
+                              alignment: "center",
+                              bold: true,
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "\n\n\nCơ quan chủ trì giải quyết",
+                              rowSpan: 2,
+                              alignment: "center",
+                              bold: true,
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "Nhận và trả kết quả",
+                              colSpan: 6,
+                              alignment: "center",
+                              bold: true,
+                              style: "tdStyle"
+                          },
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          {
+                              text: "Ghi chú",
+                              rowSpan: 2,
+                              alignment: "center",
+                              bold: true,
+                              style: "tdStyle"
+                          }
+                      ],
+                      [
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          {
+                              text: "Nhận hồ sơ",
+                              alignment: "center",
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "Hẹn trả kết quả",
+                              alignment: "center",
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "Bộ phận chuyên môn trả KQ",
+                              alignment: "center",
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "Trả kết quả",
+                              alignment: "center",
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "Phương thức nhận",
+                              alignment: "center",
+                              style: "tdStyle"
+                          },
+                          {
+                              text: "Ký nhận",
+                              alignment: "center",
+                              style: "tdStyle"
+                          },
+                          ""
+                      ],
+                      [
+                          {
+                              text: "(1)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(2)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(3)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(4)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(5)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(6)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(7)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(8)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(9)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(10)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(11)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(12)",
+                              alignment: "center",
+                              fontSize: 8
+                          },
+                          {
+                              text: "(13)",
+                              alignment: "center",
+                              fontSize: 8
+                          }
+                      ],
+                      "[$report$]"
+                  ]
+              },
+              margin: [0, 0, 0, 5]
+        },
+        {
+          columns: [
+            {
+              width: '*',
+              text: ''
+            },
+            {
+              width: 150,
+              style: 'title',
+              text: 'NGƯỜI LẬP SỔ'
+            }
+          ]
+        },
+        {
+          columns: [
+            {
+              width: '*',
+              text: ''
+            },
+            {
+              width: 150,
+              style: 'titleSub',
+              text: '(Ký và ghi rõ họ tên)'
+            }
+          ]
+        }
+      ],
+      styles: {
+        ngayThangNam: {
+          fontSize: 10,
+          italics: true,
+          bold: false,
+          alignment: 'center'
+        },
+        headerTitle: {
+            alignment: 'center',
+            bold: true,
+            fontSize: 13
+        },
+        borderHeader: {
+            alignment: 'left'
+        },
+        title: {
+          bold: true,
+          alignment: 'center'
+        },
+		title1: {
+          alignment: 'center'
+        },
+        titleSub: {
+            fontSize: 10,
+            italics: true,
+            alignment: 'center'
+        },
+        tdStyle: {
+          fontSize: 10
+        },
+        tableExample: {
+           width: "100%" 
+        }
+      },
+      defaultStyle: {
+        columnGap: 20,
+        fontSize: 11
+      }
+    } 
+}]]></tableConfig>
+    <userConfig>{}</userConfig>
+  </DynamicReport>

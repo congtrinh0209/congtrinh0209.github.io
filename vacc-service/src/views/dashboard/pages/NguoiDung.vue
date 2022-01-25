@@ -381,13 +381,16 @@
       getMembers () {
         let vm = this
         vm.loadingData = true
-        let filter = {}
+        let filter = {
+          page: 1,
+          size: 30
+        }
         vm.$store.dispatch('getNguoiDung', filter).then(function (result) {
           vm.loadingData = false
           if (result) {
-            vm.items = result
-            vm.totalItem = result.length
-            vm.pageCount = Math.ceil(querySnapshot.size / vm.itemsPerPage)
+            vm.items = result.hasOwnProperty('data') ? result.data : []
+            vm.totalItem = result.hasOwnProperty('total') ? result.total : []
+            vm.pageCount = Math.ceil(vm.totalItem / vm.itemsPerPage)
           } else {
             vm.items = []
           }
