@@ -1,0 +1,1506 @@
+{
+"resource": [
+    {
+        "groupId": 39342,
+        "code": "HCAOLANH",
+        "text": "UBND huyện Cao Lãnh",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "40880",
+            "text": "Cấp xã huyện Cao Lãnh"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Bình",
+                "value": "XHCL_ANBINH"
+            },
+            {
+                "name": "UBND Xã Ba Sao",
+                "value": "XHCL_BASAO"
+            },
+            {
+                "name": "UBND Xã Bình Hàng Tây",
+                "value": "XHCL_BINHHANGTAY"
+            },
+            {
+                "name": "UBND Xã Bình Hàng Trung",
+                "value": "XHCL_BINHHANGTRUNG"
+            },
+            {
+                "name": "UBND Xã Bình Thạnh",
+                "value": "XHCL_BINHTHANH"
+            },
+            {
+                "name": "UBND Xã Gáo Giồng",
+                "value": "XHCL_GAOGIONG"
+            },
+            {
+                "name": "UBND Xã Mỹ Hiệp",
+                "value": "XHCL_MYHIEP"
+            },
+            {
+                "name": "UBND Xã Mỹ Hội",
+                "value": "XHCL_MYHOI"
+            },
+            {
+                "name": "UBND Xã Mỹ Long",
+                "value": "XHCL_MYLONG"
+            },
+            {
+                "name": "UBND Xã Mỹ Thọ",
+                "value": "XHCL_MYTHO"
+            },
+            {
+                "name": "UBND Xã Mỹ Xương",
+                "value": "XHCL_MYXUONG"
+            },
+            {
+                "name": "UBND Xã Nhị Mỹ",
+                "value": "XHCL_NHIMY"
+            },
+            {
+                "name": "UBND Xã Phong Mỹ",
+                "value": "XHCL_PHONGMY"
+            },
+            {
+                "name": "UBND Xã Phương Thịnh",
+                "value": "XHCL_PHUONGTHINH"
+            },
+            {
+                "name": "UBND Xã Phương Trà",
+                "value": "XHCL_PHUONGTRA"
+            },
+            {
+                "name": "UBND Xã Tân Hội Trung",
+                "value": "XHCL_TANHOITRUNG"
+            },
+            {
+                "name": "UBND Xã Tân Nghĩa",
+                "value": "XHCL_TANNGHIA"
+            },
+            {
+                "name": "UBND Thị trấn Mỹ Thọ",
+                "value": "XHCL_TTMYTHO"
+            }
+        ]
+    },
+    {
+        "groupId": 39465,
+        "code": "HCHAUTHANH",
+        "text": "UBND huyện Châu Thành",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "41003",
+            "text": "Cấp xã huyện Châu Thành"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Hiệp",
+                "value": "XHCT_ANHIEP"
+            },
+            {
+                "name": "UBND Xã An Khánh",
+                "value": "XHCT_ANKHANH"
+            },
+            {
+                "name": "UBND Xã An Nhơn",
+                "value": "XHCT_ANNHON"
+            },
+            {
+                "name": "UBND Xã An Phú Thuận",
+                "value": "XHCT_ANPHUTHUAN"
+            },
+            {
+                "name": "UBND Thị trấn Cái Tàu Hạ",
+                "value": "XHCT_CAITAUHA"
+            },
+            {
+                "name": "UBND Xã Hòa Tân",
+                "value": "XHCT_HOATAN"
+            },
+            {
+                "name": "UBND Xã Phú Hựu",
+                "value": "XHCT_PHUHUU"
+            },
+            {
+                "name": "UBND Xã Phú Long",
+                "value": "XHCT_PHULONG"
+            },
+            {
+                "name": "UBND Xã Tân Bình",
+                "value": "XHCT_TANBINH"
+            },
+            {
+                "name": "UBND Xã Tân Nhuận Đông",
+                "value": "XHCT_TANNHUANDONG"
+            },
+            {
+                "name": "UBND Xã Tân Phú",
+                "value": "XHCT_TANPHU"
+            },
+            {
+                "name": "UBND Xã Tân Phú Trung",
+                "value": "XHCT_TANPHUTRUNG"
+            }
+        ]
+    },
+    {
+        "groupId": 39588,
+        "code": "HHONGNGU",
+        "text": "UBND huyện Hồng Ngự",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "41126",
+            "text": "Cấp xã huyện Hồng Ngự"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Long Khánh A",
+                "value": "XHHN_LONGKHANHA"
+            },
+            {
+                "name": "UBND Xã Long Khánh B",
+                "value": "XHHN_LONGKHANHB"
+            },
+            {
+                "name": "UBND Xã Long Thuận",
+                "value": "XHHN_LONGTHUAN"
+            },
+            {
+                "name": "UBND Xã Phú Thuận A",
+                "value": "XHHN_PHUTHUANA"
+            },
+            {
+                "name": "UBND Xã Phú Thuận B",
+                "value": "XHHN_PHUTHUANB"
+            },
+            {
+                "name": "UBND Xã Thường Lạc",
+                "value": "XHHN_THUONGLAC"
+            },
+            {
+                "name": "UBND Xã Thường Phước 1",
+                "value": "XHHN_THUONGPHUOC1"
+            },
+            {
+                "name": "UBND Xã Thường Phước 2",
+                "value": "XHHN_THUONGPHUOC2"
+            },
+            {
+                "name": "UBND Xã Thường Thới Hậu A",
+                "value": "XHHN_THUONGTHOIHAUA"
+            },
+            {
+                "name": "UBND Xã Thường Thới Hậu B",
+                "value": "XHHN_THUONGTHOIHAUB"
+            },
+            {
+                "name": "UBND Thị trấn Thường Thới Tiền",
+                "value": "XHHN_THUONGTHOITIEN"
+            }
+    ]},
+    {
+        "groupId": 39711,
+        "code": "HLAIVUNG",
+        "text": "UBND huyện Lai Vung",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "41249",
+            "text": "Cấp xã huyện Lai Vung"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Định Hòa",
+                "value": "XHLVU_DINHHOA"
+            },
+            {
+                "name": "UBND Xã Hòa Long",
+                "value": "XHLVU_HOALONG"
+            },
+            {
+                "name": "UBND Xã Hòa Thành",
+                "value": "XHLVU_HOATHANH"
+            },
+            {
+                "name": "UBND Xã Long Hậu",
+                "value": "XHLVU_LONGHAU"
+            },
+            {
+                "name": "UBND Xã Long Thắng",
+                "value": "XHLVU_LONGTHANG"
+            },
+            {
+                "name": "UBND Xã Phong Hòa",
+                "value": "XHLVU_PHONGHOA"
+            },
+            {
+                "name": "UBND Xã Tân Dương",
+                "value": "XHLVU_TANDUONG"
+            },
+            {
+                "name": "UBND Xã Tân Hòa",
+                "value": "XHLVU_TANHOA"
+            },
+            {
+                "name": "UBND Xã Tân Phước",
+                "value": "XHLVU_TANPHUOC"
+            },
+            {
+                "name": "UBND Xã Tân Thành",
+                "value": "XHLVU_TANTHANH"
+            },
+            {
+                "name": "UBND Thị trấn Lai Vung",
+                "value": "XHLVU_TTLAIVUNG"
+            },
+            {
+                "name": "UBND Xã Vĩnh Thới",
+                "value": "XHLVU_VINHTHOI"
+            }
+    ]},
+    {
+        "groupId": 39834,
+        "code": "HLAPVO",
+        "text": "UBND huyện Lấp Vò",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "41372",
+            "text": "Cấp xã huyện Lấp Vò"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Bình Thành",
+                "value": "XHLVO_BINHTHANH"
+            },
+            {
+                "name": "UBND Xã Bình Thạnh Trung",
+                "value": "XHLVO_BINHTHANHTRUNG"
+            },
+            {
+                "name": "UBND Xã Định An",
+                "value": "XHLVO_DINHAN"
+            },
+            {
+                "name": "UBND Xã Định Yên",
+                "value": "XHLVO_DINHYEN"
+            },
+            {
+                "name": "UBND Xã Hội An Đông",
+                "value": "XHLVO_HOIANDONG"
+            },
+            {
+                "name": "UBND Xã Long Hưng A",
+                "value": "XHLVO_LONGHUNGA"
+            },
+            {
+                "name": "UBND Xã Long Hưng B",
+                "value": "XHLVO_LONGHUNGB"
+            },
+            {
+                "name": "UBND Xã Mỹ An Hưng A",
+                "value": "XHLVO_MYANHUNGA"
+            },
+            {
+                "name": "UBND Xã Mỹ An Hưng B",
+                "value": "XHLVO_MYANHUNGB"
+            },
+            {
+                "name": "UBND Xã Tân Khánh Trung",
+                "value": "XHLVO_TANKHANHTRUNG"
+            },
+            {
+                "name": "UBND Xã Tân Mỹ",
+                "value": "XHLVO_TANMY"
+            },
+            {
+                "name": "UBND Thị trấn Lấp Vò",
+                "value": "XHLVO_TTLAPVO"
+            },
+            {
+                "name": "UBND Xã Vĩnh Thạnh",
+                "value": "XHLVO_VINHTHANH"
+            }
+    ]},
+    {
+        "groupId": 39957,
+        "code": "HTAMNONG",
+        "text": "UBND huyện Tam Nông",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "41497",
+            "text": "Cấp xã huyện Tam Nông"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Hòa",
+                "value": "XHTN_ANHOA"
+            },
+            {
+                "name": "UBND Xã An Long",
+                "value": "XHTN_ANLONG"
+            },
+            {
+                "name": "UBND Xã Hòa Bình",
+                "value": "XHTN_HOABINH"
+            },
+            {
+                "name": "UBND Xã Phú Cường",
+                "value": "XHTN_PHUCUONG"
+            },
+            {
+                "name": "UBND Xã Phú Đức",
+                "value": "XHTN_PHUDUC"
+            },
+            {
+                "name": "UBND Xã Phú Hiệp",
+                "value": "XHTN_PHUHIEP"
+            },
+            {
+                "name": "UBND Xã Phú Ninh",
+                "value": "XHTN_PHUNINH"
+            },
+            {
+                "name": "UBND Xã Phú Thành A",
+                "value": "XHTN_PHUTHANHA"
+            },
+            {
+                "name": "UBND Xã Phú Thành B",
+                "value": "XHTN_PHUTHANHB"
+            },
+            {
+                "name": "UBND Xã Phú Thọ",
+                "value": "XHTN_PHUTHO"
+            },
+            {
+                "name": "UBND Xã Tân Công Sính",
+                "value": "XHTN_TANCONGSINH"
+            },
+            {
+                "name": "UBND Thị trấn Tràm Chim",
+                "value": "XHTN_TRAMCHIM"
+            }
+    ]},
+    {
+        "groupId": 40080,
+        "code": "HTANHONG",
+        "text": "UBND huyện Tân Hồng",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "41620",
+            "text": "Cấp xã huyện Tân Hồng"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Phước",
+                "value": "XHTH_ANPHUOC"
+            },
+            {
+                "name": "UBND Xã Bình Phú",
+                "value": "XHTH_BINHPHU"
+            },
+            {
+                "name": "UBND Thị trấn Sa Rài",
+                "value": "XHTH_SARAI"
+            },
+            {
+                "name": "UBND Xã Tân Công Chí",
+                "value": "XHTH_TANCONGCHI"
+            },
+            {
+                "name": "UBND Xã Tân Hộ Cơ",
+                "value": "XHTH_TANHOCO"
+            },
+            {
+                "name": "UBND Xã Tân Phước",
+                "value": "XHTH_TANPHUOC"
+            },
+            {
+                "name": "UBND Xã Tân Thành A",
+                "value": "XHTH_TANTHANHA"
+            },
+            {
+                "name": "UBND Xã Tân Thành B",
+                "value": "XHTH_TANTHANHB"
+            },
+            {
+                "name": "UBND Xã Thông Bình",
+                "value": "XHTH_THONGBINH"
+            }
+    ]},
+    {
+        "groupId": 40265,
+        "code": "HTHANHBINH",
+        "text": "UBND huyện Thanh Bình",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "42060",
+            "text": "Cấp xã huyện Thanh Bình"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Phong",
+                "value": "XHTB_ANPHONG"
+            },
+            {
+                "name": "UBND Xã Bình Tấn",
+                "value": "XHTB_BINHTAN"
+            },
+            {
+                "name": "UBND Xã Bình Thành",
+                "value": "XHTB_BINHTHANH"
+            },
+            {
+                "name": "UBND Xã Phú Lợi",
+                "value": "XHTB_PHULOI"
+            },
+            {
+                "name": "UBND Xã Tân Bình",
+                "value": "XHTB_TANBINH"
+            },
+            {
+                "name": "UBND Xã Tân Hòa",
+                "value": "XHTB_TANHOA"
+            },
+            {
+                "name": "UBND Xã Tân Huề",
+                "value": "XHTB_TANHUE"
+            },
+            {
+                "name": "UBND Xã Tân Long",
+                "value": "XHTB_TANLONG"
+            },
+            {
+                "name": "UBND Xã Tân Mỹ",
+                "value": "XHTB_TANMY"
+            },
+            {
+                "name": "UBND Xã Tân Phú",
+                "value": "XHTB_TANPHU"
+            },
+            {
+                "name": "UBND Xã Tân Quới",
+                "value": "XHTB_TANQUOI"
+            },
+            {
+                "name": "UBND Xã Tân Thạnh",
+                "value": "XHTB_TANTHANH"
+            },
+            {
+                "name": "UBND Thị trấn Thanh Bình",
+                "value": "XHTB_TTTHANHBINH"
+            }
+    ]},
+    {
+        "groupId": 40388,
+        "code": "HTHAPMUOI",
+        "text": "UBND huyện Tháp Mười",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "41866",
+            "text": "Cấp xã huyện Tháp Mười"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Đốc Binh Kiều",
+                "value": "XHTM_DOCBINHKIEU"
+            },
+            {
+                "name": "UBND Xã Hưng Thạnh",
+                "value": "XHTM_HUNGTHANH"
+            },
+            {
+                "name": "UBND Xã Láng Biển",
+                "value": "XHTM_LANGBIEN"
+            },
+            {
+                "name": "UBND Xã Mỹ An",
+                "value": "XHTM_MYAN"
+            },
+            {
+                "name": "UBND Xã Mỹ Đông",
+                "value": "XHTM_MYDONG"
+            },
+            {
+                "name": "UBND Xã Mỹ Hòa",
+                "value": "XHTM_MYHOA"
+            },
+            {
+                "name": "UBND Xã Mỹ Quí",
+                "value": "XHTM_MYQUY"
+            },
+            {
+                "name": "UBND Xã Phú Điền",
+                "value": "XHTM_PHUDIEN"
+            },
+            {
+                "name": "UBND Xã Tân Kiều",
+                "value": "XHTM_TANKIEU"
+            },
+            {
+                "name": "UBND Xã Thạnh Lợi",
+                "value": "XHTM_THANHLOI"
+            },
+            {
+                "name": "UBND Xã Thanh Mỹ",
+                "value": "XHTM_THANHMY"
+            },
+            {
+                "name": "UBND Xã Trường Xuân",
+                "value": "XHTM_TRUONGXUAN"
+            },
+            {
+                "name": "UBND Thị trấn Mỹ An",
+                "value": "XHTM_TTMYAN"
+            }
+    ]},
+    {
+        "groupId": 38899,
+        "code": "HTPCAOLANH",
+        "text": "UBND thành phố Cao Lãnh",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "40511",
+            "text": "Cấp xã thành phố Cao Lãnh"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Hòa An",
+                "value": "XTPCL_HOAAN"
+            },
+            {
+                "name": "UBND Phường Hòa Thuận",
+                "value": "XTPCL_HOATHUAN"
+            },
+            {
+                "name": "UBND Xã Mỹ Ngãi",
+                "value": "XTPCL_MYNGAI"
+            },
+            {
+                "name": "UBND Phường Mỹ Phú",
+                "value": "XTPCL_MYPHU"
+            },
+            {
+                "name": "UBND Xã Mỹ Tân",
+                "value": "XTPCL_MYTAN"
+            },
+            {
+                "name": "UBND Xã Mỹ Trà",
+                "value": "XTPCL_MYTRA"
+            },
+            {
+                "name": "UBND Phường 1",
+                "value": "XTPCL_PHUONG1"
+            },
+            {
+                "name": "UBND Phường 11",
+                "value": "XTPCL_PHUONG11"
+            },
+            {
+                "name": "UBND Phường 2",
+                "value": "XTPCL_PHUONG2"
+            },
+            {
+                "name": "UBND Phường 3",
+                "value": "XTPCL_PHUONG3"
+            },
+            {
+                "name": "UBND Phường 4",
+                "value": "XTPCL_PHUONG4"
+            },
+            {
+                "name": "UBND Phường 6",
+                "value": "XTPCL_PHUONG6"
+            },
+            {
+                "name": "UBND Xã Tân Thuận Đông",
+                "value": "XTPCL_TANTHUANDONG"
+            },
+            {
+                "name": "UBND Xã Tân Thuận Tây",
+                "value": "XTPCL_TANTHUANTAY"
+            },
+            {
+                "name": "UBND Xã Tịnh Thới",
+                "value": "XTPCL_TINHTHOI"
+            }
+    ]},
+    {
+        "groupId": 39145,
+        "code": "HTXHONGNGU",
+        "text": "UBND Thành phố Hồng Ngự",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "40757",
+            "text": "Cấp xã Thành phố Hồng Ngự"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Phường An Bình A",
+                "value": "XTXHN_ANBINHA"
+            },
+            {
+                "name": "UBND phường An Bình B",
+                "value": "XTXHN_ANBINHB"
+            },
+            {
+                "name": "UBND Phường An Lạc",
+                "value": "XTXHN_ANLAC"
+            },
+            {
+                "name": "UBND Phường An Lộc",
+                "value": "XTXHN_ANLOC"
+            },
+            {
+                "name": "UBND Phường An Thạnh",
+                "value": "XTXHN_ANTHANH"
+            },
+            {
+                "name": "UBND Xã Bình Thạnh",
+                "value": "XTXHN_BINHTHANH"
+            },
+            {
+                "name": "UBND Xã Tân Hội",
+                "value": "XTXHN_TANHOI"
+            }
+    ]},
+    {
+        "groupId": 39022,
+        "code": "HTPSADEC",
+        "text": "UBND Thành phố Sa Đéc",
+        "groupIds": [
+            {
+            "selected": true,
+            "value": "40634",
+            "text": "Cấp xã thành phố SADEC"
+            }
+        ],
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Phường An Hòa",
+                "value": "XTPSD_ANHOA"
+            },
+            {
+                "name": "UBND Phường 1",
+                "value": "XTPSD_PHUONG1"
+            },
+            {
+                "name": "UBND Phường 2",
+                "value": "XTPSD_PHUONG2"
+            },
+            {
+                "name": "UBND Phường 3",
+                "value": "XTPSD_PHUONG3"
+            },
+            {
+                "name": "UBND Phường 4",
+                "value": "XTPSD_PHUONG4"
+            },
+            {
+                "name": "UBND Xã Tân Khánh Đông",
+                "value": "XTPSD_TANKHANHDONG"
+            },
+            {
+                "name": "UBND Xã Tân Phú Đông",
+                "value": "XTPSD_TANPHUDONG"
+            },
+            {
+                "name": "UBND Phường Tân Quy Đông",
+                "value": "XTPSD_TANQUYDONG"
+            },
+            {
+                "name": "UBND Xã Tân Quy Tây",
+                "value": "XTPSD_TANQUYTAY"
+            }
+    ]},
+    {
+        "groupId": "40880",
+        "code": "XHCAOLANH",
+        "text": "Cấp xã huyện Cao Lãnh",
+        "parent": "HCAOLANH",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Bình",
+                "value": "XHCL_ANBINH"
+            },
+            {
+                "name": "UBND Xã Ba Sao",
+                "value": "XHCL_BASAO"
+            },
+            {
+                "name": "UBND Xã Bình Hàng Tây",
+                "value": "XHCL_BINHHANGTAY"
+            },
+            {
+                "name": "UBND Xã Bình Hàng Trung",
+                "value": "XHCL_BINHHANGTRUNG"
+            },
+            {
+                "name": "UBND Xã Bình Thạnh",
+                "value": "XHCL_BINHTHANH"
+            },
+            {
+                "name": "UBND Xã Gáo Giồng",
+                "value": "XHCL_GAOGIONG"
+            },
+            {
+                "name": "UBND Xã Mỹ Hiệp",
+                "value": "XHCL_MYHIEP"
+            },
+            {
+                "name": "UBND Xã Mỹ Hội",
+                "value": "XHCL_MYHOI"
+            },
+            {
+                "name": "UBND Xã Mỹ Long",
+                "value": "XHCL_MYLONG"
+            },
+            {
+                "name": "UBND Xã Mỹ Thọ",
+                "value": "XHCL_MYTHO"
+            },
+            {
+                "name": "UBND Xã Mỹ Xương",
+                "value": "XHCL_MYXUONG"
+            },
+            {
+                "name": "UBND Xã Nhị Mỹ",
+                "value": "XHCL_NHIMY"
+            },
+            {
+                "name": "UBND Xã Phong Mỹ",
+                "value": "XHCL_PHONGMY"
+            },
+            {
+                "name": "UBND Xã Phương Thịnh",
+                "value": "XHCL_PHUONGTHINH"
+            },
+            {
+                "name": "UBND Xã Phương Trà",
+                "value": "XHCL_PHUONGTRA"
+            },
+            {
+                "name": "UBND Xã Tân Hội Trung",
+                "value": "XHCL_TANHOITRUNG"
+            },
+            {
+                "name": "UBND Xã Tân Nghĩa",
+                "value": "XHCL_TANNGHIA"
+            },
+            {
+                "name": "UBND Thị trấn Mỹ Thọ",
+                "value": "XHCL_TTMYTHO"
+            }
+        ]
+    },
+    {
+        "groupId": "41003",
+        "code": "XHCHAUTHANH",
+        "text": "Cấp xã huyện Châu Thành",
+        "parent": "HCHAUTHANH",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Hiệp",
+                "value": "XHCT_ANHIEP"
+            },
+            {
+                "name": "UBND Xã An Khánh",
+                "value": "XHCT_ANKHANH"
+            },
+            {
+                "name": "UBND Xã An Nhơn",
+                "value": "XHCT_ANNHON"
+            },
+            {
+                "name": "UBND Xã An Phú Thuận",
+                "value": "XHCT_ANPHUTHUAN"
+            },
+            {
+                "name": "UBND Thị trấn Cái Tàu Hạ",
+                "value": "XHCT_CAITAUHA"
+            },
+            {
+                "name": "UBND Xã Hòa Tân",
+                "value": "XHCT_HOATAN"
+            },
+            {
+                "name": "UBND Xã Phú Hựu",
+                "value": "XHCT_PHUHUU"
+            },
+            {
+                "name": "UBND Xã Phú Long",
+                "value": "XHCT_PHULONG"
+            },
+            {
+                "name": "UBND Xã Tân Bình",
+                "value": "XHCT_TANBINH"
+            },
+            {
+                "name": "UBND Xã Tân Nhuận Đông",
+                "value": "XHCT_TANNHUANDONG"
+            },
+            {
+                "name": "UBND Xã Tân Phú",
+                "value": "XHCT_TANPHU"
+            },
+            {
+                "name": "UBND Xã Tân Phú Trung",
+                "value": "XHCT_TANPHUTRUNG"
+            }
+        ]
+    },
+    {
+        "groupId": "41126",
+        "code": "XHHONGNGU",
+        "text": "Cấp xã huyện Hồng Ngự",
+        "parent": "HHONGNGU",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Long Khánh A",
+                "value": "XHHN_LONGKHANHA"
+            },
+            {
+                "name": "UBND Xã Long Khánh B",
+                "value": "XHHN_LONGKHANHB"
+            },
+            {
+                "name": "UBND Xã Long Thuận",
+                "value": "XHHN_LONGTHUAN"
+            },
+            {
+                "name": "UBND Xã Phú Thuận A",
+                "value": "XHHN_PHUTHUANA"
+            },
+            {
+                "name": "UBND Xã Phú Thuận B",
+                "value": "XHHN_PHUTHUANB"
+            },
+            {
+                "name": "UBND Xã Thường Lạc",
+                "value": "XHHN_THUONGLAC"
+            },
+            {
+                "name": "UBND Xã Thường Phước 1",
+                "value": "XHHN_THUONGPHUOC1"
+            },
+            {
+                "name": "UBND Xã Thường Phước 2",
+                "value": "XHHN_THUONGPHUOC2"
+            },
+            {
+                "name": "UBND Xã Thường Thới Hậu A",
+                "value": "XHHN_THUONGTHOIHAUA"
+            },
+            {
+                "name": "UBND Xã Thường Thới Hậu B",
+                "value": "XHHN_THUONGTHOIHAUB"
+            },
+            {
+                "name": "UBND Thị trấn Thường Thới Tiền",
+                "value": "XHHN_THUONGTHOITIEN"
+            }
+        ]
+    },
+    {
+        "groupId": "41249",
+        "code": "XHLAIVUNG",
+        "text": "Cấp xã huyện Lai Vung",
+        "parent": "HLAIVUNG",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Định Hòa",
+                "value": "XHLVU_DINHHOA"
+            },
+            {
+                "name": "UBND Xã Hòa Long",
+                "value": "XHLVU_HOALONG"
+            },
+            {
+                "name": "UBND Xã Hòa Thành",
+                "value": "XHLVU_HOATHANH"
+            },
+            {
+                "name": "UBND Xã Long Hậu",
+                "value": "XHLVU_LONGHAU"
+            },
+            {
+                "name": "UBND Xã Long Thắng",
+                "value": "XHLVU_LONGTHANG"
+            },
+            {
+                "name": "UBND Xã Phong Hòa",
+                "value": "XHLVU_PHONGHOA"
+            },
+            {
+                "name": "UBND Xã Tân Dương",
+                "value": "XHLVU_TANDUONG"
+            },
+            {
+                "name": "UBND Xã Tân Hòa",
+                "value": "XHLVU_TANHOA"
+            },
+            {
+                "name": "UBND Xã Tân Phước",
+                "value": "XHLVU_TANPHUOC"
+            },
+            {
+                "name": "UBND Xã Tân Thành",
+                "value": "XHLVU_TANTHANH"
+            },
+            {
+                "name": "UBND Thị trấn Lai Vung",
+                "value": "XHLVU_TTLAIVUNG"
+            },
+            {
+                "name": "UBND Xã Vĩnh Thới",
+                "value": "XHLVU_VINHTHOI"
+            }
+        ]
+    },
+    {
+        "groupId": "41372",
+        "code": "XHLAPVO",
+        "text": "Cấp xã huyện Lấp Vò",
+        "parent": "HLAPVO",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Bình Thành",
+                "value": "XHLVO_BINHTHANH"
+            },
+            {
+                "name": "UBND Xã Bình Thạnh Trung",
+                "value": "XHLVO_BINHTHANHTRUNG"
+            },
+            {
+                "name": "UBND Xã Định An",
+                "value": "XHLVO_DINHAN"
+            },
+            {
+                "name": "UBND Xã Định Yên",
+                "value": "XHLVO_DINHYEN"
+            },
+            {
+                "name": "UBND Xã Hội An Đông",
+                "value": "XHLVO_HOIANDONG"
+            },
+            {
+                "name": "UBND Xã Long Hưng A",
+                "value": "XHLVO_LONGHUNGA"
+            },
+            {
+                "name": "UBND Xã Long Hưng B",
+                "value": "XHLVO_LONGHUNGB"
+            },
+            {
+                "name": "UBND Xã Mỹ An Hưng A",
+                "value": "XHLVO_MYANHUNGA"
+            },
+            {
+                "name": "UBND Xã Mỹ An Hưng B",
+                "value": "XHLVO_MYANHUNGB"
+            },
+            {
+                "name": "UBND Xã Tân Khánh Trung",
+                "value": "XHLVO_TANKHANHTRUNG"
+            },
+            {
+                "name": "UBND Xã Tân Mỹ",
+                "value": "XHLVO_TANMY"
+            },
+            {
+                "name": "UBND Thị trấn Lấp Vò",
+                "value": "XHLVO_TTLAPVO"
+            },
+            {
+                "name": "UBND Xã Vĩnh Thạnh",
+                "value": "XHLVO_VINHTHANH"
+            }
+        ]
+    },
+    {
+        "groupId": "41497",
+        "code": "XHTAMNONG",
+        "text": "Cấp xã huyện Tam Nông",
+        "parent": "HTAMNONG",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Hòa",
+                "value": "XHTN_ANHOA"
+            },
+            {
+                "name": "UBND Xã An Long",
+                "value": "XHTN_ANLONG"
+            },
+            {
+                "name": "UBND Xã Hòa Bình",
+                "value": "XHTN_HOABINH"
+            },
+            {
+                "name": "UBND Xã Phú Cường",
+                "value": "XHTN_PHUCUONG"
+            },
+            {
+                "name": "UBND Xã Phú Đức",
+                "value": "XHTN_PHUDUC"
+            },
+            {
+                "name": "UBND Xã Phú Hiệp",
+                "value": "XHTN_PHUHIEP"
+            },
+            {
+                "name": "UBND Xã Phú Ninh",
+                "value": "XHTN_PHUNINH"
+            },
+            {
+                "name": "UBND Xã Phú Thành A",
+                "value": "XHTN_PHUTHANHA"
+            },
+            {
+                "name": "UBND Xã Phú Thành B",
+                "value": "XHTN_PHUTHANHB"
+            },
+            {
+                "name": "UBND Xã Phú Thọ",
+                "value": "XHTN_PHUTHO"
+            },
+            {
+                "name": "UBND Xã Tân Công Sính",
+                "value": "XHTN_TANCONGSINH"
+            },
+            {
+                "name": "UBND Thị trấn Tràm Chim",
+                "value": "XHTN_TRAMCHIM"
+            }
+        ]
+    },
+    {
+        "groupId": "41620",
+        "code": "XHTANHONG",
+        "text": "Cấp xã huyện Tân Hồng",
+        "parent": "HTANHONG",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Phước",
+                "value": "XHTH_ANPHUOC"
+            },
+            {
+                "name": "UBND Xã Bình Phú",
+                "value": "XHTH_BINHPHU"
+            },
+            {
+                "name": "UBND Thị trấn Sa Rài",
+                "value": "XHTH_SARAI"
+            },
+            {
+                "name": "UBND Xã Tân Công Chí",
+                "value": "XHTH_TANCONGCHI"
+            },
+            {
+                "name": "UBND Xã Tân Hộ Cơ",
+                "value": "XHTH_TANHOCO"
+            },
+            {
+                "name": "UBND Xã Tân Phước",
+                "value": "XHTH_TANPHUOC"
+            },
+            {
+                "name": "UBND Xã Tân Thành A",
+                "value": "XHTH_TANTHANHA"
+            },
+            {
+                "name": "UBND Xã Tân Thành B",
+                "value": "XHTH_TANTHANHB"
+            },
+            {
+                "name": "UBND Xã Thông Bình",
+                "value": "XHTH_THONGBINH"
+            }
+        ]
+    },
+    {
+        "groupId": "42060",
+        "code": "XHTHANHBINH",
+        "text": "Cấp xã huyện Thanh Bình",
+        "parent": "HTHANHBINH",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã An Phong",
+                "value": "XHTB_ANPHONG"
+            },
+            {
+                "name": "UBND Xã Bình Tấn",
+                "value": "XHTB_BINHTAN"
+            },
+            {
+                "name": "UBND Xã Bình Thành",
+                "value": "XHTB_BINHTHANH"
+            },
+            {
+                "name": "UBND Xã Phú Lợi",
+                "value": "XHTB_PHULOI"
+            },
+            {
+                "name": "UBND Xã Tân Bình",
+                "value": "XHTB_TANBINH"
+            },
+            {
+                "name": "UBND Xã Tân Hòa",
+                "value": "XHTB_TANHOA"
+            },
+            {
+                "name": "UBND Xã Tân Huề",
+                "value": "XHTB_TANHUE"
+            },
+            {
+                "name": "UBND Xã Tân Long",
+                "value": "XHTB_TANLONG"
+            },
+            {
+                "name": "UBND Xã Tân Mỹ",
+                "value": "XHTB_TANMY"
+            },
+            {
+                "name": "UBND Xã Tân Phú",
+                "value": "XHTB_TANPHU"
+            },
+            {
+                "name": "UBND Xã Tân Quới",
+                "value": "XHTB_TANQUOI"
+            },
+            {
+                "name": "UBND Xã Tân Thạnh",
+                "value": "XHTB_TANTHANH"
+            },
+            {
+                "name": "UBND Thị trấn Thanh Bình",
+                "value": "XHTB_TTTHANHBINH"
+            }
+        ]
+    },
+    {
+        "groupId": "41866",
+        "code": "XHTHAPMUOI",
+        "text": "Cấp xã huyện Tháp Mười",
+        "parent": "HTHAPMUOI",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Đốc Binh Kiều",
+                "value": "XHTM_DOCBINHKIEU"
+            },
+            {
+                "name": "UBND Xã Hưng Thạnh",
+                "value": "XHTM_HUNGTHANH"
+            },
+            {
+                "name": "UBND Xã Láng Biển",
+                "value": "XHTM_LANGBIEN"
+            },
+            {
+                "name": "UBND Xã Mỹ An",
+                "value": "XHTM_MYAN"
+            },
+            {
+                "name": "UBND Xã Mỹ Đông",
+                "value": "XHTM_MYDONG"
+            },
+            {
+                "name": "UBND Xã Mỹ Hòa",
+                "value": "XHTM_MYHOA"
+            },
+            {
+                "name": "UBND Xã Mỹ Quí",
+                "value": "XHTM_MYQUY"
+            },
+            {
+                "name": "UBND Xã Phú Điền",
+                "value": "XHTM_PHUDIEN"
+            },
+            {
+                "name": "UBND Xã Tân Kiều",
+                "value": "XHTM_TANKIEU"
+            },
+            {
+                "name": "UBND Xã Thạnh Lợi",
+                "value": "XHTM_THANHLOI"
+            },
+            {
+                "name": "UBND Xã Thanh Mỹ",
+                "value": "XHTM_THANHMY"
+            },
+            {
+                "name": "UBND Xã Trường Xuân",
+                "value": "XHTM_TRUONGXUAN"
+            },
+            {
+                "name": "UBND Thị trấn Mỹ An",
+                "value": "XHTM_TTMYAN"
+            }
+        ]
+    },
+    {
+        "groupId": "40511",
+        "code": "XHTPCAOLANH",
+        "text": "Cấp xã thành phố Cao Lãnh",
+        "parent": "HTPCAOLANH",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Xã Hòa An",
+                "value": "XTPCL_HOAAN"
+            },
+            {
+                "name": "UBND Phường Hòa Thuận",
+                "value": "XTPCL_HOATHUAN"
+            },
+            {
+                "name": "UBND Xã Mỹ Ngãi",
+                "value": "XTPCL_MYNGAI"
+            },
+            {
+                "name": "UBND Phường Mỹ Phú",
+                "value": "XTPCL_MYPHU"
+            },
+            {
+                "name": "UBND Xã Mỹ Tân",
+                "value": "XTPCL_MYTAN"
+            },
+            {
+                "name": "UBND Xã Mỹ Trà",
+                "value": "XTPCL_MYTRA"
+            },
+            {
+                "name": "UBND Phường 1",
+                "value": "XTPCL_PHUONG1"
+            },
+            {
+                "name": "UBND Phường 11",
+                "value": "XTPCL_PHUONG11"
+            },
+            {
+                "name": "UBND Phường 2",
+                "value": "XTPCL_PHUONG2"
+            },
+            {
+                "name": "UBND Phường 3",
+                "value": "XTPCL_PHUONG3"
+            },
+            {
+                "name": "UBND Phường 4",
+                "value": "XTPCL_PHUONG4"
+            },
+            {
+                "name": "UBND Phường 6",
+                "value": "XTPCL_PHUONG6"
+            },
+            {
+                "name": "UBND Xã Tân Thuận Đông",
+                "value": "XTPCL_TANTHUANDONG"
+            },
+            {
+                "name": "UBND Xã Tân Thuận Tây",
+                "value": "XTPCL_TANTHUANTAY"
+            },
+            {
+                "name": "UBND Xã Tịnh Thới",
+                "value": "XTPCL_TINHTHOI"
+            }
+        ]
+    },
+    {
+        "groupId": "40757",
+        "code": "XHTXHONGNGU",
+        "text": "Cấp xã Thành phố Hồng Ngự",
+        "parent": "HTXHONGNGU",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Phường An Bình A",
+                "value": "XTXHN_ANBINHA"
+            },
+            {
+                "name": "UBND phường An Bình B",
+                "value": "XTXHN_ANBINHB"
+            },
+            {
+                "name": "UBND Phường An Lạc",
+                "value": "XTXHN_ANLAC"
+            },
+            {
+                "name": "UBND Phường An Lộc",
+                "value": "XTXHN_ANLOC"
+            },
+            {
+                "name": "UBND Phường An Thạnh",
+                "value": "XTXHN_ANTHANH"
+            },
+            {
+                "name": "UBND Xã Bình Thạnh",
+                "value": "XTXHN_BINHTHANH"
+            },
+            {
+                "name": "UBND Xã Tân Hội",
+                "value": "XTXHN_TANHOI"
+            }
+        ]
+    },
+    {
+        "groupId": "40634",
+        "code": "XHTPSADEC",
+        "text": "Cấp xã thành phố Sa Đéc",
+        "parent": "HTPSADEC",
+        "donViXaPhuong": [
+            {
+                "name": "Tổng hợp đơn vị cấp xã",
+                "value": ""
+            },
+            {
+                "name": "UBND Phường An Hòa",
+                "value": "XTPSD_ANHOA"
+            },
+            {
+                "name": "UBND Phường 1",
+                "value": "XTPSD_PHUONG1"
+            },
+            {
+                "name": "UBND Phường 2",
+                "value": "XTPSD_PHUONG2"
+            },
+            {
+                "name": "UBND Phường 3",
+                "value": "XTPSD_PHUONG3"
+            },
+            {
+                "name": "UBND Phường 4",
+                "value": "XTPSD_PHUONG4"
+            },
+            {
+                "name": "UBND Xã Tân Khánh Đông",
+                "value": "XTPSD_TANKHANHDONG"
+            },
+            {
+                "name": "UBND Xã Tân Phú Đông",
+                "value": "XTPSD_TANPHUDONG"
+            },
+            {
+                "name": "UBND Phường Tân Quy Đông",
+                "value": "XTPSD_TANQUYDONG"
+            },
+            {
+                "name": "UBND Xã Tân Quy Tây",
+                "value": "XTPSD_TANQUYTAY"
+            }
+        ]
+    }
+]
+}

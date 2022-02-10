@@ -55,52 +55,6 @@
             ]
         },
         {
-            "groupId": 97565,
-            "code": "HLONGMY",
-            "text": "UBND Huyện Long Mỹ",
-            "groupIds": [
-                {
-                "selected": true,
-                "value": "99203",
-                "text": "Cấp xã huyện Long Mỹ"
-                }
-            ],
-            "donViXaPhuong": [
-                {
-                    "name": "UBND Xã Thuận Hòa",
-                    "value": "XHLM_XATHUANHOA"
-                },
-                {
-                    "name": "UBND Xã Thuận Hưng",
-                    "value": "XHLM_XATHUANHUNG"
-                },
-                {
-                    "name": "UBND Xã Vĩnh Thuận Đông",
-                    "value": "XHLM_XAVINHTHUANDONG"
-                },
-                {
-                    "name": "UBND Xã Vĩnh Viễn",
-                    "value": "XHLM_XAVINHVIEN"
-                },
-                {
-                    "name": "UBND Xã Lương Nghĩa",
-                    "value": "XHLM_XALUONGNGHIA"
-                },
-                {
-                    "name": "UBND Xã Vĩnh Viễn A",
-                    "value": "XHLM_XAVINHVIENA"
-                },
-                {
-                    "name": "UBND Xã Xà Phiên",
-                    "value": "XHLM_XAXAPHIEN"
-                },
-                {
-                    "name": "UBND Xã Lương Tâm",
-                    "value": "XHLM_XALUONGTAM"
-                }
-            ]
-        },
-        {
             "groupId": 101465,
             "code": "HCHAUTHANHA",
             "text": "UBND Huyện Châu Thành A",
@@ -371,57 +325,472 @@
             ]
         },
         {
+            "groupId": 97565,
+            "code": "HLONGMY",
+            "text": "UBND Huyện Long Mỹ",
+            "groupIds": [
+                {
+                "selected": true,
+                "value": "99203",
+                "text": "Cấp xã huyện Long Mỹ"
+                }
+            ],
+            "donViXaPhuong": [
+                {
+                    "name": "UBND Xã Thuận Hòa",
+                    "value": "XHLM_XATHUANHOA"
+                },
+                {
+                    "name": "UBND Xã Thuận Hưng",
+                    "value": "XHLM_XATHUANHUNG"
+                },
+                {
+                    "name": "UBND Xã Vĩnh Thuận Đông",
+                    "value": "XHLM_XAVINHTHUANDONG"
+                },
+                {
+                    "name": "UBND Xã Vĩnh Viễn",
+                    "value": "XHLM_XAVINHVIEN"
+                },
+                {
+                    "name": "UBND Xã Lương Nghĩa",
+                    "value": "XHLM_XALUONGNGHIA"
+                },
+                {
+                    "name": "UBND Xã Vĩnh Viễn A",
+                    "value": "XHLM_XAVINHVIENA"
+                },
+                {
+                    "name": "UBND Xã Xà Phiên",
+                    "value": "XHLM_XAXAPHIEN"
+                },
+                {
+                    "name": "UBND Xã Lương Tâm",
+                    "value": "XHLM_XALUONGTAM"
+                }
+            ]
+        },
+        {
+            "groupId": 96980,
+            "code": "HTXLONGMY",
+            "text": "UBND Thị xã Long Mỹ",
+            "groupIds": [
+                {
+                "selected": true,
+                "value": "98501",
+                "text": "Cấp xã thị xã Long Mỹ"
+                }
+            ],
+            "donViXaPhuong": [
+                {
+                    "name": "UBND Phường Thuận An",
+                    "value": "XTXLM_PHUONGTHUANAN"
+                },
+                {
+                    "name": "UBND Phường Bình Thành",
+                    "value": "XTXLM_PHUONGBINHTHANH"
+                },
+                {
+                    "name": "UBND Phường Vĩnh Tường",
+                    "value": "XTXLM_PHUONGVINHTUONG"
+                },
+                {
+                    "name": "UBND Phường Trà Lồng",
+                    "value": "XTXLM_PHUONGTRALONG"
+                },
+                {
+                    "name": "UBND Xã Long Bình",
+                    "value": "XTXLM_XALONGBINH"
+                },
+                {
+                    "name": "UBND Xã Long Trị",
+                    "value": "XTXLM_XALONGTRI"
+                },
+                {
+                    "name": "UBND Xã Long Trị A",
+                    "value": "XTXLM_XALONGTRIA"
+                },
+                {
+                    "name": "UBND Xã Tân Phú",
+                    "value": "XTXLM_XATANPHU"
+                },
+                {
+                    "name": "UBND Xã Long Phú",
+                    "value": "XTXLM_XALONGPHU"
+                }
+            ]
+        },
+        {
             "groupId": 101186,
             "code": "XHCHAUTHANH",
             "text": "Cấp xã huyện Châu Thành",
-          	"parent": "HCHAUTHANH"
+          	"parent": "HCHAUTHANH",
+            "donViXaPhuong": [
+                {
+                    "name": "Tổng hợp đơn vị cấp xã",
+                    "value": ""
+                },
+                {
+                    "name": "UBND Thị trấn Ngã Sáu",
+                    "value": "XHCT_TTNGASAU"
+                },
+                {
+                    "name": "UBND Thị trấn Mái Dầm",
+                    "value": "XHCT_TTMAIDAM"
+                },
+                {
+                    "name": "UBND Xã Đông Phước",
+                    "value": "XHCT_XADONGPHUOC"
+                },
+                {
+                    "name": "UBND Xã Đông Phước A",
+                    "value": "XHCT_XADONGPHUOCA"
+                },
+                {
+                    "name": "UBND Xã Phú Hữu",
+                    "value": "XHCT_XAPHUHUU"
+                },
+                {
+                    "name": "UBND Xã Phú Tân",
+                    "value": "XHCT_XAPHUTAN"
+                },
+                {
+                    "name": "UBND Xã Phú An",
+                    "value": "XHCT_XAPHUAN"
+                },
+                {
+                    "name": "UBND Xã Đông Phú",
+                    "value": "XHCT_XADONGPHU"
+                },
+                {
+                    "name": "UBND Xã Đông Thạnh",
+                    "value": "XHCT_XADONGTHANH"
+                }
+            ]
         },
         {
             "groupId": 101744,
             "code": "XHCHAUTHANHA",
             "text": "Cấp xã huyện Châu Thành A",
-          	"parent": "HCHAUTHANHA"
+          	"parent": "HCHAUTHANHA",
+            "donViXaPhuong": [
+				{
+					"name": "UBND Thị trấn Một Ngàn",
+					"value": "XHCTA_TTMOTNGAN"
+				},
+				{
+					"name": "UBND Thị trấn Bảy Ngàn",
+					"value": "XHCTA_TTBAYNGAN"
+				},
+				{
+					"name": "UBND Thị trấn Cái Tắc",
+					"value": "XHCTA_TTCAITAC"
+				},
+				{
+					"name": "UBND Thị trấn Rạch Gồi",
+					"value": "XHCTA_TTRACHGOI"
+				},
+				{
+					"name": "UBND Xã Thạnh Xuân",
+					"value": "XHCTA_XATHANHXUAN"
+				},
+				{
+					"name": "UBND Xã Tân Phú Thạnh",
+					"value": "XHCTA_XATANPHUTHANH"
+				},
+				{
+					"name": "UBND Xã Tân Hòa",
+					"value": "XHCTA_XATANHOA"
+				},
+				{
+					"name": "UBND Xã Trường Long Tây",
+					"value": "XHCTA_XATRUONGLONGTAY"
+				},
+				{
+					"name": "UBND Xã Trường Long A",
+					"value": "XHCTA_XATRUONGLONGA"
+				},
+				{
+					"name": "UBND Xã Nhơn Nghĩa A",
+					"value": "XHCTA_XANHONNGHIAA"
+				}
+			]
         },
         {
             "groupId": 100628,
             "code": "XHPHUNGHIEP",
             "text": "Cấp xã huyện Phụng Hiệp",
-          	"parent": "HPHUNGHIEP"
-        },
-        {
-            "groupId": 96980,
-            "code": "HTXLONGMY",
-            "text": "UBND Thị xã Long Mỹ"
+          	"parent": "HPHUNGHIEP",
+            "donViXaPhuong": [
+                {
+                    "name": "UBND Thị trấn Cây Dương",
+                    "value": "XHPH_TTCAYDUONG"
+                },
+                {
+                    "name": "UBND Thị trấn Kinh Cùng",
+                    "value": "XHPH_TTKINHCUNG"
+                },
+                {
+                    "name": "UBND Thị trấn Búng Tàu",
+                    "value": "XHPH_TTBUNGTAU"
+                },
+                {
+                    "name": "UBND Xã Phụng Hiệp",
+                    "value": "XHPH_XAPHUNGHIEP"
+                },
+                {
+                    "name": "UBND Xã Tân Phước Hưng",
+                    "value": "XHPH_XATANPHUOCHUNG"
+                },
+                {
+                    "name": "UBND Xã Tân Bình",
+                    "value": "XHPH_XATANBINH"
+                },
+                {
+                    "name": "UBND Xã Hoà An",
+                    "value": "XHPH_XAHOAAN"
+                },
+                {
+                    "name": "UBND Xã Phương Bình",
+                    "value": "XHPH_XAPHUONGBINH"
+                },
+                {
+                    "name": "UBND Xã Phương Phú",
+                    "value": "XHPH_XAPHUONGPHU"
+                },
+                {
+                    "name": "UBND Xã Hoà Mỹ",
+                    "value": "XHPH_XAHOAMY"
+                },
+                {
+                    "name": "UBND Xã Hiệp Hưng",
+                    "value": "XHPH_XAHIEPHUNG"
+                },
+                {
+                    "name": "UBND Xã Thạnh Hoà",
+                    "value": "XHPH_XATHANHHOA"
+                },
+                {
+                    "name": "UBND Xã Bình Thành",
+                    "value": "XHPH_XABINHTHANH"
+                },
+                {
+                    "name": "UBND Xã Tân Long",
+                    "value": "XHPH_XATANLONG"
+                },
+                {
+                    "name": "UBND Xã Long Thạnh",
+                    "value": "XHPH_XALONGTHANH"
+                }
+            ]
         },
         {
             "groupId": 100628,
             "code": "XHVITHUY",
             "text": "Cấp xã huyện Vị Thủy",
-          	"parent": "HVITHUY"
+          	"parent": "HVITHUY",
+            "donViXaPhuong": [
+                {
+                    "name": "UBND Thị trấn Nàng Mau",
+                    "value": "XHVT_TTNANGMAU"
+                },
+                {
+                    "name": "UBND Xã Vị Bình",
+                    "value": "XHVT_XAVIBINH"
+                },
+                {
+                    "name": "UBND Xã Vị Đông",
+                    "value": "XHVT_XAVIDONG"
+                },
+                {
+                    "name": "UBND Xã Vị Thanh",
+                    "value": "XHVT_XAVITHANH"
+                },
+                {
+                    "name": "UBND Xã Vị Thắng",
+                    "value": "XHVT_XAVITHANG"
+                },
+                {
+                    "name": "UBND Xã Vị Thủy",
+                    "value": "XHVT_XAVITHUY"
+                },
+                {
+                    "name": "UBND Xã Vị Trung",
+                    "value": "XHVT_XAVITRUNG"
+                },
+                {
+                    "name": "UBND Xã Vĩnh Thuận Tây",
+                    "value": "XHVT_XAVINHTHUANTAY"
+                },
+                {
+                    "name": "UBND Xã Vĩnh Trung",
+                    "value": "XHVT_XAVINHTRUNG"
+                },
+                {
+                    "name": "UBND Xã Vĩnh Tường",
+                    "value": "XHVT_XAVINHTUONG"
+                }
+            ]
         },
         {
             "groupId": 98180,
             "code": "XHTPNGABAY",
-            "text": "Cấp xã huyện Vị Thủy",
-          	"parent": "HTPNGABAY"
+            "text": "Cấp xã thành phố Ngã Bảy",
+          	"parent": "HTPNGABAY",
+            "donViXaPhuong": [
+                {
+                    "name": "UBND Phường Ngã Bảy",
+                    "value": "XTPNB_PHUONGNGABAY"
+                },
+                {
+                    "name": "UBND Phường Lái Hiếu",
+                    "value": "XTPNB_PHUONGLAIHIEU"
+                },
+                {
+                    "name": "UBND Phường Hiệp Thành",
+                    "value": "XTPNB_PHUONGHIEPTHANH"
+                },
+                {
+                    "name": "UBND Phường Hiệp Lợi",
+                    "value": "XTPNB_PHUONGHIEPLOI"
+                },
+                {
+                    "name": "UBND Xã Đại Thành",
+                    "value": "XTPNB_XADAITHANH"
+                },
+                {
+                    "name": "UBND Xã Tân Thành",
+                    "value": "XTPNB_XATANTHANH"
+                }
+            ]
         },
         {
             "groupId": 97901,
             "code": "XHTPVITHANH",
             "text": "Cấp xã thành phố Vị Thanh",
-          	"parent": "HTPVITHANH"
+          	"parent": "HTPVITHANH",
+            "donViXaPhuong": [
+                {
+                    "name": "UBND Phường 1",
+                    "value": "XTPVT_PHUONG1"
+                },
+                {
+                    "name": "UBND Phường 3",
+                    "value": "XTPVT_PHUONG3"
+                },
+                {
+                    "name": "UBND Phường 4",
+                    "value": "XTPVT_PHUONG4"
+                },
+                {
+                    "name": "UBND Phường 5",
+                    "value": "XTPVT_PHUONG5"
+                },
+                {
+                    "name": "UBND Phường 7",
+                    "value": "XTPVT_PHUONG7"
+                },
+                {
+                    "name": "UBND Vị Tân",
+                    "value": "XTPVT_XAVITAN"
+                },
+                {
+                    "name": "UBND Hoả Lựu",
+                    "value": "XTPVT_XAHOALUU"
+                },
+                {
+                    "name": "UBND Tân Tiến",
+                    "value": "XTPVT_XATANTIEN"
+                },
+                {
+                    "name": "UBND Hoả Tiến",
+                    "value": "XTPVT_XAHOATIEN"
+                }
+            ]
         },
         {
             "groupId": 99203,
             "code": "XHLONGMY",
             "text": "Cấp xã huyện Long Mỹ",
-          	"parent": "HLONGMY"
+          	"parent": "HLONGMY",
+            "donViXaPhuong": [
+                {
+                    "name": "UBND Xã Thuận Hòa",
+                    "value": "XHLM_XATHUANHOA"
+                },
+                {
+                    "name": "UBND Xã Thuận Hưng",
+                    "value": "XHLM_XATHUANHUNG"
+                },
+                {
+                    "name": "UBND Xã Vĩnh Thuận Đông",
+                    "value": "XHLM_XAVINHTHUANDONG"
+                },
+                {
+                    "name": "UBND Xã Vĩnh Viễn",
+                    "value": "XHLM_XAVINHVIEN"
+                },
+                {
+                    "name": "UBND Xã Lương Nghĩa",
+                    "value": "XHLM_XALUONGNGHIA"
+                },
+                {
+                    "name": "UBND Xã Vĩnh Viễn A",
+                    "value": "XHLM_XAVINHVIENA"
+                },
+                {
+                    "name": "UBND Xã Xà Phiên",
+                    "value": "XHLM_XAXAPHIEN"
+                },
+                {
+                    "name": "UBND Xã Lương Tâm",
+                    "value": "XHLM_XALUONGTAM"
+                }
+            ]
         },
         {
             "groupId": 98501,
             "code": "XTXLONGMY",
             "text": "Cấp xã thị xã Long Mỹ",
-          	"parent": "HTXLONGMY"
+          	"parent": "HTXLONGMY",
+              "donViXaPhuong": [
+                {
+                    "name": "UBND Phường Thuận An",
+                    "value": "XTXLM_PHUONGTHUANAN"
+                },
+                {
+                    "name": "UBND Phường Bình Thành",
+                    "value": "XTXLM_PHUONGBINHTHANH"
+                },
+                {
+                    "name": "UBND Phường Vĩnh Tường",
+                    "value": "XTXLM_PHUONGVINHTUONG"
+                },
+                {
+                    "name": "UBND Phường Trà Lồng",
+                    "value": "XTXLM_PHUONGTRALONG"
+                },
+                {
+                    "name": "UBND Xã Long Bình",
+                    "value": "XTXLM_XALONGBINH"
+                },
+                {
+                    "name": "UBND Xã Long Trị",
+                    "value": "XTXLM_XALONGTRI"
+                },
+                {
+                    "name": "UBND Xã Long Trị A",
+                    "value": "XTXLM_XALONGTRIA"
+                },
+                {
+                    "name": "UBND Xã Tân Phú",
+                    "value": "XTXLM_XATANPHU"
+                },
+                {
+                    "name": "UBND Xã Long Phú",
+                    "value": "XTXLM_XALONGPHU"
+                }
+            ]
         }
     ]
 }
