@@ -15480,6 +15480,10 @@
 				customize: false,
 				groupIds: [
 				{
+					value: "allAgency",
+					text: "Tất cả đơn vị"
+				},
+				{
 					value: 45022,
 					text: "Sở Tài nguyên và Môi trường"
 				},
@@ -15623,6 +15627,10 @@
 			key: 'SBN',
 			value: [
 			{
+				value: "allSBN",
+				text: "Tất cả đơn vị cấp sở"
+			},
+			{
 				value: 45022,
 				text: "Sở Tài nguyên và Môi trường"
 			},
@@ -15702,6 +15710,10 @@
 			key: 'QUAN_HUYEN',
 			value: [
 			{
+				value: "allQuanHuyen",
+				text: "Tất cả đơn vị cấp huyện"
+			},
+			{
 				value: 96351,
 				text: "UBND thành phố Vị Thanh"
 			},
@@ -15740,6 +15752,10 @@
 			label: "Chọn cấp Xã",
 			key: 'XA_PHUONG',
 			value: [
+			{
+				value: "allXaPhuong",
+				text: "Tất cả đơn vị cấp xã"
+			},
 			{
 			value: 97901,
 			text: "Cấp xã thành phố Vị Thanh"

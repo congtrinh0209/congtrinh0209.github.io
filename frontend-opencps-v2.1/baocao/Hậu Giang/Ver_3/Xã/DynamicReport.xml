@@ -10340,10 +10340,11 @@
 		<![CDATA[
 			
 		{
-		  api: "/o/statistic/paymentFile/list?type=31&groupBy=serviceCode",
+		  api: "/o/statistic/paymentFile/list?type=31",
 		  exclusive: false,
 		  customize: true,
 		  typeDate: "timestamp",
+          levelGroup: 3,
 		  groupIds: [
 		  ],
 		  groupBy: [
@@ -10418,7 +10419,7 @@
 			},
 			{
 			  "selected": true,
-			  "value": "totalAmount",
+			  "value": "paymentAmount",
 			  "text": "Tổng",
 			  "type": "currency"
 			},
@@ -10433,7 +10434,7 @@
 			  "value": "note",
 			  "align": "center",
 			  "text": "",
-              "calculator": ' if (dataInput["totalAmount"] == 30000) { " X " } else { " " }'
+              "calculator": ' if (dataInput["paymentAmount"] == 30000) { " X " } else { " " }'
 			}
 		  ]
 		}
@@ -10478,8 +10479,7 @@
 			   {
 				 text: [
 				   {text: 'BÁO CÁO CHI TIẾT PHÍ, LỆ PHÍ\n'},
-				   {text: "Đơn vị: [$siteName$]\n", fontSize: 11},
-				   {text: "Từ ngày [$fromApprovedDate$] đến ngày [$toApprovedDate$]\n", fontSize: 11}
+				   {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]\n", fontSize: 11}
 				 ], 
 				 margin: [0, 20],
 				 style: 'headerTitle'
@@ -10557,7 +10557,6 @@
 			 }
 		   } 
 		}
-
 
 		]]>
 		</tableConfig>

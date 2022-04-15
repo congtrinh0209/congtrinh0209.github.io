@@ -16412,9 +16412,11 @@
 		<![CDATA[
 			
 		{
-		  api: "/o/rest/statistics/feedetail?paymentStatus=5&type=service&govAgencyCode=CAT",
+		  api: "/o/statistic/paymentFile/list?type=31",
 		  exclusive: false,
 		  customize: true,
+		  typeDate: "timestamp",
+          levelGroup: 3,
 		  groupIds: [
 		  ],
 		  groupBy: [
@@ -16432,29 +16434,18 @@
 		  sumKey: "domainCode",
 		  filters: [
 			{
-			  label: "Hình thức thanh toán",
-			  key: "paymentMethod",
-			  value: "total",
-			  type: "select",
-			  source: [
-				{name: "Tất cả", value: "total"},
-				{name: "Trực tiếp", value: "direct"},
-				{name: "Trực tuyến", value: "online"}
-			  ]  
-			},
-			{
 			  label: "Từ ngày",
-			  key: "fromApprovedDate",
+			  key: "fromDate",
 			  value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
 			  type: "date",
-			  before: "toApprovedDate"  
+			  before: "toDate"  
 			},
 			{
 			  label: "Đến ngày",
-			  key: "toApprovedDate",
+			  key: "toDate",
 			  value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
 			  type: "date",
-			  after: "fromApprovedDate"  
+			  after: "fromDate"  
 			}
 		  ],
 		  reportConfig: [
@@ -16488,7 +16479,7 @@
 			},
 			{
 			  "selected": true,
-			  "value": "totalAmount",
+			  "value": "paymentAmount",
 			  "text": "Tổng",
 			  "type": "currency"
 			},
@@ -16503,7 +16494,7 @@
 			  "value": "note",
 			  "align": "center",
 			  "text": "",
-              "calculator": ' if (dataInput["totalAmount"] == 30000) { " X " } else { " " }'
+              "calculator": ' if (dataInput["paymentAmount"] == 30000) { " X " } else { " " }'
 			}
 		  ]
 		}
@@ -16548,8 +16539,7 @@
 			   {
 				 text: [
 				   {text: 'BÁO CÁO CHI TIẾT PHÍ, LỆ PHÍ\n'},
-				   {text: "Đơn vị: [$siteName$]\n", fontSize: 11},
-				   {text: "Từ ngày [$fromApprovedDate$] đến ngày [$toApprovedDate$]\n", fontSize: 11}
+				   {text: "Từ ngày [$fromDate$] đến ngày [$toDate$]\n", fontSize: 11}
 				 ], 
 				 margin: [0, 20],
 				 style: 'headerTitle'
