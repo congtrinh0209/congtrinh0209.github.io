@@ -7,7 +7,7 @@
 		<filterConfig>
 		<![CDATA[
 		{
-            api: "/o/rest/v2/dossiers",
+            api: "/o/rest/v2/dossiers?start=0&end=1000",
             autoHeader: false,
             exclusive: false,
             customize: true,
@@ -447,7 +447,7 @@
 		<filterConfig>
 		<![CDATA[
 		{
-        api: "/o/rest/v2/dossiers?register=REGISTER_01",
+        api: "/o/rest/v2/dossiers?register=REGISTER_01&start=0&end=1000",
         autoHeader: false,
         exclusive: false,
         customize: true,
@@ -887,7 +887,7 @@
 		<filterConfig>
 		<![CDATA[
 		{
-        api: "/o/rest/v2/dossiers",
+        api: "/o/rest/v2/dossiers?start=0&end=1000",
         autoHeader: false,
         exclusive: false,
         customize: true,
@@ -1186,7 +1186,7 @@
 		<filterConfig>
 		<![CDATA[
 		{
-		  api: "/o/rest/v2/dossiers",
+		  api: "/o/rest/v2/dossiers?start=0&end=1000",
 		  autoHeader: false,
 		  exclusive: false,
 		  customize: true,
@@ -10033,23 +10033,36 @@
 					{
 						label: "Hình thức nộp hồ sơ",
 						key: "listTypeSendDossier",
-						value: "1,2,3",
+						value: "1,2",
 						type: "select",
 						source: [
-							{name: "TRỰC TIẾP, TRỰC TUYẾN, QUA BƯU ĐIỆN", value: "1,2,3"},
+							{name: "TRỰC TIẾP, TRỰC TUYẾN", value: "1,2"},
 							{name: "TRỰC TUYẾN", value: "1"},
-							{name: "TRỰC TIẾP", value: "2"},
-							{name: "QUA BƯU ĐIỆN", value: "3"}
+							{name: "TRỰC TIẾP", value: "2"}
+						],
+						clearable: true
+					},
+					{
+						label: "Dịch vụ BCCI",
+						key: "listPublicPostalService",
+						value: "",
+						type: "select",
+						source: [
+							{name: "NHẬN KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "1"},
+							{name: "TRẢ KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "2"},
+							{name: "NHẬN VÀ TRẢ KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "3"}
 						],
 						clearable: true
 					},
 					{
 						label: "Hồ sơ liên thông",
-						key: "isHSLT",
-						value: "",
+						key: "listInteroperating",
+						value: "1",
 						type: "select",
 						source: [
-							{name: "LIÊN THÔNG", value: "true"}
+							{name: "", value: "1"},
+							{name: "LIÊN THÔNG", value: "2"},
+							{name: "KHÔNG LIÊN THÔNG", value: "3"}
 						],
 						clearable: true
 					},
@@ -10340,7 +10353,7 @@
 		<![CDATA[
 			
 		{
-		  api: "/o/statistic/paymentFile/list?type=31",
+		  api: "/o/statistic/paymentFile/list?type=31&sort=maBienLaiCounter&order=asc",
 		  exclusive: false,
 		  customize: true,
 		  typeDate: "timestamp",
@@ -10361,6 +10374,17 @@
 		  ],
 		  sumKey: "domainCode",
 		  filters: [
+			{
+			  label: "Biên lai",
+			  key: "eInvoice",
+			  value: "",
+			  type: "select",
+			  source: [
+				{name: "Tất cả", value: ""},
+				{name: "Biên lai điện tử", value: "true"},
+				{name: "Biên lai giấy", value: "false"}
+			  ]  
+			},
 			{
 				label: "Chọn đơn vị",
 				key: "govAgencyCode",
@@ -10422,6 +10446,12 @@
 			  "value": "paymentAmount",
 			  "text": "Tổng",
 			  "type": "currency"
+			},
+			{
+			  "selected": true,
+			  "value": "maBienLai",
+			  "text": "Mã biên lai",
+			  "notSum": true
 			},
 			{
 			  "selected": true,
