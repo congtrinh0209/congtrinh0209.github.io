@@ -684,7 +684,7 @@
 					value: "1",
 					type: "select",
 					source: [
-						{name: "", value: "1"},
+						{name: "Tất cả", value: "1", nameViewPdf: ""},
 						{name: "LIÊN THÔNG", value: "2"},
 						{name: "KHÔNG LIÊN THÔNG", value: "3"}
 					],
@@ -699,6 +699,17 @@
 						{name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
 					],
 					clearable: true
+				},
+				{
+				  label: "Phát sinh hồ sơ ",
+				  key: "hasDossier",
+				  value: "1",
+				  type: "select",
+				  source: [
+					{name: "Tất cả", value: "1"},
+					{name: "Có phát sinh hồ sơ", value: "2"},
+					{name: "Không phát sinh hồ sơ", value: "3"}
+				  ]  
 				},
 				{
 				label: "Từ ngày",
@@ -846,7 +857,7 @@
 							style: "title",
 							text: [
 								{text: "UBND TỈNH HẬU GIANG\n"},
-								{text: "[$siteName$]\n"}
+								{text: "TRUNG TÂM PHỤC VỤ HÀNH CHÍNH CÔNG\n"}
 							]
 						},
 						{
@@ -1902,7 +1913,7 @@
 					value: "1",
 					type: "select",
 					source: [
-						{name: "", value: "1"},
+						{name: "Tất cả", value: "1", nameViewPdf: ""},
 						{name: "LIÊN THÔNG", value: "2"},
 						{name: "KHÔNG LIÊN THÔNG", value: "3"}
 					],
@@ -1917,6 +1928,17 @@
 						{name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
 					],
 					clearable: true
+				},
+				{
+				  label: "Phát sinh hồ sơ ",
+				  key: "hasDossier",
+				  value: "1",
+				  type: "select",
+				  source: [
+					{name: "Tất cả", value: "1"},
+					{name: "Có phát sinh hồ sơ", value: "2"},
+					{name: "Không phát sinh hồ sơ", value: "3"}
+				  ]  
 				},
 				{
 				label: "Từ ngày",
@@ -2065,7 +2087,7 @@
 								style: "title",
 								text: [
 									{text: "UBND TỈNH HẬU GIANG\n"},
-									{text: "[$siteName$]\n"}
+									{text: "TRUNG TÂM PHỤC VỤ HÀNH CHÍNH CÔNG\n"}
 								]
 							},
 							{
@@ -2764,10 +2786,10 @@
 					{
 						label: "Mức độ",
 						key: "listServiceLevel",
-						value: "null",
+						value: "2,3,4",
 						type: "select",
 						source: [
-							{name: "Tất cả", value: "null"},
+							{name: "Tất cả", value: "2,3,4"},
 							{name: "Mức độ 2", value: "2"},
 							{name: "Mức độ 3", value: "3"},
 							{name: "Mức độ 4", value: "4"}
@@ -2803,7 +2825,7 @@
 						value: "1",
 						type: "select",
 						source: [
-							{name: "", value: "1"},
+							{name: "Tất cả", value: "1", nameViewPdf: ""},
 							{name: "LIÊN THÔNG", value: "2"},
 							{name: "KHÔNG LIÊN THÔNG", value: "3"}
 						],
@@ -2969,7 +2991,7 @@
 									style: "title",
 									text: [
 										{text: "UBND TỈNH HẬU GIANG\n"},
-										{text: "[$siteName$]\n"}
+										{text: "TRUNG TÂM PHỤC VỤ HÀNH CHÍNH CÔNG\n"}
 									]
 								},
 								{
@@ -3953,6 +3975,7 @@
 		  customize: true,
 		  typeDate: "timestamp",
           levelGroup: 3,
+		  domainOrService: true,
 		  groupIds: [],
 		  groupBy: [
 			{
@@ -3967,6 +3990,35 @@
 			}
 		  ], 
 		  filters: [
+			{
+				label: "Lĩnh vực",
+				clearable: "true",
+				source: "",
+				key: "domainCode",
+				value: "",
+				valueMapping: "domainCode",
+				nameMapping: "domainName",
+				type: "select",
+				multiple: "true",
+				api: "/o/rest/v2/serviceinfos/statistics/domains",
+				proxyApi: "/serviceinfos/statistics/domains",
+				class: "xs6 px-3 mb-3",
+				typeSource: 'proxy'
+			},
+			{
+				label: "Thủ tục",
+				source: "",
+				key: "serviceCode",
+				value: "",
+				valueMapping: "serviceCode",
+				nameMapping: "serviceName",
+				type: "select",
+				multiple: "true",
+				api: "/o/rest/v2/serviceinfos",
+				proxyApi: "/serviceinfos",
+				class: "xs6 px-3 mb-3",
+				typeSource: 'proxy'
+			},
 			{
 				label: "Chọn đơn vị",
 				key: "govAgencyCode",
@@ -4072,7 +4124,7 @@
 					},
 					{
 						"groupId": 101186,
-						"value": "XHCHAUTHANH",
+						"value": "XHCT_TTNGASAU,XHCT_TTMAIDAM,XHCT_XADONGPHUOC,XHCT_XADONGPHUOCA,XHCT_XAPHUHUU,XHCT_XAPHUTAN,XHCT_XAPHUAN,XHCT_XADONGPHU,XHCT_XADONGTHANH",
 						"name": "Cấp xã huyện Châu Thành"
 					},
 					{
@@ -4082,7 +4134,7 @@
 					},
 					{
 						"groupId": 101744,
-						"value": "XHCHAUTHANHA",
+						"value": "XHCTA_TTMOTNGAN,XHCTA_TTBAYNGAN,XHCTA_TTCAITAC,XHCTA_TTRACHGOI,XHCTA_XATHANHXUAN,XHCTA_XATANPHUTHANH,XHCTA_XATANHOA,XHCTA_XATRUONGLONGTAY,XHCTA_XATRUONGLONGA,XHCTA_XANHONNGHIAA",
 						"name": "Cấp xã huyện Châu Thành A"
 					},
 					{
@@ -4092,7 +4144,7 @@
 					},
 					{
 						"groupId": 100628,
-						"value": "XHPHUNGHIEP",
+						"value": "XHPH_TTCAYDUONG,XHPH_TTKINHCUNG,XHPH_TTBUNGTAU,XHPH_XAPHUNGHIEP,XHPH_XATANPHUOCHUNG,XHPH_XATANBINH,XHPH_XAHOAAN,XHPH_XAPHUONGBINH,XHPH_XAPHUONGPHU,XHPH_XAHOAMY,XHPH_XAHIEPHUNG,XHPH_XATHANHHOA,XHPH_XABINHTHANH,XHPH_XATANLONG,XHPH_XALONGTHANH",
 						"name": "Cấp xã huyện Phụng Hiệp"
 					},
 					{
@@ -4102,7 +4154,7 @@
 					},
 					{
 						"groupId": 100628,
-						"value": "XHVITHUY",
+						"value": "XHVT_TTNANGMAU,XHVT_XAVIBINH,XHVT_XAVIDONG,XHVT_XAVITHANH,XHVT_XAVITHANG,XHVT_XAVITHUY,XHVT_XAVITRUNG,XHVT_XAVINHTHUANTAY,XHVT_XAVINHTRUNG,XHVT_XAVINHTUONG",
 						"name": "Cấp xã huyện Vị Thủy"
 					},
 					{
@@ -4112,8 +4164,8 @@
 					},
 					{
 						"groupId": 98180,
-						"value": "XHTPNGABAY",
-						"name": "Cấp xã huyện Vị Thủy"
+						"value": "XTPNB_PHUONGNGABAY,XTPNB_PHUONGLAIHIEU,XTPNB_PHUONGHIEPTHANH,XTPNB_PHUONGHIEPLOI,XTPNB_XADAITHANH,XTPNB_XATANTHANH",
+						"name": "Cấp xã Thành phố Ngã Bảy"
 					},
 					{
 						"groupId": 96351,
@@ -4122,7 +4174,7 @@
 					},
 					{
 						"groupId": 97901,
-						"value": "XHTPVITHANH",
+						"value": "XTPVT_PHUONG1,XTPVT_PHUONG3,XTPVT_PHUONG4,XTPVT_PHUONG5,XTPVT_PHUONG7,XTPVT_XAVITAN,XTPVT_XAHOALUU,XTPVT_XATANTIEN,XTPVT_XAHOATIEN",
 						"name": "Cấp xã thành phố Vị Thanh"
 					},
 					{
@@ -4132,7 +4184,7 @@
 					},
 					{
 						"groupId": 99203,
-						"value": "XHLONGMY",
+						"value": "XHLM_XATHUANHOA,XHLM_XATHUANHUNG,XHLM_XAVINHTHUANDONG,XHLM_XAVINHVIEN,XHLM_XAVINHVIENA,XHLM_XAXAPHIEN,XHLM_XALUONGTAM,XHLM_XALUONGNGHIA",
 						"name": "Cấp xã huyện Long Mỹ"
 					},
 					{
@@ -4142,10 +4194,22 @@
 					},
 					{
 						"groupId": 98501,
-						"value": "XTXLONGMY",
+						"value": "XTXLM_PHUONGTHUANAN,XTXLM_PHUONGBINHTHANH,XTXLM_PHUONGVINHTUONG,XTXLM_PHUONGTRALONG,XTXLM_XALONGBINH,XTXLM_XALONGTRI,XTXLM_XALONGTRIA,XTXLM_XATANPHU,XTXLM_XALONGPHU",
 						"name": "Cấp xã thị xã Long Mỹ"
 					}
 				]
+			},
+			{
+			  label: "Hình thức thanh toán",
+			  key: "paymentMethod",
+			  value: "1,2",
+			  type: "select",
+			  source: [
+				{name: "Tất cả", value: "1,2"},
+				{name: "Trực tiếp", value: "2"},
+				{name: "Trực tuyến", value: "1"}
+			  ],
+			  class: "xs6 px-3 mb-3"
 			},
             {
 			  label: "Biên lai",
@@ -4219,6 +4283,12 @@
 			  "value": "Fkey",
 			  "text": "Diễn giải",
 			  "notSum": true
+			},
+			{
+			  "selected": true,
+			  "value": "note",
+			  "align": "center",
+			  "text": "Ghi chú"
 			}
 		  ]
 		}
@@ -4237,9 +4307,9 @@
 							 width: 300,
 							 style: "title",
 							 text: [
-								{text: "[$groupIdsHeader$]\n"},
-							   {text: "--------------------------------\n"}
-							 ]
+								{text: "UBND TỈNH HẬU GIANG\n"},
+								{text: "TRUNG TÂM PHỤC VỤ HÀNH CHÍNH CÔNG\n"}
+							]
 						 },
 						 {
 							 width: 100,
@@ -4736,9 +4806,21 @@
 			},
 			{
 			  "selected": true,
+			  "value": "dossierOnline3Count",
+			  "text": "Số lượng hồ sơ trực tuyến đã tiếp nhận",
+			  "calculator": 'dataInput["serviceLevel"] == 3 ? dataInput["dossierOnline3Count"] : dataInput["dossierOnline4Count"]',
+			},
+			{
+			  "selected": true,
 			  "value": "releaseDossierOnline3Count",
 			  "text": "Số lượng hồ sơ trực tuyến đã giải quyết",
 			  "calculator": 'dataInput["serviceLevel"] == 3 ? dataInput["releaseDossierOnline3Count"] : dataInput["releaseDossierOnline4Count"]',
+			},
+			{
+			  "selected": true,
+			  "value": "dossierOnegate3Count",
+			  "text": "Số lượng hồ sơ trực tiếp đã tiếp nhận",
+			  "calculator": 'dataInput["serviceLevel"] == 3 ? dataInput["dossierOnegate3Count"] : dataInput["dossierOnegate4Count"]'
 			},
 			{
 			  "selected": true,
@@ -4764,7 +4846,7 @@
 							 style: "title",
 							 text: [
 								 {text: "VĂN PHÒNG UBND TỈNH HẬU GIANG\n"},
-								 {text: "TT PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
+								 {text: "TRUNG TÂM PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
 								{text: "--------------------------\n"}
 							  ]
 						 },
@@ -5255,7 +5337,7 @@
 					value: "1",
 					type: "select",
 					source: [
-						{name: "", value: "1"},
+						{name: "Tất cả", value: "1", nameViewPdf: ""},
 						{name: "LIÊN THÔNG", value: "2"},
 						{name: "KHÔNG LIÊN THÔNG", value: "3"}
 					],
@@ -5290,6 +5372,19 @@
                     ],
 					clearable: true
                 },
+				{
+					label: "Đánh giá hài lòng của công dân",
+					key: "rate",
+					value: "",
+					type: "select",
+					source: [
+						{name: "Tất cả", value: 4},
+						{name: "Rất hài lòng", value: 3},
+						{name: "Hài lòng", value: 2},
+						{name: "Không hài lòng", value: 1}
+					],
+					clearable: true
+				},
                 {
                     label: "Ngày tiếp nhận từ ngày",
                     key: "fromDate",
@@ -5376,9 +5471,10 @@
             "text": "Ngày gia hạn"
             },
             {
-            "value": "releaseDate",
-            "text": "Ngày hoàn thành"
-            },
+			"selected": true,
+			"value": "releaseDate",
+			"text": "Ngày có kết quả"
+			},
             {
             "value": "finishDate",
             "text": "Ngày trả"
@@ -5432,7 +5528,7 @@
                             style: "title",
                             text: [
                                 {text: "UBND TỈNH HẬU GIANG\n"},
-                                {text: "[$siteName$]\n"}
+                                {text: "TRUNG TÂM PHỤC VỤ HÀNH CHÍNH CÔNG\n"}
                             ]
                         },
 						{

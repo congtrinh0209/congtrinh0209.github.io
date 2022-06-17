@@ -174,7 +174,7 @@
                             style: "title",
                             text: [
                                 {text: "VĂN PHÒNG UBND TỈNH HẬU GIANG\n"},
-                                {text: "TRUNG TÂM HÀNH CHÍNH CÔNG\n"},
+                                {text: "TRUNG TÂM PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
                                 {text: "------------------------\n"}
                             ]
                         },
@@ -638,7 +638,7 @@
                             style: "title",
                             text: [
                                 {text: "VĂN PHÒNG UBND TỈNH HẬU GIANG\n"},
-                                {text: "TRUNG TÂM HÀNH CHÍNH CÔNG\n"},
+                                {text: "TRUNG TÂM PHỤC VỤ HÀNH CHÍNH CÔNG\n"},
                                 {text: "------------------------\n"}
                             ]
                         },
@@ -1562,6 +1562,7 @@
 		  customize: true,
 		  typeDate: "timestamp",
           levelGroup: 3,
+		  domainOrService: true,
 		  groupIds: [
 		  ],
 		  groupBy: [
@@ -1578,6 +1579,44 @@
 		  ],
 		  sumKey: "domainCode",
 		  filters: [
+			{
+				label: "Lĩnh vực",
+				clearable: "true",
+				source: "",
+				key: "domainCode",
+				value: "",
+				valueMapping: "domainCode",
+				nameMapping: "domainName",
+				type: "select",
+				multiple: "true",
+				api: "/o/rest/v2/serviceinfos/statistics/domains",
+				proxyApi: "/serviceinfos/statistics/domains",
+				class: "xs6 px-3 mb-3"
+			},
+			{
+				label: "Thủ tục",
+				source: "",
+				key: "serviceCode",
+				value: "",
+				valueMapping: "serviceCode",
+				nameMapping: "serviceName",
+				type: "select",
+				multiple: "true",
+				api: "/o/rest/v2/serviceinfos",
+				class: "xs6 px-3 mb-3"
+			},
+			{
+			  label: "Hình thức thanh toán",
+			  key: "paymentMethod",
+			  value: "1,2",
+			  type: "select",
+			  source: [
+				{name: "Tất cả", value: "1,2"},
+				{name: "Trực tiếp", value: "2"},
+				{name: "Trực tuyến", value: "1"}
+			  ],
+			  class: "xs6 px-3 mb-3"
+			},
 			{
 			  label: "Biên lai",
 			  key: "eInvoice",
@@ -1655,8 +1694,7 @@
 			  "selected": true,
 			  "value": "note",
 			  "align": "center",
-			  "text": "",
-              "calculator": ' if (dataInput["paymentAmount"] == 30000) { " X " } else { " " }'
+			  "text": "Ghi chú"
 			}
 		  ]
 		}
@@ -1842,7 +1880,7 @@
 					value: "1",
 					type: "select",
 					source: [
-						{name: "", value: "1"},
+						{name: "Tất cả", value: "1", nameViewPdf: ""},
 						{name: "LIÊN THÔNG", value: "2"},
 						{name: "KHÔNG LIÊN THÔNG", value: "3"}
 					],
@@ -1858,6 +1896,17 @@
 						{name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
 					],
 					clearable: true
+				},
+				{
+				  label: "Phát sinh hồ sơ ",
+				  key: "hasDossier",
+				  value: "1",
+				  type: "select",
+				  source: [
+					{name: "Tất cả", value: "1"},
+					{name: "Có phát sinh hồ sơ", value: "2"},
+					{name: "Không phát sinh hồ sơ", value: "3"}
+				  ]  
 				},
 				{
 				label: "Từ ngày",
@@ -2432,7 +2481,7 @@
 					value: "1",
 					type: "select",
 					source: [
-						{name: "", value: "1"},
+						{name: "Tất cả", value: "1", nameViewPdf: ""},
 						{name: "LIÊN THÔNG", value: "2"},
 						{name: "KHÔNG LIÊN THÔNG", value: "3"}
 					],
@@ -2448,6 +2497,17 @@
 						{name: "5 TẠI CHỖ", value: "5_TAI_CHO"}
 					],
 					clearable: true
+				},
+				{
+				  label: "Phát sinh hồ sơ ",
+				  key: "hasDossier",
+				  value: "1",
+				  type: "select",
+				  source: [
+					{name: "Tất cả", value: "1"},
+					{name: "Có phát sinh hồ sơ", value: "2"},
+					{name: "Không phát sinh hồ sơ", value: "3"}
+				  ]  
 				},
 				{
 				label: "Từ ngày",
@@ -3007,7 +3067,7 @@
 						value: "1",
 						type: "select",
 						source: [
-							{name: "", value: "1"},
+							{name: "Tất cả", value: "1", nameViewPdf: ""},
 							{name: "LIÊN THÔNG", value: "2"},
 							{name: "KHÔNG LIÊN THÔNG", value: "3"}
 						],
@@ -3603,7 +3663,7 @@
 						value: "1",
 						type: "select",
 						source: [
-							{name: "", value: "1"},
+							{name: "Tất cả", value: "1", nameViewPdf: ""},
 							{name: "LIÊN THÔNG", value: "2"},
 							{name: "KHÔNG LIÊN THÔNG", value: "3"}
 						],
@@ -3636,6 +3696,19 @@
 							{name: "Đang giải quyết chưa đến hạn", value: "undue"},
 							{name: "Đang giải quyết quá hạn", value: "overdue"},
 							{name: "Hồ sơ đã hủy", value: "cancelled"}
+						],
+						clearable: true
+					},
+					{
+						label: "Đánh giá hài lòng của công dân",
+						key: "rate",
+						value: "",
+						type: "select",
+						source: [
+							{name: "Tất cả", value: 4},
+							{name: "Rất hài lòng", value: 3},
+							{name: "Hài lòng", value: 2},
+							{name: "Không hài lòng", value: 1}
 						],
 						clearable: true
 					},
@@ -3725,8 +3798,9 @@
 				"text": "Ngày gia hạn"
 				},
 				{
+				"selected": true,
 				"value": "releaseDate",
-				"text": "Ngày hoàn thành"
+				"text": "Ngày có kết quả"
 				},
 				{
 				"value": "finishDate",
@@ -3759,7 +3833,15 @@
 				"value": "briefNote",
 				"align": "left",
 				"text": "Chi tiết nội dung"
+				},
+				{
+				"selected": true,
+				"value": "metaData",
+				"align": "left",
+				"text": "Đánh giá",
+				"calculator": "dataInput['metaData'] && JSON.parse(dataInput['metaData'])['hailong'] == 3 ? 'Rất hài lòng' : (dataInput['metaData'] && JSON.parse(dataInput['metaData'])['hailong'] == 2 ? 'Hài lòng' : (dataInput['metaData'] && JSON.parse(dataInput['metaData'])['hailong'] == 1 ? 'Không hài lòng' : '_'))"
 				}
+				
 				]
 			}
 
