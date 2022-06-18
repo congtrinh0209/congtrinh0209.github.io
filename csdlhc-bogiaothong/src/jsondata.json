@@ -1,0 +1,92 @@
+{
+  "danhSachDonVi": [
+    {
+      "id": "1",
+      "MaHanhChinh": "DTND-90339123",
+      "TenGoi": "Cục Đường thủy nội địa",
+      "TenTiengAnh": "",
+      "TenVietTat": "",
+      "DiaChiHoatDong": {
+        "SoNhaChiTiet": "123 Cao Bá Quát",
+        "TinhThanh": {
+          "MaMuc": "",
+          "TenMuc": "Hà Nội"
+        },
+        "QuanHuyen": {
+          "MaMuc": "",
+          "TenMuc": "Cầu Giấy"
+        },
+        "PhuongXa": {
+          "MaMuc": "",
+          "TenMuc": "Dịch Vọng Hậu"
+        }
+      },
+      "NgayThanhLap": "",
+      "SoQuyetDinh": "",
+      "MaSoNganSach": "",
+      "NguoiDaiDien": {
+        "MaSoCaNhan": "",
+        "HoVaTen": ""
+      },
+      "DanhBaLienLac": {
+        "ThuDienTu": "dtnd.gov.vn",
+        "SoDienThoai": "0989898898",
+        "SoFax": ""
+      },
+      "TinhTrangToChuc": {
+        "MaMuc": "1",
+        "TenMuc": "Đang hoạt động"
+      },
+      "ToChucCapTren": {
+        "MaHanhChinh": "",
+        "TenGoi": "Bộ Giao thông vận tải",
+        "TenTiengAnh": "",
+        "TenVietTat": ""
+      }
+    },
+    {
+      "id": "1",
+      "MaHanhChinh": "CDS-90339123",
+      "TenGoi": "Cục Đường sắt",
+      "TenTiengAnh": "",
+      "TenVietTat": "",
+      "DiaChiHoatDong": {
+        "SoNhaChiTiet": "123 Cao Bá Quát",
+        "TinhThanh": {
+          "MaMuc": "",
+          "TenMuc": "Hà Nội"
+        },
+        "QuanHuyen": {
+          "MaMuc": "",
+          "TenMuc": "Cầu Giấy"
+        },
+        "PhuongXa": {
+          "MaMuc": "",
+          "TenMuc": "Dịch Vọng Hậu"
+        }
+      },
+      "NgayThanhLap": "",
+      "SoQuyetDinh": "",
+      "MaSoNganSach": "",
+      "NguoiDaiDien": {
+        "MaSoCaNhan": "",
+        "HoVaTen": ""
+      },
+      "DanhBaLienLac": {
+        "ThuDienTu": "dsvn.gov.vn",
+        "SoDienThoai": "0989831298",
+        "SoFax": ""
+      },
+      "TinhTrangToChuc": {
+        "MaMuc": "2",
+        "TenMuc": "Dừng hoạt động"
+      },
+      "ToChucCapTren": {
+        "MaHanhChinh": "",
+        "TenGoi": "Bộ Giao thông vận tải",
+        "TenTiengAnh": "",
+        "TenVietTat": ""
+      }
+    }
+  ]
+}
