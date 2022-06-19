@@ -295,7 +295,7 @@
     margin: 0 auto;
     margin-top: 24px
   }
-  .text-1 {
+  .wrap-login .text-1 {
     font-family: "Roboto Slab";
     color: #ffffff;
     font-style: normal;
@@ -303,7 +303,7 @@
     font-size: 36px;
     line-height: 47px;
   }
-  .text-2 {
+  .wrap-login .text-2 {
     font-family: "Roboto Slab";
     font-style: normal;
     // color: #ffffff;
@@ -315,10 +315,10 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  .wrap-form {
+  .wrap-login .wrap-form {
     margin-top: 36px;
   }
-  .wrap-form .v-input__slot fieldset {
+  .wrap-login .wrap-form .v-input__slot fieldset {
     color: #ffffff !important;
   }
   #login-page .label-text {

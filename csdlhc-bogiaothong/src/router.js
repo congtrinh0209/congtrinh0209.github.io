@@ -61,7 +61,7 @@ export default new Router({
         },
         {
           path: '/thong-tin-doanh-nghiep/:id',
-          name: 'ChiTietCongDan',
+          name: 'ChiTietDoanhNghiep',
           component: () => import('@/views/ChiTietDoanhNghiep'),
           props: true
         },

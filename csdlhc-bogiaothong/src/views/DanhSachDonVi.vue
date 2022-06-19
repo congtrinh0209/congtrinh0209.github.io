@@ -142,17 +142,17 @@
                     <template v-slot:item.index="{ item, index }">
                         <div>{{ (page+1) * itemsPerPage - itemsPerPage + index + 1 }}</div>
                     </template>
-                    <template v-slot:item.DanhBaLienLac="{ item }">
+                    <template v-slot:item.danhBaLienLac="{ item }">
                         <div>
-                            <v-icon size="16">mdi-phone-in-talk-outline</v-icon>&nbsp; {{ item.DanhBaLienLac['SoDienThoai'] }}
+                            <v-icon size="16">mdi-phone-in-talk-outline</v-icon>&nbsp; {{ item.danhBaLienLac['soDienThoai'] }}
                         </div>
                         <div>
-                            <v-icon size="16">mdi-email-fast-outline</v-icon>&nbsp; {{ item.DanhBaLienLac['ThuDienTu'] }}
+                            <v-icon size="16">mdi-email-fast-outline</v-icon>&nbsp; {{ item.danhBaLienLac['thuDienTu'] }}
                         </div>
                     </template>
-                    <template v-slot:item.TinhTrangToChuc="{ item }">
-                        <div :style="getColor(item.TinhTrangToChuc)">
-                          {{ item.TinhTrangToChuc['TenMuc'] }}
+                    <template v-slot:item.tinhTrangToChuc="{ item }">
+                        <div :style="getColor(item.tinhTrangToChuc)">
+                          {{ item.tinhTrangToChuc['tenMuc'] }}
                         </div>
                     </template>
                     <template v-slot:item.action="{ item }">
@@ -219,25 +219,25 @@ export default {
               sortable: false,
               text: 'Mã đơn vị',
               align: 'left',
-              value: 'MaHanhChinh'
+              value: 'maHanhChinh'
           },
           {
               sortable: false,
               text: 'Tên đơn vị',
               align: 'left',
-              value: 'TenGoi'
+              value: 'tenGoi'
           },
           {
               sortable: false,
               text: 'Thông tin liên hệ',
               align: 'left',
-              value: 'DanhBaLienLac'
+              value: 'danhBaLienLac'
           },
           {
               sortable: false,
               text: 'Tình trạng hoạt động',
               align: 'left',
-              value: 'TinhTrangToChuc'
+              value: 'tinhTrangToChuc'
           },
           {
               sortable: false,
@@ -277,11 +277,11 @@ export default {
       },
       showEditDonVi (item) {
         let vm = this
-        vm.$router.push({ path: '/don-vi/0' })
+        vm.$router.push({ path: '/don-vi/' + item.primKey })
       },
       showThongTinDonVi (item) {
         let vm = this
-        vm.$router.push({ path: '/thong-tin-don-vi/' + item.id })
+        vm.$router.push({ path: '/thong-tin-don-vi/' + item.primKey })
       },
       deleteDonVi (item) {
         let vm = this
@@ -289,7 +289,7 @@ export default {
         let confirm = {
           auth: false,
           title: 'Xóa cơ quan, đơn vị',
-          message: 'Bạn có chắc chắn muốn xóa "' + item.TenGoi + '"',
+          message: 'Bạn có chắc chắn muốn xóa "' + item.tenGoi + '"',
           button: {
             yes: 'Có',
             no: 'Không'
@@ -365,8 +365,8 @@ export default {
         }).catch(function () {
         })
       },
-      getColor (TinhTrangToChuc) {
-        let status = TinhTrangToChuc ? String(TinhTrangToChuc['MaMuc']) : '0'
+      getColor (tinhTrangToChuc) {
+        let status = tinhTrangToChuc ? String(tinhTrangToChuc['maMuc']) : '0'
         switch(status) {
           case '1':
               return 'color: green'

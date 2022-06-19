@@ -12,7 +12,7 @@
                     <label>Mã cơ quan, đơn vị <span class="red--text">(*)</span></label>
                     <v-text-field
                       class="input-form"
-                      v-model="thongTinDonVi.MaHanhChinh"
+                      v-model="thongTinDonVi.maHanhChinh"
                       solo
                       dense
                       clearable
@@ -26,7 +26,7 @@
                     <label>Tên cơ quan, đơn vị <span class="red--text">(*)</span></label>
                     <v-text-field
                       class="input-form"
-                      v-model="thongTinDonVi.TenGoi"
+                      v-model="thongTinDonVi.tenGoi"
                       solo
                       dense
                       clearable
@@ -40,7 +40,7 @@
                     <label>Tên tiếng anh</label>
                     <v-text-field
                       class="input-form"
-                      v-model="thongTinDonVi.TenTiengAnh"
+                      v-model="thongTinDonVi.tenTiengAnh"
                       solo
                       dense
                       clearable
@@ -52,7 +52,7 @@
                     <label>Tên viết tắt</label>
                     <v-text-field
                       class="input-form"
-                      v-model="thongTinDonVi.TenVietTat"
+                      v-model="thongTinDonVi.tenVietTat"
                       solo
                       dense
                       clearable
@@ -78,7 +78,7 @@
                     <label>Số quyết định thành lập của tổ chức</label>
                     <v-text-field
                       class="input-form"
-                      v-model="thongTinDonVi.SoQuyetDinh"
+                      v-model="thongTinDonVi.soQuyetDinh"
                       solo
                       dense
                       clearable
@@ -86,11 +86,59 @@
                       hide-details="auto"
                     ></v-text-field>
                 </v-col>
+                <v-col cols="12" class="py-0 mb-2">
+                    <label>Giấy đăng ký hoạt động</label>
+                    <v-tooltip top>
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn @click.stop="showAddGiayDangKy" color="#2161b1" text icon class="" v-bind="attrs" v-on="on">
+                          <v-icon size="22">mdi-plus-circle-outline</v-icon>
+                        </v-btn>
+                      </template>
+                      <span>Thêm giấy đăng ký</span>
+                    </v-tooltip>
+                    <v-data-table
+                        flat
+                        :headers="headers"
+                        :items="thongTinDonVi['giayDangKyHoatDong']"
+                        hide-default-footer
+                        class="elevation-1"
+                        no-data-text="Không có"
+                        :loading="loadingData"
+                        loading-text="Đang tải... "
+                    >
+                        <template v-slot:item.index="{ item, index }">
+                          <div>{{ index + 1 }}</div>
+                        </template>
+                        <template v-slot:item.ngayCap="{ item, index }">
+                          <div>{{ dateLocale(item['ngayCap']) }}</div>
+                        </template>
+                        <template v-slot:item.action="{ item, index }">
+                          <div>
+                            <v-tooltip top>
+                              <template v-slot:activator="{ on, attrs }">
+                                <v-btn @click.stop="showEditGiayDangKy(item, index)" color="#2161b1" text icon class=" mr-3" v-bind="attrs" v-on="on">
+                                  <v-icon size="22">mdi-pencil</v-icon>
+                                </v-btn>
+                              </template>
+                              <span>Sửa</span>
+                            </v-tooltip>
+                            <v-tooltip top>
+                              <template v-slot:activator="{ on, attrs }">
+                                <v-btn @click.stop="deleteGiayDangKy(item, index)" color="red" text icon class="" v-bind="attrs" v-on="on">
+                                  <v-icon size="22">mdi-close</v-icon>
+                                </v-btn>
+                              </template>
+                              <span>Xóa</span>
+                            </v-tooltip>
+                          </div>
+                        </template>
+                    </v-data-table>
+                </v-col>
                 <v-col cols="12" md="4" class="py-0 mb-2">
                     <label>Email</label>
                     <v-text-field
                         class="input-form"
-                        v-model="thongTinDonVi.DanhBaLienLac['ThuDienTu']"
+                        v-model="thongTinDonVi.danhBaLienLac['thuDienTu']"
                         solo
                         dense
                         clearable
@@ -102,7 +150,7 @@
                     <label>Điện thoại</label>
                     <v-text-field
                         class="input-form"
-                        v-model="thongTinDonVi.DanhBaLienLac['SoDienThoai']"
+                        v-model="thongTinDonVi.danhBaLienLac['soDienThoai']"
                         solo
                         dense
                         clearable
@@ -288,7 +336,7 @@
                         </v-icon>
                         Quay lại
                     </v-btn>
-                    <v-btn small color="primary" class="mt-3 mx-2  text-white" v-if="typeAction === 'add'" @click.native="submitAddCongDan()" :loading="loading" :disabled="loading">
+                    <v-btn small color="primary" class="mt-3 mx-2  text-white" v-if="typeAction === 'add'" @click.native="submitAddDonVi()" :loading="loading" :disabled="loading">
                         <v-icon
                             left
                             dark
@@ -315,7 +363,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
 import toastr from 'toastr'
 toastr.options = {
   'closeButton': true,
@@ -334,10 +381,8 @@ export default {
         ngayThanhLapCreate: '',
         khoiCoQuanCreate: '',
         tinhTrangHoatDongCreate: '',
-        quocTichCreate: '',
         hinhThucSoHuuCreate: '',
         itemsHinhThucSoHuu: [],
-        itemsQuocTich: [],
         itemsTinhTrangHoatDong: [],
         itemsTinhThanh: [],
         diaChiHoatDongCuThe: '',
@@ -348,48 +393,82 @@ export default {
         diaChiHoatDongPhuongXa: '',
         thongTinDonVi: {
           "id": "",
-          "MaHanhChinh": "",
-          "TenGoi": "",
-          "TenTiengAnh": "",
-          "TenVietTat": "",
-          "DiaChiHoatDong": {
-            "SoNhaChiTiet": "",
-            "TinhThanh": {
-              "MaMuc": "",
-              "TenMuc": ""
+          "maHanhChinh": "",
+          "tenGoi": "",
+          "tenTiengAnh": "",
+          "tenVietTat": "",
+          "diaChiHoatDong": {
+            "soNhaChiTiet": "",
+            "tinhThanh": {
+              "maMuc": "",
+              "tenMuc": ""
             },
-            "QuanHuyen": {
-              "MaMuc": "",
-              "TenMuc": ""
+            "quanHuyen": {
+              "maMuc": "",
+              "tenMuc": ""
             },
-            "PhuongXa": {
-              "MaMuc": "",
-              "TenMuc": ""
+            "phuongXa": {
+              "maMuc": "",
+              "tenMuc": ""
             }
           },
-          "NgayThanhLap": "",
-          "SoQuyetDinh": "",
-          "MaSoNganSach": "",
-          "NguoiDaiDien": {
-            "MaSoCaNhan": "",
-            "HoVaTen": ""
+          "ngayThanhLap": "",
+          "soQuyetDinh": "",
+          "maSoNganSach": "",
+          "nguoiDaiDien": {
+            "maSoCaNhan": "",
+            "hoVaTen": ""
           },
-          "DanhBaLienLac": {
-            "ThuDienTu": "",
-            "SoDienThoai": "",
-            "SoFax": ""
+          "danhBaLienLac": {
+            "thuDienTu": "",
+            "soDienThoai": "",
+            "soFax": ""
           },
-          "TinhTrangToChuc": {
-            "MaMuc": "",
-            "TenMuc": ""
+          "tinhTrangToChuc": {
+            "maMuc": "",
+            "tenMuc": ""
           },
-          "ToChucCapTren": {
-            "MaHanhChinh": "",
-            "TenGoi": "",
-            "TenTiengAnh": "",
-            "TenVietTat": ""
-          }
+          "toChucCapTren": {
+            "maHanhChinh": "",
+            "tenGoi": "",
+            "tenTiengAnh": "",
+            "tenVietTat": ""
+          },
+          "giayDangKyHoatDong": []
         },
+        headers: [
+          {
+              sortable: false,
+              text: 'STT',
+              align: 'center',
+              value: 'index'
+          },
+          {
+              sortable: false,
+              text: 'Loại giấy đăng ký hoạt động',
+              align: 'left',
+              value: 'loai'
+          },
+          {
+              sortable: false,
+              text: 'Số giấy tờ',
+              align: 'left',
+              value: 'soGiay'
+          },
+          {
+              sortable: false,
+              text: 'Ngày cấp',
+              align: 'left',
+              value: 'ngayCap'
+          },
+          {
+              sortable: false,
+              text: 'Thao tác',
+              align: 'center',
+              value: 'action'
+          }
+        ],
+        itemsGiayDangKy: [],
         required: [
           v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'
         ],
@@ -403,7 +482,7 @@ export default {
       vm.getDanhMuc()
       if (vm.id != 0) {
         vm.typeAction = 'update'
-        vm.getThongTinCongDan()
+        vm.getThongTinDonVi()
       } else {
         vm.typeAction = 'add'
       }
@@ -416,7 +495,7 @@ export default {
         vm.getDanhMuc()
         if (vm.id != 0) {
           vm.typeAction = 'update'
-          vm.getThongTinCongDan()
+          vm.getThongTinDonVi()
         } else {
           vm.typeAction = 'add'
         }
@@ -439,10 +518,10 @@ export default {
       }
     },
     methods: {
-      getThongTinCongDan () {
+      getThongTinDonVi () {
         let vm = this
         let filter = {
-          collectionName: 'canhan',
+          collectionName: 'donvi',
           id: vm.id
         }
         vm.$store.dispatch('collectionDetail', filter).then(function (response) {
@@ -455,12 +534,24 @@ export default {
             }
           }
           vm.formatInputData()
-          console.log('dataCongDan', vm.thongTinDonVi)
+          console.log('dataDonVi', vm.thongTinDonVi)
         }).catch(function () {
           vm.loadingData = false
+          // mockup-data
+          let data = vm.mockData.danhSachDonVi[0]
+          if (data) {
+            for (let key in vm.thongTinDonVi) {
+              if (data.hasOwnProperty(key)) {
+                vm.thongTinDonVi[key] = data[key]
+              }
+            }
+          }
+          vm.formatInputData()
+          console.log('dataDonVi', vm.thongTinDonVi)
+          // end
         })
       },
-      submitAddCongDan () {
+      submitAddDonVi () {
         let vm = this
         vm.formatOutputData()
         if (vm.loading) {
@@ -469,7 +560,7 @@ export default {
         vm.loading = true
         if (vm.$refs.formAddCaNhan.validate()) {
           let filter = {
-            collectionName: 'canhan',
+            collectionName: 'donvi',
             data: vm.thongTinDonVi
           }
           vm.$store.dispatch('collectionCreate', filter).then(function (result) {
@@ -478,7 +569,7 @@ export default {
             toastr.success('Thêm mới thành công')
             // window.history.back()
             let data = result.resp
-            vm.$router.push({ path: '/thong-tin-ca-nhan/' + data.primKey })
+            vm.$router.push({ path: '/thong-tin-don-vi/' + data.primKey })
           }).catch(function (response) {
             vm.loading = false
             toastr.remove()
@@ -501,7 +592,7 @@ export default {
         vm.loading = true
         if (vm.$refs.formAddCaNhan.validate()) {
           let filter = {
-            collectionName: 'canhan',
+            collectionName: 'donvi',
             id: vm.id,
             data: vm.thongTinDonVi
           }
@@ -670,8 +761,8 @@ export default {
       },
       formatOutputData () {
         let vm = this
-        vm.thongTinDonVi.ngaySinh = vm.convertDate(vm.ngayThanhLapCreate)
-        vm.thongTinDonVi.diaChiThuongTru = {
+        vm.thongTinDonVi.ngayThanhLap = vm.convertDate(vm.ngayThanhLapCreate)
+        vm.thongTinDonVi.diaChiHoatDong = {
           "phuongXa": {
             "maMuc": vm.diaChiHoatDongPhuongXa.maMuc,
             "tenMuc": vm.diaChiHoatDongPhuongXa.tenMuc
@@ -686,59 +777,35 @@ export default {
           },
           "soNhaChiTiet": vm.diaChiHoatDongCuThe
         }
-        vm.thongTinDonVi.noiOHienTai = {
-          "phuongXa": {
-            "maMuc": vm.noiOHienTaiPhuongXa.maMuc,
-            "tenMuc": vm.noiOHienTaiPhuongXa.tenMuc
-          },
-          "quanHuyen": {
-            "maMuc": vm.noiOHienTaiQuanHuyen.maMuc,
-            "tenMuc": vm.noiOHienTaiQuanHuyen.tenMuc
-          },
-          "tinhThanh": {
-            "maMuc": vm.noiOHienTaiTinhThanh.maMuc,
-            "tenMuc": vm.noiOHienTaiTinhThanh.tenMuc
-          },
-          "soNhaChiTiet": vm.noiOHienTaiCuThe
-        }
-        vm.thongTinDonVi.gioiTinh = {
-          "maMuc": vm.khoiCoQuanCreate.maMuc,
-          "tenMuc": vm.khoiCoQuanCreate.tenMuc
-        }
-        vm.thongTinDonVi.quocTich = {
-          "maMuc": vm.quocTichCreate.maMuc,
-          "tenMuc": vm.quocTichCreate.tenMuc
-        }
-        vm.thongTinDonVi.HinhThucSoHuu = {
+        vm.thongTinDonVi.hinhThucSoHuu = {
           "maMuc": vm.hinhThucSoHuuCreate.maMuc,
           "tenMuc": vm.hinhThucSoHuuCreate.tenMuc
         }
-        vm.thongTinDonVi.tonGiao = {
+        vm.thongTinDonVi.tinhTrangHoatDong = {
           "maMuc": vm.tinhTrangHoatDongCreate.maMuc,
           "tenMuc": vm.tinhTrangHoatDongCreate.tenMuc
         }
-        vm.thongTinDonVi.trangThaiDuLieu = {
-          "maMuc": vm.trangThaiDuLieu ? '2' : '1',
-          "tenMuc": vm.trangThaiDuLieu ? 'Đang sử dụng' : 'Đánh dấu xóa'
-        }
         console.log('thongTinCongDanOutput', vm.thongTinDonVi)
+      },
+      showAddGiayDangKy () {
+
+      },
+      showEditGiayDangKy(item, index) {
+
+      },
+      deleteGiayDangKy(item, index) {
+
       },
       formatInputData () {
         let vm = this
-        vm.ngayThanhLapCreate = vm.dateLocale(vm.thongTinDonVi.ngaySinh)
-        vm.khoiCoQuanCreate = vm.thongTinDonVi.gioiTinh
-        vm.tinhTrangHoatDongCreate = vm.thongTinDonVi.tonGiao
-        vm.quocTichCreate = vm.thongTinDonVi.quocTich
-        vm.hinhThucSoHuuCreate = vm.thongTinDonVi.HinhThucSoHuu
-        vm.diaChiHoatDongCuThe = vm.thongTinDonVi.diaChiThuongTru.soNhaChiTiet
-        vm.diaChiHoatDongTinhThanh = vm.thongTinDonVi.diaChiThuongTru.tinhThanh
-        vm.diaChiHoatDongQuanHuyen = vm.thongTinDonVi.diaChiThuongTru.quanHuyen
-        vm.diaChiHoatDongPhuongXa = vm.thongTinDonVi.diaChiThuongTru.phuongXa
-        vm.noiOHienTaiTinhThanh = vm.thongTinDonVi.noiOHienTai.tinhThanh
-        vm.noiOHienTaiQuanHuyen = vm.thongTinDonVi.noiOHienTai.quanHuyen
-        vm.noiOHienTaiPhuongXa = vm.thongTinDonVi.noiOHienTai.phuongXa
-        vm.noiOHienTaiCuThe = vm.thongTinDonVi.noiOHienTai.soNhaChiTiet
-        vm.trangThaiDuLieu = vm.thongTinDonVi.trangThaiDuLieu.maMuc == '2' ? true : false 
+        vm.ngayThanhLapCreate = vm.dateLocale(vm.thongTinDonVi.ngayThanhLap)
+        vm.khoiCoQuanCreate = vm.thongTinDonVi.khoiCoQuan
+        vm.tinhTrangHoatDongCreate = vm.thongTinDonVi.tinhTrangHoatDong
+        vm.hinhThucSoHuuCreate = vm.thongTinDonVi.hinhThucSoHuu
+        vm.diaChiHoatDongCuThe = vm.thongTinDonVi.diaChiHoatDong.soNhaChiTiet
+        vm.diaChiHoatDongTinhThanh = vm.thongTinDonVi.diaChiHoatDong.tinhThanh
+        vm.diaChiHoatDongQuanHuyen = vm.thongTinDonVi.diaChiHoatDong.quanHuyen
+        vm.diaChiHoatDongPhuongXa = vm.thongTinDonVi.diaChiHoatDong.phuongXa
       },
       formatBirthDate () {
         let vm = this
