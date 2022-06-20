@@ -1,369 +1,428 @@
 <template>
     <div>
+      <v-row>
+        <v-col cols="12" class="mt-0 pb-2 wrap-toolbar-page">
+          <div class="title-page d-inline-block pt-2" v-if="typeAction == 'update'">CẬP NHẬT THÔNG TIN ĐƠN VỊ</div>
+          <div class="title-page d-inline-block pt-2" v-if="typeAction == 'add'">THÊM MỚI ĐƠN VỊ</div>
+        </v-col>
+      </v-row>
+      <v-form lazy-validation ref="formAddToChuc" v-model="validFormAdd" class="mt-3">
         <v-row>
-            <v-col cols="12" class="mt-0 pb-2 wrap-toolbar-page">
-              <div class="title-page d-inline-block pt-2" v-if="typeAction == 'update'">CẬP NHẬT THÔNG TIN ĐƠN VỊ</div>
-              <div class="title-page d-inline-block pt-2" v-if="typeAction == 'add'">THÊM MỚI ĐƠN VỊ</div>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Mã cơ quan, đơn vị <span class="red--text">(*)</span></label>
+                <v-text-field
+                  class="input-form"
+                  v-model="thongTinDonVi.maHanhChinh"
+                  solo
+                  dense
+                  clearable
+                  max
+                  hide-details="auto"
+                  :rules="required"
+                  required
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Tên cơ quan, đơn vị <span class="red--text">(*)</span></label>
+                <v-text-field
+                  class="input-form"
+                  v-model="thongTinDonVi.tenGoi"
+                  solo
+                  dense
+                  clearable
+                  max
+                  hide-details="auto"
+                  :rules="required"
+                  required
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Tên tiếng anh</label>
+                <v-text-field
+                  class="input-form"
+                  v-model="thongTinDonVi.tenTiengAnh"
+                  solo
+                  dense
+                  clearable
+                  max
+                  hide-details="auto"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Tên viết tắt</label>
+                <v-text-field
+                  class="input-form"
+                  v-model="thongTinDonVi.tenVietTat"
+                  solo
+                  dense
+                  clearable
+                  max
+                  hide-details="auto"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Ngày thành lập</label>
+                <v-text-field
+                  class="input-form"
+                  v-model="ngayThanhLapCreate"
+                  placeholder="dd/mm/yyyy, ddmmyyyy"
+                  @blur="formatBirthDate"
+                  solo
+                  dense
+                  clearable
+                  max
+                  hide-details="auto"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Số quyết định thành lập của tổ chức</label>
+                <v-text-field
+                  class="input-form"
+                  v-model="thongTinDonVi.soQuyetDinh"
+                  solo
+                  dense
+                  clearable
+                  max
+                  hide-details="auto"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" class="py-0 mb-2">
+                <label>Giấy đăng ký hoạt động</label>
+                <v-tooltip top>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn @click.stop="showAddGiayDangKy" color="#2161b1" text icon class="" v-bind="attrs" v-on="on">
+                      <v-icon size="22">mdi-plus-circle-outline</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Thêm giấy đăng ký</span>
+                </v-tooltip>
+                <v-data-table
+                    flat
+                    :headers="headers"
+                    :items="thongTinDonVi['giayDangKyHoatDong']"
+                    hide-default-footer
+                    class="elevation-1"
+                    no-data-text="Không có"
+                    :loading="loadingData"
+                    loading-text="Đang tải... "
+                >
+                    <template v-slot:item.index="{ item, index }">
+                      <div>{{ index + 1 }}</div>
+                    </template>
+                    <template v-slot:item.ngayCap="{ item, index }">
+                      <div>{{ dateLocale(item['ngayCap']) }}</div>
+                    </template>
+                    <template v-slot:item.action="{ item, index }">
+                      <div>
+                        <v-tooltip top>
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-btn @click.stop="showEditGiayDangKy(item, index)" color="#2161b1" text icon class=" mr-3" v-bind="attrs" v-on="on">
+                              <v-icon size="22">mdi-pencil</v-icon>
+                            </v-btn>
+                          </template>
+                          <span>Sửa</span>
+                        </v-tooltip>
+                        <v-tooltip top>
+                          <template v-slot:activator="{ on, attrs }">
+                            <v-btn @click.stop="deleteGiayDangKy(item, index)" color="red" text icon class="" v-bind="attrs" v-on="on">
+                              <v-icon size="22">mdi-close</v-icon>
+                            </v-btn>
+                          </template>
+                          <span>Xóa</span>
+                        </v-tooltip>
+                      </div>
+                    </template>
+                </v-data-table>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Email</label>
+                <v-text-field
+                    class="input-form"
+                    v-model="thongTinDonVi.danhBaLienLac['thuDienTu']"
+                    solo
+                    dense
+                    clearable
+                    max
+                    hide-details="auto"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Điện thoại</label>
+                <v-text-field
+                    class="input-form"
+                    v-model="thongTinDonVi.danhBaLienLac['soDienThoai']"
+                    solo
+                    dense
+                    clearable
+                    max
+                    hide-details="auto"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Người đại diện</label>
+                <v-layout wrap>
+                  <v-autocomplete
+                    class="flex input-form"
+                    hide-no-data
+                    item-text="hoVaTen"
+                    item-value="maSoCanBo"
+                    v-model="nguoiDaiDien"
+                    :items="itemsNguoiDaiDien"
+                    dense
+                    solo
+                    hide-details="auto"
+                    return-object
+                    clearable
+                  >
+                  </v-autocomplete>
+                  <v-tooltip top>
+                    <template v-slot:activator="{ on, attrs }">
+                      <v-btn @click.stop="showAddNguoiDaiDien" color="#2161b1" text icon class="" v-bind="attrs" v-on="on">
+                        <v-icon size="22">mdi-plus-circle-outline</v-icon>
+                      </v-btn>
+                    </template>
+                    <span>Chọn người đại diện</span>
+                  </v-tooltip>
+                </v-layout>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Khối cơ quan</label>
+                <v-autocomplete
+                  class="flex input-form"
+                  hide-no-data
+                  :items="itemsKhoiCoQuan"
+                  v-model="khoiCoQuanCreate"
+                  item-text="tenMuc"
+                  item-value="maMuc"
+                  dense
+                  solo
+                  hide-details="auto"
+                  return-object
+                >
+                </v-autocomplete>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Cấp dự toán</label>
+                <v-text-field
+                  class="input-form"
+                  v-model="thongTinDonVi.CapDuToan"
+                  solo
+                  dense
+                  clearable
+                  max
+                  hide-details="auto"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Mã số ngân sách</label>
+                <v-text-field
+                  class="input-form"
+                  v-model="thongTinDonVi.MaSoNganSach"
+                  solo
+                  dense
+                  clearable
+                  max
+                  hide-details="auto"
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Hình thức sở hữu</label>
+                <v-autocomplete
+                  class="flex input-form"
+                  hide-no-data
+                  :items="itemsHinhThucSoHuu"
+                  v-model="hinhThucSoHuuCreate"
+                  item-text="tenMuc"
+                  item-value="maMuc"
+                  dense
+                  solo
+                  hide-details="auto"
+                  return-object
+                >
+                </v-autocomplete>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+              <label>Tổ chức cấp trên</label>
+              <v-layout wrap>
+                <v-autocomplete
+                  class="flex input-form"
+                  hide-no-data
+                  v-model="toChucCapTren"
+                  :items="itemsToChucCapTren"
+                  item-text="tenGoi"
+                  item-value="maHanhChinh"
+                  dense
+                  solo
+                  hide-details="auto"
+                  return-object
+                  clearable
+                >
+                </v-autocomplete>
+                <v-tooltip top>
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn @click.stop="showAddToChucCapTren" color="#2161b1" text icon class="" v-bind="attrs" v-on="on">
+                      <v-icon size="22">mdi-plus-circle-outline</v-icon>
+                    </v-btn>
+                  </template>
+                  <span>Chọn tổ chức cấp trên</span>
+                </v-tooltip>
+              </v-layout>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Tình trạng hoạt động</label>
+                <v-autocomplete
+                  class="flex input-form"
+                  hide-no-data
+                  :items="itemsTinhTrangHoatDong"
+                  v-model="tinhTrangHoatDongCreate"
+                  item-text="tenMuc"
+                  item-value="maMuc"
+                  dense
+                  solo
+                  hide-details="auto"
+                  placeholder=""
+                  return-object
+                >
+                </v-autocomplete>
+            </v-col>
+            
+            <v-col cols="12" class="py-0 mb-2">
+                <label>Địa chỉ hoạt động</label>
+                <v-text-field
+                  class="input-form"
+                  v-model="diaChiHoatDongCuThe"
+                  solo
+                  dense
+                  clearable
+                  max
+                  hide-details="auto"
+                  placeholder="Số nhà, đường, phố..."
+                ></v-text-field>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Tỉnh/ thành</label>
+                <v-autocomplete
+                  class="flex input-form"
+                  hide-no-data
+                  :items="itemsTinhThanh"
+                  v-model="diaChiHoatDongTinhThanh"
+                  item-text="tenMuc"
+                  item-value="maMuc"
+                  dense
+                  solo
+                  hide-details="auto"
+                  return-object
+                >
+                </v-autocomplete>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Quận / Huyện</label>
+                <v-autocomplete
+                  class="flex input-form"
+                  hide-no-data
+                  :items="itemsDiaChiHoatDongQuanHuyen"
+                  v-model="diaChiHoatDongQuanHuyen"
+                  item-text="tenMuc"
+                  item-value="maMuc"
+                  dense
+                  solo
+                  hide-details="auto"
+                  return-object
+                >
+                </v-autocomplete>
+            </v-col>
+            <v-col cols="12" md="4" class="py-0 mb-2">
+                <label>Phường / Xã</label>
+                <v-autocomplete
+                  class="flex input-form"
+                  hide-no-data
+                  :items="itemsDiaChiHoatDongPhuongXa"
+                  v-model="diaChiHoatDongPhuongXa"
+                  item-text="tenMuc"
+                  item-value="maMuc"
+                  dense
+                  solo
+                  hide-details="auto"
+                  return-object
+                >
+                </v-autocomplete>
+            </v-col>
+            <v-col cols="12" class="text-center ">
+                <v-btn small color="primary" @click="goBack()"  outlined class="mt-3 mx-2  text-white" :loading="loading" :disabled="loading">
+                    <v-icon
+                        left
+                        dark
+                        size="20"
+                    >
+                        mdi-reply
+                    </v-icon>
+                    Quay lại
+                </v-btn>
+                <v-btn small color="primary" class="mt-3 mx-2  text-white" v-if="typeAction === 'add'" @click.native="submitAddDonVi()" :loading="loading" :disabled="loading">
+                    <v-icon
+                        left
+                        dark
+                        size="20"
+                    >
+                        mdi-content-save
+                    </v-icon>
+                    Thêm mới
+                </v-btn>
+                <v-btn small color="primary" class="mt-3 mx-2  text-white" v-else @click.native="submitUpdateToChuc()" :loading="loading" :disabled="loading">
+                    <v-icon
+                        left
+                        dark
+                        size="20"
+                    >
+                        mdi-content-save
+                    </v-icon>
+                    Cập nhật
+                </v-btn>
             </v-col>
         </v-row>
-        <v-form lazy-validation ref="formAddCaNhan" v-model="validFormAdd" class="mt-3">
-            <v-row>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Mã cơ quan, đơn vị <span class="red--text">(*)</span></label>
-                    <v-text-field
-                      class="input-form"
-                      v-model="thongTinDonVi.maHanhChinh"
-                      solo
-                      dense
-                      clearable
-                      max
-                      hide-details="auto"
-                      :rules="required"
-                      required
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Tên cơ quan, đơn vị <span class="red--text">(*)</span></label>
-                    <v-text-field
-                      class="input-form"
-                      v-model="thongTinDonVi.tenGoi"
-                      solo
-                      dense
-                      clearable
-                      max
-                      hide-details="auto"
-                      :rules="required"
-                      required
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Tên tiếng anh</label>
-                    <v-text-field
-                      class="input-form"
-                      v-model="thongTinDonVi.tenTiengAnh"
-                      solo
-                      dense
-                      clearable
-                      max
-                      hide-details="auto"
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Tên viết tắt</label>
-                    <v-text-field
-                      class="input-form"
-                      v-model="thongTinDonVi.tenVietTat"
-                      solo
-                      dense
-                      clearable
-                      max
-                      hide-details="auto"
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Ngày thành lập</label>
-                    <v-text-field
-                      class="input-form"
-                      v-model="ngayThanhLapCreate"
-                      placeholder="dd/mm/yyyy, ddmmyyyy"
-                      @blur="formatBirthDate"
-                      solo
-                      dense
-                      clearable
-                      max
-                      hide-details="auto"
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Số quyết định thành lập của tổ chức</label>
-                    <v-text-field
-                      class="input-form"
-                      v-model="thongTinDonVi.soQuyetDinh"
-                      solo
-                      dense
-                      clearable
-                      max
-                      hide-details="auto"
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" class="py-0 mb-2">
-                    <label>Giấy đăng ký hoạt động</label>
-                    <v-tooltip top>
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-btn @click.stop="showAddGiayDangKy" color="#2161b1" text icon class="" v-bind="attrs" v-on="on">
-                          <v-icon size="22">mdi-plus-circle-outline</v-icon>
-                        </v-btn>
-                      </template>
-                      <span>Thêm giấy đăng ký</span>
-                    </v-tooltip>
-                    <v-data-table
-                        flat
-                        :headers="headers"
-                        :items="thongTinDonVi['giayDangKyHoatDong']"
-                        hide-default-footer
-                        class="elevation-1"
-                        no-data-text="Không có"
-                        :loading="loadingData"
-                        loading-text="Đang tải... "
-                    >
-                        <template v-slot:item.index="{ item, index }">
-                          <div>{{ index + 1 }}</div>
-                        </template>
-                        <template v-slot:item.ngayCap="{ item, index }">
-                          <div>{{ dateLocale(item['ngayCap']) }}</div>
-                        </template>
-                        <template v-slot:item.action="{ item, index }">
-                          <div>
-                            <v-tooltip top>
-                              <template v-slot:activator="{ on, attrs }">
-                                <v-btn @click.stop="showEditGiayDangKy(item, index)" color="#2161b1" text icon class=" mr-3" v-bind="attrs" v-on="on">
-                                  <v-icon size="22">mdi-pencil</v-icon>
-                                </v-btn>
-                              </template>
-                              <span>Sửa</span>
-                            </v-tooltip>
-                            <v-tooltip top>
-                              <template v-slot:activator="{ on, attrs }">
-                                <v-btn @click.stop="deleteGiayDangKy(item, index)" color="red" text icon class="" v-bind="attrs" v-on="on">
-                                  <v-icon size="22">mdi-close</v-icon>
-                                </v-btn>
-                              </template>
-                              <span>Xóa</span>
-                            </v-tooltip>
-                          </div>
-                        </template>
-                    </v-data-table>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Email</label>
-                    <v-text-field
-                        class="input-form"
-                        v-model="thongTinDonVi.danhBaLienLac['thuDienTu']"
-                        solo
-                        dense
-                        clearable
-                        max
-                        hide-details="auto"
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Điện thoại</label>
-                    <v-text-field
-                        class="input-form"
-                        v-model="thongTinDonVi.danhBaLienLac['soDienThoai']"
-                        solo
-                        dense
-                        clearable
-                        max
-                        hide-details="auto"
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Người đại diện</label>
-                    <v-autocomplete
-                      class="flex input-form"
-                      hide-no-data
-                      item-text="tenMuc"
-                      item-value="maMuc"
-                      dense
-                      solo
-                      hide-details="auto"
-                      return-object
-                    >
-                    </v-autocomplete>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Khối cơ quan</label>
-                    <v-autocomplete
-                      class="flex input-form"
-                      hide-no-data
-                      :items="itemsKhoiCoQuan"
-                      v-model="khoiCoQuanCreate"
-                      item-text="tenMuc"
-                      item-value="maMuc"
-                      dense
-                      solo
-                      hide-details="auto"
-                      return-object
-                    >
-                    </v-autocomplete>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Cấp dự toán</label>
-                    <v-text-field
-                      class="input-form"
-                      v-model="thongTinDonVi.CapDuToan"
-                      solo
-                      dense
-                      clearable
-                      max
-                      hide-details="auto"
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Mã số ngân sách</label>
-                    <v-text-field
-                      class="input-form"
-                      v-model="thongTinDonVi.MaSoNganSach"
-                      solo
-                      dense
-                      clearable
-                      max
-                      hide-details="auto"
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Hình thức sở hữu</label>
-                    <v-autocomplete
-                      class="flex input-form"
-                      hide-no-data
-                      :items="itemsHinhThucSoHuu"
-                      v-model="hinhThucSoHuuCreate"
-                      item-text="tenMuc"
-                      item-value="maMuc"
-                      dense
-                      solo
-                      hide-details="auto"
-                      :rules="required"
-                      required
-                      return-object
-                    >
-                    </v-autocomplete>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Tổ chức cấp trên</label>
-                    <v-autocomplete
-                      class="flex input-form"
-                      hide-no-data
-                      item-text="tenMuc"
-                      item-value="maMuc"
-                      dense
-                      solo
-                      hide-details="auto"
-                      return-object
-                    >
-                    </v-autocomplete>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Tình trạng hoạt động</label>
-                    <v-autocomplete
-                      class="flex input-form"
-                      hide-no-data
-                      :items="itemsTinhTrangHoatDong"
-                      v-model="tinhTrangHoatDongCreate"
-                      item-text="tenMuc"
-                      item-value="maMuc"
-                      dense
-                      solo
-                      hide-details="auto"
-                      :rules="required"
-                      required
-                      placeholder=""
-                      return-object
-                    >
-                    </v-autocomplete>
-                </v-col>
-                
-                <v-col cols="12" class="py-0 mb-2">
-                    <label>Địa chỉ hoạt động</label>
-                    <v-text-field
-                      class="input-form"
-                      v-model="diaChiHoatDongCuThe"
-                      solo
-                      dense
-                      clearable
-                      max
-                      hide-details="auto"
-                      placeholder="Số nhà, đường, phố..."
-                    ></v-text-field>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Tỉnh/ thành</label>
-                    <v-autocomplete
-                      class="flex input-form"
-                      hide-no-data
-                      :items="itemsTinhThanh"
-                      v-model="diaChiHoatDongTinhThanh"
-                      item-text="tenMuc"
-                      item-value="maMuc"
-                      dense
-                      solo
-                      hide-details="auto"
-                      return-object
-                    >
-                    </v-autocomplete>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Quận / Huyện</label>
-                    <v-autocomplete
-                      class="flex input-form"
-                      hide-no-data
-                      :items="itemsDiaChiHoatDongQuanHuyen"
-                      v-model="diaChiHoatDongQuanHuyen"
-                      item-text="tenMuc"
-                      item-value="maMuc"
-                      dense
-                      solo
-                      hide-details="auto"
-                      return-object
-                    >
-                    </v-autocomplete>
-                </v-col>
-                <v-col cols="12" md="4" class="py-0 mb-2">
-                    <label>Phường / Xã</label>
-                    <v-autocomplete
-                      class="flex input-form"
-                      hide-no-data
-                      :items="itemsDiaChiHoatDongPhuongXa"
-                      v-model="diaChiHoatDongPhuongXa"
-                      item-text="tenMuc"
-                      item-value="maMuc"
-                      dense
-                      solo
-                      hide-details="auto"
-                      return-object
-                    >
-                    </v-autocomplete>
-                </v-col>
-                <v-col cols="12" class="text-center ">
-                    <v-btn small color="primary" @click="goBack()"  outlined class="mt-3 mx-2  text-white" :loading="loading" :disabled="loading">
-                        <v-icon
-                            left
-                            dark
-                            size="20"
-                        >
-                            mdi-reply
-                        </v-icon>
-                        Quay lại
-                    </v-btn>
-                    <v-btn small color="primary" class="mt-3 mx-2  text-white" v-if="typeAction === 'add'" @click.native="submitAddDonVi()" :loading="loading" :disabled="loading">
-                        <v-icon
-                            left
-                            dark
-                            size="20"
-                        >
-                            mdi-content-save
-                        </v-icon>
-                        Thêm mới
-                    </v-btn>
-                    <v-btn small color="primary" class="mt-3 mx-2  text-white" v-else @click.native="submitUpdateCongDan()" :loading="loading" :disabled="loading">
-                        <v-icon
-                            left
-                            dark
-                            size="20"
-                        >
-                            mdi-content-save
-                        </v-icon>
-                        Cập nhật
-                    </v-btn>
-                </v-col>
-            </v-row>
-        </v-form>
+      </v-form>
+      <v-dialog
+        max-width="900"
+        v-model="dialogChonDoiTuong"
+        persistent
+      >
+        <v-card>
+          <v-toolbar
+            dark
+            color="primary" class="px-3"
+          >
+            <v-toolbar-title v-if="typeChonDoiTuong === 'donvi'">Chọn tổ chức cấp trên</v-toolbar-title>
+            <v-toolbar-title v-if="typeChonDoiTuong === 'canbo'">Chọn người đại diện</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <v-btn
+                icon
+                dark
+                @click="dialogChonDoiTuong = false"
+              >
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text class="mt-5 px-2">
+            <chon-doi-tuong :type="typeChonDoiTuong" @tiny:select-data="chonDoiTuong"></chon-doi-tuong>
+          </v-card-text>
+          <v-card-actions class="justify-end pb-3">
+            <v-btn small color="red" class="white--text mr-2"  @click="dialogChonDoiTuong = false">
+              <v-icon left>
+                mdi-close
+              </v-icon>
+              Thoát
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </div>
 </template>
 
 <script>
 import toastr from 'toastr'
+import ChonDoiTuong from './ChonDoiTuong.vue'
 toastr.options = {
   'closeButton': true,
   'timeOut': '5000',
@@ -371,12 +430,20 @@ toastr.options = {
 }
 export default {
     props: ["id"],
+    components: {
+      "chon-doi-tuong": ChonDoiTuong
+    },
     data() {
       return {
         loading: false,
+        loadingData: false,
         validFormAdd: false,
         typeAction: "add",
         congDanDetail: "",
+        nguoiDaiDien: "",
+        itemsNguoiDaiDien: [],
+        toChucCapTren: "",
+        itemsToChucCapTren: [],
         itemsKhoiCoQuan: [],
         ngayThanhLapCreate: '',
         khoiCoQuanCreate: '',
@@ -429,7 +496,7 @@ export default {
             "tenMuc": ""
           },
           "toChucCapTren": {
-            "maHanhChinh": "",
+            "maDinhDanh": "",
             "tenGoi": "",
             "tenTiengAnh": "",
             "tenVietTat": ""
@@ -472,7 +539,9 @@ export default {
         required: [
           v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'
         ],
-        trangThaiDuLieu: true
+        trangThaiDuLieu: true,
+        dialogChonDoiTuong: false,
+        typeChonDoiTuong: ''
       }
     },
     created () {
@@ -524,7 +593,9 @@ export default {
           collectionName: 'donvi',
           id: vm.id
         }
+        vm.loadingData = true
         vm.$store.dispatch('collectionDetail', filter).then(function (response) {
+          vm.loadingData = false
           let data = response.resp
           if (data) {
             for (let key in vm.thongTinDonVi) {
@@ -558,7 +629,7 @@ export default {
           return
         }
         vm.loading = true
-        if (vm.$refs.formAddCaNhan.validate()) {
+        if (vm.$refs.formAddToChuc.validate()) {
           let filter = {
             collectionName: 'donvi',
             data: vm.thongTinDonVi
@@ -583,14 +654,14 @@ export default {
           vm.loading = false
         }
       },
-      submitUpdateCongDan () {
+      submitUpdateToChuc () {
         let vm = this
         vm.formatOutputData()
         if (vm.loading) {
           return
         }
         vm.loading = true
-        if (vm.$refs.formAddCaNhan.validate()) {
+        if (vm.$refs.formAddToChuc.validate()) {
           let filter = {
             collectionName: 'donvi',
             id: vm.id,
@@ -787,8 +858,31 @@ export default {
         }
         console.log('thongTinCongDanOutput', vm.thongTinDonVi)
       },
+      chonDoiTuong(data) {
+        let vm = this
+        console.log('dataaaa', data)
+        if (vm.typeChonDoiTuong === 'donvi') {
+          vm.toChucCapTren = data
+          vm.itemsToChucCapTren = [data]
+        }
+        if (vm.typeChonDoiTuong === 'canbo') {
+          vm.nguoiDaiDien = data
+          vm.itemsNguoiDaiDien = [data]
+        }
+        vm.dialogChonDoiTuong = false
+      },
       showAddGiayDangKy () {
 
+      },
+      showAddToChucCapTren () {
+        let vm = this
+        vm.typeChonDoiTuong = 'donvi'
+        vm.dialogChonDoiTuong = true
+      },
+      showAddNguoiDaiDien () {
+        let vm = this
+        vm.typeChonDoiTuong = 'canbo'
+        vm.dialogChonDoiTuong = true
       },
       showEditGiayDangKy(item, index) {
 

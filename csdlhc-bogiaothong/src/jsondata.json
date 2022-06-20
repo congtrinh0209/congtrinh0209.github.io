@@ -51,7 +51,7 @@
       ]
     },
     {
-      "primKey": "1",
+      "primKey": "2",
       "maHanhChinh": "CDS-90339123",
       "tenGoi": "Cục Đường sắt",
       "tenTiengAnh": "",
@@ -92,6 +92,18 @@
         "tenGoi": "Bộ Giao thông vận tải",
         "tenTiengAnh": "",
         "tenVietTat": ""
+      }
+    }
+  ],
+  "danhSachCanBo": [
+    {
+      "primKey": "1",
+      "maSoCanBo": "EMP-90339123",
+      "hoVaTen": "Nguyễn Văn Nam",
+      "ngaySinh": "1991-08-20",
+      "coQuanChuQuan": {
+        "maHanhChinh": "BGTVT",
+        "tenGoi": "Bộ Giao thông vận tải"
       }
     }
   ]
