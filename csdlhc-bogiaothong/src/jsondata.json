@@ -46,8 +46,8 @@
         "tenVietTat": ""
       },
       "giayDangKyHoatDong": [
-        {"loai": "XYZ", "soGiay": "A-983123", "ngayCap": "2020-10-08"},
-        {"loai": "ABC", "soGiay": "B-983123", "ngayCap": "2021-11-18"}
+        {"loaiGiayTo": {"maMuc": "A-013123", "tenMuc": "Giấy đăng ký hoạt động"}, "soGiay": "A-983123", "ngayCap": "2020-10-08"},
+        {"loaiGiayTo": {"maMuc": "B-013123", "tenMuc": "Giấy đăng ký hoạt động"}, "soGiay": "B-983123", "ngayCap": "2021-11-18"}
       ]
     },
     {

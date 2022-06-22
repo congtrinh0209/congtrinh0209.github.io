@@ -66,7 +66,7 @@
                   class="input-form"
                   v-model="ngayThanhLapCreate"
                   placeholder="dd/mm/yyyy, ddmmyyyy"
-                  @blur="formatBirthDate"
+                  @blur="formatBirthDate('ngayThanhLapCreate')"
                   solo
                   dense
                   clearable
@@ -108,6 +108,9 @@
                 >
                     <template v-slot:item.index="{ item, index }">
                       <div>{{ index + 1 }}</div>
+                    </template>
+                    <template v-slot:item.loaiGiayTo="{ item, index }">
+                      <div>{{ item.loaiGiayTo['tenMuc'] }}</div>
                     </template>
                     <template v-slot:item.ngayCap="{ item, index }">
                       <div>{{ dateLocale(item['ngayCap']) }}</div>
@@ -347,7 +350,7 @@
                 >
                 </v-autocomplete>
             </v-col>
-            <v-col cols="12" class="text-center ">
+            <v-col cols="12" class="text-center mb-3">
                 <v-btn small color="primary" @click="goBack()"  outlined class="mt-3 mx-2  text-white" :loading="loading" :disabled="loading">
                     <v-icon
                         left
@@ -417,10 +420,105 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
+      <v-dialog
+        max-width="700"
+        v-model="dialogGiayDangKy"
+        persistent
+      >
+        <v-card>
+          <v-toolbar
+            dark
+            color="primary" class="px-3"
+          >
+            <v-toolbar-title v-if="typeGiayDangKy === 'add'">Thêm giấy đăng ký</v-toolbar-title>
+            <v-toolbar-title v-if="typeGiayDangKy === 'update'">Cập nhật giấy đăng ký</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-toolbar-items>
+              <v-btn
+                icon
+                dark
+                @click="dialogGiayDangKy = false"
+              >
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+            </v-toolbar-items>
+          </v-toolbar>
+          <v-card-text class="mt-5 px-2">
+              <v-form
+                ref="formAddGiayDangKy"
+                v-model="validFormAddGiayDangKy"
+                lazy-validation
+              >
+                <v-layout wrap>
+                  <v-col cols="12" class="py-0 mb-2">
+                    <label>Số giấy <span class="red--text">(*)</span></label>
+                    <v-text-field
+                      class="flex input-form"
+                      v-model="maGiayToDangKy"
+                      solo
+                      dense
+                      :rules="required"
+                      required
+                      hide-details="auto"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" class="py-0 mb-2">
+                    <label>Ngày cấp</label>
+                    <v-text-field
+                      class="input-form"
+                      v-model="ngayCapGiayDangKy"
+                      placeholder="dd/mm/yyyy, ddmmyyyy"
+                      @blur="formatBirthDate('ngayCapGiayDangKy')"
+                      solo
+                      dense
+                      clearable
+                      max
+                      hide-details="auto"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" class="py-0 mb-2">
+                    <label>Loại giấy đăng ký <span class="red--text">(*)</span></label>
+                    <v-autocomplete
+                      class="flex input-form"
+                      hide-no-data
+                      item-text="tenMuc"
+                      item-value="maMuc"
+                      v-model="loaiGiayToDangKy"
+                      :items="itemsLoaiGiayDangKy"
+                      dense
+                      solo
+                      hide-details="auto"
+                      return-object
+                      clearable
+                      :rules="required"
+                      required
+                    >
+                    </v-autocomplete>
+                  </v-col>
+                </v-layout>
+              </v-form>
+          </v-card-text>
+          <v-card-actions class="justify-end pb-3">
+            <v-btn small color="red" class="white--text mr-2"  @click="dialogGiayDangKy = false">
+              <v-icon left>
+                mdi-close
+              </v-icon>
+              Thoát
+            </v-btn>
+            <v-btn small class="mr-2" color="primary"  @click.native="addGiayDangKy">
+              <v-icon left>
+                mdi-content-save
+              </v-icon>
+              <span>Xác nhận</span>
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import toastr from 'toastr'
 import ChonDoiTuong from './ChonDoiTuong.vue'
 toastr.options = {
@@ -438,6 +536,7 @@ export default {
         loading: false,
         loadingData: false,
         validFormAdd: false,
+        validFormAddGiayDangKy: false,
         typeAction: "add",
         congDanDetail: "",
         nguoiDaiDien: "",
@@ -514,7 +613,7 @@ export default {
               sortable: false,
               text: 'Loại giấy đăng ký hoạt động',
               align: 'left',
-              value: 'loai'
+              value: 'loaiGiayTo'
           },
           {
               sortable: false,
@@ -536,12 +635,22 @@ export default {
           }
         ],
         itemsGiayDangKy: [],
+        ngayCapGiayDangKy: '',
+        itemsLoaiGiayDangKy: [
+          {maMuc: '1', tenMuc: 'Giấy đăng ký hoạt động kính doanh'}
+        ],
+        maGiayToDangKy: '',
+        loaiGiayToDangKy: '',
+        indexGiayDangKy: '',
         required: [
           v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'
         ],
         trangThaiDuLieu: true,
         dialogChonDoiTuong: false,
-        typeChonDoiTuong: ''
+        dialogGiayDangKy: false,
+        typeGiayDangKy: '',
+        typeChonDoiTuong: '',
+        
       }
     },
     created () {
@@ -871,8 +980,24 @@ export default {
         }
         vm.dialogChonDoiTuong = false
       },
+      addGiayDangKy () {
+        let vm = this
+        let giayDangKy = {
+          soGiay: vm.maGiayToDangKy,
+          ngayCap: vm.convertDate(vm.ngayCapGiayDangKy),
+          loaiGiayTo: vm.loaiGiayToDangKy
+        }
+        if (vm.typeGiayDangKy === 'add') {
+          vm.thongTinDonVi['giayDangKyHoatDong'].push(giayDangKy)
+        } else {
+          Vue.set(vm.thongTinDonVi['giayDangKyHoatDong'], vm.indexGiayDangKy, giayDangKy)
+        }
+        vm.dialogGiayDangKy = false
+      },
       showAddGiayDangKy () {
-
+        let vm = this
+        vm.typeGiayDangKy = 'add'
+        vm.dialogGiayDangKy = true
       },
       showAddToChucCapTren () {
         let vm = this
@@ -885,10 +1010,16 @@ export default {
         vm.dialogChonDoiTuong = true
       },
       showEditGiayDangKy(item, index) {
-
+        let vm = this
+        vm.maGiayToDangKy = item.soGiay
+        vm.ngayCapGiayDangKy = vm.dateLocale(item.ngayCap)
+        vm.loaiGiayToDangKy = item.loaiGiayTo
+        vm.indexGiayDangKy = index
+        vm.dialogGiayDangKy = true
       },
       deleteGiayDangKy(item, index) {
-
+        let vm = this
+        vm.thongTinDonVi.giayDangKyHoatDong.splice(index,1);
       },
       formatInputData () {
         let vm = this
@@ -901,17 +1032,17 @@ export default {
         vm.diaChiHoatDongQuanHuyen = vm.thongTinDonVi.diaChiHoatDong.quanHuyen
         vm.diaChiHoatDongPhuongXa = vm.thongTinDonVi.diaChiHoatDong.phuongXa
       },
-      formatBirthDate () {
+      formatBirthDate (data) {
         let vm = this
-        let lengthDate = String(vm.ngayThanhLapCreate).trim().length
-        let splitDate = String(vm.ngayThanhLapCreate).split('/')
+        let lengthDate = String(vm[data]).trim().length
+        let splitDate = String(vm[data]).split('/')
         if (lengthDate && lengthDate > 4 && splitDate.length === 3 && splitDate[2]) {
-          vm.ngayThanhLapCreate = vm.translateDate(vm.ngayThanhLapCreate)
+          vm[data] = vm.translateDate(vm[data])
         } else if (lengthDate && lengthDate === 8) {
-          let date = String(vm.ngayThanhLapCreate)
-          vm.ngayThanhLapCreate = date.slice(0,2) + '/' + date.slice(2,4) + '/' + date.slice(4,8)
+          let date = String(vm[data])
+          vm[data] = date.slice(0,2) + '/' + date.slice(2,4) + '/' + date.slice(4,8)
         } else {
-          vm.ngayThanhLapCreate = ''
+          vm[data] = ''
         }
       },
       translateDate (date) {

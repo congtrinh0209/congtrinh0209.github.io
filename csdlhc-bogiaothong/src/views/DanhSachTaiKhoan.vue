@@ -1,9 +1,9 @@
 <template>
     <div>
       <v-row align-content="center">
-          <v-col cols="12" class="mt-0 pb-2">
+          <v-col cols="12" class="mt-0 pb-2 wrap-toolbar-page">
               <div class="title-page d-inline-block pt-2">QUẢN LÝ TÀI KHOẢN</div>
-              <!-- <v-btn
+              <v-btn
                 class="mx-0 mt-2"
                 small
                 color="primary"
@@ -14,21 +14,38 @@
                 <v-icon size="18" v-else>mdi-filter-variant</v-icon>
                 &nbsp;
                 Tìm kiếm nâng cao
-              </v-btn> -->
+              </v-btn>
           </v-col>
-          <!-- <v-col cols="12" md="6" class="my-0 py-0 mb-2">
-              <label>Họ tên chủ tài khoản</label>
+          <v-col cols="12" class="my-0 py-0 mb-2">
+              <label>Tìm theo từ khóa</label>
               <v-text-field
                   class="input-form mt-2"
-                  v-model="applicantNameSearch"
+                  v-model="keywordSearch"
                   solo
                   dense
                   clearable
                   hide-details="auto"
                   @keyup.enter="getDanhMuc()"
               ></v-text-field>
-          </v-col> -->
-          <v-col cols="12" md="12" class="py-0 mb-2">
+          </v-col>
+          <v-col v-if="advanceSearch" cols="12" md="4" class="py-0 mb-2">
+              <label>Loại đối tượng</label>
+              <v-autocomplete
+                class="flex input-form mt-2"
+                hide-no-data
+                :items="itemsLoaiDoiTuong"
+                v-model="doiTuongSearch"
+                item-text="tenMuc"
+                item-value="maMuc"
+                dense
+                solo
+                hide-details="auto"
+                clearable
+                @change="getDanhMuc()"
+              >
+              </v-autocomplete>
+          </v-col>
+          <v-col v-if="advanceSearch" cols="12" md="4" class="py-0 mb-2">
               <label>Tình trạng tài khoản</label>
               <v-autocomplete
                 class="flex input-form mt-2"
@@ -46,119 +63,29 @@
               >
               </v-autocomplete>
           </v-col>
-          <!-- <v-col cols="12" md="6" class="py-0 mb-2">
-              <label>Thao tác tài khoản</label>
-              <v-autocomplete
-                class="flex input-form mt-2"
-                hide-no-data
-                :items="itemsThaoTac"
-                v-model="thaoTacSearch"
-                item-text="tenMuc"
-                item-value="maMuc"
-                dense
+          <v-col v-if="advanceSearch" cols="12" md="4" class="my-0 py-0">
+              <label>Ngày đăng ký</label>
+              <v-text-field
+                class="input-form mt-2"
+                v-model="ngayDangKySearch"
+                placeholder="dd/mm/yyyy, ddmmyyyy"
+                @blur="formatBirthDate('ngayDangKySearch')"
                 solo
-                hide-details="auto"
+                dense
                 clearable
-                @change="getDanhMuc()"
-              >
-              </v-autocomplete>
-          </v-col> -->
-          <v-row v-if="advanceSearch" align-content="center" class="mx-0 my-0">
-            <v-col cols="12" md="4" class="my-0 py-0">
-                <label>Số CMND/CCCD</label>
-                <v-text-field
-                    class="input-form"
-                    v-model="applicantIdSearch"
-                    solo
-                    dense
-                    clearable
-                    hide-details="auto"
-                    @keyup.enter="getDanhMuc()"
-                ></v-text-field>
-            </v-col>
-            <v-col cols="12" md="4" class="my-0 py-0">
-                <label>Điện thoại</label>
-                <v-text-field
-                    class="input-form"
-                    v-model="contactSearch"
-                    solo
-                    dense
-                    clearable
-                    hide-details="auto"
-                    @keyup.enter="getDanhMuc()"
-                ></v-text-field>
-            </v-col>
-            <v-col cols="12" md="4" class="my-0 py-0 mb-3">
-                <label>Email</label>
-                <v-text-field
-                    class="input-form"
-                    v-model="emailSearch"
-                    solo
-                    dense
-                    clearable
-                    hide-details="auto"
-                    @keyup.enter="getDanhMuc()"
-                ></v-text-field>
-            </v-col>
-            
-            <!-- <v-col cols="12" md="4" class="py-0 mb-2">
-                <label>Địa chỉ thường trú: Tỉnh/ thành</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsTinhThanh"
-                  v-model="thuongTruTinhThanh"
-                  item-text="tenMuc"
-                  item-value="maMuc"
-                  dense
-                  solo
-                  hide-details="auto"
-                  return-object
-                >
-                </v-autocomplete>
-            </v-col>
-            <v-col cols="12" md="4" class="py-0">
-                <label>Quận / Huyện</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsThuongTruQuanHuyen"
-                  v-model="thuongTruQuanHuyen"
-                  item-text="tenMuc"
-                  item-value="maMuc"
-                  dense
-                  solo
-                  hide-details="auto"
-                  return-object
-                >
-                </v-autocomplete>
-            </v-col>
-            <v-col cols="12" md="4" class="py-0">
-                <label>Phường / Xã</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsThuongTruPhuongXa"
-                  v-model="thuongTruPhuongXa"
-                  item-text="tenMuc"
-                  item-value="maMuc"
-                  dense
-                  solo
-                  hide-details="auto"
-                  return-object
-                >
-                </v-autocomplete>
-            </v-col> -->
-          </v-row>
+                max
+                hide-details="auto"
+              ></v-text-field>
+          </v-col>
       </v-row>
-      <!-- <v-row justify="center" class="mt-0">
+      <v-row justify="center" class="mt-0">
           <v-col cols="12" class="d-flex align-center justify-end">
               <v-btn color="primary" small class="mx-0 text-white" @click="getDanhMuc()">
                 <v-icon size="18">mdi-magnify</v-icon>&nbsp;
                 Tìm kiếm
               </v-btn>
           </v-col>
-      </v-row> -->
+      </v-row>
       <v-row>
         <v-col cols="12" class="pt-0">
           <v-card
@@ -368,7 +295,7 @@
           </v-card-actions>
         </v-card>
       </v-dialog>
-
+      <!--  -->
       <v-dialog
         max-width="900"
         v-model="dialogPrint"
@@ -431,6 +358,7 @@ export default {
       return {
         selected: [],
         keywordSearch: '',
+        ngayDangKySearch: '',
         loadingData: false,
         itemsTinhTrang: [
           {tenMuc: 'Chưa kích hoạt', maMuc: '1', thaoTac: ''},
@@ -444,7 +372,7 @@ export default {
           {tenMuc: 'Đang sử dụng', maMuc: '2'},
           {tenMuc: 'Đánh dấu xóa', maMuc: '1'}
         ],
-        itemsThaoTac: [
+        itemsLoaiDoiTuong: [
           {tenMuc: 'Tạo tài khoản', maMuc: 'CREATE_ACCOUNT'},
           {tenMuc: 'Kích hoạt tài khoản', maMuc: 'ACTIVE_ACCOUNT'},
           {tenMuc: 'Khóa tài khoản', maMuc: 'LOCK_ACCOUNT'},
@@ -452,7 +380,7 @@ export default {
           {tenMuc: 'Xóa tài khoản', maMuc: 'DELETE_ACCOUNT'},
           {tenMuc: 'Khôi phục tài khoản', maMuc: 'RESTORE_ACCOUNT'}
         ],
-        thaoTacSearch: '',
+        doiTuongSearch: '',
         tinhTrangSearch: '',
         trangThaiSearch: '',
         headers: [
@@ -482,7 +410,7 @@ export default {
             },
             {
                 sortable: false,
-                text: 'Ngày tạo',
+                text: 'Ngày đăng ký',
                 align: 'left',
                 value: 'thoiGianTao'
             },
@@ -590,6 +518,9 @@ export default {
           vm.heThongThongTin = ''
           vm.activityCode = ''
           vm.tinhTrangSuDungTaiKhoan_maMuc = ''
+          vm.keywordSearch = ''
+          vm.doiTuongSearch = ''
+          vm.ngayDangKySearch = ''
         }
         if (vm.loadingData) {
           return
@@ -601,8 +532,10 @@ export default {
             size: vm.itemsPerPage,
             orderTypes: 'asc',
             orderFields: 'tenDinhDanh',
+            keyword: vm.keywordSearch,
+            ngayDangKy: vm.ngayDangKySearch,
             tinhTrangSuDungTaiKhoan_maMuc: vm.tinhTrangSearch ? vm.tinhTrangSearch['maMuc'] : '',
-            // activityCode: vm.thaoTacSearch,
+            doiTuong: vm.doiTuongSearch ? vm.doiTuongSearch['maMuc'] : '',
             activityCode: vm.tinhTrangSearch ? vm.tinhTrangSearch['thaoTac'] : '',
             heThongThongTin: ''
           }
@@ -766,6 +699,25 @@ export default {
 
         // var element = document.getElementById('printPhieu_1')
         // html2pdf(element)
+      },
+      formatBirthDate (data) {
+        let vm = this
+        let lengthDate = String(vm[data]).trim().length
+        let splitDate = String(vm[data]).split('/')
+        if (lengthDate && lengthDate > 4 && splitDate.length === 3 && splitDate[2]) {
+          vm[data] = vm.translateDate(vm[data])
+        } else if (lengthDate && lengthDate === 8) {
+          let date = String(vm[data])
+          vm[data] = date.slice(0,2) + '/' + date.slice(2,4) + '/' + date.slice(4,8)
+        } else {
+          vm[data] = ''
+        }
+      },
+      convertDate (date) {
+        if (!date) return ''
+        const [day, month, year] = date.split('/')
+        let ddd = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+        return (new Date(ddd)).toISOString()
       },
       dateLocale (dateInput) {
         let date = new Date(dateInput)

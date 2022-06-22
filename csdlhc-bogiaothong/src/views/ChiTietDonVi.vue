@@ -82,6 +82,9 @@
                         <template v-slot:item.ngayCap="{ item, index }">
                           <div>{{ dateLocale(item['ngayCap']) }}</div>
                         </template>
+                          <template v-slot:item.loaiGiayTo="{ item, index }">
+                          <div>{{ item.loaiGiayTo['tenMuc'] }}</div>
+                        </template>
                     </v-data-table>
                 </div>
             </v-col>
@@ -122,7 +125,7 @@ export default {
                 sortable: false,
                 text: 'Loại giấy đăng ký hoạt động',
                 align: 'left',
-                value: 'loai'
+                value: 'loaiGiayTo'
             },
             {
                 sortable: false,

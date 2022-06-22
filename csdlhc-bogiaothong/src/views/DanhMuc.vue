@@ -424,7 +424,7 @@
       selectedItem: '1',
       itemSelect: '',
       items: [
-        { text: 'Giới tính', value: '1', collectionName: 'gioitinh' },
+        { text: 'Giới tính', value: '1', collectionName: 'gioitinh'},
         { text: 'Dân tộc', value: '2', collectionName: 'dantoc' },
         { text: 'Tôn giáo', value: '3', collectionName: 'tongiao' },
         { text: 'Quốc gia', value: '4', collectionName: 'quocgia' },
@@ -435,9 +435,8 @@
         { text: 'Loại giấy tờ tùy thân', value: '9', collectionName: 'loaigiaytotuythan' },
         { text: 'Trạng thái dữ liệu', value: '10', collectionName: 'trangthaidulieu' },
         { text: 'Tình trạng tổ chức', value: '11', collectionName: 'tinhtrangtochuc' },
-        { text: 'Tình trạng sử dụng tài khoản', value: '12', collectionName: 'tinhtrangsudungtaikhoan' },
-        { text: 'Tình trạng hôn nhân', value: '13', collectionName: 'tinhtranghonnhan' },
-        { text: 'Tình trạng sinh sống', value: '14', collectionName: 'tinhtrangsinhsong' }
+        { text: 'Tình trạng công tác', value: '12', collectionName: 'tinhtrangcongtac' },
+        { text: 'Tình trạng sử dụng tài khoản', value: '13', collectionName: 'tinhtrangsudungtaikhoan' }
       ],
       headers: [
         {

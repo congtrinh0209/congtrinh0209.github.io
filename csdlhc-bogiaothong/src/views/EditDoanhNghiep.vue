@@ -184,8 +184,25 @@
                 >
                 </v-autocomplete>
             </v-col>
+            <v-col cols="12" class="py-0 mb-2">
+              <label>Vai trò sử dụng</label>
+              <v-autocomplete
+                class="flex input-form"
+                hide-no-data
+                :items="itemsVaiTro"
+                v-model="vaiTroSuDungCreate"
+                item-text="tenMuc"
+                item-value="maMuc"
+                dense
+                solo
+                hide-details="auto"
+                multiple
+                return-object
+              >
+              </v-autocomplete>
+            </v-col>
             <v-col cols="12" class="text-center">
-                <v-btn color="primary" @click="goBack()"  outlined class="mt-3 mx-2  text-white" :loading="loading" :disabled="loading">
+                <v-btn small color="primary" @click="goBack()"  outlined class="mt-3 mx-2  text-white" :loading="loading" :disabled="loading">
                     <v-icon
                         left
                         dark
@@ -195,7 +212,7 @@
                     </v-icon>
                     Quay lại
                 </v-btn>
-                <v-btn color="primary" class="mt-3 mx-2  text-white" v-if="typeAction === 'add'" @click.native="submitAddCongDan()" :loading="loading" :disabled="loading">
+                <v-btn small color="primary" class="mt-3 mx-2  text-white" v-if="typeAction === 'add'" @click.native="submitAddCongDan()" :loading="loading" :disabled="loading">
                     <v-icon
                         left
                         dark
@@ -205,7 +222,7 @@
                     </v-icon>
                     Thêm mới
                 </v-btn>
-                <v-btn color="primary" class="mt-3 mx-2  text-white" v-else @click.native="submitUpdateCongDan()" :loading="loading" :disabled="loading">
+                <v-btn small color="primary" class="mt-3 mx-2  text-white" v-else @click.native="submitUpdateCongDan()" :loading="loading" :disabled="loading">
                     <v-icon
                         left
                         dark
@@ -289,7 +306,9 @@ export default {
         required: [
           v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'
         ],
-        trangThaiDuLieu: true
+        trangThaiDuLieu: true,
+        itemsVaiTro: [],
+        vaiTroSuDungCreate: '',
       }
     },
     created () {
@@ -549,6 +568,7 @@ export default {
           "maMuc": vm.trangThaiDuLieu ? '2' : '1',
           "tenMuc": vm.trangThaiDuLieu ? 'Đang sử dụng' : 'Đánh dấu xóa'
         }
+        vm.thongTinDoanhNghiep.vaiTroSuDung = vm.vaiTroSuDungCreate
         console.log('thongTinCongDanOutput', vm.thongTinDoanhNghiep)
       },
       formatInputData () {
@@ -558,6 +578,7 @@ export default {
         vm.thuongTruQuanHuyen = vm.thongTinDoanhNghiep.diaChiHoatDong.quanHuyen
         vm.thuongTruPhuongXa = vm.thongTinDoanhNghiep.diaChiHoatDong.phuongXa
         vm.trangThaiDuLieu = vm.thongTinDoanhNghiep.trangThaiDuLieu.maMuc == '2' ? true : false 
+        vm.vaiTroSuDungCreate = vm.thongTinCongDan.vaiTroSuDung
       },
       formatBirthDate () {
         let vm = this

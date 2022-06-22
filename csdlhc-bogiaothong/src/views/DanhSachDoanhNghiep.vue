@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-row align-content="center">
-            <v-col cols="12" class="mt-0 pb-2">
+            <v-col cols="12" class="mt-0 pb-2 wrap-toolbar-page">
                 <div class="title-page d-inline-block pt-2">QUẢN LÝ ĐƠN VỊ KINH DOANH</div> 
                 <v-btn
                   class="mx-0 mt-2"
@@ -255,6 +255,11 @@
                             <div :style="getColor(item.danhTinhDienTu)">
                               {{ getStatus(item.danhTinhDienTu) }}
                             </div>
+                        </template>
+                        <template v-slot:item.vaiTroSuDung="{ item }">
+                          <div>
+                            {{ vaiTro(item.vaiTroSuDung) }}
+                          </div>
                         </template>
                         <template v-slot:item.action="{ item }">
                             <div style="width: 95px">
@@ -597,7 +602,14 @@ export default {
           }
         }).catch(function () {
         })
-      }
+      },
+      vaiTro (vaitro) {
+        if (!vaitro || vaitro.length == 0) {
+          return ''
+        }
+        let data = Array.from(vaitro , value => value['tenMuc'])
+        return data.toString().replace(/,/g, ', ')
+      },
     }
 }
 </script>

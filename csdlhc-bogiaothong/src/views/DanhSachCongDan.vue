@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-row align-content="center">
-            <v-col cols="12" class="mt-0 pb-2">
+            <v-col cols="12" class="mt-0 pb-2 wrap-toolbar-page">
                 <div class="title-page d-inline-block pt-2">QUẢN LÝ CÁ NHÂN</div>
                 <v-btn
                   class="mx-0 mt-2"
@@ -255,6 +255,11 @@
                               {{ getStatus(item.danhTinhDienTu) }}
                             </div>
                         </template>
+                        <template v-slot:item.vaiTroSuDung="{ item }">
+                          <div>
+                            {{ vaiTro(item.vaiTroSuDung) }}
+                          </div>
+                        </template>
                         <template v-slot:item.action="{ item }">
                             <div style="width: 95px">
                                 <router-link
@@ -334,6 +339,12 @@ export default {
                 text: 'Tình trạng tài khoản',
                 align: 'left',
                 value: 'danhTinhDienTu'
+            },
+            {
+                sortable: false,
+                text: 'Vai trò sử dụng',
+                align: 'left',
+                value: 'vaiTroSuDung'
             },
             {
                 sortable: false,
@@ -596,7 +607,14 @@ export default {
           }
         }).catch(function () {
         })
-      }
+      },
+      vaiTro (vaitro) {
+        if (!vaitro || vaitro.length == 0) {
+          return ''
+        }
+        let data = Array.from(vaitro , value => value['tenMuc'])
+        return data.toString().replace(/,/g, ', ')
+      },
     }
 }
 </script>
