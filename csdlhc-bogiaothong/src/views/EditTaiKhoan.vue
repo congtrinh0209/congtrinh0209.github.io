@@ -8,14 +8,29 @@
       </v-row>
       <v-form lazy-validation ref="formAddToChuc" v-model="validFormAdd" class="mt-3">
         <v-row>
-            <v-col cols="12" md="6" class="py-0 mb-2">
-              <label>Tổ chức cấp trên</label>
+            <v-col>
+              <v-radio-group
+                v-model="typeDoiTuong"
+                row
+              >
+                <v-radio
+                  label="Cơ quan đơn vị"
+                  value="1"
+                ></v-radio>
+                <v-radio
+                  label="Cán bộ"
+                  value="2"
+                ></v-radio>
+              </v-radio-group>
+            </v-col>
+            <v-col v-if="typeDoiTuong == 1" cols="12" md="6" class="py-0 mb-2">
+              <label>Đơn vị</label>
               <v-layout wrap>
                 <v-autocomplete
                   class="flex input-form"
                   hide-no-data
-                  v-model="toChucCapTren"
-                  :items="itemsToChucCapTren"
+                  v-model="donVi"
+                  :items="itemsDonVi"
                   item-text="tenGoi"
                   item-value="maHanhChinh"
                   dense
@@ -31,11 +46,11 @@
                       <v-icon size="22">mdi-plus-circle-outline</v-icon>
                     </v-btn>
                   </template>
-                  <span>Chọn tổ chức cấp trên</span>
+                  <span>Chọn đơn vị</span>
                 </v-tooltip>
               </v-layout>
             </v-col>
-            <v-col cols="12" md="4" class="py-0 mb-2">
+            <v-col v-if="typeDoiTuong == 2" cols="12" md="4" class="py-0 mb-2">
                 <label>Cán bộ</label>
                 <v-layout wrap>
                   <v-autocomplete
@@ -43,8 +58,8 @@
                     hide-no-data
                     item-text="hoVaTen"
                     item-value="maSoCanBo"
-                    v-model="nguoiDaiDien"
-                    :items="itemsNguoiDaiDien"
+                    v-model="canBo"
+                    :items="itemsCanBo"
                     dense
                     solo
                     hide-details="auto"
@@ -58,7 +73,7 @@
                         <v-icon size="22">mdi-plus-circle-outline</v-icon>
                       </v-btn>
                     </template>
-                    <span>Chọn người đại diện</span>
+                    <span>Chọn cán bộ</span>
                   </v-tooltip>
                 </v-layout>
             </v-col>
@@ -204,10 +219,10 @@ export default {
         validFormAddGiayDangKy: false,
         typeAction: "add",
         congDanDetail: "",
-        nguoiDaiDien: "",
-        itemsNguoiDaiDien: [],
-        toChucCapTren: "",
-        itemsToChucCapTren: [],
+        canBo: "",
+        itemsCanBo: [],
+        donVi: "",
+        itemsDonVi: [],
         itemsKhoiCoQuan: [],
         ngayDangKyCreate: '',
         khoiCoQuanCreate: '',
@@ -246,7 +261,7 @@ export default {
           "ngayThanhLap": "",
           "soQuyetDinh": "",
           "maSoNganSach": "",
-          "nguoiDaiDien": {
+          "canBo": {
             "maSoCaNhan": "",
             "hoVaTen": ""
           },
@@ -259,7 +274,7 @@ export default {
             "maMuc": "",
             "tenMuc": ""
           },
-          "toChucCapTren": {
+          "donVi": {
             "maDinhDanh": "",
             "tenGoi": "",
             "tenTiengAnh": "",
@@ -275,7 +290,7 @@ export default {
         dialogGiayDangKy: false,
         typeGiayDangKy: '',
         typeChonDoiTuong: '',
-        
+        typeDoiTuong: '1'
       }
     },
     created () {
@@ -580,12 +595,12 @@ export default {
         let vm = this
         console.log('dataaaa', data)
         if (vm.typeChonDoiTuong === 'donvi') {
-          vm.toChucCapTren = data
-          vm.itemsToChucCapTren = [data]
+          vm.donVi = data
+          vm.itemsDonVi = [data]
         }
         if (vm.typeChonDoiTuong === 'canbo') {
-          vm.nguoiDaiDien = data
-          vm.itemsNguoiDaiDien = [data]
+          vm.canBo = data
+          vm.itemsCanBo = [data]
         }
         vm.dialogChonDoiTuong = false
       },

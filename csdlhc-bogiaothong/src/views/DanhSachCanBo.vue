@@ -1,32 +1,32 @@
 <template>
-  <v-card
-    class="mx-auto pa-3"
-    outlined
-    flat
-  >
+  <div>
     <div>
-      <v-row justify="end" class="mt-0 mb-0 mx-0" style="border-bottom: 1px solid #025e29">
-        <v-col class="d-flex align-center justify-start py-0 px-0" style="color: #025E29;font-weight: 500;">
-          <div class="header-content" v-if="!selectDonVi">
+      <v-row align-content="center">
+        <v-col class="mt-0 pb-2 wrap-toolbar-page">
+          <div class="title-page d-inline-block pt-2" v-if="!selectDonVi">
             DANH SÁCH CÁN BỘ
           </div>
-          <div class="header-content" v-if="selectDonVi">
+          <div class="title-page d-inline-block pt-2" v-if="selectDonVi">
             CÁN BỘ - {{donViSearch['tenGoi']}}
           </div>
-          <div class="triangle-header"></div>
-        </v-col>
-        <v-spacer></v-spacer>
-        
-        <v-col class="d-flex align-center justify-end py-0 px-0" style="max-width: 150px;">
-          <v-btn color="primary" class="btn-form mx-0 text-white" @click="showAddCanBo">
-            <v-icon size="18">mdi-plus</v-icon>&nbsp;
-            Thêm mới
+          <v-btn
+            class="mx-0 mt-2"
+            small
+            color="primary"
+            @click="showAdvanceSearch()"
+            style="float: right"
+            >
+            <v-icon size="18" v-if="!advanceSearch">mdi-filter-variant-plus</v-icon>
+            <v-icon size="18" v-else>mdi-filter-variant</v-icon>
+            &nbsp;
+            Tìm kiếm nâng cao
           </v-btn>
         </v-col>
       </v-row>
       
-      <v-row justify="end" class="mt-0">
-        <v-col class="d-flex align-center justify-start" style="">
+      <v-row justify="center" class="mt-0">
+        <v-col cols="12" class="my-0 py-0 mb-2" style="">
+          <label>Tìm kiếm theo từ khóa</label>
           <v-text-field
               class="input-form"
               v-model="keywordSearch"
@@ -37,7 +37,8 @@
               placeholder="Nhập tên, mã cán bộ"
           ></v-text-field>
         </v-col>
-        <v-col v-if="!selectDonVi" class="d-flex align-center justify-start" style="">
+        <v-col cols="12" md="3" v-if="!selectDonVi && advanceSearch" class="my-0 py-0 mb-2" style="">
+          <label>Đơn vị</label>
           <v-autocomplete
             class="flex input-form"
             hide-no-data
@@ -54,7 +55,8 @@
           >
           </v-autocomplete>
         </v-col>
-        <v-col v-if="!selectPhongBan" class="d-flex align-center justify-start" style="">
+        <v-col cols="12" md="3" v-if="!selectPhongBan && advanceSearch" class="my-0 py-0 mb-2" style="">
+          <label>Phòng ban</label>
           <v-autocomplete
             class="flex input-form"
             hide-no-data
@@ -71,7 +73,8 @@
           >
           </v-autocomplete>
         </v-col>
-        <v-col class="d-flex align-center justify-start" style="max-width: 300px;">
+        <v-col cols="12" md="3" v-if="advanceSearch" class="my-0 py-0 mb-2">
+          <label>Chức vụ</label>
           <v-autocomplete
             class="flex input-form"
             hide-no-data
@@ -87,7 +90,8 @@
           >
           </v-autocomplete>
         </v-col>
-        <v-col class="d-flex align-center justify-end" style="max-width: 200px;">
+        <v-col cols="12" md="3" v-if="advanceSearch" class="my-0 py-0 mb-2">
+          <label>Tình trạng</label>
           <v-autocomplete
             class="flex input-form"
             hide-no-data
@@ -103,8 +107,16 @@
           >
           </v-autocomplete>
         </v-col>
-        <v-col class="d-flex align-center justify-end" style="max-width: 150px;">
-          <v-btn color="primary" class="btn-form mx-0 text-white" @click="getDanhSachCanBo('reset')">
+      </v-row>
+      <v-row class="mt-0">
+        <v-col cols="12" md="6" class="py-4">
+          <v-btn small color="primary" class="btn-form mx-0 text-white" @click="showAddCanBo">
+            <v-icon size="18">mdi-plus</v-icon>&nbsp;
+            Thêm mới
+          </v-btn>
+        </v-col>
+        <v-col cols="12" md="6" class="d-flex align-center justify-end">
+          <v-btn small color="primary" class="btn-form mx-0 text-white" @click="getDanhSachCanBo('reset')">
             <v-icon size="18">mdi-magnify</v-icon>&nbsp;
             Tìm kiếm
           </v-btn>
@@ -439,7 +451,7 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
-  </v-card>
+  </div>
 </template>
 
 <script>
@@ -817,7 +829,8 @@
       itemsThuongTruPhuongXa: [],
       thuongTruPhuongXa: '',
       selectDonVi: false,
-      selectPhongBan: false
+      selectPhongBan: false,
+      advanceSearch: false
     }),
     created () {
       let vm = this
@@ -1290,6 +1303,18 @@
           "tenGoi": vm.phongBan ? vm.phongBan.tenGoi : ''
         }
         console.log('thongTinCongDanOutput', vm.thongTinCanBo)
+      },
+      showAdvanceSearch () {
+        let vm = this
+        vm.advanceSearch = !vm.advanceSearch
+        if (vm.advanceSearch) {
+          
+        } else {
+          vm.soDangKyHoatDongSearch = ''
+          vm.soQuyetDinhSearch = ''
+          vm.maNganSachSearch = ''
+          vm.nguoiDaiDienSearch = ''
+        }
       },
       formatInputData () {
         let vm = this

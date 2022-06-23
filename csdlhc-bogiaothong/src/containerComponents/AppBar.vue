@@ -14,7 +14,22 @@
       <nav class="sort-pages modify-pages" id="navigation"> 
         <ul aria-label="Site Pages" role="menubar" class="container">
           <li v-for="(item, i) in items" :key="i" :class="indexTab == i ? 'selected' : ''" :id="'layout_'+i" role="presentation">
-            <a @click="redirectTo(item, i)" :class="item['class']" :id="item['id']" :aria-labelledby="'layout_'+i" aria-haspopup="true"  href="javascript:;" role="menuitem">
+            <v-menu v-if="item.id == 'donvi-tab-id'" offset-y open-on-hover>
+              <template v-slot:activator="{ on, attrs }">
+                <a v-bind="attrs" v-on="on" @click="redirectTo(item, i)" :class="item['class']" :id="item['id']" :aria-labelledby="'layout_'+i" aria-haspopup="true"  href="javascript:;" role="menuitem">
+                  <span> {{item.title}}</span>&nbsp; <v-icon right color="#2161B1">mdi-chevron-down</v-icon>
+                </a>
+              </template>
+              <v-list>
+                <v-list-item @click="redirectToChild('/phong-ban', i)" style="border-bottom: 1px dotted #b2b2b2;cursor: pointer;">
+                  <v-list-item-title>Phòng ban</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="redirectToChild('/vi-tri-chuc-danh', i)" style="cursor: pointer;">
+                  <v-list-item-title>Vị trí chức danh</v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+            <a v-else @click="redirectTo(item, i)" :class="item['class']" :id="item['id']" :aria-labelledby="'layout_'+i" aria-haspopup="true"  href="javascript:;" role="menuitem">
               <span> {{item.title}}</span>
             </a>
           </li>
@@ -115,6 +130,10 @@
       redirectTo (item, index) {
         this.$store.commit('SET_INDEXTAB', index)
         this.$router.push({ path: item.to })
+      },
+      redirectToChild (path, index) {
+        this.$store.commit('SET_INDEXTAB', index)
+        this.$router.push({ path: path })
       },
       submitLogout () {
         let vm = this

@@ -49,7 +49,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/' + filter.collectionName,
+          url: '/cmon/internal/' + filter.collectionName + '/1.0',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/' + filter.collectionName + '/' + filter.id,
+          url: '/cmon/internal/' + filter.collectionName + '/1.0/' + filter.id,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'delete',
-          url: '/v1/datasharing/' + filter.collectionName + '/' + filter.id,
+          url: '/cmon/internal/' + filter.collectionName + '/1.0/' + filter.id,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -107,7 +107,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'get',
-          url: '/v1/datasharing/' + filter.collectionName + '/filter',
+          url: '/cmon/internal/' + filter.collectionName + '/1.0',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'get',
-          url: '/v1/datasharing/' + filter.collectionName + '/' + filter.id,
+          url: '/cmon/internal/' + filter.collectionName + '/1.0/' + filter.id,
           data: {},
           headers: { 
             'Accept': 'application/json', 

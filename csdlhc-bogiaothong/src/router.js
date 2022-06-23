@@ -18,6 +18,18 @@ export default new Router({
           props: true
         },
         {
+          path: '/phong-ban',
+          name: 'PhongBan',
+          component: () => import('@/views/PhongBan'),
+          props: true
+        },
+        {
+          path: '/vi-tri-chuc-danh',
+          name: 'ViTriChucDanh',
+          component: () => import('@/views/ViTriChucDanh'),
+          props: true
+        },
+        {
           path: '/don-vi/:id',
           name: 'EditDonVi',
           component: () => import('@/views/EditDonVi'),
