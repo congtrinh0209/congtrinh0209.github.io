@@ -24,9 +24,21 @@ export default new Router({
           props: true
         },
         {
+          path: '/phong-ban/:id',
+          name: 'EditPhongBan',
+          component: () => import('@/views/EditPhongBan'),
+          props: true
+        },
+        {
           path: '/vi-tri-chuc-danh',
           name: 'ViTriChucDanh',
           component: () => import('@/views/ViTriChucDanh'),
+          props: true
+        },
+        {
+          path: '/vi-tri-chuc-danh/:id',
+          name: 'EditViTriChucDanh',
+          component: () => import('@/views/EditChucDanh'),
           props: true
         },
         {
@@ -45,6 +57,12 @@ export default new Router({
           path: '/can-bo',
           name: 'CanBo',
           component: () => import('@/views/DanhSachCanBo'),
+          props: true
+        },
+        {
+          path: '/can-bo/:id',
+          name: 'EditCanBo',
+          component: () => import('@/views/EditCanBo'),
           props: true
         },
         {

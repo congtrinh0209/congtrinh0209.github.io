@@ -62,7 +62,7 @@
                     </div>
                 </template>
                 <template v-slot:item.action="{ item }">
-                    <div style="width: 95px">
+                    <div>
                         <v-btn
                           text
                           color="primary"

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <v-row align-content="center">
+      <v-row align-content="center" class="mb-0">
         <v-col class="mt-0 pb-2 wrap-toolbar-page">
           <div class="title-page d-inline-block pt-2" v-if="!selectDonVi">
             DANH SÁCH CÁN BỘ
@@ -28,7 +28,7 @@
         <v-col cols="12" class="my-0 py-0 mb-2" style="">
           <label>Tìm kiếm theo từ khóa</label>
           <v-text-field
-              class="input-form"
+              class="input-form mt-2"
               v-model="keywordSearch"
               solo
               dense
@@ -126,7 +126,6 @@
         :headers="headers"
         :items="itemsCanBo"
         :items-per-page="itemsPerPage"
-        @click:row="showThongTinCanBo"
         item-key="primKey"
         hide-default-footer
         class="elevation-1 mt-2"
@@ -188,269 +187,6 @@
       </v-data-table>
       <pagination v-if="pageCount" :pageInput="page" :pageCount="pageCount" :total="total" @tiny:change-page="changePage"></pagination>
     </div>
-    <v-dialog
-      max-width="900"
-      v-model="dialogAddCanBo"
-      persistent
-    >
-      <v-card>
-        <v-toolbar
-          dark
-          color="primary" class="px-3"
-        >
-          <v-toolbar-title v-if="typeAction === 'create'">Thêm mới cán bộ</v-toolbar-title>
-          <v-toolbar-title v-else>Cập nhật thông tin cán bộ</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-            <v-btn
-              icon
-              dark
-              @click="dialogAddCanBo = false"
-            >
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-          </v-toolbar-items>
-        </v-toolbar>
-        <v-card-text class="mt-5 px-2">
-          <v-form
-            ref="formAddCanBo"
-            v-model="validFormAdd"
-            lazy-validation
-          >
-            <v-layout wrap>
-              <v-col cols="12" md="6" class="py-0 mb-2">
-                  <label>Mã cán bộ <span class="red--text">(*)</span></label>
-                  <v-text-field
-                    class="flex input-form"
-                    v-model="thongTinCanBo['maSoCanBo']"
-                    solo
-                    dense
-                    :readonly="typeAction === 'update'"
-                    :rules="required"
-                    required
-                    hide-details="auto"
-                  ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0 mb-2">
-                  <label>Họ và tên <span class="red--text">(*)</span></label>
-                  <v-text-field
-                    class="flex input-form"
-                    v-model="thongTinCanBo['hoVaTen']"
-                    solo
-                    dense
-                    :rules="required"
-                    required
-                    hide-details="auto"
-                    clearable
-                  ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0 mb-2">
-                <label>Ngày sinh</label>
-                <v-text-field
-                  class="input-form"
-                  v-model="ngaySinhCreate"
-                  placeholder="dd/mm/yyyy, ddmmyyyy"
-                  @blur="formatBirthDate"
-                  solo
-                  dense
-                  clearable
-                  max
-                  hide-details="auto"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0">
-                <label>Giới tính <span class="red--text">(*)</span></label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsGioiTinh"
-                  v-model="gioiTinhCreate"
-                  item-text="tenMuc"
-                  item-value="maMuc"
-                  dense
-                  solo
-                  hide-details="auto"
-                  :rules="required"
-                  required
-                  placeholder="Chọn giới tính"
-                  return-object
-                >
-                </v-autocomplete>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0 mb-2">
-                <label>Email</label>
-                <v-text-field
-                  class="input-form"
-                  v-model="thongTinCanBo.danhBaLienLac['thuDienTu']"
-                  solo
-                  dense
-                  clearable
-                  max
-                  hide-details="auto"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0">
-                <label>Điện thoại</label>
-                <v-text-field
-                  class="input-form"
-                  v-model="thongTinCanBo.danhBaLienLac['soDienThoai']"
-                  solo
-                  dense
-                  clearable
-                  max
-                  hide-details="auto"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" class="py-0 mb-2">
-                <label>Địa chỉ</label>
-                <v-text-field
-                  class="input-form"
-                  v-model="diaChiThuongTruCuThe"
-                  solo
-                  dense
-                  clearable
-                  max
-                  hide-details="auto"
-                  placeholder="Số nhà, đường, phố..."
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="4" class="py-0 mb-2">
-                <label>Tỉnh/ thành</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsTinhThanh"
-                  v-model="thuongTruTinhThanh"
-                  item-text="tenMuc"
-                  item-value="maMuc"
-                  dense
-                  solo
-                  hide-details="auto"
-                  return-object
-                >
-                </v-autocomplete>
-              </v-col>
-              <v-col cols="12" md="4" class="py-0">
-                <label>Quận / Huyện</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsThuongTruQuanHuyen"
-                  v-model="thuongTruQuanHuyen"
-                  item-text="tenMuc"
-                  item-value="maMuc"
-                  dense
-                  solo
-                  hide-details="auto"
-                  return-object
-                >
-                </v-autocomplete>
-              </v-col>
-              <v-col cols="12" md="4" class="py-0">
-                <label>Phường / Xã</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsThuongTruPhuongXa"
-                  v-model="thuongTruPhuongXa"
-                  item-text="tenMuc"
-                  item-value="maMuc"
-                  dense
-                  solo
-                  hide-details="auto"
-                  return-object
-                >
-                </v-autocomplete>
-              </v-col>
-              <v-col v-if="!selectDonVi" cols="12" md="6" class="py-0 mb-2">
-                <label>Cơ quan, đơn vị</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsDonVi"
-                  v-model="coQuanDonVi"
-                  item-text="tenGoi"
-                  item-value="maHanhChinh"
-                  dense
-                  solo
-                  hide-details="auto"
-                  return-object
-                >
-                </v-autocomplete>
-              </v-col>
-              <v-col v-if="!selectPhongBan" cols="12" md="6" class="py-0 mb-2">
-                <label>Phòng ban</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsPhongBan"
-                  v-model="phongBan"
-                  item-text="tenGoi"
-                  item-value="maDinhDanh"
-                  dense
-                  solo
-                  hide-details="auto"
-                  return-object
-                >
-                </v-autocomplete>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0 mb-2">
-                <label>Chức vụ</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsChucVu"
-                  v-model="chucVu"
-                  item-text="tenGoi"
-                  item-value="maDinhDanh"
-                  dense
-                  solo
-                  hide-details="auto"
-                  multiple
-                >
-                </v-autocomplete>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0 mb-2">
-                <label>Tình trạng công tác</label>
-                <v-autocomplete
-                  class="flex input-form"
-                  hide-no-data
-                  :items="itemsTrangThai"
-                  v-model="trangThai"
-                  item-text="tenMuc"
-                  item-value="maMuc"
-                  dense
-                  solo
-                  hide-details="auto"
-                  return-object
-                >
-                </v-autocomplete>
-              </v-col>
-            </v-layout>
-          </v-form>
-        </v-card-text>
-        <v-card-actions class="justify-end pb-3">
-          <v-btn color="red" class="white--text mr-2" :loading="loading" :disabled="loading" @click="dialogAddCanBo = false">
-            <v-icon left>
-              mdi-close
-            </v-icon>
-            Thoát
-          </v-btn>
-          <v-btn v-if="typeAction === 'create'" class="mr-2" color="primary" :loading="loading" :disabled="loading" @click="submitAddCanBo">
-            <v-icon left>
-              mdi-content-save
-            </v-icon>
-            <span>Thêm mới</span>
-          </v-btn>
-          <v-btn v-else class="mr-2" color="primary" :loading="loading" :disabled="loading" @click="submitUpdateCanBo">
-            <v-icon left>
-              mdi-content-save
-            </v-icon>
-            <span>Cập nhật</span>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
   </div>
 </template>
 
@@ -834,6 +570,7 @@
     }),
     created () {
       let vm = this
+      vm.$store.commit('SET_INDEXTAB', 1)
       let currentQuery = vm.$router.history.current
       let query = currentQuery.query
       if (query && query.hasOwnProperty('gov') && query.gov) {
@@ -876,6 +613,7 @@
     watch: {
       '$route': function (newRoute, oldRoute) {
         let vm = this
+        vm.$store.commit('SET_INDEXTAB', 1)
         let query = newRoute.query
         if (query && query.hasOwnProperty('gov') && query.gov) {
           vm.selectDonVi = true
@@ -981,87 +719,13 @@
         vm.page = config.page
         vm.getDanhSachCanBo()
       },
-      showThongTinCanBo (item) {
+      showEditCanBo (item) {
         let vm = this
         vm.$router.push({ path: '/can-bo/' + item.primKey })
       },
-      showEditCanBo (item) {
-        let vm = this
-        vm.typeAction = 'update'
-        vm.dialogAddCanBo = true
-        setTimeout(function () {
-          vm.thongTinCanBo = item
-          vm.formatInputData()
-          vm.$refs.formAddCanBo.resetValidation()
-        }, 100)
-      },
       showAddCanBo () {
         let vm = this
-        vm.typeAction = 'create'
-        vm.dialogAddCanBo = true
-        setTimeout(function () {
-          vm.thongTinCanBo = vm.thongTinCanBoSample
-          vm.$refs.formAddCanBo.resetValidation()
-        }, 100)
-      },
-      submitAddCanBo () {
-        let vm = this
-        vm.formatOutputData()
-        if (vm.loading) {
-          return
-        }
-        vm.loading = true
-        if (vm.$refs.formAddCanBo.validate()) {
-          let filter = {
-            collectionName: 'canbo',
-            data: vm.thongTinCanBo
-          }
-          vm.$store.dispatch('collectionCreate', filter).then(function (result) {
-            vm.loading = false
-            toastr.remove()
-            toastr.success('Thêm mới thành công')
-            vm.dialogAddCanBo = false
-            vm.getDanhSachCanBo()
-          }).catch(function (response) {
-            vm.loading = false
-            toastr.remove()
-            if (response && response.status == 409) {
-              toastr.error('Mã cán bộ đã tồn tại')
-              return
-            }
-            toastr.error('Thêm mới thất bại')
-          })
-        } else {
-          vm.loading = false
-        }
-      },
-      submitUpdateCanBo () {
-        let vm = this
-        vm.formatOutputData()
-        if (vm.loading) {
-          return
-        }
-        vm.loading = true
-        if (vm.$refs.formAddCanBo.validate()) {
-          let filter = {
-            collectionName: 'canbo',
-            id: vm.thongTinCanBo['primKey'],
-            data: vm.thongTinCanBo
-          }
-          vm.$store.dispatch('collectionUpdate', filter).then(function (result) {
-            vm.loading = false
-            toastr.remove()
-            toastr.success('Cập nhật thông tin thành công')
-            vm.dialogAddCanBo = false
-            vm.getDanhSachCanBo()
-          }).catch(function (response) {
-            vm.loading = false
-            toastr.remove()
-            toastr.error('Cập nhật thông tin thất bại')
-          })
-        } else {
-          vm.loading = false
-        }
+        vm.$router.push({ path: '/can-bo/0'})
       },
       deleteCanBo (item) {
         let vm = this

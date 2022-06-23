@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     indexTab: 0,
     apiSso: process.env.VUE_APP_PATH_API_SSO,
+    apiCData: 'http://119.17.200.69:19980',
     isShowConfirm: false,
     dialogConfirm: {
       auth: false,
@@ -49,12 +50,15 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/cmon/internal/' + filter.collectionName + '/1.0',
+          url: '/officer/internal/' + filter.collectionName + '/1.0',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
           },
           data : dataPost
+        }
+        if (filter.hasOwnProperty('typeMode') && filter.typeMode == 'C_DATA') {
+          config.url = state.apiCData + '/cmon/internal/' + filter.collectionName + '/1.0'
         }
         axios(config).then(function (response) {
           let serializable = response.data
@@ -69,12 +73,15 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/cmon/internal/' + filter.collectionName + '/1.0/' + filter.id,
+          url: '/officer/internal/' + filter.collectionName + '/1.0/' + filter.id,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
           },
           data : dataPost
+        }
+        if (filter.hasOwnProperty('typeMode') && filter.typeMode == 'C_DATA') {
+          config.url = state.apiCData + '/cmon/internal/' + filter.collectionName + '/1.0/' + filter.id
         }
         axios(config).then(function (response) {
           let serializable = response.data
@@ -88,12 +95,15 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'delete',
-          url: '/cmon/internal/' + filter.collectionName + '/1.0/' + filter.id,
+          url: '/officer/internal/' + filter.collectionName + '/1.0/' + filter.id,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
           },
           data: {}
+        }
+        if (filter.hasOwnProperty('typeMode') && filter.typeMode == 'C_DATA') {
+          config.url = state.apiCData + '/cmon/internal/' + filter.collectionName + '/1.0/' + filter.id
         }
         axios(config).then(function (response) {
           let serializable = response.data
@@ -107,13 +117,16 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'get',
-          url: '/cmon/internal/' + filter.collectionName + '/1.0',
+          url: '/officer/internal/' + filter.collectionName + '/1.0',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
           },
           data: {},
           params: filter.data
+        }
+        if (filter.hasOwnProperty('typeMode') && filter.typeMode == 'C_DATA') {
+          config.url = state.apiCData + '/cmon/internal/' + filter.collectionName + '/1.0'
         }
         axios(config).then(function (response) {
           let serializable = response.data
@@ -127,12 +140,15 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'get',
-          url: '/cmon/internal/' + filter.collectionName + '/1.0/' + filter.id,
+          url: '/officer/internal/' + filter.collectionName + '/1.0/' + filter.id,
           data: {},
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
           }
+        }
+        if (filter.hasOwnProperty('typeMode') && filter.typeMode == 'C_DATA') {
+          config.url = state.apiCData + '/cmon/internal/' + filter.collectionName + '/1.0/' + filter.id
         }
         axios(config).then(function (response) {
           let serializable = response.data

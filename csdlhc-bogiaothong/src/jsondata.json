@@ -95,6 +95,140 @@
       }
     }
   ],
+  "danhSachPhongBan": [
+    {
+      "MaDinhDanh": "string",
+      "TenGoi": "string",
+      "MaPhongBan": "string",
+      "CoQuanDonVi": {
+        "primKey": "string",
+        "uuid": "string",
+        "@type": "string",
+        "ThoiGianTao": "2022-06-23T17:04:28.899Z",
+        "ThoiGianCapNhat": "2022-06-23T17:04:28.899Z",
+        "NguoiTaoLap": {
+          "@type": "string",
+          "MaDinhDanh": "string",
+          "TenDinhDanh": "string",
+          "MaSoID": "string"
+        },
+        "NguoiCapNhat": {
+          "@type": "string",
+          "MaDinhDanh": "string",
+          "TenDinhDanh": "string",
+          "MaSoID": "string"
+        },
+        "NhatKiSuaDoi": {
+          "@type": "string",
+          "ThoiGian": "2022-06-23T17:04:28.899Z",
+          "TacGia": "string",
+          "NoiDungSuaDoi": "string",
+          "MaSoBanTin": "string"
+        },
+        "TrangThaiDuLieu": {
+          "@type": "string",
+          "MaMuc": "string",
+          "TenMuc": "string"
+        },
+        "PhapLyDuLieu": {
+          "@type": "string",
+          "MaMuc": "string",
+          "TenMuc": "string"
+        },
+        "MaDinhDanh": "string",
+        "TenGoi": "string",
+        "TenVietTat": "string",
+        "TenTiengAnh": "string",
+        "CapDuToan": 0,
+        "SoQuyetDinh": "string",
+        "HinhThucSoHuu": {
+          "@type": "string",
+          "TenMuc": "string",
+          "MaMuc": "string"
+        },
+        "ToChucCapTren": {
+          "@type": "string",
+          "MaDinhDanh": "string",
+          "TenGoi": "string",
+          "TenTiengAnh": "string",
+          "TenVietTat": "string"
+        },
+        "MaSoNganSach": "string",
+        "NgayThanhLap": "2022-06-23T17:04:28.899Z",
+        "DanhBaLienLac": {
+          "@type": "string",
+          "SoFax": "string",
+          "ThuDienTu": "string",
+          "SoDienThoai": "string"
+        },
+        "TinhTrangToChuc": {
+          "@type": "string",
+          "TenMuc": "string",
+          "MaMuc": "string"
+        },
+        "DiaChiHoatDong": {
+          "@type": "string",
+          "SoNhaChiTiet": "string",
+          "PhuongXa": {
+            "@type": "string",
+            "MaMuc": "string",
+            "TenMuc": "string"
+          },
+          "QuanHuyen": {
+            "@type": "string",
+            "MaMuc": "string",
+            "TenMuc": "string"
+          },
+          "TinhThanh": {
+            "@type": "string",
+            "MaMuc": "string",
+            "TenMuc": "string"
+          }
+        },
+        "KhoiCoQuan": {
+          "@type": "string",
+          "TenMuc": "string",
+          "MaMuc": "string"
+        },
+        "NguoiDaiDien": {
+          "@type": "string",
+          "MaDinhDanh": "string",
+          "HoVaTen": "string",
+          "MaSoCaNhan": "string"
+        },
+        "GiayDangKyHoatDong": [
+          {
+            "@type": "string",
+            "MaDinhDanh": "string",
+            "SoGiay": "string",
+            "NgayCap": "2022-06-23T17:04:28.899Z",
+            "LoaiGiayDangKyHoatDong": {
+              "@type": "string",
+              "MaMuc": "string",
+              "TenMuc": "string"
+            }
+          }
+        ],
+        "DanhTinhDienTu": [
+          {
+            "@type": "string",
+            "MaDinhDanh": "string",
+            "TenDinhDanh": "string",
+            "TinhTrangSuDungTaiKhoan": {
+              "@type": "string",
+              "MaMuc": "string",
+              "TenMuc": "string"
+            }
+          }
+        ]
+      },
+      "DanhBaLienLac": {
+        "ThuDienTu": "string",
+        "SoDienThoai": "string",
+        "SoFax": "string"
+      }
+    }
+  ],
   "danhSachCanBo": [
     {
       "primKey": "1",

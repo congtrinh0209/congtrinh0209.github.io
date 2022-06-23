@@ -436,7 +436,10 @@
         { text: 'Trạng thái dữ liệu', value: '10', collectionName: 'trangthaidulieu' },
         { text: 'Tình trạng tổ chức', value: '11', collectionName: 'tinhtrangtochuc' },
         { text: 'Tình trạng công tác', value: '12', collectionName: 'tinhtrangcongtac' },
-        { text: 'Tình trạng sử dụng tài khoản', value: '13', collectionName: 'tinhtrangsudungtaikhoan' }
+        { text: 'Tình trạng sử dụng tài khoản', value: '13', collectionName: 'tinhtrangsudungtaikhoan' },
+        { text: 'Khối cơ quan', value: '14', collectionName: 'khoicoquan' },
+        { text: 'Hình thức sở hữu', value: '15', collectionName: 'hinhthucsohuu' },
+        { text: 'Loại giấy đăng ký kinh doanh', value: '15', collectionName: 'loaigiaydangkykinhdoanh' }
       ],
       headers: [
         {
@@ -601,7 +604,8 @@
         if (vm.$refs.formAddDanhMuc.validate()) {
           let filter = {
             collectionName: vm.itemSelect.collectionName,
-            data: vm.dataAction
+            data: vm.dataAction,
+            typeMode: 'C_DATA'
           }
           vm.$store.dispatch('collectionCreate', filter).then(function (result) {
             vm.loading = false
@@ -663,7 +667,8 @@
           let filter = {
             collectionName: vm.itemSelect.collectionName,
             id: vm.itemUpdate.primKey,
-            data: vm.dataAction
+            data: vm.dataAction,
+            typeMode: 'C_DATA'
           }
           vm.$store.dispatch('collectionUpdate', filter).then(function (result) {
             vm.loading = false
@@ -692,7 +697,8 @@
               vm.loading = true
               let filter = {
                 collectionName: vm.itemSelect.collectionName,
-                id: item.primKey
+                id: item.primKey,
+                typeMode: 'C_DATA'
               }
               vm.$store.dispatch('collectionDelete', filter).then(function (result) {
                 vm.loading = false
@@ -738,7 +744,8 @@
             orderTypes: 'asc',
             tinhTrang: !vm.statusFilter ? '1,0' : vm.statusFilter,
             thamChieu_maMuc: thamChieu
-          }
+          },
+          typeMode: 'C_DATA'
         }
         vm.$store.dispatch('collectionFilter', filter).then(function (response) {
           vm.itemsDanhMuc = response.content
@@ -761,7 +768,8 @@
             orderTypes: 'asc',
             tinhTrang: '1',
             thamChieu_maMuc: ''
-          }
+          },
+          typeMode: 'C_DATA'
         }
         if (name === 'quanhuyen') {
           if (type === 'search') {

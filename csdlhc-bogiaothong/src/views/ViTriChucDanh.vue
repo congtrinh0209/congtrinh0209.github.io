@@ -4,10 +4,10 @@
       <v-row align-content="center">
         <v-col class="mt-0 pb-2 wrap-toolbar-page">
           <div class="title-page d-inline-block pt-2" v-if="!selectDonVi">
-            DANH SÁCH CHỨC VỤ
+            DANH SÁCH CHỨC DANH
           </div>
           <div class="title-page d-inline-block pt-2" v-if="selectDonVi">
-            CHỨC VỤ - {{donViSearch['tenGoi']}}
+            CHỨC DANH - {{donViSearch['tenGoi']}}
           </div>
         </v-col>
       </v-row>
@@ -15,7 +15,7 @@
         <v-col cols="12" md="6">
           <label>Tìm kiếm theo từ khóa</label>
           <v-text-field
-              class="input-form"
+              class="input-form mt-2"
               v-model="keywordSearch"
               solo
               dense
@@ -27,7 +27,7 @@
         <v-col v-if="!selectDonVi" cols="12" md="6">
           <label>Đơn vị</label>
           <v-autocomplete
-            class="flex input-form"
+            class="flex input-form mt-2"
             hide-no-data
             :items="itemsDonVi"
             v-model="donViSearch"
@@ -353,19 +353,11 @@
     methods: {
       showAddChucVu () {
         let vm = this
-        vm.typeAction = 'create'
-        vm.dialogAddChucVu = true
-        setTimeout(function () {
-          vm.thongTinChucVu = vm.thongTinPhongBanSample
-          vm.$refs.formAddChucVu.resetValidation()
-        }, 100)
+        vm.$router.push({ path: '/vi-tri-chuc-danh/0'})
       },
       showEditChucVu (item) {
         let vm = this
-        vm.typeAction = 'update'
-        vm.thongTinChucVu = item
-        vm.formatInputData()
-        vm.dialogAddChucVu = true
+        vm.$router.push({ path: '/vi-tri-chuc-danh/' + item.primKey })
       },
       deleteChucVu (item) {
         let vm = this

@@ -88,14 +88,6 @@
           <div>
             <v-tooltip top>
               <template v-slot:activator="{ on, attrs }">
-                <v-btn @click.stop="showDanhSachCanBo(item)" color="#025e29" text icon class=" mr-3" v-bind="attrs" v-on="on">
-                  <v-icon size="22">mdi-account-multiple-plus-outline</v-icon>
-                </v-btn>
-              </template>
-              <span>Danh sách cán bộ</span>
-            </v-tooltip>
-            <v-tooltip top>
-              <template v-slot:activator="{ on, attrs }">
                 <v-btn @click.stop="showEditPhongBan(item)" color="#025e29" text icon class=" mr-3" v-bind="attrs" v-on="on">
                   <v-icon size="22">mdi-pencil</v-icon>
                 </v-btn>
@@ -115,129 +107,6 @@
       </v-data-table>
       <pagination v-if="pageCount" :pageInput="page" :pageCount="pageCount" :total="total" @tiny:change-page="changePage"></pagination>
     </div>
-    <v-dialog
-      max-width="900"
-      v-model="dialogAddPhongBan"
-      persistent
-    >
-      <v-card>
-        <v-toolbar
-          dark
-          color="primary" class="px-3"
-        >
-          <v-toolbar-title v-if="typeAction === 'create'">Thêm phòng ban</v-toolbar-title>
-          <v-toolbar-title v-else>Cập nhật phòng ban</v-toolbar-title>
-          <v-spacer></v-spacer>
-          <v-toolbar-items>
-            <v-btn
-              icon
-              dark
-              @click="dialogAddPhongBan = false"
-            >
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-          </v-toolbar-items>
-        </v-toolbar>
-        <v-card-text class="mt-5 px-2">
-          <v-form
-            ref="formAddPhongBan"
-            v-model="validFormAdd"
-            lazy-validation
-          >
-            <v-layout wrap>
-              <v-col cols="12" md="6" class="py-0 mb-2">
-                  <label>Mã phòng ban <span class="red--text">(*)</span></label>
-                  <v-text-field
-                    class="flex input-form"
-                    v-model="thongTinPhongBan['maPhongBan']"
-                    solo
-                    dense
-                    :rules="required"
-                    required
-                    hide-details="auto"
-                    clearable
-                  ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0 mb-2">
-                  <label>Tên phòng ban <span class="red--text">(*)</span></label>
-                  <v-text-field
-                    class="flex input-form"
-                    v-model="thongTinPhongBan['tenGoi']"
-                    solo
-                    dense
-                    :rules="required"
-                    required
-                    hide-details="auto"
-                    clearable
-                  ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0 mb-2">
-                  <label>Email</label>
-                  <v-text-field
-                    class="input-form"
-                    v-model="thongTinPhongBan.danhBaLienLac['thuDienTu']"
-                    solo
-                    dense
-                    clearable
-                    max
-                    hide-details="auto"
-                  ></v-text-field>
-              </v-col>
-              <v-col cols="12" md="6" class="py-0">
-                  <label>Điện thoại</label>
-                  <v-text-field
-                    class="input-form"
-                    v-model="thongTinPhongBan.danhBaLienLac['soDienThoai']"
-                    solo
-                    dense
-                    clearable
-                    max
-                    hide-details="auto"
-                  ></v-text-field>
-              </v-col>
-              <v-col v-if="!selectDonVi" cols="12" md="6" class="py-0 mb-2">
-                  <label>Thuộc đơn vị <span class="red--text">(*)</span></label>
-                  <v-autocomplete
-                    class="flex input-form"
-                    :items="itemsDonVi"
-                    v-model="toChucCapTrenCreate"
-                    hide-no-data
-                    item-text="tenGoi"
-                    item-value="maDinhDanh"
-                    dense
-                    solo
-                    hide-details="auto"
-                    return-object
-                    :rules="required"
-                    required
-                  >
-                  </v-autocomplete>
-              </v-col>
-            </v-layout>
-          </v-form>
-        </v-card-text>
-        <v-card-actions class="justify-end pb-3">
-          <v-btn color="red" class="white--text mr-2" :loading="loading" :disabled="loading" @click="cancelCreate">
-            <v-icon left>
-              mdi-close
-            </v-icon>
-            Thoát
-          </v-btn>
-          <v-btn v-if="typeAction === 'create'" class="mr-2" color="primary" :loading="loading" :disabled="loading" @click="submitAddPhongBan">
-            <v-icon left>
-              mdi-content-save
-            </v-icon>
-            <span>Thêm mới</span>
-          </v-btn>
-          <v-btn v-else class="mr-2" color="primary" :loading="loading" :disabled="loading" @click="submitUpdatePhongBan">
-            <v-icon left>
-              mdi-content-save
-            </v-icon>
-            <span>Cập nhật</span>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
   </div>
 </template>
 
@@ -400,79 +269,11 @@
       },
       showAddPhongBan () {
         let vm = this
-        vm.typeAction = 'create'
-        vm.dialogAddPhongBan = true
-        setTimeout(function () {
-          vm.thongTinPhongBan = vm.thongTinPhongBanSample
-          vm.$refs.formAddPhongBan.resetValidation()
-        }, 100)
+        vm.$router.push({ path: '/phong-ban/0'})
       },
       showEditPhongBan (item) {
         let vm = this
-        vm.typeAction = 'update'
-        vm.thongTinPhongBan = item
-        vm.formatInputData()
-        vm.dialogAddPhongBan = true
-      },
-      submitAddPhongBan () {
-        let vm = this
-        vm.formatOutputData()
-        if (vm.loading) {
-          return
-        }
-        vm.loading = true
-        if (vm.$refs.formAddPhongBan.validate()) {
-          let filter = {
-            collectionName: 'phongban',
-            data: vm.thongTinPhongBan
-          }
-          vm.$store.dispatch('collectionCreate', filter).then(function (result) {
-            vm.loading = false
-            toastr.remove()
-            toastr.success('Thêm mới thành công')
-            vm.dialogAddPhongBan = false
-            vm.getPhongBan()
-          }).catch(function (response) {
-            vm.loading = false
-            toastr.remove()
-            toastr.error('Thêm mới thất bại')
-          })
-        } else {
-          vm.loading = false
-        }
-      },
-      submitUpdatePhongBan () {
-        let vm = this
-        vm.formatOutputData()
-        if (vm.loading) {
-          return
-        }
-        vm.loading = true
-        if (vm.$refs.formAddPhongBan.validate()) {
-          let filter = {
-            collectionName: 'phongban',
-            id: vm.thongTinPhongBan['primKey'],
-            data: vm.thongTinPhongBan
-          }
-          vm.$store.dispatch('collectionUpdate', filter).then(function (result) {
-            vm.loading = false
-            toastr.remove()
-            toastr.success('Cập nhật thông tin thành công')
-            vm.dialogAddPhongBan = false
-            vm.getPhongBan()
-          }).catch(function (response) {
-            vm.loading = false
-            toastr.remove()
-            toastr.error('Cập nhật thông tin thất bại')
-          })
-        } else {
-          vm.loading = false
-        }
-      },
-      cancelCreate () {
-        let vm = this
-        vm.getPhongBan()
-        vm.dialogAddPhongBan = false
+        vm.$router.push({ path: '/phong-ban/' + item.primKey })
       },
       getPhongBan (type) {
         let vm = this
