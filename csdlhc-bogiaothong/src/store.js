@@ -117,7 +117,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'get',
-          url: '/officer/internal/' + filter.collectionName + '/1.0',
+          url: '/officer/internal/' + filter.collectionName + '/1.0/filter',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -126,7 +126,7 @@ export default new Vuex.Store({
           params: filter.data
         }
         if (filter.hasOwnProperty('typeMode') && filter.typeMode == 'C_DATA') {
-          config.url = state.apiCData + '/cmon/internal/' + filter.collectionName + '/1.0'
+          config.url = state.apiCData + '/cmon/internal/' + filter.collectionName + '/1.0/filter'
         }
         axios(config).then(function (response) {
           let serializable = response.data
@@ -196,17 +196,18 @@ export default new Vuex.Store({
     getTokenKeyCloak ({commit, state}, filter) {
       return new Promise((resolve, reject) => {
         let settings = {
-          "url": state.apiSso + '/flex/oauth2/token',
+          "url": state.apiSso + "/realms/mtdata-dev/protocol/openid-connect/token",
           "method": "POST",
           "headers": {
-            'Authorization': 'Basic ZmxleDpzc28=',
-            'secret': 'GCguqEMazevwOxEYPkhDH/ybLg/TuAWJ',
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded'
           },
           "data": {
-            "code": filter.code,
-            "redirect_uri": filter.redirect_uri
+            "username": filter.username,
+            "password": filter.password,
+            "grant_type": "password",
+            "client_id": "cmon",
+            "client_secret": "8fvwXNKV19s1eF4XsrXW5L9by83Xz7Hp"
           }
         };
         

@@ -141,12 +141,16 @@
         localStorage.setItem('user', null)
         vm.$cookies.set('Token', '')
         vm.$cookies.set('RefreshToken', '')
-        vm.$store.dispatch('logoutKeyCloak').then(function (result) {
-          let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
-          window.location.href = result.endpoint + '?redirect_uri='+ redirect_uri
-        }).catch(function () {
-          window.location.href = window.location.origin + window.location.pathname + "#/login"
-        })
+
+        let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
+        window.location.href = "https://idp.fds.vn/realms/mtdata-dev/protocol/openid-connect/logout"
+
+        // vm.$store.dispatch('logoutKeyCloak').then(function (result) {
+        //   let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
+        //   window.location.href = result.endpoint + '?redirect_uri='+ redirect_uri
+        // }).catch(function () {
+        //   window.location.href = window.location.origin + window.location.pathname + "#/login"
+        // })
         
       },
     },

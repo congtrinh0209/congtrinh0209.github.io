@@ -33,7 +33,7 @@
                   :rules="[v => !!v || 'Tên đăng nhập là bắt buộc']"
                   required
                   prepend-inner-icon="mdi-account"
-                  @keyup.enter="submitConfirmLogin"
+                  @keyup.enter="loginKeyCloak"
                   hide-details="auto"
                   outlined
                 ></v-text-field>
@@ -50,7 +50,7 @@
                   :rules="[v => !!v || 'Mật khẩu là bắt buộc']"
                   required
                   prepend-inner-icon="mdi-key"
-                  @keyup.enter="submitConfirmLogin"
+                  @keyup.enter="loginKeyCloak"
                   hide-details="auto"
                 ></v-text-field>
               </v-flex>
@@ -59,7 +59,7 @@
                 <v-btn class="my-0 white--text btn-login"
                   :loading="loading"
                   :disabled="loading"
-                  @click="submitConfirmLogin"
+                  @click="loginKeyCloak"
                 >
                   Đăng nhập
                 </v-btn>
@@ -139,7 +139,7 @@
         if (!isLogin && searchParams && searchParams['code']) {
           vm.overlay = true
           vm.code = searchParams['code']
-          vm.getToken()
+          // vm.getToken()
         }
       }
       if (Vue.$cookies.get('Token')) {
@@ -172,6 +172,8 @@
         }).catch(function (result) {
           vm.loading = false
         })
+
+        // window.location.href = 'https://idp.fds.vn/realms/mtdata-dev/protocol/openid-connect/auth?response_type=code&client_id=mtdata-cmonweb&state=xxx&&redirect_uri=' + filter.uri
       },
       getToken () {
         let vm = this
@@ -180,42 +182,41 @@
           code: vm.code,
           redirect_uri: process.env.VUE_APP_PATH_REDIRECT_SSO
         }
-        alert('code', vm.code)
         vm.$store.dispatch('getTokenKeyCloak', filter).then(function (result) {
           vm.loading = false
           vm.overlay = false
           if (result.access_token) {
             try {
-              let dataUser = JSON.parse(atob(result.access_token.split('.')[1]))
-              let scopeUser = dataUser.scope.split(" ")
-              let roleUser = ''
-              try {
-                roleUser = dataUser.realm_access.roles
-              } catch (error) {
-              }
-              let role = roleUser.filter(function (item) {
-                return item === 'site-admin'
-              })
-              let hasAdmin = scopeUser.filter(function (item) {
-                return item === 'site-admin'
-              })
-              if (hasAdmin && hasAdmin.length && role && role.length) {
+              // let dataUser = JSON.parse(atob(result.access_token.split('.')[1]))
+              // let scopeUser = dataUser.scope.split(" ")
+              // let roleUser = ''
+              // try {
+              //   roleUser = dataUser.realm_access.roles
+              // } catch (error) {
+              // }
+              // let role = roleUser.filter(function (item) {
+              //   return item === 'site-admin'
+              // })
+              // let hasAdmin = scopeUser.filter(function (item) {
+              //   return item === 'site-admin'
+              // })
+              // if (hasAdmin && hasAdmin.length && role && role.length) {
                 vm.$cookies.set('Token', result.access_token, result.expires_in)
                 vm.$cookies.set('RefreshToken', result.refresh_token, result.refresh_expires_in)
                 axios.defaults.headers['Authorization'] = 'Bearer ' + result.access_token
-                let dataUser = {
-                  role_name: '',
-                  user_id: ''
-                }
-                localStorage.setItem('user', JSON.stringify(dataUser))
+                // let dataUser = {
+                //   role_name: '',
+                //   user_id: ''
+                // }
+                // localStorage.setItem('user', JSON.stringify(dataUser))
                 vm.$store.commit('SET_ISSIGNED', true)
                 window.location.href = window.location.origin + window.location.pathname + "#/don-vi"
-              } else {
-                vm.loading = false
-                vm.overlay = false
-                toastr.error('TÀI KHOẢN KHÔNG CÓ TRÊN HỆ THỐNG')
-                vm.submitLogout()
-              }
+              // } else {
+              //   vm.loading = false
+              //   vm.overlay = false
+              //   toastr.error('TÀI KHOẢN KHÔNG CÓ TRÊN HỆ THỐNG')
+              //   vm.submitLogout()
+              // }
 
             } catch (error) {
               vm.loading = false
@@ -238,12 +239,16 @@
         localStorage.setItem('user', null)
         vm.$cookies.set('Token', '')
         vm.$cookies.set('RefreshToken', '')
-        vm.$store.dispatch('logoutKeyCloak').then(function (result) {
-          let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
-          window.location.href = result.endpoint + '?redirect_uri='+ redirect_uri
-        }).catch(function () {
-          window.location.href = window.location.origin + window.location.pathname + "#/login"
-        })
+        // 
+        let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
+        window.location.href = "https://idp.fds.vn/realms/mtdata-dev/protocol/openid-connect/logout"
+        // 
+        // vm.$store.dispatch('logoutKeyCloak').then(function (result) {
+        //   let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
+        //   window.location.href = result.endpoint + '?redirect_uri='+ redirect_uri
+        // }).catch(function () {
+        //   window.location.href = window.location.origin + window.location.pathname + "#/login"
+        // })
       },
       getPassword () {
         let vm = this
