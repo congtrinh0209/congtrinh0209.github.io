@@ -1689,7 +1689,7 @@
 				},
 				{
 				"selected": true,
-				"value": "overtimeCountNotFinish",
+				"value": "waitingCount",
 				"text": "",
 				"align": "center"
 				},
@@ -1840,7 +1840,7 @@
 									style: "tdStyle"
 								},
 								{
-									text: "Tổng số trễ hạn",
+									text: "Hồ sơ chờ bổ sung",
 									rowSpan: 3,
 									alignment: "center",
 									bold: true,
@@ -2301,7 +2301,7 @@
 				},
 				{
 				"selected": true,
-				"value": "overtimeCountNotFinish",
+				"value": "waitingCount",
 				"text": "",
 				"align": "center"
 				},
@@ -2453,7 +2453,7 @@
 										style: "tdStyle"
 									},
 									{
-										text: "Tổng số trễ hạn",
+										text: "Hồ sơ chờ bổ sung",
 										rowSpan: 3,
 										alignment: "center",
 										bold: true,

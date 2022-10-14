@@ -1,0 +1,316 @@
+html
+  font-size: 14px
+.v-btn.v-size--default,
+.v-btn.v-size--large
+  &:not(.v-btn--icon):not(.v-btn--fab)
+    padding: 0 30px !important
+.v-sheet button.v-btn.v-size--default:not(.v-btn--icon):not(.v-btn--fab)
+  padding: 12px 15px !important
+.theme--light.v-list-item .v-list-item__action-text,
+.theme--light.v-list-item .v-list-item__subtitle
+  color: #999
+
+.theme--light.v-text-field>.v-input__control>.v-input__slot:before
+  border-color: #d2d2d2
+
+
+.theme--light .v-content
+  background-color: #eee
+table
+  border-top: thin solid rgba(0,0,0,.12)
+.v-btn.v-size--default
+  font-size: 1rem
+.v-data-table-header th 
+  font-size: 14px !important
+  color: black !important
+  font-weight: 400 !important
+.v-btn__content .v-icon.v-icon--left, 
+.v-btn__content .v-icon.v-icon--right
+  font-size: 20px
+.v-snack__content 
+  font-size: 1rem !important
+.v-data-table .v-data-table-header tr th:not(:last-child),
+.v-data-table tbody tr td:not(:last-child)
+  border-right: 1px solid #dedede
+.v-data-table-header-mobile
+  display: none !important
+.v-card
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%) !important
+.counter-up-down input[type=number]::-webkit-inner-spin-button,
+.counter-up-down input[type=number]::-webkit-outer-spin-button 
+  -webkit-appearance: none
+  margin: 0
+.counter-up-down input[type=number]
+  text-align: center
+.v-select-list .v-list-item
+  border-bottom: 1px dotted #b9b9b9
+main.v-content
+  padding-top: 0px !important
+
+.theme--light.v-pagination .v-pagination__item
+  background: #fff
+  color: rgba(0,0,0,.87)
+  height: 30px
+
+.theme--light.v-pagination .v-pagination__item--active
+  color: #fff
+
+.theme--light.v-pagination .v-pagination__navigation
+  background: #fff
+
+.theme--dark.v-pagination .v-pagination__item 
+  background: #1e1e1e
+  color: #fff
+
+.theme--dark.v-pagination .v-pagination__item--active
+  color: #fff
+
+.theme--dark.v-pagination .v-pagination__navigation
+  background: #1e1e1e
+.theme--light.v-picker--date
+  margin-top: 0px
+  margin-bottom: 0px
+.v-input--checkbox label
+  color: black !important
+.v-pagination 
+  -webkit-box-align: center
+  -ms-flex-align: center
+  align-items: center
+  display: -webkit-inline-box
+  display: -ms-inline-flexbox
+  display: inline-flex
+  list-style-type: none
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+  margin: 0
+  max-width: 100%
+  width: 100%
+
+.v-pagination.v-pagination
+  padding-left: 0
+
+.v-pagination>li 
+  -webkit-box-align: center
+  -ms-flex-align: center
+  align-items: center
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+
+
+.v-pagination--circle .v-pagination__item,.v-pagination--circle .v-pagination__more,.v-pagination--circle .v-pagination__navigation
+  border-radius: 50%
+.v-pagination--disabled
+  pointer-events: none
+  opacity: .6
+
+.v-pagination__item 
+  background: transparent
+  border-radius: 4px
+  font-size: 1rem
+  height: 30px
+  margin: .3rem
+  min-width: 34px
+  padding: 0 5px
+  text-decoration: none
+  -webkit-transition: .3s cubic-bezier(0,0,.2,1)
+  transition: .3s cubic-bezier(0,0,.2,1)
+  width: auto
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)
+
+
+.v-pagination__item--active
+  -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12)
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12)
+
+
+.v-pagination__navigation
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12)
+  border-radius: 4px
+  display: -webkit-inline-box
+  display: -ms-inline-flexbox
+  display: inline-flex
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+  -webkit-box-align: center
+  -ms-flex-align: center
+  align-items: center
+  text-decoration: none
+  height: 28px
+  width: 28px
+  margin: .3rem 10px
+
+.v-pagination__navigation .v-icon
+  -webkit-transition: .2s cubic-bezier(.4,0,.6,1)
+  transition: .2s cubic-bezier(.4,0,.6,1)
+  vertical-align: middle
+
+.v-pagination__navigation--disabled 
+  opacity: .6
+  pointer-events: none
+
+.v-pagination__more 
+  margin: .3rem
+  display: -webkit-inline-box
+  display: -ms-inline-flexbox
+  display: inline-flex
+  -webkit-box-align: end
+  -ms-flex-align: end
+  align-items: flex-end
+  -webkit-box-pack: center
+  -ms-flex-pack: center
+  justify-content: center
+  height: 32px
+  width: 32px
+table th, table td
+  padding-left: 8px !important
+  padding-right: 8px !important
+
+.theme--light.v-label
+  color: rgb(0 0 0)
+.input-form .v-input__slot 
+  box-shadow: none !important
+
+.input-form .v-input__slot 
+  background: #ffffff!important
+  border: 1px solid #D9D9D9
+.input-form .v-input__slot .v-text-field__slot, .v-select__selection
+  font-size: 14px
+.input-form .v-icon
+  font-size: 18px !important
+.title-page
+  color: $base-color
+  font-size: 16px
+  font-weight: bold
+#toast-container > div
+  opacity: 1 !important
+.vc-btn
+  color: $base-color !important
+
+.v-main__wrap > .container
+  padding: 0
+.v-list--two-line .v-list-item, .v-list-item--two-line
+  min-height: 0px !important
+.container
+  max-width: 100%
+.autocomplete-form-input, .autocomplete-form-input .v-select__slot
+  height: 32px
+.autocomplete-form-input .v-input__control, .autocomplete-form-input .v-input__slot
+  min-height: 32px !important
+.autocomplete-form-input .v-input__append-inner
+  margin-top: 6px !important
+.input-form:not(.v-textarea), .input-form:not(.v-textarea) .v-input__slot
+  height: 32px
+.height-auto.input-form:not(.v-textarea), .height-auto.input-form:not(.v-textarea) .v-input__slot
+  height: auto !important
+  min-height: 32px !important
+.input-form .v-input__control, .input-form .v-input__slot
+  min-height: 0 !important
+.v-select--is-multi .v-input__slot
+  min-height: 32px !important
+  height: auto
+.btn-form
+  height: 32px
+.v-text-field--outlined .v-input__slot fieldset
+  color: #2161B1 !important
+input::-webkit-input-placeholder
+  color: #2161B1 !important
+input:-ms-input-placeholder
+  color: #2161B1 !important
+input::placeholder
+  color: #7A7A7A !important
+.header-content
+  height: 30px
+  background: #2161B1 !important
+  color: #ffffff
+  padding: 7px 10px
+  font-size: 14px
+  text-transform: uppercase
+  // font-weight: 700
+.triangle-header
+  width: 0
+  height: 0
+  border-bottom: 30px solid #2161B1
+  border-right: 20px solid transparent
+.sub-header
+  color: #2161B1
+  font-weight: 500
+  height: 36px
+  border: 1px solid #2161B1
+  border-bottom: 0px
+  padding: 10px
+  padding: 7px 15px !important
+  text-align: center
+  border-top-right-radius: 10px
+  border-top-left-radius: 10px
+table tbody td
+  font-size: 14px !important
+form label
+  color: black
+  font-size: 14px
+  line-height: 28px
+form input::placeholder
+  color: #00000099 !important
+.v-list-item--dense .v-list-item__title, .v-list-item--dense .v-list-item__subtitle, .v-list--dense .v-list-item .v-list-item__title, .v-list--dense .v-list-item .v-list-item__subtitle
+  font-size: 14px !important
+  font-weight: 400 !important
+  line-height: 1.5 !important
+.v-footer--fixed
+  position: absolute !important
+.background-triangle-big, .background-triangle-small 
+  background-color: #2161B1 
+  display: inline-block
+  text-align: left
+  color: #fff
+  position: relative
+  margin-right: 20px
+  text-transform: uppercase
+  padding: 5px 10px
+  width: auto
+  cursor: pointer
+body .no__hidden_class.row-header .background-triangle-big
+  height: 37px
+.background-triangle-big:before, .background-triangle-small:before
+  content: ""
+  position: absolute
+  transform: rotate(45deg)
+  right: -3px
+  top: 1px
+  border-top: 22px solid #2161B1 
+  border-left: 22px solid transparent
+  border-bottom: 22px solid transparent
+.v-input--checkbox .v-label
+  font-size: 14px
+.wrap-select-loaibaocao .v-input--selection-controls
+  margin-top: 0px
+  padding-top: 0px
+.v-data-table__wrapper
+  border-bottom: 1px solid #dedede
+  border-left: 1px solid #dedede
+  border-right: 1px solid #dedede
+.v-data-table__wrapper > table > thead > tr > th
+  height: 36px !important
+  font-weight: 700 !important
+.v-data-table__wrapper th.th-center, .v-data-table__wrapper  td.td-center
+  text-align: center !important
+.v-data-table__wrapper th.th-left, .v-data-table__wrapper  td.td-left
+  text-align: left !important
+.v-data-table-header
+  background: #E3F1FB
+.label-header
+  font-weight: 700
+.blue-text
+  color: #2161B1
+.v-autocomplete__content .v-list-item__action
+  margin-top: 5px
+  margin-bottom: 5px
+  margin-right: 10px !important
+.error--text .v-input__slot
+  border: 1px solid #ff5252
+@media (min-width: 1368px)
+.container
+  max-width: 100% !important

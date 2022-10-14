@@ -6093,7 +6093,8 @@
 		  source: [
 			{name: "Tất cả", value: "total"},
 			{name: "Trực tiếp", value: "direct"},
-			{name: "Trực tuyến", value: "online"}
+			{name: "Trực tuyến", value: "online"},
+			{name: "Dịch Vụ Công Quốc Gia", value: "PayPlatDVCQG"}
 		  ],
 		  class: "xs12 sm6 px-3 mb-3"
 		},

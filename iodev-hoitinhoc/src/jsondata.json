@@ -1,0 +1,502 @@
+{
+  "danhSachBaoCao": [
+    {
+      "maDinhDanh": "231241233",
+      "maBaoCao": "BC-983123",
+      "tenBaoCao": "Số lượng văn bản quy phạm pháp luật liên quan đến thích ứng biển đổi khí hậu được xây dựng và ban hành",
+      "quyTrinh": {
+        "@type": "T_QuyTrinh",
+        "maQuyTrinh": "QT-001"
+      },
+      "mauBaoCao": {
+        "@type": "T_MauBaoCao",
+        "maDinhDanh": "",
+        "maMauBaoCao": "MAU_001",
+        "nhapNhieuThanhPhan": 1
+      },
+      "kyBaoCao": {
+        "@type": "C_KyBaoCao",
+        "maMuc": "1",
+        "tenMuc": "Theo tháng"
+      },
+      "hanXuLy": "02-09-2022",
+      "coQuanThucHien": {
+        "@type": "T_CoQuanDonVi",
+        "maHanhChinh": "STNMT",
+        "tenGoi": "Sở Tài nguyên và môi trường"
+      },
+      "tinhTrang": {
+        "@type": "C_TrangThaiXuLy",
+        "tenMuc": "Đang xử lý",
+        "maMuc": "1"
+      },
+      "thoiGianTao": "12-08-2022",
+      "thoiGianCapNhat": "",
+      "nguoiTaoLap": {
+        "@type": "T_DanhTinhDienTu",
+        "tenDinhDanh": "",
+        "maSoID": ""
+      }
+    },
+    {
+      "maDinhDanh": "23123",
+      "maBaoCao": "BC-154312",
+      "tenBaoCao": "Số lượng văn bản quy phạm pháp luật liên quan đến thích ứng biển đổi khí hậu được xây dựng và ban hành",
+      "quyTrinh": {
+        "@type": "T_QuyTrinh",
+        "maQuyTrinh": "QT-002"
+      },
+      "mauBaoCao": {
+        "@type": "T_MauBaoCao",
+        "maDinhDanh": "",
+        "maMauBaoCao": "MAU_002",
+        "nhapNhieuThanhPhan": 1
+      },
+      "kyBaoCao": {
+        "@type": "C_KyBaoCao",
+        "maMuc": "1",
+        "tenMuc": "Theo tuần"
+      },
+      "hanXuLy": "08-08-2022",
+      "coQuanThucHien": {
+        "@type": "T_CoQuanDonVi",
+        "maHanhChinh": "STTTT",
+        "tenGoi": "Sở Thông tin và truyền thông"
+      },
+      "tinhTrang": {
+        "@type": "C_TrangThaiXuLy",
+        "tenMuc": "Chờ duyệt",
+        "maMuc": "2"
+      },
+      "thoiGianTao": "01-08-2022",
+      "thoiGianCapNhat": "",
+      "nguoiTaoLap": {
+        "@type": "T_DanhTinhDienTu",
+        "tenDinhDanh": "",
+        "maSoID": ""
+      }
+    }
+  ],
+  "danhSachThanhPhan": [
+    {
+      "maDinhDanh": "231241233",
+      "maBaoCao": "BC-983123",
+      "tenBaoCao": "Số lượng văn bản quy phạm pháp luật liên quan đến thích ứng biển đổi khí hậu được xây dựng và ban hành",
+      "quyTrinh": {
+        "@type": "T_QuyTrinh",
+        "maQuyTrinh": "QT-001"
+      },
+      "noiDung": {
+        "loaiVanBan": {
+          "name": "Quyết định",
+          "value": "1"
+        },
+        "hienTrang": [
+          {
+            "name": "Dự thảo",
+            "value": "1"
+          },
+          {
+            "name": "Đã ban hành",
+            "value": "2"
+          }
+        ],
+        "coQuanBanHanh": [
+          {
+            "name": "Sở thông tin và truyền thông",
+            "value": "1"
+          }
+        ],
+        "ngayBanHanh": "2022-11-11T00:00:00.000Z",
+        "tenVanBan": "Tôi là tên văn bản",
+        "tomTatNoiDung": "Tôi là tên tóm tắt nội dung",
+        "tinhTrang": {
+          "tenMuc": "Đang xử lý",
+          "maMuc": "1"
+        }
+      },
+      "mauBaoCao": {
+        "@type": "T_MauBaoCao",
+        "maDinhDanh": "",
+        "maMauBaoCao": "MAU_001",
+        "nhapNhieuThanhPhan": 1
+      },
+      "kyBaoCao": {
+        "@type": "C_KyBaoCao",
+        "maMuc": "1",
+        "tenMuc": "Theo tháng"
+      },
+      "hanXuLy": "02-09-2022",
+      "coQuanThucHien": {
+        "@type": "T_CoQuanDonVi",
+        "maHanhChinh": "STNMT",
+        "tenGoi": "Sở Tài nguyên và môi trường"
+      },
+      "tinhTrang": {
+        "@type": "C_TrangThaiXuLy",
+        "tenMuc": "Đang xử lý",
+        "maMuc": "1"
+      },
+      "thoiGianTao": "12-08-2022",
+      "thoiGianCapNhat": "",
+      "nguoiTaoLap": {
+        "@type": "T_DanhTinhDienTu",
+        "tenDinhDanh": "",
+        "maSoID": ""
+      }
+    },
+    {
+      "maDinhDanh": "23123",
+      "maBaoCao": "BC-154312",
+      "tenBaoCao": "Số lượng văn bản quy phạm pháp luật liên quan đến thích ứng biển đổi khí hậu được xây dựng và ban hành",
+      "quyTrinh": {
+        "@type": "T_QuyTrinh",
+        "maQuyTrinh": "QT-002"
+      },
+      "mauBaoCao": {
+        "@type": "T_MauBaoCao",
+        "maDinhDanh": "",
+        "maMauBaoCao": "MAU_002",
+        "nhapNhieuThanhPhan": 1
+      },
+      "noiDung": {
+        "loaiVanBan": {
+          "name": "Quyết định",
+          "value": "1"
+        },
+        "hienTrang": [
+          {
+            "name": "Dự thảo",
+            "value": "1"
+          },
+          {
+            "name": "Đã ban hành",
+            "value": "2"
+          }
+        ],
+        "coQuanBanHanh": [
+          {
+            "name": "Sở thông tin và truyền thông",
+            "value": "1"
+          }
+        ],
+        "ngayBanHanh": "2022-11-11T00:00:00.000Z",
+        "tenVanBan": "Tôi là tên văn bản",
+        "tomTatNoiDung": "Tôi là tên tóm tắt nội dung",
+        "tinhTrang": {
+          "tenMuc": "Đang xử lý",
+          "maMuc": "1"
+        }
+      },
+      "kyBaoCao": {
+        "@type": "C_KyBaoCao",
+        "maMuc": "1",
+        "tenMuc": "Theo tuần"
+      },
+      "hanXuLy": "08-08-2022",
+      "coQuanThucHien": {
+        "@type": "T_CoQuanDonVi",
+        "maHanhChinh": "STTTT",
+        "tenGoi": "Sở Thông tin và truyền thông"
+      },
+      "tinhTrang": {
+        "@type": "C_TrangThaiXuLy",
+        "tenMuc": "Chờ duyệt",
+        "maMuc": "2"
+      },
+      "thoiGianTao": "01-08-2022",
+      "thoiGianCapNhat": "",
+      "nguoiTaoLap": {
+        "@type": "T_DanhTinhDienTu",
+        "tenDinhDanh": "",
+        "maSoID": ""
+      }
+    }
+  ],
+  "chiTietBaoCao" : {
+    "maDinhDanh": "231241233",
+    "maBaoCao": "BC-983123",
+    "tenBaoCao": "Số lượng văn bản quy phạm pháp luật liên quan đến thích ứng biển đổi khí hậu được xây dựng và ban hành",
+    "quyTrinh": {
+      "@type": "T_QuyTrinh",
+      "maQuyTrinh": "QT-001"
+    },
+    "mauBaoCao": {
+      "@type": "T_MauBaoCao",
+      "maDinhDanh": "",
+      "maMauBaoCao": "MAU_001",
+      "nhapNhieuThanhPhan": 1
+    },
+    "kyBaoCao": {
+      "@type": "C_KyBaoCao",
+      "maMuc": "1",
+      "tenMuc": "Theo tháng"
+    },
+    "hanXuLy": "02-09-2022",
+    "coQuanThucHien": {
+      "@type": "T_CoQuanDonVi",
+      "maHanhChinh": "STNMT",
+      "tenGoi": "Sở Tài nguyên và môi trường"
+    },
+    "tinhTrang": {
+      "@type": "C_TrangThaiXuLy",
+      "tenMuc": "Đang xử lý",
+      "maMuc": "1"
+    },
+    "thoiGianTao": "12-08-2022",
+    "thoiGianCapNhat": "",
+    "nguoiTaoLap": {
+      "@type": "T_DanhTinhDienTu",
+      "tenDinhDanh": "",
+      "maSoID": ""
+    }
+  },
+  "mauBaoCao": {
+    "maDinhDanh": "",
+    "tenGoi": "",
+    "trangThai": {
+      "@type": "C_TrangThaiDuLieu",
+      "maMuc": "",
+      "tenMuc": ""
+    },
+    "maMauBaoCao": "",
+    "mauTaoMaBaoCao": "",
+    "quyTrinhXuLy": {
+      "@type": "T_QuyTrinh",
+      "maQuyTrinh": ""
+    },
+    "nhapNhieuThanhPhan": true,
+    "mauNhap": [
+      {
+        "name": "loaiVanBan",
+        "title": "Loại văn bản",
+        "type": "select",
+        "multiple": false,
+        "itemText": "name",
+        "itemValue": "value",
+        "minLength": 0,
+        "maxLength": 0,
+        "required": true,
+        "rules": [],
+        "fieldClass": "col-6",
+        "placeHolder": "",
+        "defaultValue": "",
+        "dataType": "",
+        "dataSource": [{"name": "Quyết định", "value": "1"}, {"name": "Công văn", "value": "2"}],
+        "autoEvent": ""
+      },
+      {
+        "name": "hienTrang",
+        "title": "Hiện trạng",
+        "type": "select",
+        "multiple": true,
+        "itemText": "name",
+        "itemValue": "value",
+        "minLength": 0,
+        "maxLength": 0,
+        "required": false,
+        "rules": "",
+        "fieldClass": "col-6",
+        "placeHolder": "",
+        "defaultValue": "",
+        "dataType": "",
+        "dataSource": [],
+        "autoEvent": "",
+        "api": "http://10.3.16.185:8080/api/danhmuc/1",
+        "responseDataApi": "content"
+      },
+      {
+        "name": "coQuanBanHanh",
+        "title": "Cơ quan ban hành",
+        "type": "select",
+        "multiple": true,
+        "itemText": "name",
+        "itemValue": "value",
+        "minLength": 0,
+        "maxLength": 0,
+        "required": true,
+        "rules": "",
+        "fieldClass": "col-6",
+        "placeHolder": "",
+        "defaultValue": "",
+        "dataType": "",
+        "dataSource": [{"name": "Sở thông tin và truyền thông", "value": "1"}, {"name": "Sở tài nguyên và môi trường", "value": "2"}],
+        "autoEvent": ""
+      },
+      {
+        "name": "ngayBanHanh",
+        "title": "Ngày ban hành",
+        "type": "date",
+        "minLength": 0,
+        "maxLength": 0,
+        "required": true,
+        "rules": "",
+        "fieldClass": "col-6",
+        "placeHolder": "ddmmyyyy, dd/mm/yyyy",
+        "defaultValue": "20221108",
+        "dataType": "",
+        "dataSource": "",
+        "autoEvent": ""
+      },
+      {
+        "name": "tenVanBan",
+        "title": "Tên văn bản",
+        "type": "textfield",
+        "minLength": 0,
+        "maxLength": 0,
+        "required": true,
+        "rules": "",
+        "fieldClass": "col-12",
+        "placeHolder": "",
+        "defaultValue": "",
+        "dataType": "",
+        "dataSource": "",
+        "autoEvent": ""
+      },
+      {
+        "name": "tomTatNoiDung",
+        "title": "Tóm tắt nội dung",
+        "type": "textarea",
+        "minLength": 0,
+        "maxLength": 0,
+        "required": true,
+        "rules": "",
+        "fieldClass": "col-12",
+        "placeHolder": "",
+        "defaultValue": "",
+        "dataType": "",
+        "dataSource": "",
+        "autoEvent": ""
+      },
+      {
+        "name": "files",
+        "title": "Giấy tờ đính kèm",
+        "type": "attack",
+        "multiple": true,
+        "minLength": 0,
+        "maxLength": 0,
+        "required": true,
+        "rules": "",
+        "fieldClass": "col-12",
+        "placeHolder": "",
+        "defaultValue": "",
+        "dataType": "",
+        "dataSource": "",
+        "autoEvent": ""
+      }
+    ],
+    "mauThongKe": {
+      "maMau": "",
+      "tenMau": "",
+      "groupBy": [
+        {
+          "name": "",
+          "title": ""
+        }
+      ],
+      "orderBy": [
+        {
+          "name": "",
+          "type": ["asc", "desc"]
+        }
+      ],
+      "limit": "",
+      "query": "",
+      "searchHidden": {
+        "@type": "S_Query",
+        "where": ""
+      },
+      "searchForm": [
+        {
+          "operator": ["=","!=",">=","<=","like"],
+          "keySearch": "",
+          "keyUrl": {
+            "@type": "S_TruongDuLieu",
+            "name": "",
+            "title": "",
+            "type": {
+              "@type": "C_KieuDuLieu",
+              "maMuc": "",
+              "tenMuc": ""
+            },
+            "minLength": 0,
+            "maxLength": 0,
+            "required": false,
+            "fieldClass": "",
+            "placeHolder": "",
+            "defaultValue": "",
+            "dataType": "",
+            "dataSource": ""
+          }
+        }
+      ],
+      "listView": [
+        {
+          "@type": "S_DanhSach",
+          "title": "",
+          "name": "",
+          "fieldClass": ""
+        }
+      ]
+    },
+    "mauHienThi": {
+      "headers": [
+        {
+          "sortable": false,
+          "text": "STT",
+          "value": "index",
+          "type": "index",
+          "class": "td-center",
+          "width": "50"
+        },
+        {
+          "sortable": false,
+          "text": "Tên văn bản",
+          "value": "tenVanBan",
+          "class": "th-center"
+        },
+        {
+          "sortable": false,
+          "text": "Loại văn bản",
+          "value": "loaiVanBan",
+          "class": "th-center td-center",
+          "type": "object",
+          "mapping": "name"
+        },
+        {
+          "sortable": false,
+          "text": "Đơn vị thực hiện",
+          "value": "coQuanBanHanh",
+          "type": "array",
+          "mapping": "name",
+          "class": "th-center"
+        },
+        {
+          "sortable": false,
+          "text": "Ngày ban hành",
+          "value": "ngayBanHanh",
+          "class": "th-center td-center",
+          "type": "date"
+        },
+        {
+          "sortable": false,
+          "width": "120",
+          "text": "Tình trạng",
+          "value": "tinhTrang",
+          "type": "calculator",
+          "calculator": "dataInput['tinhTrang']['tenMuc']",
+          "class": "th-center td-center"
+        },
+        {
+          "sortable": false,
+          "text": "Thao tác",
+          "value": "action",
+          "type": "action",
+          "class": "th-center td-center",
+          "width": "150"
+        }
+      ],
+      "itemsPerPage": 15
+    }
+  }
+}
