@@ -8,8 +8,6 @@ export default new Vuex.Store({
   state: {
     indexTab: 0,
     apiSso: process.env.VUE_APP_PATH_API_SSO,
-    secretLogin: 'f5gDd1JLB0vq6VVBvzEbltq6iVuaddvk',
-    // secretLogin: 'GCguqEMazevwOxEYPkhDH/ybLg/TuAWJ',
     drawer: false,
     breakpointName: 'lg',
     isShowConfirm: false,
@@ -25,9 +23,6 @@ export default new Vuex.Store({
   },
   getters: {
     getIndexTab: (state) => state.indexTab,
-    getIsSigned: (state) => {
-      return state.isSigned
-    },
     getIsSigned: (state) => {
       return state.isSigned
     },
@@ -232,38 +227,18 @@ export default new Vuex.Store({
     login ({commit, state}, filter) {
       return new Promise((resolve, reject) => {
         let settings = {
-          "url": state.apiSso + '/flex/oauth2/token',
+          "url": state.apiSso + '/api/authenticate',
           "method": "POST",
           "headers": {
-            'Authorization': 'Basic ZmxleDpzc28=',
-            'secret': state.secretLogin,
             'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/json'
           },
-          "data": filter.data
+          "data": JSON.stringify(filter.data)
         };
         
         $.ajax(settings).done(function (response) {
           let serializable = response
           resolve(serializable)
-        }).fail(function (response) {
-          reject(response)
-        })
-      })
-    },
-    loginKeyCloak ({commit, state}, filter) {
-      return new Promise((resolve, reject) => {
-        let settings = {
-          "url": state.apiSso + '/flex/oauth2/authorization_endpoint?redirect_uri=' + filter.uri,
-          "method": "GET",
-          "headers": {
-            'Secret': state.secretLogin,
-            'Content-Type': 'application/json'
-          },
-        };
-        
-        $.ajax(settings).done(function (response) {
-          resolve(response)
         }).fail(function (response) {
           reject(response)
         })
@@ -281,31 +256,6 @@ export default new Vuex.Store({
         
         $.ajax(settings).done(function (response) {
           resolve(response)
-        }).fail(function (response) {
-          reject(response)
-        })
-      })
-    },
-    getTokenKeyCloak ({commit, state}, filter) {
-      return new Promise((resolve, reject) => {
-        let settings = {
-          "url": state.apiSso + '/flex/oauth2/token',
-          "method": "POST",
-          "headers": {
-            'Authorization': 'Basic ZmxleDpzc28=',
-            'secret': state.secretLogin,
-            'Accept': 'application/json',
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          "data": {
-            "code": filter.code,
-            "redirect_uri": filter.redirect_uri
-          }
-        };
-        
-        $.ajax(settings).done(function (response) {
-          let serializable = response
-          resolve(serializable)
         }).fail(function (response) {
           reject(response)
         })
@@ -340,7 +290,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let settings = {
           method: 'get',
-          url: state.apiSso + '/v1/datasharing/canbo/token',
+          url: state.apiSso + '/api/taikhoans/' + filter.email,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json',

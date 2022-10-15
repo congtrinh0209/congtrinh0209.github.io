@@ -502,7 +502,7 @@
     created () {
       let vm = this
       if (!vm.isAdmin) {
-        vm.$router.push({ path: '/login'})
+        vm.$router.push({ path: '/dang-nhap'})
         return
       }
       vm.$store.commit('SET_INDEXTAB', 1)

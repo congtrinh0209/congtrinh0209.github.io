@@ -31,7 +31,7 @@ export default {
   created () {
     // let router = this.$router.history.current
     // if (router.path === '/') {
-    //   this.$router.push({ path: '/login' })
+    //   this.$router.push({ path: '/dang-nhap' })
     // }
   }
 };

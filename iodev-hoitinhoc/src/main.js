@@ -34,28 +34,16 @@ axios.interceptors.response.use((response) => {
         redirect_uri: process.env.VUE_APP_PATH_REDIRECT_SSO
       }
       store.dispatch('getRefreshTokenKeyCloak', filter).then(rs => {
-        Vue.$cookies.set('Token', rs.access_token, rs.expires_in)
-        Vue.$cookies.set('RefreshToken', rs.refresh_token, rs.refresh_expires_in)
-        axios.defaults.headers['Authorization'] = 'Bearer ' + rs.access_token
+        Vue.$cookies.set('Token', rs.accessToken, rs.expires_in)
+        Vue.$cookies.set('RefreshToken', rs.refreshToken, rs.refresh_expires_in)
+        axios.defaults.headers['Authorization'] = 'Bearer ' + rs.accessToken
         toastr.remove()
         toastr.error('Thao tác thất bại. Vui lòng thử lại.')
       }).catch(function () {
-        router.push({ path: '/login' })
-        // store.dispatch('logoutKeyCloak').then(function (result) {
-        //   let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
-        //   window.location.href = result.endpoint + '?redirect_uri='+ redirect_uri
-        // }).catch(function () {
-        //   router.push({ path: '/login' })
-        // })
+        router.push({ path: '/dang-nhap' })
       })
     } else {
-      router.push({ path: '/login' })
-      // store.dispatch('logoutKeyCloak').then(function (result) {
-      //   let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
-      //   window.location.href = result.endpoint + '?redirect_uri='+ redirect_uri
-      // }).catch(function () {
-      //   router.push({ path: '/login' })
-      // })
+      router.push({ path: '/dang-nhap' })
     }
   }
   if (error.response) {
@@ -102,9 +90,6 @@ Vue.mixin({
     },
     userId () {
       return this.$cookies.get('userId', '')
-    },
-    isSigned () {
-      return this.$store.getters.getIsSigned
     },
     isAdmin () {
       return this.$cookies.get('admin', '')

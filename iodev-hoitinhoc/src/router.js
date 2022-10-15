@@ -17,41 +17,23 @@ export default new Router({
           component: () => import('@/views/Dashboard'),
           props: true
         },
-        // {
-        //   path: '/',
-        //   name: 'TaoBaoCao',
-        //   component: () => import('@/views/FormTaoBaoCao'),
-        //   props: true
-        // },
         {
-          path: '/tao-bao-cao',
-          name: 'TaoBaoCao',
-          component: () => import('@/views/FormTaoBaoCao'),
+          path: '/cuoc-thi/:id',
+          name: 'ChiTietCuocThi',
+          component: () => import('@/views/ChiTietCuocThi'),
           props: true
         },
         {
-          path: '/bao-cao/:type',
-          name: 'BaoCao',
-          component: () => import('@/views/BaoCaoTongHop'),
+          path: '/dang-ky/:id',
+          name: 'DangKy',
+          component: () => import('@/views/DangKyThi'),
           props: true
-        },
-        {
-          path: '/thong-ke',
-          name: 'ThongKe',
-          component: () => import('@/views/ThongKe'),
-          props: true
-        },
-        {
-          path: '/bao-cao/:type/:id',
-          name: 'BaoCao',
-          component: () => import('@/views/ChiTietBaoCao'),
-          props: true
-        },
+        }
       ],
     },
     {
       name: 'Login',
-      path: '/login',
+      path: '/dang-nhap',
       component: () => import('@/views/Login')
     },
     // {

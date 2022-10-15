@@ -1,21 +1,21 @@
 <template>
   <v-footer app
-    id="footer" class="px-3"
+    id="footer" class="px-5 mt-4"
   >
       <v-layout wrap>
         <v-flex xs12>
           <v-layout wrap>
             <v-flex class="text-1">
               <v-icon size="18" color="#2161B1">mdi-copyright</v-icon>&nbsp;
-              <span>TRUNG TÂM CÔNG NGHỆ THÔNG TIN - BỘ GIAO THÔNG VẬN TẢI</span>
+              <span>HỘI TIN HỌC VIỆT NAM - HỆ THỐNG THÔNG TIN IODEV</span>
             </v-flex>
             <v-flex class="text-2">
               <v-icon size="18" color="#2161B1">mdi-phone-in-talk-outline</v-icon>&nbsp;
-              <span>Hotline: 1900 0318 - Điện thoại: (024) 3.822.2979 </span>
+              <span>Điện thoại: (024) 3.822.1111 </span>
             </v-flex>
             <v-flex class="text-3">
               <v-icon size="18" color="#2161B1">mdi-email-outline</v-icon>&nbsp;
-              <span>Email: bophanhotro@mt.gov.vn</span>
+              <span>Email: contact@gov.vn</span>
             </v-flex>
           </v-layout>
         </v-flex>

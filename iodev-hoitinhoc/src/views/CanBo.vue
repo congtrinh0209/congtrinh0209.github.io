@@ -833,7 +833,7 @@
     created () {
       let vm = this
       if (!vm.isAdmin) {
-        vm.$router.push({ path: '/login'})
+        vm.$router.push({ path: '/dang-nhap'})
         return
       }
       let currentQuery = vm.$router.history.current

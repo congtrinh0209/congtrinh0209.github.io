@@ -2,7 +2,7 @@
   <v-app-bar app>
     <v-app-bar-nav-icon class="btn-visible-drawer pl-2" @click.stop="changeDrawer" style="color: #2161B1;"></v-app-bar-nav-icon>
     <div id="header-app">
-      <header id="banner" class="px-3">
+      <header id="banner" class="px-5">
         <div class="container layout wrap" style=""> 
           <a href="javascript:;" class="py-0 px-0"> 
             <img class="logo-banner" :src="`${publicPath}/images/image-logo.png`">
@@ -13,6 +13,48 @@
           </div>
         </div>
       </header>
+      <!-- <v-btn small class="btn-login my-0 white--text mr-3" color="#2161B1"
+        @click=""
+        
+      >
+        <div class="v-btn__content">
+          <v-icon size="18">mdi-logout-variant</v-icon>&nbsp;
+          <span>Đăng nhập</span>
+        </div>
+      </v-btn> -->
+      <v-btn v-if="!isSigned" style="position: absolute;max-width: 300px;top: 10px;right: 10px;" class="d-inline-block"
+        color="primary"
+        dark
+        text
+        @click="login"
+      >
+        <v-icon color="#fff" class="mr-3">mdi-login-variant</v-icon>
+        <span style="color: #fff">Đăng nhập</span>
+      </v-btn>
+      <div v-if="isSigned" style="position: absolute;max-width: 300px;top: 15px;right: 10px;" class="d-inline-block">
+        <v-menu offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              color="primary"
+              dark
+              v-bind="attrs"
+              v-on="on"
+              text
+            >
+              <v-icon color="#fff" class="mr-3">mdi-account-circle</v-icon>
+              <span style="color: #fff">{{userInfo.email}}</span>
+            </v-btn>
+          </template>
+          <v-list>
+            <v-list-item @click.stop="submitLogout">
+              <v-list-item-title>
+                <v-icon color="#2161b1" class="mr-3">mdi-logout</v-icon>
+                <span style="color: #2161b1">Đăng xuất</span>
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
     </div>
   </v-app-bar>
 </template>
@@ -27,42 +69,20 @@
     },
 
     data: () => ({
+      // isSigned: false,
+      userInfo: '',
       appName: process.env.NODE_ENV,
       title: process.env.VUE_APP_BASE_TITLE,
       publicPath: process.env.VUE_APP_PULIC_PATH,
-      items: [
-        {
-          icon: '',
-          title: 'Báo cáo',
-          class: 'baocao-tab',
-          id: 'baocao-tab-id',
-          to: '/bao-cao'
-        },
-        {
-          icon: '',
-          title: 'Cơ quan, đơn vị',
-          class: 'congdan-tab',
-          id: 'congdan-tab-id',
-          to: '/co-quan-don-vi'
-        },
-        {
-          icon: '',
-          title: 'Cán bộ',
-          class: 'canbo-tab',
-          id: 'canbo-tab-id',
-          to: '/can-bo'
-        },
-        {
-          icon: '',
-          title: 'Danh mục',
-          class: 'danhmuc-tab',
-          id: 'danhmuc-tab-id',
-          to: '/quan-ly-danh-muc'
-        }
-      ]
     }),
     created () {
       let vm = this
+      // if (vm.$cookies.get('Token')) {
+      //   vm.isSigned = true
+      // } else {
+      //   vm.isSigned = false
+      // }
+      vm.userInfo = vm.$cookies.get('UserInfo', '')
     },
     mounted () {
       let vm = this
@@ -70,7 +90,10 @@
     computed: {
       indexTab () {
         return this.$store.getters.getIndexTab
-      }
+      },
+      isSigned () {
+        return this.$cookies.get('Token') ? true : false
+      },
     },
     watch: {
     },
@@ -84,45 +107,46 @@
         this.$store.commit('SET_INDEXTAB', index)
         this.$router.push({ path: item.to })
       },
+      login () {
+        let vm = this
+        vm.$router.push({ path: '/dang-nhap'})
+      },
       submitLogout () {
         let vm = this
         vm.$store.commit('SET_ISSIGNED', false)
         localStorage.setItem('user', null)
         vm.$cookies.set('Token', '')
         vm.$cookies.set('RefreshToken', '')
-        vm.$store.dispatch('logoutKeyCloak').then(function (result) {
-          let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
-          window.location.href = result.endpoint + '?redirect_uri='+ redirect_uri
-        }).catch(function () {
-          window.location.href = window.location.origin + window.location.pathname + "#/login"
-        })
-        
+        window.location.href = window.location.origin + window.location.pathname + "#/"
+        window.location.reload()
       },
     },
   }
 </script>
 <style lang="scss">
-  // $image-banner: $public-path + '/images/bg-banner-default.png';
+  $image-banner: $public-path + '/images/bg-banner-default.png';
   header {
-    height: 100px !important;
+    height: 64px !important;
+    max-height: 64px;
     background-color: transparent;
     box-shadow: none;
+    background: url(/images/bg-banner-default.png) no-repeat;
+    background-size: cover;
   }
-  header:before {
-    position: absolute;
-    left: 0;
-    top: 0px;
-    z-index: -1;
-    width: 100%;
-    height: 600px;
-    content: "";
-    background: url(//www.hkubs.hku.hk/wp-content/themes/hkubs/assets/css/../images/bg_header.png) top left repeat-x;
-    pointer-events: none;
-    -webkit-transition: all .6s;
-    -o-transition: all .6s;
-    transition: all .6s;
-    opacity: .4
-  }
+  // header:before {
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0px;
+  //   z-index: -1;
+  //   width: 100%;
+  //   height: 500px;
+  //   content: "";
+  //   pointer-events: none;
+  //   -webkit-transition: all .6s;
+  //   -o-transition: all .6s;
+  //   transition: all .6s;
+  //   opacity: .8
+  // }
   .theme--light.v-app-bar.v-toolbar.v-sheet {
     background-color: transparent !important
   }
@@ -130,21 +154,21 @@
     position: relative !important;
   }
   header .v-toolbar__content {
-    height: 100px !important;
+    height: 64px !important;
     padding: 0;
   }
   header.v-app-bar {
     box-shadow: none !important;
   }
   #header-app {
-    height: 100px;
+    height: 64px;
     width: 100%;
     // background: url($image-banner) no-repeat;
     background-size: cover;
     padding: 0;
   }
   #banner .container {
-    height: 100px;
+    height: 64px;
     padding: 0
   }
   #banner .container a {
@@ -159,8 +183,8 @@
     color: #0056a4;
   }
   .logo-banner {
-    width: 72px;
-    height: 72px;
+    width: 52px;
+    height: 52px;
     margin-right: 13px;
   }
   .title-banner {
@@ -168,10 +192,11 @@
     font-family: "Roboto Slab";
     font-style: normal;
     font-weight: bold;
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 14px;
     padding-top: 3px;
-    color: #004b8f;
+    // color: #004b8f;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     align-content: center;

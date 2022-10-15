@@ -11,13 +11,8 @@
           <v-flex style="text-align: center;">
             <img class="img-login-logo" :src="`${publicPath}/images/image-logo.png?t=93111413`">
           </v-flex>
-          <v-flex class="wrap-title pt-1 mb-2">
-            <div class="text-1">HỆ THỐNG GIÁM SÁT VÀ ĐÁNH GIÁ THÍCH ỨNG BIẾN ĐỔI KHÍ HẬU</div>
-            <div class="text-2">BỘ GIAO THÔNG VẬN TẢI</div>
-          </v-flex>
-          <v-flex class="wrap-title pt-1">
-            <div class="text-1">Monitoring and evaluation system for climate change adaptation activities</div>
-            <div class="text-2">Ministry of Transport</div>
+          <v-flex class="wrap-title pt-1 mb-2 mt-3">
+            <div class="text-1">HỆ THỐNG THÔNG TIN IODEV</div>
           </v-flex>
         </div>
 
@@ -68,17 +63,6 @@
                   Đăng nhập
                 </v-btn>
               </v-flex>
-              
-              <!-- <v-flex xs12 class="wrap-btn-login" style="margin-top: 100px;">
-                <v-btn class="my-0 white--text mr-3 btn-login" style="padding: 0 15px !important;"
-                  :loading="loading"
-                  :disabled="loading"
-                  @click="loginKeyCloak"
-                >
-                  <v-icon size="20">mdi-login</v-icon>&nbsp;
-                  Đăng nhập hệ thống
-                </v-btn>
-              </v-flex> -->
             </v-form>
           </div>
         </div>
@@ -108,21 +92,21 @@
       </div> 
       
     </v-container>
-    <div class="wrap-contact-info">
-      <div class="mb-1">Trung tâm công nghệ thông tin - Bộ Giao thông vận tải</div>
+    <!-- <div class="wrap-contact-info">
+      <div class="mb-1"></div>
       <div class="mb-1">
         <v-icon size="18" color="#fff">mdi-map-marker-outline</v-icon>&nbsp;
-        <span>Trụ sở: Số 80 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội</span>
+        <span></span>
       </div>
       <div class="mb-1">
         <v-icon size="18" color="#fff">mdi-phone-in-talk-outline</v-icon>&nbsp;
-        <span>1900 0318 - (024) 3.822.2979</span>
+        <span></span>
       </div>
       <div class="mb-1">
         <v-icon size="18" color="#fff">mdi-email-outline</v-icon>&nbsp;
-        <span>bophanhotro@mt.gov.vn</span>
+        <span></span>
       </div>
-    </div>
+    </div> -->
     <div class="text-center">
       <v-overlay :value="overlay">
         <v-progress-circular
@@ -161,17 +145,6 @@
     }),
     created () {
       let vm = this
-      // let searchParams = ''
-      // let params = window.location.search.substring(1)
-      // if (params) {
-      //   let isLogin = Vue.$cookies.get('Token')
-      //   searchParams = JSON.parse('{"' + decodeURI(params).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
-      //   if (!isLogin && searchParams && searchParams['code']) {
-      //     vm.overlay = true
-      //     vm.code = searchParams['code']
-      //     vm.getToken()
-      //   }
-      // }
       if (Vue.$cookies.get('Token')) {
         vm.signed = true
       } else {
@@ -190,25 +163,27 @@
         let filter = {
           data: {
             username: vm.userName,
-            password: vm.password,
-            app: 'dvc-mobile'
+            password: vm.password
           }
         }
         vm.$store.dispatch('login', filter).then(function (result) {
           vm.loading = false
-          if (result && result.access_token) {
+          if (!result.expires_in) {
+            result['expires_in'] = 24*60*60*1000
+          }
+          if (result && result.accessToken) {
             try {
-              let payload = String(result.access_token.split('.')[1]).replace(/_/g, "/")
+              let payload = String(result.accessToken.split('.')[1]).replace(/_/g, "/")
               let dataUser = JSON.parse(atob(payload))
-              let roleUser = dataUser && dataUser.hasOwnProperty('realm_access') && dataUser.realm_access['roles'] ? dataUser.realm_access.roles : ''
+              let roleUser = dataUser && dataUser.hasOwnProperty('vaiTros') && dataUser.vaiTros ? dataUser.vaiTros : ''
               let admin = roleUser ? roleUser.find(function (item) {
-                return item === 'site-admin'
+                return item.ten === 'VAITRO_QUANTRIHETHONG'
               }) : false
               // console.log('roleUser', roleUser)
               if (roleUser && roleUser.length) {
-                vm.$cookies.set('Token', result.access_token, result.expires_in)
-                vm.$cookies.set('RefreshToken', result.refresh_token, result.refresh_expires_in)
-                axios.defaults.headers['Authorization'] = 'Bearer ' + result.access_token
+                vm.$cookies.set('Token', result.accessToken, result.expires_in)
+                vm.$cookies.set('RefreshToken', result.refreshToken ? result.refreshToken : '', result.refresh_expires_in)
+                axios.defaults.headers['Authorization'] = 'Bearer ' + result.accessToken
                 vm.$store.commit('SET_ISSIGNED', true)
                 if (admin) {
                   vm.$cookies.set('admin', true, result.expires_in)
@@ -216,40 +191,32 @@
                     hoVaTen: 'Quản trị',
                     maSoCanBo: '',
                     viTriChucDanh: 'Quản trị hệ thống',
-                    vaiTroSuDung: ''
+                    vaiTroSuDung: '',
+                    email: vm.userName
                   }
                   vm.$cookies.set('UserInfo', dataUser1, result.expires_in)
                   vm.$cookies.set('Roles', '', result.expires_in)
                   vm.goToPage()
                 } else {
-                  // get roles
                   let filter = {
-                    token: 'Bearer ' + result.access_token,
-                    email: dataUser.email
+                    token: 'Bearer ' + result.accessToken,
+                    email: vm.userName
                   }
                   vm.$store.dispatch('getThongTinUserDangNhap', filter).then(function (result) {
                     let chucDanh = ''
                     let vaiTroSuDung = ''
                     let dataUser2 = {
-                      hoVaTen: result.hoVaTen ? result.hoVaTen : '',
-                      maSoCanBo: result.maSoCanBo ? result.maSoCanBo : '',
-                      viTriChucDanh: chucDanh,
-                      vaiTroSuDung: vaiTroSuDung
+                      hoVaTen: 'Người dùng',
+                      maSoCanBo: '',
+                      viTriChucDanh: '',
+                      vaiTroSuDung: '',
+                      email: vm.userName
                     }
-                    if (result.viTriChucDanh && result.viTriChucDanh.length) {
+                    if (result.vaiTros && result.vaiTros.length) {
                       vaiTroSuDung = []
-                      chucDanh = Array.from(result.viTriChucDanh, function (item) {
-                        return item.tenGoi
-                      })
-                      dataUser.viTriChucDanh = chucDanh
-                      result.viTriChucDanh.forEach(element => {
-                        if (element.vaiTroSuDung && element.vaiTroSuDung.length) {
-                          let vaiTroItem = Array.from(element.vaiTroSuDung, function (item) {
-                            return item.maMuc
-                          })
-                          vaiTroSuDung = vaiTroSuDung.concat(vaiTroItem)
-                        }
-                      })
+                      vaiTroSuDung = Array.from(result.vaiTros, function (item) {
+                        return item.ten
+                      }).toString()
                       dataUser.vaiTroSuDung = vaiTroSuDung
                       let isAdmin = vaiTroSuDung.find(function (item) {
                         return item == 'QUANTRIHETHONG'
@@ -302,145 +269,6 @@
           toastr.error('Tên đăng nhập hoặc mật khẩu không chính xác')
         })
       },
-      loginKeyCloak () {
-        let vm = this
-        if (vm.loading) {
-          return
-        }
-        vm.loading = true
-        let filter = {
-          uri: process.env.VUE_APP_PATH_REDIRECT_SSO
-        }
-        vm.$store.dispatch('loginKeyCloak', filter).then(function (result) {
-          vm.loading = false
-          if (result) {
-            window.location.href = result.endpoint
-          }
-        }).catch(function (result) {
-          vm.loading = false
-        })
-      },
-      getToken () {
-        let vm = this
-        vm.loading = false
-        let filter = {
-          code: vm.code,
-          redirect_uri: process.env.VUE_APP_PATH_REDIRECT_SSO
-        }
-        vm.$store.dispatch('getTokenKeyCloak', filter).then(function (result) {
-          vm.loading = false
-          vm.overlay = false
-          if (result.access_token) {
-            try {
-              let payload = String(result.access_token.split('.')[1]).replace(/_/g, "/")
-              let dataUser = JSON.parse(atob(payload))
-              let roleUser = dataUser && dataUser.hasOwnProperty('realm_access') && dataUser.realm_access['roles'] ? dataUser.realm_access.roles : ''
-              let admin = roleUser ? roleUser.find(function (item) {
-                return item === 'site-admin'
-              }) : false
-              if (roleUser && roleUser.length) {
-                vm.$cookies.set('Token', result.access_token, result.expires_in)
-                vm.$cookies.set('RefreshToken', result.refresh_token, result.refresh_expires_in)
-                axios.defaults.headers['Authorization'] = 'Bearer ' + result.access_token
-                vm.$store.commit('SET_ISSIGNED', true)
-                if (admin) {
-                  vm.$cookies.set('admin', true, result.expires_in)
-                  let dataUser1 = {
-                    hoVaTen: 'Quản trị',
-                    maSoCanBo: '',
-                    viTriChucDanh: 'Quản trị hệ thống',
-                    vaiTroSuDung: ''
-                  }
-                  vm.$cookies.set('UserInfo', dataUser1, result.expires_in)
-                  vm.$cookies.set('Roles', '', result.expires_in)
-                  window.location.href = window.location.origin  + "/#/"
-                } else {
-                  let filter = {
-                    token: 'Bearer ' + result.access_token,
-                    email: dataUser.email
-                  }
-                  vm.$store.dispatch('getEmployee', filter).then(function (result) {
-                    let data = result
-                    let userId = data.mappingUser.userId ? data.mappingUser.userId : ''
-                    let groupId = data.groupId ? data.groupId : ''
-                    vm.$cookies.set('userId', String(userId), result.expires_in)
-                    vm.$cookies.set('groupId', groupId, result.expires_in)
-                  })
-                  vm.$store.dispatch('getThongTinUserDangNhap', filter).then(function (result) {
-                    let chucDanh = ''
-                    let vaiTroSuDung = ''
-                    let dataUser2 = {
-                      hoVaTen: result.hoVaTen ? result.hoVaTen : '',
-                      maSoCanBo: result.maSoCanBo ? result.maSoCanBo : '',
-                      viTriChucDanh: chucDanh,
-                      vaiTroSuDung: vaiTroSuDung
-                    }
-                    if (result.viTriChucDanh && result.viTriChucDanh.length) {
-                      vaiTroSuDung = []
-                      chucDanh = Array.from(result.viTriChucDanh, function (item) {
-                        return item.tenGoi
-                      })
-                      dataUser.viTriChucDanh = chucDanh
-                      result.viTriChucDanh.forEach(element => {
-                        if (element.vaiTroSuDung && element.vaiTroSuDung.length) {
-                          let vaiTroItem = Array.from(element.vaiTroSuDung, function (item) {
-                            return item.maMuc
-                          })
-                          vaiTroSuDung = vaiTroSuDung.concat(vaiTroItem)
-                        }
-                      })
-                      dataUser.vaiTroSuDung = vaiTroSuDung
-                      let isAdmin = vaiTroSuDung.find(function (item) {
-                        return item == 'QUANTRIHETHONG'
-                      })
-                      if (isAdmin) {
-                        vm.$cookies.set('admin', true, result.expires_in)
-                      } else {
-                        vm.$cookies.set('admin', '', result.expires_in)
-                      }
-                    } else {
-                      vm.$cookies.set('admin', '', result.expires_in)
-                      vm.$cookies.set('UserInfo', dataUser2, result.expires_in)
-                      vm.$cookies.set('Roles', vaiTroSuDung, result.expires_in)
-                    }
-                    
-                    vm.$cookies.set('UserInfo', dataUser2, result.expires_in)
-                    vm.$cookies.set('Roles', vaiTroSuDung, result.expires_in)
-                    setTimeout(function () {
-                      window.location.href = window.location.origin  + "/#/"
-                    }, 200)
-                  }).catch (function () {
-                    vm.loading = false
-                    vm.overlay = false
-                    toastr.error('TÀI KHOẢN CHƯA ĐƯỢC CẤP QUYỀN CÁN BỘ')
-                    setTimeout(function () {
-                      vm.submitLogout()
-                    }, 500)
-                  })
-                }
-              } else {
-                vm.loading = false
-                vm.overlay = false
-                toastr.error('TÀI KHOẢN KHÔNG CÓ TRÊN HỆ THỐNG')
-                setTimeout(function () {
-                  vm.submitLogout()
-                }, 500)
-              }
-            } catch (error) {
-              vm.loading = false
-              vm.overlay = false
-              toastr.error('TÀI KHOẢN KHÔNG CÓ TRÊN HỆ THỐNG')
-              setTimeout(function () {
-                vm.submitLogout()
-              }, 500)
-            }
-          }
-        }).catch(function (result) {
-          vm.loading = false
-          vm.overlay = false
-          toastr.error('Đăng nhập không thành công')
-        })
-      },
       submitLogout () {
         let vm = this
         vm.signed = false
@@ -452,15 +280,16 @@
         //   let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
         //   window.location.href = result.endpoint + '?redirect_uri='+ redirect_uri
         // }).catch(function () {
-        //   window.location.href = window.location.origin + window.location.pathname + "#/login"
+        //   window.location.href = window.location.origin + window.location.pathname + "#/dang-nhap"
         // })
       },
       goToPage () {
         let vm = this
-        if (vm.isAdmin || vm.checkRole('THEMMOIBAOCAO')) {
+        let currentQuery = vm.$router.history.current.query
+        if (currentQuery.hasOwnProperty('redirect') && currentQuery.redirect) {
+          vm.$router.push({ path: currentQuery.redirect })
+        } else {
           vm.$router.push({ path: '/' })
-        } else if (vm.checkRole('XEMBAOCAODONVI') || vm.checkRole('XEMTATCABAOCAO')) {
-          vm.$router.push({ path: '/bao-cao/cho-xu-ly' })
         }
       }
     }
@@ -468,7 +297,7 @@
 </script>
 
 <style lang="scss">
-  $image-login: $public-path + '/images/bg-login.png?t=3913123';
+  $image-login: $public-path + '/images/bg-login-2.jpg?t=3913123';
   #app {
     background: transparent !important
   }
@@ -494,13 +323,13 @@
     height: auto;
     // padding: 45px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 40px;
   }
   #login-page .text-1 {
     font-family: "Roboto Slab";
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 28px;
     line-height: 24px;
     color: #ffffff;
     margin-bottom: 10px;
@@ -584,7 +413,7 @@
     color: #ffffff !important;
   }
   .img-login-logo {
-    width: 65px;
+    width: 85px;
   }
   .wrap-title {
     text-align: center;

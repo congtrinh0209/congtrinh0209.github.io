@@ -333,12 +333,12 @@
         vm.$cookies.set('Token', '')
         vm.$cookies.set('RefreshToken', '')
         vm.$cookies.set('admin', '')
-        window.location.href = window.location.origin + window.location.pathname + "#/login"
+        window.location.href = window.location.origin + window.location.pathname + "#/dang-nhap"
         // vm.$store.dispatch('logoutKeyCloak').then(function (result) {
         //   let redirect_uri = process.env.VUE_APP_PATH_REDIRECT_SSO
         //   window.location.href = result.endpoint + '?redirect_uri='+ redirect_uri
         // }).catch(function () {
-        //   window.location.href = window.location.origin + window.location.pathname + "#/login"
+        //   window.location.href = window.location.origin + window.location.pathname + "#/dang-nhap"
         // })
       }
     },

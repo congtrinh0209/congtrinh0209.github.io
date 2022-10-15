@@ -412,7 +412,7 @@ export default {
     created () {
       let vm = this
       if (!vm.isAdmin && !vm.checkRole('XEMBAOCAODONVI') && !vm.checkRole('XEMTATCABAOCAO')) {
-        vm.$router.push({ path: '/login'})
+        vm.$router.push({ path: '/dang-nhap'})
         return
       }
       if (vm.type === 'bao-cao-moi') {
