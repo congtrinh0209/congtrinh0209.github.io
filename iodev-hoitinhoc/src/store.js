@@ -92,7 +92,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/' + filter.collectionName,
+          url: '/api/' + filter.collectionName,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -112,7 +112,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/' + filter.collectionName + '/' + filter.id,
+          url: '/api/' + filter.collectionName + '/' + filter.id,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -131,7 +131,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'delete',
-          url: '/v1/datasharing/' + filter.collectionName + '/' + filter.id,
+          url: '/api/' + filter.collectionName + '/' + filter.id,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -150,7 +150,27 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'get',
-          url: '/v1/datasharing/' + filter.collectionName + '/filter',
+          url: '/api/' + filter.collectionName,
+          headers: { 
+            'Accept': 'application/json', 
+            'Content-Type': 'application/json'
+          },
+          data: {},
+          params: filter.data
+        }
+        axios(config).then(function (response) {
+          let serializable = response.data
+          resolve(serializable)
+        }).catch(function (error) {
+          reject(error)
+        })
+      })
+    },
+    collectionFilterLevel2 ({commit, state}, filter) {
+      return new Promise((resolve, reject) => {
+        let config = {
+          method: 'get',
+          url: '/api/' + filter.collectionName + '/' + filter.collectionId + '/' + filter.collectionNameChild,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -170,7 +190,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'get',
-          url: '/v1/datasharing/' + filter.collectionName + '/' + filter.id,
+          url: '/api/' + filter.collectionName + '/' + filter.id,
           data: {},
           headers: { 
             'Accept': 'application/json', 
@@ -189,7 +209,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'get',
-          url: '/v1/datasharing/' + filter.collectionName + '/' + filter.keySearch + '/' + filter.id,
+          url: '/api/' + filter.collectionName + '/' + filter.keySearch + '/' + filter.id,
           data: {},
           headers: { 
             'Accept': 'application/json', 
@@ -209,7 +229,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/thanhphanbaocao/thongke',
+          url: '/api/thanhphanbaocao/thongke',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -333,7 +353,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/idp/account/' + filter.data.type,
+          url: '/api/idp/account/' + filter.data.type,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -353,7 +373,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/idp/account/resetpwd',
+          url: '/api/idp/account/resetpwd',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -373,7 +393,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/idp/account/' + filter.type + '/' + filter.maDinhDanh + '/tendinhdanh',
+          url: '/api/idp/account/' + filter.type + '/' + filter.maDinhDanh + '/tendinhdanh',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -393,7 +413,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/idp/account/'+ filter.data.type + '/active',
+          url: '/api/idp/account/'+ filter.data.type + '/active',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -413,7 +433,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/idp/account/' + filter.data.type + '/lock',
+          url: '/api/idp/account/' + filter.data.type + '/lock',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -433,7 +453,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/idp/account/' + filter.data.type + '/unlock',
+          url: '/api/idp/account/' + filter.data.type + '/unlock',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -453,7 +473,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'post',
-          url: '/v1/datasharing/idp/account/' + filter.data.type + '/restore',
+          url: '/api/idp/account/' + filter.data.type + '/restore',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -473,7 +493,7 @@ export default new Vuex.Store({
         let dataPost = JSON.stringify(filter.data)
         let config = {
           method: 'delete',
-          url: '/v1/datasharing/idp/account/' + filter.data.type + '/delete',
+          url: '/api/idp/account/' + filter.data.type + '/delete',
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'
@@ -547,7 +567,7 @@ export default new Vuex.Store({
           },
           responseType: 'blob'
         }
-        axios.get('/v1/datasharing/thanhphanbaocao/downloadFile/' + filter.id, param).then(function (response) {
+        axios.get('/api/thanhphanbaocao/downloadFile/' + filter.id, param).then(function (response) {
           if (response.data) {
             var a = document.createElement('a')
             document.body.appendChild(a)
@@ -570,7 +590,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let config = {
           method: 'delete',
-          url: '/v1/datasharing/thanhphanbaocao/' + filter.idThanhPhan + '/attachment/' + filter.idFile,
+          url: '/api/thanhphanbaocao/' + filter.idThanhPhan + '/attachment/' + filter.idFile,
           headers: { 
             'Accept': 'application/json', 
             'Content-Type': 'application/json'

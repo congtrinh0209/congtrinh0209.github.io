@@ -106,10 +106,10 @@
                   dense
                   placeholder="Tên cuộc thi ..."
                   hide-details="auto"
-                  @keyup.enter="getDanhSachCuocThi"
+                  @keyup.enter="getDanhSachCuocThi('reset')"
               >
                 <template v-slot:append>
-                  <v-icon @click="getDanhSachCuocThi" size="18" color="#2161B1">mdi-magnify</v-icon>
+                  <v-icon @click="getDanhSachCuocThi('reset')" size="18" color="#2161B1">mdi-magnify</v-icon>
                 </template>
               </v-text-field>
             </v-col>
@@ -248,7 +248,7 @@
             "tinhTrang": 3
         },
         {
-            "id": "adac1aec-41ac-4e92-be04-52dc99d9fd85",
+            "id": "7820540d-1daf-48d3-9c4c-855bb5d16719",
             "tenGoi": "Olympic tin học sinh viên Việt Nam",
             "tiengAnh": null,
             "serieCuocThi": "OLP",
@@ -263,7 +263,7 @@
             "tinhTrang": 2
         },
         {
-            "id": "7820540d-1daf-48d3-9c4c-855bb5d16719",
+            "id": "adac1aec-41ac-4e92-be04-52dc99d9fd85",
             "tenGoi": "ICPC Asia - Việt Nam",
             "tiengAnh": null,
             "serieCuocThi": "ICPC",
@@ -295,7 +295,7 @@
             "tinhTrang": 1
         },
         {
-            "id": "7820540d-1daf-48d3-9c4c-855bb5d16719",
+            "id": "adac1aec-41ac-4e92-be04-52dc99d9fd85",
             "tenGoi": "ICPC Asia - Việt Nam",
             "tiengAnh": null,
             "serieCuocThi": "ICPC",
@@ -412,8 +412,36 @@
       }
     },
     methods: {
-      getDanhSachCuocThi () {
-
+      getDanhSachCuocThi (type) {
+        let vm = this
+        if (type === 'reset') {
+          vm.total = 0
+          vm.pageCount = 0
+          vm.page = 0
+        }
+        if (vm.loadingData) {
+          return
+        }
+        if (vm.loadingData) {
+          return
+        }
+        vm.loadingData = true
+        let filter = {
+          collectionName: 'cuocthis',
+          data: {
+            page: vm.page,
+            size: vm.itemsPerPage
+          }
+        }
+        vm.$store.dispatch('collectionFilter', filter).then(function (response) {
+          let data = response.content
+          vm.total = response.totalElements
+          vm.pageCount = response.totalPages
+          console.log('data', data)
+          vm.loadingData = false
+        }).catch(function () {
+          vm.loadingData = false
+        })
       },
       xemChiTietCuocThi (item) {
         let vm = this
