@@ -4499,4 +4499,580 @@
 		</tableConfig>
 		<userConfig>{"order": 5}</userConfig>
 	</DynamicReport>
+	
+	<DynamicReport label="STATISTIC_98_VER_3">
+		<filterConfig>
+			<![CDATA[{
+				api: "/o/rest/v2/votings/reportVE?type=2",
+				apiExportExcel: "/o/rest/v2/votings/reportVE/export?type=2",
+				exclusive: false,
+				customize: false,
+				formatDate: "timestamp",
+				notSumkey: true,
+				sumRow: false,
+				tableDanhGia: true,
+				groupDanhGiaTheoCanBo: true,
+				groupIds: [],
+				filters: [
+					{
+					label: "Từ ngày",
+					key: "fromDate",
+					value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+					type: "date",
+					before: "toDate" 
+					},
+					{
+					label: "Đến ngày",
+					key: "toDate",
+					value: new Date().toLocaleDateString('vi-VN'),
+					type: "date",
+					after: "fromDate" 
+					}
+				],
+				reportConfig: [
+					{
+					"selected": true,
+					"value": "employeeName",
+					"text": "",
+					"align": "left"
+					},
+					{
+					"selected": true,
+					"value": "sumCount",
+					"text": "",
+					"align": "center"
+					},
+					{
+					"selected": true,
+					"value": "veryHappyCount",
+					"text": "",
+					"align": "center",
+					"calculator": 'dataInput["veryHappyCount"] + " (" + dataInput["percentVeryHappy"] + "%)"',
+					},
+					{
+					"selected": true,
+					"value": "happyCount",
+					"text": "",
+					"align": "center",
+					"calculator": 'dataInput["happyCount"] + " (" + dataInput["percentHappy"] + "%)"',
+					},
+					{
+					"selected": true,
+					"value": "unHappyCount",
+					"text": "",
+					"align": "center",
+					"calculator": 'dataInput["unHappyCount"] + " (" + dataInput["percentUnHappy"] + "%)"',
+					}
+				],
+				selection: [
+					{
+						"key": "domainCode",
+						"value": ""
+					}
+				],
+				sumKey: "employeeName",
+				merge: ["employeeEmail"],
+				sort: "employeeName",
+				statistics: true
+			}
+		]]>
+		</filterConfig>
+		<reportCode>STATISTIC_98_VER_3</reportCode>
+		<reportName>Tổng hợp đánh giá hài lòng cán bộ</reportName>
+		<sharing>1</sharing>
+		<tableConfig><![CDATA[
+			
+			{
+				docDefinition: {
+					pageOrientation: "landscape",
+					content: [
+						{
+							columns: [
+								{
+									width: 300,
+									style: "title",
+									text: [
+										{text: "UBND TỈNH HẬU GIANG\n"},
+										{text: "[$siteName$]\n"}
+									]
+								},
+								{
+									width: 100,
+									style: "title",
+									text: ''
+								},
+								{
+									width: 300,
+									style: "title",
+									text: [
+										{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+										{text: "Độc lập - Tự do - Hạnh phúc\n"},
+										{text: "------------------------------------\n"},
+										{text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+									]
+								}
+							]
+						},
+						{
+							text: [
+								{text: "TỔNG HỢP ĐÁNH GIÁ HÀI LÒNG THEO CÁN BỘ \n"},
+								{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+							], 
+							margin: [0, 20],
+							style: "headerTitle"
+						},
+						{
+							style: "tableExample",
+							table: {
+								widths: [20, "*", 50, 50, 50, 50],
+								headerRows: 2,
+								body: [
+									[
+										{
+											text: "\n\nSTT",
+											rowSpan: 2,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "\n\nTên cán bộ",
+											rowSpan: 2,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "Số lượt đánh giá",
+											rowSpan: 2,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "Chất lượng đánh giá",
+                                            colSpan: 3,
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+                                        "",
+                                        ""
+									],
+									[
+										"",
+										"",
+										"",
+										{
+											text: "Rất hài lòng",        
+											alignment: "center",
+											style: "tdStyle"
+										},
+                                        {
+											text: "Hài lòng",        
+											alignment: "center",
+											style: "tdStyle"
+										},
+                                        {
+											text: "Không hài lòng",        
+											alignment: "center",
+											style: "tdStyle"
+										}
+									],
+									[
+										{
+											text: "(1)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(2)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(3=4+5+6)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(4)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(5)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(6)",
+											alignment: "center",
+											fontSize: 8
+										}
+									],
+									"[$report$]"
+								]
+							},
+							margin: [0, 0, 0, 5]
+						},             
+						{
+							columns: [
+								{
+									width: "*",
+									text: [
+										{text: "Nơi nhận:", bold: true }
+									]
+								},
+								{
+									width: 150,
+									style: "title",
+									text: "THỦ TRƯỞNG ĐƠN VỊ"
+								}
+							]
+						},
+						{
+							columns: [
+								{
+									width: "*",
+									text: ""
+								},
+								{
+									width: 150,
+									style: "titleSub",
+									text: "(Ký và ghi rõ họ tên)"
+								}
+							]
+						}
+					],
+					styles: {
+						ngayThangNam: {
+							fontSize: 10,
+							italics: true,
+							bold: false,
+							alignment: "center"
+						},
+						headerTitle: {
+							alignment: "center",
+							bold: true,
+							fontSize: 13
+						},
+						borderHeader: {
+							alignment: "left"
+						},
+						title: {
+							bold: true,
+							alignment: "center"
+						},
+						titleSub: {
+							fontSize: 10,
+							italics: true,
+							alignment: "center"
+						},
+						tdStyle: {
+							fontSize: 10,
+							margin: [0, 2]
+						}
+					},
+					defaultStyle: {
+						columnGap: 20,
+						fontSize: 11
+					}
+				}
+			}
+			
+			]]></tableConfig>
+		<userConfig>{"order": 16}</userConfig>
+	</DynamicReport>
+	
+	<DynamicReport label="STATISTIC_99_VER_3">
+		<filterConfig>
+			<![CDATA[{
+				api: "/o/rest/v2/votings/reportVE?type=3",
+				apiExportExcel: "/o/rest/v2/votings/reportVE/export?type=3",
+				exclusive: false,
+				customize: false,
+                formatDate: "timestamp",
+                notSumkey: true,
+                sumRow: false,
+				groupIds: [],
+				filters: [
+                    {
+                        label: "Chọn cán bộ",
+                        source: "",
+                        key: "employeeEmail",
+                        valueMapping: "email",
+                        nameMapping: "fullName",
+                        type: "select",
+                        api: "/o/rest/v2/employees/publish/#govcode#?jobposCode=DANHGIA_#govcode#",
+                      	apiTemp: "/o/rest/v2/employees/publish/#govcode#?jobposCode=DANHGIA_#govcode#",
+                        class: "xs12 sm6 px-3 mb-3",
+                      	target: "canbodanhgia"
+                    },
+					{
+                        label: "Mức độ hài lòng",
+						value: "3,2,1",
+                        source: [
+                          {name: "Tất cả", value: "3,2,1"},
+                          {name: "Rất hài lòng", value: "3"},
+                          {name: "Hài lòng", value: "2"},
+                          {name: "Không hài lòng", value: "1"}
+                        ],
+                        key: "listRate",
+                        type: "select",
+                        class: "xs12 sm4 px-3 mb-3"
+                    },
+					{
+					label: "Từ ngày",
+					key: "fromDate",
+					value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+                    type: "date",
+					before: "toDate" 
+					},
+					{
+					label: "Đến ngày",
+					key: "toDate",
+					value: new Date().toLocaleDateString('vi-VN'),
+                    type: "date",
+					after: "fromDate" 
+					}
+				],
+				reportConfig: [
+				  {
+					"selected": true,
+					"value": "govAgencyName",
+					"text": "",
+					"align": "left"
+				  },
+				  {
+					"selected": true,
+					"value": "employeeName",
+					"text": "",
+					"align": "left"
+				  },
+                  {
+					"selected": true,
+					"value": "dossierNo",
+					"text": "",
+					"align": "left"
+				  },
+				  {
+					"selected": true,
+					"value": "createDate",
+					"text": "",
+					"align": "left"
+				  },
+				  {
+					"selected": true,
+					"value": "votingName",
+					"text": "",
+					"align": "left"
+				  }
+				],
+				selection: [
+					{
+						"key": "domainCode",
+						"value": ""
+					}
+				],
+                  sumKey: "createDate",
+				merge: ["createDate"],
+				sort: "employeeName",
+				statistics: true
+			}
+		]]>
+		</filterConfig>
+		<reportCode>STATISTIC_99_VER_3</reportCode>
+		<reportName>Chi tiết đánh giá hài lòng cán bộ</reportName>
+		<sharing>1</sharing>
+		<tableConfig><![CDATA[
+			
+			{
+				docDefinition: {
+					pageOrientation: "landscape",
+					content: [
+						{
+							columns: [
+								{
+									width: 300,
+									style: "title",
+									text: [
+										{text: "UBND TỈNH HẬU GIANG\n"},
+										{text: "[$siteName$]\n"}
+									]
+								},
+								{
+									width: 100,
+									style: "title",
+									text: ''
+								},
+								{
+									width: 300,
+									style: "title",
+									text: [
+										{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+										{text: "Độc lập - Tự do - Hạnh phúc\n"},
+										{text: "------------------------------------\n"},
+										{text: "HẬU GIANG, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+									]
+								}
+							]
+						},
+						{
+							text: [
+								{text: "CHI TIẾT ĐÁNH GIÁ HÀI LÒNG CÁN BỘ \n"},
+								{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+							], 
+							margin: [0, 20],
+							style: "headerTitle"
+						},
+						{
+							style: "tableExample",
+							table: {
+								widths: [20, "*", 150, 100, 100, 100],
+								headerRows: 2,
+								body: [
+									[
+										{
+											text: "\nSTT",
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "\nTên đơn vị",
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "Tên cán bộ",
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+                                      	{
+											text: "Mã hồ sơ",
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+										{
+											text: "Thời gian đánh giá",
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										},
+                                      	{
+											text: "Đánh giá",
+											alignment: "center",
+											bold: true,
+											style: "tdStyle"
+										}
+									],
+									[
+										{
+											text: "(1)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(2)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(3)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(4)",
+											alignment: "center",
+											fontSize: 8
+										},
+										{
+											text: "(5)",
+											alignment: "center",
+											fontSize: 8
+										},
+                                      	{
+											text: "(6)",
+											alignment: "center",
+											fontSize: 8
+										}
+									],
+									"[$report$]"
+								]
+							},
+							margin: [0, 0, 0, 5]
+						},             
+						{
+							columns: [
+								{
+									width: "*",
+									text: [
+										{text: "Nơi nhận:", bold: true }
+									]
+								},
+								{
+									width: 150,
+									style: "title",
+									text: "THỦ TRƯỞNG ĐƠN VỊ"
+								}
+							]
+						},
+						{
+							columns: [
+								{
+									width: "*",
+									text: ""
+								},
+								{
+									width: 150,
+									style: "titleSub",
+									text: "(Ký và ghi rõ họ tên)"
+								}
+							]
+						}
+					],
+					styles: {
+						ngayThangNam: {
+							fontSize: 10,
+							italics: true,
+							bold: false,
+							alignment: "center"
+						},
+						headerTitle: {
+							alignment: "center",
+							bold: true,
+							fontSize: 13
+						},
+						borderHeader: {
+							alignment: "left"
+						},
+						title: {
+							bold: true,
+							alignment: "center"
+						},
+						titleSub: {
+							fontSize: 10,
+							italics: true,
+							alignment: "center"
+						},
+						tdStyle: {
+							fontSize: 10,
+							margin: [0, 2]
+						}
+					},
+					defaultStyle: {
+						columnGap: 20,
+						fontSize: 11
+					}
+				}
+			}
+			
+			]]></tableConfig>
+		<userConfig>{"order": 17}</userConfig>
+	</DynamicReport>
 </DynamicReportList>

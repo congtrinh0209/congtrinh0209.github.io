@@ -56,7 +56,16 @@
                 <span class="font-weight-bold" :style="chiTietCuocThi.tinhTrang == 1 ? 'color: green' : (chiTietCuocThi.tinhTrang == 2 ? 'color: blue' : 'color: red')">
                   {{statusContest(chiTietCuocThi.tinhTrang)}}
                 </span>
-              </v-col>              
+              </v-col>
+              <v-col v-if="chiTietCuocThi.tinhTrang == 1" cols="12" md="3" class="pt-0">
+                <v-btn small
+                  color="primary"
+                  @click="dangKyThi(chiTietCuocThi)"
+                >
+                  <v-icon size="18" >mdi-pencil</v-icon>&nbsp;
+                  Đăng ký
+                </v-btn>
+              </v-col>
             </v-row>
           </div>
         </div>
@@ -104,7 +113,7 @@
             <v-spacer></v-spacer>
           </v-row>
           <v-row class="my-0 py-0 pt-3 mx-0">
-            <v-col cols="12" class="py-0 px-0 mb-2 col col-12 my-2">
+            <v-col cols="12" class="py-0 px-0 mb-2 col col-12 my-2" style="color: #2161b1;font-weight: bold;">
               <div class="background-triangle-small"> <v-icon size="20" color="white">mdi-view-dashboard-outline</v-icon></div>
               NỘI DUNG CÁ NHÂN
             </v-col>
@@ -128,7 +137,7 @@
             </v-col>
           </v-row>
           <v-row class="my-0 py-0 pt-3 mx-0">
-            <v-col cols="12" class="py-0 px-0 mb-2 col col-12 my-2">
+            <v-col cols="12" class="py-0 px-0 mb-2 col col-12 my-2" style="color: #2161b1;font-weight: bold;">
               <div class="background-triangle-small"> <v-icon size="20" color="white">mdi-view-dashboard-outline</v-icon></div>
               NỘI DUNG ĐỒNG ĐỘI
             </v-col>
@@ -158,10 +167,7 @@
 </template>
 
 <script>
-import axios from 'axios'
-import $ from 'jquery'
 import Pagination from './Pagination.vue'
-import DangKyThi from './DangKyThi.vue'
 import toastr from 'toastr'
 toastr.options = {
   'closeButton': true,
@@ -171,8 +177,7 @@ toastr.options = {
 export default {
     name: 'CuocThi',
     components: {
-      Pagination,
-      'dang-ky-thi': DangKyThi
+      Pagination
     },
     props: ['type', 'id'],
     data() {
@@ -194,7 +199,7 @@ export default {
           "thongTinMoTa": "Olympic Tin học Sinh viên Việt Nam (OLP) là sáng kiến của Hội Tin học Việt Nam, Hội Sinh viên Việt Nam và Bộ giáo dục và Đào tạo nhằm động viên phong trào học tập tin học và khuyến khích các tài năng tin học trẻ. Bắt đầu từ năm 1992, Kỳ thi đã được tổ chức định kỳ hàng năm với sự tham gia của đông đảo sinh viên các trường Đại học và Cao đẳng trong cả nước. Từ năm 2005, sau những năm thử nghiệm với tiêu chuẩn thi lập trình quốc tế ACM/ICPC cho quy trình chấm thi và thi trực tuyến cho khối thi tập thể ”lều chõng”, từ năm 2006 Việt Nam chính thức được chấp thuận tổ chức Kỳ thi lập trình sinh viên quốc tế ACM/ICPC (ACM International Collegiate Programming Contest) Khu vực Châu Á. Từ năm 2007, Olympic Tin học sinh viên Việt Nam đã kết nối với Kỳ thi ACM/ICPC thành một Hội thi tin học cho sinh viên Việt Nam và Khu vực Châu Á. Từ năm 2018, ACM/ICPC đổi thành Kỳ thi lập trình sinh viên quốc tế ICPC (International Collegiate Programming Contest).",
           "website": "https://www.olp.vn/",
           "hinhAnh": 'https://oj.vnoi.info/martor/16698f71-9463-4556-91f2-d9aa7acdfa96.png',
-          "tinhTrang": 2
+          "tinhTrang": 1
         },
         itemsPerPage: 15,
         keywordSearch: '',
@@ -242,7 +247,7 @@ export default {
               align: 'center',
               value: 'datGiaiThuong',
               class: 'th-center',
-              width: 120
+              width: 200
           }
         ],
         loadingDataKetQuaCaNhan: false,
@@ -286,7 +291,7 @@ export default {
               align: 'center',
               value: 'hangGiaiThuong',
               class: 'th-center',
-              width: 120
+              width: 200
           }
         ],
         loadingDataKetQuaDongDoi: false,
@@ -305,6 +310,14 @@ export default {
       vm.getChiTietCuocThi()
       vm.getdanhSachKetQuaCaNhan()
       vm.getdanhSachKetQuaDongDoi()
+    },
+    computed: {
+      breakpointName () {
+        return this.$store.getters.getBreakpointName
+      },
+      isSigned () {
+        return this.$cookies.get('Token') ? true : false
+      },
     },
     watch: {
       '$route': function (newRoute, oldRoute) {
@@ -389,6 +402,15 @@ export default {
         }).catch(function () {
           vm.loadingDataKetQuaDongDoi = false
         })
+      },
+      dangKyThi (item) {
+        let vm = this
+        if (vm.isSigned) {
+          vm.$router.push({ path: '/dang-ky/' + item.id})
+        } else {
+          let ref = '/dang-ky/' + item.id
+          vm.$router.push({ path: '/dang-nhap?redirect=' + ref})
+        }
       },
       statusContest (status) {
         if (status == 1) {
@@ -508,14 +530,6 @@ export default {
   }
 </script>
 <style lang="scss">
-  .bao-cao-1 {
-    width: 300px;
-    max-width: 235px;
-    /* border-bottom: 1px solid #DDDDDD; */
-  }
-  .bao-cao-1 .v-list {
-    padding-top: 0px;
-  }
   .nav-content {
     border-right: 1px solid #DDDDDD;
     box-sizing: border-box;

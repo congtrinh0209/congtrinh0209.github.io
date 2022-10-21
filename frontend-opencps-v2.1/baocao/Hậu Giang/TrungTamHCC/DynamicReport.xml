@@ -5372,19 +5372,6 @@
                     ],
 					clearable: true
                 },
-				{
-					label: "Đánh giá hài lòng của công dân",
-					key: "rate",
-					value: "",
-					type: "select",
-					source: [
-						{name: "Tất cả", value: 4},
-						{name: "Rất hài lòng", value: 3},
-						{name: "Hài lòng", value: 2},
-						{name: "Không hài lòng", value: 1}
-					],
-					clearable: true
-				},
                 {
                     label: "Ngày tiếp nhận từ ngày",
                     key: "fromDate",

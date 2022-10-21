@@ -167,6 +167,7 @@
                   </template>
                   <template v-slot:item.action="{ item }">                   
                     <v-btn
+                      v-if="item.tinhTrang == 1"
                       text
                       color="primary"
                       @click="dangKyThi(item)"
@@ -229,7 +230,7 @@
             "ngayKetThuc": "19-03-2022",
             "thongTinMoTa": "Olympic Tin học Sinh viên Việt Nam (OLP) là sáng kiến của Hội Tin học Việt Nam, Hội Sinh viên Việt Nam và Bộ giáo dục và Đào tạo nhằm động viên phong trào học tập tin học và khuyến khích các tài năng tin học trẻ. Bắt đầu từ năm 1992, Kỳ thi đã được tổ chức định kỳ hàng năm với sự tham gia của đông đảo sinh viên các trường Đại học và Cao đẳng trong cả nước. Từ năm 2005, sau những năm thử nghiệm với tiêu chuẩn thi lập trình quốc tế ACM/ICPC cho quy trình chấm thi và thi trực tuyến cho khối thi tập thể ”lều chõng”, từ năm 2006 Việt Nam chính thức được chấp thuận tổ chức Kỳ thi lập trình sinh viên quốc tế ACM/ICPC (ACM International Collegiate Programming Contest) Khu vực Châu Á. Từ năm 2007, Olympic Tin học sinh viên Việt Nam đã kết nối với Kỳ thi ACM/ICPC thành một Hội thi tin học cho sinh viên Việt Nam và Khu vực Châu Á. Từ năm 2018, ACM/ICPC đổi thành Kỳ thi lập trình sinh viên quốc tế ICPC (International Collegiate Programming Contest).",
             "website": "https://www.olp.vn/",
-            "hinhAnh": 'https://lh4.googleusercontent.com/DRRQPAIWa_t4uGw6Tq_GoZdH-M-2FW9mYbB4rerIQfHVrCLcqaifunulLzQ42mdH24L8RazL8DEakJcLFtyPcyCRIc4b7w0zLN2KNDhesPqiS6CmeSk9p-Fvh8f4XQ5hOA=w1280',
+            "hinhAnh": 'https://oj.vnoi.info/martor/16698f71-9463-4556-91f2-d9aa7acdfa96.png',
             "tinhTrang": 1
         },
         {
@@ -244,7 +245,7 @@
             "ngayKetThuc": "19-03-2022",
             "thongTinMoTa": "Được sự bảo trợ của Hiệp hội máy tính (ACM), kỳ thi lập trình quốc tế ACM/ICPC (International Collegiate Programming Contest) được tổ chức lần đầu tiên tại Mỹ vào năm 1970, đến nay đã thu hút được hàng chục ngàn sinh viên xuất sắc nhất của các khoa trong lĩnh vực máy tính từ hệ thống Đại học toàn cầu. Cuộc thi có mục đích nhằm phát triển sự sáng tạo, làm việc nhóm và sự đổi mới trong cách xây dựng các chương trình phần mềm mới và cho phép sinh viên kiểm tra năng lực thực hiện của họ dưới một áp lực thời gian rất cao. Đây là kì thi lập trình lâu đời nhất, lớn nhất và có uy tín nhất trên thế giới. ",
             "website": "https://icpc.global",
-            "hinhAnh": 'https://lh5.googleusercontent.com/9BnT7Gklv9hoB5Oewi7jfn5edpC4ZKcllmOE6TqTL0OeBz4xpkw0aHQtWWMs5xIsqUDN1TGI4vo9AM98KFFPByHUinJGT9d_N0qni6Ac3-pvA7JPVEKSQXyUEWZok5yQ3w=w1280',
+            "hinhAnh": 'https://tinhoctre.vn/static/icons/banner_header.jpg',
             "tinhTrang": 3
         },
         {
@@ -259,7 +260,7 @@
             "ngayKetThuc": "19-03-2022",
             "thongTinMoTa": "Olympic Tin học Sinh viên Việt Nam (OLP) là sáng kiến của Hội Tin học Việt Nam, Hội Sinh viên Việt Nam và Bộ giáo dục và Đào tạo nhằm động viên phong trào học tập tin học và khuyến khích các tài năng tin học trẻ. Bắt đầu từ năm 1992, Kỳ thi đã được tổ chức định kỳ hàng năm với sự tham gia của đông đảo sinh viên các trường Đại học và Cao đẳng trong cả nước. Từ năm 2005, sau những năm thử nghiệm với tiêu chuẩn thi lập trình quốc tế ACM/ICPC cho quy trình chấm thi và thi trực tuyến cho khối thi tập thể ”lều chõng”, từ năm 2006 Việt Nam chính thức được chấp thuận tổ chức Kỳ thi lập trình sinh viên quốc tế ACM/ICPC (ACM International Collegiate Programming Contest) Khu vực Châu Á. Từ năm 2007, Olympic Tin học sinh viên Việt Nam đã kết nối với Kỳ thi ACM/ICPC thành một Hội thi tin học cho sinh viên Việt Nam và Khu vực Châu Á. Từ năm 2018, ACM/ICPC đổi thành Kỳ thi lập trình sinh viên quốc tế ICPC (International Collegiate Programming Contest).",
             "website": "https://www.olp.vn/",
-            "hinhAnh": 'https://lh4.googleusercontent.com/DRRQPAIWa_t4uGw6Tq_GoZdH-M-2FW9mYbB4rerIQfHVrCLcqaifunulLzQ42mdH24L8RazL8DEakJcLFtyPcyCRIc4b7w0zLN2KNDhesPqiS6CmeSk9p-Fvh8f4XQ5hOA=w1280',
+            "hinhAnh": 'https://oj.vnoi.info/martor/248d5326-886f-4353-b340-9038c5e03aec.jpg',
             "tinhTrang": 2
         },
         {
@@ -450,9 +451,9 @@
       dangKyThi (item) {
         let vm = this
         if (vm.isSigned) {
-          vm.$router.push({ path: '/cuoc-thi/' + item.id})
+          vm.$router.push({ path: '/dang-ky/' + item.id})
         } else {
-          let ref = '/cuoc-thi/' + item.id
+          let ref = '/dang-ky/' + item.id
           vm.$router.push({ path: '/dang-nhap?redirect=' + ref})
         }
       },

@@ -1,154 +1,130 @@
 <template>
   <v-card
-    class="mx-auto"
+    class="mx-auto pa-3" style="padding-bottom: 36px !important"
     flat
   >
-    <v-form
-      ref="formThanhPhan"
-      v-model="validFormAdd"
-      lazy-validation
-      class="mt-2"
-    >
-      <v-layout wrap>
-        <!--  -->
-        <div v-for="(item, index) in mauNhap" v-bind:key="index" :class="item['fieldClass']" class="py-0 mb-2">
-          <label>{{item.title}} <span class="red--text" v-if="item.required">(*)</span></label>
-          <v-text-field
-            v-if="item.type === 'textfield'"
-            class="flex input-form"
-            v-model="data[item.name]"
-            :placeholder="item['placeHolder']"
-            solo
-            dense
-            hide-details="auto"
-            :clearable="!readonly"
-            :rules="item.required ? [v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'] : []"
-          ></v-text-field>
-          <v-textarea
-            v-if="item.type === 'textarea'"
-            class="flex input-form"
-            v-model="data[item.name]"
-            :placeholder="item['placeHolder']"
-            solo
-            dense
-            hide-details="auto"
-            :clearable="!readonly"
-            :rows="item.hasOwnProperty('rows') ? item.rows : 3"
-            :rules="item.required ? [v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'] : []"
-          ></v-textarea>
-
-          <v-text-field
-            v-if="item.type === 'date'"
-            class="flex input-form"
-            v-model="data[item.name]"
-            placeholder="dd/mm/yyyy, ddmmyyyy"
-            @blur="formatBirthDate(item.name)"
-            @input="formatBirthDate(item.name)"
-            @change="formatBirthDate(item.name)"
-            solo
-            dense
-            hide-details="auto"
-            :clearable="!readonly"
-            :rules="item.required ? [v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'] : []"
-          ></v-text-field>
-          <v-text-field
-            v-if="item.type === 'money'"
-            class="flex input-form"
-            @input="toCurrency(item.name)"
-            v-model="data[item.name]"
-            :placeholder="item['placeHolder']"
-            solo
-            dense
-            hide-details="auto"
-            :clearable="!readonly"
-            :rules="item.required ? [v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'] : []"
-          ></v-text-field>
-          <v-autocomplete
-            v-if="item.type === 'select' && !item.api"
-            class="flex input-form"
-            hide-no-data
-            v-model="data[item.name]"
-            :items="item.dataSource"
-            :multiple="item['multiple']"
-            :item-text="item.itemText"
-            :item-value="item.itemValue"
-            dense
-            solo
-            hide-details="auto"
-            return-object
-            :clearable="!readonly"
-            :rules="item.required ? [v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'] : []"
-          >
-          </v-autocomplete>
-          <v-autocomplete
-            v-if="item.type === 'select' && item.api"
-            class="flex input-form"
-            hide-no-data
-            v-model="data[item.name]"
-            :items="item.dataSource"
-            :multiple="item['multiple']"
-            :item-text="item.itemText"
-            :item-value="item.itemValue"
-            dense
-            solo
-            hide-details="auto"
-            return-object
-            :clearable="!readonly"
-            :rules="item.required ? [v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'] : []"
-          >
-          </v-autocomplete>
-
-          <div class="col-12" v-if="item.type === 'attack'" style="border: 1px solid #D9D9D9">
-            <input type="file" id="file_upload" :multiple="item.multiple" @input="uploadFile()" style="display:none">
-            <div v-if="fileUpload && fileUpload.length">
-              <div class="pb-2" @click="viewFileUpload()" v-for="(item, key) in fileUpload" v-bind:key="key" >
-                <v-icon size="18" color="green" v-if="getExtension(item) === 'xls' || getExtension(item) === 'xlsx'">mdi-file-excel-outline</v-icon>
-                <v-icon size="18" color="blue" v-else-if="getExtension(item) === 'doc' || getExtension(item) === 'docx'">mdi-file-word-outline</v-icon>
-                <v-icon size="18" color="red" v-else-if="getExtension(item) === 'pdf'">mdi-file-pdf-box</v-icon>
-                <v-icon size="18" color="blue" v-else-if="getExtension(item) === 'png' || getExtension(item) === 'jpg' || getExtension(item) === 'jpeg'">mdi-file-image</v-icon>
-                <v-icon size="18" color="#2161b1" v-else>mdi-paperclip</v-icon>
-                <a class="ml-2" style="font-size: 14px;text-decoration: underline;">{{item.name}}</a>
-                <v-tooltip top v-if="item.id">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn @click="downloadFile(item, key)" color="blue" text icon class="mx-2" v-bind="attrs" v-on="on">
-                      <v-icon size="18">mdi-cloud-download-outline</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Tải xuống</span>
-                </v-tooltip>
-                <v-tooltip top v-if="!readonly">
-                  <template v-slot:activator="{ on, attrs }">
-                    <v-btn @click="deleteFileAttack(item, key)" color="red" text icon class="mx-0" v-bind="attrs" v-on="on">
-                      <v-icon size="18">mdi-close-circle</v-icon>
-                    </v-btn>
-                  </template>
-                  <span>Xóa</span>
-                </v-tooltip>
+    <v-layout wrap>
+      <v-flex class="py-0">
+        <div>
+          <a :href="chiTietCuocThi.website" target="_blank" class="py-0 px-0"> 
+            <img class="img-cuocthi" :src="chiTietCuocThi.hinhAnh" style="width: 100%">
+          </a>
+          <v-row justify="end" class="my-0 mx-0" style="border-bottom: 1px solid #2161B1">
+            <v-col class="d-flex align-center justify-start py-0 px-0" style="color: #2161B1;font-weight: 500;">
+              <div class="header-content">
+                Đăng ký dự thi
               </div>
-            </div>
-            <div v-else>
-              <span>Không có giấy tờ đính kèm!</span>
-            </div>
-            <v-btn
-              v-if="!readonly"
-              class="btn-form my-2 mx-0 mr-2 left" small
-              color="primary"
-              :loading="loading" :disabled="loading"
-              @click.stop="pickFileUpload()"
-            >
-              <v-icon size="18">mdi-cloud-upload-outline</v-icon>&nbsp;
-              Tải lên tài liệu đính kèm
-            </v-btn>
+              <div class="triangle-header"></div>
+            </v-col>
+            <v-spacer></v-spacer>
+            <v-col class="d-flex align-center justify-end py-0 px-0" style="max-width: 150px;margin-bottom: -3px;">
+              <v-btn
+                depressed
+                class="mx-0"
+                small
+                color="primary"
+                @click="goBack()"
+                style="float: right"
+                >
+                <v-icon size="18">mdi-reply-all</v-icon>
+                &nbsp;
+                Quay lại
+              </v-btn>
+            </v-col>
+          </v-row>
+          <div>
+            <v-row class="mx-0 my-0 py-0" style="border: 1px solid #D9D9D9; border-top: 0px;">
+              <v-col cols="12" class="py-2">
+                <div class="font-weight-bold" style="color: #2161B1;font-size: 18px;">{{chiTietCuocThi.tenGoi}}</div>
+                <div class="" style="text-align: justify;">{{chiTietCuocThi.thongTinMoTa}}</div>
+              </v-col>
+              <v-col cols="12" md="3" class="pt-0">
+                <span class="label-header">Đơn vị tổ chức: </span>
+                <span class="blue-text font-weight-bold">{{chiTietCuocThi.donViToChuc}}</span>
+              </v-col>
+              <v-col cols="12" md="3" class="pt-0">
+                <span class="label-header">Thời gian tổ chức: </span>
+                <span class="blue-text font-weight-bold">Từ ngày {{convertDate(chiTietCuocThi.ngayBatDau)}}</span>
+                <span class="blue-text font-weight-bold"> - Đến ngày {{convertDate(chiTietCuocThi.ngayKetThuc)}}</span>
+              </v-col>
+              <v-col cols="12" md="3" class="pt-0">
+                <span class="label-header">Trang web: </span>
+                <a class="blue-text font-weight-bold">{{chiTietCuocThi.website}}</a>
+              </v-col>
+              <v-col cols="12" md="3" class="pt-0">
+                <span class="label-header">Tình trạng: </span>
+                <span class="font-weight-bold" :style="chiTietCuocThi.tinhTrang == 1 ? 'color: green' : (chiTietCuocThi.tinhTrang == 2 ? 'color: blue' : 'color: red')">
+                  {{statusContest(chiTietCuocThi.tinhTrang)}}
+                </span>
+              </v-col>
+            </v-row>
           </div>
         </div>
-      </v-layout>
-    </v-form>
+
+        <div>
+          <v-row justify="end" class="my-0 mx-0 mt-3" style="border-bottom: 1px solid #2161B1">
+            <v-col class="d-flex align-center justify-start py-0 px-0" style="color: #2161B1;font-weight: 500;">
+              <div class="header-content">
+                Danh sách dự thi
+              </div>
+              <div class="triangle-header"></div>
+            </v-col>
+            <v-spacer></v-spacer>
+          </v-row>
+          <v-row class="my-0 py-0 pt-3 mx-0">
+            <v-col cols="12" class="py-0 px-0 mb-2 col col-12 my-2" style="color: #2161b1;font-weight: bold;">
+              <div class="background-triangle-small"> <v-icon size="20" color="white">mdi-view-dashboard-outline</v-icon></div>
+              DANH SÁCH THÍ SINH
+            </v-col>
+            <v-col cols="12"  class="pt-0 px-0">
+              <v-data-table
+                :headers="headersKetQuaCaNhan"
+                :items="danhSachKetQuaCaNhan"
+                :items-per-page="itemsPerPage"
+                item-key="primKey"
+                hide-default-footer
+                class="table-base mt-2"
+                no-data-text="Không có"
+                :loading="loadingDataKetQuaCaNhan"
+                loading-text="Đang tải... "
+              >
+                <template v-slot:item.index="{ item, index }">
+                  <div>{{ (pageKetQuaCaNhan+1) * itemsPerPage - itemsPerPage + index + 1 }}</div>
+                </template>
+              </v-data-table>
+            </v-col>
+          </v-row>
+          <v-row class="my-0 py-0 pt-3 mx-0">
+            <v-col cols="12" class="py-0 px-0 mb-2 col col-12 my-2" style="color: #2161b1;font-weight: bold;">
+              <div class="background-triangle-small"> <v-icon size="20" color="white">mdi-view-dashboard-outline</v-icon></div>
+              DANH SÁCH HUẤN LUẬN VIÊN
+            </v-col>
+            <v-col cols="12"  class="pt-0 px-0">
+              <v-data-table
+                :headers="headersKetQuaDongDoi"
+                :items="danhSachKetQuaDongDoi"
+                :items-per-page="itemsPerPage"
+                item-key="primKey"
+                hide-default-footer
+                class="table-base mt-2"
+                no-data-text="Không có"
+                :loading="loadingDataKetQuaDongDoi"
+                loading-text="Đang tải... "
+              >
+                <template v-slot:item.index="{ item, index }">
+                  <div>{{ (pageKetQuaDongDoi+1) * itemsPerPage - itemsPerPage + index + 1 }}</div>
+                </template>
+              </v-data-table>
+            </v-col>
+          </v-row>
+        </div>
+      </v-flex>
+    </v-layout>
   </v-card>
 </template>
 
 <script>
-import Vue from 'vue'
-import $ from 'jquery'
+import Pagination from './Pagination.vue'
 import toastr from 'toastr'
 toastr.options = {
   'closeButton': true,
@@ -156,184 +132,279 @@ toastr.options = {
   "positionClass": "toast-top-center"
 }
 export default {
-    props: ["mauNhap", "dataInput", "readonly", "thongtinthanhphan"],
+    name: 'CuocThi',
     components: {
+      Pagination
     },
+    props: ['type', 'id'],
     data() {
       return {
-        loading: false,
-        loadingData: false,
-        validFormAdd: false,
-        data: {},
-        required: [
-          v => (v !== '' && v !== null && v !== undefined) || 'Thông tin bắt buộc'
-        ],
-        rules: {
-          required: value => !!value || 'Thông tin bắt buộc'
+        readonlyForm: false,
+        mauNhapForm: '',
+        dataInput: '',
+        formData: '',
+        chiTietCuocThi: {
+          "id": "adac1aec-41ac-4e92-be04-52dc99d9fd85",
+          "tenGoi": "Olympic tin học sinh viên Việt Nam",
+          "tiengAnh": null,
+          "serieCuocThi": "OLP",
+          "lanToChuc": 21,
+          "donViToChuc": "Hội tin học Việt Nam",
+          "toChucId": "02123",
+          "ngayBatDau": "06-11-2021",
+          "ngayKetThuc": "19-03-2022",
+          "thongTinMoTa": "Olympic Tin học Sinh viên Việt Nam (OLP) là sáng kiến của Hội Tin học Việt Nam, Hội Sinh viên Việt Nam và Bộ giáo dục và Đào tạo nhằm động viên phong trào học tập tin học và khuyến khích các tài năng tin học trẻ. Bắt đầu từ năm 1992, Kỳ thi đã được tổ chức định kỳ hàng năm với sự tham gia của đông đảo sinh viên các trường Đại học và Cao đẳng trong cả nước. Từ năm 2005, sau những năm thử nghiệm với tiêu chuẩn thi lập trình quốc tế ACM/ICPC cho quy trình chấm thi và thi trực tuyến cho khối thi tập thể ”lều chõng”, từ năm 2006 Việt Nam chính thức được chấp thuận tổ chức Kỳ thi lập trình sinh viên quốc tế ACM/ICPC (ACM International Collegiate Programming Contest) Khu vực Châu Á. Từ năm 2007, Olympic Tin học sinh viên Việt Nam đã kết nối với Kỳ thi ACM/ICPC thành một Hội thi tin học cho sinh viên Việt Nam và Khu vực Châu Á. Từ năm 2018, ACM/ICPC đổi thành Kỳ thi lập trình sinh viên quốc tế ICPC (International Collegiate Programming Contest).",
+          "website": "https://www.olp.vn/",
+          "hinhAnh": 'https://oj.vnoi.info/martor/16698f71-9463-4556-91f2-d9aa7acdfa96.png',
+          "tinhTrang": 1
         },
-        fileUpload: []
+        itemsPerPage: 30,
+        keywordSearch: '',
+        danhSachKetQuaCaNhan: [],
+        headersKetQuaCaNhan: [
+          {
+              sortable: false,
+              text: 'STT',
+              align: 'center',
+              value: 'index',
+              width: 50
+          },
+          {
+              sortable: false,
+              text: 'Tên thí sinh',
+              align: 'left',
+              value: 'hoTen',
+              class: 'th-center py-2'
+          },
+          {
+              sortable: false,
+              text: 'Số báo danh',
+              align: 'left',
+              value: 'soBaoDanh',
+              class: 'th-center'
+          },
+          {
+              sortable: false,
+              text: 'Đoàn thi',
+              align: 'left',
+              value: 'doanThiId',
+              class: 'th-center py-2'
+          },
+          {
+              sortable: false,
+              text: 'Giải thưởng',
+              align: 'center',
+              value: 'datGiaiThuong',
+              class: 'th-center',
+              width: 200
+          }
+        ],
+        loadingDataKetQuaCaNhan: false,
+        pageKetQuaCaNhan: 0,
+        totalKetQuaCaNhan: 0,
+        pageCountKetQuaCaNhan: 0,
+
+        danhSachKetQuaDongDoi: [],
+        headersKetQuaDongDoi: [
+          {
+              sortable: false,
+              text: 'STT',
+              align: 'center',
+              value: 'index',
+              width: 50
+          },
+          {
+              sortable: false,
+              text: 'Tên đội thi',
+              align: 'left',
+              value: 'tenGoi',
+              class: 'th-center py-2'
+          },
+          {
+              sortable: false,
+              text: 'Số báo danh',
+              align: 'left',
+              value: 'soBaoDanh',
+              class: 'th-center'
+          },
+          {
+              sortable: false,
+              text: 'Đoàn thi',
+              align: 'left',
+              value: 'doanThiId',
+              class: 'th-center py-2'
+          },
+          {
+              sortable: false,
+              text: 'Giải thưởng',
+              align: 'center',
+              value: 'hangGiaiThuong',
+              class: 'th-center',
+              width: 200
+          }
+        ],
+        loadingDataKetQuaDongDoi: false,
+        pageKetQuaDongDoi: 0,
+        totalKetQuaDongDoi: 0,
+        pageCountKetQuaDongDoi: 0,
+
+        dialogThemThanhPhan: false,
+        editThanhPhan: false,
+        thanhPhanEdit: '',
+        loadingAction: false,
       }
     },
     created () {
       let vm = this
-      vm.$store.commit('SET_INDEXTAB', 0)
+      vm.getChiTietCuocThi()
+      vm.getdanhSachKetQuaCaNhan()
+      vm.getdanhSachKetQuaDongDoi()
+    },
+    computed: {
+      breakpointName () {
+        return this.$store.getters.getBreakpointName
+      },
+      isSigned () {
+        return this.$cookies.get('Token') ? true : false
+      },
     },
     watch: {
       '$route': function (newRoute, oldRoute) {
         let vm = this
-        vm.$store.commit('SET_INDEXTAB', 0)
-      },
+        vm.getChiTietCuocThi()
+      }
     },
     methods: {
-      processRules (rulesStr) {
-        let rulesInput = []
-        try {
-          if (rulesStr) {
-            rulesInput = eval('( ' + rulesStr + ' )')
-          }
-        } catch (error) {
-        }
-        return rulesInput
-      },
-      pickFileUpload () {
-        document.getElementById('file_upload').value = ''
-        document.getElementById('file_upload').click()
-      },
-      uploadFile () {
+      getChiTietCuocThi () {
         let vm = this
-        let files = $('#file_upload')[0].files
-        for (let index = 0; index < files.length; index++) {
-          vm.fileUpload.push({
-            name: files[index]['name']
+        if (vm.loadingData) {
+          return
+        }
+        vm.loadingData = true
+        let filter = {
+          collectionName: 'cuocthis',
+          id: vm.id
+        }
+        vm.actionItems = []
+        vm.loadingData = true
+        vm.$store.dispatch('collectionDetail', filter).then(function (response) {
+          vm.loadingData = false
+          // vm.chiTietCuocThi = response
+        }).catch(function () {
+          vm.loadingData = false
+        })
+      },
+      getdanhSachKetQuaCaNhan (type) {
+        let vm = this
+        if (type === 'reset') {
+          vm.totalKetQuaCaNhan = 0
+          vm.pageCountKetQuaCaNhan = 0
+          vm.pageKetQuaCaNhan = 0
+        }
+        if (vm.loadingDataKetQuaCaNhan) {
+          return
+        }
+        vm.loadingDataKetQuaCaNhan = true
+        let filter = {
+          collectionName: 'cuocthis',
+          collectionId: vm.id,
+          collectionNameChild: 'thisinhs',
+          data: {
+            page: vm.pageKetQuaCaNhan,
+            size: vm.itemsPerPage
+          }
+        }
+        vm.$store.dispatch('collectionFilterLevel2', filter).then(function (response) {
+          vm.danhSachKetQuaCaNhan = response.content
+          vm.totalKetQuaCaNhan = response.totalElements
+          vm.pageCountKetQuaCaNhan = response.totalPages
+          vm.loadingDataKetQuaCaNhan = false
+        }).catch(function () {
+          vm.loadingDataKetQuaCaNhan = false
+        })
+      },
+      getdanhSachKetQuaDongDoi (type) {
+        let vm = this
+        if (type === 'reset') {
+          vm.totalKetQuaDongDoi = 0
+          vm.pageCountKetQuaDongDoi = 0
+          vm.pageKetQuaDongDoi = 0
+        }
+        if (vm.loadingDataKetQuaDongDoi) {
+          return
+        }
+        vm.loadingDataKetQuaDongDoi = true
+        let filter = {
+          collectionName: 'cuocthis',
+          collectionId: vm.id,
+          collectionNameChild: 'doithis',
+          data: {
+            page: vm.pageKetQuaDongDoi,
+            size: vm.itemsPerPage
+          }
+        }
+        vm.$store.dispatch('collectionFilterLevel2', filter).then(function (response) {
+          vm.danhSachKetQuaDongDoi = response.content
+          vm.totalKetQuaDongDoi = response.totalElements
+          vm.pageCountKetQuaDongDoi = response.totalPages
+          vm.loadingDataKetQuaDongDoi = false
+        }).catch(function () {
+          vm.loadingDataKetQuaDongDoi = false
+        })
+      },
+      dangKyThi (item) {
+        let vm = this
+        if (vm.isSigned) {
+          vm.$router.push({ path: '/dang-ky/' + item.id})
+        } else {
+          let ref = '/dang-ky/' + item.id
+          vm.$router.push({ path: '/dang-nhap?redirect=' + ref})
+        }
+      },
+      statusContest (status) {
+        if (status == 1) {
+          return 'Mở đăng kí'
+        } else if (status == 2) {
+          return 'Đóng đăng kí'
+        } else {
+          return 'Đã kết thúc'
+        }
+      },
+      checkRoleAction (role) {
+        let vm = this
+        let roleUser = vm.$cookies.get('Roles', '')
+        if (!role || !roleUser) {
+          return false
+        }
+        let roles = roleUser.split(',')
+        let exits = roles.find(function (item) {
+          return item == role
+        })
+        if (exits) {
+          return true
+        } else {
+          return false
+        }
+      },
+      convertDataView (itemHeader, item) {
+        let output = ''
+        try {
+          let calu = itemHeader['calculator'].replace(/dataInput/g, 'item')
+          output = eval(calu)
+        } catch (error) {
+          output = ''
+        }
+        return output
+      },
+      convertDataArray (itemHeader, array) {
+        let output = ''
+        if (array) {
+          output = Array.from(array, function (item) {
+            return item[itemHeader['mapping']]
           })
         }
-      },
-      deleteFileAttack (item, index) {
-        let vm = this
-        if (!item.id) {
-          vm.fileUpload.splice(index, 1)
-        } else {
-          vm.$store.commit('SET_SHOWCONFIRM', true)
-          let confirm = {
-            auth: false,
-            title: 'Xóa tài liệu đính kèm',
-            message: 'Bạn có chắc chắn muốn xóa tài liệu này',
-            button: {
-              yes: 'Có',
-              no: 'Không'
-            },
-            callback: () => {
-              let filter = {
-                idThanhPhan: vm.thongtinthanhphan.primKey,
-                idFile: item.id
-              }
-              vm.$store.dispatch('deleteFile', filter).then(function(result) {
-                vm.fileUpload.splice(index, 1)
-                toastr.success('Xóa tài liệu đính kèm thành công')
-              }).catch(function(){
-                toastr.success('Xóa tài liệu đính kèm thất bại')
-              })
-            }
-          }
-          vm.$store.commit('SET_CONFIG_CONFIRM_DIALOG', confirm)
-        }
-      },
-      getExtension (file) {
-        var regex = new RegExp('[^.]+$');
-        var extension = file.name.match(regex);
-        return extension[0].toLocaleLowerCase()
-      },
-      viewFileUpload () {
-        let vm = this
-      },
-      downloadFile (file) {
-        let vm = this
-        vm.$store.dispatch('downloadFile', file).then(function(result) {
-        }).catch(function(){})
-      },
-      submitTaoBaoCao (type) {
-        let vm = this
-        console.log('dataFormOutput', vm.data)
-        let dataOutput = Object.assign({}, vm.data)
-        for (let key in vm.mauNhap) {
-          let itemConfig = vm.mauNhap[key]
-          if (itemConfig.type == 'date' && dataOutput[itemConfig['name']]) {
-            dataOutput[itemConfig['name']] = vm.convertDate(dataOutput[itemConfig['name']])
-          }
-          if (itemConfig.type == 'money' && dataOutput[itemConfig['name']]) {
-            dataOutput[itemConfig['name']] = Number(dataOutput[itemConfig['name']].toString().replace(/\./g, ''))
-          }
-          if (itemConfig.type == 'select' && dataOutput[itemConfig['name']]) {
-            let dataCv = Array.isArray(dataOutput[itemConfig['name']]) ? dataOutput[itemConfig['name']] : [dataOutput[itemConfig['name']]]
-            let dataArray = Array.from(dataCv, function (item) {
-              let itemGet = {}
-              itemGet[itemConfig['itemText']] = item[itemConfig['itemText']]
-              itemGet[itemConfig['itemValue']] = item[itemConfig['itemValue']]
-              return itemGet
-            })
-            dataOutput[itemConfig['name']] = dataArray
-          }
-        }
-        vm.$store.commit('SET_FORM_DATA', dataOutput)
-      },
-      initForm (type) {
-        let vm = this
-        for (let key in vm.mauNhap) {
-          let itemData = vm.mauNhap[key]
-          if (itemData['type'] === 'select' && itemData.hasOwnProperty('api') && itemData['api']) {
-            vm.$store.dispatch('loadDataSource', itemData).then(function(result) {
-              let resultData = itemData['responseDataApi'] ? result[itemData['responseDataApi']] : result
-              vm.$set(vm.mauNhap[key], 'dataSource', resultData)
-            }).catch(function(){})
-          }
-        }
-        if (type === 'update' && vm.dataInput) {
-          document.getElementById('file_upload').value = ''
-          vm.fileUpload = []
-          vm.data = vm.dataInput
-          console.log('data', vm.data)
-          for (let key in vm.data) {
-            let filter = vm.mauNhap.find(function (item) {
-              return item.name == key
-            })
-            if (filter && filter.type === 'date') {
-              vm.data[key] = vm.dateLocale(vm.data[key])
-            }
-            if (filter && filter.type === 'money') {
-              vm.data[key] = vm.currency(vm.data[key])
-            }
-            if (filter && filter.type === 'select' && !filter['multiple']) {
-              vm.data[key] = Array.isArray(vm.data[key]) ? vm.data[key][0] : vm.data[key]
-            }
-            if (filter && filter.type === 'attack') {
-              vm.fileUpload = [].concat(vm.data[key])
-            }
-          }
-          vm.$refs.formThanhPhan.resetValidation()
-        } else {
-          document.getElementById('file_upload').value = ''
-          vm.fileUpload = []
-        }
-      },
-      validateForm () {
-        let vm = this
-        return vm.$refs.formThanhPhan.validate()
-      },
-      formatBirthDate (name) {
-        let vm = this
-        let lengthDate = String(vm.data[name]).trim().length
-        let splitDate = String(vm.data[name]).split('/')
-        let splitDate2 = String(vm.data[name]).split('-')
-        if (lengthDate && lengthDate > 4 && splitDate.length === 3 && splitDate[2]) {
-          vm.data[name] = vm.translateDate(vm.data[name])
-        } else if (lengthDate && lengthDate === 8) {
-          let date = String(vm.data[name])
-          vm.data[name] = date.slice(0,2) + '/' + date.slice(2,4) + '/' + date.slice(4,8)
-        } else if (splitDate2[1]) {
-          vm.data[name] = vm.dateLocale(vm.data[name])
-        } else {
-          vm.data[name] = ''
-        }
+        output = output.toString().replace(/,/g, ', ')
+        return output
       },
       currency (value) {
         if (value) {
@@ -342,38 +413,76 @@ export default {
         }
         return ''
       },
-      toCurrency (name) {
-        let vm = this
-        if (vm.data[name]) {
-          let data_number = Number(vm.data[name].toString().replace(/\./g, ''))
-          let moneyCur = (data_number / 1).toFixed(0).replace('.', ',')
-          Vue.set(vm.data, name, moneyCur.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'))
-        }
-      },
-      translateDate (date) {
-        if (!date) return null
-        const [day, month, year] = date.split('/')
-        return `${day.padStart(2, '0')}/${month.padStart(2, '0')}/${year}`
+      convertDate (date) {
+        if (!date) return ''
+        const [day, month, year] = date.split('-')
+        let ddd = `${day.padStart(2, '0')}/${month.padStart(2, '0')}/${year}`
+        return ddd
       },
       dateLocale (dateInput) {
-        if (!dateInput) return ''
+        if (!dateInput) {
+          return ''
+        }
         let date = new Date(dateInput)
         return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`
       },
-      convertDate (date) {
-        if (!date) return ''
-        const [day, month, year] = date.split('/')
-        let ddd = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
-        return (new Date(ddd)).toISOString()
+      dateLocaleTime (dateInput) {
+        let date = new Date(dateInput)
+        return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`
       },
-      resetForm () {
+      changePage (config) {
         let vm = this
-        vm.$refs.formThanhPhan.reset()
-        vm.$refs.formThanhPhan.resetValidation()
+        vm.page = config.page
+        vm.getdanhSachThanhPhan()
+      },
+      resetFormTimKiem () {
+        let vm = this
+        vm.$refs.formTimKiem.reset()
+        vm.$refs.formTimKiem.resetValidation()
+      },
+      changeDate(index) {
+        let vm = this
+        vm.menuDate1 = false
+        if (index === '1') {
+          vm.fromReceiveDateFormatted = vm.formatDate(vm.fromReceiveDate)
+        } else if (index === '2') {
+          vm.toReceiveDateFormatted = vm.formatDate(vm.toReceiveDate)
+        }
+      },
+      formatDate(date) {
+        if (!date) return ''
+        const [year, month, day] = date.split('-')
+        return `${day}/${month}/${year}`
+      },
+      parseDate(date) {
+        if (!date) return ''
+        if (String(date).indexOf('/') > 0) {
+          const [day, month, year] = date.split('/')
+          return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+        } else if (String(date).indexOf('-') > 0) {
+          const [day, month, year] = date.split('-')
+          return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
+        } else {
+          let date1 = new Date(Number(date))
+          return `${date1.getFullYear()}-${(date1.getMonth() + 1).toString().padStart(2, '0')}-${date1.getDate().toString().padStart(2, '0')}`
+        }
+      },
+      getMinMax (date) {
+        if (!date) return null
+        const [day, month, year] = date.split('/')
+        return `${year}-${month}-${day}`
       },
       goBack () {
         window.history.back()
       }
     }
-}
+  }
 </script>
+<style lang="scss">
+  .nav-content {
+    border-right: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    // border-radius: 7px;
+    height: 100%;
+  }
+</style>
