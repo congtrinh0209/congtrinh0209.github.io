@@ -3175,16 +3175,16 @@
 				class: "xs6 px-3 mb-3"
 			},
 			{
-			  label: "Hình thức thanh toán",
-			  key: "paymentMethod",
-			  value: "1,2",
-			  type: "select",
-			  source: [
-				{name: "Tất cả", value: "1,2"},
-				{name: "Trực tiếp", value: "2"},
-				{name: "Trực tuyến", value: "1"}
-			  ],
-			  class: "xs6 px-3 mb-3"
+				label: "Hình thức thanh toán",
+				key: "paymentMethod",
+				value: "direct,online",
+				type: "select",
+				source: [
+				{name: "Tất cả", value: "direct,online"},
+				{name: "Trực tiếp", value: "direct"},
+				{name: "Trực tuyến", value: "online"}
+				],
+				class: "xs6 px-3 mb-3"
 			},
 			{
 			  label: "Biên lai",
