@@ -2,6 +2,8 @@
   import { useCookies } from 'vue3-cookies'
   import { ref, reactive, computed, onMounted, watch, defineAsyncComponent } from 'vue'
   import { useAppStore } from '@/stores/global.js'
+  const baseColor = ref(import.meta.env.VITE_APP_BASE_COLOR)
+  console.log('baseColor', import.meta.env)
   // import Pagination from '../views/Pagination.vue'
   // import TimKiemNangCao from './TimKiemNangCao.vue'
   // import FormCRUD from './FormCRUD.vue'
@@ -344,15 +346,12 @@
 </script>
 <template>
   <v-card class="mx-auto pa-3" style="box-shadow: none !important;">
-    <v-row justify="end" class="mt-0 mb-0 mx-0" style="border-bottom: 1px solid #025e29;">
-      <v-col class="d-flex align-center justify-start py-0 px-0" style="color: #025E29;font-weight: 500;">
+    <v-row justify="end" class="mt-0 mb-0 mx-0">
+      <v-col class="row-header d-flex align-center justify-start py-0 px-0">
         <div class="header-content">
           DANH SÁCH CÁN BỘ
         </div>
         <div class="triangle-header"></div>
-      </v-col>
-      <v-spacer></v-spacer>
-      <v-col class="py-0" style="max-width: 500px;">
         <v-text-field
           append-inner-icon="mdi-magnify"
           @click:append-inner="eventClick"
@@ -360,16 +359,16 @@
           placeholder="Tìm kiếm theo từ khóa ..."
           dense
           hide-details="auto"
-          class="input-form"
+          class="input-form input-header-search"
           clearable
         ></v-text-field>
       </v-col>
       <v-col class="py-0 px-0" style="max-width: 180px;">
         <v-btn
           size="small"
-          color="success"
+          :color="baseColor"
           :prepend-icon="!advanceSearch ? 'mdi-filter-variant-plus' : 'mdi-filter-variant'"
-          @click.stop="showAdvanceSearch" class="mx-0" style="float: right"
+          @click.stop="showAdvanceSearch" class="mx-0 white--text" style="float: right"
         >
           Tìm kiếm nâng cao
         </v-btn>
@@ -384,7 +383,7 @@
       <v-col align="right" class="py-0 px-0">
         <v-btn
           size="small"
-          color="success"
+          :color="baseColor"
           prepend-icon="mdi-plus"
           @click.stop="showDialog" class="mx-0"
         >
@@ -403,7 +402,6 @@
           :loading="loadingData"
           loading-text="Đang tải... "
         >
-
           <template v-slot:item="{ item, index }">
             <tr>
               <td class="align-center" width="70">{{ index + 1 }}</td>
@@ -416,7 +414,7 @@
                   <v-tooltip location="top">
                     <template v-slot:activator="{ props }">
                       <v-btn icon variant="flat" size="small" v-bind="props" class="mr-2" @click.stop="showDialog('update', item.columns)">
-                        <v-icon size="22" color="success">mdi-pencil</v-icon>
+                        <v-icon size="22" :color="baseColor">mdi-pencil</v-icon>
                       </v-btn>
                     </template>
                     <span>Sửa</span>
@@ -447,7 +445,7 @@
     >
       <v-row>
         <v-col cols="12" sm="6">
-          <div class="titleText mb-2">
+          <div class="titleText">
             <span class="text-label">Tiêu đề </span><span class="title-required">(*)</span>
           </div>
           <v-text-field
@@ -469,7 +467,7 @@
         </v-col>
 
         <v-col cols="12" sm="6">
-          <div class="titleText mb-2">
+          <div class="titleText">
             <span class="text-label">Tiêu đề </span><span class="title-required">(*)</span>
           </div>
           <v-autocomplete
@@ -491,7 +489,7 @@
         </v-col>
 
         <v-col cols="12" sm="6">
-          <div class="titleText mb-2">
+          <div class="titleText">
             <span class="text-label">Tiêu đề </span><span class="title-required">(*)</span>
           </div>
           <v-textarea
@@ -513,14 +511,14 @@
     <v-row class="mx-0 my-5">
       <v-col cols="12">
           
-        <v-btn size="small" icon="mdi-pencil" color="success"></v-btn>
+        <v-btn size="small" icon="mdi-pencil" :color="baseColor"></v-btn>
 
         <span class="mx-3"></span>
 
         <v-tooltip location="top">
           <template v-slot:activator="{ props }">
             <v-btn icon variant="flat" size="small" v-bind="props">
-              <v-icon size="22" color="success">mdi-pencil</v-icon>
+              <v-icon size="22" :color="baseColor">mdi-pencil</v-icon>
             </v-btn>
           </template>
           <span>Sửa</span>
@@ -541,7 +539,7 @@
           size="small"
           :loading="loading"
           :disabled="loading"
-          color="success"
+          :color="baseColor"
           prepend-icon="mdi-content-save"
           @click.stop="action()"
         >
@@ -564,7 +562,7 @@
         <v-btn
           size="small"
           variant="outlined"
-          color="success"
+          :color="baseColor"
           prepend-icon="mdi-cloud-upload"
         >
           Outlined Button
@@ -573,7 +571,7 @@
         <v-btn
           class="ml-4"
           size="small"
-          color="success"
+          :color="baseColor"
           @click.stop="showConfirm()"
         >
           Show Confirm
@@ -582,7 +580,7 @@
         <v-btn
           class="ml-4"
           size="small"
-          color="success"
+          :color="baseColor"
           @click.stop="showDialog()"
         >
           Show Dialog
@@ -600,12 +598,12 @@
       <v-card>
         <v-toolbar
           dark
-          color="success" class="px-3"
+          :color="baseColor" class="px-3"
         >
           <v-toolbar-title>Thêm mới sinh viên</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-toolbar-items>
-            <v-btn variant="flat" size="small" icon color="success" @click="dialog = false" >
+            <v-btn variant="flat" size="small" icon :color="baseColor" @click="dialog = false" >
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </v-toolbar-items>
@@ -630,7 +628,7 @@
             size="small" variant="elevated"
             :loading="loading"
             :disabled="loading"
-            color="success"
+            :color="baseColor"
             prepend-icon="mdi-content-save"
             @click.stop="submitFormCrud"
           >

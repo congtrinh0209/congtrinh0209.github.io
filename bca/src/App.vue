@@ -18,14 +18,14 @@ const onResize = function () {
   appStore.SET_BREAKPOINTNAME(breakpointName)
 }
 onMounted(() => {
-  if (cookies.get('Token') && cookies.get('UserInfo')) {
-    appStore.SET_ISSIGNED(true)
-    appStore.SET_USERINFO(cookies.get('UserInfo'))
-  } else {
-    appStore.SET_ISSIGNED(false)
-    appStore.SET_USERINFO('')
-    router.push({ path: '/login' })
-  }
+  // if (cookies.get('Token') && cookies.get('UserInfo')) {
+  //   appStore.SET_ISSIGNED(true)
+  //   appStore.SET_USERINFO(cookies.get('UserInfo'))
+  // } else {
+  //   appStore.SET_ISSIGNED(false)
+  //   appStore.SET_USERINFO('')
+  //   router.push({ path: '/login' })
+  // }
 })
 </script>
 

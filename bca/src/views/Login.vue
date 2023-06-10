@@ -98,13 +98,13 @@
           </div>
           <v-row align="center">
             <v-col class="py-0">
-              <img class="img-login-logo" :src="`${publicPath}/images/Logo-VNU.png?t=93111413`">
+              <img class="img-login-logo" :src="`${publicPath}/images/logo-bca-bigger.png?t=93111413`">
             </v-col>
           </v-row>
           
-          <v-row class="wrap-title pt-1 my-0">
-            <v-col cols="12" class="text-1 py-2 my-0">Hệ thống quản lý hồ sơ hành chính </v-col>
-            <v-col cols="12" class="text-1 py-2">Đại học Quốc gia Hà Nội </v-col>
+          <v-row class="wrap-title pt-1 my-0 mt-3">
+            <v-col cols="12" class="text-1 py-2 my-0 mb-2">CỔNG THÔNG TIN QUỐC GIA </v-col>
+            <v-col cols="12" class="text-2 py-2">VỀ BẢO VỆ DỮ LIỆU CÁ NHÂN </v-col>
           </v-row>
         </div>
 
@@ -266,7 +266,7 @@
     font-family: "Roboto Slab";
     font-style: normal;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 22px;
     line-height: 24px;
     color: #007f3e;
     margin-bottom: 10px;
@@ -275,9 +275,9 @@
     font-family: "Roboto Slab";
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 32px;
     line-height: 24px;
-    color: #ffffff;
+    color: #007f3e;
   }
   .wrap-form {
     max-width: 450px;
@@ -366,7 +366,7 @@
     color: #ffffff !important;
   }
   .img-login-logo {
-    width: 365px;
+    width: 135px;
   }
   .wrap-title {
     text-align: center;

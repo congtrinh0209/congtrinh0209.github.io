@@ -175,7 +175,7 @@
                         </v-list>
                       </v-menu>
                       <a v-else @click="redirectTo(item, i)" :class="item['class']" :id="item['id']" :aria-labelledby="'layout_'+i" aria-haspopup="true"  href="javascript:;" role="menuitem">
-                        <v-icon class="mr-2" color="#00803D" size="22">
+                        <v-icon class="mr-2" color="#1E7C30" size="22">
                           {{item.icon}}
                         </v-icon>
                         <span> {{item.title}}</span>
@@ -221,7 +221,6 @@
   }
   .logo-banner {
     width: 64px;
-    height: 64px;
     margin-right: 20px;
   }
   .title-banner {
@@ -268,7 +267,7 @@
       padding: 0;
   }
   #header-nav #navigation li:hover a, #header-nav #navigation li.selected a {
-      color: $base-color;
+      color: #1E7C30;
       font-weight: 700;
   }
   #header-nav #navigation li a {
@@ -277,7 +276,7 @@
       position: relative;
       text-transform: uppercase;
       text-decoration: none;
-      color: $base-color;
+      color: #1E7C30;
       font-size: 16px;
       
   }
@@ -288,7 +287,7 @@
       left: 0;
       width: 100%;
       height: 4px;
-      background-color: $base-color;
+      background-color: #1E7C30;
   }
   #header-nav #banner .btns {
     position: absolute;
@@ -374,7 +373,7 @@
       font-weight: bold;
   }
   #header-desktop #navigation li:hover a, #header-desktop #navigation li.selected a {
-    color: #00803D;
+    color: #1E7C30;
     font-weight: bold;
   }
   #header-desktop #navigation li a {
@@ -383,7 +382,7 @@
       position: relative;
       text-transform: uppercase;
       text-decoration: none;
-      color: #00803D;
+      color: #1E7C30;
       font-size: 14px;
       font-weight: 500;
   }
@@ -394,7 +393,7 @@
       left: 0;
       width: 100%;
       height: 3px;
-      background-color: #00803D;
+      background-color: #1E7C30;
   }
   #header-desktop #banner-desk .btns {
     position: absolute;

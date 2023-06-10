@@ -73,16 +73,7 @@ main.v-content {
 .theme--light.v-pagination .v-pagination__navigation {
   background: #fff;
 }
-.theme--dark.v-pagination .v-pagination__item {
-  background: #1e1e1e;
-  color: #fff;
-}
-.theme--dark.v-pagination .v-pagination__item--active {
-  color: #fff;
-}
-.theme--dark.v-pagination .v-pagination__navigation {
-  background: #1e1e1e;
-}
+
 .theme--light.v-picker--date {
   margin-top: 0px;
   margin-bottom: 0px;
@@ -125,6 +116,9 @@ main.v-content {
 .v-pagination--disabled {
   pointer-events: none;
   opacity: .6;
+}
+.v-pagination__navigation .v-icon{
+  font-weight: 700;
 }
 .v-pagination__item {
   background: transparent;
@@ -169,6 +163,7 @@ main.v-content {
   -webkit-transition: .2s cubic-bezier(.4,0,.6,1);
   transition: .2s cubic-bezier(.4,0,.6,1);
   vertical-align: middle;
+  color: #1E7D30;
 }
 .v-pagination__navigation--disabled {
   opacity: .6;
@@ -192,7 +187,7 @@ table th,
 table td {
   padding-left: 8px !important;
   padding-right: 8px !important;
-  height: 48px !important;
+  height: 46px !important;
 }
 .theme--light.v-label {
   color: rgb(0 0 0);
@@ -200,23 +195,39 @@ table td {
 .input-form .v-field {
   box-shadow: none !important;
   background: #ffffff !important;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #DADADA;
   padding: 4px 5px;
-  border-radius: 5px;
-  
+  border-radius: 0px;
 }
 .input-form .v-field .v-field__overlay {
   background: #ffffff !important;
 }
 .input-form:not(.v-textarea):not(.v-autocomplete) .v-field {
-  height: 32px;
+  height: 33px;
 }
 .input-form .v-input__control,
 .input-form .v-input__slot {
-  min-height: 32px !important;
+  min-height: 33px !important;
+}
+.input-header-search, .input-header-search .v-field {
+  border: none;
+  height: 28px !important;
+  padding: 0px 5px !important
+}
+.input-header-search .v-field {
+  border-bottom: 1px solid #1E7D30;
+  border-top: 1px solid #1E7D30;
+}
+.titleText {
+  margin-bottom: 5px;
 }
 .text-label {
-  font-weight: 600;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
 }
 .title-required {
   color: red
@@ -275,8 +286,13 @@ table td {
   color: #7A7A7A;
 }
 .input-form .v-field__input::placeholder {
-  color: #7A7A7A !important;
-  opacity: 0.9;
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #777777;
+  opacity: 1;
 }
 .v-menu .v-list-item {
   border-bottom: 1px dotted #b9b9b9;
@@ -287,11 +303,11 @@ table td {
 }
 .v-menu .v-list-item--active {
   background-color: hsla(160, 100%, 37%, 0.2);
-  color:#00803D
+  color:#1E7D30
 }
 .input-form:not(.v-textarea):not(.v-autocomplete),
 .input-form:not(.v-textarea):not(.v-autocomplete) .v-input__slot {
-  height: 32px;
+  height: 33px;
 }
 .v-dialog .v-toolbar__content {
   height: 48px !important
@@ -300,7 +316,7 @@ table td {
   align-items: center;
 }
 .title-page {
-  color: $base-color;
+  color: #1E7C30;
   font-size: 16px;
   font-weight: bold;
 }
@@ -308,7 +324,7 @@ table td {
   opacity: 1 !important;
 }
 .vc-btn {
-  color: $base-color !important;
+  color: #1E7C30 !important;
 }
 .v-main__wrap > .container {
   padding: 0;
@@ -319,11 +335,11 @@ table td {
 }
 .autocomplete-form-input,
 .autocomplete-form-input .v-select__slot {
-  height: 32px;
+  height: 33px;
 }
 .autocomplete-form-input .v-input__control,
 .autocomplete-form-input .v-input__slot {
-  min-height: 32px !important;
+  min-height: 33px !important;
 }
 .autocomplete-form-input .v-input__append-inner {
   margin-top: 6px !important;
@@ -331,7 +347,7 @@ table td {
 .height-auto.input-form:not(.v-textarea),
 .height-auto.input-form:not(.v-textarea) .v-input__slot {
   height: auto !important;
-  min-height: 32px !important;
+  min-height: 33px !important;
 }
 .v-select--is-multi .v-input__slot {
   min-height: 34px !important;
@@ -340,35 +356,32 @@ table td {
 .btn-form {
   height: 32px;
 }
-.v-text-field--outlined .v-input__slot fieldset {
-  color: #00803D !important;
-}
-input::-webkit-input-placeholder {
-  color: #00803D !important;
-}
-input:-ms-input-placeholder {
-  color: #00803D !important;
+.row-header {
+  height: 28px;
+  background: #FFFFFF;
+  border: 1px solid #1E7D30;
+  border-radius: 0px 5px 5px 0px;
 }
 .header-content {
-  height: 34px;
-  background: #025e29!important;
+  height: 28px;
+  background: #1E7D30!important;
   color: #fff;
-  padding: 8px 15px;
-  border-top-left-radius: 15px;
+  padding: 6px 12px;
   font-size: 14px;
-  text-transform: uppercase;
+  line-height: 16px;
 }
 .triangle-header {
   width: 0;
   height: 0;
-  border-bottom: 35px solid #025e29;
-  border-right: 20px solid transparent;
+  border-top: 14px solid transparent;
+  border-left: 12px solid #1E7D30;
+  border-bottom: 14px solid transparent;
 }
 .sub-header {
-  color: #00803D;
+  color: #1E7D30;
   font-weight: 500;
   height: 36px;
-  border: 1px solid #00803D;
+  border: 1px solid #1E7D30;
   border-bottom: 0px;
   padding: 10px;
   padding: 7px 15px !important;
@@ -378,6 +391,10 @@ input:-ms-input-placeholder {
 }
 table tbody td {
   font-size: 14px !important;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
 }
 form label {
   color: black;
@@ -404,7 +421,7 @@ main.v-main {
 }
 .background-triangle-big,
 .background-triangle-small {
-  background-color: #00803D;
+  background-color: #1E7D30;
   display: inline-block;
   text-align: left;
   color: #fff;
@@ -425,7 +442,7 @@ body .no__hidden_class.row-header .background-triangle-big {
   transform: rotate(45deg);
   right: -3px;
   top: 1px;
-  border-top: 22px solid #00803D;
+  border-top: 22px solid #1E7D30;
   border-left: 22px solid transparent;
   border-bottom: 22px solid transparent;
 }
@@ -446,19 +463,23 @@ body .no__hidden_class.row-header .background-triangle-big {
   border-right: 1px solid #dedede;
 }
 .v-table__wrapper > table > thead > tr > th {
-  height: 36px !important;
-  background: #e3f1fb !important;
+  height: 30px !important;
+  background-color: #1E7D30 !important;
 }
 .v-table__wrapper > table > thead > tr > th.v-data-table-column--align-center .v-data-table-header__content {
   justify-content: center;
 }
 .v-table__wrapper > table > thead > tr > th .v-data-table-header__content span {
-  font-weight: 700 !important;
-  color: #1e1e1e;
+  font-weight: 500 !important;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #FFFFFF;
 }
 .v-table .v-table__wrapper tr th:not(:last-child),
 .v-table tbody tr td:not(:last-child) {
-  border-right: 1px solid #dedede;
+  border-right: 1px solid #DADADA;
 }
 .v-table__wrapper th.th-center,
 .v-table__wrapper  td.td-center {
@@ -477,15 +498,23 @@ body .no__hidden_class.row-header .background-triangle-big {
 .align-right {
   text-align: right;
 }
-button.v-btn--size-small {
-  height: 32px !important;
+button.v-btn--size-small:not(.v-btn--variant-outlined):not(.v-btn--variant-flat) {
+  height: 28px !important;
+  border: 1px solid #1E7D30;
 }
-button.v-btn--size-small .v-btn__content {
-  font-size: 1rem;
+button.v-btn--size-small:not(.v-btn--variant-outlined) .v-btn__content {
+  font-family: "Roboto";
+  font-style: normal;
+  // font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  color: #FFFFFF;
   text-transform: none;
 }
-button.v-btn--size-small .v-icon {
-  font-size: 18px;
+button.v-btn--size-small:not(.v-btn--variant-outlined) .v-icon {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff
 }
 .v-card--flat {
   box-shadow: none !important
@@ -497,7 +526,7 @@ button.v-btn--size-small .v-icon {
   font-weight: 700;
 }
 .blue-text {
-  color: #00803D;
+  color: #1E7D30;
 }
 .v-autocomplete__content .v-list-item__action {
   margin-top: 5px;

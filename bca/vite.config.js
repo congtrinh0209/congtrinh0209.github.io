@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vuetify from 'vite-plugin-vuetify'
 import { VitePluginFonts } from 'vite-plugin-fonts'
 import bundleAnalyzer from "rollup-plugin-bundle-analyzer";
 
@@ -17,6 +18,7 @@ export default defineConfig(({ command, mode }) =>({
   },
   plugins: [
     vue(),
+    vuetify(),
     VitePluginFonts({
       google: {
         families: ['Roboto', 'Roboto Slab'],
@@ -32,15 +34,15 @@ export default defineConfig(({ command, mode }) =>({
     preprocessorOptions: {
       scss: {
         additionalData: `
-        $base-color: "#00803D";
-        $app-name: 'vnu-hoso';
+        $base-color: "#1E7D30";
+        $app-name: 'bca-a05';
         $public-path: "";
         `
       },
       sass: {
         additionalData: `
-        $base-color: "#00803D"
-        $app-name: "vnu-hoso"
+        $base-color: "#1E7D30"
+        $app-name: "bca-a05"
         $public-path: ""
         `
       }

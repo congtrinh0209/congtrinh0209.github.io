@@ -11,15 +11,15 @@
       <v-layout wrap class="container">
         <div class="d-flex flex-wrap d-xs-6">
           <div class="text-1 d-flex mr-3">
-            <v-icon size="18" color="#00803D" icon="mdi:mdi-copyright" class="mr-2"></v-icon>&nbsp;
+            <v-icon size="18" color="#1E7C30" icon="mdi:mdi-copyright" class="mr-2"></v-icon>&nbsp;
             <span>Đại học Quốc gia Hà Nội</span>
           </div>
           <div class="text-2 d-flex mr-3">
-            <v-icon size="18" color="#00803D" icon="mdi:mdi-phone-in-talk-outline" class="mr-2"></v-icon>&nbsp;
+            <v-icon size="18" color="#1E7C30" icon="mdi:mdi-phone-in-talk-outline" class="mr-2"></v-icon>&nbsp;
             <span>Điện thoại: 099.9.999.999</span>
           </div>
           <div class="text-3 d-flex">
-            <v-icon size="18" color="#00803D" icon="mdi:mdi-email-outline" class="mr-2"></v-icon>&nbsp;
+            <v-icon size="18" color="#1E7C30" icon="mdi:mdi-email-outline" class="mr-2"></v-icon>&nbsp;
             <span>Email: vanphong@vnu.edu.vn</span>
           </div>
         </div>

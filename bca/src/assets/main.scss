@@ -1,0 +1,51 @@
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Roboto, 'Roboto Slab', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+#app {
+  margin: 0 auto;
+  font-weight: normal;
+  width: 100%;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: '#1E7D30';
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  } */
+}

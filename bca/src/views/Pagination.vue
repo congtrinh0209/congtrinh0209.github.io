@@ -72,9 +72,9 @@
 
 <template>
   <v-row class="mt-0" style="margin-bottom: 30px;align-items: center;">
-    <v-col v-if="showTong" class="flex" style="max-width: 200px;color: #00803D;font-weight: 500;">
-      <span>Tổng số:</span>&nbsp;
-      <span>{{totalUse}}</span>
+    <v-col v-if="showTong" class="flex" style="max-width: 200px;">
+      <span style="color: #1E7D30;font-weight: 700;">Tổng số:</span>&nbsp;
+      <span style="color: #1E7D30;font-weight: 700;">{{totalUse}}</span>
     </v-col>
 
     <v-col >
@@ -88,7 +88,7 @@
               </button>
           </li>
           <li>
-              <button type="button" aria-current="true" class="bg-success v-pagination__item v-pagination__item--active primary">
+              <button style="background: #1E7D30" type="button" aria-current="true" class="v-pagination__item v-pagination__item--active primary">
               {{currentPage}} / {{pageCountUse}}
               </button>
           </li>
