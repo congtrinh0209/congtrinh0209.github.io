@@ -3,7 +3,6 @@
   import { ref, reactive, computed, onMounted, watch, defineAsyncComponent } from 'vue'
   import { useAppStore } from '@/stores/global.js'
   const baseColor = ref(import.meta.env.VITE_APP_BASE_COLOR)
-  console.log('baseColor', import.meta.env)
   // import Pagination from '../views/Pagination.vue'
   // import TimKiemNangCao from './TimKiemNangCao.vue'
   // import FormCRUD from './FormCRUD.vue'
@@ -277,6 +276,7 @@
   const page = ref(1)
   const pageCount = ref(3)
   const total = ref(10)
+  const tab = ref(null)
 
   const eventClick = function () {
     console.log('run callback')
@@ -363,12 +363,12 @@
           clearable
         ></v-text-field>
       </v-col>
-      <v-col class="py-0 px-0" style="max-width: 180px;">
+      <v-col class="py-0 px-0" style="max-width: 180px;margin-left: -2px;">
         <v-btn
           size="small"
           :color="baseColor"
           :prepend-icon="!advanceSearch ? 'mdi-filter-variant-plus' : 'mdi-filter-variant'"
-          @click.stop="showAdvanceSearch" class="mx-0 white--text" style="float: right"
+          @click.stop="showAdvanceSearch" class="mx-0 white--text" style="float: right;border-top-left-radius: 0;border-bottom-left-radius: 0;"
         >
           Tìm kiếm nâng cao
         </v-btn>
@@ -377,7 +377,8 @@
     <div v-if="advanceSearch">
       <TimKiemNangCao ref="advanceSearchReference" :mauNhap="mauTimKiem" :dataInput="dataInputSearch" @submitSearch="submitAdvanceSearch"></TimKiemNangCao>
     </div>
-
+    <!--  -->
+    
     <!-- table -->
     <v-row class="mx-0 mt-3">
       <v-col align="right" class="py-0 px-0">
@@ -436,6 +437,27 @@
         <Pagination :pageInput="page" :pageCount="pageCount" :total="total" @changePage="changePage" style="margin-bottom: 50px;"></Pagination>
       </v-col>
     </v-row>
+
+    <v-row class="my-5 mx-0">
+      <v-col class="row-header d-flex align-center justify-start py-0 px-0" style="border: none">
+        <div class="header-content">
+          Thêm mới hồ sơ
+        </div>
+        <div class="triangle-header"></div>
+        <div class="text-sub-header" style="text-transform: uppercase;">THÔNG BÁO THAY ĐỔI NỘI DUNG HỒ SƠ ĐÁNH GIÁ TÁC ĐỘNG XỬ LÝ DỮ LIỆU CÁ NHÂN </div>
+      </v-col>
+    </v-row>
+
+    <v-row class="mx-0">
+      <v-col class="sub-header d-flex align-center justify-start py-0 px-0">
+        <div class="sub-header-content">
+          <v-icon size="22" color="#ffffff">mdi-view-dashboard-outline</v-icon>
+        </div>
+        <div class="triangle-header"></div>
+        <div class="text-sub-header">Thông tin tổ chức</div>
+      </v-col>
+    </v-row>
+
 
     <v-form
       class="pa-5 px-2"
@@ -587,6 +609,34 @@
         </v-btn>
       </v-col>
     </v-row>
+    <!--  -->
+
+    <v-card class="my-5" style="border-radius: 0px;border: 1px solid #DADADA">
+      <v-tabs
+        v-model="tab"
+        bg-color="#00000000"
+      >
+        <v-tab value="one">Item One</v-tab>
+        <v-tab value="two">Item Two</v-tab>
+        <v-tab value="three">Item Three</v-tab>
+      </v-tabs>
+
+      <v-card-text>
+        <v-window v-model="tab">
+          <v-window-item value="one">
+            One
+          </v-window-item>
+
+          <v-window-item value="two">
+            Two
+          </v-window-item>
+
+          <v-window-item value="three">
+            Three
+          </v-window-item>
+        </v-window>
+      </v-card-text>
+    </v-card>
     
     <!-- dialog -->
     <v-dialog
@@ -638,6 +688,7 @@
       </v-card>
     </v-dialog>
     <!--  -->
+
   </v-card>
 </template>
 

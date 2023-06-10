@@ -14,38 +14,24 @@
   const items = reactive([
     {
       icon: 'mdi:mdi-file-document-outline',
-      title: 'Hồ sơ hành chính',
+      title: 'Thủ tục hành chính',
       class: 'hoso-tab',
       id: 'hoso-tab-id',
-      to: '/bao-cao/cho-xu-ly'
+      to: '/thu-tuc-hanh-chinh'
     },
     {
       icon: 'mdi:mdi-chart-box-outline',
-      title: 'Báo cáo thống kê',
+      title: 'Quản lý hồ sơ',
       class: 'baocao-tab',
       id: 'baocao-tab-id',
-      to: '/tao-bao-cao'
+      to: '/quan-ly-ho-so'
     },
     {
       icon: 'mdi:mdi-bank',
-      title: 'Cơ quan, đơn vị',
+      title: 'Hỏi đáp',
       class: 'donvi-tab',
       id: 'donvi-tab-id',
-      to: '/co-quan-don-vi'
-    },
-    {
-      icon: 'mdi:mdi-account-multiple-outline',
-      title: 'Cán bộ',
-      class: 'canbo-tab',
-      id: 'canbo-tab-id',
-      to: '/can-bo'
-    },
-    {
-      icon: 'mdi:mdi-format-list-checks',
-      title: 'Danh mục',
-      class: 'danhmuc-tab',
-      id: 'danhmuc-tab-id',
-      to: '/quan-ly-danh-muc'
+      to: '/hoi-dap'
     }
   ])
   const showMenu = ref(false)

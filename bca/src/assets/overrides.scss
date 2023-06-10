@@ -218,6 +218,9 @@ table td {
   border-bottom: 1px solid #1E7D30;
   border-top: 1px solid #1E7D30;
 }
+.input-header-search .v-field__append-inner {
+  padding-top: 3px !important
+}
 .titleText {
   margin-bottom: 5px;
 }
@@ -260,8 +263,11 @@ table td {
 .input-form.v-autocomplete .v-field {
   overflow: hidden
 }
+.input-form.v-autocomplete .v-field__append-inner .v-icon::before {
+  color: #1E7D30 !important;
+}
 .input-form .v-field.v-field--focused {
-  border-color: #08ba5d;
+  border-color: #1E7D30;
 }
 .input-form .v-field__clearable {
   padding-top: 1px;
@@ -360,7 +366,10 @@ table td {
   height: 28px;
   background: #FFFFFF;
   border: 1px solid #1E7D30;
-  border-radius: 0px 5px 5px 0px;
+}
+.sub-header {
+  height: 28px;
+  background: #FFFFFF;
 }
 .header-content {
   height: 28px;
@@ -370,6 +379,33 @@ table td {
   font-size: 14px;
   line-height: 16px;
 }
+.sub-header-content {
+  height: 28px;
+  background: #1E7D30!important;
+  color: #fff;
+  padding: 4px 6px;
+  font-size: 14px;
+  line-height: 16px;
+}
+.text-sub-header {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #1E7D30;
+  margin-left: 5px;
+}
+.row-header .header-content::before {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 14px solid #00490E;
+  border-left: 12px solid transparent;
+}
 .triangle-header {
   width: 0;
   height: 0;
@@ -377,18 +413,7 @@ table td {
   border-left: 12px solid #1E7D30;
   border-bottom: 14px solid transparent;
 }
-.sub-header {
-  color: #1E7D30;
-  font-weight: 500;
-  height: 36px;
-  border: 1px solid #1E7D30;
-  border-bottom: 0px;
-  padding: 10px;
-  padding: 7px 15px !important;
-  text-align: center;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-}
+
 table tbody td {
   font-size: 14px !important;
   font-family: 'Roboto';
@@ -500,7 +525,6 @@ body .no__hidden_class.row-header .background-triangle-big {
 }
 button.v-btn--size-small:not(.v-btn--variant-outlined):not(.v-btn--variant-flat) {
   height: 28px !important;
-  border: 1px solid #1E7D30;
 }
 button.v-btn--size-small:not(.v-btn--variant-outlined) .v-btn__content {
   font-family: "Roboto";
@@ -538,6 +562,95 @@ button.v-btn--size-small:not(.v-btn--variant-outlined) .v-icon {
 }
 .v-icon{
   opacity: 1 !important
+}
+
+.v-tabs {
+  height: 38px;
+}
+.v-tabs button {
+  background-color: #E3E3E3;
+  height: 30px !important;
+  color: #707070;
+  margin-right: 7px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: none;
+}
+.v-tabs .v-tab--selected::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0px;
+  width: 0;
+  height: 0;
+  border: none;
+  border-bottom: 30px solid #1E7D30;
+  border-right: 20px solid transparent;
+  border-radius: 0px !important;
+  opacity: 1;
+  margin-right: 20px;
+}
+.v-tab--selected:not(.v-tab:first-child)::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 0px;
+  width: 0;
+  height: 0;
+  border: none;
+  border-top: 30px solid #1E7D30;
+  border-left: 20px solid transparent;
+  opacity: 1;
+}
+.v-tab:not(.v-tab--selected)::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0px;
+  width: 0;
+  height: 0;
+  border: none;
+  border-bottom: 30px solid #E3E3E3;
+  border-right: 20px solid transparent;
+  opacity: 1;
+  margin-right: 5px;
+}
+
+.v-tab:not(.v-tab--selected):not(:first-child) {
+  margin-left: 20px;
+}
+.v-tab:not(.v-tab--selected):not(:first-child)::before {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 0px;
+  width: 0;
+  height: 0;
+  border: none;
+  border-top: 30px solid #E3E3E3;
+  border-left: 20px solid transparent;
+  opacity: 1;
+}
+.v-tabs .v-tab--selected {
+  background-color: #1E7D30;
+  color: #ffffff;
+  margin-right: 7px;
+}
+.v-tabs .v-tab--selected:not(.v-tab:first-child) {
+  margin-left: 20px;
+}
+.v-tab--selected .v-tab__slider {
+  display: none;
+}
+.v-tabs .v-slide-group__container {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.v-tabs, .v-tabs .v-slide-group__container {
+  height: 30px;
 }
 @media (min-width: 1024px) {
   .container {

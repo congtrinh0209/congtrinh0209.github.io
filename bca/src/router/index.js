@@ -9,9 +9,21 @@ const router = createRouter({
       component: () => import('@/views/Home.vue'),
       children: [
         {
-          path: '',
+          path: 'thu-tuc-hanh-chinh',
+          name: 'ThuTucHanhChinh',
+          component: () => import('@/views/ThuTucHanhChinh.vue'),
+          props: true
+        },
+        {
+          path: 'quan-ly-ho-so',
           name: 'QuanLyHoSo',
           component: () => import('@/views/QuanLyHoSo.vue'),
+          props: true
+        },
+        {
+          path: 'hoi-dap',
+          name: 'HoiDap',
+          component: () => import('@/views/HoiDap.vue'),
           props: true
         },
         {
