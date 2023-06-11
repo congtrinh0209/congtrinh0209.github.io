@@ -315,9 +315,6 @@ table td {
 .input-form:not(.v-textarea):not(.v-autocomplete) .v-input__slot {
   height: 33px;
 }
-.v-dialog .v-toolbar__content {
-  height: 48px !important
-}
 .v-dialog .v-toolbar-items {
   align-items: center;
 }
@@ -652,6 +649,36 @@ button.v-btn--size-small:not(.v-btn--variant-outlined) .v-icon {
 .v-tabs, .v-tabs .v-slide-group__container {
   height: 30px;
 }
+
+.v-dialog .v-toolbar {
+  height: 28px !important;
+  padding: 0;
+  background-color: #E9FFF2 !important;
+}
+.v-dialog .v-toolbar__content {
+  height: 28px !important;
+}
+.v-dialog .v-toolbar .v-toolbar-title__placeholder {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+}
+.v-dialog .v-toolbar .v-btn .v-icon  {
+  color: #1E7D30;
+}
+.v-dialog .v-toolbar .sub-header {
+  background-color: #E9FFF2
+}
+.v-dialog .v-toolbar .sub-header-content {
+  align-items: center;
+  display: flex;
+}
+
+
+
 @media (min-width: 1024px) {
   .container {
     max-width: 1500px !important;

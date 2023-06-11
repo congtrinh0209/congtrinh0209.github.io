@@ -648,13 +648,18 @@
       <v-card>
         <v-toolbar
           dark
-          :color="baseColor" class="px-3"
+          :color="baseColor" class="px-0"
         >
-          <v-toolbar-title>Thêm mới sinh viên</v-toolbar-title>
+          <v-col class="sub-header d-flex align-center justify-start py-0 px-0">
+            <div class="sub-header-content">
+              Thêm mới hồ sơ
+            </div>
+            <div class="triangle-header"></div>
+          </v-col>
           <v-spacer></v-spacer>
           <v-toolbar-items>
-            <v-btn variant="flat" size="small" icon :color="baseColor" @click="dialog = false" >
-              <v-icon>mdi-close</v-icon>
+            <v-btn variant="flat" size="small" icon color="#E9FFF2" @click="dialog = false" >
+              <v-icon size="20">mdi-close</v-icon>
             </v-btn>
           </v-toolbar-items>
         </v-toolbar>
@@ -662,7 +667,7 @@
           <!-- Content dialog -->
           <FormCRUD ref="crudFormReference" :mauNhap="mauFormCrud" :dataInput="dataInputCrud"></FormCRUD>
         </v-card-text>
-        <v-card-actions class="justify-end pb-3 px-3">
+        <v-card-actions class="justify-center pb-3 px-3">
           <v-btn
             size="small" variant="elevated"
             :loading="loading"
@@ -670,7 +675,7 @@
             color="error"
             prepend-icon="mdi-close"
             @click.stop="dialog = false"
-            class="mr-3"
+            class="mr-2"
           >
             Thoát
           </v-btn>
