@@ -470,6 +470,8 @@
 			exclusive: false,
 			customize: false,
 			groupIds: [],
+			sumRow: true,
+			notSumkey: true,
 			sumKey: "domainCode",
 			filters: [
 			  {
@@ -655,6 +657,18 @@
 				"value": "overtimePercentage",
 				"text": "",
 				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "soHoaDK",
+				"text": "",
+				"align": "center"
+				},
+              	{
+				"selected": true,
+				"value": "soHoaKq",
+				"text": "",
+				"align": "center"
 				}
 			],
 		selection: [
@@ -715,7 +729,7 @@
 				{
 					style: "tableExample",
 					table: {
-			widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+			widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
 			headerRows: 3,
 			body: [
 				[
@@ -801,7 +815,16 @@
                         alignment: "center",
                         bold: true,
                         style: "tdStyle"
-                    }
+                    },
+					{
+						text: "Số hóa hồ sơ, kết quả giải quyết TTHC",
+						colSpan: 2,
+						rowSpan: 2,
+						bold: true,  
+						alignment: "center",
+						style: "tdStyle"
+					},
+					""
 				],
 				[
                     "",
@@ -830,6 +853,8 @@
                     "",
                     "",
                     "",
+					"",
+					"",
 					""
 				],
 				[
@@ -877,7 +902,17 @@
                     "",
                     "",
                     "",
-					""
+					"",
+					{
+						text: "Hồ sơ, giấy tờ",
+						alignment: "center",
+						style: "tdStyle"
+					},
+					{
+						text: "Kết quả giải quyết TTHC",
+						alignment: "center",
+						style: "tdStyle"
+					}
 				],
 				[
                     {
@@ -962,6 +997,16 @@
                     },
 					{
                         text: "(17)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+					{
+                        text: "(18)",
+                        alignment: "center",
+                        fontSize: 8
+                    },
+					{
+                        text: "(19)",
                         alignment: "center",
                         fontSize: 8
                     }
@@ -1050,6 +1095,8 @@
 				apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=serviceCode",
 				exclusive: false,
 				customize: false,
+				sumRow: true,
+				notSumkey: true,
 				sumKey: "serviceCode",
 				groupIds: [],
 				filters: [
@@ -1236,6 +1283,18 @@
 				"value": "overtimePercentage",
 				"text": "",
 				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "soHoaDK",
+				"text": "",
+				"align": "center"
+				},
+              	{
+				"selected": true,
+				"value": "soHoaKq",
+				"text": "",
+				"align": "center"
 				}
 			],
 			selection: [
@@ -1297,7 +1356,7 @@
 					{
 						style: "tableExample",
 						table: {
-							widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+							widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
 							headerRows: 3,
 							body: [
 								[
@@ -1383,7 +1442,16 @@
 										alignment: "center",
 										bold: true,
 										style: "tdStyle"
-									}
+									},
+									{
+										text: "Số hóa hồ sơ, kết quả giải quyết TTHC",
+										colSpan: 2,
+										rowSpan: 2,
+										bold: true,  
+										alignment: "center",
+										style: "tdStyle"
+									},
+									""
 								],
 								[
 									"",
@@ -1406,6 +1474,8 @@
 										alignment: "center",
 										style: "tdStyle"
 									},
+									"",
+									"",
 									"",
 									"",
 									"",
@@ -1459,7 +1529,17 @@
 									"",
 									"",
 									"",
-									""
+									"",
+									{
+										text: "Hồ sơ, giấy tờ",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Kết quả giải quyết TTHC",
+										alignment: "center",
+										style: "tdStyle"
+									}
 								],
 								[
 									{
@@ -1546,6 +1626,16 @@
 										text: "(17)",
 										alignment: "center",
 										fontSize: 8
+									},
+									{
+										text: "(18)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(19)",
+										alignment: "center",
+										fontSize: 8
 									}
 								],
 								"[$report$]"
@@ -1621,7 +1711,202 @@
 		</tableConfig>
 		<userConfig>{"order": 11}</userConfig>
 	</DynamicReport>
+	<DynamicReport label="STATISTIC_08">
+		<reportCode>STATISTIC_08</reportCode>
+		<reportName>Kết quả TTHC còn hiệu lực được số hóa</reportName>
+		<sharing>1</sharing>
+		<filterConfig><![CDATA[
+			{
+			api: "/o/statistic/applicantData/report?type=29",
+			apiExportExcel: "/o/statistic/applicantData/report?type=29",
+			exclusive: false,
+			customize: false,
+			sumRow: true,
+			notSumkey: true,
+			sumKey: "itemName",
+			formatDate: "isoDate",
+			groupIds: [],
+			groupIdList: [],
+			filters: [
+			{
+				label: "Từ ngày",
+				key: "fromDate",
+				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+				type: "date",
+				before: "toDate"
+			},
+			{
+				label: "Đến ngày",
+				key: "toDate",
+				value: new Date().toLocaleDateString('vi-VN'),
+				type: "date",
+				after: "fromDate"
+			}],
+			reportConfig: [
+			{
+				"selected": true,
+				"value": "itemName",
+				"text": "",
+				"align": "left"
+			},
+			{
+				"selected": true,
+				"value": "count",
+				"text": "",
+				"align": "center"
+			}
+			],
+			selection: [
+			{
+				"key": "govAgencyCode",
+				"value": ""
+			}],
+			merge: ["itemName"],
+			sort: "itemName",
+			statistics: true
+		}			
+		]]></filterConfig>
 		
+		<tableConfig><![CDATA[
+			{
+				docDefinition: {
+				pageOrientation: "landscape",
+				content: [
+					{
+						columns: [
+							{
+								width: 300,
+								style: "title",
+								text: [
+									{text: "UBND TỈNH ĐỒNG THÁP\n"},
+									{text: "[$siteName$]\n"}
+								]
+							},
+							{
+								width: 100,
+								style: "title",
+								text: ""
+							},
+							{
+								width: 300,
+								style: "title",
+								text: [
+									{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
+									{text: "Độc lập - Tự do - Hạnh phúc\n"},
+									{text: "------------------------------------\n"},
+									{text: "Đồng Tháp, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
+								]
+							}
+						]
+					},
+					{
+						text: [
+							{text: "KẾT QUẢ GIẢI QUYẾT THỦ TỤC HÀNH CHÍNH CÒN HIỆU LỰC ĐƯỢC SỐ HÓA\n"},
+							{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+						], 
+						margin: [0, 20],
+						style: "headerTitle"
+					},
+					{
+						style: "tableExample",
+						table: {
+						  widths: [20, 200, "*"],
+						  headerRows: 1,
+						  body: [
+							[
+							  {
+								text: "STT",
+								alignment: "center",
+								bold: true,
+								style: "tdStyle"
+							  },
+							  {
+								text: "Đơn vị",
+								alignment: "center",
+								bold: true,
+								style: "tdStyle"
+							  },
+							  {
+								text: "Tổng số kết quả giải quyết TTHC còn hiệu lực được số hóa",
+								alignment: "center",
+								bold: true,
+								style: "tdStyle"
+							  }
+							],
+							"[$report$]"
+						  ]
+						},
+
+						margin: [0, 0, 0, 5]
+					},             
+					{
+						columns: [
+							{
+								width: "*",
+								text: [
+									{text: "Nơi nhận:", bold: true }
+								]
+							},
+							{
+								width: 150,
+								style: "title",
+								text: "THỦ TRƯỞNG ĐƠN VỊ"
+							}
+						]
+					},
+					{
+						columns: [
+							{
+								width: "*",
+								text: ""
+							},
+							{
+								width: 150,
+								style: "titleSub",
+								text: "(Ký và ghi rõ họ tên)"
+							}
+						]
+					}
+				],
+				styles: {
+					ngayThangNam: {
+						fontSize: 10,
+						italics: true,
+						bold: false,
+						alignment: "center"
+					},
+					headerTitle: {
+						alignment: "center",
+						bold: true,
+						fontSize: 13
+					},
+					borderHeader: {
+						alignment: "left"
+					},
+					title: {
+						bold: true,
+						alignment: "center"
+					},
+					titleSub: {
+						fontSize: 10,
+						italics: true,
+						alignment: "center"
+					},
+					tdStyle: {
+						fontSize: 10,
+						margin: [0, 2]
+					}
+				},
+				defaultStyle: {
+					columnGap: 20,
+					fontSize: 11
+				}
+				}
+			}
+			
+		]]></tableConfig>
+		<userConfig>{}</userConfig>
+	  </DynamicReport>
 	<DynamicReport label="REPORT_113">
 		<filterConfig>
 		<![CDATA[
