@@ -1984,14 +1984,16 @@
 						clearable: true
 					},
 					{
-						label: "Hồ sơ số hóa giấy tờ",
+						label: "Số hóa giấy tờ",
 						key: "isSoHoa",
-						value: "false",
+						value: "2",
 						type: "select",
 						source: [
-							{name: "Có số hóa", value: "true"}
+							{name: "Tất cả", value: "2"},
+							{name: "Đã số hóa", value: "1"},
+							{name: "Chưa số hóa", value: "0"}
 						],
-						clearable: true
+						clearable: false
 					},
 					{
 						label: "Hồ sơ liên thông",
@@ -3652,14 +3654,16 @@
 						clearable: true
 					},
 					{
-						label: "Hồ sơ số hóa giấy tờ",
+						label: "Số hóa giấy tờ",
 						key: "isSoHoa",
-						value: "false",
+						value: "2",
 						type: "select",
 						source: [
-							{name: "Có số hóa", value: "true"}
+							{name: "Tất cả", value: "2"},
+							{name: "Đã số hóa", value: "1"},
+							{name: "Chưa số hóa", value: "0"}
 						],
-						clearable: true
+						clearable: false
 					},
 					{
 						label: "Hồ sơ liên thông",

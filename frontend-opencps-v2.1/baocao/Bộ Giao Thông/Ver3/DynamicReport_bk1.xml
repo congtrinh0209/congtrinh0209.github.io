@@ -1695,7 +1695,8 @@
 						},
 						{
 						"selected": true,
-						"value": "totalCount",
+						"value": "processCount",
+						"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
 						"text": "",
 						"align": "center"
 						},
@@ -1707,45 +1708,26 @@
 						},
 						{
 						"selected": true,
-						"value": "remainingOfflineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "remainingOnlineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
 						"value": "receivedCount",
 						"text": "",
 						"align": "center"
 						},
 						{
 						"selected": true,
-						"value": "receivedOfflineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "receivedOnlineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "releaseCount",
-						"calculator": 'dataInput["ontimeCount"] + dataInput["betimesCount"] + dataInput["overtimeCount"] + dataInput["unresolvedCount"] + dataInput["cancelledCount"]',
+						"value": "ontimeCount",
+						"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
 						"text": "",
 						"align": "center"
 						},
 						{
 						"selected": true,
 						"value": "betimesCount",
-						"calculator": 'dataInput["ontimeCount"] + dataInput["betimesCount"]',
+						"text": "",
+						"align": "center"
+						},
+						{
+						"selected": true,
+						"value": "ontimeCount",
 						"text": "",
 						"align": "center"
 						},
@@ -1758,7 +1740,6 @@
 						{
 						"selected": true,
 						"value": "processingCount",
-						"calculator": 'dataInput["undueCount"] + dataInput["overdueCount"] + dataInput["waitingCount"]',
 						"text": "",
 						"align": "center"
 						},
@@ -1776,21 +1757,39 @@
 						},
 						{
 						"selected": true,
+						"value": "cancelledCount",
+						"text": "",
+						"align": "center"
+						},
+						{
+						"selected": true,
 						"value": "unresolvedCount",
 						"text": "",
 						"align": "center"
 						},
 						{
 						"selected": true,
-						"value": "cancelledCount",
+						"value": "overtimeCountNotFinish",
 						"text": "",
 						"align": "center"
 						},
 						{
-						  "selected": true,
-						  "value": "waitingCount",
-						  "text": "",
-						  "align": "center"
+						"selected": true,
+						"value": "overtimePercentage",
+						"text": "",
+						"align": "center"
+						},
+						{
+						"selected": true,
+						"value": "soHoaDK",
+						"text": "",
+						"align": "center"
+						},
+						{
+						"selected": true,
+						"value": "soHoaKq",
+						"text": "",
+						"align": "center"
 						}
 					],
 				selection: [
@@ -1840,10 +1839,12 @@
 					},
 					{
 				text: [
-					{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ THEO LĨNH VỰC \n", fontSize: 13, bold: true, alignment: "center"},
-					{text: "(Từ ngày [$fromDate$] đến ngày [$toDate$])" + "\n", fontSize: 11, italics: true, bold: false, alignment: "center"}
+					{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ [$listInteroperating$] \n"},
+					{text: "([$listTypeSendDossier$]) \n"},
+					{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
 				], 
-				margin: [0, 20]
+				margin: [0, 20],
+				style: "headerTitle"
 			},
 					{
 						style: "tableExample",
@@ -1860,40 +1861,36 @@
 							style: "tdStyle"
 						},
 						{
-							text: "\n\n\n Lĩnh vực",
+							text: "\n\n\nLĩnh vực",
 							rowSpan: 3,
 							alignment: "center",
 							bold: true,
 							style: "tdStyle"
 						},
 						{
-							text: "Tổng số hồ sơ tiếp nhận",
+							text: "Tổng số tiếp nhận",
 							rowSpan: 3,
 							alignment: "center",
 							bold: true,
 							style: "tdStyle"
 						},
 						{
-							text: "Hồ sơ kỳ trước chuyển qua",
-							colSpan: 3,
+							text: "Kỳ trước chuyển qua",
+							rowSpan: 3,
 							alignment: "center",
 							bold: true,
 							style: "tdStyle"
 						},
-						"",
-						"",
 						{
-							text: "Hồ sơ tiếp nhận trong kỳ",
-							colSpan: 3,
+							text: "Tiếp nhận trong kỳ",
+							rowSpan: 3,
 							alignment: "center",
 							bold: true,
 							style: "tdStyle"
 						},
-						"",
-						"",
 						{
 							text: "Kết quả giải quyết",
-							colSpan: 6,
+							colSpan: 7,
 							alignment: "center",
 							bold: true,
 							style: "tdStyle"
@@ -1903,74 +1900,58 @@
 						"",
 						"",
 						"",
+						"",
 						{
-							text: "Hồ sơ từ chối giải quyết",
+							text: "Rút hồ sơ",
 							rowSpan: 3,
 							alignment: "center",
 							bold: true,
 							style: "tdStyle"
 						},
 						{
-							text: "Cá nhân, tổ chức rút hồ sơ",
+							text: "Từ chối giải quyết",
 							rowSpan: 3,
 							alignment: "center",
 							bold: true,
 							style: "tdStyle"
 						},
 						{
-							text: "Hồ sơ chờ bổ sung",
+							text: "Tổng số trễ hạn",
 							rowSpan: 3,
 							alignment: "center",
 							bold: true,
 							style: "tdStyle"
-						}
+						},
+						{
+							text: "Tỷ lệ hồ sơ trễ hạn",
+							rowSpan: 3,
+							alignment: "center",
+							bold: true,
+							style: "tdStyle"
+						},
+						{
+							text: "Số hóa hồ sơ, kết quả giải quyết TTHC",
+							colSpan: 2,
+							rowSpan: 2,
+							bold: true,  
+							alignment: "center",
+							style: "tdStyle"
+						},
+						""
 					],
 					[
 						"",
 						"",
 						"",
+						"",
+						"",
 						{
-							text: "Tổng số",
-							rowSpan: 2,           
+							text: "Hồ sơ đã giải quyết xong",
+							colSpan: 4,           
 							alignment: "center",
 							style: "tdStyle"
 						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ hoàn thành giải quyết",
-							colSpan: 3,           
-							alignment: "center",
-							style: "tdStyle"
-						},
+						"",
 						"",
 						"",
 						{
@@ -1983,6 +1964,9 @@
 						"",
 						"",
 						"",
+						"",
+						"",
+						"",
 						""
 					],
 					[
@@ -1991,12 +1975,13 @@
 						"",
 						"",
 						"",
-						"",
-						"",
-						"",
-						"",
 						{
 							text: "Tổng số",
+							alignment: "center",
+							style: "tdStyle"
+						},
+						{
+							text: "Sớm hạn",
 							alignment: "center",
 							style: "tdStyle"
 						},
@@ -2016,7 +2001,7 @@
 							style: "tdStyle"
 						},
 						{
-							text: "Còn hạn",
+							text: "Chưa đến hạn",
 							alignment: "center",
 							style: "tdStyle"
 						},
@@ -2027,7 +2012,18 @@
 						},
 						"",
 						"",
-						""
+						"",
+						"",
+						{
+							text: "Hồ sơ, giấy tờ",
+							alignment: "center",
+							style: "tdStyle"
+						},
+						{
+							text: "Kết quả giải quyết TTHC",
+							alignment: "center",
+							style: "tdStyle"
+						}
 					],
 					[
 						{
@@ -2041,12 +2037,12 @@
 							fontSize: 8
 						},
 						{
-							text: "(3=4+7=10+13)",
+							text: "(3=4+5)",
 							alignment: "center",
 							fontSize: 8
 						},
 						{
-							text: "(4=5+6)",
+							text: "(4)",
 							alignment: "center",
 							fontSize: 8
 						},
@@ -2056,12 +2052,12 @@
 							fontSize: 8
 						},
 						{
-							text: "(6)",
+							text: "(6=7+8+9)",
 							alignment: "center",
 							fontSize: 8
 						},
 						{
-							text: "(7=8+9)",
+							text: "(7)",
 							alignment: "center",
 							fontSize: 8
 						},
@@ -2076,7 +2072,7 @@
 							fontSize: 8
 						},
 						{
-							text: "(10=11+12+16+17)",
+							text: "(10=11+12)",
 							alignment: "center",
 							fontSize: 8
 						},
@@ -2091,7 +2087,7 @@
 							fontSize: 8
 						},
 						{
-							text: "(13=14+15+18)",
+							text: "(13)",
 							alignment: "center",
 							fontSize: 8
 						},
@@ -2125,6 +2121,34 @@
 				]
 				},
 						margin: [0, 0, 0, 5]
+					},            
+					{
+						columns: [
+							{
+								width: "*",
+								text: [
+									{text: "Nơi nhận:", bold: true }
+								]
+							},
+							{
+								width: 150,
+								style: "title",
+								text: "THỦ TRƯỞNG ĐƠN VỊ"
+							}
+						]
+					},
+					{
+						columns: [
+							{
+								width: "*",
+								text: ""
+							},
+							{
+								width: 150,
+								style: "titleSub",
+								text: "(Ký và ghi rõ họ tên)"
+							}
+						]
 					}
 				],
 				styles: {
@@ -2184,21 +2208,6 @@
 				groupIds: [],
 				filters: [
 				{
-					label: "Lĩnh vực",
-					source: "",
-					key: "domainCode",
-					valueMapping: "domainCode",
-					nameMapping: "domainName",
-					type: "select",
-					multiple: "true",
-					api: "/o/rest/v2/serviceinfos/statistics/domains",
-					proxyApi: "/serviceinfos/statistics/domains",
-					class: "xs12 sm6 px-3 mb-3",
-					clearable: true,
-					parent: "serviceCode",
-					keySearch: "domain"
-			   },
-				{
 					label: "Thủ tục",
 					source: "",
 					key: "serviceCode",
@@ -2210,31 +2219,7 @@
 					proxyApi: "/serviceinfos",
 					class: "xs12 sm6 px-3 mb-3",
 					clearable: true
-				},
-				{
-					label: "Mức độ",
-					key: "listServiceLevel",
-					value: "2,3,4",
-					type: "select",
-					source: [
-						{name: "Tất cả", value: "2,3,4"},
-						{name: "TTHC", value: "2"},
-						{name: "Một phần", value: "3"},
-						{name: "Toàn trình", value: "4"}
-					]
-				},
-				{
-					label: "Số hóa giấy tờ",
-					key: "isSoHoa",
-					value: "2",
-					type: "select",
-					source: [
-						{name: "Tất cả", value: "2"},
-						{name: "Đã số hóa", value: "1"},
-						{name: "Chưa số hóa", value: "0"}
-					],
-					clearable: false
-				},
+			   },
 				{
 					label: "Hình thức nộp hồ sơ",
 					key: "listTypeSendDossier",
@@ -2301,20 +2286,13 @@
 				{
 				"selected": true,
 				"value": "serviceName",
-				"calculator": 'dataInput["serviceCode"] + " - " +  dataInput["serviceName"]',
 				"text": "",
 				"align": "left"
 				},
 				{
 				"selected": true,
-				"value": "serviceLevel",
-				"calculator": 'dataInput["serviceLevel"] == 2 ? "TTHC" :(dataInput["serviceLevel"] == 4 ? "Toàn trình" : "Một phần")',
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "totalCount",
+				"value": "processCount",
+				"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"]',
 				"text": "",
 				"align": "center"
 				},
@@ -2326,45 +2304,26 @@
 				},
 				{
 				"selected": true,
-				"value": "remainingOfflineCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "remainingOnlineCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
 				"value": "receivedCount",
 				"text": "",
 				"align": "center"
 				},
 				{
 				"selected": true,
-				"value": "receivedOfflineCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "receivedOnlineCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "releaseCount",
-				"calculator": 'dataInput["ontimeCount"] + dataInput["betimesCount"] + dataInput["overtimeCount"] + dataInput["unresolvedCount"] + dataInput["cancelledCount"]',
+				"value": "ontimeCount",
+				"calculator": 'dataInput["betimesCount"] + dataInput["ontimeCount"] + dataInput["overtimeCount"]',
 				"text": "",
 				"align": "center"
 				},
 				{
 				"selected": true,
 				"value": "betimesCount",
-				"calculator": 'dataInput["ontimeCount"] + dataInput["betimesCount"]',
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "ontimeCount",
 				"text": "",
 				"align": "center"
 				},
@@ -2377,7 +2336,6 @@
 				{
 				"selected": true,
 				"value": "processingCount",
-				"calculator": 'dataInput["undueCount"] + dataInput["overdueCount"] + dataInput["waitingCount"]',
 				"text": "",
 				"align": "center"
 				},
@@ -2395,43 +2353,7 @@
 				},
 				{
 				"selected": true,
-				"value": "soHoaDK",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "notSoHoaAttach",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "soHoaKq",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "notSoHoaKq",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "paymentOffline",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "paymentOnline",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "paymentDvcqg",
+				"value": "cancelledCount",
 				"text": "",
 				"align": "center"
 				},
@@ -2443,13 +2365,25 @@
 				},
 				{
 				"selected": true,
-				"value": "cancelledCount",
+				"value": "overtimeCountNotFinish",
 				"text": "",
 				"align": "center"
 				},
 				{
 				"selected": true,
-				"value": "waitingCount",
+				"value": "overtimePercentage",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "soHoaDK",
+				"text": "",
+				"align": "center"
+				},
+				{
+				"selected": true,
+				"value": "soHoaKq",
 				"text": "",
 				"align": "center"
 				}
@@ -2501,413 +2435,317 @@
 						]
 					},
 					{
-					text: [
-						{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ THEO THỦ TỤC \n", fontSize: 13, bold: true, alignment: "center"},
-						{text: "(Từ ngày [$fromDate$] đến ngày [$toDate$])" + "\n", fontSize: 11, italics: true, bold: false, alignment: "center"}
-					], 
-				margin: [0, 20],
-				style: "headerTitle"
-			},
+						text: [
+							{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ [$listInteroperating$] \n"},
+							{text: "([$listTypeSendDossier$]) \n"},
+							{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]" + "\n", fontSize: 11}
+						], 
+						margin: [0, 20],
+						style: "headerTitle"
+					},
 					{
 						style: "tableExample",
 						table: {
-				widths: [20, "*", 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20],
-				headerRows: 3,
-				body: [
-					[
-						{
-							text: "\n\n\nSTT",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
+							widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
+							headerRows: 3,
+							body: [
+								[
+									{
+										text: "\n\n\nSTT",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "\n\n\nThủ tục",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số tiếp nhận",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kỳ trước chuyển qua",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tiếp nhận trong kỳ",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Kết quả giải quyết",
+										colSpan: 7,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Rút hồ sơ",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Từ chối giải quyết",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Tỷ lệ hồ sơ trễ hạn",
+										rowSpan: 3,
+										alignment: "center",
+										bold: true,
+										style: "tdStyle"
+									},
+									{
+										text: "Số hóa hồ sơ, kết quả giải quyết TTHC",
+										colSpan: 2,
+										rowSpan: 2,
+										bold: true,  
+										alignment: "center",
+										style: "tdStyle"
+									},
+									""
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đã giải quyết xong",
+										colSpan: 4,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ đang giải quyết",
+										colSpan: 3,           
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								],
+								[
+									"",
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Sớm hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Đúng hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Trễ hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Tổng số",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Chưa đến hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Quá hạn",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									"",
+									"",
+									"",
+									"",
+									{
+										text: "Hồ sơ, giấy tờ",
+										alignment: "center",
+										style: "tdStyle"
+									},
+									{
+										text: "Kết quả giải quyết TTHC",
+										alignment: "center",
+										style: "tdStyle"
+									}
+								],
+								[
+									{
+										text: "(1)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(2)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(3=4+5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(4)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(5)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(6=7+8+9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(7)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(8)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(9)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(10=11+12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(11)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(12)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(13)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(14)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(15)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(16)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(17)",
+										alignment: "center",
+										fontSize: 8
+									},
+									{
+										text: "(18)",
+										alignment: "center",
+										fontSize: 8
+									}
+								],
+								"[$report$]"
+							]
 						},
-						{
-							text: "\n\n\nThủ tục hành chính",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Mức độ DVCTT",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số hồ sơ tiếp nhận",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ kỳ trước chuyển qua",
-							colSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ tiếp nhận trong kỳ",
-							colSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Kết quả giải quyết",
-							colSpan: 6,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						"",
-						"",
-						"",
-						{
-							text: "Kết quả số hóa",
-							colSpan: 4,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						"",
-						{
-							text: "Thanh toán",
-							colSpan: 3,
-							rowSpan: 2,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ từ chối giải quyết",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Cá nhân, tổ chức rút hồ sơ",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ chờ bổ sung",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						}
-					],
-					[
-						"",
-						"",
-						"",
-						"",
-						{
-							text: "Tổng số",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ hoàn thành giải quyết",
-							colSpan: 3,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ đang giải quyết",
-							colSpan: 3,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Thành phần hồ sơ",
-							colSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						{
-							text: "Kết quả giải quyết",
-							colSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						"",
-						"",
-						"",
-						""
-					],
-					[
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						{
-							text: "Tổng số",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Đúng hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Quá hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Còn hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Trễ hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Đã số hóa",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Chưa số hóa",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Đã số hóa",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Chưa số hóa",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Trực tiếp",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Trực tuyến",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "DVCQG",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						""
-					],
-					[
-						{
-							text: "(1)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(2)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(3)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(4=5+8=11+14)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(5=6+7)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(6)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(7)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(8=9+10)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(9)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(10)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(11=12+13+24+25)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(12)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(13)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(14=15+16+26)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(15)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(16)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(17)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(18)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(19)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(20)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(21)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(22)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(23)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(24)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(25)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(26)",
-							alignment: "center",
-							fontSize: 8
-						}
-					],
-					"[$report$]"
-				]
-				},
 						margin: [0, 0, 0, 5]
+					},             
+					{
+						columns: [
+							{
+								width: "*",
+								text: [
+									{text: "Nơi nhận:", bold: true }
+								]
+							},
+							{
+								width: 150,
+								style: "title",
+								text: "THỦ TRƯỞNG ĐƠN VỊ"
+							}
+						]
+					},
+					{
+						columns: [
+							{
+								width: "*",
+								text: ""
+							},
+							{
+								width: 150,
+								style: "titleSub",
+								text: "(Ký và ghi rõ họ tên)"
+							}
+						]
 					}
 				],
 				styles: {
@@ -2948,563 +2786,6 @@
 		]]>
 		</tableConfig>
 		<userConfig>{"order": 11}</userConfig>
-	</DynamicReport>
-	
-	<DynamicReport label="STATISTIC_07_VER_3">
-		<sharing>1</sharing>
-		<reportName>Tổng hợp hồ sơ theo đơn vị </reportName>
-		<reportCode>STATISTIC_07_VER_3</reportCode>
-		<filterConfig>
-		<![CDATA[
-			{
-			api: "/o/statistic/dossier/groupcount?type=20&groupBy=govAgencyCode",
-			apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=govAgencyCode",
-			exclusive: false,
-			customize: false,
-			groupIds: [],
-			sumKey: "govAgencyCode",
-			filters: [
-				{
-					label: "Hình thức nộp hồ sơ",
-					key: "listTypeSendDossier",
-					value: "1,2",
-					type: "select",
-					source: [
-						{name: "TRỰC TIẾP, TRỰC TUYẾN", value: "1,2"},
-						{name: "TRỰC TUYẾN", value: "1"},
-						{name: "TRỰC TIẾP", value: "2"}
-					],
-					clearable: true
-				},
-				{
-					label: "Dịch vụ BCCI",
-					key: "listPublicPostalService",
-					value: "",
-					type: "select",
-					source: [
-						{name: "NHẬN KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "1"},
-						{name: "TRẢ KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "2"},
-						{name: "NHẬN VÀ TRẢ KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "3"}
-					],
-					clearable: true
-				},
-				{
-					label: "Hồ sơ liên thông",
-					key: "listInteroperating",
-					value: "1",
-					type: "select",
-					source: [
-						{name: "Tất cả", value: "1", nameViewPdf: ""},
-						{name: "LIÊN THÔNG", value: "2"},
-						{name: "KHÔNG LIÊN THÔNG", value: "3"}
-					],
-					clearable: true
-				},
-				{
-					label: "Phát sinh hồ sơ ",
-					key: "hasDossier",
-					value: "1",
-					type: "select",
-					source: [
-					{name: "Tất cả", value: "1"},
-					{name: "Có phát sinh hồ sơ", value: "2"},
-					{name: "Không phát sinh hồ sơ", value: "3"}
-					]  
-				},
-				{
-				label: "Từ ngày",
-				key: "fromDate",
-				value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-				type: "date", 
-				before: "toDate" 
-				},
-				{
-				label: "Đến ngày",
-				key: "toDate",
-				value: new Date().toLocaleDateString('vi-VN'),
-				type: "date", 
-				after: "fromDate" 
-				}
-			],
-			reportConfig: [
-				{
-				"selected": true,
-				"value": "govAgencyName",
-				"text": "",
-				"align": "left"
-				},
-				{
-				"selected": true,
-				"value": "totalCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "remainingCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "remainingOfflineCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "remainingOnlineCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "receivedCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "receivedOfflineCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "receivedOnlineCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "releaseCount",
-				"calculator": 'dataInput["ontimeCount"] + dataInput["betimesCount"] + dataInput["overtimeCount"] + dataInput["unresolvedCount"] + dataInput["cancelledCount"]',
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "betimesCount",
-				"calculator": 'dataInput["ontimeCount"] + dataInput["betimesCount"]',
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "overtimeCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "processingCount",
-				"calculator": 'dataInput["undueCount"] + dataInput["overdueCount"] + dataInput["waitingCount"]',
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "undueCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "overdueCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "unresolvedCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "cancelledCount",
-				"text": "",
-				"align": "center"
-				},
-				{
-				"selected": true,
-				"value": "waitingCount",
-				"text": "",
-				"align": "center"
-				}
-			],
-			selection: [
-			  {
-				"key": "domainCode",
-				"value": ""
-			  }
-			],
-			merge: ["govAgencyCode","domainCode"],
-			sort: "govAgencyName",
-			statistics: true
-			}
-		]]>
-		</filterConfig>
-		<tableConfig>
-		<![CDATA[
-			{
-				docDefinition: {
-				pageOrientation: "landscape",
-				content: [
-					{
-						columns: [
-							{
-								width: 300,
-								style: "title",
-								text: [
-									{text: "BỘ GIAO THÔNG VẬN TẢI\n"},
-									{text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
-								]
-							},
-							{
-								width: 100,
-								style: "title",
-								text: ""
-							},
-							{
-								width: 300,
-								style: "title",
-								text: [
-									{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-									{text: "Độc lập - Tự do - Hạnh phúc\n"},
-									{text: "------------------------------------\n"},
-									{text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-								]
-							}
-						]
-					},
-					{
-				text: [
-					{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ THEO ĐƠN VỊ \n", fontSize: 13, bold: true, alignment: "center"},
-					{text: "(Từ ngày [$fromDate$] đến ngày [$toDate$])" + "\n", fontSize: 11, italics: true, bold: false, alignment: "center"}
-				], 
-				margin: [0, 20]
-			},
-					{
-						style: "tableExample",
-						table: {
-				widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-				headerRows: 3,
-				body: [
-					[
-						{
-							text: "\n\n\nSTT",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "\n\n\n Đơn vị",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số hồ sơ tiếp nhận",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ kỳ trước chuyển qua",
-							colSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ tiếp nhận trong kỳ",
-							colSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Kết quả giải quyết",
-							colSpan: 6,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						"",
-						"",
-						"",
-						{
-							text: "Hồ sơ từ chối giải quyết",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Cá nhân, tổ chức rút hồ sơ",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ chờ bổ sung",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						}
-					],
-					[
-						"",
-						"",
-						"",
-						{
-							text: "Tổng số",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ hoàn thành giải quyết",
-							colSpan: 3,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ đang giải quyết",
-							colSpan: 3,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						"",
-						"",
-						""
-					],
-					[
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						{
-							text: "Tổng số",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Đúng hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Trễ hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Còn hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Quá hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						""
-					],
-					[
-						{
-							text: "(1)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(2)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(3=4+7=10+13)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(4=5+6)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(5)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(6)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(7=8+9)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(8)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(9)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(10=11+12+16+17)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(11)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(12)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(13=14+15+18)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(14)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(15)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(16)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(17)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(18)",
-							alignment: "center",
-							fontSize: 8
-						}
-					],
-					"[$report$]"
-				]
-				},
-						margin: [0, 0, 0, 5]
-					}
-				],
-				styles: {
-					ngayThangNam: {
-						fontSize: 10,
-						italics: true,
-						bold: false,
-						alignment: "center"
-					},
-					headerTitle: {
-						alignment: "center",
-						bold: true,
-						fontSize: 13
-					},
-					borderHeader: {
-						alignment: "left"
-					},
-					title: {
-						bold: true,
-						alignment: "center"
-					},
-					titleSub: {
-						fontSize: 10,
-						italics: true,
-						alignment: "center"
-					},
-					tdStyle: {
-						fontSize: 10,
-						margin: [0, 2]
-					}
-				},
-				defaultStyle: {
-					columnGap: 20,
-					fontSize: 11
-				}
-				}
-			}
-		]]>
-		</tableConfig>
-		<userConfig>{"order": 12}</userConfig>
 	</DynamicReport>
 
 	<DynamicReport label="REPORT_113">
@@ -3604,14 +2885,13 @@
 					{
 						label: "Số hóa giấy tờ",
 						key: "isSoHoa",
-						value: "2",
+						value: "",
 						type: "select",
 						source: [
-							{name: "Tất cả", value: "2"},
-							{name: "Đã số hóa", value: "1"},
-							{name: "Chưa số hóa", value: "0"}
+							{name: "Đã số hóa", value: "true"},
+							{name: "Chưa số hóa", value: "false"}
 						],
-						clearable: false
+						clearable: true
 					},
 					{
 					  label: "Phát sinh hồ sơ ",
@@ -3667,8 +2947,7 @@
 				},
 				{
 				"value": "serviceCode",
-				"text": "Mã thủ tục",
-				"selected": true
+				"text": "Mã thủ tục"
 				},
 				{
 				"selected": true,
@@ -3731,8 +3010,7 @@
 				},
 				{
 				"value": "releaseDate",
-				"text": "Ngày hoàn thành",
-				"selected": true
+				"text": "Ngày hoàn thành"
 				},
 				{
 				"value": "finishDate",
@@ -3887,1259 +3165,6 @@
 			} 
 		}
 		]]>
-		</tableConfig>
-		<userConfig>{"order": 15}</userConfig>
-	</DynamicReport>
-	
-	<DynamicReport label="STATISTIC_0301_VER3">
-		<sharing>1</sharing>
-		<reportName>Báo cáo Số hóa thành phần, kết quả giải quyết</reportName>
-		<reportCode>STATISTIC_0301_VER_3</reportCode>
-		<filterConfig>
-			<![CDATA[
-				{
-				api: "/o/statistic/dossier/groupcount?type=20&groupBy=domainCode",
-				apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=domainCode",
-					exclusive: false,
-					customize: false,
-					groupIds: [],
-					sumRow: true,
-					notSumkey: true,
-					sumKey: "domainCode",
-					filters: [
-						{
-							label: "Lĩnh vực",
-							source: "",
-							key: "domainCode",
-							valueMapping: "domainCode",
-							nameMapping: "domainName",
-							type: "select",
-							multiple: "true",
-							api: "/o/rest/v2/serviceinfos/statistics/domains",
-							proxyApi: "/serviceinfos/statistics/domains",
-							class: "xs12 sm6 px-3 mb-3",
-							clearable: true
-					   },
-						{
-							label: "Hình thức nộp hồ sơ",
-							key: "listTypeSendDossier",
-							value: "1,2",
-							type: "select",
-							source: [
-								{name: "TRỰC TIẾP, TRỰC TUYẾN", value: "1,2"},
-								{name: "TRỰC TUYẾN", value: "1"},
-								{name: "TRỰC TIẾP", value: "2"}
-							],
-							clearable: true
-						},
-						{
-							label: "Dịch vụ BCCI",
-							key: "listPublicPostalService",
-							value: "",
-							type: "select",
-							source: [
-								{name: "NHẬN KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "1"},
-								{name: "TRẢ KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "2"},
-								{name: "NHẬN VÀ TRẢ KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "3"}
-							],
-							clearable: true
-						},
-						{
-							label: "Hồ sơ liên thông",
-							key: "listInteroperating",
-							value: "1",
-							type: "select",
-							source: [
-								{name: "Tất cả", value: "1", nameViewPdf: ""},
-								{name: "LIÊN THÔNG", value: "2"},
-								{name: "KHÔNG LIÊN THÔNG", value: "3"}
-							],
-							clearable: true
-						},
-						{
-						  label: "Phát sinh hồ sơ ",
-						  key: "hasDossier",
-						  value: "1",
-						  type: "select",
-						  source: [
-							{name: "Tất cả", value: "1"},
-							{name: "Có phát sinh hồ sơ", value: "2"},
-							{name: "Không phát sinh hồ sơ", value: "3"}
-						  ]  
-						},
-						{
-						label: "Từ ngày",
-						key: "fromDate",
-						value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-						type: "date", 
-						before: "toDate" 
-						},
-						{
-						label: "Đến ngày",
-						key: "toDate",
-						value: new Date().toLocaleDateString('vi-VN'),
-						type: "date", 
-						after: "fromDate" 
-						}
-					],
-					reportConfig: [
-						{
-						"selected": true,
-						"value": "domainName",
-						"text": "",
-						"align": "left"
-						},
-						{
-						"selected": true,
-						"value": "processCount",
-						"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"] + dataInput["unresolvedCount"] + dataInput["cancelledCount"]',
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "remainingCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "remainingOfflineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "remainingOnlineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "receivedCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "receivedOfflineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "receivedOnlineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "releaseCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "betimesCount",
-						"calculator": 'dataInput["ontimeCount"] + dataInput["betimesCount"]',
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "overtimeCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "processingCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "undueCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "overdueCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "soHoaDK",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "notSoHoaAttach",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "soHoaKq",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "notSoHoaKq",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "unresolvedCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "cancelledCount",
-						"text": "",
-						"align": "center"
-						}
-					],
-				selection: [
-					{
-						"key": "govAgencyCode",
-						"value": ""
-					}
-				],
-				merge: ["domainCode","govAgencyCode"],
-				sort: "domainName",
-				statistics: true
-				}
-			]]>
-		</filterConfig>
-		<tableConfig>
-			<![CDATA[
-				{
-				docDefinition: {
-				pageOrientation: "landscape",
-				content: [
-					{
-						columns: [
-							{
-								width: 300,
-								style: "title",
-								text: [
-									{text: "BỘ GIAO THÔNG VẬN TẢI\n"},
-									{text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
-								]
-							},
-							{
-								width: 100,
-								style: "title",
-								text: ""
-							},
-							{
-								width: 300,
-								style: "title",
-								text: [
-									{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-									{text: "Độc lập - Tự do - Hạnh phúc\n"},
-									{text: "------------------------------------\n"},
-									{text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-								]
-							}
-						]
-					},
-					{
-				text: [
-					{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ THEO SỐ HÓA THÀNH PHẦN HỒ SƠ, KẾT QUẢ GIẢI QUYẾT TTHC \n", fontSize: 13, bold: true, alignment: "center"},
-					{text: "(Từ ngày [$fromDate$] đến ngày [$toDate$])" + "\n", fontSize: 11, italics: true, bold: false, alignment: "center"}
-				], 
-				margin: [0, 20],
-				style: "headerTitle"
-			},
-					{
-						style: "tableExample",
-						table: {
-				widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-				headerRows: 3,
-				body: [
-					[
-						{
-							text: "\n\n\nSTT",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "\n\n\nLĩnh vực",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số hồ sơ tiếp nhận",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ kỳ trước chuyển qua",
-							colSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ tiếp nhận trong kỳ",
-							colSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Kết quả giải quyết",
-							colSpan: 6,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						"",
-						"",
-						"",
-						{
-							text: "Kết quả số hóa",
-							colSpan: 4,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						"",
-						{
-							text: "Hồ sơ từ chối giải quyết",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Cá nhân, tổ chức rút hồ sơ",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						}
-					],
-					[
-						"",
-						"",
-						"",
-						{
-							text: "Tổng số",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ hoàn thành giải quyết",
-							colSpan: 3,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ đang giải quyết",
-							colSpan: 3,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Thành phần hồ sơ",
-							colSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						{
-							text: "Kết quả giải quyết",
-							colSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						""
-					],
-					[
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						{
-							text: "Tổng số",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Đúng hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Quá hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Còn hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Trễ hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Đã số hóa",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Chưa số hóa",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Đã số hóa",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Chưa số hóa",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						""
-					],
-					[
-						{
-							text: "(1)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(2)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(3=4+7+20+21)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(4=5+6)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(5)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(6)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(7=8+9)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(8)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(9)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(10=11+12)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(11)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(12)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(13=14+15)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(14)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(15)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(16)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(17)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(18)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(19)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(20)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(21)",
-							alignment: "center",
-							fontSize: 8
-						}
-					],
-					"[$report$]"
-				]
-				},
-						margin: [0, 0, 0, 5]
-					}
-				],
-				styles: {
-					ngayThangNam: {
-						fontSize: 10,
-						italics: true,
-						bold: false,
-						alignment: "center"
-					},
-					headerTitle: {
-						alignment: "center",
-						bold: true,
-						fontSize: 13
-					},
-					borderHeader: {
-						alignment: "left"
-					},
-					title: {
-						bold: true,
-						alignment: "center"
-					},
-					titleSub: {
-						fontSize: 10,
-						italics: true,
-						alignment: "center"
-					},
-					tdStyle: {
-						fontSize: 10,
-						margin: [0, 2]
-					}
-				},
-				defaultStyle: {
-					columnGap: 20,
-					fontSize: 11
-				}
-				}
-			}
-			]]>
-		</tableConfig>
-		<userConfig>{"order": 14}</userConfig>
-	</DynamicReport>
-	
-	<DynamicReport label="STATISTIC_0402_VER3">
-		<sharing>1</sharing>
-		<reportName>Báo cáo hồ sơ theo chỉ số thanh toán</reportName>
-		<reportCode>STATISTIC_0402_VER_3</reportCode>
-		<filterConfig>
-			<![CDATA[
-				{
-				api: "/o/statistic/dossier/groupcount?type=20&groupBy=domainCode",
-				apiExportExcel: "/o/statistic/dossier/groupcount/export?type=20&groupBy=domainCode",
-					exclusive: false,
-					customize: false,
-					groupIds: [],
-					sumRow: true,
-					notSumkey: true,
-					sumKey: "domainCode",
-					filters: [
-						{
-							label: "Lĩnh vực",
-							source: "",
-							key: "domainCode",
-							valueMapping: "domainCode",
-							nameMapping: "domainName",
-							type: "select",
-							multiple: "true",
-							api: "/o/rest/v2/serviceinfos/statistics/domains",
-							proxyApi: "/serviceinfos/statistics/domains",
-							class: "xs12 sm6 px-3 mb-3",
-							clearable: true
-					   },
-						{
-							label: "Hình thức nộp hồ sơ",
-							key: "listTypeSendDossier",
-							value: "1,2",
-							type: "select",
-							source: [
-								{name: "TRỰC TIẾP, TRỰC TUYẾN", value: "1,2"},
-								{name: "TRỰC TUYẾN", value: "1"},
-								{name: "TRỰC TIẾP", value: "2"}
-							],
-							clearable: true
-						},
-						{
-							label: "Dịch vụ BCCI",
-							key: "listPublicPostalService",
-							value: "",
-							type: "select",
-							source: [
-								{name: "NHẬN KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "1"},
-								{name: "TRẢ KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "2"},
-								{name: "NHẬN VÀ TRẢ KẾT QUẢ SỬ DỤNG DỊCH VỤ BCCI", value: "3"}
-							],
-							clearable: true
-						},
-						{
-							label: "Hồ sơ liên thông",
-							key: "listInteroperating",
-							value: "1",
-							type: "select",
-							source: [
-								{name: "Tất cả", value: "1", nameViewPdf: ""},
-								{name: "LIÊN THÔNG", value: "2"},
-								{name: "KHÔNG LIÊN THÔNG", value: "3"}
-							],
-							clearable: true
-						},
-						{
-						  label: "Phát sinh hồ sơ ",
-						  key: "hasDossier",
-						  value: "1",
-						  type: "select",
-						  source: [
-							{name: "Tất cả", value: "1"},
-							{name: "Có phát sinh hồ sơ", value: "2"},
-							{name: "Không phát sinh hồ sơ", value: "3"}
-						  ]  
-						},
-						{
-						label: "Từ ngày",
-						key: "fromDate",
-						value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-						type: "date", 
-						before: "toDate" 
-						},
-						{
-						label: "Đến ngày",
-						key: "toDate",
-						value: new Date().toLocaleDateString('vi-VN'),
-						type: "date", 
-						after: "fromDate" 
-						}
-					],
-					reportConfig: [
-						{
-						"selected": true,
-						"value": "domainName",
-						"text": "",
-						"align": "left"
-						},
-						{
-						"selected": true,
-						"value": "processCount",
-						"calculator": 'dataInput["remainingCount"] + dataInput["receivedCount"] + dataInput["unresolvedCount"] + dataInput["cancelledCount"]',
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "remainingCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "remainingOfflineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "remainingOnlineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "receivedCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "receivedOfflineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "receivedOnlineCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "releaseCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "betimesCount",
-						"calculator": 'dataInput["ontimeCount"] + dataInput["betimesCount"]',
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "overtimeCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "processingCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "undueCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "overdueCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "paymentOffline",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "paymentOnline",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "paymentDvcqg",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "unresolvedCount",
-						"text": "",
-						"align": "center"
-						},
-						{
-						"selected": true,
-						"value": "cancelledCount",
-						"text": "",
-						"align": "center"
-						}
-					],
-				selection: [
-					{
-						"key": "govAgencyCode",
-						"value": ""
-					}
-				],
-				merge: ["domainCode","govAgencyCode"],
-				sort: "domainName",
-				statistics: true
-				}
-			]]>
-		</filterConfig>
-		<tableConfig>
-			<![CDATA[
-				{
-				docDefinition: {
-				pageOrientation: "landscape",
-				content: [
-					{
-						columns: [
-							{
-								width: 300,
-								style: "title",
-								text: [
-									{text: "BỘ GIAO THÔNG VẬN TẢI\n"},
-									{text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
-								]
-							},
-							{
-								width: 100,
-								style: "title",
-								text: ""
-							},
-							{
-								width: 300,
-								style: "title",
-								text: [
-									{text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-									{text: "Độc lập - Tự do - Hạnh phúc\n"},
-									{text: "------------------------------------\n"},
-									{text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-								]
-							}
-						]
-					},
-					{
-				text: [
-					{text: "TÌNH HÌNH TIẾP NHẬN VÀ GIẢI QUYẾT HỒ SƠ THEO SỐ LIỆU THANH TOÁN \n", fontSize: 13, bold: true, alignment: "center"},
-					{text: "(Từ ngày [$fromDate$] đến ngày [$toDate$])" + "\n", fontSize: 11, italics: true, bold: false, alignment: "center"}
-				], 
-				margin: [0, 20],
-				style: "headerTitle"
-			},
-					{
-						style: "tableExample",
-						table: {
-				widths: [20, "*", 25, 30, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25],
-				headerRows: 3,
-				body: [
-					[
-						{
-							text: "\n\n\nSTT",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "\n\n\nLĩnh vực",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số hồ sơ tiếp nhận",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ kỳ trước chuyển qua",
-							colSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ tiếp nhận trong kỳ",
-							colSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Kết quả giải quyết",
-							colSpan: 6,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						"",
-						"",
-						"",
-						{
-							text: "Thanh toán",
-							colSpan: 3,
-							rowSpan: 2,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ từ chối giải quyết",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						},
-						{
-							text: "Cá nhân, tổ chức rút hồ sơ",
-							rowSpan: 3,
-							alignment: "center",
-							bold: true,
-							style: "tdStyle"
-						}
-					],
-					[
-						"",
-						"",
-						"",
-						{
-							text: "Tổng số",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tiếp",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ trực tuyến",
-							rowSpan: 2,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Hồ sơ hoàn thành giải quyết",
-							colSpan: 3,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						{
-							text: "Hồ sơ đang giải quyết",
-							colSpan: 3,           
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						""
-					],
-					[
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						"",
-						{
-							text: "Tổng số",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Đúng hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Quá hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Tổng số",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Còn hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Trễ hạn",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Trực tiếp",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "Trực tuyến",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						{
-							text: "DVCQG",
-							alignment: "center",
-							style: "tdStyle"
-						},
-						"",
-						""
-					],
-					[
-						{
-							text: "(1)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(2)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(3=4+7+19+20)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(4=5+6)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(5)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(6)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(7=8+9)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(8)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(9)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(10=11+12)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(11)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(12)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(13=14+15)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(14)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(15)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(16)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(17)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(18)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(19)",
-							alignment: "center",
-							fontSize: 8
-						},
-						{
-							text: "(20)",
-							alignment: "center",
-							fontSize: 8
-						}
-					],
-					"[$report$]"
-				]
-				},
-						margin: [0, 0, 0, 5]
-					}
-				],
-				styles: {
-					ngayThangNam: {
-						fontSize: 10,
-						italics: true,
-						bold: false,
-						alignment: "center"
-					},
-					headerTitle: {
-						alignment: "center",
-						bold: true,
-						fontSize: 13
-					},
-					borderHeader: {
-						alignment: "left"
-					},
-					title: {
-						bold: true,
-						alignment: "center"
-					},
-					titleSub: {
-						fontSize: 10,
-						italics: true,
-						alignment: "center"
-					},
-					tdStyle: {
-						fontSize: 10,
-						margin: [0, 2]
-					}
-				},
-				defaultStyle: {
-					columnGap: 20,
-					fontSize: 11
-				}
-				}
-			}
-			]]>
 		</tableConfig>
 		<userConfig>{"order": 15}</userConfig>
 	</DynamicReport>
@@ -5599,7 +3624,7 @@
 	</DynamicReport>
 	
 	<DynamicReport>
-		<sharing>9</sharing>
+		<sharing>1</sharing>
 		<reportName>Báo cáo tổng hợp các đơn vị</reportName>
 		<reportCode>REPORT_093</reportCode>
 		<filterConfig><![CDATA[{

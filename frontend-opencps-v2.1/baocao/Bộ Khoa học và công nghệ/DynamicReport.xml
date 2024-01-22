@@ -2,165 +2,305 @@
 <DynamicReportList>
   <DynamicReport>
     <filterConfig><![CDATA[{
-    version: "2",
-    numberPerPage: "500",
-    api: "/o/statistic/dossier/groupcount?type=2",
-    apiLayDanhSach: "/o/statistic/dossier/list?type=2",
-    apiExportExcel: "/o/statistic/dossier/list/export?type=2",
-  autoHeader: false,
-  exclusive: false,
-  customize: true,
-  groupIds: [
-  ],
-  sumKey: "govAgencyCode",
-  groupBy: [
-    {
-       key: "domainCode",
-       label: "Lĩnh vực",
-       display: "domainName"
-    },
-    {
-       key: "serviceCode",
-       label: "Thủ tục",
-       display: "serviceName"
-    },
-    {
-       key: "govAgencyCode",
-       label: "Cơ quan",
-       display: "govAgencyName"
-    }
-  ], 
-  filters: [
-    {
-    label: "Ngày tiếp nhận từ ngày",
-    key: "fromDate",
-    value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-    type: "date", 
-    before: "toDate" 
-    },
-    {
-    label: "Đến ngày",
-    key: "toDate",
-    value: new Date().toLocaleDateString('vi-VN'),
-    type: "date", 
-    after: "fromDate" 
-    },
-  ],
-  reportConfig: [
-    {
-      "selected": true,
-      "value": "dossierNo",
-      "text": ""
-    },
-    {
-      "selected": true,
-      "value": "dossierName",
-	  "align": "left",
-      "text": ""
-    },
-    {
-      "selected": true,
-      "value": "applicantName",
-      "align": "left",
-      "text": ""
-    },
-    {
-      "selected": true,
-      "value": "address",
-      "align": "left",
-      "text": "",
-	  "display": "address"
-    },
-    {
-      "selected": true,
-      "value": "contactTelNo",
-      "align": "left",
-      "text": ""
-    },
-    {
-      "selected": true,
-      "value": "govAgencyName",
-	  "align": "left",
-      "text": ""
-    },
-    {
-      "value": "registerBookName",
-      "text": "Sổ theo dõi"
-    },
-    {
-      "selected": true,
-      "value": "receiveDate",
-      "text": ""
-    },
-    {
-      "selected": true,
-      "value": "dueDate",
-      "text": ""
-    },
-    {
-      "selected": true,
-      "value": "releaseDate",
-      "text": ""
-    },
-    {
-      "value": "extendDate",
-      "text": "Ngày gia hạn"
-    },
-    {
-      "selected": true,
-      "value": "finishDate",
-      "text": ""
-    },
-    {
-      "selected": true,
-      "value": "viapostal",
-      "text": "",
-	  "display": "viapostal <= 1 ? 'Nhận trực tiếp' : 'Nhận qua bưu chính'"
-    },
-    {
-      "selected": true,
-      "value": "ff",
-      "text": ""
-    },
-    {
-      "selected": true,
-      "value": "fff",
-      "text": ""
-    },
-    {
-      "value": "dossierStatusText",
-      "text": "Trạng thái"
-    },
-    {
-      "value": "online",
-      "text": "Trực tuyến"
-    },
-    {
-      "value": "originDossierNo",
-      "text": "Mã hồ sơ gốc"
-    },   
-    {
-      "value": "dossierNote",
-      "align": "left",
-      "text": "Ghi chú xử lý"
-    },
-    {
-      "value": "applicantNote",
-      "align": "left",
-      "text": "Ghi chú nộp."
-    },
-    {
-      "value": "briefNote",
-      "align": "left",
-      "text": "Chi tiết nội dung"
-    },
-    {
-      "value": "dossierOverdue",
-      "text": "Hạn xử lý"
-    }
-  ]
-}
-]]></filterConfig>
+		version: "2",
+		numberPerPage: "500",
+		api: "/o/statistic/dossier/groupcount?type=2",
+		apiLayDanhSach: "/o/statistic/dossier/list?type=2",
+		apiExportExcel: "/o/statistic/dossier/list/export?type=2",
+	  autoHeader: false,
+	  exclusive: false,
+	  customize: true,
+	  groupIds: [
+	  ],
+	  sumKey: "govAgencyCode",
+	  groupBy: [
+		{
+		   key: "domainCode",
+		   label: "Lĩnh vực",
+		   display: "domainName"
+		},
+		{
+		   key: "serviceCode",
+		   label: "Thủ tục",
+		   display: "serviceName"
+		},
+		{
+		   key: "govAgencyCode",
+		   label: "Cơ quan",
+		   display: "govAgencyName"
+		}
+	  ], 
+	  filters: [
+		{
+			label: "Đơn vị",
+			key: "govAgencyCode",
+			type: "select",
+			class: "xs12 sm6 px-3 mb-3",
+			clearable: true,
+			source: [
+				{
+					"name": "Bộ Khoa học và Công nghệ",
+					"value": "G06",
+					"levelTree": 0
+				},
+				{
+					"name": "Trung tâm Công nghệ thông tin",
+					"value": "G06.19.01",
+					"levelTree": 1
+				},
+				{
+					"name": "Quỹ Phát triển khoa học và công nghệ quốc gia",
+					"value": "G06.48",
+					"levelTree": 1
+				},
+				{
+					"name": "Văn phòng các Chương trình khoa học và công nghệ quốc gia",
+					"value": "G06.43",
+					"levelTree": 1
+				},
+				{
+					"name": "Cục Sở hữu trí tuệ",
+					"value": "G06.19",
+					"levelTree": 1
+				},
+				{
+					"name": "Cục Năng lượng nguyên tử",
+					"value": "G06.15",
+					"levelTree": 1
+				},
+				{
+					"name": "Cục An toàn bức xạ và hạt nhân",
+					"value": "G06.18",
+					"levelTree": 1
+				},
+				{
+					"name": "Cục Ứng dụng và Phát triển công nghệ",
+					"value": "G06.14",
+					"levelTree": 1
+				},
+				{
+					"name": "Tổng cục Tiêu chuẩn Đo lường Chất lượng",
+					"value": "G06.20",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ đo lường",
+					"value": "G06.20.3",
+					"levelTree": 2
+				},
+				{
+					"name": "Vụ đánh giá hợp chuẩn hợp quy",
+					"value": "G06.20.4",
+					"levelTree": 2
+				},
+				{
+					"name": "Trung tâm Mã số, mã vạch Quốc gia",
+					"value": "G06.20.26",
+					"levelTree": 2
+				},
+				{
+					"name": "Cục Thông tin khoa học và công nghệ quốc gia",
+					"value": "G06.16",
+					"levelTree": 1
+				},
+				{
+					"name": "Văn phòng Đăng ký hoạt động khoa học và công nghệ",
+					"value": "G06.42",
+					"levelTree": 1
+				},
+				{
+					"name": "Văn phòng các Chương trình trọng điểm cấp nhà nước",
+					"value": "G06.40",
+					"levelTree": 1
+				},
+				{
+					"name": "Cục Phát triển thị trường và doanh nghiệp khoa học và công nghệ",
+					"value": "G06.17",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ Pháp chế",
+					"value": "G06.06",
+					"levelTree": 1
+				},
+				{
+					"name": "Văn phòng Bộ",
+					"value": "G06.11",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ Công nghệ cao",
+					"value": "G06.04",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ Tổ chức cán bộ",
+					"value": "G06.07",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ Hợp tác quốc tế",
+					"value": "G06.08",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ Thi đua - Khen thưởng",
+					"value": "G06.09",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ Kế hoạch -Tài chính",
+					"value": "G06.05",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ Đánh giá, Thẩm định và Giám định công nghệ",
+					"value": "G06.03",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ Khoa học và Công nghệ các ngành kinh tế - kỹ thuật",
+					"value": "G06.02",
+					"levelTree": 1
+				},
+				{
+					"name": "Vụ Khoa học Xã hội, Nhân văn và Tự nhiên",
+					"value": "G06.01",
+					"levelTree": 1
+				}
+			]
+		},
+		{
+		label: "Ngày tiếp nhận từ ngày",
+		key: "fromDate",
+		value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
+		type: "date", 
+		before: "toDate" 
+		},
+		{
+		label: "Đến ngày",
+		key: "toDate",
+		value: new Date().toLocaleDateString('vi-VN'),
+		type: "date", 
+		after: "fromDate" 
+		},
+	  ],
+	  reportConfig: [
+		{
+		  "selected": true,
+		  "value": "dossierNo",
+		  "text": ""
+		},
+		{
+		  "selected": true,
+		  "value": "dossierName",
+		  "align": "left",
+		  "text": ""
+		},
+		{
+		  "selected": true,
+		  "value": "applicantName",
+		  "align": "left",
+		  "text": ""
+		},
+		{
+		  "selected": true,
+		  "value": "address",
+		  "align": "left",
+		  "text": "",
+		  "display": "address"
+		},
+		{
+		  "selected": true,
+		  "value": "contactTelNo",
+		  "align": "left",
+		  "text": ""
+		},
+		{
+		  "selected": true,
+		  "value": "govAgencyName",
+		  "align": "left",
+		  "text": ""
+		},
+		{
+		  "value": "registerBookName",
+		  "text": "Sổ theo dõi"
+		},
+		{
+		  "selected": true,
+		  "value": "receiveDate",
+		  "text": ""
+		},
+		{
+		  "selected": true,
+		  "value": "dueDate",
+		  "text": ""
+		},
+		{
+		  "selected": true,
+		  "value": "releaseDate",
+		  "text": ""
+		},
+		{
+		  "value": "extendDate",
+		  "text": "Ngày gia hạn"
+		},
+		{
+		  "selected": true,
+		  "value": "finishDate",
+		  "text": ""
+		},
+		{
+		  "selected": true,
+		  "value": "viapostal",
+		  "text": "",
+		  "display": "viapostal <= 1 ? 'Nhận trực tiếp' : 'Nhận qua bưu chính'"
+		},
+		{
+		  "selected": true,
+		  "value": "ff",
+		  "text": ""
+		},
+		{
+		  "selected": true,
+		  "value": "fff",
+		  "text": ""
+		},
+		{
+		  "value": "dossierStatusText",
+		  "text": "Trạng thái"
+		},
+		{
+		  "value": "online",
+		  "text": "Trực tuyến"
+		},
+		{
+		  "value": "originDossierNo",
+		  "text": "Mã hồ sơ gốc"
+		},   
+		{
+		  "value": "dossierNote",
+		  "align": "left",
+		  "text": "Ghi chú xử lý"
+		},
+		{
+		  "value": "applicantNote",
+		  "align": "left",
+		  "text": "Ghi chú nộp."
+		},
+		{
+		  "value": "briefNote",
+		  "align": "left",
+		  "text": "Chi tiết nội dung"
+		},
+		{
+		  "value": "dossierOverdue",
+		  "text": "Hạn xử lý"
+		}
+	  ]
+	}
+	]]>
+	</filterConfig>
     <reportCode>REGISTER_01</reportCode>
     <reportName>Sổ theo dõi hồ sơ tiếp nhận trực tiếp</reportName>
     <sharing>1</sharing>
@@ -174,7 +314,7 @@
                       width: 300,
                       style: "title1",
                       text: [
-                         {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+                         {text: "BỘ KHOA HỌC VÀ CÔNG NGHỆ\n"},
                          {style: "title",text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"},
                          {style: "title",text: "------------------------\n"},
 						 {text: "Số:...... / BPTNTKQ\n"}
@@ -499,6 +639,145 @@
     }
   ], 
   filters: [
+	{
+		label: "Đơn vị",
+		key: "govAgencyCode",
+		type: "select",
+		class: "xs12 sm6 px-3 mb-3",
+		clearable: true,
+		source: [
+			{
+				"name": "Bộ Khoa học và Công nghệ",
+				"value": "G06",
+				"levelTree": 0
+			},
+			{
+				"name": "Trung tâm Công nghệ thông tin",
+				"value": "G06.19.01",
+				"levelTree": 1
+			},
+			{
+				"name": "Quỹ Phát triển khoa học và công nghệ quốc gia",
+				"value": "G06.48",
+				"levelTree": 1
+			},
+			{
+				"name": "Văn phòng các Chương trình khoa học và công nghệ quốc gia",
+				"value": "G06.43",
+				"levelTree": 1
+			},
+			{
+				"name": "Cục Sở hữu trí tuệ",
+				"value": "G06.19",
+				"levelTree": 1
+			},
+			{
+				"name": "Cục Năng lượng nguyên tử",
+				"value": "G06.15",
+				"levelTree": 1
+			},
+			{
+				"name": "Cục An toàn bức xạ và hạt nhân",
+				"value": "G06.18",
+				"levelTree": 1
+			},
+			{
+				"name": "Cục Ứng dụng và Phát triển công nghệ",
+				"value": "G06.14",
+				"levelTree": 1
+			},
+			{
+				"name": "Tổng cục Tiêu chuẩn Đo lường Chất lượng",
+				"value": "G06.20",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ đo lường",
+				"value": "G06.20.3",
+				"levelTree": 2
+			},
+			{
+				"name": "Vụ đánh giá hợp chuẩn hợp quy",
+				"value": "G06.20.4",
+				"levelTree": 2
+			},
+			{
+				"name": "Trung tâm Mã số, mã vạch Quốc gia",
+				"value": "G06.20.26",
+				"levelTree": 2
+			},
+			{
+				"name": "Cục Thông tin khoa học và công nghệ quốc gia",
+				"value": "G06.16",
+				"levelTree": 1
+			},
+			{
+				"name": "Văn phòng Đăng ký hoạt động khoa học và công nghệ",
+				"value": "G06.42",
+				"levelTree": 1
+			},
+			{
+				"name": "Văn phòng các Chương trình trọng điểm cấp nhà nước",
+				"value": "G06.40",
+				"levelTree": 1
+			},
+			{
+				"name": "Cục Phát triển thị trường và doanh nghiệp khoa học và công nghệ",
+				"value": "G06.17",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ Pháp chế",
+				"value": "G06.06",
+				"levelTree": 1
+			},
+			{
+				"name": "Văn phòng Bộ",
+				"value": "G06.11",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ Công nghệ cao",
+				"value": "G06.04",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ Tổ chức cán bộ",
+				"value": "G06.07",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ Hợp tác quốc tế",
+				"value": "G06.08",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ Thi đua - Khen thưởng",
+				"value": "G06.09",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ Kế hoạch -Tài chính",
+				"value": "G06.05",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ Đánh giá, Thẩm định và Giám định công nghệ",
+				"value": "G06.03",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ Khoa học và Công nghệ các ngành kinh tế - kỹ thuật",
+				"value": "G06.02",
+				"levelTree": 1
+			},
+			{
+				"name": "Vụ Khoa học Xã hội, Nhân văn và Tự nhiên",
+				"value": "G06.01",
+				"levelTree": 1
+			}
+		]
+	},
     {
     label: "Ngày tiếp nhận từ ngày",
     key: "fromDate",
@@ -642,7 +921,7 @@
                       width: 300,
                       style: "title1",
                       text: [
-                         {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+                         {text: "BỘ KHOA HỌC VÀ CÔNG NGHỆ\n"},
                          {style: "title",text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"},
                          {style: "title",text: "------------------------\n"},
 						 {text: "Số:...... / BPTNTKQ\n"}
@@ -936,665 +1215,6 @@
     <userConfig>{}</userConfig>
   </DynamicReport>
   
-  <DynamicReport>
-    <filterConfig><![CDATA[{
-		  api: "/o/rest/statistics/dossier/summary",
-		  exclusive: false,
-		  customize: true,
-		  groupBy: [
-				{
-				key: "govAgencyCode",
-				label: "Cơ quan",
-				display: "govAgencyName"
-				}
-			],
-		  groupIds: [
-		  ],
-		  sumKey: "serviceCode",
-		  filters: [
-			{
-			  label: "Mức độ",
-			  key: "serviceLevel",
-			  value: "3,4",
-			  type: "select",
-			  source: [
-				{name: "Tất cả", value: "3,4"},
-				{name: "Mức độ 3", value: "3"},
-				{name: "Mức độ 4", value: "4"}
-			  ]  
-			},
-			{
-			  label: "Phát sinh hồ sơ ",
-			  key: "hasDossier",
-			  value: "1",
-			  type: "select",
-			  source: [
-				{name: "Tất cả", value: "1"},
-				{name: "Có phát sinh hồ sơ", value: "2"},
-				{name: "Không phát sinh hồ sơ", value: "3"}
-			  ]  
-			},
-			{
-			  label: "Từ ngày",
-			  key: "fromReceiveDate",
-			  value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
-			  type: "date",
-			  before: "toReceiveDate"  
-			},
-			{
-			  label: "Đến ngày",
-			  key: "toReceiveDate",
-			  value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
-			  type: "date",
-			  after: "fromReceiveDate"  
-			}
-		  ],
-		  reportConfig: [
-			{
-			  "selected": true,
-			  "value": "serviceName",
-			  "align": "left",
-			  "text": "Tên thủ tục",
-			  "width": 400,
-			},
-			{
-			  "selected": true,
-			  "value": "serviceLevel",
-			  "align": "center",
-			  "text": "Mức độ",
-			  "width": 70,
-			  "calculator": '"Mức độ " + dataInput["serviceLevel"]',
-			},
-			{
-			  "selected": true,
-			  "value": "dossierOnline3Count",
-			  "text": "Số lượng hồ sơ trực tuyến đã tiếp nhận",
-			  "calculator": 'dataInput["serviceLevel"] == 3 ? dataInput["dossierOnline3Count"] : dataInput["dossierOnline4Count"]',
-			},
-			{
-			  "selected": true,
-			  "value": "releaseDossierOnline3Count",
-			  "text": "Số lượng hồ sơ trực tuyến đã giải quyết",
-			  "calculator": 'dataInput["serviceLevel"] == 3 ? dataInput["releaseDossierOnline3Count"] : dataInput["releaseDossierOnline4Count"]',
-			},
-			{
-			  "selected": true,
-			  "value": "dossierOnegate3Count",
-			  "text": "Số lượng hồ sơ trực tiếp đã tiếp nhận",
-			  "calculator": 'dataInput["serviceLevel"] == 3 ? dataInput["dossierOnegate3Count"] : dataInput["dossierOnegate4Count"]'
-			},
-			{
-			  "selected": true,
-			  "value": "releaseDossierOnegate3Count",
-			  "text": "Số lượng hồ sơ trực tiếp đã giải quyết",
-			  "calculator": 'dataInput["serviceLevel"] == 3 ? dataInput["releaseDossierOnegate3Count"] : dataInput["releaseDossierOnegate4Count"]'
-			}
-		  ]
-		}]]></filterConfig>
-    <reportCode>REPORT_STATISTIC_011</reportCode>
-    <reportName>Tổng hợp hồ sơ dịch vụ công mức 3, 4</reportName>
-    <sharing>1</sharing>
-    <tableConfig><![CDATA[{
-		  docDefinition: {
-			 pageOrientation: 'landscape',
-			 content: [
-			   {
-					 columns: [
-                      {
-                          width: 300,
-                          style: "title",
-                          text: [
-                             {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
-                             {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
-                          ]
-                      },
-                      {
-                          width: 300,
-                          style: "title",
-                          text: [
-                              {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-                              {text: "Độc lập - Tự do - Hạnh phúc\n"},
-                              {text: "-------------------------------------------\n"},
-                              {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-                          ]
-                      }
-                  ]
-			   },
-			   {
-				 text: [
-				   {text: 'BÁO CÁO TỔNG HỢP HỒ SƠ DỊCH VỤ CÔNG\n'},
-				   {text: "Đơn vị: [$siteName$]\n", fontSize: 11},
-				   {text: "Từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11}
-				 ], 
-				 margin: [0, 20],
-				 style: 'headerTitle'
-			   },
-			   {
-				 style: 'tableExample',
-				 table: {
-				   widths: "[$tableWidth$]",
-				   body: ["[$report$]"]
-				 },
-				 margin: [0, 0, 0, 20]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'title',
-					 text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-				   }
-				 ]
-			   },
-			   {
-				 columns: [
-				   {
-					 width: '*',
-					 text: ''
-				   },
-				   {
-					 width: 150,
-					 style: 'titleSub',
-					 text: '(Ký và ghi rõ họ tên)'
-				   }
-				 ]
-			   }
-			 ],
-			 styles: {
-			   ngayThangNam: {
-				 fontSize: 10,
-				 italics: true,
-				 bold: false,
-				 alignment: 'center'
-			   },
-			   headerTitle: {
-				   alignment: 'center',
-				   bold: true,
-				   fontSize: 13
-			   },
-			   borderHeader: {
-				   alignment: 'left'
-			   },
-			   title: {
-				 bold: true,
-				 alignment: 'center',
-				 textTransform: 'uppercase'
-			   },
-			   titleSub: {
-				   fontSize: 10,
-				   italics: true,
-				   alignment: 'center'
-			   },
-			   tdStyle: {
-				 fontSize: 10
-			   },
-			   tableExample: {
-				  width: "100%" 
-			   }
-			 },
-			 defaultStyle: {
-			   columnGap: 20,
-			   fontSize: 11
-			 }
-		   } 
-		}]]></tableConfig>
-    <userConfig>{}</userConfig>
-  </DynamicReport>
-  
-  <DynamicReport>
-    <filterConfig>
-	<![CDATA[{
-	  api: "/o/rest/statistics/feedetail?paymentStatus=5&type=service",
-	  exclusive: false,
-	  customize: true,
-	  groupIds: [
-	  ],
-	  groupBy: [
-		{
-		   key: "domainCode",
-		   label: "Lĩnh vực",
-		   display: "domainName"
-		},
-		{
-		   key: "serviceCode",
-		   label: "Thủ tục",
-		   display: "serviceName"
-		}
-	  ],
-	  sumKey: "domainCode",
-	  filters: [
-		{
-		  label: "Lĩnh vực",
-		  clearable: "true",
-		  source: "",
-		  key: "domainCode",
-		  valueMapping: "domainCode",
-		  nameMapping: "domainName",
-		  type: "select",
-		  api: "/o/rest/v2/serviceinfos/statistics/domains",
-		  proxyApi: "/serviceinfos/statistics/domains",
-		  class: "xs12 sm6 px-3 mb-3"
-		},
-		{
-		  label: "Thủ tục",
-		  clearable: "true",
-		  source: "",
-		  key: "serviceCode",
-		  valueMapping: "serviceCode",
-		  nameMapping: "serviceName",
-		  type: "select",
-		  api: "/o/rest/v2/serviceinfos",
-		  proxyApi: "/serviceinfos",
-		  class: "xs12 sm6 px-3 mb-3"
-		},
-		{
-		  label: "Hình thức thanh toán",
-		  key: "paymentMethod",
-		  value: "total",
-		  type: "select",
-		  source: [
-			{name: "Tất cả", value: "total"},
-			{name: "Trực tiếp", value: "direct"},
-			{name: "Trực tuyến", value: "online"},
-			{name: "Dịch Vụ Công Quốc Gia", value: "PayPlatDVCQG"}
-		  ],
-		  class: "xs12 sm6 px-3 mb-3"
-		},
-		{
-		  label: "Ngày thu từ ngày",
-		  key: "fromApprovedDate",
-		  value: new Intl.DateTimeFormat('vi-VN').format(new Date((new Date()).getFullYear(), (new Date()).getMonth())),
-		  type: "date",
-		  before: "toApprovedDate",
-		  class: "xs12 sm4 px-3 mb-3"
-		},
-		{
-		  label: "Đến ngày",
-		  key: "toApprovedDate",
-		  value: new Intl.DateTimeFormat('vi-VN').format(new Date()),
-		  type: "date",
-		  after: "fromApprovedDate",
-		  class: "xs12 sm4 px-3 mb-3"
-		}
-	  ],
-	  reportConfig: [
-		{
-		  "selected": true,
-		  "value": "dossierNo",
-		  "text": "Mã hồ sơ"
-		},
-		{
-		  "selected": true,
-		  "value": "applicantName",
-		  "align": "left",
-		  "text": "Chủ hồ sơ",
-		  "width": 150
-		},
-		{
-		  "selected": true,
-		  "value": "address",
-		  "text": "Địa chỉ",
-		  "align": "left",
-		  "width": 250
-		},
-		{
-		  "selected": true,
-		  "value": "paymentDate",
-		  "text": "Ngày thu"
-		},
-		{
-		  "selected": true,
-		  "value": "totalAmount",
-		  "text": "Tổng tiền",
-		  "type": "currency"
-		}
-	  ]
-	}]]>
-	</filterConfig>
-    <reportCode>REPORT_STATISTIC_11</reportCode>
-    <reportName>Hồ sơ đã hoàn thành thanh toán</reportName>
-    <sharing>1</sharing>
-    <tableConfig>
-		<![CDATA[{
-	  docDefinition: {
-		 pageOrientation: 'landscape',
-		 content: [
-		   {
-				 columns: [
-					 {
-						 width: 300,
-						 style: "title",
-						 text: [
-							 {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
-							 {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
-						  ]
-					 },
-					 {
-						 width: 100,
-						  style: "title",
-						 text: ''
-					   },
-					 {
-						 width: 300,
-						 style: "title",
-						 text: [
-							 {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-							 {text: "Độc lập - Tự do - Hạnh phúc\n"},
-							 {text: "----------------------------\n"},
-							 {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-						 ]
-					 }
-				 ]
-		   },
-		   {
-			 text: [
-			   {text: 'BÁO CÁO HỒ SƠ ĐÃ HOÀN THÀNH THANH TOÁN\n'},
-			   {text: "Ngày thu từ ngày [$fromApprovedDate$] đến ngày [$toApprovedDate$]\n", fontSize: 11}
-			 ], 
-			 margin: [0, 20],
-			 style: 'headerTitle'
-		   },
-		   {
-			 style: 'tableExample',
-			 table: {
-			   widths: "[$tableWidth$]",
-			   body: ["[$report$]"]
-			 },
-			 margin: [0, 0, 0, 20]
-		   },
-		   {
-			 columns: [
-			   {
-				 width: '*',
-				 text: ''
-			   },
-			   {
-				 width: 150,
-				 style: 'title',
-				 text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-			   }
-			 ]
-		   },
-		   {
-			 columns: [
-			   {
-				 width: '*',
-				 text: ''
-			   },
-			   {
-				 width: 150,
-				 style: 'titleSub',
-				 text: '(Ký và ghi rõ họ tên)'
-			   }
-			 ]
-		   }
-		 ],
-		 styles: {
-		   ngayThangNam: {
-			 fontSize: 10,
-			 italics: true,
-			 bold: false,
-			 alignment: 'center'
-		   },
-		   headerTitle: {
-			   alignment: 'center',
-			   bold: true,
-			   fontSize: 13
-		   },
-		   borderHeader: {
-			   alignment: 'left'
-		   },
-		   title: {
-			 bold: true,
-			 alignment: 'center',
-			 textTransform: 'uppercase'
-		   },
-		   titleSub: {
-			   fontSize: 10,
-			   italics: true,
-			   alignment: 'center'
-		   },
-		   tdStyle: {
-			 fontSize: 10
-		   },
-		   tableExample: {
-			  width: "100%" 
-		   }
-		 },
-		 defaultStyle: {
-		   columnGap: 20,
-		   fontSize: 11
-		 }
-	   } 
-	}]]>
-	</tableConfig>
-    <userConfig>{}</userConfig>
-  </DynamicReport>
-  
-  <DynamicReport>
-    <filterConfig>
-	<![CDATA[{
-	  api: "/o/rest/v2/dossiers?start=0&end=500&status=paying",
-	  exclusive: false,
-	  customize: true,
-	  groupIds: [
-	  ],
-	  groupBy: [
-		{
-		   key: "domainCode",
-		   label: "Lĩnh vực",
-		   display: "domainName"
-		},
-		{
-		   key: "serviceCode",
-		   label: "Thủ tục",
-		   display: "serviceName"
-		}
-	  ],
-	  sumKey: "domainCode",
-	  filters: [
-		{
-		  label: "Lĩnh vực",
-		  clearable: "true",
-		  source: "",
-		  key: "domainCode",
-		  valueMapping: "domainCode",
-		  nameMapping: "domainName",
-		  type: "select",
-		  api: "/o/rest/v2/serviceinfos/statistics/domains",
-		  proxyApi: "/serviceinfos/statistics/domains",
-		  class: "xs12 sm4 px-3 mb-3"
-		},
-		{
-		  label: "Thủ tục",
-		  clearable: "true",
-		  source: "",
-		  key: "service",
-		  valueMapping: "serviceCode",
-		  nameMapping: "serviceName",
-		  type: "select",
-		  api: "/o/rest/v2/serviceinfos",
-		  proxyApi: "/serviceinfos",
-		  class: "xs12 sm4 px-3 mb-3"
-		},
-		{
-		  label: "Tiếp nhận từ ngày",
-		  key: "fromReceiveDate",
-		  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-		  type: "date",
-		  before: "toReceiveDate",
-		  class: "xs12 sm3 px-3 mb-3"
-		},
-		{
-		  label: "Đến ngày",
-		  key: "toReceiveDate",
-		  value: new Date().toLocaleDateString('vi-VN'),
-		  type: "date", 
-		  after: "fromReceiveDate",
-		  class: "xs12 sm3 px-3 mb-3"
-		}
-	  ],
-	  reportConfig: [
-		{
-		  "selected": true,
-		  "value": "dossierNo",
-		  "text": "Mã hồ sơ"
-		},
-		{
-		  "selected": true,
-		  "value": "applicantName",
-		  "align": "left",
-		  "text": "Chủ hồ sơ"
-		},
-		{
-		  "selected": true,
-		  "value": "address",
-		  "text": "Địa chỉ",
-		  "align": "left"
-		},
-		{
-		  "selected": true,
-		  "value": "receiveDate",
-		  "text": "Ngày tiếp nhận"
-		},
-		{
-		  "selected": true,
-		  "value": "dueDate",
-		  "text": "Ngày hẹn trả"
-		},
-		{
-		  "selected": true,
-		  "value": "totalAmount",
-		  "text": "Tổng tiền",
-		  "type": "currency"
-		}
-	  ]
-	}]]>
-	</filterConfig>
-    <reportCode>REPORT_STATISTIC_13</reportCode>
-    <reportName>Hồ sơ chờ thanh toán</reportName>
-    <sharing>1</sharing>
-    <tableConfig>
-	<![CDATA[{
-	  docDefinition: {
-		 pageOrientation: 'landscape',
-		 content: [
-		   {
-				 columns: [
-					 {
-						 width: 300,
-						 style: "title",
-						 text: [
-							 {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
-							 {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
-						  ]
-					 },
-					 {
-						 width: 100,
-						  style: "title",
-						 text: ''
-					   },
-					 {
-						 width: 300,
-						 style: "title",
-						 text: [
-							 {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-							 {text: "Độc lập - Tự do - Hạnh phúc\n"},
-							 {text: "----------------------------\n"},
-							 {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-						 ]
-					 }
-				 ]
-		   },
-		   {
-			 text: [
-			   {text: 'BÁO CÁO HỒ SƠ CHỜ THANH TOÁN\n'},
-			   {text: "Ngày tiếp nhận từ ngày [$fromReceiveDate$] đến ngày [$toReceiveDate$]\n", fontSize: 11}
-			 ], 
-			 margin: [0, 20],
-			 style: 'headerTitle'
-		   },
-		   {
-			 style: 'tableExample',
-			 table: {
-			   widths: "[$tableWidth$]",
-			   body: ["[$report$]"]
-			 },
-			 margin: [0, 0, 0, 20]
-		   },
-		   {
-			 columns: [
-			   {
-				 width: '*',
-				 text: ''
-			   },
-			   {
-				 width: 150,
-				 style: 'title',
-				 text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-			   }
-			 ]
-		   },
-		   {
-			 columns: [
-			   {
-				 width: '*',
-				 text: ''
-			   },
-			   {
-				 width: 150,
-				 style: 'titleSub',
-				 text: '(Ký và ghi rõ họ tên)'
-			   }
-			 ]
-		   }
-		 ],
-		 styles: {
-		   ngayThangNam: {
-			 fontSize: 10,
-			 italics: true,
-			 bold: false,
-			 alignment: 'center'
-		   },
-		   headerTitle: {
-			   alignment: 'center',
-			   bold: true,
-			   fontSize: 13
-		   },
-		   borderHeader: {
-			   alignment: 'left'
-		   },
-		   title: {
-			 bold: true,
-			 alignment: 'center',
-			 textTransform: 'uppercase'
-		   },
-		   titleSub: {
-			   fontSize: 10,
-			   italics: true,
-			   alignment: 'center'
-		   },
-		   tdStyle: {
-			 fontSize: 10
-		   },
-		   tableExample: {
-			  width: "100%" 
-		   }
-		 },
-		 defaultStyle: {
-		   columnGap: 20,
-		   fontSize: 11
-		 }
-	   } 
-	}]]>
-	</tableConfig>
-    <userConfig>{}</userConfig>
-  </DynamicReport>
-  
 	<DynamicReport label="STATISTIC_03_VER3">
 		<sharing>1</sharing>
 		<reportName>Tổng hợp hồ sơ theo lĩnh vực </reportName>
@@ -1612,6 +1232,145 @@
 					sumKey: "domainCode",
 					filters: [
 						{
+							label: "Đơn vị",
+							key: "govAgencyCode",
+							type: "select",
+							class: "xs12 sm6 px-3 mb-3",
+							clearable: true,
+							source: [
+								{
+									"name": "Bộ Khoa học và Công nghệ",
+									"value": "G06",
+									"levelTree": 0
+								},
+								{
+									"name": "Trung tâm Công nghệ thông tin",
+									"value": "G06.19.01",
+									"levelTree": 1
+								},
+								{
+									"name": "Quỹ Phát triển khoa học và công nghệ quốc gia",
+									"value": "G06.48",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng các Chương trình khoa học và công nghệ quốc gia",
+									"value": "G06.43",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Sở hữu trí tuệ",
+									"value": "G06.19",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Năng lượng nguyên tử",
+									"value": "G06.15",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục An toàn bức xạ và hạt nhân",
+									"value": "G06.18",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Ứng dụng và Phát triển công nghệ",
+									"value": "G06.14",
+									"levelTree": 1
+								},
+								{
+									"name": "Tổng cục Tiêu chuẩn Đo lường Chất lượng",
+									"value": "G06.20",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ đo lường",
+									"value": "G06.20.3",
+									"levelTree": 2
+								},
+								{
+									"name": "Vụ đánh giá hợp chuẩn hợp quy",
+									"value": "G06.20.4",
+									"levelTree": 2
+								},
+								{
+									"name": "Trung tâm Mã số, mã vạch Quốc gia",
+									"value": "G06.20.26",
+									"levelTree": 2
+								},
+								{
+									"name": "Cục Thông tin khoa học và công nghệ quốc gia",
+									"value": "G06.16",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng Đăng ký hoạt động khoa học và công nghệ",
+									"value": "G06.42",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng các Chương trình trọng điểm cấp nhà nước",
+									"value": "G06.40",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Phát triển thị trường và doanh nghiệp khoa học và công nghệ",
+									"value": "G06.17",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Pháp chế",
+									"value": "G06.06",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng Bộ",
+									"value": "G06.11",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Công nghệ cao",
+									"value": "G06.04",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Tổ chức cán bộ",
+									"value": "G06.07",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Hợp tác quốc tế",
+									"value": "G06.08",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Thi đua - Khen thưởng",
+									"value": "G06.09",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Kế hoạch -Tài chính",
+									"value": "G06.05",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Đánh giá, Thẩm định và Giám định công nghệ",
+									"value": "G06.03",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Khoa học và Công nghệ các ngành kinh tế - kỹ thuật",
+									"value": "G06.02",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Khoa học Xã hội, Nhân văn và Tự nhiên",
+									"value": "G06.01",
+									"levelTree": 1
+								}
+							]
+						},
+						{
 							label: "Lĩnh vực",
 							source: "",
 							key: "domainCode",
@@ -1623,7 +1382,19 @@
 							proxyApi: "/serviceinfos/statistics/domains",
 							class: "xs12 sm6 px-3 mb-3",
 							clearable: true
-					   },
+						},
+						{
+							label: "Mức độ",
+							key: "listServiceLevel",
+							value: "2,3,4",
+							type: "select",
+							source: [
+								{name: "Tất cả", value: "2,3,4"},
+								{name: "Mức độ 2", value: "2"},
+								{name: "Mức độ 3", value: "3"},
+								{name: "Mức độ 4", value: "4"}
+							]
+						},
 						{
 							label: "Hình thức nộp hồ sơ",
 							key: "listTypeSendDossier",
@@ -1817,7 +1588,7 @@
 								width: 300,
 								style: "title",
 								text: [
-									{text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+									{text: "BỘ KHOA HỌC VÀ CÔNG NGHỆ\n"},
 									{text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
 								]
 							},
@@ -2184,6 +1955,145 @@
 				groupIds: [],
 				filters: [
 				{
+					label: "Đơn vị",
+					key: "govAgencyCode",
+					type: "select",
+					class: "xs12 sm6 px-3 mb-3",
+					clearable: true,
+					source: [
+						{
+							"name": "Bộ Khoa học và Công nghệ",
+							"value": "G06",
+							"levelTree": 0
+						},
+						{
+							"name": "Trung tâm Công nghệ thông tin",
+							"value": "G06.19.01",
+							"levelTree": 1
+						},
+						{
+							"name": "Quỹ Phát triển khoa học và công nghệ quốc gia",
+							"value": "G06.48",
+							"levelTree": 1
+						},
+						{
+							"name": "Văn phòng các Chương trình khoa học và công nghệ quốc gia",
+							"value": "G06.43",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục Sở hữu trí tuệ",
+							"value": "G06.19",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục Năng lượng nguyên tử",
+							"value": "G06.15",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục An toàn bức xạ và hạt nhân",
+							"value": "G06.18",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục Ứng dụng và Phát triển công nghệ",
+							"value": "G06.14",
+							"levelTree": 1
+						},
+						{
+							"name": "Tổng cục Tiêu chuẩn Đo lường Chất lượng",
+							"value": "G06.20",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ đo lường",
+							"value": "G06.20.3",
+							"levelTree": 2
+						},
+						{
+							"name": "Vụ đánh giá hợp chuẩn hợp quy",
+							"value": "G06.20.4",
+							"levelTree": 2
+						},
+						{
+							"name": "Trung tâm Mã số, mã vạch Quốc gia",
+							"value": "G06.20.26",
+							"levelTree": 2
+						},
+						{
+							"name": "Cục Thông tin khoa học và công nghệ quốc gia",
+							"value": "G06.16",
+							"levelTree": 1
+						},
+						{
+							"name": "Văn phòng Đăng ký hoạt động khoa học và công nghệ",
+							"value": "G06.42",
+							"levelTree": 1
+						},
+						{
+							"name": "Văn phòng các Chương trình trọng điểm cấp nhà nước",
+							"value": "G06.40",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục Phát triển thị trường và doanh nghiệp khoa học và công nghệ",
+							"value": "G06.17",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Pháp chế",
+							"value": "G06.06",
+							"levelTree": 1
+						},
+						{
+							"name": "Văn phòng Bộ",
+							"value": "G06.11",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Công nghệ cao",
+							"value": "G06.04",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Tổ chức cán bộ",
+							"value": "G06.07",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Hợp tác quốc tế",
+							"value": "G06.08",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Thi đua - Khen thưởng",
+							"value": "G06.09",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Kế hoạch -Tài chính",
+							"value": "G06.05",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Đánh giá, Thẩm định và Giám định công nghệ",
+							"value": "G06.03",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Khoa học và Công nghệ các ngành kinh tế - kỹ thuật",
+							"value": "G06.02",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Khoa học Xã hội, Nhân văn và Tự nhiên",
+							"value": "G06.01",
+							"levelTree": 1
+						}
+					]
+				},
+				{
 					label: "Lĩnh vực",
 					source: "",
 					key: "domainCode",
@@ -2479,7 +2389,7 @@
 								width: 300,
 								style: "title",
 								text: [
-									{text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+									{text: "BỘ KHOA HỌC VÀ CÔNG NGHỆ\n"},
 									{text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
 								]
 							},
@@ -2965,6 +2875,157 @@
 			sumKey: "govAgencyCode",
 			filters: [
 				{
+					label: "Đơn vị",
+					key: "govAgencyCode",
+					type: "select",
+					class: "xs12 sm6 px-3 mb-3",
+					clearable: true,
+					source: [
+						{
+							"name": "Bộ Khoa học và Công nghệ",
+							"value": "G06",
+							"levelTree": 0
+						},
+						{
+							"name": "Trung tâm Công nghệ thông tin",
+							"value": "G06.19.01",
+							"levelTree": 1
+						},
+						{
+							"name": "Quỹ Phát triển khoa học và công nghệ quốc gia",
+							"value": "G06.48",
+							"levelTree": 1
+						},
+						{
+							"name": "Văn phòng các Chương trình khoa học và công nghệ quốc gia",
+							"value": "G06.43",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục Sở hữu trí tuệ",
+							"value": "G06.19",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục Năng lượng nguyên tử",
+							"value": "G06.15",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục An toàn bức xạ và hạt nhân",
+							"value": "G06.18",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục Ứng dụng và Phát triển công nghệ",
+							"value": "G06.14",
+							"levelTree": 1
+						},
+						{
+							"name": "Tổng cục Tiêu chuẩn Đo lường Chất lượng",
+							"value": "G06.20",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ đo lường",
+							"value": "G06.20.3",
+							"levelTree": 2
+						},
+						{
+							"name": "Vụ đánh giá hợp chuẩn hợp quy",
+							"value": "G06.20.4",
+							"levelTree": 2
+						},
+						{
+							"name": "Trung tâm Mã số, mã vạch Quốc gia",
+							"value": "G06.20.26",
+							"levelTree": 2
+						},
+						{
+							"name": "Cục Thông tin khoa học và công nghệ quốc gia",
+							"value": "G06.16",
+							"levelTree": 1
+						},
+						{
+							"name": "Văn phòng Đăng ký hoạt động khoa học và công nghệ",
+							"value": "G06.42",
+							"levelTree": 1
+						},
+						{
+							"name": "Văn phòng các Chương trình trọng điểm cấp nhà nước",
+							"value": "G06.40",
+							"levelTree": 1
+						},
+						{
+							"name": "Cục Phát triển thị trường và doanh nghiệp khoa học và công nghệ",
+							"value": "G06.17",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Pháp chế",
+							"value": "G06.06",
+							"levelTree": 1
+						},
+						{
+							"name": "Văn phòng Bộ",
+							"value": "G06.11",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Công nghệ cao",
+							"value": "G06.04",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Tổ chức cán bộ",
+							"value": "G06.07",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Hợp tác quốc tế",
+							"value": "G06.08",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Thi đua - Khen thưởng",
+							"value": "G06.09",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Kế hoạch -Tài chính",
+							"value": "G06.05",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Đánh giá, Thẩm định và Giám định công nghệ",
+							"value": "G06.03",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Khoa học và Công nghệ các ngành kinh tế - kỹ thuật",
+							"value": "G06.02",
+							"levelTree": 1
+						},
+						{
+							"name": "Vụ Khoa học Xã hội, Nhân văn và Tự nhiên",
+							"value": "G06.01",
+							"levelTree": 1
+						}
+					]
+				},
+				{
+					label: "Mức độ",
+					key: "listServiceLevel",
+					value: "2,3,4",
+					type: "select",
+					source: [
+						{name: "Tất cả", value: "2,3,4"},
+						{name: "Mức độ 2", value: "2"},
+						{name: "Mức độ 3", value: "3"},
+						{name: "Mức độ 4", value: "4"}
+					]
+				},
+				{
 					label: "Hình thức nộp hồ sơ",
 					key: "listTypeSendDossier",
 					value: "1,2",
@@ -3157,7 +3218,7 @@
 								width: 300,
 								style: "title",
 								text: [
-									{text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+									{text: "BỘ KHOA HỌC VÀ CÔNG NGHỆ\n"},
 									{text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
 								]
 							},
@@ -3540,6 +3601,145 @@
 				],
 				filters: [
 					{
+						label: "Đơn vị",
+						key: "govAgencyCode",
+						type: "select",
+						class: "xs12 sm6 px-3 mb-3",
+						clearable: true,
+						source: [
+							{
+								"name": "Bộ Khoa học và Công nghệ",
+								"value": "G06",
+								"levelTree": 0
+							},
+							{
+								"name": "Trung tâm Công nghệ thông tin",
+								"value": "G06.19.01",
+								"levelTree": 1
+							},
+							{
+								"name": "Quỹ Phát triển khoa học và công nghệ quốc gia",
+								"value": "G06.48",
+								"levelTree": 1
+							},
+							{
+								"name": "Văn phòng các Chương trình khoa học và công nghệ quốc gia",
+								"value": "G06.43",
+								"levelTree": 1
+							},
+							{
+								"name": "Cục Sở hữu trí tuệ",
+								"value": "G06.19",
+								"levelTree": 1
+							},
+							{
+								"name": "Cục Năng lượng nguyên tử",
+								"value": "G06.15",
+								"levelTree": 1
+							},
+							{
+								"name": "Cục An toàn bức xạ và hạt nhân",
+								"value": "G06.18",
+								"levelTree": 1
+							},
+							{
+								"name": "Cục Ứng dụng và Phát triển công nghệ",
+								"value": "G06.14",
+								"levelTree": 1
+							},
+							{
+								"name": "Tổng cục Tiêu chuẩn Đo lường Chất lượng",
+								"value": "G06.20",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ đo lường",
+								"value": "G06.20.3",
+								"levelTree": 2
+							},
+							{
+								"name": "Vụ đánh giá hợp chuẩn hợp quy",
+								"value": "G06.20.4",
+								"levelTree": 2
+							},
+							{
+								"name": "Trung tâm Mã số, mã vạch Quốc gia",
+								"value": "G06.20.26",
+								"levelTree": 2
+							},
+							{
+								"name": "Cục Thông tin khoa học và công nghệ quốc gia",
+								"value": "G06.16",
+								"levelTree": 1
+							},
+							{
+								"name": "Văn phòng Đăng ký hoạt động khoa học và công nghệ",
+								"value": "G06.42",
+								"levelTree": 1
+							},
+							{
+								"name": "Văn phòng các Chương trình trọng điểm cấp nhà nước",
+								"value": "G06.40",
+								"levelTree": 1
+							},
+							{
+								"name": "Cục Phát triển thị trường và doanh nghiệp khoa học và công nghệ",
+								"value": "G06.17",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ Pháp chế",
+								"value": "G06.06",
+								"levelTree": 1
+							},
+							{
+								"name": "Văn phòng Bộ",
+								"value": "G06.11",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ Công nghệ cao",
+								"value": "G06.04",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ Tổ chức cán bộ",
+								"value": "G06.07",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ Hợp tác quốc tế",
+								"value": "G06.08",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ Thi đua - Khen thưởng",
+								"value": "G06.09",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ Kế hoạch -Tài chính",
+								"value": "G06.05",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ Đánh giá, Thẩm định và Giám định công nghệ",
+								"value": "G06.03",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ Khoa học và Công nghệ các ngành kinh tế - kỹ thuật",
+								"value": "G06.02",
+								"levelTree": 1
+							},
+							{
+								"name": "Vụ Khoa học Xã hội, Nhân văn và Tự nhiên",
+								"value": "G06.01",
+								"levelTree": 1
+							}
+						]
+					},
+					{
 						label: "Lĩnh vực",
 						clearable: "true",
 						source: "",
@@ -3784,7 +3984,7 @@
 								width: 300,
 								style: "title",
 								text: [
-									{text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+									{text: "BỘ KHOA HỌC VÀ CÔNG NGHỆ\n"},
 									{text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
 								]
 							},
@@ -3907,6 +4107,145 @@
 					notSumkey: true,
 					sumKey: "domainCode",
 					filters: [
+						{
+							label: "Đơn vị",
+							key: "govAgencyCode",
+							type: "select",
+							class: "xs12 sm6 px-3 mb-3",
+							clearable: true,
+							source: [
+								{
+									"name": "Bộ Khoa học và Công nghệ",
+									"value": "G06",
+									"levelTree": 0
+								},
+								{
+									"name": "Trung tâm Công nghệ thông tin",
+									"value": "G06.19.01",
+									"levelTree": 1
+								},
+								{
+									"name": "Quỹ Phát triển khoa học và công nghệ quốc gia",
+									"value": "G06.48",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng các Chương trình khoa học và công nghệ quốc gia",
+									"value": "G06.43",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Sở hữu trí tuệ",
+									"value": "G06.19",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Năng lượng nguyên tử",
+									"value": "G06.15",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục An toàn bức xạ và hạt nhân",
+									"value": "G06.18",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Ứng dụng và Phát triển công nghệ",
+									"value": "G06.14",
+									"levelTree": 1
+								},
+								{
+									"name": "Tổng cục Tiêu chuẩn Đo lường Chất lượng",
+									"value": "G06.20",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ đo lường",
+									"value": "G06.20.3",
+									"levelTree": 2
+								},
+								{
+									"name": "Vụ đánh giá hợp chuẩn hợp quy",
+									"value": "G06.20.4",
+									"levelTree": 2
+								},
+								{
+									"name": "Trung tâm Mã số, mã vạch Quốc gia",
+									"value": "G06.20.26",
+									"levelTree": 2
+								},
+								{
+									"name": "Cục Thông tin khoa học và công nghệ quốc gia",
+									"value": "G06.16",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng Đăng ký hoạt động khoa học và công nghệ",
+									"value": "G06.42",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng các Chương trình trọng điểm cấp nhà nước",
+									"value": "G06.40",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Phát triển thị trường và doanh nghiệp khoa học và công nghệ",
+									"value": "G06.17",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Pháp chế",
+									"value": "G06.06",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng Bộ",
+									"value": "G06.11",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Công nghệ cao",
+									"value": "G06.04",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Tổ chức cán bộ",
+									"value": "G06.07",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Hợp tác quốc tế",
+									"value": "G06.08",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Thi đua - Khen thưởng",
+									"value": "G06.09",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Kế hoạch -Tài chính",
+									"value": "G06.05",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Đánh giá, Thẩm định và Giám định công nghệ",
+									"value": "G06.03",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Khoa học và Công nghệ các ngành kinh tế - kỹ thuật",
+									"value": "G06.02",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Khoa học Xã hội, Nhân văn và Tự nhiên",
+									"value": "G06.01",
+									"levelTree": 1
+								}
+							]
+						},
 						{
 							label: "Lĩnh vực",
 							source: "",
@@ -4130,7 +4469,7 @@
 								width: 300,
 								style: "title",
 								text: [
-									{text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+									{text: "BỘ KHOA HỌC VÀ CÔNG NGHỆ\n"},
 									{text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
 								]
 							},
@@ -4548,6 +4887,145 @@
 					sumKey: "domainCode",
 					filters: [
 						{
+							label: "Đơn vị",
+							key: "govAgencyCode",
+							type: "select",
+							class: "xs12 sm6 px-3 mb-3",
+							clearable: true,
+							source: [
+								{
+									"name": "Bộ Khoa học và Công nghệ",
+									"value": "G06",
+									"levelTree": 0
+								},
+								{
+									"name": "Trung tâm Công nghệ thông tin",
+									"value": "G06.19.01",
+									"levelTree": 1
+								},
+								{
+									"name": "Quỹ Phát triển khoa học và công nghệ quốc gia",
+									"value": "G06.48",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng các Chương trình khoa học và công nghệ quốc gia",
+									"value": "G06.43",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Sở hữu trí tuệ",
+									"value": "G06.19",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Năng lượng nguyên tử",
+									"value": "G06.15",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục An toàn bức xạ và hạt nhân",
+									"value": "G06.18",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Ứng dụng và Phát triển công nghệ",
+									"value": "G06.14",
+									"levelTree": 1
+								},
+								{
+									"name": "Tổng cục Tiêu chuẩn Đo lường Chất lượng",
+									"value": "G06.20",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ đo lường",
+									"value": "G06.20.3",
+									"levelTree": 2
+								},
+								{
+									"name": "Vụ đánh giá hợp chuẩn hợp quy",
+									"value": "G06.20.4",
+									"levelTree": 2
+								},
+								{
+									"name": "Trung tâm Mã số, mã vạch Quốc gia",
+									"value": "G06.20.26",
+									"levelTree": 2
+								},
+								{
+									"name": "Cục Thông tin khoa học và công nghệ quốc gia",
+									"value": "G06.16",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng Đăng ký hoạt động khoa học và công nghệ",
+									"value": "G06.42",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng các Chương trình trọng điểm cấp nhà nước",
+									"value": "G06.40",
+									"levelTree": 1
+								},
+								{
+									"name": "Cục Phát triển thị trường và doanh nghiệp khoa học và công nghệ",
+									"value": "G06.17",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Pháp chế",
+									"value": "G06.06",
+									"levelTree": 1
+								},
+								{
+									"name": "Văn phòng Bộ",
+									"value": "G06.11",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Công nghệ cao",
+									"value": "G06.04",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Tổ chức cán bộ",
+									"value": "G06.07",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Hợp tác quốc tế",
+									"value": "G06.08",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Thi đua - Khen thưởng",
+									"value": "G06.09",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Kế hoạch -Tài chính",
+									"value": "G06.05",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Đánh giá, Thẩm định và Giám định công nghệ",
+									"value": "G06.03",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Khoa học và Công nghệ các ngành kinh tế - kỹ thuật",
+									"value": "G06.02",
+									"levelTree": 1
+								},
+								{
+									"name": "Vụ Khoa học Xã hội, Nhân văn và Tự nhiên",
+									"value": "G06.01",
+									"levelTree": 1
+								}
+							]
+						},
+						{
 							label: "Lĩnh vực",
 							source: "",
 							key: "domainCode",
@@ -4764,7 +5242,7 @@
 								width: 300,
 								style: "title",
 								text: [
-									{text: "BỘ GIAO THÔNG VẬN TẢI\n"},
+									{text: "BỘ KHOA HỌC VÀ CÔNG NGHỆ\n"},
 									{text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
 								]
 							},
@@ -5143,692 +5621,5 @@
 		</tableConfig>
 		<userConfig>{"order": 15}</userConfig>
 	</DynamicReport>
-	
-	<DynamicReport>
-		<sharing>9</sharing>
-		<reportName>Báo cáo chi tiết tiếp nhận hồ sơ</reportName>
-		<reportCode>REPORT_STATISTIC_091</reportCode>
-		<filterConfig><![CDATA[{
-		api: "/o/statistic/dossier/groupcount/bgt?type=49&groupBy=serviceCode",
-		exclusive: false,
-		customize: true,
-        typeDate: "timestamp",
-        groupIds: [
-        ],
-        sumKey: "serviceCode",
-		filters: [
-			{
-			  label: "Mức độ",
-			  key: "serviceLevel",
-			  value: "2,3,4",
-			  type: "select",
-			  source: [
-				{name: "Tất cả", value: "2,3,4"},
-				{name: "Mức độ 2", value: "2"},
-				{name: "Mức độ 3", value: "3"},
-				{name: "Mức độ 4", value: "4"}
-			  ]  
-			},
-			{
-			  label: "Hiệu lực",
-			  key: "listValid",
-			  value: "0,1",
-			  type: "select",
-			  source: [
-				{name: "Tất cả", value: "0,1"},
-				{name: "Còn hiệu lực", value: "1"},
-				{name: "Hết hiệu lực", value: "0"}
-			  ]  
-			},
-			{
-			  label: "Từ ngày",
-			  key: "fromDate",
-			  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-			  type: "date",
-			  before: "toDate" 
-			},
-			{
-			  label: "Đến ngày",
-			  key: "toDate",
-			  value: new Date().toLocaleDateString('vi-VN'),
-			  type: "date",
-			  after: "fromDate" 
-			}
-		  ],
-			reportConfig: [
-			  {
-				"selected": true,
-				"align": "left",
-				"value": "serviceName",
-				"text": "Tên TTHC",
-				"notSum": true
-			  },
-			  {
-				"selected": true,
-				"align": "left",
-				"value": "serviceCode",
-				"text": "Mã TTHC",
-				"notSum": true
-			  },
-			  {
-				"selected": true,
-				"value": "valid",
-				"align": "left",
-				"text": "Hiệu lực",
-				"width": 50,
-				"notSum": true
-			  },
-			  {
-				"selected": true,
-				"align": "center",
-				"value": "feeText",
-				"text": "Có phí",
-				"calculator": ' if (String(dataInput["feeText"]).indexOf("Không quy định") < 0) { "X" } else { "_" }',
-				"notSum": true
-			  },
-			  {
-				"selected": true,
-				"align": "center",
-				"value": "serviceLevel",
-				"text": "Mức độ DVC",
-				"notSum": true
-			  },
-			  {
-				"selected": true,
-				"value": "receiveOfflineCount",
-				"align": "center",
-				"text": "Hồ sơ tiếp nhận trực tiếp"
-			  },
-			  {
-				"selected": true,
-				"value": "receiveOnlineCount",
-				"align": "center",
-				"text": "Hồ sơ tiếp nhận trực tuyến"
-			  },
-			  {
-				"selected": true,
-				"value": "receiveSohoatiepnhanCount",
-				"align": "center",
-				"text": "Số hóa hồ sơ TTHC"
-			  }
-			]
-		}
-		]]></filterConfig>
-		<tableConfig><![CDATA[{
-	   docDefinition: {
-		  pageOrientation: 'landscape',
-		  content: [
-			{
-				  columns: [
-					  {
-						  width: 300,
-						  style: "title",
-						  text: [
-							 {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
-							 {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
-						  ]
-					  },
-					  {
-						  width: 100,
-						  style: "title",
-						  text: ""
-					  },
-					  {
-						  width: 300,
-						  style: "title",
-						  text: [
-							  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-							  {text: "Độc lập - Tự do - Hạnh phúc\n"},
-							  {text: "-------------------------------------------\n"},
-							  {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-						  ]
-					  }
-				  ]
-			},
-			{
-			  text: [
-				{text: 'BÁO CÁO CHI TIẾT TIẾP NHẬN HỒ SƠ\n'},
-				{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
-			  ], 
-			  margin: [0, 20],
-			  style: 'headerTitle'
-			},
-			{
-			  style: 'tableExample',
-			  table: {
-				widths: "[$tableWidth$]",
-				body: ["[$report$]"]
-			  },
-			  margin: [0, 0, 0, 20]
-			},
-			{
-			  columns: [
-				{
-				  width: '*',
-				  text: ''
-				},
-				{
-				  width: 150,
-				  style: 'title',
-				  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-				}
-			  ]
-			},
-			{
-			  columns: [
-				{
-				  width: '*',
-				  text: ''
-				},
-				{
-				  width: 150,
-				  style: 'titleSub',
-				  text: '(Ký và ghi rõ họ tên)'
-				}
-			  ]
-			}
-		  ],
-		  styles: {
-			ngayThangNam: {
-			  fontSize: 10,
-			  italics: true,
-			  bold: false,
-			  alignment: 'center'
-			},
-			headerTitle: {
-				alignment: 'center',
-				bold: true,
-				fontSize: 13
-			},
-			borderHeader: {
-				alignment: 'left'
-			},
-			title: {
-			  bold: true,
-			  alignment: 'center'
-			},
-			titleSub: {
-				fontSize: 10,
-				italics: true,
-				alignment: 'center'
-			},
-			tdStyle: {
-			  fontSize: 10
-			},
-			tableExample: {
-			   width: "100%" 
-			}
-		  },
-		  defaultStyle: {
-			columnGap: 20,
-			fontSize: 11
-		  }
-		} 
-	}]]></tableConfig>
-		<userConfig>{"order": 13}</userConfig>
-	</DynamicReport>
-	
-	<DynamicReport>
-		<sharing>9</sharing>
-		<reportName>Báo cáo chi tiết xử lý hồ sơ</reportName>
-		<reportCode>REPORT_STATISTIC_092</reportCode>
-		<filterConfig><![CDATA[{
-		api: "/o/statistic/dossier/groupcount/bgt?type=50&groupBy=serviceCode",
-		exclusive: false,
-		customize: true,
-        typeDate: "timestamp",
-        groupIds: [
-        ],
-        sumKey: "serviceCode",
-		filters: [
-			{
-			  label: "Hiệu lực",
-			  key: "listValid",
-			  value: "0,1",
-			  type: "select",
-			  source: [
-				{name: "Tất cả", value: "0,1"},
-				{name: "Còn hiệu lực", value: "1"},
-				{name: "Hết hiệu lực", value: "0"}
-			  ]  
-			},
-			{
-			  label: "Từ ngày",
-			  key: "fromDate",
-			  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-			  type: "date",
-			  before: "toDate" 
-			},
-			{
-			  label: "Đến ngày",
-			  key: "toDate",
-			  value: new Date().toLocaleDateString('vi-VN'),
-			  type: "date",
-			  after: "fromDate" 
-			}
-		  ],
-			reportConfig: [
-			  {
-				"selected": true,
-				"align": "left",
-				"value": "serviceName",
-				"text": "Tên TTHC",
-				"notSum": true
-			  },
-			  {
-				"selected": true,
-				"align": "left",
-				"value": "serviceCode",
-				"text": "Mã TTHC",
-				"notSum": true
-			  },
-			  {
-				"selected": true,
-				"value": "valid",
-				"align": "left",
-				"text": "Hiệu lực",
-				"width": 70,
-				"calculator": ' if (String(dataInput["valid"]) == "Công khai") { "Còn hiệu lực" } else { "Hết hiệu lực" }',
-				"notSum": true
-			  },
-			  {
-				"selected": true,
-				"align": "center",
-				"value": "remainingCount",
-				"text": "Chuyển kỳ trước"
-			  },
-			  {
-				"selected": true,
-				"align": "center",
-				"value": "receivedCount",
-				"text": "Tiếp nhận trong kỳ"
-			  },
-			  {
-				"selected": true,
-				"value": "releaseOntimeCount",
-				"align": "center",
-				"text": "Hoàn thành đúng hạn",
-				"calculator": 'dataInput["releaseBetimeCount"] + dataInput["releaseOntimeCount"] + dataInput["releaseCancelCount"] + dataInput["releaseUnresolveCount"]'
-			  },
-			  {
-				"selected": true,
-				"value": "releaseOvertimeCount",
-				"align": "center",
-				"text": "Hoàn thành trễ hạn"
-			  },
-			  {
-				"selected": true,
-				"value": "processingUndueCount",
-				"align": "center",
-				"text": "Đang xử lý còn hạn",
-				"calculator": 'dataInput["processingUndueCount"] + dataInput["processingWaitingCount"]'
-			  },
-			  {
-				"selected": true,
-				"value": "processingOverdueCount",
-				"align": "center",
-				"text": "Đang xử lý quá hạn"
-			  },
-			  {
-				"selected": true,
-				"value": "releaseSohoaketquaCount",
-				"align": "center",
-				"text": "Kết quả xử lý được số hóa"
-			  },
-			  {
-				"selected": true,
-				"value": "thanhtoantructuyenCount",
-				"align": "center",
-				"text": "Thanh toán trực tuyến"
-			  }
-			]
-		}
-		]]></filterConfig>
-		<tableConfig><![CDATA[{
-		   docDefinition: {
-			  pageOrientation: 'landscape',
-			  content: [
-				{
-					  columns: [
-						  {
-							  width: 300,
-							  style: "title",
-							  text: [
-								 {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
-								 {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
-							  ]
-						  },
-						  {
-							  width: 100,
-							  style: "title",
-							  text: ""
-						  },
-						  {
-							  width: 300,
-							  style: "title",
-							  text: [
-								  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-								  {text: "Độc lập - Tự do - Hạnh phúc\n"},
-								  {text: "-------------------------------------------\n"},
-								  {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-							  ]
-						  }
-					  ]
-				},
-				{
-				  text: [
-					{text: 'BÁO CÁO CHI TIẾT XỬ LÝ HỒ SƠ\n'},
-					{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
-				  ], 
-				  margin: [0, 20],
-				  style: 'headerTitle'
-				},
-				{
-				  style: 'tableExample',
-				  table: {
-					widths: "[$tableWidth$]",
-					body: ["[$report$]"]
-				  },
-				  margin: [0, 0, 0, 20]
-				},
-				{
-				  columns: [
-					{
-					  width: '*',
-					  text: ''
-					},
-					{
-					  width: 150,
-					  style: 'title',
-					  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-					}
-				  ]
-				},
-				{
-				  columns: [
-					{
-					  width: '*',
-					  text: ''
-					},
-					{
-					  width: 150,
-					  style: 'titleSub',
-					  text: '(Ký và ghi rõ họ tên)'
-					}
-				  ]
-				}
-			  ],
-			  styles: {
-				ngayThangNam: {
-				  fontSize: 10,
-				  italics: true,
-				  bold: false,
-				  alignment: 'center'
-				},
-				headerTitle: {
-					alignment: 'center',
-					bold: true,
-					fontSize: 13
-				},
-				borderHeader: {
-					alignment: 'left'
-				},
-				title: {
-				  bold: true,
-				  alignment: 'center'
-				},
-				titleSub: {
-					fontSize: 10,
-					italics: true,
-					alignment: 'center'
-				},
-				tdStyle: {
-				  fontSize: 10
-				},
-				tableExample: {
-				   width: "100%" 
-				}
-			  },
-			  defaultStyle: {
-				columnGap: 20,
-				fontSize: 11
-			  }
-			} 
-		}]]></tableConfig>
-		<userConfig>{"order": 13}</userConfig>
-	</DynamicReport>
-	
-	<DynamicReport>
-		<sharing>9</sharing>
-		<reportName>Báo cáo tổng hợp các đơn vị</reportName>
-		<reportCode>REPORT_093</reportCode>
-		<filterConfig><![CDATA[{
-		api: "/o/statistic/dossier/groupcount/bgt?type=51&groupBy=govAgencyCode",
-		exclusive: false,
-		customize: true,
-        typeDate: "timestamp",
-        groupIds: [
-        ],
-        sumKey: "govAgencyCode",
-		filters: [
-			{
-			  label: "Từ ngày",
-			  key: "fromDate",
-			  value: new Date((new Date()).getFullYear(), (new Date()).getMonth(), 1).toLocaleDateString('vi-VN'),
-			  type: "date",
-			  before: "toDate" 
-			},
-			{
-			  label: "Đến ngày",
-			  key: "toDate",
-			  value: new Date().toLocaleDateString('vi-VN'),
-			  type: "date",
-			  after: "fromDate" 
-			}
-		  ],
-			reportConfig: [
-			  {
-				"selected": true,
-				"align": "left",
-				"value": "govAgencyName",
-				"text": "Đơn vị"
-			  },
-			  {
-				"selected": true,
-				"align": "left",
-				"value": "serviceInfoLv3Count",
-				"text": "Số DVC mức 3"
-			  },
-			  {
-				"selected": true,
-				"value": "serviceInfoLv4Count",
-				"align": "left",
-				"text": "Số DVC mức 4"
-			  },
-			  {
-				"selected": true,
-				"align": "center",
-				"value": "dossierLv3Count",
-				"text": "Số hồ sơ DVC mức 3"
-			  },
-			  {
-				"selected": true,
-				"align": "center",
-				"value": "dossierLv4Count",
-				"text": "Số hồ sơ DVC mức 4"
-			  },
-			  {
-				"selected": true,
-				"value": "serviceInfoLv3DossierCount",
-				"align": "center",
-				"text": "DVC mức 3 phát sinh hồ sơ"
-			  },
-			  {
-				"selected": true,
-				"value": "serviceInfoLv4DossierCount",
-				"align": "center",
-				"text": "DVC mức 4 phát sinh hồ sơ"
-			  },
-			  {
-				"selected": true,
-				"value": "dossierttttCount",
-				"align": "center",
-				"text": "Tỷ lệ thanh toán trực tuyến",
-				"calculator": ' dataInput["dossieryctpCount"] != 0 ? dataInput["dossierttttCount"] +"/"+ dataInput["dossieryctpCount"] : "0"'
-			  },
-			  {
-				"selected": true,
-				"value": "dossiersohoatnCount",
-				"align": "center",
-				"text": "Hồ sơ được số hóa (TPHS)"
-			  },
-			  {
-				"selected": true,
-				"value": "dossiersohoaketquaCount",
-				"align": "center",
-				"text": "Hồ sơ được số hóa Kết quả"
-			  },
-			  {
-				"selected": true,
-				"value": "dossierReleaseOntimeCount",
-				"align": "center",
-				"text": "Hoàn thành đúng hạn",
-				"calculator": 'dataInput["dossierReleaseBetimeCount"] + dataInput["dossierReleaseOntimeCount"] + dataInput["dossierReleaseCancelCount"] + dataInput["dossierReleaseUnresolveCount"]'
-			  },
-			  {
-				"selected": true,
-				"value": "dossierReleaseOvertimeCount",
-				"align": "center",
-				"text": "Hoàn thành trễ hạn"
-			  },
-			  {
-				"selected": true,
-				"value": "dossierProcessingUndueCount",
-				"align": "center",
-				"text": "Đang xử lý còn hạn",
-				"calculator": 'dataInput["dossierProcessingUndueCount"] + dataInput["dossierProcessingWaitingCount"]'
-			  },
-			  {
-				"selected": true,
-				"value": "dossierProcessingOverdueCount",
-				"align": "center",
-				"text": "Đang xử lý quá hạn"
-			  }
-			]
-		}
-		]]></filterConfig>
-		<tableConfig><![CDATA[{
-		   docDefinition: {
-			  pageOrientation: 'landscape',
-			  content: [
-				{
-					  columns: [
-						  {
-							  width: 300,
-							  style: "title",
-							  text: [
-								 {text: "BỘ GIAO THÔNG VẬN TẢI\n"},
-								 {text: "BỘ PHẬN TIẾP NHẬN VÀ TRẢ KẾT QUẢ\n"}
-							  ]
-						  },
-						  {
-							  width: 100,
-							  style: "title",
-							  text: ""
-						  },
-						  {
-							  width: 300,
-							  style: "title",
-							  text: [
-								  {text: "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM\n"},
-								  {text: "Độc lập - Tự do - Hạnh phúc\n"},
-								  {text: "-------------------------------------------\n"},
-								  {text: "Hà Nội, ngày " + new Date().getDate() + " tháng " + (new Date().getMonth() + 1) +" năm " + new Date().getFullYear(), style: "ngayThangNam"}
-							  ]
-						  }
-					  ]
-				},
-				{
-				  text: [
-					{text: 'BÁO CÁO TỔNG HỢP CÁC ĐƠN VỊ\n'},
-					{text: "Từ ngày [$fromDate$] đến ngày [$toDate$]", fontSize: 11},
-				  ], 
-				  margin: [0, 20],
-				  style: 'headerTitle'
-				},
-				{
-				  style: 'tableExample',
-				  table: {
-					widths: "[$tableWidth$]",
-					body: ["[$report$]"]
-				  },
-				  margin: [0, 0, 0, 20]
-				},
-				{
-				  columns: [
-					{
-					  width: '*',
-					  text: ''
-					},
-					{
-					  width: 150,
-					  style: 'title',
-					  text: 'NGƯỜI TIẾP NHẬN HỒ SƠ'
-					}
-				  ]
-				},
-				{
-				  columns: [
-					{
-					  width: '*',
-					  text: ''
-					},
-					{
-					  width: 150,
-					  style: 'titleSub',
-					  text: '(Ký và ghi rõ họ tên)'
-					}
-				  ]
-				}
-			  ],
-			  styles: {
-				ngayThangNam: {
-				  fontSize: 10,
-				  italics: true,
-				  bold: false,
-				  alignment: 'center'
-				},
-				headerTitle: {
-					alignment: 'center',
-					bold: true,
-					fontSize: 13
-				},
-				borderHeader: {
-					alignment: 'left'
-				},
-				title: {
-				  bold: true,
-				  alignment: 'center'
-				},
-				titleSub: {
-					fontSize: 10,
-					italics: true,
-					alignment: 'center'
-				},
-				tdStyle: {
-				  fontSize: 10
-				},
-				tableExample: {
-				   width: "100%" 
-				}
-			  },
-			  defaultStyle: {
-				columnGap: 20,
-				fontSize: 11
-			  }
-			} 
-		}]]></tableConfig>
-		<userConfig>{"order": 13}</userConfig>
-	</DynamicReport>
-	
+
 </DynamicReportList>
